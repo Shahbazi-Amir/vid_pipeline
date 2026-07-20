@@ -78,7 +78,7 @@ def copy_review_bundle(pipeline: EpisodePipeline, spec_path: Path, destination: 
         pipeline.paths.review_markdown: destination / f"episode-{pipeline.spec.season_episode:02d}.review.md",
     }
     for source, target in copies.items():
-        if source.exists():
+        if source.exists() and source.resolve() != target.resolve():
             shutil.copy2(source, target)
     make_review_audio(
         pipeline.paths.audio,

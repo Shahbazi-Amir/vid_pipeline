@@ -1,35 +1,19 @@
 name: Process Asre Shirin Season 2
 
 on:
-  issues:
-    types: [opened]
   pull_request:
     types: [opened, synchronize, reopened]
   workflow_dispatch:
 
 permissions:
   contents: write
-  issues: write
   pull-requests: write
-
-env:
-  CATALOG: data/asre-shirin-season-2-catalog.json
 
 jobs:
   announce:
-    if: >-
-      (github.event_name != 'issues' || github.event.issue.title == '[run] Process Asre Shirin season 2') &&
-      (github.event_name != 'pull_request' || github.event.pull_request.head.ref == 'agent/run-season2-processing')
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.ref == 'agent/run-season2-processing'
     runs-on: ubuntu-latest
     steps:
-      - name: Report issue start
-        if: github.event_name == 'issues'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh issue comment "${{ github.event.issue.number }}" \
-            --body "Season-two processing started — $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
-
       - name: Report PR start
         if: github.event_name == 'pull_request'
         env:
@@ -38,13 +22,64 @@ jobs:
           gh pr comment "${{ github.event.pull_request.number }}" \
             --body "Season-two processing started — $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
 
-  process:
+  prepare:
     needs: announce
+    runs-on: ubuntu-latest
+    outputs:
+      episodes: ${{ steps.catalog.outputs.episodes }}
+      count: ${{ steps.catalog.outputs.count }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Normalize published catalog
+        id: catalog
+        shell: bash
+        run: |
+          mkdir -p normalized
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          source = Path("data/asre-shirin-season-2-catalog.json")
+          data = json.loads(source.read_text(encoding="utf-8"))
+          entries = data.get("season_two") or []
+          if not entries:
+              raise SystemExit("Catalog contains no published season-two episodes")
+          if len(entries) > 13:
+              raise SystemExit(f"Catalog has too many season-two entries: {len(entries)}")
+          for index, entry in enumerate(entries, 1):
+              entry["season_episode"] = index
+              entry["overall_episode"] = index + 13
+          data["status"] = "ready"
+          data["published_episode_count"] = len(entries)
+          Path("normalized/catalog.json").write_text(
+              json.dumps(data, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+          matrix = list(range(1, len(entries) + 1))
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"episodes={json.dumps(matrix)}\n")
+              output.write(f"count={len(entries)}\n")
+          print(f"Published season-two episodes: {matrix}")
+          PY
+
+      - name: Upload normalized catalog
+        uses: actions/upload-artifact@v4
+        with:
+          name: normalized-season2-catalog
+          path: normalized/catalog.json
+          retention-days: 7
+
+  process:
+    needs: [announce, prepare]
     strategy:
       fail-fast: false
       max-parallel: 2
       matrix:
-        season_episode: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+        season_episode: ${{ fromJSON(needs.prepare.outputs.episodes) }}
     runs-on: ubuntu-latest
     timeout-minutes: 180
     steps:
@@ -56,6 +91,12 @@ jobs:
         with:
           python-version: "3.11"
           cache: pip
+
+      - name: Download normalized catalog
+        uses: actions/download-artifact@v4
+        with:
+          name: normalized-season2-catalog
+          path: normalized
 
       - name: Install system dependencies
         run: |
@@ -71,7 +112,7 @@ jobs:
         run: |
           set +e
           python scripts/process_season2_episode.py \
-            --catalog "$CATALOG" \
+            --catalog normalized/catalog.json \
             --season-episode "${{ matrix.season_episode }}" \
             --work-root work \
             --output-root stage/season2 \
@@ -107,8 +148,8 @@ jobs:
         run: exit 1
 
   collect:
-    needs: [announce, process]
-    if: always() && needs.announce.result == 'success'
+    needs: [announce, prepare, process]
+    if: always() && needs.announce.result == 'success' && needs.prepare.result == 'success'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -150,20 +191,12 @@ jobs:
             git push origin HEAD:agent/season2-processing
           done
 
-      - name: Report issue completion
-        if: always() && github.event_name == 'issues'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          MATRIX_RESULT: ${{ needs.process.result }}
-        run: |
-          gh issue comment "${{ github.event.issue.number }}" \
-            --body "Season-two processing finished — **$MATRIX_RESULT** — outputs: \`agent/season2-processing\` — $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
-
       - name: Report PR completion
         if: always() && github.event_name == 'pull_request'
         env:
           GH_TOKEN: ${{ github.token }}
           MATRIX_RESULT: ${{ needs.process.result }}
+          PUBLISHED_COUNT: ${{ needs.prepare.outputs.count }}
         run: |
           gh pr comment "${{ github.event.pull_request.number }}" \
-            --body "Season-two processing finished — **$MATRIX_RESULT** — outputs: \`agent/season2-processing\` — $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            --body "Season-two processing finished — published episodes: **$PUBLISHED_COUNT** — matrix: **$MATRIX_RESULT** — outputs: \`agent/season2-processing\` — $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"

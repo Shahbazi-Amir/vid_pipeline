@@ -14,12 +14,18 @@ jobs:
     if: github.event_name != 'pull_request' || github.event.pull_request.head.ref == 'agent/run-season2-processing'
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
       - name: Report PR start
         if: github.event_name == 'pull_request'
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh pr comment "${{ github.event.pull_request.number }}" \
+            --repo "$GITHUB_REPOSITORY" \
             --body "Season-two processing started — $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
 
   prepare:
@@ -193,10 +199,12 @@ jobs:
 
       - name: Report PR completion
         if: always() && github.event_name == 'pull_request'
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
           MATRIX_RESULT: ${{ needs.process.result }}
           PUBLISHED_COUNT: ${{ needs.prepare.outputs.count }}
         run: |
           gh pr comment "${{ github.event.pull_request.number }}" \
+            --repo "$GITHUB_REPOSITORY" \
             --body "Season-two processing finished — published episodes: **$PUBLISHED_COUNT** — matrix: **$MATRIX_RESULT** — outputs: \`agent/season2-processing\` — $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"

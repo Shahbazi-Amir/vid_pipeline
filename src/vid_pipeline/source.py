@@ -31,7 +31,7 @@ class LinkParser(HTMLParser):
         values = dict(attrs)
         if tag == "a" and values.get("href"):
             self.links.append(values["href"] or "")
-        if tag in {"iframe", "video", "source"} and values.get("src"):
+        if tag in {"iframe", "video", "source", "script"} and values.get("src"):
             self.links.append(values["src"] or "")
         if tag == "title":
             self._inside_title = True
@@ -73,6 +73,22 @@ def normalize_url(base_url: str, value: str) -> str:
     return urllib.parse.urljoin(base_url, value)
 
 
+def normalize_video_url(url: str) -> str:
+    """Normalize supported embed URLs to stable public video URLs."""
+    decoded = html.unescape(urllib.parse.unquote(url.replace("\\/", "/")))
+    parsed = urllib.parse.urlparse(decoded)
+    host = parsed.netloc.lower()
+    if host in {"aparat.com", "www.aparat.com"}:
+        match = re.search(
+            r"/(?:v|embed|video/video/embed/videohash)/([A-Za-z0-9_-]+)",
+            parsed.path,
+            flags=re.I,
+        )
+        if match:
+            return f"https://www.aparat.com/v/{match.group(1)}"
+    return decoded
+
+
 def is_http_url(value: str) -> bool:
     return urllib.parse.urlparse(value).scheme in {"http", "https"}
 
@@ -91,13 +107,14 @@ def extract_page(url: str) -> tuple[str, list[str], str]:
     parser.feed(text)
     links = [normalize_url(url, item) for item in parser.links if item]
     embedded_patterns = (
-        r"https?://(?:www\.)?aparat\.com/v/[A-Za-z0-9_-]+",
+        r"https?://(?:www\.)?aparat\.com/(?:v|embed|video/video/embed/videohash)/[A-Za-z0-9_-]+(?:\?[^\s\"'<>]*)?",
         r"https?://youtu\.be/[A-Za-z0-9_-]+",
         r"https?://(?:www\.)?youtube\.com/(?:watch\?v=|embed/)[A-Za-z0-9_-]+",
     )
+    decoded_text = html.unescape(text).replace("\\/", "/")
     for pattern in embedded_patterns:
-        links.extend(html.unescape(item) for item in re.findall(pattern, text, flags=re.I))
-    links = list(dict.fromkeys(links))
+        links.extend(re.findall(pattern, decoded_text, flags=re.I))
+    links = list(dict.fromkeys(normalize_video_url(item) if is_video_url(item) else item for item in links))
     title = re.sub(r"\s+", " ", "".join(parser.title_parts)).strip()
     visible_text = re.sub(r"<script\b[^>]*>.*?</script>", " ", text, flags=re.I | re.S)
     visible_text = re.sub(r"<style\b[^>]*>.*?</style>", " ", visible_text, flags=re.I | re.S)
@@ -108,7 +125,9 @@ def extract_page(url: str) -> tuple[str, list[str], str]:
 
 def webpage_candidate(url: str, query: str = "") -> SourceCandidate:
     title, links, text = extract_page(url)
-    video_urls = list(dict.fromkeys(link for link in links if is_video_url(link)))
+    video_urls = list(
+        dict.fromkeys(normalize_video_url(link) for link in links if is_video_url(link))
+    )
     tokens = [token for token in re.split(r"\s+", query.strip()) if len(token) > 1]
     haystack = f"{title} {url} {text[:10000]}".casefold()
     score = sum(
@@ -183,7 +202,8 @@ def validate_source(input_value: str, query: str = "") -> SourceCandidate:
     if not is_http_url(input_value):
         raise PipelineError("Source validation requires an http or https URL.")
     if is_video_url(input_value):
-        return SourceCandidate(page_url=input_value, title="", video_urls=[input_value], score=0)
+        normalized = normalize_video_url(input_value)
+        return SourceCandidate(page_url=normalized, title="", video_urls=[normalized], score=0)
     return webpage_candidate(input_value, query)
 
 

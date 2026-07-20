@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "financial-video-rag-pipeline"
-version = "0.1.0"
+version = "0.2.0"
 description = "Modular video-to-transcript pipeline for Persian financial education content."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -15,6 +15,16 @@ authors = [
 dependencies = []
 
 [project.optional-dependencies]
+download = [
+  "yt-dlp"
+]
+whisper = [
+  "faster-whisper>=1.1.0"
+]
+all = [
+  "yt-dlp",
+  "faster-whisper>=1.1.0"
+]
 dev = [
   "pytest>=8.0",
   "ruff>=0.5"
@@ -32,6 +42,9 @@ where = ["src"]
 [tool.ruff]
 target-version = "py310"
 line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]

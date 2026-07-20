@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Editors and OS
+.DS_Store
+.idea/
+.vscode/
+
+# Runtime data and large media
+work/
+data/
+downloads/
+audio/
+models/
+*.mp4
+*.mkv
+*.webm
+*.mov
+*.mp3
+*.wav
+*.m4a
+*.flac
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example

@@ -68,12 +68,21 @@ jobs:
           echo "exit_code=$code" >> "$GITHUB_OUTPUT"
           exit 0
 
+      - name: Upload catalog diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: asre-shirin-season-2-catalog
+          path: data/asre-shirin-season-2-catalog.json
+          retention-days: 7
+
       - name: Commit catalog result
+        if: always()
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/asre-shirin-season-2-catalog.json
+          git add -f data/asre-shirin-season-2-catalog.json
           if git diff --cached --quiet; then
             echo "Catalog is unchanged"
           else
@@ -82,23 +91,15 @@ jobs:
             git push origin HEAD:main
           fi
 
-      - name: Upload catalog diagnostics
-        uses: actions/upload-artifact@v4
-        with:
-          name: asre-shirin-season-2-catalog
-          path: data/asre-shirin-season-2-catalog.json
-          retention-days: 7
-
       - name: Report result
         if: always() && github.event_name == 'issues'
         env:
           GH_TOKEN: ${{ github.token }}
           EXIT_CODE: ${{ steps.catalog.outputs.exit_code }}
         run: |
-          status="needs investigation"
-          if [ "$EXIT_CODE" = "0" ]; then status="ready"; fi
+          summary=$(python -c 'import json; d=json.load(open("data/asre-shirin-season-2-catalog.json")); print(f"status={d.get('"'"'status'"'"')}, season1={d.get('"'"'season_one_matches'"'"')}, season2={d.get('"'"'season_two_matches'"'"')}, likely_pages={d.get('"'"'likely_pages'"'"')}")')
           gh issue comment "${{ github.event.issue.number }}" \
-            --body "Catalog workflow finished — **$status** — $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            --body "Catalog workflow finished — $summary — $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
 
       - name: Report PR result
         if: always() && (github.event_name == 'pull_request' || github.event_name == 'pull_request_target')
@@ -106,10 +107,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           EXIT_CODE: ${{ steps.catalog.outputs.exit_code }}
         run: |
-          status="needs investigation"
-          if [ "$EXIT_CODE" = "0" ]; then status="ready"; fi
+          summary=$(python -c 'import json; d=json.load(open("data/asre-shirin-season-2-catalog.json")); print(f"status={d.get('"'"'status'"'"')}, season1={d.get('"'"'season_one_matches'"'"')}, season2={d.get('"'"'season_two_matches'"'"')}, likely_pages={d.get('"'"'likely_pages'"'"')}")')
           gh pr comment "${{ github.event.pull_request.number }}" \
-            --body "Catalog workflow finished — **$status** — $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            --body "Catalog workflow finished — $summary — $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
 
       - name: Enforce ready catalog
         if: steps.catalog.outputs.exit_code != '0'

@@ -1,993 +1,197 @@
 {
   "schema_version": 2,
   "site": "https://www.fintelligence.ir/",
-  "status": "needs_investigation",
   "sitemap_urls": 0,
   "blog_detail_urls": 56,
-  "telegram_official_urls": 129,
-  "candidate_urls": 142,
-  "official_unique_videos": 0,
-  "season_one_matches": 0,
-  "season_two_matches": 0,
-  "anchor_errors": [],
-  "season_two": [],
-  "unclassified": [],
-  "errors": [],
-  "debug": {
-    "sitemaps": [
-      {
-        "url": "https://www.fintelligence.ir/sitemap.xml",
-        "status": "failed",
-        "error": "HTTP Error 404: Not Found"
-      },
-      {
-        "url": "https://www.fintelligence.ir/sitemap_index.xml",
-        "status": "failed",
-        "error": "HTTP Error 404: Not Found"
-      },
-      {
-        "url": "https://www.fintelligence.ir/sitemap-index.xml",
-        "status": "failed",
-        "error": "HTTP Error 404: Not Found"
-      }
-    ],
-    "blog": [
-      {
-        "url": "https://www.fintelligence.ir/",
-        "final_url": "https://www.fintelligence.ir/",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog",
-        "final_url": "https://www.fintelligence.ir/Error/NotFound?aspxerrorpath=/Blog",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/Index",
-        "final_url": "https://www.fintelligence.ir/Error/NotFound?aspxerrorpath=/Blog/Index",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/Detail/B094D69C/x",
-        "final_url": "https://www.fintelligence.ir/Blog/Detail/B094D69C/%D8%B3%D9%88%D8%A7%D8%AF-%D9%85%D8%A7%D9%84%DB%8C-%D8%A8%D8%B1%D8%A7%DB%8C-%D8%AE%D8%A7%D9%86%D9%85%D9%87%D8%A7-%D9%88%D8%A7%D9%82%D8%B9%D8%A7-%D8%B6%D8%B1%D9%88%D8%B1%DB%8C-%D8%A7%D8%B3%D8%AA",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/Detail/662BDA7F/x",
-        "final_url": "https://www.fintelligence.ir/Blog/Detail/662BDA7F/%D8%B3%D9%88%D8%A7%D8%AF-%D9%85%D8%A7%D9%84%DB%8C-%D8%B2%D9%86%D8%A7%D9%86",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/Detail/5299D1D9/x",
-        "final_url": "https://www.fintelligence.ir/Blog/Detail/5299D1D9/%D8%B3%D9%88%D8%A7%D8%AF-%D9%85%D8%A7%D9%84%DB%8C-%D8%AE%D8%A7%D9%86%D9%85%D9%87%D8%A7-%D8%B1%D9%88%DB%8C-%DA%A9%D8%AF%D8%A7%D9%85-%D9%BE%D9%84%DA%A9%D8%A7%D9%86",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/Detail/A97B7632/x",
-        "final_url": "https://www.fintelligence.ir/Blog/Detail/A97B7632/%D8%B3%D9%88%D8%A7%D8%AF-%D9%85%D8%A7%D9%84%DB%8C-%D8%AE%D8%A7%D9%86%D9%85%D9%87%D8%A7-%D8%A7%D9%81%D8%B2%D8%A7%DB%8C%D8%B4-%D8%AF%D8%B1%D8%A2%D9%85%D8%AF-%DB%8C%D8%A7-%DA%A9%D8%A7%D9%87%D8%B4-%D9%87%D8%B2%DB%8C%D9%86%D9%87",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/Detail/3E26E509/x",
-        "final_url": "https://www.fintelligence.ir/Blog/Detail/3E26E509/%D8%B3%D9%88%D8%A7%D8%AF-%D9%85%D8%A7%D9%84%DB%8C-%D8%AE%D8%A7%D9%86%D9%85%D9%87%D8%A7-%D9%BE%D9%88%D9%84%D9%87%D8%A7-%DA%A9%D8%AC%D8%A7-%D9%85%DB%8C%D8%B1%D9%88%D9%86%D8%AF",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/Detail/BC0342B6/x",
-        "final_url": "https://www.fintelligence.ir/Blog/Detail/BC0342B6/%D8%B3%D9%88%D8%A7%D8%AF-%D9%85%D8%A7%D9%84%DB%8C-%D8%AE%D8%A7%D9%86%D9%85%D9%87%D8%A7-%D8%AA%D8%B5%D9%85%DB%8C%D9%85%D9%87%D8%A7%DB%8C-%D8%AE%D8%B1%DB%8C%D8%AF-%D8%B1%D8%A7-%D8%AE%D9%88%D8%AF%D9%85%D8%A7%D9%86-%D9%85%DB%8C%DA%AF%DB%8C%D8%B1%DB%8C%D9%85-%DB%8C%D8%A7-%D8%B9%D8%A7%D8%AF%D8%AA%D9%87%D8%A7%DB%8C%D9%85%D8%A7%D9%86",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/Detail/BFAC7A6B/x",
-        "final_url": "https://www.fintelligence.ir/Blog/Detail/BFAC7A6B/%D8%B3%D9%88%D8%A7%D8%AF-%D9%85%D8%A7%D9%84%DB%8C-%D8%AE%D8%A7%D9%86%D9%85%D9%87%D8%A7-%D9%81%DA%A9%D8%B1%DB%8C-%D8%A8%D8%B1%D8%A7%DB%8C-%D8%A8%D8%AD%D8%B1%D8%A7%D9%86%D9%87%D8%A7-%D9%88-%D8%A2%DB%8C%D9%86%D8%AF%D9%87-%D9%85%D8%A7%D9%86-%DA%A9%D8%B1%D8%AF%D9%87-%D8%A7%DB%8C%D9%85",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/Detail/7C8818DA/x",
-        "final_url": "https://www.fintelligence.ir/Blog/Detail/7C8818DA/%D8%B3%D9%88%D8%A7%D8%AF-%D9%85%D8%A7%D9%84%DB%8C-%D8%AE%D8%A7%D9%86%D9%85%D9%87%D8%A7-%D8%A8%D9%88%D8%AF%D8%AC%D9%87-%D8%A8%D9%86%D8%AF%DB%8C-%D8%B4%D8%AE%D8%B5%DB%8C-%D9%85%D8%AD%D8%AF%D9%88%D8%AF%DB%8C%D8%AA-%D8%A7%D8%B3%D8%AA-%DB%8C%D8%A7-%D8%A2%D8%B2%D8%A7%D8%AF%DB%8C",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/Detail/7AB68D23/x",
-        "final_url": "https://www.fintelligence.ir/Blog/Detail/7AB68D23/%D8%B3%D9%88%D8%A7%D8%AF-%D9%85%D8%A7%D9%84%DB%8C-%D8%AE%D8%A7%D9%86%D9%85%D9%87%D8%A7-%D9%87%D8%B1-%D8%AF%D8%A7%D8%B1%D8%A7%DB%8C%DB%8C-%D8%AB%D8%B1%D9%88%D8%AA%D9%85%D9%86%D8%AF%D8%AA%D8%B1%D9%85%D8%A7%D9%86-%D9%85%DB%8C%DA%A9%D9%86%D8%AF",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/Detail/FD0665AE/x",
-        "final_url": "https://www.fintelligence.ir/Blog/Detail/FD0665AE/%D8%B3%D9%88%D8%A7%D8%AF-%D9%85%D8%A7%D9%84%DB%8C-%D8%A8%D8%B1%D8%A7%DB%8C-%D8%AE%D8%A7%D9%86%D9%85%D9%87%D8%A7-%D8%B0%D9%88%D8%A8-%DB%8C%D8%AE%D9%87%D8%A7",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/Detail/B7936C0D/x",
-        "final_url": "https://www.fintelligence.ir/Blog/Detail/B7936C0D/%D8%B3%D9%88%D8%A7%D8%AF-%D9%85%D8%A7%D9%84%DB%8C-%D8%A8%D8%B1%D8%A7%DB%8C-%D8%AE%D8%A7%D9%86%D9%85-%D9%87%D8%A7-%D8%A7%D9%88%D9%84-%D8%A7%DB%8C%D9%85%D9%86%DB%8C-%D8%A8%D8%B9%D8%AF-%DA%A9%D8%A7%D8%B1",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/Detail/D15AE683/x",
-        "final_url": "https://www.fintelligence.ir/Blog/Detail/D15AE683/%D8%B3%D9%88%D8%A7%D8%AF-%D9%85%D8%A7%D9%84%DB%8C-%D8%B2%D9%86%D8%A7%D9%86-%D8%B3%D8%A7%D8%AF%D9%87-%D8%A7%D9%85%D8%A7-%D8%A8%D8%AF",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/Detail/A8A4080F/x",
-        "final_url": "https://www.fintelligence.ir/Blog/Detail/A8A4080F/%D8%B3%D9%88%D8%A7%D8%AF-%D9%85%D8%A7%D9%84%DB%8C-%D8%B2%D9%86%D8%A7%D9%86-%D9%85%DB%8C%D8%AF%D8%A7%D9%86-%D8%B9%D9%85%D9%84",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List",
-        "final_url": "https://www.fintelligence.ir/Blog/List",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?c=1",
-        "final_url": "https://www.fintelligence.ir/Blog/List?c=1",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?c=2",
-        "final_url": "https://www.fintelligence.ir/Blog/List?c=2",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?c=3",
-        "final_url": "https://www.fintelligence.ir/Blog/List?c=3",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?c=4",
-        "final_url": "https://www.fintelligence.ir/Blog/List?c=4",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?c=5",
-        "final_url": "https://www.fintelligence.ir/Blog/List?c=5",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?c=6",
-        "final_url": "https://www.fintelligence.ir/Blog/List?c=6",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?c=9",
-        "final_url": "https://www.fintelligence.ir/Blog/List?c=9",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?c=12",
-        "final_url": "https://www.fintelligence.ir/Blog/List?c=12",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?c=10",
-        "final_url": "https://www.fintelligence.ir/Blog/List?c=10",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?a=4",
-        "final_url": "https://www.fintelligence.ir/Blog/List?a=4",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?a=5",
-        "final_url": "https://www.fintelligence.ir/Blog/List?a=5",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?a=6",
-        "final_url": "https://www.fintelligence.ir/Blog/List?a=6",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?a=7",
-        "final_url": "https://www.fintelligence.ir/Blog/List?a=7",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?a=10",
-        "final_url": "https://www.fintelligence.ir/Blog/List?a=10",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?a=9",
-        "final_url": "https://www.fintelligence.ir/Blog/List?a=9",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?ct=2",
-        "final_url": "https://www.fintelligence.ir/Blog/List?ct=2",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?ct=3",
-        "final_url": "https://www.fintelligence.ir/Blog/List?ct=3",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?ct=4",
-        "final_url": "https://www.fintelligence.ir/Blog/List?ct=4",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?ct=6",
-        "final_url": "https://www.fintelligence.ir/Blog/List?ct=6",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=54",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=54",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=55",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=55",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=1028",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=1028",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=1029",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=1029",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=1031",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=1031",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=1035",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=1035",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2037",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2037",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2045",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2045",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2049",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2049",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/BlogTag/Detail/2047/%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D8%AA%D9%84%D9%88%DB%8C%D8%B2%DB%8C%D9%88%D9%86%DB%8C-%D8%B9%D8%B5%D8%B1-%D8%B4%DB%8C%D8%B1%DB%8C%D9%86",
-        "final_url": "https://www.fintelligence.ir/BlogTag/Detail/2047/%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D8%AA%D9%84%D9%88%DB%8C%D8%B2%DB%8C%D9%88%D9%86%DB%8C-%D8%B9%D8%B5%D8%B1-%D8%B4%DB%8C%D8%B1%DB%8C%D9%86",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/BlogTag/Detail/2042/%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D8%AA%D9%84%D9%88%DB%8C%D8%B2%DB%8C%D9%88%D9%86%DB%8C-%D8%AE%D8%A7%D9%86%D9%87-%D8%AA%D9%88",
-        "final_url": "https://www.fintelligence.ir/BlogTag/Detail/2042/%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D8%AA%D9%84%D9%88%DB%8C%D8%B2%DB%8C%D9%88%D9%86%DB%8C-%D8%AE%D8%A7%D9%86%D9%87-%D8%AA%D9%88",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?o=2",
-        "final_url": "https://www.fintelligence.ir/Blog/List?o=2",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?o=1",
-        "final_url": "https://www.fintelligence.ir/Blog/List?o=1",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?o=1&ct=2",
-        "final_url": "https://www.fintelligence.ir/Blog/List?o=1&ct=2",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2051",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2051",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=5",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=5",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2064",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2064",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=17",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=17",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=23",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=23",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=12",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=12",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=36",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=36",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2039",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2039",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2054",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2054",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=9",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=9",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=3",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=3",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=40",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=40",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=37",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=37",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2067",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2067",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=18",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=18",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=50",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=50",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=28",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=28",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=44",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=44",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=26",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=26",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=11",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=11",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=1030",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=1030",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2047",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2047",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=30",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=30",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2044",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2044",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=42",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=42",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2066",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2066",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=35",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=35",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=45",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=45",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=43",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=43",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=52",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=52",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2059",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2059",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=6",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=6",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2063",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2063",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=21",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=21",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=14",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=14",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=49",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=49",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=51",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=51",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2057",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2057",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=27",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=27",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2038",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2038",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=38",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=38",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=8",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=8",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2048",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2048",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2050",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2050",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=1032",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=1032",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=47",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=47",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=10",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=10",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=16",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=16",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=31",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=31",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=33",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=33",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2060",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2060",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=32",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=32",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/BlogTag/Detail/5/%D8%A7%D9%87%D9%85%DB%8C%D8%AA-%D8%B3%D9%88%D8%A7%D8%AF-%D9%85%D8%A7%D9%84%DB%8C",
-        "final_url": "https://www.fintelligence.ir/BlogTag/Detail/5/%D8%A7%D9%87%D9%85%DB%8C%D8%AA-%D8%B3%D9%88%D8%A7%D8%AF-%D9%85%D8%A7%D9%84%DB%8C",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/BlogTag/Detail/6/%D9%85%D9%81%D9%87%D9%88%D9%85-%D8%B3%D9%88%D8%A7%D8%AF-%D9%85%D8%A7%D9%84%DB%8C",
-        "final_url": "https://www.fintelligence.ir/BlogTag/Detail/6/%D9%85%D9%81%D9%87%D9%88%D9%85-%D8%B3%D9%88%D8%A7%D8%AF-%D9%85%D8%A7%D9%84%DB%8C",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/BlogTag/Detail/1035/%D8%B3%D9%88%D8%A7%D8%AF-%D9%85%D8%A7%D9%84%DB%8C-%D8%AE%D8%A7%D9%86%D9%85%D9%87%D8%A7",
-        "final_url": "https://www.fintelligence.ir/BlogTag/Detail/1035/%D8%B3%D9%88%D8%A7%D8%AF-%D9%85%D8%A7%D9%84%DB%8C-%D8%AE%D8%A7%D9%86%D9%85%D9%87%D8%A7",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2041",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2041",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=46",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=46",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=20",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=20",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=29",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=29",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2053",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2053",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2036",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2036",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=22",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=22",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=39",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=39",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=1036",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=1036",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=41",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=41",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=24",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=24",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=1034",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=1034",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2056",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2056",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=34",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=34",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2055",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2055",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2052",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2052",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=25",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=25",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/BlogTag/Detail/16/%DA%A9%D8%A7%D9%87%D8%B4-%D9%87%D8%B2%DB%8C%D9%86%D9%87%D9%87%D8%A7",
-        "final_url": "https://www.fintelligence.ir/BlogTag/Detail/16/%DA%A9%D8%A7%D9%87%D8%B4-%D9%87%D8%B2%DB%8C%D9%86%D9%87%D9%87%D8%A7",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/BlogTag/Detail/29/%D8%A8%D9%88%D8%AF%D8%AC%D9%87%D8%A8%D9%86%D8%AF%DB%8C",
-        "final_url": "https://www.fintelligence.ir/BlogTag/Detail/29/%D8%A8%D9%88%D8%AF%D8%AC%D9%87%D8%A8%D9%86%D8%AF%DB%8C",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=53",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=53",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2042",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2042",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=48",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=48",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2043",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2043",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=15",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=15",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=19",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=19",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2040",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2040",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2061",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2061",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2046",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2046",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=13",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=13",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://www.fintelligence.ir/Blog/List?t=2058",
-        "final_url": "https://www.fintelligence.ir/Blog/List?t=2058",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      }
-    ],
-    "telegram": [
-      {
-        "url": "https://t.me/s/fintelligence_ir",
-        "final_url": "https://t.me/s/fintelligence_ir",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://t.me/s/fintelligence_ir?before=956",
-        "final_url": "https://t.me/s/fintelligence_ir?before=956",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://t.me/s/fintelligence_ir?before=931",
-        "final_url": "https://t.me/s/fintelligence_ir?before=931",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://t.me/s/fintelligence_ir?before=910",
-        "final_url": "https://t.me/s/fintelligence_ir?before=910",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://t.me/s/fintelligence_ir?before=886",
-        "final_url": "https://t.me/s/fintelligence_ir?before=886",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://t.me/s/fintelligence_ir?before=865",
-        "final_url": "https://t.me/s/fintelligence_ir?before=865",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://t.me/s/fintelligence_ir?before=845",
-        "final_url": "https://t.me/s/fintelligence_ir?before=845",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://t.me/s/fintelligence_ir?before=825",
-        "final_url": "https://t.me/s/fintelligence_ir?before=825",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://t.me/s/fintelligence_ir?before=804",
-        "final_url": "https://t.me/s/fintelligence_ir?before=804",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://t.me/s/fintelligence_ir?before=783",
-        "final_url": "https://t.me/s/fintelligence_ir?before=783",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://t.me/s/fintelligence_ir?before=763",
-        "final_url": "https://t.me/s/fintelligence_ir?before=763",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://t.me/s/fintelligence_ir?before=743",
-        "final_url": "https://t.me/s/fintelligence_ir?before=743",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://t.me/s/fintelligence_ir?before=721",
-        "final_url": "https://t.me/s/fintelligence_ir?before=721",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://t.me/s/fintelligence_ir?before=700",
-        "final_url": "https://t.me/s/fintelligence_ir?before=700",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://t.me/s/fintelligence_ir?before=679",
-        "final_url": "https://t.me/s/fintelligence_ir?before=679",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://t.me/s/fintelligence_ir?before=657",
-        "final_url": "https://t.me/s/fintelligence_ir?before=657",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://t.me/s/fintelligence_ir?before=626",
-        "final_url": "https://t.me/s/fintelligence_ir?before=626",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://t.me/s/fintelligence_ir?before=605",
-        "final_url": "https://t.me/s/fintelligence_ir?before=605",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://t.me/s/fintelligence_ir?before=585",
-        "final_url": "https://t.me/s/fintelligence_ir?before=585",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://t.me/s/fintelligence_ir?before=565",
-        "final_url": "https://t.me/s/fintelligence_ir?before=565",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://t.me/s/fintelligence_ir?before=545",
-        "final_url": "https://t.me/s/fintelligence_ir?before=545",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://t.me/s/fintelligence_ir?before=524",
-        "final_url": "https://t.me/s/fintelligence_ir?before=524",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      },
-      {
-        "url": "https://t.me/s/fintelligence_ir?before=504",
-        "final_url": "https://t.me/s/fintelligence_ir?before=504",
-        "content_type": "text/html; charset=utf-8",
-        "status": "fetched"
-      }
-    ]
+  "telegram_official_urls": 122,
+  "candidate_urls": 135,
+  "official_unique_videos": 42,
+  "season_one_matches": 13,
+  "status": "ready_partial",
+  "published_episode_count": 9,
+  "season_two_matches": 9,
+  "season_two": [
+    {
+      "source_url": "https://www.fintelligence.ir/Blog/Detail/6EBD5B19/%D8%B3%D9%88%D8%A7%D8%AF-%D9%85%D8%A7%D9%84%DB%8C-%D8%A8%D8%B1%D8%A7%DB%8C-%D8%AE%D8%A7%D9%86%D9%85%D9%87%D8%A7-%DA%A9%D8%A7%D8%B1-%D8%B1%D8%B6%D8%A7%DB%8C%D8%AA%D8%A8%D8%AE%D8%AA%D8%B4",
+      "video_url": "https://www.aparat.com/v/twl4gv2",
+      "video_id": "twl4gv2",
+      "title": "سواد مالی برای خانم‌ها؛ کار رضایت‌بخش",
+      "published_at": "",
+      "sitemap_lastmod": "",
+      "telegram_message_id": 897,
+      "speaker_verified": true,
+      "program_verified": true,
+      "evidence": [
+        "page_mentions_komeil_roodi",
+        "series_asre_shirin",
+        "financial_literacy_women_series"
+      ],
+      "overall_episode": 14,
+      "season_episode": 1,
+      "source_title": "سواد مالی برای خانم‌ها؛ کار رضایتبختش"
+    },
+    {
+      "source_url": "https://www.fintelligence.ir/Blog/Detail/F9E733EA/%D8%B3%D9%88%D8%A7%D8%AF-%D9%85%D8%A7%D9%84%DB%8C-%D8%A8%D8%B1%D8%A7%DB%8C-%D8%AE%D8%A7%D9%86%D9%85%D9%87%D8%A7-%DA%A9%D8%A7%D8%B1-%D8%AF%D8%A7%D9%88%D8%B7%D9%84%D8%A8%D8%A7%D9%86%D9%87",
+      "video_url": "https://www.aparat.com/v/fuq8mtk",
+      "video_id": "fuq8mtk",
+      "title": "سواد مالی برای خانم‌ها؛ شناخت خود با کار داوطلبانه",
+      "published_at": "",
+      "sitemap_lastmod": "",
+      "telegram_message_id": 903,
+      "speaker_verified": true,
+      "program_verified": true,
+      "evidence": [
+        "page_mentions_komeil_roodi",
+        "series_asre_shirin",
+        "financial_literacy_women_series"
+      ],
+      "overall_episode": 15,
+      "season_episode": 2,
+      "source_title": "سواد مالی برای خانم‌ها؛ شناخت خود با کار داوطلبانه"
+    },
+    {
+      "source_url": "https://www.fintelligence.ir/Blog/Detail/29325C63/%D8%B3%D9%88%D8%A7%D8%AF-%D9%85%D8%A7%D9%84%DB%8C-%D8%A8%D8%B1%D8%A7%DB%8C-%D8%AE%D8%A7%D9%86%D9%85%D9%87%D8%A7-%D8%B3%D8%A8%DA%A9-%D8%B4%D8%BA%D9%84%DB%8C-%D9%85%D9%86%D8%A7%D8%B3%D8%A8",
+      "video_url": "https://www.aparat.com/v/cnsv16j",
+      "video_id": "cnsv16j",
+      "title": "سواد مالی برای خانم‌ها؛ سبک شغلی مناسب",
+      "published_at": "",
+      "sitemap_lastmod": "",
+      "telegram_message_id": 912,
+      "speaker_verified": true,
+      "program_verified": true,
+      "evidence": [
+        "page_mentions_komeil_roodi",
+        "series_asre_shirin",
+        "financial_literacy_women_series"
+      ],
+      "overall_episode": 16,
+      "season_episode": 3,
+      "source_title": "سواد مالی برای خانم‌ها؛ سبک شغلی مناسب"
+    },
+    {
+      "source_url": "https://www.fintelligence.ir/Blog/Detail/38BC48C9/%D8%B3%D9%88%D8%A7%D8%AF-%D9%85%D8%A7%D9%84%DB%8C-%D8%A8%D8%B1%D8%A7%DB%8C-%D8%AE%D8%A7%D9%86%D9%85%D9%87%D8%A7-%D8%A7%D8%B1%D8%B2%D8%B4-%D8%A2%D9%81%D8%B1%DB%8C%D9%86%DB%8C",
+      "video_url": "https://www.aparat.com/v/xijp0j7",
+      "video_id": "xijp0j7",
+      "title": "سواد مالی برای خانم‌ها؛ ارزش‌آفرینی",
+      "published_at": "",
+      "sitemap_lastmod": "",
+      "telegram_message_id": 922,
+      "speaker_verified": true,
+      "program_verified": true,
+      "evidence": [
+        "page_mentions_komeil_roodi",
+        "series_asre_shirin",
+        "financial_literacy_women_series"
+      ],
+      "overall_episode": 17,
+      "season_episode": 4,
+      "source_title": "سواد مالی برای خانم‌ها؛ ارزش‌آفرینی"
+    },
+    {
+      "source_url": "https://www.fintelligence.ir/Blog/Detail/FC5D69F5/%D8%B3%D9%88%D8%A7%D8%AF-%D9%85%D8%A7%D9%84%DB%8C-%D8%A8%D8%B1%D8%A7%DB%8C-%D8%AE%D8%A7%D9%86%D9%85%D9%87%D8%A7-%D8%B5%D8%AF%D8%A7%DB%8C-%D9%85%D8%B4%D8%AA%D8%B1%DB%8C",
+      "video_url": "https://www.aparat.com/v/yffxv5q",
+      "video_id": "yffxv5q",
+      "title": "سواد مالی برای خانم‌ها؛ صدای مشتری",
+      "published_at": "",
+      "sitemap_lastmod": "",
+      "telegram_message_id": 931,
+      "speaker_verified": true,
+      "program_verified": true,
+      "evidence": [
+        "page_mentions_komeil_roodi",
+        "series_asre_shirin",
+        "financial_literacy_women_series"
+      ],
+      "overall_episode": 18,
+      "season_episode": 5,
+      "source_title": "سواد مالی برای خانم‌ها؛ صدای مشتری"
+    },
+    {
+      "source_url": "https://www.fintelligence.ir/Blog/Detail/71F84B44/%D8%B3%D9%88%D8%A7%D8%AF-%D9%85%D8%A7%D9%84%DB%8C-%D8%A8%D8%B1%D8%A7%DB%8C-%D8%AE%D8%A7%D9%86%D9%85%D9%87%D8%A7-%D9%87%D9%88%DB%8C%D8%AA-%DA%A9%D8%B3%D8%A8-%D9%88-%DA%A9%D8%A7%D8%B1",
+      "video_url": "https://www.aparat.com/v/ybwf9i5",
+      "video_id": "ybwf9i5",
+      "title": "سواد مالی برای خانم‌ها؛ هویت کسب‌وکار",
+      "published_at": "",
+      "sitemap_lastmod": "",
+      "telegram_message_id": 940,
+      "speaker_verified": true,
+      "program_verified": true,
+      "evidence": [
+        "page_mentions_komeil_roodi",
+        "series_asre_shirin",
+        "financial_literacy_women_series"
+      ],
+      "overall_episode": 19,
+      "season_episode": 6,
+      "source_title": "سواد مالی برای خانم‌ها؛ هویت کسب‌وکار"
+    },
+    {
+      "source_url": "https://www.fintelligence.ir/Blog/Detail/23C01D17/%D8%B3%D9%88%D8%A7%D8%AF-%D9%85%D8%A7%D9%84%DB%8C-%D8%A8%D8%B1%D8%A7%DB%8C-%D8%AE%D8%A7%D9%86%D9%85%D9%87%D8%A7-%D9%86%D8%AD%D9%88%DB%80-%D8%AF%D8%B3%D8%AA%D8%B1%D8%B3%DB%8C-%D9%85%D8%B4%D8%AA%D8%B1%DB%8C-%D8%A8%D9%87-%D9%85%D8%AD%D8%B5%D9%88%D9%84-%D9%85%D8%A7",
+      "video_url": "https://www.aparat.com/v/loczpiq",
+      "video_id": "loczpiq",
+      "title": "سواد مالی برای خانم‌ها؛ نحوه دسترسی مشتری به محصول ما",
+      "published_at": "",
+      "sitemap_lastmod": "",
+      "telegram_message_id": 958,
+      "speaker_verified": true,
+      "program_verified": true,
+      "evidence": [
+        "page_mentions_komeil_roodi",
+        "series_asre_shirin",
+        "financial_literacy_women_series"
+      ],
+      "overall_episode": 20,
+      "season_episode": 7,
+      "source_title": "سواد مالی برای خانم‌ها؛ نحوه دسترسی مشتری به محصول ما"
+    },
+    {
+      "source_url": "https://www.fintelligence.ir/Blog/Detail/5635AA40/%D8%B3%D9%88%D8%A7%D8%AF-%D9%85%D8%A7%D9%84%DB%8C-%D8%A8%D8%B1%D8%A7%DB%8C-%D8%AE%D8%A7%D9%86%D9%85%D9%87%D8%A7-%D8%B4%D8%B1%DA%A9%D8%A7%DB%8C-%DA%A9%D8%B3%D8%A8-%D9%88-%DA%A9%D8%A7%D8%B1",
+      "video_url": "https://www.aparat.com/v/hsthd57",
+      "video_id": "hsthd57",
+      "title": "سواد مالی برای خانم‌ها؛ شرکای کسب‌وکار",
+      "published_at": "",
+      "sitemap_lastmod": "",
+      "telegram_message_id": 966,
+      "speaker_verified": true,
+      "program_verified": true,
+      "evidence": [
+        "page_mentions_komeil_roodi",
+        "series_asre_shirin",
+        "financial_literacy_women_series"
+      ],
+      "overall_episode": 21,
+      "season_episode": 8,
+      "source_title": "سواد مالی برای خانم‌ها؛ شرکای کسب‌وکار"
+    },
+    {
+      "source_url": "https://www.fintelligence.ir/Blog/Detail/287D19E4/%D8%B3%D9%88%D8%A7%D8%AF-%D9%85%D8%A7%D9%84%DB%8C-%D8%A8%D8%B1%D8%A7%DB%8C-%D8%AE%D8%A7%D9%86%D9%85%D9%87%D8%A7-%D8%B3%D8%B1%D9%85%D8%A7%DB%8C%D9%87-%D8%A7%D9%86%D8%B3%D8%A7%D9%86%DB%8C",
+      "video_url": "https://www.aparat.com/v/ndjyr04",
+      "video_id": "ndjyr04",
+      "title": "سواد مالی برای خانم‌ها؛ سرمایه انسانی",
+      "published_at": "",
+      "sitemap_lastmod": "",
+      "telegram_message_id": 970,
+      "speaker_verified": true,
+      "program_verified": true,
+      "evidence": [
+        "page_mentions_komeil_roodi",
+        "series_asre_shirin",
+        "financial_literacy_women_series"
+      ],
+      "overall_episode": 22,
+      "season_episode": 9,
+      "source_title": "سواد مالی برای خانم‌ها؛ سرمایه انسانی"
+    }
+  ],
+  "unpublished_overall_episodes": [
+    23,
+    24,
+    25,
+    26
+  ],
+  "validation": {
+    "episode_21_title": "سواد مالی برای خانم‌ها؛ شرکای کسب‌وکار",
+    "episode_22_title": "سواد مالی برای خانم‌ها؛ سرمایه انسانی",
+    "basis": "official site pages, official Telegram chronology, and official LinkedIn season markers"
   }
 }

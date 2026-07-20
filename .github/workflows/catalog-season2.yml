@@ -6,6 +6,8 @@ on:
     paths:
       - scripts/catalog_asre_shirin.py
       - .github/workflows/catalog-season2.yml
+  issues:
+    types: [opened]
   workflow_dispatch:
 
 permissions:
@@ -17,6 +19,7 @@ concurrency:
 
 jobs:
   catalog:
+    if: github.event_name != 'issues' || github.event.issue.title == '[run] Catalog Asre Shirin season 2'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:

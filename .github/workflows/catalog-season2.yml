@@ -1,34 +1,21 @@
 name: Catalog Asre Shirin Season 2
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - scripts/catalog_asre_shirin.py
-      - .github/workflows/catalog-season2.yml
-  issues:
-    types: [opened]
   pull_request:
-    types: [opened, synchronize, reopened]
-  pull_request_target:
     types: [opened, synchronize, reopened]
   workflow_dispatch:
 
 permissions:
   contents: write
-  issues: write
   pull-requests: write
 
 concurrency:
-  group: catalog-asre-shirin-season-2
-  cancel-in-progress: false
+  group: catalog-asre-shirin-season-2-v2
+  cancel-in-progress: true
 
 jobs:
   catalog:
-    if: >-
-      (github.event_name != 'issues' || github.event.issue.title == '[run] Catalog Asre Shirin season 2') &&
-      (github.event_name != 'pull_request' || github.event.pull_request.head.ref == 'agent/run-season2-catalog') &&
-      (github.event_name != 'pull_request_target' || github.event.pull_request.head.ref == 'agent/run-season2-catalog')
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.ref == 'agent/run-season2-catalog'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -37,16 +24,8 @@ jobs:
           ref: main
           fetch-depth: 0
 
-      - name: Report start
-        if: github.event_name == 'issues'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh issue comment "${{ github.event.issue.number }}" \
-            --body "Catalog workflow started — $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
-
       - name: Report PR start
-        if: github.event_name == 'pull_request' || github.event_name == 'pull_request_target'
+        if: github.event_name == 'pull_request'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -57,7 +36,7 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Build catalog from official site
+      - name: Build catalog from official sources
         id: catalog
         shell: bash
         run: |
@@ -91,28 +70,28 @@ jobs:
             git push origin HEAD:main
           fi
 
-      - name: Report result
-        if: always() && github.event_name == 'issues'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          EXIT_CODE: ${{ steps.catalog.outputs.exit_code }}
-        run: |
-          summary=$(python -c 'import json; d=json.load(open("data/asre-shirin-season-2-catalog.json")); print(f"status={d.get('"'"'status'"'"')}, season1={d.get('"'"'season_one_matches'"'"')}, season2={d.get('"'"'season_two_matches'"'"')}, likely_pages={d.get('"'"'likely_pages'"'"')}")')
-          gh issue comment "${{ github.event.issue.number }}" \
-            --body "Catalog workflow finished — $summary — $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
-
       - name: Report PR result
-        if: always() && (github.event_name == 'pull_request' || github.event_name == 'pull_request_target')
+        if: always() && github.event_name == 'pull_request'
         env:
           GH_TOKEN: ${{ github.token }}
-          EXIT_CODE: ${{ steps.catalog.outputs.exit_code }}
         run: |
-          summary=$(python -c 'import json; d=json.load(open("data/asre-shirin-season-2-catalog.json")); print(f"status={d.get('"'"'status'"'"')}, season1={d.get('"'"'season_one_matches'"'"')}, season2={d.get('"'"'season_two_matches'"'"')}, likely_pages={d.get('"'"'likely_pages'"'"')}")')
+          summary=$(python - <<'PY'
+          import json
+          data = json.load(open("data/asre-shirin-season-2-catalog.json", encoding="utf-8"))
+          print(
+              f"status={data.get('status')}, "
+              f"season1={data.get('season_one_matches')}, "
+              f"season2={data.get('season_two_matches')}, "
+              f"blog={data.get('blog_detail_urls')}, "
+              f"telegram={data.get('telegram_official_urls')}"
+          )
+          PY
+          )
           gh pr comment "${{ github.event.pull_request.number }}" \
             --body "Catalog workflow finished — $summary — $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
 
       - name: Enforce ready catalog
         if: steps.catalog.outputs.exit_code != '0'
         run: |
-          echo "Catalog needs investigation; committed diagnostics for repair."
+          echo "Catalog needs investigation; diagnostics were persisted."
           exit 1

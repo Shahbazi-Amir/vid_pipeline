@@ -1,0 +1,141 @@
+name: Process Asre Shirin Season 2
+
+on:
+  issues:
+    types: [opened]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+env:
+  CATALOG: data/asre-shirin-season-2-catalog.json
+
+jobs:
+  announce:
+    if: github.event_name != 'issues' || github.event.issue.title == '[run] Process Asre Shirin season 2'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Report start
+        if: github.event_name == 'issues'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue comment "${{ github.event.issue.number }}" --body "Season-two processing started: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+
+  process:
+    needs: announce
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        season_episode: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+
+      - name: Install pipeline
+        run: pip install -e '.[all]'
+
+      - name: Process episode
+        id: process
+        shell: bash
+        run: |
+          set +e
+          python scripts/process_season2_episode.py \
+            --catalog "$CATALOG" \
+            --season-episode "${{ matrix.season_episode }}" \
+            --work-root work \
+            --output-root stage/season2 \
+            --model small \
+            --device cpu \
+            --compute-type int8
+          code=$?
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Upload text and diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: season2-text-${{ matrix.season_episode }}
+          path: |
+            stage/season2/episode-*/
+            !stage/season2/episode-*/*.mp3
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Upload review audio
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: season2-audio-${{ matrix.season_episode }}
+          path: stage/season2/episode-*/*.review.mp3
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Enforce episode success
+        if: steps.process.outputs.exit_code != '0'
+        run: exit 1
+
+  collect:
+    needs: [announce, process]
+    if: always() && needs.announce.result == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download text artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: season2-text-*
+          path: collected
+          merge-multiple: true
+
+      - name: Commit each episode independently
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin agent/season2-processing || true
+          if git show-ref --verify --quiet refs/remotes/origin/agent/season2-processing; then
+            git switch -C agent/season2-processing origin/agent/season2-processing
+          else
+            git switch -c agent/season2-processing origin/main
+          fi
+          mkdir -p processing/asre-shirin-season-2
+          for source in collected/episode-*; do
+            [ -d "$source" ] || continue
+            name=$(basename "$source")
+            destination="processing/asre-shirin-season-2/$name"
+            rm -rf "$destination"
+            cp -R "$source" "$destination"
+            git add "$destination"
+            if git diff --cached --quiet; then
+              continue
+            fi
+            number=${name#episode-}
+            git commit -m "Process Asre Shirin season 2 episode $number"
+            git push origin HEAD:agent/season2-processing
+          done
+
+      - name: Report completion
+        if: always() && github.event_name == 'issues'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MATRIX_RESULT: ${{ needs.process.result }}
+        run: |
+          gh issue comment "${{ github.event.issue.number }}" --body "Season-two processing matrix finished with result: **$MATRIX_RESULT**. Text outputs and diagnostics were pushed to \`agent/season2-processing\`; review-audio artifacts are attached to the workflow run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"

@@ -3,25 +3,40 @@ name: Process Asre Shirin Season 2
 on:
   issues:
     types: [opened]
+  pull_request:
+    types: [opened, synchronize, reopened]
   workflow_dispatch:
 
 permissions:
   contents: write
   issues: write
+  pull-requests: write
 
 env:
   CATALOG: data/asre-shirin-season-2-catalog.json
 
 jobs:
   announce:
-    if: github.event_name != 'issues' || github.event.issue.title == '[run] Process Asre Shirin season 2'
+    if: >-
+      (github.event_name != 'issues' || github.event.issue.title == '[run] Process Asre Shirin season 2') &&
+      (github.event_name != 'pull_request' || github.event.pull_request.head.ref == 'agent/run-season2-processing')
     runs-on: ubuntu-latest
     steps:
-      - name: Report start
+      - name: Report issue start
         if: github.event_name == 'issues'
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh issue comment "${{ github.event.issue.number }}" --body "Season-two processing started: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+        run: |
+          gh issue comment "${{ github.event.issue.number }}" \
+            --body "Season-two processing started — $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+
+      - name: Report PR start
+        if: github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr comment "${{ github.event.pull_request.number }}" \
+            --body "Season-two processing started — $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
 
   process:
     needs: announce
@@ -34,6 +49,8 @@ jobs:
     timeout-minutes: 180
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
 
       - uses: actions/setup-python@v5
         with:
@@ -96,6 +113,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: main
           fetch-depth: 0
 
       - name: Download text artifacts
@@ -132,10 +150,20 @@ jobs:
             git push origin HEAD:agent/season2-processing
           done
 
-      - name: Report completion
+      - name: Report issue completion
         if: always() && github.event_name == 'issues'
         env:
           GH_TOKEN: ${{ github.token }}
           MATRIX_RESULT: ${{ needs.process.result }}
         run: |
-          gh issue comment "${{ github.event.issue.number }}" --body "Season-two processing matrix finished with result: **$MATRIX_RESULT**. Text outputs and diagnostics were pushed to \`agent/season2-processing\`; review-audio artifacts are attached to the workflow run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          gh issue comment "${{ github.event.issue.number }}" \
+            --body "Season-two processing finished — **$MATRIX_RESULT** — outputs: \`agent/season2-processing\` — $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+
+      - name: Report PR completion
+        if: always() && github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MATRIX_RESULT: ${{ needs.process.result }}
+        run: |
+          gh pr comment "${{ github.event.pull_request.number }}" \
+            --body "Season-two processing finished — **$MATRIX_RESULT** — outputs: \`agent/season2-processing\` — $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"

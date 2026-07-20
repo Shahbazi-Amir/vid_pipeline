@@ -17,7 +17,7 @@ jobs:
   catalog:
     if: github.event_name != 'pull_request' || github.event.pull_request.head.ref == 'agent/run-season2-catalog'
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
         with:
@@ -36,15 +36,25 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Bound external crawl
+        run: |
+          sed -i 's/timeout: int = 45/timeout: int = 12/' scripts/catalog_asre_shirin.py
+          sed -i 's/max_pages: int = 150/max_pages: int = 40/' scripts/catalog_asre_shirin.py
+          sed -i 's/max_pages: int = 45/max_pages: int = 20/' scripts/catalog_asre_shirin.py
+
       - name: Build catalog from official sources
         id: catalog
         shell: bash
         run: |
           set +e
-          PYTHONPATH=src python scripts/catalog_asre_shirin.py \
+          timeout 12m env PYTHONPATH=src python scripts/catalog_asre_shirin.py \
             --output data/asre-shirin-season-2-catalog.json
           code=$?
           echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          if [ ! -f data/asre-shirin-season-2-catalog.json ]; then
+            printf '{"status":"crawl_timeout","season_two":[],"season_two_matches":0}\n' \
+              > data/asre-shirin-season-2-catalog.json
+          fi
           exit 0
 
       - name: Upload catalog diagnostics
@@ -90,8 +100,8 @@ jobs:
           gh pr comment "${{ github.event.pull_request.number }}" \
             --body "Catalog workflow finished — $summary — $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
 
-      - name: Enforce ready catalog
+      - name: Enforce catalog result
         if: steps.catalog.outputs.exit_code != '0'
         run: |
-          echo "Catalog needs investigation; diagnostics were persisted."
+          echo "Catalog is partial or needs investigation; diagnostics were persisted."
           exit 1

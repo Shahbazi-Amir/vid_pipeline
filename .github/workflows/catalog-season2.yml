@@ -8,6 +8,8 @@ on:
       - .github/workflows/catalog-season2.yml
   issues:
     types: [opened]
+  pull_request:
+    types: [opened, synchronize, reopened]
   pull_request_target:
     types: [opened, synchronize, reopened]
   workflow_dispatch:
@@ -25,6 +27,7 @@ jobs:
   catalog:
     if: >-
       (github.event_name != 'issues' || github.event.issue.title == '[run] Catalog Asre Shirin season 2') &&
+      (github.event_name != 'pull_request' || github.event.pull_request.head.ref == 'agent/run-season2-catalog') &&
       (github.event_name != 'pull_request_target' || github.event.pull_request.head.ref == 'agent/run-season2-catalog')
     runs-on: ubuntu-latest
     timeout-minutes: 30
@@ -41,7 +44,7 @@ jobs:
         run: gh issue comment "${{ github.event.issue.number }}" --body "Catalog workflow started: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
 
       - name: Report PR start
-        if: github.event_name == 'pull_request_target'
+        if: github.event_name == 'pull_request' || github.event_name == 'pull_request_target'
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh pr comment "${{ github.event.pull_request.number }}" --body "Catalog workflow started: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
@@ -93,7 +96,7 @@ jobs:
           gh issue comment "${{ github.event.issue.number }}" --body "Catalog workflow finished with status: **$status**. Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
 
       - name: Report PR result
-        if: always() && github.event_name == 'pull_request_target'
+        if: always() && (github.event_name == 'pull_request' || github.event_name == 'pull_request_target')
         env:
           GH_TOKEN: ${{ github.token }}
           EXIT_CODE: ${{ steps.catalog.outputs.exit_code }}

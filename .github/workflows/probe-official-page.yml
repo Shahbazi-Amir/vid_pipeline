@@ -1,0 +1,53 @@
+name: Probe Official Video Page
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+
+permissions:
+  pull-requests: write
+
+concurrency:
+  group: probe-official-video-page
+  cancel-in-progress: true
+
+jobs:
+  probe:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.ref == 'agent/run-season2-catalog'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Probe known official article
+        run: |
+          python scripts/probe_official_page.py \
+            --output data/official-page-probe.json
+
+      - name: Upload probe
+        uses: actions/upload-artifact@v4
+        with:
+          name: official-page-probe
+          path: data/official-page-probe.json
+          retention-days: 7
+
+      - name: Report probe
+        if: github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          summary=$(python - <<'PY'
+          import json
+          data = json.load(open("data/official-page-probe.json", encoding="utf-8"))
+          print(data.get("keyword_counts"))
+          PY
+          )
+          gh pr comment "${{ github.event.pull_request.number }}" \
+            --body "Official-page probe finished — $summary — $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"

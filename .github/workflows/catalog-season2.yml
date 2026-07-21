@@ -9,14 +9,14 @@ permissions:
   pull-requests: write
 
 concurrency:
-  group: catalog-asre-shirin-season-2-v3
+  group: catalog-asre-shirin-season-2-v4
   cancel-in-progress: true
 
 jobs:
   catalog:
     if: github.event_name != 'pull_request' || github.event.pull_request.head.ref == 'agent/run-season2-catalog'
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
         with:
@@ -28,35 +28,41 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh pr comment "${{ github.event.pull_request.number }}" \
-            --body "Catalog workflow started — $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            --body "Extended catalog workflow started — $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
 
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Apply bounded crawl and embed fix
+      - name: Apply exhaustive discovery fixes
         run: |
           python - <<'PY'
           from pathlib import Path
 
           path = Path("scripts/catalog_asre_shirin.py")
           text = path.read_text(encoding="utf-8")
-          text = text.replace("timeout: int = 45", "timeout: int = 12")
-          text = text.replace("max_pages: int = 150", "max_pages: int = 40")
-          text = text.replace("max_pages: int = 45", "max_pages: int = 20")
+          text = text.replace("timeout: int = 45", "timeout: int = 15")
+          text = text.replace("max_pages: int = 150", "max_pages: int = 150")
+          text = text.replace("max_pages: int = 45", "max_pages: int = 60")
           text = text.replace(
               "(?:v/|video/video/embed/videohash/)",
               "(?:v/|embed/|video/video/embed/videohash/)",
           )
+          text = text.replace(
+              "        if url not in telegram_evidence and url not in KNOWN_SEASON_ONE.values() and not relevant_slug(url):\n"
+              "            continue\n",
+              "        # Inspect every official detail page. Some season-two pages have opaque slugs\n"
+              "        # and some Telegram posts link straight to Aparat instead of the site.\n",
+          )
           path.write_text(text, encoding="utf-8")
           PY
 
-      - name: Build catalog from official sources
+      - name: Build extended catalog from official sources
         id: catalog
         shell: bash
         run: |
           set +e
-          timeout 12m env PYTHONPATH=src python scripts/catalog_asre_shirin.py \
+          timeout 27m env PYTHONPATH=src python scripts/catalog_asre_shirin.py \
             --output data/asre-shirin-season-2-catalog.json
           code=$?
           echo "exit_code=$code" >> "$GITHUB_OUTPUT"
@@ -66,11 +72,11 @@ jobs:
           fi
           exit 0
 
-      - name: Upload catalog diagnostics
+      - name: Upload extended catalog diagnostics
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: asre-shirin-season-2-catalog
+          name: asre-shirin-season-2-catalog-extended
           path: data/asre-shirin-season-2-catalog.json
           retention-days: 7
 
@@ -86,13 +92,15 @@ jobs:
               f"status={data.get('status')}, "
               f"season1={data.get('season_one_matches')}, "
               f"season2={data.get('season_two_matches')}, "
+              f"official={data.get('official_unique_videos')}, "
+              f"unclassified={len(data.get('unclassified') or [])}, "
               f"blog={data.get('blog_detail_urls')}, "
               f"telegram={data.get('telegram_official_urls')}"
           )
           PY
           )
           gh pr comment "${{ github.event.pull_request.number }}" \
-            --body "Catalog workflow finished — $summary — $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            --body "Extended catalog workflow finished — $summary — $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
 
       - name: Enforce usable catalog
         run: |
@@ -100,6 +108,6 @@ jobs:
           import json
           data = json.load(open("data/asre-shirin-season-2-catalog.json", encoding="utf-8"))
           if not data.get("season_two"):
-              raise SystemExit("No published season-two episodes were discovered")
-          print(f"Discovered {len(data['season_two'])} published season-two episodes")
+              raise SystemExit("No season-two episodes were discovered")
+          print(f"Discovered {len(data['season_two'])} season-two episodes")
           PY

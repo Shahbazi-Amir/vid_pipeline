@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-07-21T20:35:41.042334+00:00",
+  "stages": {
+    "source": {
+      "status": "completed",
+      "updated_at": "2026-07-21T20:15:26.612408+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-10/source.json"
+      ],
+      "details": {
+        "source_url": "https://www.aparat.com/fintelligence",
+        "video_url": "https://www.aparat.com/v/gry10g2",
+        "title": "سواد مالی در عصر شیرین | قسمت بیست‌وسوم",
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-10/source.json": "a7a83d039d10f0eb8b7c5834022005709a96c6fd149a5ae798c2bc8af0a402c9"
+        }
+      },
+      "error": ""
+    },
+    "download": {
+      "status": "completed",
+      "updated_at": "2026-07-21T20:22:28.812180+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-10/video/video.mp4",
+        "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-10/video-info.json"
+      ],
+      "details": {
+        "video_path": "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-10/video/video.mp4",
+        "duration": 1804,
+        "extractor": "Aparat",
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-10/video/video.mp4": "d6167b46e8db6d30b72fb439d67e3b111de1f02531570921186bd20bd33f6842",
+          "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-10/video-info.json": "23963a74ab796bda7643cb1c9e7a80eb2bb70c7288c28a504e3dcf94945f143c"
+        }
+      },
+      "error": ""
+    },
+    "audio": {
+      "status": "completed",
+      "updated_at": "2026-07-21T20:22:33.530462+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-10/audio/audio-16k-mono.wav"
+      ],
+      "details": {
+        "probe": {
+          "programs": [],
+          "streams": [
+            {
+              "codec_name": "pcm_s16le",
+              "codec_type": "audio",
+              "sample_rate": "16000",
+              "channels": 1
+            }
+          ],
+          "format": {
+            "duration": "1804.910313"
+          }
+        },
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-10/audio/audio-16k-mono.wav": "daa15ade7296894504f3ca273c477ea31748e2b88e1c94e9f02c77b0c3f4e77b"
+        }
+      },
+      "error": ""
+    },
+    "transcribe": {
+      "status": "completed",
+      "updated_at": "2026-07-21T20:35:41.032350+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-10/raw/episode-10.raw.json",
+        "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-10/raw/episode-10.raw.md"
+      ],
+      "details": {
+        "duration": 1804.9103125,
+        "segments": 497,
+        "flagged_segments": 69,
+        "model": "small",
+        "device": "cpu",
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-10/raw/episode-10.raw.json": "c8f274805663225606f3781c6d90f3f34a12ce7441f35a144e3d7bd6c2be2a3e",
+          "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-10/raw/episode-10.raw.md": "a5fb40e30f8809f30fbacaf7f796c09305090a65c48846a3518459cf94a58129"
+        }
+      },
+      "error": ""
+    },
+    "review_package": {
+      "status": "completed",
+      "updated_at": "2026-07-21T20:35:41.041902+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-10/review/episode-10.review.md"
+      ],
+      "details": {
+        "review_file": "work/asre-shirin-season-2/episode-10/review/episode-10.review.md",
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-10/review/episode-10.review.md": "2e89d4ad1fac0e2b04cd56ac2b8fe8d796305f68615a21b78278b61dcb8dbe58"
+        }
+      },
+      "error": ""
+    },
+    "review": {
+      "status": "review_required",
+      "updated_at": "",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-10/final/episode-10.md"
+      ],
+      "details": {},
+      "error": ""
+    },
+    "rag": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    }
+  }
+}

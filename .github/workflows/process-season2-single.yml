@@ -1,0 +1,179 @@
+name: Process One Asre Shirin Season 2 Episode
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: process-one-asre-shirin-season2
+  cancel-in-progress: false
+
+jobs:
+  resolve:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.ref == 'agent/run-season2-later'
+    runs-on: ubuntu-latest
+    outputs:
+      overall: ${{ steps.target.outputs.overall }}
+      season: ${{ steps.target.outputs.season }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/run-season2-later
+
+      - name: Resolve target episode
+        id: target
+        shell: bash
+        run: |
+          python - <<'PY'
+          import os
+          import re
+          from pathlib import Path
+
+          text = Path('.github/season2-later-trigger.txt').read_text(encoding='utf-8')
+          match = re.search(r'TARGET_OVERALL\s*=\s*(\d+)', text)
+          if not match:
+              raise SystemExit('TARGET_OVERALL is missing')
+          overall = int(match.group(1))
+          if overall not in {23, 24, 25, 26}:
+              raise SystemExit(f'Unsupported target: {overall}')
+          season = overall - 13
+          source = Path(f'data/asre-shirin-season-2-episode-{overall}.json')
+          if not source.exists():
+              raise SystemExit(f'Missing metadata file: {source}')
+          with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as output:
+              output.write(f'overall={overall}\n')
+              output.write(f'season={season}\n')
+          print(f'Resolved overall episode {overall}, season episode {season}')
+          PY
+
+  process:
+    needs: resolve
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Fetch target metadata from trigger branch
+        shell: bash
+        run: |
+          git fetch origin agent/run-season2-later
+          mkdir -p normalized
+          git show "origin/agent/run-season2-later:data/asre-shirin-season-2-episode-${{ needs.resolve.outputs.overall }}.json" \
+            > normalized/entry.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          entry = json.loads(Path('normalized/entry.json').read_text(encoding='utf-8'))
+          catalog = {'status': 'ready', 'season_two': [entry]}
+          Path('normalized/catalog.json').write_text(
+              json.dumps(catalog, ensure_ascii=False, indent=2) + '\n',
+              encoding='utf-8',
+          )
+          PY
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+
+      - name: Install pipeline
+        run: pip install -e '.[all]'
+
+      - name: Process episode
+        id: process
+        shell: bash
+        run: |
+          set +e
+          python scripts/process_season2_episode.py \
+            --catalog normalized/catalog.json \
+            --season-episode '${{ needs.resolve.outputs.season }}' \
+            --work-root work \
+            --output-root stage/season2 \
+            --model small \
+            --device cpu \
+            --compute-type int8
+          code=$?
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Upload text and diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: season2-text-${{ needs.resolve.outputs.season }}
+          path: |
+            stage/season2/episode-*/
+            !stage/season2/episode-*/*.mp3
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Upload review audio
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: season2-audio-${{ needs.resolve.outputs.season }}
+          path: stage/season2/episode-*/*.review.mp3
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Enforce episode success
+        if: steps.process.outputs.exit_code != '0'
+        run: exit 1
+
+  publish:
+    needs: [resolve, process]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Download target text artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: season2-text-${{ needs.resolve.outputs.season }}
+          path: collected
+
+      - name: Commit and push target episode
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch origin agent/season2-processing || true
+          if git show-ref --verify --quiet refs/remotes/origin/agent/season2-processing; then
+            git switch -C agent/season2-processing origin/agent/season2-processing
+          else
+            git switch -c agent/season2-processing origin/main
+          fi
+          destination='processing/asre-shirin-season-2/episode-${{ needs.resolve.outputs.season }}'
+          rm -rf "$destination"
+          mkdir -p "$(dirname "$destination")"
+          source=$(find collected -maxdepth 2 -type d -name 'episode-*' | head -n 1)
+          test -n "$source"
+          cp -R "$source" "$destination"
+          git add "$destination"
+          git commit -m 'Process Asre Shirin season 2 episode ${{ needs.resolve.outputs.season }} (overall ${{ needs.resolve.outputs.overall }})'
+          git push origin HEAD:agent/season2-processing
+
+      - name: Report completion
+        if: github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr comment "${{ github.event.pull_request.number }}" \
+            --repo "$GITHUB_REPOSITORY" \
+            --body "Episode ${{ needs.resolve.outputs.overall }} technical processing completed and pushed to agent/season2-processing — $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"

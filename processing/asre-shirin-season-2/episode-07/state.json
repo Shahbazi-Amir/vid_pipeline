@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-07-20T23:04:19.699635+00:00",
+  "stages": {
+    "source": {
+      "status": "completed",
+      "updated_at": "2026-07-20T22:43:53.013572+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-07/source.json"
+      ],
+      "details": {
+        "source_url": "https://www.fintelligence.ir/Blog/Detail/23C01D17/%D8%B3%D9%88%D8%A7%D8%AF-%D9%85%D8%A7%D9%84%DB%8C-%D8%A8%D8%B1%D8%A7%DB%8C-%D8%AE%D8%A7%D9%86%D9%85%D9%87%D8%A7-%D9%86%D8%AD%D9%88%DB%80-%D8%AF%D8%B3%D8%AA%D8%B1%D8%B3%DB%8C-%D9%85%D8%B4%D8%AA%D8%B1%DB%8C-%D8%A8%D9%87-%D9%85%D8%AD%D8%B5%D9%88%D9%84-%D9%85%D8%A7",
+        "video_url": "https://www.aparat.com/v/loczpiq",
+        "title": "سواد مالی برای خانم‌ها؛ نحوه دسترسی مشتری به محصول ما",
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-07/source.json": "a105608142e28bf0d5b7379d6a582c36ee3481c7d54315d6b61406ed6cb711f9"
+        }
+      },
+      "error": ""
+    },
+    "download": {
+      "status": "completed",
+      "updated_at": "2026-07-20T22:49:27.865336+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-07/video/video.mp4",
+        "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-07/video-info.json"
+      ],
+      "details": {
+        "video_path": "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-07/video/video.mp4",
+        "duration": 1764,
+        "extractor": "Aparat",
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-07/video/video.mp4": "f20a554260034a5e06bac6c8cd2cc780a1922d125738c7776c72fb67b5a70405",
+          "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-07/video-info.json": "878c76ef0f97b726b512ee61b2fee29fde2eadb56c4c34fba821196c754f852b"
+        }
+      },
+      "error": ""
+    },
+    "audio": {
+      "status": "completed",
+      "updated_at": "2026-07-20T22:49:32.459390+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-07/audio/audio-16k-mono.wav"
+      ],
+      "details": {
+        "probe": {
+          "programs": [],
+          "streams": [
+            {
+              "codec_name": "pcm_s16le",
+              "codec_type": "audio",
+              "sample_rate": "16000",
+              "channels": 1
+            }
+          ],
+          "format": {
+            "duration": "1764.925563"
+          }
+        },
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-07/audio/audio-16k-mono.wav": "2e502fbcd556e6cb222488a42e5eb20e316c98e37fd021c442b95d5a62933827"
+        }
+      },
+      "error": ""
+    },
+    "transcribe": {
+      "status": "completed",
+      "updated_at": "2026-07-20T23:04:19.690134+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-07/raw/episode-07.raw.json",
+        "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-07/raw/episode-07.raw.md"
+      ],
+      "details": {
+        "duration": 1764.9255625,
+        "segments": 405,
+        "flagged_segments": 46,
+        "model": "small",
+        "device": "cpu",
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-07/raw/episode-07.raw.json": "1ec6ce2f02256f1fdef7e5be38638565573f98a80db33424b389b1304d90798b",
+          "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-07/raw/episode-07.raw.md": "90c3a110401f515b3e08474cf08b192d0906a7992d450be8f50da446640d79f0"
+        }
+      },
+      "error": ""
+    },
+    "review_package": {
+      "status": "completed",
+      "updated_at": "2026-07-20T23:04:19.699189+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-07/review/episode-07.review.md"
+      ],
+      "details": {
+        "review_file": "work/asre-shirin-season-2/episode-07/review/episode-07.review.md",
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-07/review/episode-07.review.md": "c4b6b5731cb633686e5ad28d432f9c5ad7963dd988ddb7f536181ba82cd76f45"
+        }
+      },
+      "error": ""
+    },
+    "review": {
+      "status": "review_required",
+      "updated_at": "",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-07/final/episode-07.md"
+      ],
+      "details": {},
+      "error": ""
+    },
+    "rag": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    }
+  }
+}

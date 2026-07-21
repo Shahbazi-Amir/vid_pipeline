@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-07-21T21:45:59.258555+00:00",
+  "stages": {
+    "source": {
+      "status": "completed",
+      "updated_at": "2026-07-21T21:26:12.461130+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-13/source.json"
+      ],
+      "details": {
+        "source_url": "https://www.aparat.com/fintelligence",
+        "video_url": "https://www.aparat.com/v/kzqa0pn",
+        "title": "سواد مالی در عصر شیرین | قسمت بیست‌وششم",
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-13/source.json": "1c29bc5ca93763c100535f79ce1925924ae271353ba8f864216a2e020e80f7b1"
+        }
+      },
+      "error": ""
+    },
+    "download": {
+      "status": "completed",
+      "updated_at": "2026-07-21T21:33:34.522765+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-13/video/video.mp4",
+        "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-13/video-info.json"
+      ],
+      "details": {
+        "video_path": "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-13/video/video.mp4",
+        "duration": 1733,
+        "extractor": "Aparat",
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-13/video/video.mp4": "27f43d2192839b58cf55193668e050d8e6ba1bc1ae56973cb8e82232d6937e38",
+          "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-13/video-info.json": "f9ec03f68f93cb28e47695003f163ee3064c921fb81d9a5d8b4d226a7f369a5f"
+        }
+      },
+      "error": ""
+    },
+    "audio": {
+      "status": "completed",
+      "updated_at": "2026-07-21T21:33:39.566909+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-13/audio/audio-16k-mono.wav"
+      ],
+      "details": {
+        "probe": {
+          "programs": [],
+          "streams": [
+            {
+              "codec_name": "pcm_s16le",
+              "codec_type": "audio",
+              "sample_rate": "16000",
+              "channels": 1
+            }
+          ],
+          "format": {
+            "duration": "1733.067750"
+          }
+        },
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-13/audio/audio-16k-mono.wav": "f6dd015614e104703f8068ca6b8eb0fb634246ba22adbab9bc7b4e578131dbbd"
+        }
+      },
+      "error": ""
+    },
+    "transcribe": {
+      "status": "completed",
+      "updated_at": "2026-07-21T21:45:59.249524+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-13/raw/episode-13.raw.json",
+        "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-13/raw/episode-13.raw.md"
+      ],
+      "details": {
+        "duration": 1733.06775,
+        "segments": 446,
+        "flagged_segments": 78,
+        "model": "small",
+        "device": "cpu",
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-13/raw/episode-13.raw.json": "fce4ae8965c7125ab817964904fce7bb54fe9a12b649b8e0bbc7f184b71c0987",
+          "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-13/raw/episode-13.raw.md": "62420fa95542aa641f0d0c1e79346bffc72af2f39feb67b41666f0258d72d4ba"
+        }
+      },
+      "error": ""
+    },
+    "review_package": {
+      "status": "completed",
+      "updated_at": "2026-07-21T21:45:59.258110+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-13/review/episode-13.review.md"
+      ],
+      "details": {
+        "review_file": "work/asre-shirin-season-2/episode-13/review/episode-13.review.md",
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-13/review/episode-13.review.md": "0fd64850d186bd370048c1b2b4d6fd6bdc2c0324c21a7d60b5b6bc37e5dd5ff7"
+        }
+      },
+      "error": ""
+    },
+    "review": {
+      "status": "review_required",
+      "updated_at": "",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/work/asre-shirin-season-2/episode-13/final/episode-13.md"
+      ],
+      "details": {},
+      "error": ""
+    },
+    "rag": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    }
+  }
+}

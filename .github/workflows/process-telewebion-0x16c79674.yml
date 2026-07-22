@@ -1,9 +1,8 @@
 name: Process Telewebion 0x16c79674
 
 on:
-  push:
-    paths:
-      - .github/workflows/process-telewebion-0x16c79674.yml
+  pull_request:
+    types: [opened, synchronize, reopened]
   workflow_dispatch:
 
 permissions:
@@ -15,6 +14,7 @@ concurrency:
 
 jobs:
   process:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.ref == 'agent/telewebion-0x16c79674'
     runs-on: ubuntu-latest
     timeout-minutes: 330
     env:

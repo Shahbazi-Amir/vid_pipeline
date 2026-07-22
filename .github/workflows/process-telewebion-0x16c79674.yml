@@ -1,4 +1,4 @@
-name: Probe Telewebion and official mirrors
+name: Inspect official Telegram audio post
 
 on:
   push:
@@ -17,60 +17,81 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  process:
+  inspect:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
 
-      - name: Probe official Telegram channel
+      - name: Fetch public post variants
         shell: bash
         run: |
-          mkdir -p run-reports/telegram
+          mkdir -p run-reports/post
           urls=(
-            'https://t.me/s/ostad_mirbaqeri?q=%D8%A8%D9%87%20%D9%88%D9%82%D8%AA%20%D8%A7%DB%8C%D8%B1%D8%A7%D9%86'
-            'https://t.me/s/ostad_mirbaqeri?q=%D8%AA%D9%81%D8%A7%D9%88%D8%AA%20%D8%B1%D8%A7%D9%87%D8%A8%D8%B1%D8%AF%DB%8C'
-            'https://t.me/s/ostad_mirbaqeri?q=%D9%82%D8%B5%D8%A7%D8%B5'
-            'https://t.me/s/ostad_mirbaqeri'
+            'https://t.me/ostad_mirbaqeri/2102?embed=1&mode=tme'
+            'https://t.me/ostad_mirbaqeri/2102?single'
+            'https://t.me/s/ostad_mirbaqeri/2102'
+            'https://telegram.me/ostad_mirbaqeri/2102?embed=1&mode=tme'
+          )
+          agents=(
+            'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/126 Safari/537.36'
+            'Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 Version/17.0 Mobile/15E148 Safari/604.1'
           )
           index=0
           for url in "${urls[@]}"; do
-            index=$((index + 1))
-            curl -L --compressed -sS --max-time 90 \
-              -A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/126 Safari/537.36' \
-              "$url" -o "run-reports/telegram/${index}.html" || true
+            for agent in "${agents[@]}"; do
+              index=$((index + 1))
+              printf '%s\n' "$url" > "run-reports/post/${index}-url.txt"
+              curl -L --compressed -sS --max-time 90 \
+                -A "$agent" -D "run-reports/post/${index}-headers.txt" \
+                "$url" -o "run-reports/post/${index}.html" || true
+            done
           done
+
+      - name: Extract document and media clues
+        shell: bash
+        run: |
           python - <<'PY'
+          import html
           import json
           import re
           from pathlib import Path
 
-          results = []
-          for path in sorted(Path('run-reports/telegram').glob('*.html')):
-              text = path.read_text(encoding='utf-8', errors='replace')
-              posts = sorted(set(re.findall(r'data-post="([^"]+)"', text)))
-              media = sorted(set(re.findall(r'(?:src|href)="(https?://[^"]+(?:video|file|document|telesco\.pe)[^"]*)"', text)))
-              matches = []
-              for pattern in ('به وقت ایران', 'تفاوت راهبردی', 'قصاص', 'انتقام', 'روایت فتح', '0x16c79674'):
-                  if pattern in text:
-                      matches.append(pattern)
-              results.append({
+          report = []
+          patterns = [
+              r'https?://[^"\'<> ]+',
+              r'data-[a-zA-Z0-9_-]+="[^"]+"',
+              r'<meta[^>]+(?:audio|video|document|file)[^>]*>',
+          ]
+          for path in sorted(Path('run-reports/post').glob('*.html')):
+              text = html.unescape(path.read_text(encoding='utf-8', errors='replace'))
+              urls = sorted(set(re.findall(patterns[0], text)))
+              interesting_urls = [
+                  value for value in urls
+                  if any(term in value.lower() for term in (
+                      'telesco.pe', '.mp3', '.m4a', '.ogg', '.wav', '.mp4',
+                      'document', 'audio', 'file', 'cdn', 'telegram'
+                  ))
+              ]
+              attrs = sorted(set(re.findall(patterns[1], text)))
+              metas = sorted(set(re.findall(patterns[2], text, flags=re.I)))
+              report.append({
                   'file': str(path),
                   'bytes': len(text.encode('utf-8')),
-                  'posts': posts,
-                  'media_urls': media,
-                  'matched_terms': matches,
+                  'interesting_urls': interesting_urls,
+                  'data_attributes': attrs,
+                  'media_meta': metas,
               })
-          Path('run-reports/telegram/results.json').write_text(
-              json.dumps(results, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+          Path('run-reports/post/results.json').write_text(
+              json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
           )
           PY
 
-      - name: Upload mirror probes
+      - name: Upload post inspection
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: telewebion-0x16c79674-mirror-probes
+          name: telewebion-0x16c79674-telegram-post
           path: run-reports/**
           retention-days: 30
           if-no-files-found: error

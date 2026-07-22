@@ -38,11 +38,36 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e '.[all]'
 
+      - name: Probe Telewebion API
+        shell: bash
+        run: |
+          mkdir -p run-reports
+          cat > run-reports/graphql-request.json <<'JSON'
+          {
+            "operationName": "getEpisodeDetail",
+            "query": "query getEpisodeDetail($EpisodeId: [ID!]) @cacheControl(maxAge: 60) { queryEpisode(filter: {EpisodeID: $EpisodeId}, first: 1) { title program { ProgramID title } image view_count duration started_at created_at channel { ChannelID name descriptor } tags { name } } }",
+            "variables": {"EpisodeId": "0x16c79674"}
+          }
+          JSON
+          set +e
+          curl -k --http1.1 -sS \
+            -D run-reports/graphql-headers.txt \
+            -o run-reports/graphql-response.json \
+            -w '%{http_code}\n' \
+            -X POST 'https://graph.telewebion.ir/graphql' \
+            -H 'Accept: application/json' \
+            -H 'Content-Type: application/json' \
+            -H 'Origin: https://telewebion.ir' \
+            -H 'Referer: https://telewebion.ir/' \
+            -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/126 Safari/537.36' \
+            --data-binary @run-reports/graphql-request.json \
+            > run-reports/graphql-status.txt
+          exit 0
+
       - name: Inspect source
         shell: bash
         run: |
           set -o pipefail
-          mkdir -p run-reports
           vid-pipeline inspect 'https://telewebion.ir/episode/0x16c79674' \
             --no-check-certificate \
             2>&1 | tee run-reports/inspect.log

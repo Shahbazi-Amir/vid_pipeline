@@ -5,42 +5,35 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  unix-probe:
+  variant-probe:
     if: github.event.pull_request.head.ref == 'agent/telewebion-run-clean'
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, macos-13]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
-      - name: Resolve and fetch manifest
+      - name: Fetch master and 480p variant
         shell: bash
         run: |
-          set -x
-          python3 - <<'PY'
-          import socket
-          for host in ('cdna.telewebion.ir', 'telewebion.ir', 'graph.telewebion.ir'):
-              try:
-                  print(host, socket.getaddrinfo(host, 443, type=socket.SOCK_STREAM))
-              except Exception as exc:
-                  print(host, 'DNS_ERROR', repr(exc))
-          PY
-          curl -4 -v --connect-timeout 20 --max-time 60 \
-            'https://cdna.telewebion.ir/irinn/episode/0x16c79674/playlist.m3u8' \
-            -o manifest.m3u8
-          wc -c manifest.m3u8
-          head -n 20 manifest.m3u8
-
-  windows-probe:
-    if: github.event.pull_request.head.ref == 'agent/telewebion-run-clean'
-    runs-on: windows-latest
-    steps:
-      - name: Resolve and fetch manifest
-        shell: pwsh
-        run: |
-          Resolve-DnsName cdna.telewebion.ir
-          curl.exe -4 -v --connect-timeout 20 --max-time 60 `
-            'https://cdna.telewebion.ir/irinn/episode/0x16c79674/playlist.m3u8' `
-            -o manifest.m3u8
-          Get-Item manifest.m3u8 | Format-List Length,FullName
-          Get-Content manifest.m3u8 -TotalCount 20
+          set -euxo pipefail
+          master='https://cdna.telewebion.ir/irinn/episode/0x16c79674/playlist.m3u8'
+          effective_master=$(curl -4 --fail --location \
+            --retry 8 --retry-all-errors --retry-delay 2 \
+            --connect-timeout 30 --max-time 180 \
+            -A 'Mozilla/5.0' \
+            -w '%{url_effective}' -o master.m3u8 "$master")
+          echo "EFFECTIVE_MASTER=$effective_master"
+          base="${effective_master%/*}"
+          variant="$base/480p/index.m3u8"
+          effective_variant=$(curl -4 --fail --location \
+            --retry 8 --retry-all-errors --retry-delay 2 \
+            --connect-timeout 30 --max-time 180 \
+            -A 'Mozilla/5.0' \
+            -w '%{url_effective}' -o variant.m3u8 "$variant")
+          echo "EFFECTIVE_VARIANT=$effective_variant"
+          echo '--- MASTER ---'
+          cat master.m3u8
+          echo '--- VARIANT HEAD ---'
+          head -n 60 variant.m3u8
+          echo '--- VARIANT TAIL ---'
+          tail -n 20 variant.m3u8
+          echo '--- MEDIA REFERENCES ---'
+          grep -v '^#' variant.m3u8 | sed '/^$/d' | head -n 20
+          echo "SEGMENT_COUNT=$(grep -v '^#' variant.m3u8 | sed '/^$/d' | wc -l)"

@@ -1,4 +1,4 @@
-"""Persian speech recognition with faster-whisper."""
+"""Speech recognition with faster-whisper."""
 
 from __future__ import annotations
 
@@ -10,7 +10,7 @@ from typing import Any
 
 from vid_pipeline.errors import ExternalToolError
 
-DEFAULT_INITIAL_PROMPT = "دکتر کمیل رودی، سواد مالی، پس‌انداز، سرمایه‌گذاری، بودجه‌بندی"
+DEFAULT_INITIAL_PROMPT = ""
 
 
 @dataclass(slots=True)

@@ -93,6 +93,7 @@ def extract_metadata(url: str) -> dict[str, Any]:
         "skip_download": True,
         "socket_timeout": 120,
         "extractor_retries": 5,
+        "source_address": "0.0.0.0",
     }
     try:
         return _extract_info(yt_dlp, url, options, download=False)
@@ -115,6 +116,7 @@ def download_video(url: str, output_dir: str | Path) -> tuple[Path, dict[str, An
         "fragment_retries": 10,
         "extractor_retries": 5,
         "socket_timeout": 120,
+        "source_address": "0.0.0.0",
         "quiet": False,
         "writeinfojson": False,
     }

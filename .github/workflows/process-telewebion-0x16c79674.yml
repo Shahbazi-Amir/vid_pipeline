@@ -19,7 +19,7 @@ jobs:
     timeout-minutes: 330
     env:
       SOURCE_URL: https://telewebion.ir/episode/0x16c79674
-      VIDEO_URL: https://cdna.telewebion.ir/irinn/episode/0x16c79674/playlist.m3u8
+      VIDEO_URL: https://cdna.telewebion.com/irinn/episode/0x16c79674/playlist.m3u8
       OUTPUT_BRANCH: agent/telewebion-0x16c79674-output
       TARGET_DIR: processing/telewebion-0x16c79674
     steps:

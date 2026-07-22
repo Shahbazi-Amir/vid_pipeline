@@ -63,30 +63,28 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e '.[all]'
 
-      - name: Fetch official manifest
+      - name: Download official HLS assets
         shell: pwsh
         run: |
           New-Item -ItemType Directory -Force $env:WORK_DIR | Out-Null
           New-Item -ItemType Directory -Force 'run-reports' | Out-Null
-          curl.exe -4 --fail --location `
-            --retry 10 --retry-all-errors --retry-delay 3 `
-            --connect-timeout 30 --max-time 240 `
-            -A 'Mozilla/5.0' `
-            $env:MEDIA_URL `
-            -o "$env:WORK_DIR/playlist.m3u8"
+          python scripts/download_hls_assets.py $env:MEDIA_URL `
+            --output-dir "$env:WORK_DIR/hls" `
+            --workers 8 `
+            2>&1 | Tee-Object -FilePath 'run-reports/hls-download.log'
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          $size = (Get-Item "$env:WORK_DIR/playlist.m3u8").Length
-          Set-Content -Path 'run-reports/manifest-size.txt' -Value $size -Encoding utf8NoBOM
-          Get-Content "$env:WORK_DIR/playlist.m3u8" -TotalCount 30 |
+          Copy-Item "$env:WORK_DIR/hls/download.json" 'run-reports/hls-download.json'
+          Get-Content "$env:WORK_DIR/hls/master.m3u8" -TotalCount 30 |
             Set-Content 'run-reports/manifest-head.txt' -Encoding utf8NoBOM
+          Get-Content "$env:WORK_DIR/hls/variant.remote.m3u8" -TotalCount 60 |
+            Set-Content 'run-reports/variant-head.txt' -Encoding utf8NoBOM
 
-      - name: Extract and normalize official audio
+      - name: Extract and normalize local HLS audio
         shell: pwsh
         run: |
           & ffmpeg -hide_banner -loglevel warning -nostdin -y `
-            -reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 10 `
-            -user_agent 'Mozilla/5.0' `
-            -i $env:MEDIA_URL `
+            -protocol_whitelist 'file,crypto,data' -allowed_extensions ALL `
+            -i "$env:WORK_DIR/hls/playlist.local.m3u8" `
             -vn -ac 1 -ar 16000 -c:a pcm_s16le `
             "$env:WORK_DIR/audio-16k-mono.wav" `
             2>&1 | Tee-Object -FilePath 'run-reports/ffmpeg-audio.log'

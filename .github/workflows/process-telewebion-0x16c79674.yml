@@ -19,9 +19,10 @@ jobs:
     timeout-minutes: 330
     env:
       SOURCE_URL: https://telewebion.ir/episode/0x16c79674
-      VIDEO_URL: https://cdna.telewebion.com/irinn/episode/0x16c79674/playlist.m3u8
+      MEDIA_URL: https://cdna.telewebion.ir/irinn/episode/0x16c79674/playlist.m3u8
       OUTPUT_BRANCH: agent/telewebion-0x16c79674-output
       TARGET_DIR: processing/telewebion-0x16c79674
+      WORK_DIR: work/telewebion-0x16c79674
     steps:
       - uses: actions/checkout@v4
         with:
@@ -32,12 +33,13 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git switch -C "$OUTPUT_BRANCH"
+          rm -rf "$TARGET_DIR"
           mkdir -p "$TARGET_DIR/reports"
           cat > "$TARGET_DIR/status.json" <<EOF
           {
             "status": "running",
             "source_url": "$SOURCE_URL",
-            "media_url": "$VIDEO_URL",
+            "media_url": "$MEDIA_URL",
             "workflow_run_id": "$GITHUB_RUN_ID",
             "started_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
           }
@@ -51,76 +53,133 @@ jobs:
           python-version: '3.11'
           cache: pip
 
-      - name: Install system dependencies
+      - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y ffmpeg
-
-      - name: Install pipeline
-        run: |
+          sudo apt-get install -y ffmpeg curl
           python -m pip install --upgrade pip
           pip install -e '.[all]'
 
-      - name: Process video
+      - name: Fetch official manifest
         run: |
-          mkdir -p run-reports
+          mkdir -p "$WORK_DIR" run-reports
+          curl -4 --fail --location \
+            --retry 8 --retry-all-errors --retry-delay 3 \
+            --connect-timeout 30 --max-time 180 \
+            -A 'Mozilla/5.0' \
+            "$MEDIA_URL" \
+            -o "$WORK_DIR/playlist.m3u8"
+          wc -c "$WORK_DIR/playlist.m3u8" | tee run-reports/manifest-size.txt
+          head -n 30 "$WORK_DIR/playlist.m3u8" > run-reports/manifest-head.txt
+
+      - name: Extract and normalize official audio
+        run: |
           set -o pipefail
-          vid-pipeline run-url "$VIDEO_URL" \
-            --name telewebion-0x16c79674 \
-            --language fa \
-            --model small \
-            --device cpu \
-            --compute-type int8 \
-            --beam-size 5 \
-            --max-paragraph-words 80 \
-            2>&1 | tee run-reports/pipeline.log
+          ffmpeg -hide_banner -loglevel warning -nostdin -y \
+            -reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 10 \
+            -user_agent 'Mozilla/5.0' \
+            -i "$MEDIA_URL" \
+            -vn -ac 1 -ar 16000 -c:a pcm_s16le \
+            "$WORK_DIR/audio-16k-mono.wav" \
+            2>&1 | tee run-reports/ffmpeg-audio.log
+          ffprobe -v error \
+            -show_entries format=duration:stream=codec_type,codec_name,sample_rate,channels \
+            -of json "$WORK_DIR/audio-16k-mono.wav" \
+            > run-reports/audio-probe.json
 
-      - name: Build review audio
-        if: success()
+      - name: Transcribe and machine-clean Persian text
         run: |
-          wav=$(find outputs -path '*/audio/audio-16k-mono.wav' -print -quit)
-          test -n "$wav"
-          ffmpeg -hide_banner -loglevel error -y -i "$wav" \
-            -ac 1 -ar 16000 -codec:a libmp3lame -b:a 48k \
-            run-reports/review-audio.mp3
+          mkdir -p "$TARGET_DIR/raw" "$TARGET_DIR/machine-final"
+          python - <<'PY' 2>&1 | tee run-reports/transcribe.log
+          import json
+          import os
+          from pathlib import Path
+
+          from vid_pipeline.clean import clean_transcript
+          from vid_pipeline.transcribe import TranscriptionConfig, transcribe_audio
+
+          source_url = os.environ['SOURCE_URL']
+          media_url = os.environ['MEDIA_URL']
+          work = Path(os.environ['WORK_DIR'])
+          target = Path(os.environ['TARGET_DIR'])
+          title = 'به وقت ایران؛ تفاوت راهبردی قصاص و انتقام'
+
+          config = TranscriptionConfig(
+              model='small',
+              device='cpu',
+              compute_type='int8',
+              language='fa',
+              beam_size=5,
+              vad_filter=True,
+              word_timestamps=True,
+              condition_on_previous_text=False,
+          )
+          result = transcribe_audio(
+              work / 'audio-16k-mono.wav',
+              target / 'raw' / 'transcript.raw.json',
+              target / 'raw' / 'transcript.raw.md',
+              config,
+          )
+          cleaned = clean_transcript(
+              target / 'raw' / 'transcript.raw.json',
+              target / 'machine-final' / 'transcript.final.md',
+              target / 'machine-final' / 'transcript.final.txt',
+              title=title,
+              source_url=source_url,
+              max_words=80,
+          )
+          source = {
+              'schema_version': 1,
+              'source_url': source_url,
+              'media_url': media_url,
+              'program': 'به وقت ایران',
+              'network': 'شبکه خبر',
+              'guest': 'آیت‌الله سیدمحمدمهدی میرباقری',
+              'date': '۱۴۰۵/۰۴/۱۶',
+              'title': title,
+              'duration_seconds': result.get('duration'),
+          }
+          outcome = {
+              'schema_version': 1,
+              'status': 'needs_editorial_review',
+              'model': result.get('model'),
+              'language': result.get('language'),
+              'segments': len(result.get('segments', [])),
+              'cleaned': cleaned,
+          }
+          (target / 'source.json').write_text(
+              json.dumps(source, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+          )
+          (target / 'result.json').write_text(
+              json.dumps(outcome, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+          )
+          print(json.dumps(outcome, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Build compact review audio
+        run: |
+          ffmpeg -hide_banner -loglevel error -nostdin -y \
+            -i "$WORK_DIR/audio-16k-mono.wav" \
+            -ac 1 -ar 16000 -codec:a libmp3lame -b:a 32k \
+            "$TARGET_DIR/review-audio.mp3"
           ffprobe -v error -show_entries format=duration \
-            -of default=noprint_wrappers=1:nokey=1 "$wav" \
-            > run-reports/duration-seconds.txt
+            -of default=noprint_wrappers=1:nokey=1 \
+            "$WORK_DIR/audio-16k-mono.wav" \
+            > "$TARGET_DIR/reports/duration-seconds.txt"
 
-      - name: Prepare completed repository package
-        if: success()
+      - name: Complete package and push output branch
         run: |
-          job_root=$(find outputs -mindepth 1 -maxdepth 1 -type d -name 'telewebion-0x16c79674-*' -print -quit)
-          test -n "$job_root"
-
-          rm -rf "$TARGET_DIR/raw" "$TARGET_DIR/machine-final"
-          mkdir -p "$TARGET_DIR/raw" "$TARGET_DIR/machine-final" "$TARGET_DIR/reports"
-
-          cp "$job_root/source.json" "$TARGET_DIR/source.json"
-          cp "$job_root/video-info.json" "$TARGET_DIR/video-info.json"
-          cp "$job_root/state.json" "$TARGET_DIR/state.json"
-          cp "$job_root/result.json" "$TARGET_DIR/result.json"
-          cp "$job_root/raw/transcript.raw.json" "$TARGET_DIR/raw/transcript.raw.json"
-          cp "$job_root/raw/transcript.raw.md" "$TARGET_DIR/raw/transcript.raw.md"
-          cp "$job_root/final/transcript.final.md" "$TARGET_DIR/machine-final/transcript.final.md"
-          cp "$job_root/final/transcript.final.txt" "$TARGET_DIR/machine-final/transcript.final.txt"
-          cp run-reports/pipeline.log "$TARGET_DIR/reports/pipeline.log"
-          cp run-reports/duration-seconds.txt "$TARGET_DIR/reports/duration-seconds.txt"
-          cp run-reports/review-audio.mp3 "$TARGET_DIR/review-audio.mp3"
-
+          cp -R run-reports/. "$TARGET_DIR/reports/"
           cat > "$TARGET_DIR/status.json" <<EOF
           {
-            "status": "completed",
+            "status": "technical_processing_completed",
+            "review_status": "needs_editorial_review",
             "source_url": "$SOURCE_URL",
-            "media_url": "$VIDEO_URL",
+            "media_url": "$MEDIA_URL",
             "workflow_run_id": "$GITHUB_RUN_ID",
             "completed_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
           }
           EOF
-
-      - name: Commit completed technical outputs
-        if: success()
-        run: |
           git add -f "$TARGET_DIR"
           git commit -m 'Store Telewebion 0x16c79674 technical output'
           git push --force origin "HEAD:$OUTPUT_BRANCH"
@@ -132,16 +191,11 @@ jobs:
           if [ -d run-reports ]; then
             cp -R run-reports/. "$TARGET_DIR/reports/" || true
           fi
-          job_root=$(find outputs -mindepth 1 -maxdepth 1 -type d -name 'telewebion-0x16c79674-*' -print -quit || true)
-          if [ -n "$job_root" ]; then
-            cp "$job_root/state.json" "$TARGET_DIR/state.json" 2>/dev/null || true
-            cp "$job_root/source.json" "$TARGET_DIR/source.json" 2>/dev/null || true
-          fi
           cat > "$TARGET_DIR/status.json" <<EOF
           {
             "status": "failed",
             "source_url": "$SOURCE_URL",
-            "media_url": "$VIDEO_URL",
+            "media_url": "$MEDIA_URL",
             "workflow_run_id": "$GITHUB_RUN_ID",
             "failed_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
           }
@@ -156,12 +210,7 @@ jobs:
         with:
           name: telewebion-0x16c79674-transcript
           path: |
-            outputs/**/state.json
-            outputs/**/source.json
-            outputs/**/video-info.json
-            outputs/**/result.json
-            outputs/**/raw/**
-            outputs/**/final/**
+            processing/telewebion-0x16c79674/**
             run-reports/**
           retention-days: 30
           if-no-files-found: warn

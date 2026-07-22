@@ -3,8 +3,9 @@
 from __future__ import annotations
 
 import json
+from collections.abc import Callable
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any
 
 from vid_pipeline.audio import normalize_audio, validate_normalized_audio
 from vid_pipeline.download import download_video, extract_metadata

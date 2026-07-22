@@ -1,4 +1,4 @@
-name: Capture public Telegram audio
+name: Resolve public Telegram document
 
 on:
   push:
@@ -17,9 +17,9 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  capture:
+  resolve:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
 
@@ -33,48 +33,55 @@ jobs:
           pip install playwright
           playwright install --with-deps chromium
 
-      - name: Load post, click player and capture network
+      - name: Submit public post to media extractors
         shell: bash
         run: |
-          mkdir -p run-reports/playwright
-          cat > run-reports/playwright/capture.py <<'PY'
+          mkdir -p run-reports/extractors
+          cat > run-reports/extractors/resolve.py <<'PY'
           from __future__ import annotations
 
           import asyncio
           import json
+          import re
           from pathlib import Path
           from urllib.parse import urlparse
 
           from playwright.async_api import async_playwright
 
-          OUTPUT = Path('run-reports/playwright')
-          TARGETS = [
-              'https://t.me/bevaqteiran/1446?embed=1&mode=tme',
-              'https://t.me/ostad_mirbaqeri/2102?embed=1&mode=tme',
+          OUTPUT = Path('run-reports/extractors')
+          TARGET = 'https://t.me/bevaqteiran/1446'
+          SERVICES = [
+              {'name': 'tg-video-downloader', 'url': 'https://www.tgvideodownloader.org/'},
+              {'name': 'telegram-downloader', 'url': 'https://telegramdownloader.net/'},
+              {'name': 'newtools', 'url': 'https://newtools.net/telegram-downloader'},
+              {'name': 'getinsaver', 'url': 'https://getinsaver.com/telegram-downloader/'},
+              {'name': 'tikt-prefix', 'url': f'https://tikt.com/{TARGET}'},
+              {'name': 'tikt-audio', 'url': 'https://tikt.com/telegram-audio-downloader/'},
           ]
 
-          async def inspect(browser, url: str, index: int) -> dict:
+          MEDIA_TOKENS = (
+              '.mp3', '.m4a', '.ogg', '.wav', '.flac', '.aac', '.mp4', '.m3u8',
+              'audio', 'document', 'download', 'media', 'file', 'cdn', 'telesco.pe'
+          )
+
+          def safe_name(value: str) -> str:
+              return re.sub(r'[^a-zA-Z0-9._-]+', '-', value).strip('-') or 'download'
+
+          async def run_service(browser, service: dict, index: int) -> dict:
+              folder = OUTPUT / f'{index:02d}-{service["name"]}'
+              folder.mkdir(parents=True, exist_ok=True)
               context = await browser.new_context(
                   accept_downloads=True,
-                  locale='fa-IR',
+                  locale='en-US',
                   user_agent=(
-                      'Mozilla/5.0 (X11; Linux x86_64) '
-                      'AppleWebKit/537.36 (KHTML, like Gecko) '
-                      'Chrome/126.0.0.0 Safari/537.36'
+                      'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 '
+                      '(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
                   ),
               )
               page = await context.new_page()
-              requests: list[dict] = []
-              responses: list[dict] = []
+              network: list[dict] = []
               downloads: list[dict] = []
-
-              def on_request(request):
-                  requests.append({
-                      'url': request.url,
-                      'method': request.method,
-                      'resource_type': request.resource_type,
-                      'headers': request.headers,
-                  })
+              errors: list[str] = []
 
               async def on_response(response):
                   try:
@@ -83,134 +90,171 @@ jobs:
                       headers = {}
                   content_type = headers.get('content-type', '')
                   content_length = headers.get('content-length', '')
+                  url = response.url
                   if (
                       any(token in content_type.lower() for token in ('audio', 'video', 'octet-stream'))
-                      or any(token in response.url.lower() for token in (
-                          '.mp3', '.m4a', '.ogg', '.wav', '.mp4', '.m3u8',
-                          'document', 'audio', 'download', 'cdn', 'telesco.pe'
-                      ))
+                      or any(token in url.lower() for token in MEDIA_TOKENS)
+                      or response.request.method != 'GET'
                   ):
-                      responses.append({
-                          'url': response.url,
+                      network.append({
+                          'url': url,
                           'status': response.status,
+                          'method': response.request.method,
+                          'resource_type': response.request.resource_type,
                           'content_type': content_type,
                           'content_length': content_length,
-                          'headers': headers,
+                          'request_post_data': response.request.post_data,
+                          'request_headers': response.request.headers,
+                          'response_headers': headers,
                       })
 
               async def on_download(download):
-                  suggested = download.suggested_filename
-                  target = OUTPUT / f'{index}-download-{suggested}'
+                  filename = safe_name(download.suggested_filename)
+                  path = folder / f'download-{filename}'
                   try:
-                      await download.save_as(target)
+                      await download.save_as(path)
                       downloads.append({
                           'url': download.url,
-                          'suggested_filename': suggested,
-                          'saved_path': str(target),
-                          'size': target.stat().st_size,
+                          'suggested_filename': download.suggested_filename,
+                          'path': str(path),
+                          'size': path.stat().st_size,
                       })
                   except Exception as exc:
-                      downloads.append({
-                          'url': download.url,
-                          'suggested_filename': suggested,
-                          'error': str(exc),
-                      })
+                      downloads.append({'url': download.url, 'error': str(exc)})
 
-              page.on('request', on_request)
               page.on('response', on_response)
               page.on('download', on_download)
 
-              result = {'url': url, 'errors': [], 'clicks': [], 'requests': requests, 'responses': responses, 'downloads': downloads}
               try:
-                  await page.goto(url, wait_until='networkidle', timeout=120_000)
+                  await page.goto(service['url'], wait_until='domcontentloaded', timeout=120_000)
+                  await page.wait_for_timeout(5_000)
               except Exception as exc:
-                  result['errors'].append(f'goto: {exc}')
-              await page.screenshot(path=OUTPUT / f'{index}-before.png', full_page=True)
-              (OUTPUT / f'{index}-content.html').write_text(await page.content(), encoding='utf-8')
+                  errors.append(f'goto: {exc}')
 
-              selectors = [
-                  '.tgme_widget_message_document_wrap',
-                  '.tgme_widget_message_audio',
-                  '.tgme_widget_message_document',
-                  'audio',
-                  'button',
-                  '[role="button"]',
-                  'a',
-              ]
-              for selector in selectors:
-                  try:
-                      locator = page.locator(selector)
-                      count = min(await locator.count(), 30)
-                      for item_index in range(count):
-                          item = locator.nth(item_index)
+              try:
+                  inputs = page.locator('input[type="url"], input[type="text"], textarea')
+                  count = min(await inputs.count(), 12)
+                  for item_index in range(count):
+                      item = inputs.nth(item_index)
+                      if not await item.is_visible():
+                          continue
+                      placeholder = (await item.get_attribute('placeholder') or '').lower()
+                      name = (await item.get_attribute('name') or '').lower()
+                      input_type = (await item.get_attribute('type') or '').lower()
+                      if (
+                          any(token in f'{placeholder} {name}' for token in ('url', 'link', 'telegram', 'paste', 'media'))
+                          or input_type == 'url'
+                          or count == 1
+                      ):
+                          await item.fill(TARGET)
+                          await item.press('Enter')
+                          break
+              except Exception as exc:
+                  errors.append(f'input: {exc}')
+
+              await page.wait_for_timeout(8_000)
+              button_texts = ('download', 'check', 'submit', 'extract', 'start', 'get', 'paste')
+              try:
+                  buttons = page.locator('button, input[type="submit"], a[role="button"]')
+                  count = min(await buttons.count(), 50)
+                  for item_index in range(count):
+                      button = buttons.nth(item_index)
+                      if not await button.is_visible():
+                          continue
+                      try:
+                          text = ((await button.inner_text(timeout=2_000)) or '').strip().lower()
+                      except Exception:
+                          text = ''
+                      value = ((await button.get_attribute('value')) or '').lower()
+                      aria = ((await button.get_attribute('aria-label')) or '').lower()
+                      if any(token in f'{text} {value} {aria}' for token in button_texts):
                           try:
-                              visible = await item.is_visible()
-                              text = (await item.inner_text(timeout=2_000)).strip()[:300]
-                              attrs = await item.evaluate(
-                                  "el => ({class: el.className || '', href: el.href || '', "
-                                  "src: el.src || '', title: el.title || '', "
-                                  "aria: el.getAttribute('aria-label') || ''})"
-                              )
-                              record = {'selector': selector, 'index': item_index, 'visible': visible, 'text': text, 'attrs': attrs}
-                              if visible and (
-                                  selector in {'.tgme_widget_message_document_wrap', '.tgme_widget_message_audio', '.tgme_widget_message_document', 'audio'}
-                                  or any(token in f"{text} {attrs}".lower() for token in ('audio', 'play', 'پخش', 'گفتگو', 'قصاص', 'document'))
-                              ):
-                                  try:
-                                      await item.click(timeout=5_000, force=True)
-                                      record['clicked'] = True
-                                      await page.wait_for_timeout(8_000)
-                                  except Exception as exc:
-                                      record['click_error'] = str(exc)
-                              result['clicks'].append(record)
+                              await button.click(timeout=8_000, force=True)
+                              await page.wait_for_timeout(15_000)
                           except Exception as exc:
-                              result['clicks'].append({'selector': selector, 'index': item_index, 'error': str(exc)})
-                  except Exception as exc:
-                      result['errors'].append(f'{selector}: {exc}')
+                              errors.append(f'button {item_index}: {exc}')
+              except Exception as exc:
+                  errors.append(f'buttons: {exc}')
 
               await page.wait_for_timeout(20_000)
-              await page.screenshot(path=OUTPUT / f'{index}-after.png', full_page=True)
-              result['final_url'] = page.url
-              result['local_storage'] = await page.evaluate('Object.fromEntries(Object.entries(localStorage))')
-              result['session_storage'] = await page.evaluate('Object.fromEntries(Object.entries(sessionStorage))')
+              try:
+                  links = []
+                  locator = page.locator('a[href], audio[src], video[src], source[src]')
+                  count = min(await locator.count(), 300)
+                  for item_index in range(count):
+                      item = locator.nth(item_index)
+                      href = await item.get_attribute('href') or await item.get_attribute('src') or ''
+                      text = ''
+                      try:
+                          text = (await item.inner_text(timeout=1_000)).strip()[:300]
+                      except Exception:
+                          pass
+                      if href and any(token in f'{href} {text}'.lower() for token in MEDIA_TOKENS):
+                          links.append({'url': href, 'text': text})
+              except Exception as exc:
+                  errors.append(f'links: {exc}')
+                  links = []
+
+              await page.screenshot(path=folder / 'page.png', full_page=True)
+              (folder / 'page.html').write_text(await page.content(), encoding='utf-8')
+              result = {
+                  'service': service,
+                  'final_url': page.url,
+                  'title': await page.title(),
+                  'errors': errors,
+                  'network': network,
+                  'downloads': downloads,
+                  'links': links,
+              }
+              (folder / 'result.json').write_text(
+                  json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+              )
               await context.close()
               return result
 
           async def main() -> None:
               async with async_playwright() as playwright:
-                  browser = await playwright.chromium.launch(
-                      headless=True,
-                      args=['--autoplay-policy=no-user-gesture-required'],
-                  )
+                  browser = await playwright.chromium.launch(headless=True)
                   results = []
-                  for index, url in enumerate(TARGETS, start=1):
-                      results.append(await inspect(browser, url, index))
+                  for index, service in enumerate(SERVICES, start=1):
+                      try:
+                          results.append(await run_service(browser, service, index))
+                      except Exception as exc:
+                          results.append({'service': service, 'fatal_error': str(exc)})
                   await browser.close()
               (OUTPUT / 'results.json').write_text(
-                  json.dumps(results, ensure_ascii=False, indent=2) + '\n',
-                  encoding='utf-8',
+                  json.dumps(results, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
               )
               candidates = []
               for result in results:
-                  candidates.extend(result['responses'])
-                  candidates.extend(result['downloads'])
+                  for download in result.get('downloads', []):
+                      if download.get('size', 0) > 1_000_000:
+                          candidates.append({'service': result['service']['name'], 'kind': 'download', **download})
+                  for response in result.get('network', []):
+                      if (
+                          any(token in response.get('content_type', '').lower() for token in ('audio', 'video', 'octet-stream'))
+                          or any(token in response.get('url', '').lower() for token in ('.mp3', '.m4a', '.ogg', '.wav', '.flac', '.aac'))
+                      ):
+                          candidates.append({'service': result['service']['name'], 'kind': 'network', **response})
+                  for link in result.get('links', []):
+                      if any(token in link.get('url', '').lower() for token in ('.mp3', '.m4a', '.ogg', '.wav', '.flac', '.aac', 'download')):
+                          candidates.append({'service': result['service']['name'], 'kind': 'link', **link})
               (OUTPUT / 'candidates.json').write_text(
-                  json.dumps(candidates, ensure_ascii=False, indent=2) + '\n',
-                  encoding='utf-8',
+                  json.dumps(candidates, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
               )
               print(json.dumps(candidates, ensure_ascii=False, indent=2))
               if not candidates:
-                  raise SystemExit('No media candidate was observed')
+                  raise SystemExit('No downloadable audio candidate was found')
 
           asyncio.run(main())
           PY
-          python run-reports/playwright/capture.py
+          python run-reports/extractors/resolve.py
 
-      - name: Upload browser capture
+      - name: Upload extractor results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: telewebion-0x16c79674-playwright
+          name: telewebion-0x16c79674-extractors
           path: run-reports/**
           retention-days: 30
           if-no-files-found: error

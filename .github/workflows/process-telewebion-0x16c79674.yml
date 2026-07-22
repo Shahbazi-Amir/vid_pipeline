@@ -38,7 +38,34 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e '.[all]'
 
-      - name: Probe Telewebion API
+      - name: Probe direct episode media
+        shell: bash
+        run: |
+          mkdir -p run-reports/direct-probes
+          urls=(
+            'https://cdna.telewebion.ir/irinn/episode/0x16c79674/playlist.m3u8'
+            'https://cdnw.telewebion.com/irinn/episode/0x16c79674/playlist.m3u8'
+            'https://cdna.telewebion.ir/irinn/episode/382178932/playlist.m3u8'
+            'https://cdnw.telewebion.com/irinn/episode/382178932/playlist.m3u8'
+          )
+          index=0
+          for url in "${urls[@]}"; do
+            index=$((index + 1))
+            printf '%s\n' "$url" > "run-reports/direct-probes/${index}-url.txt"
+            set +e
+            curl -k -L --http1.1 -sS \
+              --connect-timeout 20 --max-time 60 \
+              -D "run-reports/direct-probes/${index}-headers.txt" \
+              -o "run-reports/direct-probes/${index}-body.txt" \
+              -w '%{http_code}\n' "$url" \
+              > "run-reports/direct-probes/${index}-status.txt"
+            ffprobe -v error -show_entries format=duration \
+              -of default=noprint_wrappers=1:nokey=1 "$url" \
+              > "run-reports/direct-probes/${index}-ffprobe.txt" 2>&1
+            set -e
+          done
+
+      - name: Probe Telewebion GraphQL API
         shell: bash
         run: |
           mkdir -p run-reports
@@ -65,6 +92,7 @@ jobs:
           exit 0
 
       - name: Inspect source
+        continue-on-error: true
         shell: bash
         run: |
           set -o pipefail
@@ -72,53 +100,11 @@ jobs:
             --no-check-certificate \
             2>&1 | tee run-reports/inspect.log
 
-      - name: Process video
-        shell: bash
-        run: |
-          set -o pipefail
-          vid-pipeline run-url 'https://telewebion.ir/episode/0x16c79674' \
-            --name telewebion-0x16c79674 \
-            --no-check-certificate \
-            --language fa \
-            --model small \
-            --device cpu \
-            --compute-type int8 \
-            --beam-size 5 \
-            --max-paragraph-words 80 \
-            2>&1 | tee run-reports/run.log
-
-      - name: Build review audio
-        if: success()
-        run: |
-          wav=$(find outputs -path '*/audio/audio-16k-mono.wav' -print -quit)
-          test -n "$wav"
-          ffmpeg -hide_banner -loglevel error -y -i "$wav" \
-            -ac 1 -ar 16000 -b:a 48k run-reports/review-audio.mp3
-          ffprobe -v error -show_entries format=duration \
-            -of default=noprint_wrappers=1:nokey=1 "$wav" \
-            > run-reports/duration-seconds.txt
-
-      - name: Upload transcript package
+      - name: Upload probe package
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: telewebion-0x16c79674-transcript
-          path: |
-            outputs/**/state.json
-            outputs/**/source.json
-            outputs/**/video-info.json
-            outputs/**/result.json
-            outputs/**/raw/**
-            outputs/**/final/**
-            run-reports/**
-          retention-days: 30
-          if-no-files-found: warn
-
-      - name: Upload review audio
-        if: success()
-        uses: actions/upload-artifact@v4
-        with:
-          name: telewebion-0x16c79674-audio
-          path: run-reports/review-audio.mp3
+          name: telewebion-0x16c79674-probes
+          path: run-reports/**
           retention-days: 30
           if-no-files-found: error

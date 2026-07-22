@@ -4,6 +4,9 @@ on:
   push:
     paths:
       - .github/workflows/process-telewebion-0x16c79674.yml
+  pull_request:
+    paths:
+      - .github/workflows/process-telewebion-0x16c79674.yml
   workflow_dispatch:
 
 permissions:

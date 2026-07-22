@@ -12,6 +12,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: telewebion-0x16c79674-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   process:
     runs-on: ubuntu-latest
@@ -35,15 +39,21 @@ jobs:
           pip install -e '.[all]'
 
       - name: Inspect source
+        shell: bash
         run: |
+          set -o pipefail
           mkdir -p run-reports
           vid-pipeline inspect 'https://telewebion.ir/episode/0x16c79674' \
+            --no-check-certificate \
             | tee run-reports/inspect.json
 
       - name: Process video
+        shell: bash
         run: |
+          set -o pipefail
           vid-pipeline run-url 'https://telewebion.ir/episode/0x16c79674' \
             --name telewebion-0x16c79674 \
+            --no-check-certificate \
             --language fa \
             --model small \
             --device cpu \

@@ -1,4 +1,4 @@
-name: Probe Castbox podcast feed
+name: Resolve target episode from Castbox RSS
 
 on:
   push:
@@ -17,96 +17,111 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  probe:
+  resolve:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
 
-      - name: Fetch Castbox channel and API candidates
+      - name: Download RSS feed
         shell: bash
         run: |
-          mkdir -p run-reports/castbox
+          mkdir -p run-reports/rss
           urls=(
-            'https://castbox.fm/channel/id4800546'
-            'https://castbox.fm/channel/%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%86-%D9%BE%D8%A7%D8%AF%DA%A9%D8%B3%D8%AA-id4800546'
-            'https://api.castbox.fm/v1/channel?cid=4800546'
-            'https://api.castbox.fm/v2/channel?cid=4800546'
-            'https://api.castbox.fm/v3/channel?cid=4800546'
-            'https://api.castbox.fm/v1/channels/4800546'
-            'https://api.castbox.fm/v2/channels/4800546'
-            'https://api.castbox.fm/v3/channels/4800546'
-            'https://api.castbox.fm/v1/channel/4800546'
-            'https://api.castbox.fm/v2/channel/4800546'
-            'https://api.castbox.fm/v3/channel/4800546'
-            'https://castbox.fm/channel/id4800546?country=us'
-            'https://castbox.fm/channel/id4800546?country=ir'
-            'https://castbox.fm/channel/id4800546?reverse=0'
-            'https://castbox.fm/channel/id4800546?reverse=1'
+            'https://rss.castbox.fm/everest/adcedba9754d417d9ab80222f4dc2837.xml'
+            'http://rss.castbox.fm/everest/adcedba9754d417d9ab80222f4dc2837.xml'
           )
           index=0
           for url in "${urls[@]}"; do
             index=$((index + 1))
-            dir="run-reports/castbox/${index}"
-            mkdir -p "$dir"
-            printf '%s\n' "$url" > "$dir/url.txt"
-            curl -L --compressed -sS --max-time 120 \
+            printf '%s\n' "$url" > "run-reports/rss/${index}-url.txt"
+            curl -L --compressed -sS --max-time 180 \
               -A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/126 Safari/537.36' \
-              -D "$dir/headers.txt" \
-              "$url" -o "$dir/body.txt" || true
+              -D "run-reports/rss/${index}-headers.txt" \
+              "$url" -o "run-reports/rss/${index}.xml" || true
           done
 
-      - name: Extract feed, episode and audio clues
+      - name: Parse episodes and media URLs
         shell: bash
         run: |
           python - <<'PY'
           import html
           import json
           import re
+          import xml.etree.ElementTree as ET
           from pathlib import Path
 
-          terms = ('قصاص', 'انتقام', 'روایت فتح', 'میرباقری', 'برنامه 167', 'برنامه ۱۶۷')
-          report = []
-          for directory in sorted(Path('run-reports/castbox').iterdir(), key=lambda p: int(p.name)):
-              body = html.unescape((directory / 'body.txt').read_text(encoding='utf-8', errors='replace'))
-              headers = (directory / 'headers.txt').read_text(encoding='utf-8', errors='replace')
-              urls = sorted(set(re.findall(r'https?://[^"\'<>\\ ]+', body)))
-              interesting = [
-                  value for value in urls
-                  if any(token in value.lower() for token in (
-                      '.mp3', '.m4a', '.ogg', '.wav', '.rss', '/rss', 'feed',
-                      'episode', 'audio', 'podcast', 'api.castbox', 'rss.castbox'
-                  ))
-              ]
-              contexts = {}
-              for term in ('rss', 'feed', 'audio', 'episode', '4800546', *terms):
-                  contexts[term] = [
-                      body[max(0, match.start() - 500):match.start() + 1500]
-                      for match in list(re.finditer(re.escape(term), body, flags=re.I))[:20]
-                  ]
-              report.append({
-                  'index': int(directory.name),
-                  'url': (directory / 'url.txt').read_text().strip(),
-                  'bytes': len(body.encode('utf-8')),
-                  'content_type': next((line.split(':', 1)[1].strip() for line in headers.splitlines() if line.lower().startswith('content-type:')), ''),
-                  'matched_terms': [term for term in terms if term in body],
-                  'interesting_urls': interesting,
-                  'contexts': contexts,
-              })
-          Path('run-reports/castbox/results.json').write_text(
-              json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+          terms = (
+              'قصاص', 'انتقام', 'روایت فتح', 'میرباقری',
+              'برنامه 167', 'برنامه ۱۶۷', 'به وقت ایران'
           )
-          print(json.dumps([
-              {k: row[k] for k in ('index', 'url', 'bytes', 'content_type', 'matched_terms', 'interesting_urls')}
-              for row in report
-          ], ensure_ascii=False, indent=2))
+          reports = []
+          matches = []
+          for path in sorted(Path('run-reports/rss').glob('*.xml')):
+              raw = path.read_text(encoding='utf-8', errors='replace')
+              entry = {'file': str(path), 'bytes': len(raw.encode('utf-8')), 'parse_error': '', 'items': []}
+              try:
+                  root = ET.fromstring(raw)
+              except Exception as exc:
+                  entry['parse_error'] = str(exc)
+                  reports.append(entry)
+                  continue
+              for index, item in enumerate(root.findall('.//item')):
+                  def value(name):
+                      node = item.find(name)
+                      return html.unescape((node.text or '').strip()) if node is not None else ''
+                  title = value('title')
+                  description = value('description')
+                  pub_date = value('pubDate')
+                  guid = value('guid')
+                  enclosure = item.find('enclosure')
+                  media_url = enclosure.attrib.get('url', '') if enclosure is not None else ''
+                  media_length = enclosure.attrib.get('length', '') if enclosure is not None else ''
+                  media_type = enclosure.attrib.get('type', '') if enclosure is not None else ''
+                  duration = ''
+                  for child in item:
+                      if child.tag.endswith('duration'):
+                          duration = (child.text or '').strip()
+                          break
+                  combined = f'{title}\n{description}'
+                  row = {
+                      'index': index,
+                      'title': title,
+                      'description': re.sub(r'<[^>]+>', ' ', description),
+                      'pub_date': pub_date,
+                      'guid': guid,
+                      'enclosure_url': media_url,
+                      'enclosure_length': media_length,
+                      'enclosure_type': media_type,
+                      'duration': duration,
+                      'matched_terms': [term for term in terms if term in combined],
+                  }
+                  entry['items'].append(row)
+                  if row['matched_terms']:
+                      matches.append(row)
+              reports.append(entry)
+          Path('run-reports/rss/report.json').write_text(
+              json.dumps(reports, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+          )
+          Path('run-reports/rss/matches.json').write_text(
+              json.dumps(matches, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+          )
+          latest = []
+          for report in reports:
+              latest.extend(report['items'][:80])
+          Path('run-reports/rss/latest.json').write_text(
+              json.dumps(latest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+          )
+          print(json.dumps(matches, ensure_ascii=False, indent=2))
+          if not any(row.get('enclosure_url') for row in matches):
+              raise SystemExit('Target episode with a media enclosure was not found in the RSS feed')
           PY
 
-      - name: Upload Castbox probes
+      - name: Upload RSS resolution
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: telewebion-0x16c79674-castbox
+          name: telewebion-0x16c79674-rss
           path: run-reports/**
           retention-days: 30
           if-no-files-found: error

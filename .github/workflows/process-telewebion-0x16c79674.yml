@@ -1,4 +1,4 @@
-name: Inspect Telegram widget frame API
+name: Probe Telegram unauthenticated media API
 
 on:
   push:
@@ -17,60 +17,72 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  inspect:
+  probe:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
 
-      - name: Fetch widget frame source
+      - name: Fetch post and probe API methods
         shell: bash
         run: |
-          mkdir -p run-reports/widget
-          curl -L --compressed -sS \
-            -e 'https://t.me/ostad_mirbaqeri/2102?embed=1&mode=tme' \
-            'https://telegram.org/js/widget-frame.js?67' \
-            -o run-reports/widget/widget-frame.js
-          curl -L --compressed -sS \
+          mkdir -p run-reports/api
+          curl -L --compressed -sS -c run-reports/api/cookies.txt \
             'https://t.me/ostad_mirbaqeri/2102?embed=1&mode=tme' \
-            -o run-reports/widget/post.html
-
-      - name: Extract API call logic
-        shell: bash
-        run: |
-          python - <<'PY'
-          import json
+            -o run-reports/api/post.html
+          python - <<'PY' > run-reports/api/config.env
+          import html
           import re
           from pathlib import Path
 
-          report = {}
-          for path in sorted(Path('run-reports/widget').glob('*')):
-              text = path.read_text(encoding='utf-8', errors='replace')
-              contexts = {}
-              for word in (
-                  'TWidgetPost', 'TWidgetAuth', 'api_url', 'upload_url',
-                  'apiCall', 'download', 'document', 'getFile', 'getMessage',
-                  'peer_hash', 'peer-hash', 'post-id', 'inputDocument', 'upload.getFile'
-              ):
-                  positions = [m.start() for m in re.finditer(re.escape(word), text, flags=re.I)]
-                  contexts[word] = [
-                      text[max(0, pos - 1000):pos + 3000]
-                      for pos in positions[:30]
-                  ]
-              report[str(path)] = {
-                  'bytes': len(text.encode('utf-8')),
-                  'contexts': contexts,
-              }
-          Path('run-reports/widget/results.json').write_text(
-              json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
-          )
+          text = html.unescape(Path('run-reports/api/post.html').read_text(encoding='utf-8'))
+          values = {
+              'API_URL': re.search(r'"api_url":"([^"]+)', text).group(1).replace('\\/', '/'),
+              'UPLOAD_URL': re.search(r'"upload_url":"([^"]+)', text).group(1).replace('\\/', '/'),
+              'PEER': re.search(r'data-peer="([^"]+)', text).group(1),
+              'PEER_HASH': re.search(r'data-peer-hash="([^"]+)', text).group(1),
+              'POST_ID': re.search(r'data-post-id="([^"]+)', text).group(1),
+          }
+          for key, value in values.items():
+              print(f"{key}='{value}'")
           PY
+          source run-reports/api/config.env
+          methods=(
+            getMessage getMessages getPost getHistory getDocument getMedia getFile downloadFile
+            messages.getMessages channels.getMessages upload.getFile sendVote
+          )
+          index=0
+          for method in "${methods[@]}"; do
+            index=$((index + 1))
+            safe=$(printf '%s' "$method" | tr '.:' '__')
+            curl -L --compressed -sS \
+              -b run-reports/api/cookies.txt -c run-reports/api/cookies.txt \
+              -H 'X-Requested-With: XMLHttpRequest' \
+              -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' \
+              --data-urlencode "method=$method" \
+              --data-urlencode "peer=$PEER" \
+              --data-urlencode "peer_hash=$PEER_HASH" \
+              --data-urlencode "post_id=$POST_ID" \
+              --data-urlencode "id=$POST_ID" \
+              --data-urlencode "message_id=$POST_ID" \
+              --data-urlencode 'options=' \
+              -D "run-reports/api/${index}-${safe}-headers.txt" \
+              "$API_URL" -o "run-reports/api/${index}-${safe}.json" || true
+          done
+          curl -L --compressed -sS \
+            -b run-reports/api/cookies.txt -c run-reports/api/cookies.txt \
+            -H 'X-Requested-With: XMLHttpRequest' \
+            -F "method=getFile" \
+            -F "peer=$PEER" \
+            -F "peer_hash=$PEER_HASH" \
+            -F "post_id=$POST_ID" \
+            "$UPLOAD_URL" -o run-reports/api/upload-getFile.json || true
 
-      - name: Upload widget frame inspection
+      - name: Upload API probes
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: telewebion-0x16c79674-widget-frame
+          name: telewebion-0x16c79674-api-probes
           path: run-reports/**
           retention-days: 30
           if-no-files-found: error

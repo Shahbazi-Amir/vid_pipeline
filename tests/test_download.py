@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import unittest
+from unittest.mock import patch
 
 from vid_pipeline.download import _extract_info
 
@@ -48,7 +49,32 @@ class DownloadRetryTests(unittest.TestCase):
         self.assertNotIn("nocheckcertificate", FakeYoutubeDL.attempts[0])
         self.assertTrue(FakeYoutubeDL.attempts[1]["nocheckcertificate"])
 
-    def test_non_certificate_failure_is_not_retried(self) -> None:
+    @patch("vid_pipeline.download.time.sleep", return_value=None)
+    def test_timeout_is_retried(self, sleep_mock) -> None:
+        class TimeoutYoutubeDL(FakeYoutubeDL):
+            calls = 0
+
+            def extract_info(self, url: str, download: bool) -> dict[str, object]:
+                type(self).calls += 1
+                if type(self).calls < 3:
+                    raise RuntimeError("Unable to download webpage: timed out")
+                return {"url": url, "download": download, "title": "recovered"}
+
+        class TimeoutYtDlp:
+            YoutubeDL = TimeoutYoutubeDL
+
+        result = _extract_info(
+            TimeoutYtDlp,
+            "https://example.com/slow",
+            {"quiet": True},
+            download=False,
+        )
+
+        self.assertEqual(result["title"], "recovered")
+        self.assertEqual(TimeoutYoutubeDL.calls, 3)
+        self.assertEqual(sleep_mock.call_count, 2)
+
+    def test_non_retryable_failure_is_not_retried(self) -> None:
         class FailingYoutubeDL(FakeYoutubeDL):
             def extract_info(self, url: str, download: bool) -> dict[str, object]:
                 raise RuntimeError("HTTP Error 404: Not Found")

@@ -7,14 +7,23 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
+
+concurrency:
+  group: process-telewebion-0x16c79674
+  cancel-in-progress: true
 
 jobs:
   process:
     runs-on: ubuntu-latest
     timeout-minutes: 330
+    env:
+      VIDEO_URL: https://telewebion.ir/episode/0x16c79674
+      OUTPUT_BRANCH: agent/telewebion-0x16c79674-output
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -34,12 +43,12 @@ jobs:
       - name: Inspect source
         run: |
           mkdir -p run-reports
-          vid-pipeline inspect 'https://telewebion.ir/episode/0x16c79674' \
-            | tee run-reports/inspect.json
+          vid-pipeline inspect "$VIDEO_URL" | tee run-reports/inspect.json
 
       - name: Process video
         run: |
-          vid-pipeline run-url 'https://telewebion.ir/episode/0x16c79674' \
+          set -o pipefail
+          vid-pipeline run-url "$VIDEO_URL" \
             --name telewebion-0x16c79674 \
             --language fa \
             --model small \
@@ -47,7 +56,7 @@ jobs:
             --compute-type int8 \
             --beam-size 5 \
             --max-paragraph-words 80 \
-            | tee run-reports/run.json
+            2>&1 | tee run-reports/pipeline.log
 
       - name: Build review audio
         if: success()
@@ -55,10 +64,44 @@ jobs:
           wav=$(find outputs -path '*/audio/audio-16k-mono.wav' -print -quit)
           test -n "$wav"
           ffmpeg -hide_banner -loglevel error -y -i "$wav" \
-            -ac 1 -ar 16000 -b:a 48k run-reports/review-audio.mp3
+            -ac 1 -ar 16000 -codec:a libmp3lame -b:a 48k \
+            run-reports/review-audio.mp3
           ffprobe -v error -show_entries format=duration \
             -of default=noprint_wrappers=1:nokey=1 "$wav" \
             > run-reports/duration-seconds.txt
+
+      - name: Prepare repository package
+        if: success()
+        run: |
+          job_root=$(find outputs -mindepth 1 -maxdepth 1 -type d -name 'telewebion-0x16c79674-*' -print -quit)
+          test -n "$job_root"
+
+          target='processing/telewebion-0x16c79674'
+          rm -rf "$target"
+          mkdir -p "$target/raw" "$target/machine-final" "$target/reports"
+
+          cp "$job_root/source.json" "$target/source.json"
+          cp "$job_root/video-info.json" "$target/video-info.json"
+          cp "$job_root/state.json" "$target/state.json"
+          cp "$job_root/result.json" "$target/result.json"
+          cp "$job_root/raw/transcript.raw.json" "$target/raw/transcript.raw.json"
+          cp "$job_root/raw/transcript.raw.md" "$target/raw/transcript.raw.md"
+          cp "$job_root/final/transcript.final.md" "$target/machine-final/transcript.final.md"
+          cp "$job_root/final/transcript.final.txt" "$target/machine-final/transcript.final.txt"
+          cp run-reports/inspect.json "$target/reports/inspect.json"
+          cp run-reports/pipeline.log "$target/reports/pipeline.log"
+          cp run-reports/duration-seconds.txt "$target/reports/duration-seconds.txt"
+          cp run-reports/review-audio.mp3 "$target/review-audio.mp3"
+
+      - name: Commit technical outputs to output branch
+        if: success()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -C "$OUTPUT_BRANCH"
+          git add processing/telewebion-0x16c79674
+          git commit -m 'Store Telewebion 0x16c79674 technical output'
+          git push --force origin "HEAD:$OUTPUT_BRANCH"
 
       - name: Upload transcript package
         if: always()
@@ -75,12 +118,3 @@ jobs:
             run-reports/**
           retention-days: 30
           if-no-files-found: warn
-
-      - name: Upload review audio
-        if: success()
-        uses: actions/upload-artifact@v4
-        with:
-          name: telewebion-0x16c79674-audio
-          path: run-reports/review-audio.mp3
-          retention-days: 30
-          if-no-files-found: error

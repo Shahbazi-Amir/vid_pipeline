@@ -3,9 +3,9 @@ requires = ["setuptools>=69", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "financial-video-rag-pipeline"
-version = "0.2.0"
-description = "Modular video-to-transcript pipeline for Persian financial education content."
+name = "video-transcript-pipeline"
+version = "0.3.0"
+description = "Standalone pipeline that converts video URLs into raw and cleaned transcripts."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }

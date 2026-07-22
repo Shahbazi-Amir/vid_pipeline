@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   process:
-    if: github.event_name != 'pull_request' || github.event.pull_request.head.ref == 'agent/telewebion-0x16c79674'
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.ref == 'agent/telewebion-run-clean'
     runs-on: ubuntu-latest
     timeout-minutes: 330
     env:

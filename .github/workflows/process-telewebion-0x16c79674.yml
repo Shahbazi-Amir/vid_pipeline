@@ -40,7 +40,7 @@ jobs:
             "started_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
           }
           EOF
-          git add "$TARGET_DIR/status.json"
+          git add -f "$TARGET_DIR/status.json"
           git commit -m 'Start Telewebion 0x16c79674 processing'
           git push --force origin "HEAD:$OUTPUT_BRANCH"
 
@@ -123,7 +123,7 @@ jobs:
       - name: Commit completed technical outputs
         if: success()
         run: |
-          git add "$TARGET_DIR"
+          git add -f "$TARGET_DIR"
           git commit -m 'Store Telewebion 0x16c79674 technical output'
           git push --force origin "HEAD:$OUTPUT_BRANCH"
 
@@ -147,7 +147,7 @@ jobs:
             "failed_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
           }
           EOF
-          git add "$TARGET_DIR"
+          git add -f "$TARGET_DIR"
           git commit -m 'Record Telewebion 0x16c79674 failure' || true
           git push --force origin "HEAD:$OUTPUT_BRANCH"
 

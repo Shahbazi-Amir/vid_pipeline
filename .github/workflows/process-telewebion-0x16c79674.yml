@@ -1,4 +1,4 @@
-name: Probe official Be Vaghte Iran channel
+name: Probe Castbox podcast feed
 
 on:
   push:
@@ -23,27 +23,40 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Fetch official channel search pages
+      - name: Fetch Castbox channel and API candidates
         shell: bash
         run: |
-          mkdir -p run-reports/bevaqteiran
+          mkdir -p run-reports/castbox
           urls=(
-            'https://t.me/s/bevaqteiran?q=%D9%85%DB%8C%D8%B1%D8%A8%D8%A7%D9%82%D8%B1%DB%8C'
-            'https://t.me/s/bevaqteiran?q=%D9%82%D8%B5%D8%A7%D8%B5'
-            'https://t.me/s/bevaqteiran?q=%D8%A7%D9%86%D8%AA%D9%82%D8%A7%D9%85'
-            'https://t.me/s/bevaqteiran?q=%D8%B1%D9%88%D8%A7%DB%8C%D8%AA%20%D9%81%D8%AA%D8%AD'
-            'https://t.me/s/bevaqteiran?q=%DB%B1%DB%B6%20%D8%AA%DB%8C%D8%B1'
+            'https://castbox.fm/channel/id4800546'
+            'https://castbox.fm/channel/%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%86-%D9%BE%D8%A7%D8%AF%DA%A9%D8%B3%D8%AA-id4800546'
+            'https://api.castbox.fm/v1/channel?cid=4800546'
+            'https://api.castbox.fm/v2/channel?cid=4800546'
+            'https://api.castbox.fm/v3/channel?cid=4800546'
+            'https://api.castbox.fm/v1/channels/4800546'
+            'https://api.castbox.fm/v2/channels/4800546'
+            'https://api.castbox.fm/v3/channels/4800546'
+            'https://api.castbox.fm/v1/channel/4800546'
+            'https://api.castbox.fm/v2/channel/4800546'
+            'https://api.castbox.fm/v3/channel/4800546'
+            'https://castbox.fm/channel/id4800546?country=us'
+            'https://castbox.fm/channel/id4800546?country=ir'
+            'https://castbox.fm/channel/id4800546?reverse=0'
+            'https://castbox.fm/channel/id4800546?reverse=1'
           )
           index=0
           for url in "${urls[@]}"; do
             index=$((index + 1))
-            printf '%s\n' "$url" > "run-reports/bevaqteiran/${index}-url.txt"
+            dir="run-reports/castbox/${index}"
+            mkdir -p "$dir"
+            printf '%s\n' "$url" > "$dir/url.txt"
             curl -L --compressed -sS --max-time 120 \
               -A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/126 Safari/537.36' \
-              "$url" -o "run-reports/bevaqteiran/${index}.html" || true
+              -D "$dir/headers.txt" \
+              "$url" -o "$dir/body.txt" || true
           done
 
-      - name: Parse matching posts and media
+      - name: Extract feed, episode and audio clues
         shell: bash
         run: |
           python - <<'PY'
@@ -52,53 +65,48 @@ jobs:
           import re
           from pathlib import Path
 
-          results = []
-          for path in sorted(Path('run-reports/bevaqteiran').glob('*.html')):
-              raw = html.unescape(path.read_text(encoding='utf-8', errors='replace'))
-              post_ids = sorted(set(re.findall(r'data-post="bevaqteiran/(\d+)"', raw)), key=int)
-              for post_id in post_ids:
-                  marker = f'data-post="bevaqteiran/{post_id}"'
-                  start = raw.find(marker)
-                  next_pos = raw.find('data-post="bevaqteiran/', start + len(marker))
-                  block = raw[start:next_pos if next_pos > 0 else len(raw)]
-                  plain = re.sub(r'<br\s*/?>', '\n', block, flags=re.I)
-                  plain = re.sub(r'<[^>]+>', ' ', plain)
-                  plain = ' '.join(html.unescape(plain).split())
-                  urls = sorted(set(re.findall(r'https?://[^"\'<> ]+', block)))
-                  style_urls = sorted(set(re.findall(r"url\(['\"]?([^'\")]+)", block)))
-                  srcs = sorted(set(re.findall(r'(?:src|href)="([^"]+)"', block)))
-                  media = [
-                      value for value in urls + style_urls + srcs
-                      if any(term in value.lower() for term in (
-                          '.mp3', '.m4a', '.ogg', '.wav', '.mp4', '.m3u8',
-                          'video', 'audio', 'document', 'telesco.pe', 'cdn'
-                      ))
+          terms = ('قصاص', 'انتقام', 'روایت فتح', 'میرباقری', 'برنامه 167', 'برنامه ۱۶۷')
+          report = []
+          for directory in sorted(Path('run-reports/castbox').iterdir(), key=lambda p: int(p.name)):
+              body = html.unescape((directory / 'body.txt').read_text(encoding='utf-8', errors='replace'))
+              headers = (directory / 'headers.txt').read_text(encoding='utf-8', errors='replace')
+              urls = sorted(set(re.findall(r'https?://[^"\'<>\\ ]+', body)))
+              interesting = [
+                  value for value in urls
+                  if any(token in value.lower() for token in (
+                      '.mp3', '.m4a', '.ogg', '.wav', '.rss', '/rss', 'feed',
+                      'episode', 'audio', 'podcast', 'api.castbox', 'rss.castbox'
+                  ))
+              ]
+              contexts = {}
+              for term in ('rss', 'feed', 'audio', 'episode', '4800546', *terms):
+                  contexts[term] = [
+                      body[max(0, match.start() - 500):match.start() + 1500]
+                      for match in list(re.finditer(re.escape(term), body, flags=re.I))[:20]
                   ]
-                  duration = re.findall(r'(?:message_video_duration[^>]*>|duration[^>]*>)([^<]+)', block, flags=re.I)
-                  if any(term in plain for term in ('میرباقری', 'قصاص', 'انتقام', 'روایت فتح', '۱۶ تیر', '16 تیر')):
-                      results.append({
-                          'source_file': str(path),
-                          'post_id': int(post_id),
-                          'post_url': f'https://t.me/bevaqteiran/{post_id}',
-                          'text': plain,
-                          'duration': duration,
-                          'media_candidates': sorted(set(media)),
-                          'html_block': block,
-                      })
-          Path('run-reports/bevaqteiran/results.json').write_text(
-              json.dumps(results, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+              report.append({
+                  'index': int(directory.name),
+                  'url': (directory / 'url.txt').read_text().strip(),
+                  'bytes': len(body.encode('utf-8')),
+                  'content_type': next((line.split(':', 1)[1].strip() for line in headers.splitlines() if line.lower().startswith('content-type:')), ''),
+                  'matched_terms': [term for term in terms if term in body],
+                  'interesting_urls': interesting,
+                  'contexts': contexts,
+              })
+          Path('run-reports/castbox/results.json').write_text(
+              json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
           )
           print(json.dumps([
-              {k: row[k] for k in ('post_id', 'post_url', 'duration', 'media_candidates')}
-              for row in results
+              {k: row[k] for k in ('index', 'url', 'bytes', 'content_type', 'matched_terms', 'interesting_urls')}
+              for row in report
           ], ensure_ascii=False, indent=2))
           PY
 
-      - name: Upload official-channel probe
+      - name: Upload Castbox probes
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: telewebion-0x16c79674-bevaqteiran
+          name: telewebion-0x16c79674-castbox
           path: run-reports/**
           retention-days: 30
           if-no-files-found: error

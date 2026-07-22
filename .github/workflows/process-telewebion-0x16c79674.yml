@@ -18,7 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 330
     env:
-      VIDEO_URL: https://telewebion.ir/episode/0x16c79674
+      SOURCE_URL: https://telewebion.ir/episode/0x16c79674
+      VIDEO_URL: https://cdna.telewebion.ir/irinn/episode/0x16c79674/playlist.m3u8
       OUTPUT_BRANCH: agent/telewebion-0x16c79674-output
       TARGET_DIR: processing/telewebion-0x16c79674
     steps:
@@ -35,7 +36,8 @@ jobs:
           cat > "$TARGET_DIR/status.json" <<EOF
           {
             "status": "running",
-            "source_url": "$VIDEO_URL",
+            "source_url": "$SOURCE_URL",
+            "media_url": "$VIDEO_URL",
             "workflow_run_id": "$GITHUB_RUN_ID",
             "started_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
           }
@@ -114,7 +116,8 @@ jobs:
           cat > "$TARGET_DIR/status.json" <<EOF
           {
             "status": "completed",
-            "source_url": "$VIDEO_URL",
+            "source_url": "$SOURCE_URL",
+            "media_url": "$VIDEO_URL",
             "workflow_run_id": "$GITHUB_RUN_ID",
             "completed_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
           }
@@ -142,7 +145,8 @@ jobs:
           cat > "$TARGET_DIR/status.json" <<EOF
           {
             "status": "failed",
-            "source_url": "$VIDEO_URL",
+            "source_url": "$SOURCE_URL",
+            "media_url": "$VIDEO_URL",
             "workflow_run_id": "$GITHUB_RUN_ID",
             "failed_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
           }

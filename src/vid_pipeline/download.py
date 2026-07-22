@@ -8,6 +8,12 @@ from typing import Any
 
 from vid_pipeline.errors import ExternalToolError
 
+_CERTIFICATE_ERROR_MARKERS = (
+    "certificate_verify_failed",
+    "certificate verify failed",
+    "hostname mismatch",
+)
+
 
 def _yt_dlp_module():
     try:
@@ -19,13 +25,39 @@ def _yt_dlp_module():
     return yt_dlp
 
 
+def _is_certificate_error(error: Exception) -> bool:
+    message = str(error).casefold()
+    return any(marker in message for marker in _CERTIFICATE_ERROR_MARKERS)
+
+
+def _extract_info(
+    yt_dlp: Any,
+    url: str,
+    options: dict[str, Any],
+    *,
+    download: bool,
+) -> dict[str, Any]:
+    """Extract sanitized info and retry only certificate-validation failures."""
+
+    try:
+        with yt_dlp.YoutubeDL(options) as downloader:
+            info = downloader.extract_info(url, download=download)
+            return downloader.sanitize_info(info)
+    except Exception as exc:
+        if not _is_certificate_error(exc):
+            raise
+
+    retry_options = {**options, "nocheckcertificate": True}
+    with yt_dlp.YoutubeDL(retry_options) as downloader:
+        info = downloader.extract_info(url, download=download)
+        return downloader.sanitize_info(info)
+
+
 def extract_metadata(url: str) -> dict[str, Any]:
     yt_dlp = _yt_dlp_module()
     options = {"quiet": True, "no_warnings": True, "noplaylist": True, "skip_download": True}
     try:
-        with yt_dlp.YoutubeDL(options) as downloader:
-            info = downloader.extract_info(url, download=False)
-            return downloader.sanitize_info(info)
+        return _extract_info(yt_dlp, url, options, download=False)
     except Exception as exc:
         raise ExternalToolError(f"yt-dlp could not inspect the source: {exc}") from exc
 
@@ -47,28 +79,26 @@ def download_video(url: str, output_dir: str | Path) -> tuple[Path, dict[str, An
         "writeinfojson": False,
     }
     try:
-        with yt_dlp.YoutubeDL(options) as downloader:
-            info = downloader.extract_info(url, download=True)
-            sanitized = downloader.sanitize_info(info)
-            requested = sanitized.get("requested_downloads") or []
-            filename = sanitized.get("_filename")
-            candidates = [
-                Path(item.get("filepath", ""))
-                for item in requested
-                if item.get("filepath")
-            ]
-            if filename:
-                candidates.append(Path(filename))
-            candidates.extend(destination.glob("video.*"))
-            video = next((item for item in candidates if item.exists() and item.is_file()), None)
-            if video is None:
-                raise ExternalToolError("Download completed but no video file was found.")
-            metadata_path = destination.parent / "video-info.json"
-            metadata_path.write_text(
-                json.dumps(sanitized, ensure_ascii=False, indent=2) + "\n",
-                encoding="utf-8",
-            )
-            return video, sanitized
+        sanitized = _extract_info(yt_dlp, url, options, download=True)
+        requested = sanitized.get("requested_downloads") or []
+        filename = sanitized.get("_filename")
+        candidates = [
+            Path(item.get("filepath", ""))
+            for item in requested
+            if item.get("filepath")
+        ]
+        if filename:
+            candidates.append(Path(filename))
+        candidates.extend(destination.glob("video.*"))
+        video = next((item for item in candidates if item.exists() and item.is_file()), None)
+        if video is None:
+            raise ExternalToolError("Download completed but no video file was found.")
+        metadata_path = destination.parent / "video-info.json"
+        metadata_path.write_text(
+            json.dumps(sanitized, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        return video, sanitized
     except ExternalToolError:
         raise
     except Exception as exc:

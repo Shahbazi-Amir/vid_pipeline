@@ -61,13 +61,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e '.[all]'
 
-      - name: Inspect source
-        run: |
-          mkdir -p run-reports
-          vid-pipeline inspect "$VIDEO_URL" | tee run-reports/inspect.json
-
       - name: Process video
         run: |
+          mkdir -p run-reports
           set -o pipefail
           vid-pipeline run-url "$VIDEO_URL" \
             --name telewebion-0x16c79674 \
@@ -108,7 +104,6 @@ jobs:
           cp "$job_root/raw/transcript.raw.md" "$TARGET_DIR/raw/transcript.raw.md"
           cp "$job_root/final/transcript.final.md" "$TARGET_DIR/machine-final/transcript.final.md"
           cp "$job_root/final/transcript.final.txt" "$TARGET_DIR/machine-final/transcript.final.txt"
-          cp run-reports/inspect.json "$TARGET_DIR/reports/inspect.json"
           cp run-reports/pipeline.log "$TARGET_DIR/reports/pipeline.log"
           cp run-reports/duration-seconds.txt "$TARGET_DIR/reports/duration-seconds.txt"
           cp run-reports/review-audio.mp3 "$TARGET_DIR/review-audio.mp3"

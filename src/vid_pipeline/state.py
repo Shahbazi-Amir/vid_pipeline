@@ -11,7 +11,16 @@ from typing import Any
 
 from vid_pipeline.models import StageRecord
 
-STAGES = ("source", "download", "audio", "transcribe", "review_package", "review", "rag")
+STAGES = (
+    "source",
+    "download",
+    "audio",
+    "transcribe",
+    "clean",
+    "review_package",
+    "review",
+    "rag",
+)
 
 
 def utc_now() -> str:
@@ -27,7 +36,7 @@ def sha256_file(path: str | Path) -> str:
 
 
 class PipelineState:
-    """Read and update an episode state file atomically."""
+    """Read and update a pipeline state file atomically."""
 
     def __init__(self, path: str | Path) -> None:
         self.path = Path(path)

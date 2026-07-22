@@ -1,4 +1,4 @@
-name: Inspect Telegram widget media requests
+name: Inspect Telegram widget frame API
 
 on:
   push:
@@ -23,23 +23,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Fetch Telegram widget resources
+      - name: Fetch widget frame source
         shell: bash
         run: |
           mkdir -p run-reports/widget
           curl -L --compressed -sS \
             -e 'https://t.me/ostad_mirbaqeri/2102?embed=1&mode=tme' \
-            'https://oauth.tg.dev/js/telegram-widget.js?24' \
-            -o run-reports/widget/oauth-widget.js || true
-          curl -L --compressed -sS \
-            -e 'https://t.me/ostad_mirbaqeri/2102?embed=1&mode=tme' \
-            'https://telegram.org/js/telegram-widget.js?24' \
-            -o run-reports/widget/telegram-widget.js || true
+            'https://telegram.org/js/widget-frame.js?67' \
+            -o run-reports/widget/widget-frame.js
           curl -L --compressed -sS \
             'https://t.me/ostad_mirbaqeri/2102?embed=1&mode=tme' \
-            -o run-reports/widget/post.html || true
+            -o run-reports/widget/post.html
 
-      - name: Extract endpoint clues
+      - name: Extract API call logic
         shell: bash
         run: |
           python - <<'PY'
@@ -50,31 +46,31 @@ jobs:
           report = {}
           for path in sorted(Path('run-reports/widget').glob('*')):
               text = path.read_text(encoding='utf-8', errors='replace')
-              urls = sorted(set(re.findall(r'https?://[^"\'<> )]+', text)))
-              endpoints = sorted(set(re.findall(r'["\'](/[^"\']{1,160})["\']', text)))
-              keywords = {}
-              for word in ('peer_hash', 'peer-hash', 'post-id', 'document', 'audio', 'download', 'telesco', 'ajax', 'api'):
+              contexts = {}
+              for word in (
+                  'TWidgetPost', 'TWidgetAuth', 'api_url', 'upload_url',
+                  'apiCall', 'download', 'document', 'getFile', 'getMessage',
+                  'peer_hash', 'peer-hash', 'post-id', 'inputDocument', 'upload.getFile'
+              ):
                   positions = [m.start() for m in re.finditer(re.escape(word), text, flags=re.I)]
-                  keywords[word] = [
-                      text[max(0, pos - 250):pos + 500]
-                      for pos in positions[:20]
+                  contexts[word] = [
+                      text[max(0, pos - 1000):pos + 3000]
+                      for pos in positions[:30]
                   ]
               report[str(path)] = {
                   'bytes': len(text.encode('utf-8')),
-                  'urls': urls,
-                  'endpoints': endpoints,
-                  'keyword_contexts': keywords,
+                  'contexts': contexts,
               }
           Path('run-reports/widget/results.json').write_text(
               json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
           )
           PY
 
-      - name: Upload widget inspection
+      - name: Upload widget frame inspection
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: telewebion-0x16c79674-widget-inspection
+          name: telewebion-0x16c79674-widget-frame
           path: run-reports/**
           retention-days: 30
           if-no-files-found: error

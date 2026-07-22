@@ -1,13 +1,20 @@
-name: Process Telewebion 0x16c79674
+name: Process Telewebion 0x16c79674 from verified audio
 
 on:
   push:
+    paths:
+      - .github/workflows/process-telewebion-0x16c79674.yml
+  pull_request:
     paths:
       - .github/workflows/process-telewebion-0x16c79674.yml
   workflow_dispatch:
 
 permissions:
   contents: read
+
+concurrency:
+  group: telewebion-0x16c79674-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   process:
@@ -21,66 +28,166 @@ jobs:
           python-version: '3.11'
           cache: pip
 
-      - name: Install system dependencies
+      - name: Install dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg
-
-      - name: Install pipeline
-        run: |
           python -m pip install --upgrade pip
           pip install -e '.[all]'
 
-      - name: Inspect source
+      - name: Download verified official audio mirror
+        shell: bash
         run: |
-          mkdir -p run-reports
-          vid-pipeline inspect 'https://telewebion.ir/episode/0x16c79674' \
-            | tee run-reports/inspect.json
+          set -euo pipefail
+          mkdir -p processing/telewebion-0x16c79674/source
+          target='https://t.me/bevaqteiran/1446'
+          endpoint="https://tgvideodownloader.org/api/api/download?url=$(python -c 'import sys,urllib.parse; print(urllib.parse.quote(sys.argv[1], safe=""))' "$target")"
+          printf '%s\n' "$target" > processing/telewebion-0x16c79674/source/telegram-post.txt
+          printf '%s\n' "$endpoint" > processing/telewebion-0x16c79674/source/resolver-endpoint.txt
+          curl -L --fail --show-error --retry 5 --retry-all-errors \
+            --connect-timeout 30 --max-time 1800 \
+            -A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/126 Safari/537.36' \
+            -D processing/telewebion-0x16c79674/source/download-headers.txt \
+            "$endpoint" \
+            -o processing/telewebion-0x16c79674/source/official-audio.bin
+          file processing/telewebion-0x16c79674/source/official-audio.bin \
+            | tee processing/telewebion-0x16c79674/source/file-type.txt
+          stat --printf='%s\n' processing/telewebion-0x16c79674/source/official-audio.bin \
+            | tee processing/telewebion-0x16c79674/source/size-bytes.txt
 
-      - name: Process video
+      - name: Validate source identity
+        shell: bash
         run: |
-          vid-pipeline run-url 'https://telewebion.ir/episode/0x16c79674' \
-            --name telewebion-0x16c79674 \
-            --language fa \
-            --model small \
-            --device cpu \
-            --compute-type int8 \
-            --beam-size 5 \
-            --max-paragraph-words 80 \
-            | tee run-reports/run.json
+          set -euo pipefail
+          source_file=processing/telewebion-0x16c79674/source/official-audio.bin
+          ffprobe -v error -show_entries format=duration,format_name,bit_rate \
+            -show_entries stream=codec_type,codec_name,sample_rate,channels \
+            -of json "$source_file" \
+            | tee processing/telewebion-0x16c79674/source/ffprobe.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
 
-      - name: Build review audio
-        if: success()
+          root = Path('processing/telewebion-0x16c79674/source')
+          probe = json.loads((root / 'ffprobe.json').read_text())
+          duration = float(probe['format']['duration'])
+          size = (root / 'official-audio.bin').stat().st_size
+          if not 3945 <= duration <= 3975:
+              raise SystemExit(f'Unexpected audio duration: {duration}; expected about 3959 seconds')
+          if size < 12_000_000:
+              raise SystemExit(f'Unexpected audio size: {size}; expected the 16.4 MB official file')
+          payload = {
+              'schema_version': 1,
+              'telewebion_url': 'https://telewebion.ir/episode/0x16c79674',
+              'official_telegram_post': 'https://t.me/bevaqteiran/1446',
+              'official_eitaa_post': 'https://eitaa.com/mirbaqeri_ir/8029',
+              'program': 'به وقت ایران',
+              'episode': 167,
+              'broadcast_date': '۱۶ تیر ۱۴۰۵',
+              'title': 'قصاص، انتقام و روایت فتح',
+              'duration_seconds': duration,
+              'size_bytes': size,
+              'speakers': [
+                  'آیت‌الله سیدمحمدمهدی میرباقری',
+                  'وحید خضاب',
+                  'سرباز روح‌الله رضوی',
+                  'نیما اکبرخانی',
+              ],
+          }
+          (root / 'source.json').write_text(
+              json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+          )
+          PY
+
+      - name: Normalize audio
+        shell: bash
         run: |
-          wav=$(find outputs -path '*/audio/audio-16k-mono.wav' -print -quit)
-          test -n "$wav"
-          ffmpeg -hide_banner -loglevel error -y -i "$wav" \
-            -ac 1 -ar 16000 -b:a 48k run-reports/review-audio.mp3
-          ffprobe -v error -show_entries format=duration \
-            -of default=noprint_wrappers=1:nokey=1 "$wav" \
-            > run-reports/duration-seconds.txt
+          mkdir -p processing/telewebion-0x16c79674/audio
+          ffmpeg -hide_banner -loglevel error -y \
+            -i processing/telewebion-0x16c79674/source/official-audio.bin \
+            -vn -ac 1 -ar 16000 -c:a pcm_s16le \
+            processing/telewebion-0x16c79674/audio/audio-16k-mono.wav
+          ffprobe -v error -show_entries format=duration:stream=codec_type,codec_name,sample_rate,channels \
+            -of json processing/telewebion-0x16c79674/audio/audio-16k-mono.wav \
+            > processing/telewebion-0x16c79674/audio/ffprobe.json
 
-      - name: Upload transcript package
+      - name: Transcribe Persian audio
+        shell: bash
+        run: |
+          mkdir -p processing/telewebion-0x16c79674/raw processing/telewebion-0x16c79674/final
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          from vid_pipeline.clean import clean_transcript
+          from vid_pipeline.transcribe import TranscriptionConfig, transcribe_audio
+
+          root = Path('processing/telewebion-0x16c79674')
+          prompt = (
+              'به وقت ایران، برنامه ۱۶۷، آیت‌الله سیدمحمدمهدی میرباقری، '
+              'وحید خضاب، سرباز روح‌الله رضوی، نیما اکبرخانی، قصاص، انتقام، '
+              'روایت فتح، جبهه حق، رژیم صهیونیستی، جمهوری اسلامی، خون‌خواهی، '
+              'مقاومت، جنگ شناختی، استقلال رسانه‌ای'
+          )
+          config = TranscriptionConfig(
+              model='small',
+              device='cpu',
+              compute_type='int8',
+              language='fa',
+              beam_size=5,
+              initial_prompt=prompt,
+          )
+          result = transcribe_audio(
+              root / 'audio/audio-16k-mono.wav',
+              root / 'raw/transcript.raw.json',
+              root / 'raw/transcript.raw.md',
+              config,
+          )
+          clean = clean_transcript(
+              root / 'raw/transcript.raw.json',
+              root / 'final/transcript.machine.md',
+              root / 'final/transcript.machine.txt',
+              title='قصاص، انتقام و روایت فتح',
+              source_url='https://telewebion.ir/episode/0x16c79674',
+              max_words=80,
+          )
+          summary = {
+              'duration': result.get('duration'),
+              'segments': len(result.get('segments', [])),
+              'language': result.get('language'),
+              'model': result.get('model'),
+              'device': result.get('device'),
+              'clean': clean,
+              'review_status': 'needs_review',
+          }
+          (root / 'result.json').write_text(
+              json.dumps(summary, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+          )
+          PY
+
+      - name: Upload transcription and review package
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: telewebion-0x16c79674-transcript
+          name: telewebion-0x16c79674-transcription
           path: |
-            outputs/**/state.json
-            outputs/**/source.json
-            outputs/**/video-info.json
-            outputs/**/result.json
-            outputs/**/raw/**
-            outputs/**/final/**
-            run-reports/**
+            processing/telewebion-0x16c79674/source/source.json
+            processing/telewebion-0x16c79674/source/ffprobe.json
+            processing/telewebion-0x16c79674/source/download-headers.txt
+            processing/telewebion-0x16c79674/source/file-type.txt
+            processing/telewebion-0x16c79674/source/size-bytes.txt
+            processing/telewebion-0x16c79674/audio/ffprobe.json
+            processing/telewebion-0x16c79674/raw/**
+            processing/telewebion-0x16c79674/final/**
+            processing/telewebion-0x16c79674/result.json
           retention-days: 30
           if-no-files-found: warn
 
-      - name: Upload review audio
+      - name: Upload official audio for review
         if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: telewebion-0x16c79674-audio
-          path: run-reports/review-audio.mp3
+          name: telewebion-0x16c79674-review-audio
+          path: processing/telewebion-0x16c79674/source/official-audio.bin
           retention-days: 30
           if-no-files-found: error

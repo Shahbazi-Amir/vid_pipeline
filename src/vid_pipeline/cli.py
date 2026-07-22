@@ -29,6 +29,14 @@ def _add_transcription_options(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--initial-prompt", default=DEFAULT_INITIAL_PROMPT)
 
 
+def _add_source_options(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument(
+        "--no-check-certificate",
+        action="store_true",
+        help="Disable TLS certificate validation for sources with a broken certificate chain.",
+    )
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="vid-pipeline",
@@ -46,10 +54,12 @@ def build_parser() -> argparse.ArgumentParser:
     run_parser.add_argument("--name", default="")
     run_parser.add_argument("--max-paragraph-words", type=int, default=90)
     run_parser.add_argument("--force", action="store_true")
+    _add_source_options(run_parser)
     _add_transcription_options(run_parser)
 
     inspect_parser = subparsers.add_parser("inspect", help="Inspect a video URL with yt-dlp.")
     inspect_parser.add_argument("url")
+    _add_source_options(inspect_parser)
 
     clean_parser = subparsers.add_parser(
         "clean",
@@ -70,7 +80,12 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def command_run_url(args: argparse.Namespace) -> int:
-    pipeline = VideoPipeline(args.url, args.output_root, args.name)
+    pipeline = VideoPipeline(
+        args.url,
+        args.output_root,
+        args.name,
+        no_check_certificate=args.no_check_certificate,
+    )
     config = TranscriptionConfig(
         model=args.model,
         device=args.device,
@@ -97,7 +112,12 @@ def command_run_url(args: argparse.Namespace) -> int:
 
 
 def command_inspect(args: argparse.Namespace) -> int:
-    _json_print(extract_metadata(args.url))
+    _json_print(
+        extract_metadata(
+            args.url,
+            no_check_certificate=args.no_check_certificate,
+        )
+    )
     return 0
 
 

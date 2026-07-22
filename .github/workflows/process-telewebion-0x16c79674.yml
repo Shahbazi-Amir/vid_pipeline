@@ -1,4 +1,4 @@
-name: Locate interview audio in Eitaa
+name: Resolve Eitaa audio download
 
 on:
   push:
@@ -17,36 +17,38 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  locate:
+  resolve:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
 
-      - name: Search the official channel
+      - name: Fetch post variants and client scripts
         shell: bash
         run: |
-          mkdir -p run-reports/eitaa-search
-          queries=(
-            'به وقت ایران'
-            'قصاص'
-            'انتقام'
-            'روایت فتح'
-            'نقد و تخریب'
-            'خونخواهی'
+          mkdir -p run-reports/eitaa-resolve
+          urls=(
+            'https://eitaa.com/mirbaqeri_ir/8029'
+            'https://eitaa.com/s/mirbaqeri_ir/8029'
+            'https://eitaa.com/mirbaqeri_ir/8029?embed=1'
+            'https://eitaa.com/mirbaqeri_ir/8029?embed=1&mode=etme'
+            'https://eitaa.com/mirbaqeri_ir/8029?single'
           )
           index=0
-          for query in "${queries[@]}"; do
+          for url in "${urls[@]}"; do
             index=$((index + 1))
-            encoded=$(python -c 'import sys,urllib.parse; print(urllib.parse.quote(sys.argv[1]))' "$query")
-            printf '%s\n' "$query" > "run-reports/eitaa-search/${index}-query.txt"
+            printf '%s\n' "$url" > "run-reports/eitaa-resolve/${index}-url.txt"
             curl -L --compressed -sS --max-time 120 \
               -A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/126 Safari/537.36' \
-              "https://eitaa.com/mirbaqeri_ir/?q=${encoded}" \
-              -o "run-reports/eitaa-search/${index}.html"
+              -D "run-reports/eitaa-resolve/${index}-headers.txt" \
+              "$url" -o "run-reports/eitaa-resolve/${index}.html" || true
           done
+          curl -L --compressed -sS 'https://eitaa.com/js/eitaa-web.js' \
+            -o run-reports/eitaa-resolve/eitaa-web.js
+          curl -L --compressed -sS 'https://eitaa.com/js/widget-frame.js' \
+            -o run-reports/eitaa-resolve/widget-frame.js
 
-      - name: Parse matching posts and documents
+      - name: Extract download and API clues
         shell: bash
         run: |
           python - <<'PY'
@@ -55,59 +57,36 @@ jobs:
           import re
           from pathlib import Path
 
-          results = {}
-          for path in sorted(Path('run-reports/eitaa-search').glob('*.html')):
-              raw = html.unescape(path.read_text(encoding='utf-8', errors='replace'))
-              blocks = re.findall(
-                  r'<div class="etme_widget_message_wrap[^>]*id="(\d+)".*?(?=<div class="etme_widget_message_wrap|</main>|$)',
-                  raw,
-                  flags=re.S,
-              )
-              posts = []
-              for post_id in blocks:
-                  start = raw.find(f'id="{post_id}"')
-                  next_match = re.search(r'<div class="etme_widget_message_wrap', raw[start + 10:])
-                  end = start + 10 + next_match.start() if next_match else len(raw)
-                  block = raw[start:end]
-                  title_match = re.search(
-                      r'etme_widget_message_document_title[^>]*>(.*?)</div>', block, flags=re.S
-                  )
-                  extra_match = re.search(
-                      r'etme_widget_message_document_extra[^>]*>(.*?)</div>', block, flags=re.S
-                  )
-                  text_match = re.search(
-                      r'etme_widget_message_text[^>]*>(.*?)</div>', block, flags=re.S
-                  )
-                  time_match = re.search(r'<time datetime="([^"]+)"', block)
-                  def clean(value):
-                      value = re.sub(r'<br\s*/?>', '\n', value or '', flags=re.I)
-                      value = re.sub(r'<[^>]+>', '', value)
-                      return ' '.join(html.unescape(value).split())
-                  download_urls = sorted(set(re.findall(
-                      r'(?:href|src)="([^"]*(?:download|\.mp3|\.m4a|\.ogg|\.wav|\.mp4)[^"]*)"',
-                      block,
-                      flags=re.I,
-                  )))
-                  posts.append({
-                      'post_id': int(post_id),
-                      'url': f'https://eitaa.com/mirbaqeri_ir/{post_id}',
-                      'published_at': time_match.group(1) if time_match else '',
-                      'document_title': clean(title_match.group(1)) if title_match else '',
-                      'document_extra': clean(extra_match.group(1)) if extra_match else '',
-                      'text': clean(text_match.group(1)) if text_match else '',
-                      'download_urls': download_urls,
-                  })
-              results[str(path)] = posts
-          Path('run-reports/eitaa-search/results.json').write_text(
-              json.dumps(results, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+          report = {}
+          for path in sorted(Path('run-reports/eitaa-resolve').glob('*')):
+              if path.suffix not in {'.html', '.js'}:
+                  continue
+              text = html.unescape(path.read_text(encoding='utf-8', errors='replace'))
+              urls = sorted(set(re.findall(r'(?:https?:)?//[^"\'<> )]+|/download_[^"\'<> )]+', text)))
+              contexts = {}
+              for term in (
+                  'document_wrap', 'document_title', 'download_', 'audio', 'getFile',
+                  'file_id', 'document_id', 'ajax', 'fetch(', 'XMLHttpRequest', 'data-post'
+              ):
+                  contexts[term] = [
+                      text[max(0, m.start() - 600):m.start() + 1800]
+                      for m in list(re.finditer(re.escape(term), text, flags=re.I))[:30]
+                  ]
+              report[str(path)] = {
+                  'bytes': len(text.encode('utf-8')),
+                  'urls': urls,
+                  'contexts': contexts,
+              }
+          Path('run-reports/eitaa-resolve/results.json').write_text(
+              json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
           )
           PY
 
-      - name: Upload Eitaa search results
+      - name: Upload resolution package
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: telewebion-0x16c79674-eitaa-search
+          name: telewebion-0x16c79674-eitaa-resolve
           path: run-reports/**
           retention-days: 30
           if-no-files-found: error

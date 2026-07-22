@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import time
 from pathlib import Path
 from typing import Any
 
@@ -12,6 +13,18 @@ _CERTIFICATE_ERROR_MARKERS = (
     "certificate_verify_failed",
     "certificate verify failed",
     "hostname mismatch",
+)
+_TRANSIENT_ERROR_MARKERS = (
+    "timed out",
+    "timeout",
+    "temporarily unavailable",
+    "connection reset",
+    "remote end closed connection",
+    "http error 429",
+    "http error 500",
+    "http error 502",
+    "http error 503",
+    "http error 504",
 )
 
 
@@ -30,32 +43,57 @@ def _is_certificate_error(error: Exception) -> bool:
     return any(marker in message for marker in _CERTIFICATE_ERROR_MARKERS)
 
 
+def _is_transient_error(error: Exception) -> bool:
+    message = str(error).casefold()
+    return any(marker in message for marker in _TRANSIENT_ERROR_MARKERS)
+
+
 def _extract_info(
     yt_dlp: Any,
     url: str,
     options: dict[str, Any],
     *,
     download: bool,
+    attempts: int = 3,
 ) -> dict[str, Any]:
-    """Extract sanitized info and retry only certificate-validation failures."""
+    """Extract sanitized info with narrow retries for certificate and transient failures."""
 
-    try:
-        with yt_dlp.YoutubeDL(options) as downloader:
-            info = downloader.extract_info(url, download=download)
-            return downloader.sanitize_info(info)
-    except Exception as exc:
-        if not _is_certificate_error(exc):
+    if attempts < 1:
+        raise ValueError("attempts must be at least 1")
+
+    current_options = options.copy()
+    last_error: Exception | None = None
+
+    for attempt in range(attempts):
+        try:
+            with yt_dlp.YoutubeDL(current_options) as downloader:
+                info = downloader.extract_info(url, download=download)
+                return downloader.sanitize_info(info)
+        except Exception as exc:
+            last_error = exc
+            if _is_certificate_error(exc) and not current_options.get("nocheckcertificate"):
+                current_options = {**current_options, "nocheckcertificate": True}
+                continue
+            if _is_transient_error(exc) and attempt + 1 < attempts:
+                time.sleep(2**attempt)
+                continue
             raise
 
-    retry_options = {**options, "nocheckcertificate": True}
-    with yt_dlp.YoutubeDL(retry_options) as downloader:
-        info = downloader.extract_info(url, download=download)
-        return downloader.sanitize_info(info)
+    if last_error is not None:
+        raise last_error
+    raise RuntimeError("yt-dlp extraction failed without an error")
 
 
 def extract_metadata(url: str) -> dict[str, Any]:
     yt_dlp = _yt_dlp_module()
-    options = {"quiet": True, "no_warnings": True, "noplaylist": True, "skip_download": True}
+    options = {
+        "quiet": True,
+        "no_warnings": True,
+        "noplaylist": True,
+        "skip_download": True,
+        "socket_timeout": 120,
+        "extractor_retries": 5,
+    }
     try:
         return _extract_info(yt_dlp, url, options, download=False)
     except Exception as exc:
@@ -75,6 +113,8 @@ def download_video(url: str, output_dir: str | Path) -> tuple[Path, dict[str, An
         "overwrites": False,
         "retries": 10,
         "fragment_retries": 10,
+        "extractor_retries": 5,
+        "socket_timeout": 120,
         "quiet": False,
         "writeinfojson": False,
     }

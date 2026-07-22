@@ -1,11 +1,13 @@
 name: Process Telewebion 0x16c79674
 
 on:
-  pull_request:
-    types: [opened, synchronize, reopened]
+  push:
+    branches:
+      - agent/telewebion-0x16c79674
+  workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: telewebion-0x16c79674
@@ -13,15 +15,17 @@ concurrency:
 
 jobs:
   transcribe:
-    if: github.event.pull_request.head.ref == 'agent/telewebion-0x16c79674'
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     timeout-minutes: 340
     env:
       VIDEO_URL: https://telewebion.ir/episode/0x16c79674
+      TARGET_BRANCH: agent/telewebion-0x16c79674
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: agent/telewebion-0x16c79674
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -59,6 +63,33 @@ jobs:
             ffmpeg -hide_banner -loglevel error -y -i "$audio_file" \
               -codec:a libmp3lame -b:a 32k "${audio_file%/*}/review-audio.mp3"
           fi
+
+      - name: Store technical outputs in repository
+        if: success()
+        run: |
+          job_root=$(find outputs -mindepth 1 -maxdepth 1 -type d -name 'telewebion-0x16c79674-*' -print -quit)
+          if [ -z "$job_root" ]; then
+            echo 'Pipeline output directory was not found.' >&2
+            exit 1
+          fi
+
+          target='processing/telewebion-0x16c79674'
+          rm -rf "$target"
+          mkdir -p "$target"
+          cp "$job_root/source.json" "$target/"
+          cp "$job_root/video-info.json" "$target/"
+          cp "$job_root/state.json" "$target/"
+          cp "$job_root/result.json" "$target/"
+          cp -R "$job_root/raw" "$target/"
+          cp -R "$job_root/final" "$target/machine-final"
+          cp "$job_root/audio/review-audio.mp3" "$target/"
+          cp -R run-logs "$target/"
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$target"
+          git commit -m 'Store Telewebion pipeline output [skip pipeline]'
+          git push origin "HEAD:$TARGET_BRANCH"
 
       - name: Upload transcript package
         if: always()

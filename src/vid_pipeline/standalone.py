@@ -95,8 +95,16 @@ class VideoJobPaths:
 class VideoPipeline:
     """Resume-safe pipeline that converts one video URL into final text files."""
 
-    def __init__(self, url: str, output_root: str | Path = "outputs", name: str = "") -> None:
+    def __init__(
+        self,
+        url: str,
+        output_root: str | Path = "outputs",
+        name: str = "",
+        *,
+        no_check_certificate: bool = False,
+    ) -> None:
         self.url = url
+        self.no_check_certificate = no_check_certificate
         self.job_id = make_job_id(url, name)
         self.paths = VideoJobPaths(Path(output_root), self.job_id)
         self.paths.ensure()
@@ -125,7 +133,10 @@ class VideoPipeline:
 
     def inspect(self, *, force: bool = False) -> dict[str, Any]:
         def action() -> tuple[list[Path], dict[str, Any]]:
-            metadata = extract_metadata(self.url)
+            metadata = extract_metadata(
+                self.url,
+                no_check_certificate=self.no_check_certificate,
+            )
             payload = {
                 "schema_version": 1,
                 "job_id": self.job_id,
@@ -146,7 +157,11 @@ class VideoPipeline:
 
     def download(self, *, force: bool = False) -> dict[str, Any]:
         def action() -> tuple[list[Path], dict[str, Any]]:
-            video, metadata = download_video(self.url, self.paths.video_dir)
+            video, metadata = download_video(
+                self.url,
+                self.paths.video_dir,
+                no_check_certificate=self.no_check_certificate,
+            )
             return [video, self.paths.video_metadata], {
                 "video_path": str(video),
                 "duration": metadata.get("duration"),

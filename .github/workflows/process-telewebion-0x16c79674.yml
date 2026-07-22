@@ -1,4 +1,4 @@
-name: Probe Eitaa document download endpoints
+name: Probe official Be Vaghte Iran channel
 
 on:
   push:
@@ -23,110 +23,82 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Probe candidate document endpoints
+      - name: Fetch official channel search pages
         shell: bash
         run: |
-          set -u
-          mkdir -p run-reports/eitaa-endpoints
-          base='https://eitaa.com'
-          candidates=(
-            '/mirbaqeri_ir/8029'
-            '/mirbaqeri_ir/8029?download=1'
-            '/mirbaqeri_ir/8029?download=true'
-            '/mirbaqeri_ir/8029?dl=1'
-            '/mirbaqeri_ir/8029?file=1'
-            '/mirbaqeri_ir/8029?single=1&download=1'
-            '/mirbaqeri_ir/8029?embed=1&download=1'
-            '/s/mirbaqeri_ir/8029?download=1'
-            '/download/mirbaqeri_ir/8029'
-            '/download/mirbaqeri_ir/8029.mp3'
-            '/file/mirbaqeri_ir/8029'
-            '/file/mirbaqeri_ir/8029.mp3'
-            '/media/mirbaqeri_ir/8029'
-            '/api/message/mirbaqeri_ir/8029'
-            '/api/messages/mirbaqeri_ir/8029'
-            '/api/channel/mirbaqeri_ir/8029'
-            '/api/file/mirbaqeri_ir/8029'
-          )
-          accepts=(
-            'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
-            'application/octet-stream'
-            'audio/mpeg,audio/*;q=0.9,*/*;q=0.1'
+          mkdir -p run-reports/bevaqteiran
+          urls=(
+            'https://t.me/s/bevaqteiran?q=%D9%85%DB%8C%D8%B1%D8%A8%D8%A7%D9%82%D8%B1%DB%8C'
+            'https://t.me/s/bevaqteiran?q=%D9%82%D8%B5%D8%A7%D8%B5'
+            'https://t.me/s/bevaqteiran?q=%D8%A7%D9%86%D8%AA%D9%82%D8%A7%D9%85'
+            'https://t.me/s/bevaqteiran?q=%D8%B1%D9%88%D8%A7%DB%8C%D8%AA%20%D9%81%D8%AA%D8%AD'
+            'https://t.me/s/bevaqteiran?q=%DB%B1%DB%B6%20%D8%AA%DB%8C%D8%B1'
           )
           index=0
-          for path in "${candidates[@]}"; do
-            for accept in "${accepts[@]}"; do
-              index=$((index + 1))
-              dir="run-reports/eitaa-endpoints/${index}"
-              mkdir -p "$dir"
-              url="${base}${path}"
-              printf '%s\n' "$url" > "$dir/url.txt"
-              printf '%s\n' "$accept" > "$dir/accept.txt"
-              set +e
-              curl -L --compressed -sS --max-time 90 \
-                -A 'Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 Chrome/126 Mobile Safari/537.36' \
-                -H "Accept: $accept" \
-                -H 'Referer: https://eitaa.com/mirbaqeri_ir/8029' \
-                -H 'Origin: https://eitaa.com' \
-                -H 'X-Requested-With: XMLHttpRequest' \
-                -H 'Range: bytes=0-1048575' \
-                -D "$dir/headers.txt" \
-                -o "$dir/body.bin" \
-                -w 'http_code=%{http_code}\ncontent_type=%{content_type}\nsize_download=%{size_download}\nurl_effective=%{url_effective}\n' \
-                "$url" > "$dir/metrics.txt" 2> "$dir/stderr.txt"
-              code=$?
-              printf '%s\n' "$code" > "$dir/curl-exit.txt"
-              file "$dir/body.bin" > "$dir/file.txt" 2>&1 || true
-              sha256sum "$dir/body.bin" > "$dir/sha256.txt" 2>&1 || true
-              set -e
-            done
+          for url in "${urls[@]}"; do
+            index=$((index + 1))
+            printf '%s\n' "$url" > "run-reports/bevaqteiran/${index}-url.txt"
+            curl -L --compressed -sS --max-time 120 \
+              -A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/126 Safari/537.36' \
+              "$url" -o "run-reports/bevaqteiran/${index}.html" || true
           done
 
-      - name: Summarize endpoint responses
+      - name: Parse matching posts and media
         shell: bash
         run: |
           python - <<'PY'
+          import html
           import json
+          import re
           from pathlib import Path
 
-          rows = []
-          for directory in sorted(Path('run-reports/eitaa-endpoints').iterdir(), key=lambda p: int(p.name)):
-              headers = (directory / 'headers.txt').read_text(encoding='utf-8', errors='replace')
-              metrics = (directory / 'metrics.txt').read_text(encoding='utf-8', errors='replace')
-              row = {
-                  'index': int(directory.name),
-                  'url': (directory / 'url.txt').read_text().strip(),
-                  'accept': (directory / 'accept.txt').read_text().strip(),
-                  'bytes_saved': (directory / 'body.bin').stat().st_size,
-                  'file': (directory / 'file.txt').read_text(errors='replace').strip(),
-                  'metrics': dict(
-                      line.split('=', 1) for line in metrics.splitlines() if '=' in line
-                  ),
-                  'content_disposition': '',
-                  'location': '',
-              }
-              for line in headers.splitlines():
-                  lower = line.lower()
-                  if lower.startswith('content-disposition:'):
-                      row['content_disposition'] = line.split(':', 1)[1].strip()
-                  elif lower.startswith('location:'):
-                      row['location'] = line.split(':', 1)[1].strip()
-              rows.append(row)
-          Path('run-reports/eitaa-endpoints/summary.json').write_text(
-              json.dumps(rows, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+          results = []
+          for path in sorted(Path('run-reports/bevaqteiran').glob('*.html')):
+              raw = html.unescape(path.read_text(encoding='utf-8', errors='replace'))
+              post_ids = sorted(set(re.findall(r'data-post="bevaqteiran/(\d+)"', raw)), key=int)
+              for post_id in post_ids:
+                  marker = f'data-post="bevaqteiran/{post_id}"'
+                  start = raw.find(marker)
+                  next_pos = raw.find('data-post="bevaqteiran/', start + len(marker))
+                  block = raw[start:next_pos if next_pos > 0 else len(raw)]
+                  plain = re.sub(r'<br\s*/?>', '\n', block, flags=re.I)
+                  plain = re.sub(r'<[^>]+>', ' ', plain)
+                  plain = ' '.join(html.unescape(plain).split())
+                  urls = sorted(set(re.findall(r'https?://[^"\'<> ]+', block)))
+                  style_urls = sorted(set(re.findall(r"url\(['\"]?([^'\")]+)", block)))
+                  srcs = sorted(set(re.findall(r'(?:src|href)="([^"]+)"', block)))
+                  media = [
+                      value for value in urls + style_urls + srcs
+                      if any(term in value.lower() for term in (
+                          '.mp3', '.m4a', '.ogg', '.wav', '.mp4', '.m3u8',
+                          'video', 'audio', 'document', 'telesco.pe', 'cdn'
+                      ))
+                  ]
+                  duration = re.findall(r'(?:message_video_duration[^>]*>|duration[^>]*>)([^<]+)', block, flags=re.I)
+                  if any(term in plain for term in ('میرباقری', 'قصاص', 'انتقام', 'روایت فتح', '۱۶ تیر', '16 تیر')):
+                      results.append({
+                          'source_file': str(path),
+                          'post_id': int(post_id),
+                          'post_url': f'https://t.me/bevaqteiran/{post_id}',
+                          'text': plain,
+                          'duration': duration,
+                          'media_candidates': sorted(set(media)),
+                          'html_block': block,
+                      })
+          Path('run-reports/bevaqteiran/results.json').write_text(
+              json.dumps(results, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
           )
-          for row in rows:
-              content_type = row['metrics'].get('content_type', '')
-              size = row['bytes_saved']
-              if not content_type.startswith('text/html') or size > 1_500_000:
-                  print(json.dumps(row, ensure_ascii=False))
+          print(json.dumps([
+              {k: row[k] for k in ('post_id', 'post_url', 'duration', 'media_candidates')}
+              for row in results
+          ], ensure_ascii=False, indent=2))
           PY
 
-      - name: Upload endpoint probes
+      - name: Upload official-channel probe
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: telewebion-0x16c79674-eitaa-endpoints
+          name: telewebion-0x16c79674-bevaqteiran
           path: run-reports/**
           retention-days: 30
           if-no-files-found: error

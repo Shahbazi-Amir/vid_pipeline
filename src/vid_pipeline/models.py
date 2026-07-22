@@ -74,13 +74,13 @@ class EpisodeSpec:
         return asdict(self)
 
     @classmethod
-    def from_dict(cls, data: dict[str, Any]) -> "EpisodeSpec":
+    def from_dict(cls, data: dict[str, Any]) -> EpisodeSpec:
         spec = cls(**data)
         spec.validate()
         return spec
 
     @classmethod
-    def load(cls, path: str | Path) -> "EpisodeSpec":
+    def load(cls, path: str | Path) -> EpisodeSpec:
         data = json.loads(Path(path).read_text(encoding="utf-8"))
         return cls.from_dict(data)
 

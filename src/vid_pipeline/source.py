@@ -9,14 +9,14 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
+from collections.abc import Iterable
 from dataclasses import asdict, dataclass
 from html.parser import HTMLParser
 from pathlib import Path
-from typing import Iterable
 
 from vid_pipeline.errors import PipelineError
 
-USER_AGENT = "FinancialVideoRAGPipeline/1.0 (+https://github.com/Shahbazi-Amir/vid_pipeline)"
+USER_AGENT = "VideoTranscriptPipeline/0.3 (+https://github.com/Shahbazi-Amir/vid_pipeline)"
 VIDEO_HOSTS = {"aparat.com", "www.aparat.com", "youtube.com", "www.youtube.com", "youtu.be"}
 
 
@@ -75,7 +75,7 @@ def normalize_url(base_url: str, value: str) -> str:
 
 def normalize_video_url(url: str) -> str:
     """Normalize supported embed URLs to stable public video URLs."""
-    decoded = html.unescape(urllib.parse.unquote(url.replace("\\/", "/")))
+    decoded = html.unescape(urllib.parse.unquote(url.replace("\/", "/")))
     parsed = urllib.parse.urlparse(decoded)
     host = parsed.netloc.lower()
     if host in {"aparat.com", "www.aparat.com"}:
@@ -111,10 +111,12 @@ def extract_page(url: str) -> tuple[str, list[str], str]:
         r"https?://youtu\.be/[A-Za-z0-9_-]+",
         r"https?://(?:www\.)?youtube\.com/(?:watch\?v=|embed/)[A-Za-z0-9_-]+",
     )
-    decoded_text = html.unescape(text).replace("\\/", "/")
+    decoded_text = html.unescape(text).replace("\/", "/")
     for pattern in embedded_patterns:
         links.extend(re.findall(pattern, decoded_text, flags=re.I))
-    links = list(dict.fromkeys(normalize_video_url(item) if is_video_url(item) else item for item in links))
+    links = list(
+        dict.fromkeys(normalize_video_url(item) if is_video_url(item) else item for item in links)
+    )
     title = re.sub(r"\s+", " ", "".join(parser.title_parts)).strip()
     visible_text = re.sub(r"<script\b[^>]*>.*?</script>", " ", text, flags=re.I | re.S)
     visible_text = re.sub(r"<style\b[^>]*>.*?</style>", " ", visible_text, flags=re.I | re.S)

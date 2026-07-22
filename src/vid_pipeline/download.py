@@ -19,9 +19,15 @@ def _yt_dlp_module():
     return yt_dlp
 
 
-def extract_metadata(url: str) -> dict[str, Any]:
+def extract_metadata(url: str, *, no_check_certificate: bool = False) -> dict[str, Any]:
     yt_dlp = _yt_dlp_module()
-    options = {"quiet": True, "no_warnings": True, "noplaylist": True, "skip_download": True}
+    options = {
+        "quiet": True,
+        "no_warnings": True,
+        "noplaylist": True,
+        "skip_download": True,
+        "nocheckcertificate": no_check_certificate,
+    }
     try:
         with yt_dlp.YoutubeDL(options) as downloader:
             info = downloader.extract_info(url, download=False)
@@ -30,7 +36,12 @@ def extract_metadata(url: str) -> dict[str, Any]:
         raise ExternalToolError(f"yt-dlp could not inspect the source: {exc}") from exc
 
 
-def download_video(url: str, output_dir: str | Path) -> tuple[Path, dict[str, Any]]:
+def download_video(
+    url: str,
+    output_dir: str | Path,
+    *,
+    no_check_certificate: bool = False,
+) -> tuple[Path, dict[str, Any]]:
     yt_dlp = _yt_dlp_module()
     destination = Path(output_dir)
     destination.mkdir(parents=True, exist_ok=True)
@@ -45,6 +56,7 @@ def download_video(url: str, output_dir: str | Path) -> tuple[Path, dict[str, An
         "fragment_retries": 10,
         "quiet": False,
         "writeinfojson": False,
+        "nocheckcertificate": no_check_certificate,
     }
     try:
         with yt_dlp.YoutubeDL(options) as downloader:

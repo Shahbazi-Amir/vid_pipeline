@@ -20,10 +20,29 @@ jobs:
     env:
       VIDEO_URL: https://telewebion.ir/episode/0x16c79674
       OUTPUT_BRANCH: agent/telewebion-0x16c79674-output
+      TARGET_DIR: processing/telewebion-0x16c79674
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Initialize observable output branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -C "$OUTPUT_BRANCH"
+          mkdir -p "$TARGET_DIR/reports"
+          cat > "$TARGET_DIR/status.json" <<EOF
+          {
+            "status": "running",
+            "source_url": "$VIDEO_URL",
+            "workflow_run_id": "$GITHUB_RUN_ID",
+            "started_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          }
+          EOF
+          git add "$TARGET_DIR/status.json"
+          git commit -m 'Start Telewebion 0x16c79674 processing'
+          git push --force origin "HEAD:$OUTPUT_BRANCH"
 
       - uses: actions/setup-python@v5
         with:
@@ -70,37 +89,66 @@ jobs:
             -of default=noprint_wrappers=1:nokey=1 "$wav" \
             > run-reports/duration-seconds.txt
 
-      - name: Prepare repository package
+      - name: Prepare completed repository package
         if: success()
         run: |
           job_root=$(find outputs -mindepth 1 -maxdepth 1 -type d -name 'telewebion-0x16c79674-*' -print -quit)
           test -n "$job_root"
 
-          target='processing/telewebion-0x16c79674'
-          rm -rf "$target"
-          mkdir -p "$target/raw" "$target/machine-final" "$target/reports"
+          rm -rf "$TARGET_DIR/raw" "$TARGET_DIR/machine-final"
+          mkdir -p "$TARGET_DIR/raw" "$TARGET_DIR/machine-final" "$TARGET_DIR/reports"
 
-          cp "$job_root/source.json" "$target/source.json"
-          cp "$job_root/video-info.json" "$target/video-info.json"
-          cp "$job_root/state.json" "$target/state.json"
-          cp "$job_root/result.json" "$target/result.json"
-          cp "$job_root/raw/transcript.raw.json" "$target/raw/transcript.raw.json"
-          cp "$job_root/raw/transcript.raw.md" "$target/raw/transcript.raw.md"
-          cp "$job_root/final/transcript.final.md" "$target/machine-final/transcript.final.md"
-          cp "$job_root/final/transcript.final.txt" "$target/machine-final/transcript.final.txt"
-          cp run-reports/inspect.json "$target/reports/inspect.json"
-          cp run-reports/pipeline.log "$target/reports/pipeline.log"
-          cp run-reports/duration-seconds.txt "$target/reports/duration-seconds.txt"
-          cp run-reports/review-audio.mp3 "$target/review-audio.mp3"
+          cp "$job_root/source.json" "$TARGET_DIR/source.json"
+          cp "$job_root/video-info.json" "$TARGET_DIR/video-info.json"
+          cp "$job_root/state.json" "$TARGET_DIR/state.json"
+          cp "$job_root/result.json" "$TARGET_DIR/result.json"
+          cp "$job_root/raw/transcript.raw.json" "$TARGET_DIR/raw/transcript.raw.json"
+          cp "$job_root/raw/transcript.raw.md" "$TARGET_DIR/raw/transcript.raw.md"
+          cp "$job_root/final/transcript.final.md" "$TARGET_DIR/machine-final/transcript.final.md"
+          cp "$job_root/final/transcript.final.txt" "$TARGET_DIR/machine-final/transcript.final.txt"
+          cp run-reports/inspect.json "$TARGET_DIR/reports/inspect.json"
+          cp run-reports/pipeline.log "$TARGET_DIR/reports/pipeline.log"
+          cp run-reports/duration-seconds.txt "$TARGET_DIR/reports/duration-seconds.txt"
+          cp run-reports/review-audio.mp3 "$TARGET_DIR/review-audio.mp3"
 
-      - name: Commit technical outputs to output branch
+          cat > "$TARGET_DIR/status.json" <<EOF
+          {
+            "status": "completed",
+            "source_url": "$VIDEO_URL",
+            "workflow_run_id": "$GITHUB_RUN_ID",
+            "completed_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          }
+          EOF
+
+      - name: Commit completed technical outputs
         if: success()
         run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git switch -C "$OUTPUT_BRANCH"
-          git add processing/telewebion-0x16c79674
+          git add "$TARGET_DIR"
           git commit -m 'Store Telewebion 0x16c79674 technical output'
+          git push --force origin "HEAD:$OUTPUT_BRANCH"
+
+      - name: Persist failure diagnostics
+        if: failure()
+        run: |
+          mkdir -p "$TARGET_DIR/reports"
+          if [ -d run-reports ]; then
+            cp -R run-reports/. "$TARGET_DIR/reports/" || true
+          fi
+          job_root=$(find outputs -mindepth 1 -maxdepth 1 -type d -name 'telewebion-0x16c79674-*' -print -quit || true)
+          if [ -n "$job_root" ]; then
+            cp "$job_root/state.json" "$TARGET_DIR/state.json" 2>/dev/null || true
+            cp "$job_root/source.json" "$TARGET_DIR/source.json" 2>/dev/null || true
+          fi
+          cat > "$TARGET_DIR/status.json" <<EOF
+          {
+            "status": "failed",
+            "source_url": "$VIDEO_URL",
+            "workflow_run_id": "$GITHUB_RUN_ID",
+            "failed_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          }
+          EOF
+          git add "$TARGET_DIR"
+          git commit -m 'Record Telewebion 0x16c79674 failure' || true
           git push --force origin "HEAD:$OUTPUT_BRANCH"
 
       - name: Upload transcript package

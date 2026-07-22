@@ -45,7 +45,7 @@ jobs:
           mkdir -p run-reports
           vid-pipeline inspect 'https://telewebion.ir/episode/0x16c79674' \
             --no-check-certificate \
-            | tee run-reports/inspect.json
+            2>&1 | tee run-reports/inspect.log
 
       - name: Process video
         shell: bash
@@ -60,7 +60,7 @@ jobs:
             --compute-type int8 \
             --beam-size 5 \
             --max-paragraph-words 80 \
-            | tee run-reports/run.json
+            2>&1 | tee run-reports/run.log
 
       - name: Build review audio
         if: success()

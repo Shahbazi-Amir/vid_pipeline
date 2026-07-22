@@ -1,4 +1,4 @@
-name: Resolve target episode from Castbox RSS
+name: Capture public Telegram audio
 
 on:
   push:
@@ -17,111 +17,200 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  resolve:
+  capture:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
 
-      - name: Download RSS feed
-        shell: bash
-        run: |
-          mkdir -p run-reports/rss
-          urls=(
-            'https://rss.castbox.fm/everest/adcedba9754d417d9ab80222f4dc2837.xml'
-            'http://rss.castbox.fm/everest/adcedba9754d417d9ab80222f4dc2837.xml'
-          )
-          index=0
-          for url in "${urls[@]}"; do
-            index=$((index + 1))
-            printf '%s\n' "$url" > "run-reports/rss/${index}-url.txt"
-            curl -L --compressed -sS --max-time 180 \
-              -A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/126 Safari/537.36' \
-              -D "run-reports/rss/${index}-headers.txt" \
-              "$url" -o "run-reports/rss/${index}.xml" || true
-          done
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-      - name: Parse episodes and media URLs
+      - name: Install Playwright
+        run: |
+          python -m pip install --upgrade pip
+          pip install playwright
+          playwright install --with-deps chromium
+
+      - name: Load post, click player and capture network
         shell: bash
         run: |
-          python - <<'PY'
-          import html
+          mkdir -p run-reports/playwright
+          cat > run-reports/playwright/capture.py <<'PY'
+          from __future__ import annotations
+
+          import asyncio
           import json
-          import re
-          import xml.etree.ElementTree as ET
           from pathlib import Path
+          from urllib.parse import urlparse
 
-          terms = (
-              'قصاص', 'انتقام', 'روایت فتح', 'میرباقری',
-              'برنامه 167', 'برنامه ۱۶۷', 'به وقت ایران'
-          )
-          reports = []
-          matches = []
-          for path in sorted(Path('run-reports/rss').glob('*.xml')):
-              raw = path.read_text(encoding='utf-8', errors='replace')
-              entry = {'file': str(path), 'bytes': len(raw.encode('utf-8')), 'parse_error': '', 'items': []}
+          from playwright.async_api import async_playwright
+
+          OUTPUT = Path('run-reports/playwright')
+          TARGETS = [
+              'https://t.me/bevaqteiran/1446?embed=1&mode=tme',
+              'https://t.me/ostad_mirbaqeri/2102?embed=1&mode=tme',
+          ]
+
+          async def inspect(browser, url: str, index: int) -> dict:
+              context = await browser.new_context(
+                  accept_downloads=True,
+                  locale='fa-IR',
+                  user_agent=(
+                      'Mozilla/5.0 (X11; Linux x86_64) '
+                      'AppleWebKit/537.36 (KHTML, like Gecko) '
+                      'Chrome/126.0.0.0 Safari/537.36'
+                  ),
+              )
+              page = await context.new_page()
+              requests: list[dict] = []
+              responses: list[dict] = []
+              downloads: list[dict] = []
+
+              def on_request(request):
+                  requests.append({
+                      'url': request.url,
+                      'method': request.method,
+                      'resource_type': request.resource_type,
+                      'headers': request.headers,
+                  })
+
+              async def on_response(response):
+                  try:
+                      headers = await response.all_headers()
+                  except Exception:
+                      headers = {}
+                  content_type = headers.get('content-type', '')
+                  content_length = headers.get('content-length', '')
+                  if (
+                      any(token in content_type.lower() for token in ('audio', 'video', 'octet-stream'))
+                      or any(token in response.url.lower() for token in (
+                          '.mp3', '.m4a', '.ogg', '.wav', '.mp4', '.m3u8',
+                          'document', 'audio', 'download', 'cdn', 'telesco.pe'
+                      ))
+                  ):
+                      responses.append({
+                          'url': response.url,
+                          'status': response.status,
+                          'content_type': content_type,
+                          'content_length': content_length,
+                          'headers': headers,
+                      })
+
+              async def on_download(download):
+                  suggested = download.suggested_filename
+                  target = OUTPUT / f'{index}-download-{suggested}'
+                  try:
+                      await download.save_as(target)
+                      downloads.append({
+                          'url': download.url,
+                          'suggested_filename': suggested,
+                          'saved_path': str(target),
+                          'size': target.stat().st_size,
+                      })
+                  except Exception as exc:
+                      downloads.append({
+                          'url': download.url,
+                          'suggested_filename': suggested,
+                          'error': str(exc),
+                      })
+
+              page.on('request', on_request)
+              page.on('response', on_response)
+              page.on('download', on_download)
+
+              result = {'url': url, 'errors': [], 'clicks': [], 'requests': requests, 'responses': responses, 'downloads': downloads}
               try:
-                  root = ET.fromstring(raw)
+                  await page.goto(url, wait_until='networkidle', timeout=120_000)
               except Exception as exc:
-                  entry['parse_error'] = str(exc)
-                  reports.append(entry)
-                  continue
-              for index, item in enumerate(root.findall('.//item')):
-                  def value(name):
-                      node = item.find(name)
-                      return html.unescape((node.text or '').strip()) if node is not None else ''
-                  title = value('title')
-                  description = value('description')
-                  pub_date = value('pubDate')
-                  guid = value('guid')
-                  enclosure = item.find('enclosure')
-                  media_url = enclosure.attrib.get('url', '') if enclosure is not None else ''
-                  media_length = enclosure.attrib.get('length', '') if enclosure is not None else ''
-                  media_type = enclosure.attrib.get('type', '') if enclosure is not None else ''
-                  duration = ''
-                  for child in item:
-                      if child.tag.endswith('duration'):
-                          duration = (child.text or '').strip()
-                          break
-                  combined = f'{title}\n{description}'
-                  row = {
-                      'index': index,
-                      'title': title,
-                      'description': re.sub(r'<[^>]+>', ' ', description),
-                      'pub_date': pub_date,
-                      'guid': guid,
-                      'enclosure_url': media_url,
-                      'enclosure_length': media_length,
-                      'enclosure_type': media_type,
-                      'duration': duration,
-                      'matched_terms': [term for term in terms if term in combined],
-                  }
-                  entry['items'].append(row)
-                  if row['matched_terms']:
-                      matches.append(row)
-              reports.append(entry)
-          Path('run-reports/rss/report.json').write_text(
-              json.dumps(reports, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
-          )
-          Path('run-reports/rss/matches.json').write_text(
-              json.dumps(matches, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
-          )
-          latest = []
-          for report in reports:
-              latest.extend(report['items'][:80])
-          Path('run-reports/rss/latest.json').write_text(
-              json.dumps(latest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
-          )
-          print(json.dumps(matches, ensure_ascii=False, indent=2))
-          if not any(row.get('enclosure_url') for row in matches):
-              raise SystemExit('Target episode with a media enclosure was not found in the RSS feed')
-          PY
+                  result['errors'].append(f'goto: {exc}')
+              await page.screenshot(path=OUTPUT / f'{index}-before.png', full_page=True)
+              (OUTPUT / f'{index}-content.html').write_text(await page.content(), encoding='utf-8')
 
-      - name: Upload RSS resolution
+              selectors = [
+                  '.tgme_widget_message_document_wrap',
+                  '.tgme_widget_message_audio',
+                  '.tgme_widget_message_document',
+                  'audio',
+                  'button',
+                  '[role="button"]',
+                  'a',
+              ]
+              for selector in selectors:
+                  try:
+                      locator = page.locator(selector)
+                      count = min(await locator.count(), 30)
+                      for item_index in range(count):
+                          item = locator.nth(item_index)
+                          try:
+                              visible = await item.is_visible()
+                              text = (await item.inner_text(timeout=2_000)).strip()[:300]
+                              attrs = await item.evaluate(
+                                  "el => ({class: el.className || '', href: el.href || '', "
+                                  "src: el.src || '', title: el.title || '', "
+                                  "aria: el.getAttribute('aria-label') || ''})"
+                              )
+                              record = {'selector': selector, 'index': item_index, 'visible': visible, 'text': text, 'attrs': attrs}
+                              if visible and (
+                                  selector in {'.tgme_widget_message_document_wrap', '.tgme_widget_message_audio', '.tgme_widget_message_document', 'audio'}
+                                  or any(token in f"{text} {attrs}".lower() for token in ('audio', 'play', 'پخش', 'گفتگو', 'قصاص', 'document'))
+                              ):
+                                  try:
+                                      await item.click(timeout=5_000, force=True)
+                                      record['clicked'] = True
+                                      await page.wait_for_timeout(8_000)
+                                  except Exception as exc:
+                                      record['click_error'] = str(exc)
+                              result['clicks'].append(record)
+                          except Exception as exc:
+                              result['clicks'].append({'selector': selector, 'index': item_index, 'error': str(exc)})
+                  except Exception as exc:
+                      result['errors'].append(f'{selector}: {exc}')
+
+              await page.wait_for_timeout(20_000)
+              await page.screenshot(path=OUTPUT / f'{index}-after.png', full_page=True)
+              result['final_url'] = page.url
+              result['local_storage'] = await page.evaluate('Object.fromEntries(Object.entries(localStorage))')
+              result['session_storage'] = await page.evaluate('Object.fromEntries(Object.entries(sessionStorage))')
+              await context.close()
+              return result
+
+          async def main() -> None:
+              async with async_playwright() as playwright:
+                  browser = await playwright.chromium.launch(
+                      headless=True,
+                      args=['--autoplay-policy=no-user-gesture-required'],
+                  )
+                  results = []
+                  for index, url in enumerate(TARGETS, start=1):
+                      results.append(await inspect(browser, url, index))
+                  await browser.close()
+              (OUTPUT / 'results.json').write_text(
+                  json.dumps(results, ensure_ascii=False, indent=2) + '\n',
+                  encoding='utf-8',
+              )
+              candidates = []
+              for result in results:
+                  candidates.extend(result['responses'])
+                  candidates.extend(result['downloads'])
+              (OUTPUT / 'candidates.json').write_text(
+                  json.dumps(candidates, ensure_ascii=False, indent=2) + '\n',
+                  encoding='utf-8',
+              )
+              print(json.dumps(candidates, ensure_ascii=False, indent=2))
+              if not candidates:
+                  raise SystemExit('No media candidate was observed')
+
+          asyncio.run(main())
+          PY
+          python run-reports/playwright/capture.py
+
+      - name: Upload browser capture
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: telewebion-0x16c79674-rss
+          name: telewebion-0x16c79674-playwright
           path: run-reports/**
           retention-days: 30
           if-no-files-found: error

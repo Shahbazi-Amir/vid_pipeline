@@ -4,14 +4,11 @@ from __future__ import annotations
 
 import hashlib
 import json
-from dataclasses import asdict
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from vid_pipeline.models import StageRecord
-
-STAGES = ("source", "download", "audio", "transcribe", "review_package", "review", "rag")
+STAGES = ("source", "download", "audio", "transcribe", "clean")
 
 
 def utc_now() -> str:
@@ -26,20 +23,30 @@ def sha256_file(path: str | Path) -> str:
     return digest.hexdigest()
 
 
+def empty_stage() -> dict[str, Any]:
+    return {
+        "status": "pending",
+        "updated_at": "",
+        "output_paths": [],
+        "details": {},
+        "error": "",
+    }
+
+
 class PipelineState:
-    """Read and update an episode state file atomically."""
+    """Read and update a pipeline state file atomically."""
 
     def __init__(self, path: str | Path) -> None:
         self.path = Path(path)
         self.data: dict[str, Any] = {
             "schema_version": 1,
             "updated_at": utc_now(),
-            "stages": {stage: asdict(StageRecord()) for stage in STAGES},
+            "stages": {stage: empty_stage() for stage in STAGES},
         }
         if self.path.exists():
             self.data = json.loads(self.path.read_text(encoding="utf-8"))
             for stage in STAGES:
-                self.data.setdefault("stages", {}).setdefault(stage, asdict(StageRecord()))
+                self.data.setdefault("stages", {}).setdefault(stage, empty_stage())
 
     def save(self) -> None:
         self.path.parent.mkdir(parents=True, exist_ok=True)
@@ -58,7 +65,7 @@ class PipelineState:
 
     def is_complete(self, name: str) -> bool:
         record = self.stage(name)
-        if record.get("status") not in {"completed", "reviewed"}:
+        if record.get("status") != "completed":
             return False
         paths = [Path(path) for path in record.get("output_paths", [])]
         return bool(paths) and all(path.exists() for path in paths)
@@ -78,7 +85,6 @@ class PipelineState:
         name: str,
         outputs: list[str | Path],
         details: dict[str, Any] | None = None,
-        status: str = "completed",
     ) -> None:
         output_paths = [str(Path(path).resolve()) for path in outputs]
         checksums = {
@@ -87,7 +93,7 @@ class PipelineState:
             if Path(path).is_file()
         }
         self.data["stages"][name] = {
-            "status": status,
+            "status": "completed",
             "updated_at": utc_now(),
             "output_paths": output_paths,
             "details": {**(details or {}), "sha256": checksums},

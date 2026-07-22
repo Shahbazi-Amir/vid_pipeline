@@ -12,9 +12,13 @@ venv/
 .idea/
 .vscode/
 
-# Runtime data and large media
+# Runtime output and large media
+outputs/
 work/
-data/
+stage/
+processing/
+collected/
+normalized/
 downloads/
 audio/
 models/
@@ -26,6 +30,10 @@ models/
 *.wav
 *.m4a
 *.flac
+
+# Generated diagnostics and temporary files
+data/generated/
+*.tmp
 
 # Secrets and local configuration
 .env

@@ -1,242 +1,154 @@
-# Financial Video RAG Pipeline
+# Video Transcript Pipeline
 
-پایپ‌لاین ماژولار برای دریافت ویدئوهای آکادمی هوش مالی، استخراج و استانداردسازی صوت، تولید متن فارسی زمان‌دار، آماده‌سازی بازبینی انسانی و ساخت خروجی سازگار با مخزن [`Shahbazi-Amir/transcription`](https://github.com/Shahbazi-Amir/transcription).
+یک پایپ‌لاین مستقل برای تبدیل لینک ویدئو به متن خام و متن نهایی پاک‌سازی‌شده.
 
-## هدف
+این مخزن به هیچ مخزن دیگری وابسته نیست و همهٔ ورودی‌ها، وضعیت پردازش و خروجی‌ها را داخل پوشهٔ `outputs/` مدیریت می‌کند.
 
-این مخزن کد و ابزار پردازش را نگهداری می‌کند. فایل‌های نهایی هر قسمت پس از بازبینی واقعی در branch زیر از مخزن مقصد منتشر می‌شوند:
-
-```text
-agent/financial-rag-transcripts
-```
-
-مسیر کلی:
+## مسیر پردازش
 
 ```text
-URL یا جست‌وجوی محدود در سایت
-→ اعتبارسنجی منبع
-→ دانلود با yt-dlp
-→ استخراج صوت با ffmpeg
-→ mono / 16kHz WAV
-→ faster-whisper فارسی با timestamp
-→ فایل بازبینی و علامت‌گذاری بخش‌های مشکوک
-→ تأیید انسانی تطابق با صوت
-→ Markdown نهایی
-→ JSONL مخصوص RAG
-→ commit و push امن به مخزن مقصد
+Video URL
+→ بررسی منبع با yt-dlp
+→ دانلود ویدئو
+→ استخراج و استانداردسازی صوت با ffmpeg
+→ رونویسی با faster-whisper
+→ پاک‌سازی متن با حفظ ترتیب گفت‌وگو
+→ خروجی Markdown و TXT
 ```
 
-## اصول مهم
+## ویژگی‌ها
 
-- دانلود، صوت، رونویسی، بازبینی، RAG و انتشار ماژول‌های جدا هستند.
-- وضعیت هر مرحله در `state.json` ذخیره می‌شود تا اجرای قطع‌شده از ابتدا شروع نشود.
-- ویدئو، صوت و مدل‌ها وارد Git نمی‌شوند.
-- خروجی Whisper متن نهایی نیست.
-- وضعیت `reviewed` فقط با فلگ صریح `--confirm-audio-reviewed` و ثبت checksum صوت و متن ایجاد می‌شود.
-- اگر متن پس از تأیید تغییر کند، ساخت RAG متوقف می‌شود تا دوباره بازبینی شود.
-- انتشار فقط از branch `agent/financial-rag-transcripts` و روی working tree تمیز انجام می‌شود.
+- دریافت مستقیم لینک ویدئو؛
+- پشتیبانی از سایت‌هایی که `yt-dlp` پشتیبانی می‌کند؛
+- پردازش resume-safe با `state.json`؛
+- خروجی خام زمان‌دار برای عیب‌یابی؛
+- خروجی نهایی بدون timecode؛
+- حفظ ترتیب اصلی segmentها؛
+- یکسان‌سازی حروف فارسی و عربی؛
+- حذف تکرارهای مجاور و آشکار؛
+- تولید Markdown و متن ساده؛
+- بدون commit خودکار خروجی‌ها و بدون اتصال به مخزن خارجی.
 
 ## نیازمندی‌ها
 
 - Python 3.10 یا جدیدتر
 - `ffmpeg` و `ffprobe`
-- برای دانلود: `yt-dlp`
-- برای رونویسی: `faster-whisper`
+- فضای کافی برای دانلود و فایل صوتی
 
-### macOS
+### نصب
 
 ```bash
-brew install ffmpeg
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -e '.[all]'
 ```
 
-MacBook Pro 2015 برای تست و مدل‌های کوچک مناسب است. برای پردازش کامل، Colab رایگان با GPU در صورت موجود بودن سریع‌تر است.
-
-## شروع یک قسمت
-
-نمونهٔ آماده:
-
-```text
-examples/asre-shirin-season-2-episode-01.json
-```
-
-یا ساخت فایل جدید:
+در macOS:
 
 ```bash
-vid-pipeline init episodes/episode-01.json \
-  --program 'عصر شیرین' \
-  --collection asre-shirin-season-2 \
-  --season 'فصل دوم' \
-  --season-episode 1 \
-  --overall-episode 14 \
-  --speaker 'دکتر کمیل رودی' \
-  --additional-speaker 'مجری برنامه'
+brew install ffmpeg
 ```
 
-## کشف منبع
-
-جست‌وجو از sitemap سایت انجام می‌شود و به سرویس پولی وابسته نیست:
+در Ubuntu/Debian:
 
 ```bash
-vid-pipeline discover \
-  --site https://www.fintelligence.ir/ \
-  --query 'عصر شیرین قسمت ۱۴ کمیل رودی' \
-  --output candidates.json
+sudo apt-get update
+sudo apt-get install -y ffmpeg
 ```
 
-خروجی را بررسی و URL قطعی صفحه و ویدئو را در فایل قسمت ثبت کنید. پس از بررسی دستی شماره قسمت، منبع و حضور دکتر کمیل رودی، این دو مقدار را در فایل JSON برابر `true` قرار دهید:
-
-```json
-"source_verified": true,
-"speaker_verified": true
-```
-
-تا قبل از این تأییدها مرحله دانلود عمداً متوقف می‌شود. عنوان، شماره و حضور سخنران نباید حدس زده شوند.
-
-برای بررسی مستقیم یک صفحه یا ویدئو:
+## اجرای ساده
 
 ```bash
-vid-pipeline inspect-source 'https://www.aparat.com/v/VIDEO_ID'
+vid-pipeline run-url 'https://example.com/video'
 ```
 
-## اجرای خودکار تا مرحلهٔ بازبینی
+برای اجرای فارسی روی CPU:
 
 ```bash
-vid-pipeline run episodes/episode-01.json \
-  --work-root work \
+vid-pipeline run-url 'https://example.com/video' \
+  --language fa \
   --model small \
-  --device auto
+  --device cpu \
+  --compute-type int8
 ```
 
-خروجی‌ها در این ساختار ایجاد می‌شوند:
+برای تعیین نام job و پوشهٔ خروجی:
+
+```bash
+vid-pipeline run-url 'https://example.com/video' \
+  --name interview-01 \
+  --output-root outputs
+```
+
+## ساختار خروجی
 
 ```text
-work/<collection>/episode-01/
+outputs/<job-id>/
 ├── state.json
 ├── source.json
 ├── video-info.json
+├── result.json
 ├── video/
-├── audio/audio-16k-mono.wav
-├── raw/episode-01.raw.json
-├── raw/episode-01.raw.md
-├── review/episode-01.review.md
-├── final/episode-01.md
-└── rag/<collection>-episode-01.jsonl
+│   └── video.*
+├── audio/
+│   └── audio-16k-mono.wav
+├── raw/
+│   ├── transcript.raw.json
+│   └── transcript.raw.md
+└── final/
+    ├── transcript.final.md
+    └── transcript.final.txt
 ```
 
-وضعیت:
-
-```bash
-vid-pipeline status episodes/episode-01.json --work-root work
-```
-
-## بازبینی انسانی
-
-فایل `review/*.review.md` را همراه صوت گوش دهید و نسخهٔ اصلاح‌شده را در فایل جدا ذخیره کنید. سپس:
-
-```bash
-vid-pipeline mark-reviewed episodes/episode-01.json \
-  --work-root work \
-  --transcript reviewed-episode-01.md \
-  --reviewer 'Amir Shahbazi' \
-  --confirm-audio-reviewed
-```
-
-این فرمان متن را در مسیر نهایی کپی و رسید بازبینی دارای checksum ایجاد می‌کند. `[نامفهوم]` برای بخش واقعاً غیرقابل‌تشخیص مجاز است.
-
-## ساخت و اعتبارسنجی RAG
-
-```bash
-vid-pipeline build-rag episodes/episode-01.json --work-root work
-vid-pipeline validate-rag work/asre-shirin-season-2/episode-01/rag/asre-shirin-season-2-episode-01.jsonl
-```
-
-فرمت هر خط:
-
-```json
-{
-  "id": "asre-shirin-season-2-01-001",
-  "text": "...",
-  "metadata": {
-    "program": "عصر شیرین",
-    "season": "فصل دوم",
-    "episode": 1,
-    "overall_episode": 14,
-    "title": "...",
-    "speakers": ["دکتر کمیل رودی"],
-    "source_url": "...",
-    "video_url": "...",
-    "language": "fa",
-    "review_status": "reviewed"
-  }
-}
-```
-
-## انتشار در مخزن transcription
-
-ابتدا مخزن مقصد را روی branch درست checkout کنید و مطمئن شوید تغییر دیگری ندارد:
-
-```bash
-git -C ../transcription checkout agent/financial-rag-transcripts
-git -C ../transcription pull --ff-only
-```
-
-سپس:
-
-```bash
-vid-pipeline publish episodes/episode-01.json \
-  --work-root work \
-  --destination-repo ../transcription \
-  --branch agent/financial-rag-transcripts \
-  --push
-```
-
-فرمان انتشار:
-
-- رسید بازبینی و checksum متن را کنترل می‌کند.
-- JSONL را اعتبارسنجی می‌کند.
-- فایل‌های `sources`، `raw`، `transcripts` و `rag/episodes` را کپی می‌کند.
-- `manifest.json` را به‌روزرسانی می‌کند.
-- برای همان قسمت commit جدا می‌سازد.
-- فقط در صورت `--push` به GitHub پوش می‌کند.
-
-## Google Colab رایگان
-
-Notebook زیر نصب، اتصال Drive و اجرای پایپ‌لاین را آماده می‌کند:
+فایل اصلی قابل استفاده:
 
 ```text
-notebooks/financial_video_rag_colab.ipynb
+outputs/<job-id>/final/transcript.final.md
 ```
 
-Colab رایگان تضمین دائمی GPU یا session بدون قطع ندارد. ذخیرهٔ `work/` در Google Drive باعث می‌شود بعد از قطع session مراحل تکمیل‌شده دوباره اجرا نشوند.
+## مشاهدهٔ وضعیت
 
-## اجرای تست‌ها
+پس از اجرای اولیه، شناسهٔ job در خروجی چاپ می‌شود:
 
 ```bash
+vid-pipeline status <job-id> --output-root outputs
+```
+
+اجرای مجدد همان URL مراحل کامل‌شده را رد می‌کند. برای اجرای دوبارهٔ همهٔ مراحل:
+
+```bash
+vid-pipeline run-url 'https://example.com/video' --force
+```
+
+## پاک‌سازی یک خروجی Whisper موجود
+
+```bash
+vid-pipeline clean transcript.raw.json \
+  --markdown transcript.final.md \
+  --text transcript.final.txt \
+  --title 'عنوان ویدئو'
+```
+
+## بررسی لینک بدون دانلود
+
+```bash
+vid-pipeline inspect 'https://example.com/video'
+```
+
+## صداقت خروجی
+
+خروجی نهایی به‌صورت ماشینی پاک‌سازی می‌شود؛ یعنی ترتیب گفت‌وگو حفظ، timecode حذف و خطاهای شکلی و تکرارهای آشکار اصلاح می‌شوند. تشخیص قطعی نام‌ها، اعداد یا واژه‌های بسیار نامفهوم بدون گوش‌دادن انسانی تضمین نمی‌شود.
+
+## تست و کیفیت کد
+
+```bash
+ruff check src tests
 python -m unittest discover -s tests -v
 python -m compileall -q src tests
 ```
 
-در GitHub Actions نیز تست‌ها و بررسی Ruff روی هر push و pull request اجرا می‌شوند.
+CI همین بررسی‌ها را روی push و pull request اجرا می‌کند.
 
-## ساختار کد
+## مرحلهٔ بعد
 
-```text
-src/vid_pipeline/
-├── source.py       کشف و اعتبارسنجی منبع
-├── download.py     دانلود و metadata با yt-dlp
-├── audio.py        ffmpeg و کنترل mono/16kHz
-├── transcribe.py   faster-whisper و timestamp
-├── review.py       بسته و رسید بازبینی
-├── rag.py          chunking و JSONL
-├── state.py        ادامهٔ پردازش و checksum
-├── pipeline.py     هماهنگی مراحل خودکار
-├── publish.py      commit/push امن به مقصد
-└── cli.py          رابط خط فرمان
-```
-
-## محدودیت صداقت بازبینی
-
-این ابزار می‌تواند بخش‌های کم‌اعتماد، سکوت و تکرار احتمالی را علامت بزند؛ اما نمی‌تواند بدون گوش‌دادن واقعی ادعا کند متن کاملاً با ویدئو تطبیق داده شده است. مرحلهٔ نهایی بازبینی انسانی عمداً اجباری است.
+رابط کاربری وب روی همین هسته ساخته خواهد شد و از همان فرمان `run-url` و ساختار خروجی استفاده می‌کند.

@@ -19,11 +19,18 @@ class TranscriptionConfig:
     device: str = "auto"
     compute_type: str = "auto"
     language: str = "fa"
+    task: str = "transcribe"
     beam_size: int = 5
     vad_filter: bool = True
+    vad_parameters: dict[str, Any] | None = None
     word_timestamps: bool = True
     condition_on_previous_text: bool = False
     initial_prompt: str = DEFAULT_INITIAL_PROMPT
+    hotwords: str = ""
+    repetition_penalty: float = 1.0
+    no_repeat_ngram_size: int = 0
+    hallucination_silence_threshold: float | None = None
+    log_progress: bool = False
 
 
 def format_timestamp(seconds: float) -> str:
@@ -102,11 +109,18 @@ def transcribe_audio(
         segments_iter, info = model.transcribe(
             str(source),
             language=config.language,
+            task=config.task,
             beam_size=config.beam_size,
             vad_filter=config.vad_filter,
+            vad_parameters=config.vad_parameters,
             word_timestamps=config.word_timestamps,
             condition_on_previous_text=config.condition_on_previous_text,
             initial_prompt=config.initial_prompt or None,
+            hotwords=config.hotwords or None,
+            repetition_penalty=config.repetition_penalty,
+            no_repeat_ngram_size=config.no_repeat_ngram_size,
+            hallucination_silence_threshold=config.hallucination_silence_threshold,
+            log_progress=config.log_progress,
         )
         segments: list[dict[str, Any]] = []
         all_text: list[str] = []

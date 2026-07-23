@@ -37,15 +37,16 @@ jobs:
           if (Test-Path $env:TARGET_DIR) { Remove-Item -Recurse -Force $env:TARGET_DIR }
           New-Item -ItemType Directory -Force "$env:TARGET_DIR/reports" | Out-Null
           $status = @{
-            status = 'running'
+            status = 'running_high_quality_retry'
             source_url = $env:SOURCE_URL
             media_url = $env:MEDIA_URL
+            transcription_model = 'large-v3-turbo'
             workflow_run_id = $env:GITHUB_RUN_ID
             started_at = (Get-Date).ToUniversalTime().ToString('o')
           } | ConvertTo-Json
           Set-Content -Path "$env:TARGET_DIR/status.json" -Value $status -Encoding utf8NoBOM
           git add -f "$env:TARGET_DIR/status.json"
-          git commit -m 'Start Telewebion 0x16c79674 processing'
+          git commit -m 'Start high-quality Persian transcription retry'
           git push --force origin "HEAD:$env:OUTPUT_BRANCH"
 
       - uses: actions/setup-python@v5
@@ -85,7 +86,9 @@ jobs:
           & ffmpeg -hide_banner -loglevel warning -nostdin -y `
             -protocol_whitelist 'file,crypto,data' -allowed_extensions ALL `
             -i "$env:WORK_DIR/hls/playlist.local.m3u8" `
-            -vn -ac 1 -ar 16000 -c:a pcm_s16le `
+            -vn -ac 1 -ar 16000 `
+            -af 'highpass=f=70,lowpass=f=7600,loudnorm=I=-16:TP=-1.5:LRA=11' `
+            -c:a pcm_s16le `
             "$env:WORK_DIR/audio-16k-mono.wav" `
             2>&1 | Tee-Object -FilePath 'run-reports/ffmpeg-audio.log'
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
@@ -113,16 +116,41 @@ jobs:
           work = Path(os.environ["WORK_DIR"])
           target = Path(os.environ["TARGET_DIR"])
           title = "به وقت ایران؛ تفاوت راهبردی قصاص و انتقام"
+          prompt = (
+              "این یک گفت‌وگوی رسمی فارسی در برنامه «به وقت ایران» از شبکه خبر است. "
+              "مهمان برنامه آیت‌الله سیدمحمدمهدی میرباقری، عضو مجلس خبرگان رهبری است. "
+              "موضوع گفت‌وگو تفاوت راهبردی قصاص و انتقام، جنگ تحمیلی، رژیم صهیونیستی، "
+              "ایالات متحده آمریکا، جمهوری اسلامی ایران، قرآن کریم، شهادت و مقاومت است. "
+              "متن را به فارسی معیار، دقیق و با حفظ نام‌های خاص بنویس."
+          )
+          hotwords = (
+              "به وقت ایران، سیدمحمدمهدی میرباقری، مجلس خبرگان رهبری، قصاص، انتقام، "
+              "جنگ تحمیلی، رژیم صهیونیستی، ایالات متحده آمریکا، جمهوری اسلامی ایران، "
+              "قرآن کریم، شهادت، مقاومت، شهید، رهبر انقلاب"
+          )
 
           config = TranscriptionConfig(
-              model="small",
+              model="large-v3-turbo",
               device="cpu",
               compute_type="int8",
               language="fa",
+              task="transcribe",
               beam_size=5,
               vad_filter=True,
+              vad_parameters={
+                  "threshold": 0.35,
+                  "min_speech_duration_ms": 100,
+                  "min_silence_duration_ms": 500,
+                  "speech_pad_ms": 300,
+              },
               word_timestamps=True,
-              condition_on_previous_text=False,
+              condition_on_previous_text=True,
+              initial_prompt=prompt,
+              hotwords=hotwords,
+              repetition_penalty=1.08,
+              no_repeat_ngram_size=3,
+              hallucination_silence_threshold=2.0,
+              log_progress=True,
           )
           result = transcribe_audio(
               work / "audio-16k-mono.wav",
@@ -150,11 +178,12 @@ jobs:
               "duration_seconds": result.get("duration"),
           }
           outcome = {
-              "schema_version": 1,
+              "schema_version": 2,
               "status": "needs_editorial_review",
               "model": result.get("model"),
               "language": result.get("language"),
               "segments": len(result.get("segments", [])),
+              "quality_retry": True,
               "cleaned": cleaned,
           }
           (target / "source.json").write_text(
@@ -186,16 +215,17 @@ jobs:
         run: |
           Copy-Item -Recurse -Force 'run-reports/*' "$env:TARGET_DIR/reports/"
           $status = @{
-            status = 'technical_processing_completed'
+            status = 'high_quality_transcription_completed'
             review_status = 'needs_editorial_review'
             source_url = $env:SOURCE_URL
             media_url = $env:MEDIA_URL
+            transcription_model = 'large-v3-turbo'
             workflow_run_id = $env:GITHUB_RUN_ID
             completed_at = (Get-Date).ToUniversalTime().ToString('o')
           } | ConvertTo-Json
           Set-Content -Path "$env:TARGET_DIR/status.json" -Value $status -Encoding utf8NoBOM
           git add -f $env:TARGET_DIR
-          git commit -m 'Store Telewebion 0x16c79674 technical output'
+          git commit -m 'Store improved Persian transcription output'
           git push --force origin "HEAD:$env:OUTPUT_BRANCH"
 
       - name: Persist failure diagnostics
@@ -207,15 +237,16 @@ jobs:
             Copy-Item -Recurse -Force 'run-reports/*' "$env:TARGET_DIR/reports/" -ErrorAction SilentlyContinue
           }
           $status = @{
-            status = 'failed'
+            status = 'failed_high_quality_retry'
             source_url = $env:SOURCE_URL
             media_url = $env:MEDIA_URL
+            transcription_model = 'large-v3-turbo'
             workflow_run_id = $env:GITHUB_RUN_ID
             failed_at = (Get-Date).ToUniversalTime().ToString('o')
           } | ConvertTo-Json
           Set-Content -Path "$env:TARGET_DIR/status.json" -Value $status -Encoding utf8NoBOM
           git add -f $env:TARGET_DIR
-          git commit -m 'Record Telewebion 0x16c79674 failure' 2>$null
+          git commit -m 'Record high-quality Persian transcription failure' 2>$null
           git push --force origin "HEAD:$env:OUTPUT_BRANCH"
 
       - name: Upload transcript package

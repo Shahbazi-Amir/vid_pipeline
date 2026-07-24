@@ -1,61 +1,60 @@
 # Video Transcript Pipeline
 
-یک پایپ‌لاین مستقل برای تبدیل **یک لینک ویدئو** به متن فارسی خام، متن پاک‌سازی‌شدۀ ماشینی و متن نهاییِ ویرایش‌شدۀ هوشمند.
+یک پایپ‌لاین مستقل برای تبدیل **یک لینک ویدئو** به متن فارسی خام، متن پاک‌سازی‌شده و متن نهایی ویرایش‌شده؛ بدون نیاز به API پولی.
 
 ## مسیر کامل پردازش
 
 ```text
 Video URL
-→ بررسی منبع و دانلود با yt-dlp
+→ بررسی و دانلود ویدئو با yt-dlp
 → استخراج و استانداردسازی صوت با ffmpeg
-→ رونویسی زمان‌دار با faster-whisper
-→ پاک‌سازی قطعی و حذف تکرارهای آشکار
-→ بازسازی معنایی چندمرحله‌ای با مدل زبانی
+→ رونویسی زمان‌دار فارسی با faster-whisper
+→ پاک‌سازی تکرارها و خطاهای شکلی
+→ بازسازی معنایی با مدل متن‌باز محلی در Ollama
 → گوینده‌بندی و موضوع‌بندی
 → خروجی نهایی Markdown و TXT
 ```
 
-نسخۀ خام و نسخۀ ماشینی حذف نمی‌شوند؛ بنابراین می‌توان خروجی نهایی را با منبع اولیه کنترل کرد.
+نسخه‌های خام و ماشینی نیز نگه‌داری می‌شوند تا خروجی نهایی قابل کنترل باشد. متن صفحهٔ منبع وارد رونویسی نمی‌شود؛ محتوا فقط از صوت ویدئو استخراج می‌شود.
 
 ## نیازمندی‌ها
 
 - Python 3.10 یا جدیدتر
 - `ffmpeg` و `ffprobe`
-- فضای کافی برای ویدئو و صوت
-- متغیر محیطی `OPENAI_API_KEY` برای مرحلۀ ویرایش نهایی
+- [Ollama](https://ollama.com/) برای ویرایش محلی
+- فضای کافی برای مدل Whisper و مدل زبانی محلی
 
-### نصب
+هیچ `OPENAI_API_KEY` یا Secret پولی لازم نیست.
+
+## نصب محلی
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -e '.[all]'
+
+ollama pull qwen2.5:7b
+ollama serve
 ```
 
 ## اجرای کامل با یک لینک
 
 ```bash
-export OPENAI_API_KEY='...'
-
-vid-pipeline run-url 'https://example.com/video' \
+vid-pipeline run-url 'https://example.com/video.mp4' \
   --language fa \
   --model large-v3-turbo \
-  --editorial-model gpt-5
+  --editorial-model qwen2.5:7b
 ```
 
-در حالت عادی عنوان، مدت و ناشر از خود لینک استخراج می‌شوند. برای افزایش دقت نام‌ها و قالب نهایی می‌توان اطلاعات تکمیلی داد:
+برای نمایش آدرس صفحهٔ اصلی در فایل نهایی، در حالی که دانلود از لینک مستقیم ویدئو انجام می‌شود:
 
 ```bash
-vid-pipeline run-url 'https://example.com/video' \
-  --name interview-01 \
-  --title 'عنوان گفت‌وگو' \
-  --program 'نام برنامه' \
-  --network 'نام شبکه' \
-  --date '۱۴۰۵/۰۴/۱۶' \
-  --guest 'نام مهمان' \
-  --speaker 'مجری' \
-  --speaker 'مهمان' \
-  --editorial-context 'موضوع اصلی و نام‌های خاص برنامه'
+vid-pipeline run-url 'https://cdn.example.com/video.mp4' \
+  --source-url 'https://example.com/video-page' \
+  --title 'عنوان ویدئو' \
+  --network 'نام ناشر' \
+  --date '۱۴۰۴/۰۲/۳۰' \
+  --editorial-context 'موضوع و نام‌های مهم'
 ```
 
 ## خروجی
@@ -67,7 +66,6 @@ outputs/<job-id>/
 ├── video-info.json
 ├── result.json
 ├── video/
-│   └── video.*
 ├── audio/
 │   └── audio-16k-mono.wav
 ├── raw/
@@ -82,73 +80,67 @@ outputs/<job-id>/
     └── editorial-report.json
 ```
 
-فایل اصلی قابل تحویل:
+فایل‌های اصلی قابل تحویل:
 
 ```text
 outputs/<job-id>/final/transcript.final.md
+outputs/<job-id>/final/transcript.final.txt
 ```
-
-این فایل شامل عنوان، مشخصات منبع، تیترهای موضوعی، تفکیک گویندگان و متن فارسی بازسازی‌شده است.
 
 ## ویرایش یک رونویسی موجود
 
-اگر فایل JSON خام Whisper از قبل موجود است، نیازی به دانلود و رونویسی دوباره نیست:
-
 ```bash
-export OPENAI_API_KEY='...'
-
 vid-pipeline edit transcript.raw.json \
   --markdown transcript.final.md \
   --text transcript.final.txt \
   --title 'عنوان ویدئو' \
-  --source-url 'https://example.com/video' \
-  --guest 'نام مهمان'
+  --source-url 'https://example.com/video'
 ```
 
-## اجرای بدون ویرایش هوشمند
-
-برای عیب‌یابی یا اجرای کاملاً آفلاین:
+## اجرای بدون مدل زبانی
 
 ```bash
 vid-pipeline run-url 'https://example.com/video' --no-editorial
 ```
 
-در این حالت فایل `final/` فقط نسخۀ ماشینی است و در `result.json` با وضعیت `machine_only` مشخص می‌شود.
+در این حالت، فایل نهایی همان نسخهٔ ماشینی است و در `result.json` با وضعیت `machine_only` ثبت می‌شود.
 
 ## GitHub Actions
 
-Workflow با نام **Process video URL** از بخش Actions قابل اجراست. لینک ویدئو و اطلاعات اختیاری را وارد کنید؛ پس از پایان، پوشۀ کامل خروجی به‌صورت Artifact قابل دانلود است.
+Workflow با نام **Process video URL**:
 
-برای فعال‌بودن ویرایش نهایی، secret زیر را در مخزن تعریف کنید:
+1. ویدئو و صوت را پردازش می‌کند.
+2. مدل Whisper را روی CPU اجرا می‌کند.
+3. Ollama و مدل `qwen2.5:7b` را داخل همان runner نصب و اجرا می‌کند.
+4. بستهٔ کامل خروجی را به‌صورت Artifact تحویل می‌دهد.
 
-```text
-OPENAI_API_KEY
+هیچ Secret لازم نیست. علاوه بر اجرای دستی، افزودن فایل `runs/*.request.json` نیز workflow را اجرا می‌کند.
+
+نمونهٔ درخواست:
+
+```json
+{
+  "media_url": "https://cdn.example.com/video.mp4",
+  "source_url": "https://example.com/video-page",
+  "name": "sample-video",
+  "title": "عنوان ویدئو",
+  "network": "نام ناشر",
+  "date": "۱۴۰۴/۰۲/۳۰",
+  "whisper_model": "large-v3-turbo",
+  "editorial_model": "qwen2.5:7b"
+}
 ```
 
-## اصول ویرایش هوشمند
+## اصول ویرایش
 
 - معنا و ترتیب گفت‌وگو حفظ می‌شود.
-- خطاهای آوایی و دستوری فقط با اتکا به بافت اصلاح می‌شوند.
-- نام، عدد، آیه یا ادعای تازه افزوده نمی‌شود.
+- نام، عدد، نقل‌قول یا ادعای تازه افزوده نمی‌شود.
 - تکرارهای ماشینی و کلمات پرکننده حذف می‌شوند.
-- گویندگان تفکیک و متن موضوع‌بندی می‌شود.
+- متن موضوع‌بندی و گویندگان تفکیک می‌شوند.
 - عبارت غیرقابل‌بازیابی با `[نامفهوم]` مشخص می‌شود.
-- برای نقل‌قول حقوقی، علمی یا سیاسیِ کلمه‌به‌کلمه، تطبیق نهایی با صوت همچنان لازم است.
+- برای نقل‌قول کلمه‌به‌کلمه، تطبیق نهایی با صوت همچنان لازم است.
 
-## مشاهدهٔ وضعیت و اجرای مجدد
-
-```bash
-vid-pipeline status <job-id> --output-root outputs
-vid-pipeline run-url 'https://example.com/video' --force
-```
-
-## بررسی لینک بدون دانلود
-
-```bash
-vid-pipeline inspect 'https://example.com/video'
-```
-
-## تست و کیفیت کد
+## تست
 
 ```bash
 ruff check src tests

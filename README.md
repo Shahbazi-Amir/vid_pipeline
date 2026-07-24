@@ -1,39 +1,28 @@
 # Video Transcript Pipeline
 
-یک پایپ‌لاین مستقل برای تبدیل لینک ویدئو به متن خام و متن نهایی پاک‌سازی‌شده.
+یک پایپ‌لاین مستقل برای تبدیل **یک لینک ویدئو** به متن فارسی خام، متن پاک‌سازی‌شدۀ ماشینی و متن نهاییِ ویرایش‌شدۀ هوشمند.
 
-این مخزن به هیچ مخزن دیگری وابسته نیست و همهٔ ورودی‌ها، وضعیت پردازش و خروجی‌ها را داخل پوشهٔ `outputs/` مدیریت می‌کند.
-
-## مسیر پردازش
+## مسیر کامل پردازش
 
 ```text
 Video URL
-→ بررسی منبع با yt-dlp
-→ دانلود ویدئو
+→ بررسی منبع و دانلود با yt-dlp
 → استخراج و استانداردسازی صوت با ffmpeg
-→ رونویسی با faster-whisper
-→ پاک‌سازی متن با حفظ ترتیب گفت‌وگو
-→ خروجی Markdown و TXT
+→ رونویسی زمان‌دار با faster-whisper
+→ پاک‌سازی قطعی و حذف تکرارهای آشکار
+→ بازسازی معنایی چندمرحله‌ای با مدل زبانی
+→ گوینده‌بندی و موضوع‌بندی
+→ خروجی نهایی Markdown و TXT
 ```
 
-## ویژگی‌ها
-
-- دریافت مستقیم لینک ویدئو؛
-- پشتیبانی از سایت‌هایی که `yt-dlp` پشتیبانی می‌کند؛
-- پردازش resume-safe با `state.json`؛
-- خروجی خام زمان‌دار برای عیب‌یابی؛
-- خروجی نهایی بدون timecode؛
-- حفظ ترتیب اصلی segmentها؛
-- یکسان‌سازی حروف فارسی و عربی؛
-- حذف تکرارهای مجاور و آشکار؛
-- تولید Markdown و متن ساده؛
-- بدون commit خودکار خروجی‌ها و بدون اتصال به مخزن خارجی.
+نسخۀ خام و نسخۀ ماشینی حذف نمی‌شوند؛ بنابراین می‌توان خروجی نهایی را با منبع اولیه کنترل کرد.
 
 ## نیازمندی‌ها
 
 - Python 3.10 یا جدیدتر
 - `ffmpeg` و `ffprobe`
-- فضای کافی برای دانلود و فایل صوتی
+- فضای کافی برای ویدئو و صوت
+- متغیر محیطی `OPENAI_API_KEY` برای مرحلۀ ویرایش نهایی
 
 ### نصب
 
@@ -43,44 +32,33 @@ source .venv/bin/activate
 pip install -e '.[all]'
 ```
 
-در macOS:
+## اجرای کامل با یک لینک
 
 ```bash
-brew install ffmpeg
-```
+export OPENAI_API_KEY='...'
 
-در Ubuntu/Debian:
-
-```bash
-sudo apt-get update
-sudo apt-get install -y ffmpeg
-```
-
-## اجرای ساده
-
-```bash
-vid-pipeline run-url 'https://example.com/video'
-```
-
-برای اجرای فارسی روی CPU:
-
-```bash
 vid-pipeline run-url 'https://example.com/video' \
   --language fa \
-  --model small \
-  --device cpu \
-  --compute-type int8
+  --model large-v3-turbo \
+  --editorial-model gpt-5
 ```
 
-برای تعیین نام job و پوشهٔ خروجی:
+در حالت عادی عنوان، مدت و ناشر از خود لینک استخراج می‌شوند. برای افزایش دقت نام‌ها و قالب نهایی می‌توان اطلاعات تکمیلی داد:
 
 ```bash
 vid-pipeline run-url 'https://example.com/video' \
   --name interview-01 \
-  --output-root outputs
+  --title 'عنوان گفت‌وگو' \
+  --program 'نام برنامه' \
+  --network 'نام شبکه' \
+  --date '۱۴۰۵/۰۴/۱۶' \
+  --guest 'نام مهمان' \
+  --speaker 'مجری' \
+  --speaker 'مهمان' \
+  --editorial-context 'موضوع اصلی و نام‌های خاص برنامه'
 ```
 
-## ساختار خروجی
+## خروجی
 
 ```text
 outputs/<job-id>/
@@ -95,38 +73,73 @@ outputs/<job-id>/
 ├── raw/
 │   ├── transcript.raw.json
 │   └── transcript.raw.md
+├── machine/
+│   ├── transcript.machine.md
+│   └── transcript.machine.txt
 └── final/
     ├── transcript.final.md
-    └── transcript.final.txt
+    ├── transcript.final.txt
+    └── editorial-report.json
 ```
 
-فایل اصلی قابل استفاده:
+فایل اصلی قابل تحویل:
 
 ```text
 outputs/<job-id>/final/transcript.final.md
 ```
 
-## مشاهدهٔ وضعیت
+این فایل شامل عنوان، مشخصات منبع، تیترهای موضوعی، تفکیک گویندگان و متن فارسی بازسازی‌شده است.
 
-پس از اجرای اولیه، شناسهٔ job در خروجی چاپ می‌شود:
+## ویرایش یک رونویسی موجود
+
+اگر فایل JSON خام Whisper از قبل موجود است، نیازی به دانلود و رونویسی دوباره نیست:
+
+```bash
+export OPENAI_API_KEY='...'
+
+vid-pipeline edit transcript.raw.json \
+  --markdown transcript.final.md \
+  --text transcript.final.txt \
+  --title 'عنوان ویدئو' \
+  --source-url 'https://example.com/video' \
+  --guest 'نام مهمان'
+```
+
+## اجرای بدون ویرایش هوشمند
+
+برای عیب‌یابی یا اجرای کاملاً آفلاین:
+
+```bash
+vid-pipeline run-url 'https://example.com/video' --no-editorial
+```
+
+در این حالت فایل `final/` فقط نسخۀ ماشینی است و در `result.json` با وضعیت `machine_only` مشخص می‌شود.
+
+## GitHub Actions
+
+Workflow با نام **Process video URL** از بخش Actions قابل اجراست. لینک ویدئو و اطلاعات اختیاری را وارد کنید؛ پس از پایان، پوشۀ کامل خروجی به‌صورت Artifact قابل دانلود است.
+
+برای فعال‌بودن ویرایش نهایی، secret زیر را در مخزن تعریف کنید:
+
+```text
+OPENAI_API_KEY
+```
+
+## اصول ویرایش هوشمند
+
+- معنا و ترتیب گفت‌وگو حفظ می‌شود.
+- خطاهای آوایی و دستوری فقط با اتکا به بافت اصلاح می‌شوند.
+- نام، عدد، آیه یا ادعای تازه افزوده نمی‌شود.
+- تکرارهای ماشینی و کلمات پرکننده حذف می‌شوند.
+- گویندگان تفکیک و متن موضوع‌بندی می‌شود.
+- عبارت غیرقابل‌بازیابی با `[نامفهوم]` مشخص می‌شود.
+- برای نقل‌قول حقوقی، علمی یا سیاسیِ کلمه‌به‌کلمه، تطبیق نهایی با صوت همچنان لازم است.
+
+## مشاهدهٔ وضعیت و اجرای مجدد
 
 ```bash
 vid-pipeline status <job-id> --output-root outputs
-```
-
-اجرای مجدد همان URL مراحل کامل‌شده را رد می‌کند. برای اجرای دوبارهٔ همهٔ مراحل:
-
-```bash
 vid-pipeline run-url 'https://example.com/video' --force
-```
-
-## پاک‌سازی یک خروجی Whisper موجود
-
-```bash
-vid-pipeline clean transcript.raw.json \
-  --markdown transcript.final.md \
-  --text transcript.final.txt \
-  --title 'عنوان ویدئو'
 ```
 
 ## بررسی لینک بدون دانلود
@@ -135,10 +148,6 @@ vid-pipeline clean transcript.raw.json \
 vid-pipeline inspect 'https://example.com/video'
 ```
 
-## صداقت خروجی
-
-خروجی نهایی به‌صورت ماشینی پاک‌سازی می‌شود؛ یعنی ترتیب گفت‌وگو حفظ، timecode حذف و خطاهای شکلی و تکرارهای آشکار اصلاح می‌شوند. تشخیص قطعی نام‌ها، اعداد یا واژه‌های بسیار نامفهوم بدون گوش‌دادن انسانی تضمین نمی‌شود.
-
 ## تست و کیفیت کد
 
 ```bash
@@ -146,9 +155,3 @@ ruff check src tests
 python -m unittest discover -s tests -v
 python -m compileall -q src tests
 ```
-
-CI همین بررسی‌ها را روی push و pull request اجرا می‌کند.
-
-## مرحلهٔ بعد
-
-رابط کاربری وب روی همین هسته ساخته خواهد شد و از همان فرمان `run-url` و ساختار خروجی استفاده می‌کند.

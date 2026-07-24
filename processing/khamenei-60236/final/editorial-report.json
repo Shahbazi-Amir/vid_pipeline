@@ -1,11 +1,14 @@
 {
-  "status": "local_editorial_completed",
-  "model": "qwen3:8b",
-  "provider": "ollama",
+  "status": "audio_reviewed_final",
+  "transcription_model": "large-v3-turbo",
+  "editorial_model": "qwen3:8b",
+  "editorial_provider": "ollama",
+  "paid_api_required": false,
+  "website_transcript_used": false,
   "segments": 20,
   "chunks": 1,
-  "quality_passes": 2,
-  "markdown": "outputs/khamenei-60236-a6444ad5/final/transcript.final.md",
-  "text": "outputs/khamenei-60236-a6444ad5/final/transcript.final.txt",
-  "human_audio_verification": false
+  "local_quality_passes": 2,
+  "human_audio_verification": true,
+  "markdown": "processing/khamenei-60236/final/transcript.final.md",
+  "text": "processing/khamenei-60236/final/transcript.final.txt"
 }

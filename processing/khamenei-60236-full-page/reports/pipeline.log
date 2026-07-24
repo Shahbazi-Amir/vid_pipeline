@@ -1,0 +1,87 @@
+[generic] Extracting URL: https://farsi.khamenei.ir/video-content?id=60236
+[generic] video-content?id=60236: Downloading webpage
+WARNING: [generic] Falling back on generic information extractor
+[generic] video-content?id=60236: Extracting information
+[info] video-content?id=60236-1: Downloading 1 format(s): 0
+[download] Destination: outputs/khamenei-60236-full-page-fcde7799/video/video.mp4
+[download]   0.0% of   12.81MiB at  Unknown B/s ETA Unknown[download]   0.0% of   12.81MiB at  Unknown B/s ETA Unknown[download]   0.1% of   12.81MiB at  Unknown B/s ETA Unknown[download]   0.1% of   12.81MiB at   11.62MiB/s ETA 00:01  [download]   0.2% of   12.81MiB at   19.22MiB/s ETA 00:00[download]   0.5% of   12.81MiB at  436.76KiB/s ETA 00:29[download]   1.0% of   12.81MiB at  445.18KiB/s ETA 00:29[download]   1.9% of   12.81MiB at  471.61KiB/s ETA 00:27[download]   3.9% of   12.81MiB at  553.15KiB/s ETA 00:22[download]   7.8% of   12.81MiB at  813.42KiB/s ETA 00:14[download]  15.6% of   12.81MiB at    1.30MiB/s ETA 00:08[download]  31.2% of   12.81MiB at  840.27KiB/s ETA 00:10[download]  39.0% of   12.81MiB at  645.97KiB/s ETA 00:12[download]  42.9% of   12.81MiB at  710.00KiB/s ETA 00:10[download]  50.7% of   12.81MiB at  604.70KiB/s ETA 00:10[download]  54.6% of   12.81MiB at  633.48KiB/s ETA 00:09[download]  62.4% of   12.81MiB at  704.78KiB/s ETA 00:06[download]  78.1% of   12.81MiB at  678.76KiB/s ETA 00:04[download]  85.9% of   12.81MiB at  621.30KiB/s ETA 00:02[download]  89.8% of   12.81MiB at  648.07KiB/s ETA 00:02[download]  97.6% of   12.81MiB at  602.72KiB/s ETA 00:00[download] 100.0% of   12.81MiB at  616.49KiB/s ETA 00:00[download] 100% of   12.81MiB in 00:00:24 at 540.43KiB/s 
+[0;93m2026-07-24 14:34:35.607802543 [W:onnxruntime:Default, device_discovery.cc:133 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename "5620e0c7-8062-4dce-aeb7-520c7ef76171" did not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
+{
+  "job_id": "khamenei-60236-full-page-fcde7799",
+  "job_root": "outputs/khamenei-60236-full-page-fcde7799",
+  "raw_markdown": "outputs/khamenei-60236-full-page-fcde7799/raw/transcript.raw.md",
+  "machine_markdown": "outputs/khamenei-60236-full-page-fcde7799/machine/transcript.machine.md",
+  "final_markdown": "outputs/khamenei-60236-full-page-fcde7799/final/transcript.final.md",
+  "final_text": "outputs/khamenei-60236-full-page-fcde7799/final/transcript.final.txt",
+  "stages": [
+    {
+      "stage": "source",
+      "status": "completed",
+      "schema_version": 2,
+      "job_id": "khamenei-60236-full-page-fcde7799",
+      "url": "https://farsi.khamenei.ir/video-content?id=60236",
+      "title": "مراسم بزرگداشت شهید رئیسی و شهدای پرواز اردیبهشت (1)",
+      "duration": null,
+      "extractor": "HTML5MediaEmbed",
+      "uploader": "",
+      "channel": "",
+      "upload_date": ""
+    },
+    {
+      "stage": "download",
+      "status": "completed",
+      "video_path": "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-page-fcde7799/video/video.mp4",
+      "duration": null
+    },
+    {
+      "stage": "audio",
+      "status": "completed",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "codec_type": "audio",
+            "sample_rate": "16000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "104.896000"
+        }
+      }
+    },
+    {
+      "stage": "transcribe",
+      "status": "completed",
+      "duration": 104.896,
+      "segments": 13,
+      "language": "fa",
+      "model": "large-v3-turbo",
+      "device": "cpu"
+    },
+    {
+      "stage": "clean",
+      "status": "completed",
+      "segments_in": 13,
+      "segments_out": 13,
+      "paragraphs": 2,
+      "language": "fa",
+      "markdown": "outputs/khamenei-60236-full-page-fcde7799/machine/transcript.machine.md",
+      "text": "outputs/khamenei-60236-full-page-fcde7799/machine/transcript.machine.txt",
+      "quality": "machine_only"
+    },
+    {
+      "stage": "editorial",
+      "status": "local_editorial_completed",
+      "model": "qwen3:8b",
+      "provider": "ollama",
+      "segments": 13,
+      "chunks": 1,
+      "quality_passes": 2,
+      "markdown": "outputs/khamenei-60236-full-page-fcde7799/final/transcript.final.md",
+      "text": "outputs/khamenei-60236-full-page-fcde7799/final/transcript.final.txt",
+      "human_audio_verification": false
+    }
+  ]
+}

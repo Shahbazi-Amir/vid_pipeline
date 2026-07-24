@@ -16,6 +16,7 @@ STAGES = (
     "clean",
     "editorial",
     "finalize_machine",
+    "review",
 )
 
 

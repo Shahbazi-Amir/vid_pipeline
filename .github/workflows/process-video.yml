@@ -230,7 +230,7 @@ jobs:
 
           job_dir=$(find outputs -mindepth 1 -maxdepth 1 -type d 2>/dev/null | head -n 1 || true)
           if [[ -n "$job_dir" ]]; then
-            for item in final machine raw source.json result.json state.json; do
+            for item in final machine raw review human source.json result.json state.json; do
               if [[ -e "$job_dir/$item" ]]; then
                 cp -R "$job_dir/$item" "$target/"
               fi

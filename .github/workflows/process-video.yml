@@ -1,0 +1,136 @@
+name: Process video URL
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: Video page or direct media URL
+        required: true
+        type: string
+      name:
+        description: Optional job name
+        required: false
+        type: string
+      title:
+        description: Optional Persian title
+        required: false
+        type: string
+      program:
+        description: Optional program name
+        required: false
+        type: string
+      network:
+        description: Optional network or publisher
+        required: false
+        type: string
+      date:
+        description: Optional publication date
+        required: false
+        type: string
+      guest:
+        description: Optional guest name
+        required: false
+        type: string
+      editorial_context:
+        description: Topic and important names for the editor
+        required: false
+        type: string
+      whisper_model:
+        description: faster-whisper model
+        required: true
+        default: large-v3-turbo
+        type: string
+      editorial_model:
+        description: OpenAI editorial model
+        required: true
+        default: gpt-5
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: video-transcript-${{ github.run_id }}
+  cancel-in-progress: false
+
+jobs:
+  process:
+    runs-on: windows-latest
+    timeout-minutes: 360
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      VIDEO_URL: ${{ inputs.url }}
+      JOB_NAME: ${{ inputs.name }}
+      VIDEO_TITLE: ${{ inputs.title }}
+      PROGRAM_NAME: ${{ inputs.program }}
+      NETWORK_NAME: ${{ inputs.network }}
+      VIDEO_DATE: ${{ inputs.date }}
+      GUEST_NAME: ${{ inputs.guest }}
+      EDITORIAL_CONTEXT: ${{ inputs.editorial_context }}
+      WHISPER_MODEL: ${{ inputs.whisper_model }}
+      EDITORIAL_MODEL: ${{ inputs.editorial_model }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install ffmpeg and Python dependencies
+        shell: pwsh
+        run: |
+          if (-not (Get-Command ffmpeg -ErrorAction SilentlyContinue)) {
+            choco install ffmpeg -y --no-progress
+          }
+          python -m pip install --upgrade pip
+          pip install -e '.[all]'
+          ffmpeg -version
+
+      - name: Validate editorial secret
+        shell: pwsh
+        run: |
+          if ([string]::IsNullOrWhiteSpace($env:OPENAI_API_KEY)) {
+            throw 'Repository secret OPENAI_API_KEY is required.'
+          }
+
+      - name: Run complete URL-to-reviewed-transcript pipeline
+        shell: pwsh
+        run: |
+          $args = @(
+            'run-url', $env:VIDEO_URL,
+            '--output-root', 'outputs',
+            '--language', 'fa',
+            '--model', $env:WHISPER_MODEL,
+            '--device', 'cpu',
+            '--compute-type', 'int8',
+            '--editorial-model', $env:EDITORIAL_MODEL
+          )
+          $optional = @{
+            '--name' = $env:JOB_NAME
+            '--title' = $env:VIDEO_TITLE
+            '--program' = $env:PROGRAM_NAME
+            '--network' = $env:NETWORK_NAME
+            '--date' = $env:VIDEO_DATE
+            '--guest' = $env:GUEST_NAME
+            '--editorial-context' = $env:EDITORIAL_CONTEXT
+          }
+          foreach ($entry in $optional.GetEnumerator()) {
+            if (-not [string]::IsNullOrWhiteSpace($entry.Value)) {
+              $args += @($entry.Key, $entry.Value)
+            }
+          }
+          & vid-pipeline @args 2>&1 | Tee-Object -FilePath pipeline.log
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Upload reviewed transcript package
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reviewed-transcript-${{ github.run_id }}
+          path: |
+            outputs/**
+            pipeline.log
+          retention-days: 30
+          if-no-files-found: warn

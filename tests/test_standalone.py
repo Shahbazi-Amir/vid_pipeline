@@ -28,6 +28,10 @@ class StandalonePipelineTests(unittest.TestCase):
             paths.ensure()
             self.assertTrue(paths.job_root.exists())
             self.assertEqual(
+                paths.machine_markdown,
+                Path(directory) / "sample-12345678" / "machine" / "transcript.machine.md",
+            )
+            self.assertEqual(
                 paths.final_markdown,
                 Path(directory) / "sample-12345678" / "final" / "transcript.final.md",
             )

@@ -8,7 +8,15 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-STAGES = ("source", "download", "audio", "transcribe", "clean")
+STAGES = (
+    "source",
+    "download",
+    "audio",
+    "transcribe",
+    "clean",
+    "editorial",
+    "finalize_machine",
+)
 
 
 def utc_now() -> str:
@@ -39,12 +47,13 @@ class PipelineState:
     def __init__(self, path: str | Path) -> None:
         self.path = Path(path)
         self.data: dict[str, Any] = {
-            "schema_version": 1,
+            "schema_version": 2,
             "updated_at": utc_now(),
             "stages": {stage: empty_stage() for stage in STAGES},
         }
         if self.path.exists():
             self.data = json.loads(self.path.read_text(encoding="utf-8"))
+            self.data["schema_version"] = 2
             for stage in STAGES:
                 self.data.setdefault("stages", {}).setdefault(stage, empty_stage())
 

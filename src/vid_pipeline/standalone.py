@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import shutil
 from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
@@ -14,6 +15,7 @@ from urllib.parse import urlparse
 from vid_pipeline.audio import normalize_audio, validate_normalized_audio
 from vid_pipeline.clean import clean_transcript
 from vid_pipeline.download import download_video, extract_metadata
+from vid_pipeline.editorial import EditorialConfig, EditorialMetadata, edit_transcript
 from vid_pipeline.errors import PipelineError
 from vid_pipeline.state import PipelineState
 from vid_pipeline.transcribe import TranscriptionConfig, transcribe_audio
@@ -30,6 +32,18 @@ def make_job_id(url: str, name: str = "") -> str:
     candidate = _SAFE_RE.sub("-", candidate).strip("-._").lower() or "video"
     digest = hashlib.sha256(url.encode("utf-8")).hexdigest()[:8]
     return f"{candidate[:48]}-{digest}"
+
+
+def _duration_text(value: Any) -> str:
+    try:
+        seconds = max(0, int(float(value)))
+    except (TypeError, ValueError):
+        return ""
+    hours, remainder = divmod(seconds, 3600)
+    minutes, secs = divmod(remainder, 60)
+    if hours:
+        return f"{hours} ساعت و {minutes} دقیقه و {secs} ثانیه"
+    return f"{minutes} دقیقه و {secs} ثانیه"
 
 
 @dataclass(frozen=True, slots=True)
@@ -70,12 +84,24 @@ class VideoJobPaths:
         return self.job_root / "raw" / "transcript.raw.md"
 
     @property
+    def machine_markdown(self) -> Path:
+        return self.job_root / "machine" / "transcript.machine.md"
+
+    @property
+    def machine_text(self) -> Path:
+        return self.job_root / "machine" / "transcript.machine.txt"
+
+    @property
     def final_markdown(self) -> Path:
         return self.job_root / "final" / "transcript.final.md"
 
     @property
     def final_text(self) -> Path:
         return self.job_root / "final" / "transcript.final.txt"
+
+    @property
+    def editorial_report(self) -> Path:
+        return self.job_root / "final" / "editorial-report.json"
 
     @property
     def result(self) -> Path:
@@ -87,6 +113,7 @@ class VideoJobPaths:
             self.video_dir,
             self.audio.parent,
             self.raw_json.parent,
+            self.machine_markdown.parent,
             self.final_markdown.parent,
         }:
             path.mkdir(parents=True, exist_ok=True)
@@ -127,13 +154,15 @@ class VideoPipeline:
         def action() -> tuple[list[Path], dict[str, Any]]:
             metadata = extract_metadata(self.url)
             payload = {
-                "schema_version": 1,
+                "schema_version": 2,
                 "job_id": self.job_id,
                 "url": self.url,
                 "title": metadata.get("title") or "",
                 "duration": metadata.get("duration"),
                 "extractor": metadata.get("extractor_key") or metadata.get("extractor"),
                 "uploader": metadata.get("uploader") or metadata.get("channel") or "",
+                "channel": metadata.get("channel") or "",
+                "upload_date": metadata.get("upload_date") or "",
             }
             self.paths.source_metadata.write_text(
                 json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
@@ -201,41 +230,117 @@ class VideoPipeline:
                 self.metadata = json.loads(self.paths.source_metadata.read_text(encoding="utf-8"))
             details = clean_transcript(
                 self.paths.raw_json,
-                self.paths.final_markdown,
-                self.paths.final_text,
+                self.paths.machine_markdown,
+                self.paths.machine_text,
                 title=str(self.metadata.get("title") or ""),
                 source_url=self.url,
                 max_words=max_words,
             )
+            details["quality"] = "machine_only"
+            return [self.paths.machine_markdown, self.paths.machine_text], details
+
+        return self._run_stage("clean", action, force=force)
+
+    def editorial(
+        self,
+        config: EditorialConfig,
+        metadata: EditorialMetadata | None = None,
+        *,
+        force: bool = False,
+    ) -> dict[str, Any]:
+        def action() -> tuple[list[Path], dict[str, Any]]:
+            if not self.metadata and self.paths.source_metadata.exists():
+                self.metadata = json.loads(self.paths.source_metadata.read_text(encoding="utf-8"))
+            supplied = metadata or EditorialMetadata()
+            resolved = EditorialMetadata(
+                title=supplied.title or str(self.metadata.get("title") or ""),
+                source_url=supplied.source_url or self.url,
+                program=supplied.program,
+                network=supplied.network or str(self.metadata.get("uploader") or ""),
+                date=supplied.date or str(self.metadata.get("upload_date") or ""),
+                guest=supplied.guest,
+                duration=supplied.duration or _duration_text(self.metadata.get("duration")),
+                speakers=list(supplied.speakers),
+                context=supplied.context,
+            )
+            details = edit_transcript(
+                self.paths.raw_json,
+                self.paths.final_markdown,
+                self.paths.final_text,
+                metadata=resolved,
+                config=config,
+            )
+            self.paths.editorial_report.write_text(
+                json.dumps(details, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
             result = {
-                "schema_version": 1,
+                "schema_version": 2,
                 "status": "completed",
+                "review_status": "ai_editorial_completed",
                 "job_id": self.job_id,
                 "source_url": self.url,
-                "title": self.metadata.get("title") or "",
+                "title": resolved.title,
+                "machine_markdown": str(self.paths.machine_markdown),
+                "machine_text": str(self.paths.machine_text),
                 "final_markdown": str(self.paths.final_markdown),
                 "final_text": str(self.paths.final_text),
-                "note": "Machine-cleaned transcript; human audio review is recommended for sensitive publication.",
+                "editorial_report": str(self.paths.editorial_report),
+                "human_audio_verification": False,
             }
             self.paths.result.write_text(
                 json.dumps(result, ensure_ascii=False, indent=2) + "\n",
                 encoding="utf-8",
             )
-            return [self.paths.final_markdown, self.paths.final_text, self.paths.result], details
+            return [
+                self.paths.final_markdown,
+                self.paths.final_text,
+                self.paths.editorial_report,
+                self.paths.result,
+            ], details
 
-        return self._run_stage("clean", action, force=force)
+        return self._run_stage("editorial", action, force=force)
+
+    def finalize_machine_only(self, *, force: bool = False) -> dict[str, Any]:
+        def action() -> tuple[list[Path], dict[str, Any]]:
+            shutil.copyfile(self.paths.machine_markdown, self.paths.final_markdown)
+            shutil.copyfile(self.paths.machine_text, self.paths.final_text)
+            result = {
+                "schema_version": 2,
+                "status": "completed",
+                "review_status": "machine_only",
+                "job_id": self.job_id,
+                "source_url": self.url,
+                "final_markdown": str(self.paths.final_markdown),
+                "final_text": str(self.paths.final_text),
+                "warning": "Editorial stage was disabled; this is not a reviewed transcript.",
+            }
+            self.paths.result.write_text(
+                json.dumps(result, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
+            return [self.paths.final_markdown, self.paths.final_text, self.paths.result], result
+
+        return self._run_stage("finalize_machine", action, force=force)
 
     def run(
         self,
         config: TranscriptionConfig | None = None,
         *,
+        editorial_config: EditorialConfig | None = None,
+        editorial_metadata: EditorialMetadata | None = None,
         max_words: int = 90,
         force: bool = False,
     ) -> list[dict[str, Any]]:
-        return [
+        results = [
             self.inspect(force=force),
             self.download(force=force),
             self.audio(force=force),
             self.transcribe(config=config, force=force),
             self.clean(max_words=max_words, force=force),
         ]
+        if editorial_config is None:
+            results.append(self.finalize_machine_only(force=force))
+        else:
+            results.append(self.editorial(editorial_config, editorial_metadata, force=force))
+        return results

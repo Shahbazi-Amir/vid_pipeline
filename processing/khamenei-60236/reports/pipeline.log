@@ -2,9 +2,9 @@
 [generic] 14040230_67164: Downloading webpage
 [info] 14040230_67164: Downloading 1 format(s): mp4
 [download] Destination: outputs/khamenei-60236-a6444ad5/video/video.mp4
-[download]   0.0% of    8.36MiB at  Unknown B/s ETA Unknown[download]   0.0% of    8.36MiB at    1.30MiB/s ETA 00:06  [download]   0.1% of    8.36MiB at    2.66MiB/s ETA 00:03[download]   0.2% of    8.36MiB at    5.01MiB/s ETA 00:01[download]   0.4% of    8.36MiB at    9.16MiB/s ETA 00:00[download]   0.7% of    8.36MiB at  421.64KiB/s ETA 00:20[download]   1.5% of    8.36MiB at  430.47KiB/s ETA 00:19[download]   3.0% of    8.36MiB at  577.77KiB/s ETA 00:14[download]   6.0% of    8.36MiB at  694.52KiB/s ETA 00:11[download]  12.0% of    8.36MiB at  996.26KiB/s ETA 00:07[download]  23.9% of    8.36MiB at    1.37MiB/s ETA 00:04[download]  47.8% of    8.36MiB at    2.28MiB/s ETA 00:01[download]  95.7% of    8.36MiB at    3.91MiB/s ETA 00:00[download] 100.0% of    8.36MiB at    4.09MiB/s ETA 00:00[download] 100% of    8.36MiB in 00:00:03 at 2.76MiB/s   
+[download]   0.0% of    8.36MiB at  Unknown B/s ETA Unknown[download]   0.0% of    8.36MiB at    1.54MiB/s ETA 00:05  [download]   0.1% of    8.36MiB at    3.08MiB/s ETA 00:02[download]   0.2% of    8.36MiB at    5.75MiB/s ETA 00:01[download]   0.4% of    8.36MiB at   10.39MiB/s ETA 00:00[download]   0.7% of    8.36MiB at  351.37KiB/s ETA 00:24[download]   1.5% of    8.36MiB at  356.86KiB/s ETA 00:23[download]   3.0% of    8.36MiB at  478.82KiB/s ETA 00:17[download]   6.0% of    8.36MiB at  578.42KiB/s ETA 00:13[download]  12.0% of    8.36MiB at  827.56KiB/s ETA 00:09[download]  23.9% of    8.36MiB at    1.41MiB/s ETA 00:04[download]  47.8% of    8.36MiB at    2.26MiB/s ETA 00:01[download]  95.7% of    8.36MiB at    3.77MiB/s ETA 00:00[download] 100.0% of    8.36MiB at    3.93MiB/s ETA 00:00[download] 100% of    8.36MiB in 00:00:03 at 2.40MiB/s   
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-[0;93m2026-07-24 12:38:54.670033520 [W:onnxruntime:Default, device_discovery.cc:133 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename "5620e0c7-8062-4dce-aeb7-520c7ef76171" did not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
+[0;93m2026-07-24 12:54:19.944502262 [W:onnxruntime:Default, device_discovery.cc:133 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename "5620e0c7-8062-4dce-aeb7-520c7ef76171" did not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
 {
   "job_id": "khamenei-60236-a6444ad5",
   "job_root": "outputs/khamenei-60236-a6444ad5",
@@ -73,10 +73,11 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
     {
       "stage": "editorial",
       "status": "local_editorial_completed",
-      "model": "qwen2.5:7b",
+      "model": "qwen3:8b",
       "provider": "ollama",
       "segments": 20,
       "chunks": 1,
+      "quality_passes": 2,
       "markdown": "outputs/khamenei-60236-a6444ad5/final/transcript.final.md",
       "text": "outputs/khamenei-60236-a6444ad5/final/transcript.final.txt",
       "human_audio_verification": false

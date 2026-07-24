@@ -1,10 +1,10 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-07-24T12:43:50.395716+00:00",
+  "updated_at": "2026-07-24T13:04:50.294732+00:00",
   "stages": {
     "source": {
       "status": "completed",
-      "updated_at": "2026-07-24T12:38:40.728890+00:00",
+      "updated_at": "2026-07-24T12:54:04.726864+00:00",
       "output_paths": [
         "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-a6444ad5/source.json"
       ],
@@ -26,7 +26,7 @@
     },
     "download": {
       "status": "completed",
-      "updated_at": "2026-07-24T12:38:44.785978+00:00",
+      "updated_at": "2026-07-24T12:54:09.062594+00:00",
       "output_paths": [
         "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-a6444ad5/video/video.mp4",
         "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-a6444ad5/video-info.json"
@@ -36,14 +36,14 @@
         "duration": null,
         "sha256": {
           "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-a6444ad5/video/video.mp4": "6d3efb0e4f87c773904089388a47cdbc0ce8cef8059febec1399a47dacaf97af",
-          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-a6444ad5/video-info.json": "a24e6a03653df6c1230755c29f8997dc1499445fbcb91eb91ec5d9eff71d4761"
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-a6444ad5/video-info.json": "e0063cda3f3024f01292775a22863a22aa4c3d06bc38edf2c8bf95e9c6986c23"
         }
       },
       "error": ""
     },
     "audio": {
       "status": "completed",
-      "updated_at": "2026-07-24T12:38:45.205476+00:00",
+      "updated_at": "2026-07-24T12:54:09.544932+00:00",
       "output_paths": [
         "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-a6444ad5/audio/audio-16k-mono.wav"
       ],
@@ -70,7 +70,7 @@
     },
     "transcribe": {
       "status": "completed",
-      "updated_at": "2026-07-24T12:39:49.113878+00:00",
+      "updated_at": "2026-07-24T12:55:06.187910+00:00",
       "output_paths": [
         "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-a6444ad5/raw/transcript.raw.json",
         "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-a6444ad5/raw/transcript.raw.md"
@@ -90,7 +90,7 @@
     },
     "clean": {
       "status": "completed",
-      "updated_at": "2026-07-24T12:39:49.116826+00:00",
+      "updated_at": "2026-07-24T12:55:06.190891+00:00",
       "output_paths": [
         "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-a6444ad5/machine/transcript.machine.md",
         "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-a6444ad5/machine/transcript.machine.txt"
@@ -112,7 +112,7 @@
     },
     "editorial": {
       "status": "completed",
-      "updated_at": "2026-07-24T12:43:50.395681+00:00",
+      "updated_at": "2026-07-24T13:04:50.294697+00:00",
       "output_paths": [
         "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-a6444ad5/final/transcript.final.md",
         "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-a6444ad5/final/transcript.final.txt",
@@ -121,17 +121,18 @@
       ],
       "details": {
         "status": "local_editorial_completed",
-        "model": "qwen2.5:7b",
+        "model": "qwen3:8b",
         "provider": "ollama",
         "segments": 20,
         "chunks": 1,
+        "quality_passes": 2,
         "markdown": "outputs/khamenei-60236-a6444ad5/final/transcript.final.md",
         "text": "outputs/khamenei-60236-a6444ad5/final/transcript.final.txt",
         "human_audio_verification": false,
         "sha256": {
-          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-a6444ad5/final/transcript.final.md": "4fe7e0eae4be9e531c5ea04089c8a2881762c984114125591b7cbd27a1a6d69b",
-          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-a6444ad5/final/transcript.final.txt": "b33f578f0a1b36c0feb806fc09be1e921aad43f87d3947ba0881b026d34d176f",
-          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-a6444ad5/final/editorial-report.json": "d70c3363c8cc9997684a8d852df72232df54cff937aee5fa65f686470327ef3f",
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-a6444ad5/final/transcript.final.md": "57b23adf958d1f3980cdd2ed37c70bb489e60baef1fd8d8946f06e714b2fd47b",
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-a6444ad5/final/transcript.final.txt": "676b4a8beadbb387bf7bdb7dbe8097fd60d1b65faeea911d898c57c630f2af23",
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-a6444ad5/final/editorial-report.json": "85ee53e20e4e6604e171982a0c35a13de7c3bd36c4c84edb8b5d8a8937114d34",
           "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-a6444ad5/result.json": "fed28bcc94d06d971f18eabfa295a908b714d607a76997c8061605996b78f73f"
         }
       },

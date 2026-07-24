@@ -15,6 +15,8 @@ from vid_pipeline.review_analysis import (
     load_glossaries,
 )
 from vid_pipeline.review_media import extract_clip, retranscribe_items
+from vid_pipeline.review_quality import build_quality_report
+from vid_pipeline.review_subtitles import render_srt, render_vtt
 from vid_pipeline.review_render import assistant_chunks, review_html, review_markdown
 from vid_pipeline.review_types import (
     TERMINAL_PUNCTUATION,
@@ -140,6 +142,15 @@ def build_review_package(
         + "\n",
         encoding="utf-8",
     )
+    quality_path = review_dir / "quality-report.json"
+    quality_path.write_text(
+        json.dumps(build_quality_report(raw), ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    review_srt = review_dir / "transcript.review.srt"
+    review_vtt = review_dir / "transcript.review.vtt"
+    review_srt.write_text(render_srt(raw.get("segments") or []), encoding="utf-8")
+    review_vtt.write_text(render_vtt(raw.get("segments") or []), encoding="utf-8")
     manifest_path = review_dir / "manifest.json"
     manifest = {
         "schema_version": 1,
@@ -166,6 +177,9 @@ def build_review_package(
             "uncertain_spans": str(uncertain_path),
             "editorial_audit": str(audit_path),
             "assistant_package": str(assistant_path),
+            "quality_report": str(quality_path),
+            "review_srt": str(review_srt),
+            "review_vtt": str(review_vtt),
             "review_markdown": str(review_dir / "review.md"),
             "review_html": str(review_dir / "review.html"),
             "corrections_template": str(review_dir / "corrections.template.json"),
@@ -202,26 +216,25 @@ def build_review_package(
         + "\n",
         encoding="utf-8",
     )
-    manifest_path.write_text(
-        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
-    )
     archive_path = root / "final" / "review-package.zip"
-    archive_path.parent.mkdir(parents=True, exist_ok=True)
-    with zipfile.ZipFile(archive_path, "w", zipfile.ZIP_DEFLATED) as archive:
-        for file_path in sorted(review_dir.rglob("*")):
-            if file_path.is_file():
-                archive.write(file_path, arcname=file_path.relative_to(review_dir))
     manifest["files"]["review_archive"] = str(archive_path)
     manifest_path.write_text(
         json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
+    archive_path.parent.mkdir(parents=True, exist_ok=True)
+    with zipfile.ZipFile(archive_path, "w", zipfile.ZIP_DEFLATED) as archive:
+        for file_path in sorted(review_dir.rglob("*")):
+            if file_path.is_file():
+                archive.write(file_path, arcname=file_path.relative_to(review_dir))
     outputs = [
         manifest_path,
         uncertain_path,
         audit_path,
         assistant_path,
+        quality_path,
+        review_srt,
+        review_vtt,
         review_dir / "review.md",
         review_dir / "review.html",
         review_dir / "corrections.template.json",
@@ -291,7 +304,7 @@ def apply_human_review(
     for item in uncertain.get("items") or []:
         correction = correction_map.get(int(item["segment_id"]))
         decision = str((correction or {}).get("decision") or "pending")
-        if decision not in {"accept_original", "accept_suggestion", "edit"}:
+        if decision not in {"accept_original", "accept_suggestion", "edit", "unclear"}:
             unresolved.append(str(item["id"]))
         elif decision == "edit" and not normalize_text(
             str((correction or {}).get("replacement") or "")
@@ -314,6 +327,8 @@ def apply_human_review(
             )
         elif decision == "edit":
             text = normalize_text(str((correction or {}).get("replacement") or ""))
+        elif decision == "unclear":
+            text = "[نامفهوم]"
         else:
             text = source
         if not text:
@@ -337,6 +352,8 @@ def apply_human_review(
     text_path = human_dir / "transcript.human.txt"
     markdown_path = human_dir / "transcript.human.md"
     verification_path = human_dir / "verification.json"
+    srt_path = human_dir / "transcript.human.srt"
+    vtt_path = human_dir / "transcript.human.vtt"
     text_path.write_text(
         "\n\n".join(paragraphs).rstrip() + "\n",
         encoding="utf-8",
@@ -347,6 +364,14 @@ def apply_human_review(
         "> تمام segmentهای علامت‌خورده با صوت تعیین تکلیف شده‌اند.\n\n"
         + "\n\n".join(paragraphs).rstrip()
         + "\n",
+        encoding="utf-8",
+    )
+    srt_path.write_text(
+        render_srt(reviewed, text_key="reviewed_text"),
+        encoding="utf-8",
+    )
+    vtt_path.write_text(
+        render_vtt(reviewed, text_key="reviewed_text"),
         encoding="utf-8",
     )
     verification = {
@@ -362,6 +387,8 @@ def apply_human_review(
         "corrections_sha256": sha256_file(corrections_path),
         "human_text_sha256": sha256_file(text_path),
         "human_markdown_sha256": sha256_file(markdown_path),
+        "human_srt_sha256": sha256_file(srt_path),
+        "human_vtt_sha256": sha256_file(vtt_path),
         "promoted_to_final": bool(promote),
         "segments": reviewed,
     }
@@ -374,6 +401,8 @@ def apply_human_review(
         final_dir.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(text_path, final_dir / "transcript.final.txt")
         shutil.copyfile(markdown_path, final_dir / "transcript.final.md")
+        shutil.copyfile(srt_path, final_dir / "transcript.final.srt")
+        shutil.copyfile(vtt_path, final_dir / "transcript.final.vtt")
         shutil.copyfile(verification_path, final_dir / "human-verification.json")
         result_path = root / "result.json"
         result = load_json(result_path) if result_path.exists() else {"schema_version": 4}
@@ -386,6 +415,8 @@ def apply_human_review(
                 "human_verification_report": str(verification_path),
                 "final_text": str(final_dir / "transcript.final.txt"),
                 "final_markdown": str(final_dir / "transcript.final.md"),
+                "final_srt": str(final_dir / "transcript.final.srt"),
+                "final_vtt": str(final_dir / "transcript.final.vtt"),
             }
         )
         result_path.write_text(

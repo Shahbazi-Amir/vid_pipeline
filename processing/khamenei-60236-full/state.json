@@ -1,0 +1,128 @@
+{
+  "schema_version": 2,
+  "updated_at": "2026-07-24T15:12:58.036310+00:00",
+  "stages": {
+    "source": {
+      "status": "completed",
+      "updated_at": "2026-07-24T14:31:37.037543+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-8523237e/source.json"
+      ],
+      "details": {
+        "schema_version": 2,
+        "job_id": "khamenei-60236-full-8523237e",
+        "url": "https://farsi.khamenei.ir/ndata/news/60237/14040230_46985_128k.mp3",
+        "title": "14040230_46985_128k",
+        "duration": null,
+        "extractor": "Generic",
+        "uploader": "",
+        "channel": "",
+        "upload_date": "20250520",
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-8523237e/source.json": "39fcadec059dc128137d9731a3859557290ec3ffc294689040cf69c5ef61ed04"
+        }
+      },
+      "error": ""
+    },
+    "download": {
+      "status": "completed",
+      "updated_at": "2026-07-24T14:32:28.083044+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-8523237e/video/video.mp3",
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-8523237e/video-info.json"
+      ],
+      "details": {
+        "video_path": "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-8523237e/video/video.mp3",
+        "duration": null,
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-8523237e/video/video.mp3": "9eedba8b67d2c2d0fc37decac698d220aa3206938f82e407e6667188148735e2",
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-8523237e/video-info.json": "2b56d8954656484bea623c8240390ffee4230b2fda0229be4925ccccb41469e7"
+        }
+      },
+      "error": ""
+    },
+    "audio": {
+      "status": "completed",
+      "updated_at": "2026-07-24T14:32:33.353203+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-8523237e/audio/audio-16k-mono.wav"
+      ],
+      "details": {
+        "probe": {
+          "programs": [],
+          "streams": [
+            {
+              "codec_name": "pcm_s16le",
+              "codec_type": "audio",
+              "sample_rate": "16000",
+              "channels": 1
+            }
+          ],
+          "format": {
+            "duration": "1641.733000"
+          }
+        },
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-8523237e/audio/audio-16k-mono.wav": "01f11acbadca1ae5a339aeb08ce4604a35ce75ec11162dd8d215c930a25c1780"
+        }
+      },
+      "error": ""
+    },
+    "transcribe": {
+      "status": "completed",
+      "updated_at": "2026-07-24T14:42:54.815381+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-8523237e/raw/transcript.raw.json",
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-8523237e/raw/transcript.raw.md"
+      ],
+      "details": {
+        "duration": 1641.733,
+        "segments": 309,
+        "language": "fa",
+        "model": "large-v3-turbo",
+        "device": "cpu",
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-8523237e/raw/transcript.raw.json": "d60c1c7a7ed3d00f9e2aa206dcce5826e65a88c5cf3ad0cb27f8f92793ccb174",
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-8523237e/raw/transcript.raw.md": "202ca4c77e0feff4c05a33f24a42c86af0876500d1fb81341e0d3c1e736e0e83"
+        }
+      },
+      "error": ""
+    },
+    "clean": {
+      "status": "completed",
+      "updated_at": "2026-07-24T14:42:54.831067+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-8523237e/machine/transcript.machine.md",
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-8523237e/machine/transcript.machine.txt"
+      ],
+      "details": {
+        "segments_in": 309,
+        "segments_out": 309,
+        "paragraphs": 23,
+        "language": "fa",
+        "markdown": "outputs/khamenei-60236-full-8523237e/machine/transcript.machine.md",
+        "text": "outputs/khamenei-60236-full-8523237e/machine/transcript.machine.txt",
+        "quality": "machine_only",
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-8523237e/machine/transcript.machine.md": "b521de9fefea06f298f478f17d7131968b4c1eca679c5c6a4fcf23af84c22aeb",
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-8523237e/machine/transcript.machine.txt": "69c81f0aceace4d76f805473bef66782d8b6bc3458a43d65d019c3c0ee66ae5d"
+        }
+      },
+      "error": ""
+    },
+    "editorial": {
+      "status": "failed",
+      "updated_at": "2026-07-24T15:12:58.036205+00:00",
+      "output_paths": [],
+      "details": {},
+      "error": "Local editorial stage failed. Make sure Ollama is running and the model is installed (qwen3:8b): timed out"
+    },
+    "finalize_machine": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    }
+  }
+}

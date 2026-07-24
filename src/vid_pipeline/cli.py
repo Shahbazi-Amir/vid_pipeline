@@ -151,14 +151,15 @@ def command_run_url(args: argparse.Namespace) -> int:
         args.network,
         args.guest,
         *list(args.speaker),
-        args.editorial_context,
     ]
     hint_text = "، ".join(item.strip() for item in hints if item and item.strip())
     initial_prompt = args.initial_prompt.strip()
     if hint_text:
+        short_hint = hint_text[:320]
         initial_prompt = "\n".join(
-            item for item in [initial_prompt, f"نام‌ها و واژگان محتمل: {hint_text}"] if item
+            item for item in [initial_prompt, f"محتوای فارسی رسمی؛ نام‌های محتمل: {short_hint}"] if item
         )
+    hotwords = (args.hotwords.strip() or args.editorial_context.strip() or hint_text)[:520]
     config = TranscriptionConfig(
         model=args.model,
         device=args.device,
@@ -167,7 +168,7 @@ def command_run_url(args: argparse.Namespace) -> int:
         beam_size=args.beam_size,
         condition_on_previous_text=True,
         initial_prompt=initial_prompt,
-        hotwords=args.hotwords.strip() or hint_text,
+        hotwords=hotwords,
         repetition_penalty=1.08,
         no_repeat_ngram_size=3,
         hallucination_silence_threshold=2.0,

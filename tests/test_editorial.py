@@ -69,7 +69,8 @@ class EditorialTests(unittest.TestCase):
                 config=EditorialConfig(chunk_chars=2000),
                 client=fake,
             )
-            self.assertEqual(result["status"], "ai_editorial_completed")
+            self.assertEqual(result["status"], "local_editorial_completed")
+            self.assertEqual(result["provider"], "ollama")
             self.assertIn("# عنوان نمونه", md.read_text(encoding="utf-8"))
             self.assertIn("**گوینده:**", md.read_text(encoding="utf-8"))
             self.assertNotIn("**", txt.read_text(encoding="utf-8"))

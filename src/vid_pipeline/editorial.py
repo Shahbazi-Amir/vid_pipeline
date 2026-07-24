@@ -16,6 +16,7 @@ from vid_pipeline.errors import PipelineError
 _FENCE_RE = re.compile(r"^```(?:markdown|md|text)?\s*|\s*```$", re.IGNORECASE)
 _SPACE_RE = re.compile(r"[ \t]+")
 _MARKDOWN_PREFIX_RE = re.compile(r"^(#{1,6}\s+|>\s*|[-*+]\s+)")
+_SENTENCE_BOUNDARY_RE = re.compile(r"(?<=[.!؟!?])\s+")
 
 
 @dataclass(slots=True)
@@ -174,9 +175,11 @@ def _instructions() -> str:
 5) اگر مشخصات می‌گوید فقط یک گوینده وجود دارد، همان نام را یک‌بار در آغاز متن بنویس و هرگز «مجری» یا گویندۀ دیگری اختراع نکن.
 6) در گفت‌وگو، گویندگان را با برچسب بولد جدا کن. اگر هویت روشن نیست، **گوینده:** بنویس.
 7) برای متن بلند از تیترهای سطح دوم (##) استفاده کن؛ برای کلیپ کوتاه یک تیتر کافی است.
-8) نثر را فارسی معیار، روان، دقیق و وفادار نگه دار؛ بازنویسی ادبی یا خلاصه‌سازی نکن.
-9) شناسه‌ها و زمان‌نماهای S0001 را در خروجی نیاور.
-10) فقط بدنۀ Markdown را برگردان و هیچ توضیحی دربارۀ فرایند ننویس.
+8) هر پاراگراف حداکثر دو جمله داشته باشد و بین پاراگراف‌ها حتماً یک خط خالی بگذار.
+9) فهرست بلند نام‌ها، مکان‌ها یا نمونه‌ها را در چند پاراگراف کوتاه و خوانا تقسیم کن.
+10) نثر را فارسی معیار، روان، دقیق و وفادار نگه دار؛ بازنویسی ادبی یا خلاصه‌سازی نکن.
+11) شناسه‌ها و زمان‌نماهای S0001 را در خروجی نیاور.
+12) فقط بدنۀ Markdown را برگردان و هیچ توضیحی دربارۀ فرایند ننویس.
 """
 
 
@@ -187,6 +190,8 @@ def _quality_instructions() -> str:
 - اعداد، سن‌ها و عبارت‌های پایانی را حذف نکن.
 - گویندۀ تازه، جمله، ادعا یا تفسیر تازه نساز.
 - اگر فقط یک گوینده معرفی شده، برچسب او را یک‌بار در ابتدای متن نگه دار.
+- هر پاراگراف حداکثر دو جمله داشته باشد و بین پاراگراف‌ها یک خط خالی باشد.
+- فهرست‌های طولانی را به چند پاراگراف کوتاه تقسیم کن.
 - فارسی معیار، نیم‌فاصله و نشانه‌گذاری را اصلاح کن.
 - فقط بدنۀ Markdown نهایی را برگردان.
 """
@@ -206,6 +211,51 @@ def _clean_model_markdown(text: str) -> str:
         compact.append(line)
         blank = False
     return "\n".join(compact).strip()
+
+
+def _split_sentences(paragraph: str) -> list[str]:
+    normalized = _SPACE_RE.sub(" ", paragraph.replace("\n", " ")).strip()
+    return [item.strip() for item in _SENTENCE_BOUNDARY_RE.split(normalized) if item.strip()]
+
+
+def enforce_readable_paragraphs(
+    body: str,
+    *,
+    max_sentences: int = 2,
+    max_chars: int = 360,
+) -> str:
+    """Force readable blank-line-separated paragraphs after model generation."""
+    if max_sentences < 1:
+        raise ValueError("max_sentences must be at least 1")
+    if max_chars < 120:
+        raise ValueError("max_chars must be at least 120")
+
+    output: list[str] = []
+    blocks = [item.strip() for item in re.split(r"\n{2,}", body) if item.strip()]
+    for block in blocks:
+        if block.startswith(("#", ">", "- ", "* ", "+ ", "```")):
+            output.append(block)
+            continue
+
+        sentences = _split_sentences(block)
+        if len(sentences) <= 1 and len(block) <= max_chars:
+            output.append(block)
+            continue
+
+        current: list[str] = []
+        current_size = 0
+        for sentence in sentences or [block]:
+            projected = current_size + len(sentence) + (1 if current else 0)
+            if current and (len(current) >= max_sentences or projected > max_chars):
+                output.append(" ".join(current))
+                current = []
+                current_size = 0
+            current.append(sentence)
+            current_size += len(sentence) + (1 if current_size else 0)
+        if current:
+            output.append(" ".join(current))
+
+    return "\n\n".join(output).strip()
 
 
 def _deduplicate_boundaries(parts: list[str]) -> list[str]:
@@ -323,6 +373,7 @@ def edit_transcript(
         previous = edited
 
     body = "\n\n".join(_deduplicate_boundaries(outputs)).strip()
+    body = enforce_readable_paragraphs(body)
     reviewed = render_reviewed_markdown(metadata, body)
     md_path = Path(output_markdown)
     txt_path = Path(output_text)

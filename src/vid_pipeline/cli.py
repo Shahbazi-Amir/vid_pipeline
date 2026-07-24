@@ -145,28 +145,19 @@ def build_parser() -> argparse.ArgumentParser:
 
 def command_run_url(args: argparse.Namespace) -> int:
     pipeline = VideoPipeline(args.url, args.output_root, args.name)
-    hints = [
-        args.title,
-        args.program,
-        args.network,
-        args.guest,
-        *list(args.speaker),
-    ]
+    hints = [args.title, args.guest, *list(args.speaker)]
     hint_text = "، ".join(item.strip() for item in hints if item and item.strip())
-    initial_prompt = args.initial_prompt.strip()
+    initial_prompt = args.initial_prompt.strip() or "رونویسی دقیق یک سخنرانی رسمی فارسی."
     if hint_text:
-        short_hint = hint_text[:320]
-        initial_prompt = "\n".join(
-            item for item in [initial_prompt, f"محتوای فارسی رسمی؛ نام‌های محتمل: {short_hint}"] if item
-        )
-    hotwords = (args.hotwords.strip() or args.editorial_context.strip() or hint_text)[:520]
+        initial_prompt = f"{initial_prompt} {hint_text}"[:220]
+    hotwords = args.hotwords.strip()[:160]
     config = TranscriptionConfig(
         model=args.model,
         device=args.device,
         compute_type=args.compute_type,
         language=args.language,
         beam_size=args.beam_size,
-        condition_on_previous_text=True,
+        condition_on_previous_text=False,
         initial_prompt=initial_prompt,
         hotwords=hotwords,
         repetition_penalty=1.08,

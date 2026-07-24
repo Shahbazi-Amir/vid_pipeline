@@ -1,0 +1,99 @@
+{
+  "status": "local_editorial_completed_with_fallback",
+  "model": "qwen3:0.6b",
+  "provider": "ollama",
+  "segments": 155,
+  "chunks": 4,
+  "quality_passes": 1,
+  "accepted_chunks": 2,
+  "fallback_chunks": [
+    2,
+    4
+  ],
+  "fallback_used": true,
+  "whole_document_fallback": false,
+  "chunk_validation": [
+    {
+      "chunk": 1,
+      "accepted": true,
+      "source_tokens": 484,
+      "candidate_tokens": 681,
+      "length_ratio": 1.407,
+      "token_recall": 0.9339,
+      "sequence_similarity": 0.776,
+      "reasons": []
+    },
+    {
+      "chunk": 2,
+      "accepted": true,
+      "source_tokens": 500,
+      "candidate_tokens": 500,
+      "length_ratio": 1.0,
+      "token_recall": 1.0,
+      "sequence_similarity": 1.0,
+      "reasons": []
+    },
+    {
+      "chunk": 3,
+      "accepted": true,
+      "source_tokens": 511,
+      "candidate_tokens": 741,
+      "length_ratio": 1.4501,
+      "token_recall": 0.9452,
+      "sequence_similarity": 0.7716,
+      "reasons": []
+    },
+    {
+      "chunk": 4,
+      "accepted": true,
+      "source_tokens": 465,
+      "candidate_tokens": 465,
+      "length_ratio": 1.0,
+      "token_recall": 1.0,
+      "sequence_similarity": 1.0,
+      "reasons": []
+    }
+  ],
+  "rejected_passes": [
+    {
+      "chunk": 2,
+      "pass": 1,
+      "reason": "preservation_failed",
+      "accepted": false,
+      "source_tokens": 500,
+      "candidate_tokens": 1005,
+      "length_ratio": 2.01,
+      "token_recall": 0.93,
+      "sequence_similarity": 0.6007,
+      "reasons": [
+        "candidate_too_long"
+      ]
+    },
+    {
+      "chunk": 4,
+      "pass": 1,
+      "reason": "preservation_failed",
+      "accepted": false,
+      "source_tokens": 465,
+      "candidate_tokens": 1075,
+      "length_ratio": 2.3118,
+      "token_recall": 0.9742,
+      "sequence_similarity": 0.5831,
+      "reasons": [
+        "candidate_too_long"
+      ]
+    }
+  ],
+  "final_validation": {
+    "accepted": true,
+    "source_tokens": 1960,
+    "candidate_tokens": 2465,
+    "length_ratio": 1.2577,
+    "token_recall": 0.975,
+    "sequence_similarity": 0.8588,
+    "reasons": []
+  },
+  "markdown": "outputs/khamenei-60236-content-preservation-v052-8523237e/final/transcript.final.md",
+  "text": "outputs/khamenei-60236-content-preservation-v052-8523237e/final/transcript.final.txt",
+  "human_audio_verification": false
+}

@@ -323,8 +323,14 @@ class VideoPipeline:
                 details = self._machine_fallback_details(
                     "editorial_output_failed_full_transcript_validation"
                 )
+                final_validation = dict(details["final_validation"])
             else:
                 details["final_validation"] = final_validation
+
+            if not final_validation["accepted"]:
+                raise PipelineError(
+                    "Final transcript failed content-preservation validation after fallback."
+                )
 
             fallback_used = bool(details.get("fallback_used"))
             if details.get("status") == "machine_fallback":

@@ -15,7 +15,13 @@ from urllib.parse import urlparse
 from vid_pipeline.audio import normalize_audio, validate_normalized_audio
 from vid_pipeline.clean import clean_transcript
 from vid_pipeline.download import download_video, extract_metadata
-from vid_pipeline.editorial import EditorialConfig, EditorialMetadata, edit_transcript
+from vid_pipeline.editorial import (
+    EditorialConfig,
+    EditorialMetadata,
+    assess_transcript_preservation,
+    edit_transcript,
+    raw_transcript_text,
+)
 from vid_pipeline.errors import PipelineError
 from vid_pipeline.state import PipelineState
 from vid_pipeline.transcribe import TranscriptionConfig, transcribe_audio
@@ -25,6 +31,7 @@ _SAFE_RE = re.compile(r"[^a-zA-Z0-9._-]+")
 
 def make_job_id(url: str, name: str = "") -> str:
     """Create a stable, filesystem-safe job id from a URL and optional name."""
+
     parsed = urlparse(url)
     if parsed.scheme not in {"http", "https"} or not parsed.netloc:
         raise ValueError("url must be an http or https URL")
@@ -227,7 +234,9 @@ class VideoPipeline:
     def clean(self, *, max_words: int = 90, force: bool = False) -> dict[str, Any]:
         def action() -> tuple[list[Path], dict[str, Any]]:
             if not self.metadata and self.paths.source_metadata.exists():
-                self.metadata = json.loads(self.paths.source_metadata.read_text(encoding="utf-8"))
+                self.metadata = json.loads(
+                    self.paths.source_metadata.read_text(encoding="utf-8")
+                )
             details = clean_transcript(
                 self.paths.raw_json,
                 self.paths.machine_markdown,
@@ -241,6 +250,33 @@ class VideoPipeline:
 
         return self._run_stage("clean", action, force=force)
 
+    def _machine_fallback_details(self, reason: str) -> dict[str, Any]:
+        if not self.paths.machine_markdown.exists() or not self.paths.machine_text.exists():
+            raise PipelineError("Machine transcript is missing; cannot create a safe fallback.")
+
+        shutil.copyfile(self.paths.machine_markdown, self.paths.final_markdown)
+        shutil.copyfile(self.paths.machine_text, self.paths.final_text)
+        validation = assess_transcript_preservation(
+            raw_transcript_text(self.paths.raw_json),
+            self.paths.final_text.read_text(encoding="utf-8"),
+        )
+        if not validation["accepted"]:
+            raise PipelineError(
+                "Machine fallback failed content-preservation validation: "
+                f"{validation['reasons']}"
+            )
+        return {
+            "status": "machine_fallback",
+            "provider": "deterministic",
+            "model": None,
+            "fallback_used": True,
+            "fallback_reason": reason,
+            "final_validation": validation,
+            "markdown": str(self.paths.final_markdown),
+            "text": str(self.paths.final_text),
+            "human_audio_verification": False,
+        }
+
     def editorial(
         self,
         config: EditorialConfig,
@@ -250,7 +286,9 @@ class VideoPipeline:
     ) -> dict[str, Any]:
         def action() -> tuple[list[Path], dict[str, Any]]:
             if not self.metadata and self.paths.source_metadata.exists():
-                self.metadata = json.loads(self.paths.source_metadata.read_text(encoding="utf-8"))
+                self.metadata = json.loads(
+                    self.paths.source_metadata.read_text(encoding="utf-8")
+                )
             supplied = metadata or EditorialMetadata()
             resolved = EditorialMetadata(
                 title=supplied.title or str(self.metadata.get("title") or ""),
@@ -263,21 +301,47 @@ class VideoPipeline:
                 speakers=list(supplied.speakers),
                 context=supplied.context,
             )
-            details = edit_transcript(
-                self.paths.raw_json,
-                self.paths.final_markdown,
-                self.paths.final_text,
-                metadata=resolved,
-                config=config,
+
+            try:
+                details = edit_transcript(
+                    self.paths.raw_json,
+                    self.paths.final_markdown,
+                    self.paths.final_text,
+                    metadata=resolved,
+                    config=config,
+                )
+            except Exception as exc:
+                details = self._machine_fallback_details(
+                    f"editorial_stage_error: {type(exc).__name__}: {exc}"
+                )
+
+            final_validation = assess_transcript_preservation(
+                raw_transcript_text(self.paths.raw_json),
+                self.paths.final_text.read_text(encoding="utf-8"),
             )
+            if not final_validation["accepted"]:
+                details = self._machine_fallback_details(
+                    "editorial_output_failed_full_transcript_validation"
+                )
+            else:
+                details["final_validation"] = final_validation
+
+            fallback_used = bool(details.get("fallback_used"))
+            if details.get("status") == "machine_fallback":
+                review_status = "machine_fallback"
+            elif fallback_used:
+                review_status = "ai_editorial_with_machine_fallback"
+            else:
+                review_status = "ai_editorial_completed"
+
             self.paths.editorial_report.write_text(
                 json.dumps(details, ensure_ascii=False, indent=2) + "\n",
                 encoding="utf-8",
             )
             result = {
-                "schema_version": 2,
-                "status": "completed",
-                "review_status": "ai_editorial_completed",
+                "schema_version": 3,
+                "status": "completed_with_fallback" if fallback_used else "completed",
+                "review_status": review_status,
                 "job_id": self.job_id,
                 "source_url": self.url,
                 "title": resolved.title,
@@ -286,6 +350,7 @@ class VideoPipeline:
                 "final_markdown": str(self.paths.final_markdown),
                 "final_text": str(self.paths.final_text),
                 "editorial_report": str(self.paths.editorial_report),
+                "content_preservation": final_validation,
                 "human_audio_verification": False,
             }
             self.paths.result.write_text(
@@ -305,14 +370,23 @@ class VideoPipeline:
         def action() -> tuple[list[Path], dict[str, Any]]:
             shutil.copyfile(self.paths.machine_markdown, self.paths.final_markdown)
             shutil.copyfile(self.paths.machine_text, self.paths.final_text)
+            validation = assess_transcript_preservation(
+                raw_transcript_text(self.paths.raw_json),
+                self.paths.final_text.read_text(encoding="utf-8"),
+            )
+            if not validation["accepted"]:
+                raise PipelineError(
+                    "Machine-only final transcript failed content-preservation validation."
+                )
             result = {
-                "schema_version": 2,
+                "schema_version": 3,
                 "status": "completed",
                 "review_status": "machine_only",
                 "job_id": self.job_id,
                 "source_url": self.url,
                 "final_markdown": str(self.paths.final_markdown),
                 "final_text": str(self.paths.final_text),
+                "content_preservation": validation,
                 "warning": "Editorial stage was disabled; this is not a reviewed transcript.",
             }
             self.paths.result.write_text(

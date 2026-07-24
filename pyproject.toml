@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "video-transcript-pipeline"
-version = "0.5.0"
+version = "0.5.1"
 description = "Standalone pipeline that converts video URLs into raw, machine-cleaned, and locally edited transcripts."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -31,7 +31,7 @@ dev = [
 ]
 
 [project.scripts]
-vid-pipeline = "vid_pipeline.cli:main"
+vid-pipeline = "vid_pipeline.reliable_cli:main"
 
 [tool.setuptools]
 package-dir = { "" = "src" }

@@ -29,6 +29,7 @@ def _add_transcription_options(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--language", default="fa")
     parser.add_argument("--beam-size", type=int, default=5)
     parser.add_argument("--initial-prompt", default=DEFAULT_INITIAL_PROMPT)
+    parser.add_argument("--hotwords", default="")
 
 
 def _add_editorial_metadata_options(parser: argparse.ArgumentParser) -> None:
@@ -144,13 +145,32 @@ def build_parser() -> argparse.ArgumentParser:
 
 def command_run_url(args: argparse.Namespace) -> int:
     pipeline = VideoPipeline(args.url, args.output_root, args.name)
+    hints = [
+        args.title,
+        args.program,
+        args.network,
+        args.guest,
+        *list(args.speaker),
+        args.editorial_context,
+    ]
+    hint_text = "، ".join(item.strip() for item in hints if item and item.strip())
+    initial_prompt = args.initial_prompt.strip()
+    if hint_text:
+        initial_prompt = "\n".join(
+            item for item in [initial_prompt, f"نام‌ها و واژگان محتمل: {hint_text}"] if item
+        )
     config = TranscriptionConfig(
         model=args.model,
         device=args.device,
         compute_type=args.compute_type,
         language=args.language,
         beam_size=args.beam_size,
-        initial_prompt=args.initial_prompt,
+        condition_on_previous_text=True,
+        initial_prompt=initial_prompt,
+        hotwords=args.hotwords.strip() or hint_text,
+        repetition_penalty=1.08,
+        no_repeat_ngram_size=3,
+        hallucination_silence_threshold=2.0,
     )
     editorial_config = None if args.no_editorial else _editorial_config(args)
     results = pipeline.run(

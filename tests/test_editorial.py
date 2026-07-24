@@ -10,6 +10,7 @@ from vid_pipeline.editorial import (
     EditorialMetadata,
     build_editorial_chunks,
     edit_transcript,
+    enforce_readable_paragraphs,
     markdown_to_text,
 )
 
@@ -22,7 +23,10 @@ class FakeClient:
         self.calls += 1
         self.last_instructions = instructions
         self.last_input = input_text
-        return f"## بخش {self.calls}\n\n**گوینده:** متن ویرایش‌شدۀ بخش {self.calls}."
+        return (
+            "## بخش ۱\n\n"
+            "**گوینده:** جملۀ اول. جملۀ دوم. جملۀ سوم. جملۀ چهارم."
+        )
 
 
 class EditorialTests(unittest.TestCase):
@@ -35,6 +39,15 @@ class EditorialTests(unittest.TestCase):
         joined = "\n".join(chunks)
         self.assertLess(joined.index("S0000"), joined.index("S0001"))
         self.assertLess(joined.index("S0001"), joined.index("S0002"))
+
+    def test_enforce_readable_paragraphs_splits_long_model_output(self) -> None:
+        value = enforce_readable_paragraphs(
+            "**گوینده:** جملۀ اول. جملۀ دوم. جملۀ سوم. جملۀ چهارم."
+        )
+        paragraphs = value.split("\n\n")
+        self.assertEqual(len(paragraphs), 2)
+        self.assertIn("جملۀ دوم.", paragraphs[0])
+        self.assertIn("جملۀ سوم.", paragraphs[1])
 
     def test_edit_transcript_writes_reviewed_formats(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -71,8 +84,10 @@ class EditorialTests(unittest.TestCase):
             )
             self.assertEqual(result["status"], "local_editorial_completed")
             self.assertEqual(result["provider"], "ollama")
-            self.assertIn("# عنوان نمونه", md.read_text(encoding="utf-8"))
-            self.assertIn("**گوینده:**", md.read_text(encoding="utf-8"))
+            markdown = md.read_text(encoding="utf-8")
+            self.assertIn("# عنوان نمونه", markdown)
+            self.assertIn("**گوینده:**", markdown)
+            self.assertIn("جملۀ دوم.\n\nجملۀ سوم.", markdown)
             self.assertNotIn("**", txt.read_text(encoding="utf-8"))
             self.assertEqual(fake.calls, 1)
 

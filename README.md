@@ -1,6 +1,6 @@
 # Video Transcript Pipeline
 
-یک پایپ‌لاین مستقل برای تبدیل **یک لینک ویدئو** به متن فارسی خام، متن پاک‌سازی‌شده و متن نهایی ویرایش‌شده؛ بدون نیاز به API پولی.
+یک پایپ‌لاین مستقل برای تبدیل **یک لینک ویدئو** به متن فارسی خام، متن پاک‌سازی‌شده، متن ویرایش‌شده و بستهٔ بازبینی انسانی؛ بدون نیاز به API پولی.
 
 ## مسیر کامل پردازش
 
@@ -10,18 +10,20 @@ Video URL
 → استخراج و استانداردسازی صوت با ffmpeg
 → رونویسی زمان‌دار فارسی با faster-whisper
 → پاک‌سازی تکرارها و خطاهای شکلی
-→ بازسازی معنایی با مدل متن‌باز محلی در Ollama
-→ گوینده‌بندی و موضوع‌بندی
-→ خروجی نهایی Markdown و TXT
+→ بازسازی محدود با مدل متن‌باز محلی در Ollama
+→ کنترل حفظ کامل محتوا و fallback به متن machine
+→ تشخیص نام‌ها، اعداد و بخش‌های کم‌اعتماد
+→ تولید کلیپ صوتی، گزارش کیفیت، SRT/VTT و رابط بازبینی
+→ تأیید نهایی انسان و ارتقا به human_verified
 ```
 
-نسخه‌های خام و ماشینی نیز نگه‌داری می‌شوند تا خروجی نهایی قابل کنترل باشد. متن صفحهٔ منبع وارد رونویسی نمی‌شود؛ محتوا فقط از صوت ویدئو استخراج می‌شود.
+نسخه‌های خام و ماشینی نگه‌داری می‌شوند تا خروجی نهایی قابل کنترل باشد. متن صفحهٔ منبع وارد رونویسی نمی‌شود؛ محتوا فقط از صوت ویدئو استخراج می‌شود.
 
 ## نیازمندی‌ها
 
 - Python 3.10 یا جدیدتر
 - `ffmpeg` و `ffprobe`
-- [Ollama](https://ollama.com/) برای ویرایش محلی
+- Ollama برای ویرایش محلی
 - فضای کافی برای مدل Whisper و مدل زبانی محلی
 
 هیچ `OPENAI_API_KEY` یا Secret پولی لازم نیست.
@@ -46,7 +48,9 @@ vid-pipeline run-url 'https://example.com/video.mp4' \
   --editorial-model qwen2.5:7b
 ```
 
-برای نمایش آدرس صفحهٔ اصلی در فایل نهایی، در حالی که دانلود از لینک مستقیم ویدئو انجام می‌شود:
+پس از پایان این فرمان، مرحله Review به‌صورت خودکار اجرا می‌شود و تا وقتی موارد مشکوک توسط انسان تعیین تکلیف نشوند، `result.json` وضعیت `human_review_required` خواهد داشت.
+
+برای نمایش آدرس صفحهٔ اصلی در فایل نهایی، در حالی که دانلود از لینک مستقیم رسانه انجام می‌شود:
 
 ```bash
 vid-pipeline run-url 'https://cdn.example.com/video.mp4' \
@@ -74,18 +78,62 @@ outputs/<job-id>/
 ├── machine/
 │   ├── transcript.machine.md
 │   └── transcript.machine.txt
+├── review/
+│   ├── manifest.json
+│   ├── uncertain-spans.json
+│   ├── editorial-audit.json
+│   ├── quality-report.json
+│   ├── assistant-review-package.json
+│   ├── transcript.review.srt
+│   ├── transcript.review.vtt
+│   ├── review.html
+│   ├── corrections.template.json
+│   └── clips/
+├── human/
+│   ├── transcript.human.txt
+│   ├── transcript.human.md
+│   ├── transcript.human.srt
+│   ├── transcript.human.vtt
+│   └── verification.json
 └── final/
     ├── transcript.final.md
     ├── transcript.final.txt
-    └── editorial-report.json
+    ├── transcript.final.srt
+    ├── transcript.final.vtt
+    ├── editorial-report.json
+    ├── review-package.zip
+    └── human-verification.json
 ```
 
-فایل‌های اصلی قابل تحویل:
+فایل‌های `human/` و خروجی‌های زمان‌دار `final/` بعد از اعمال بازبینی انسانی ساخته می‌شوند.
+
+## بازبینی انسانی
+
+صفحه زیر را در مرورگر باز کنید و برای هر مورد تصمیم ثبت کنید:
 
 ```text
-outputs/<job-id>/final/transcript.final.md
-outputs/<job-id>/final/transcript.final.txt
+outputs/<job-id>/review/review.html
 ```
+
+سپس فایل `corrections.json` را اعمال کنید:
+
+```bash
+vid-review apply outputs/<job-id> corrections.json \
+  --reviewer 'نام بازبین' \
+  --promote
+```
+
+فقط بعد از تعیین تکلیف تمام موارد اجباری، وضعیت زیر ثبت می‌شود:
+
+```json
+{
+  "status": "completed",
+  "review_status": "human_verified",
+  "human_audio_verification": true
+}
+```
+
+راهنمای کامل: [`docs/human-review.md`](docs/human-review.md)
 
 ## ویرایش یک رونویسی موجود
 
@@ -103,7 +151,7 @@ vid-pipeline edit transcript.raw.json \
 vid-pipeline run-url 'https://example.com/video' --no-editorial
 ```
 
-در این حالت، فایل نهایی همان نسخهٔ ماشینی است و در `result.json` با وضعیت `machine_only` ثبت می‌شود.
+در این حالت متن machine به‌عنوان پایهٔ final استفاده می‌شود، اما مرحله Review همچنان بستهٔ کنترل انسانی را تولید می‌کند.
 
 ## GitHub Actions
 
@@ -111,8 +159,9 @@ Workflow با نام **Process video URL**:
 
 1. ویدئو و صوت را پردازش می‌کند.
 2. مدل Whisper را روی CPU اجرا می‌کند.
-3. Ollama و مدل `qwen2.5:7b` را داخل همان runner نصب و اجرا می‌کند.
-4. بستهٔ کامل خروجی را به‌صورت Artifact تحویل می‌دهد.
+3. Ollama و مدل محلی را داخل همان runner نصب و اجرا می‌کند.
+4. بستهٔ Review را در `final/review-package.zip` قرار می‌دهد.
+5. خروجی کامل را به‌صورت Artifact و در مسیر `processing/` منتشر می‌کند.
 
 هیچ Secret لازم نیست. علاوه بر اجرای دستی، افزودن فایل `runs/*.request.json` نیز workflow را اجرا می‌کند.
 
@@ -131,19 +180,19 @@ Workflow با نام **Process video URL**:
 }
 ```
 
-## اصول ویرایش
+## اصول ویرایش و بازبینی
 
 - معنا و ترتیب گفت‌وگو حفظ می‌شود.
-- نام، عدد، نقل‌قول یا ادعای تازه افزوده نمی‌شود.
-- تکرارهای ماشینی و کلمات پرکننده حذف می‌شوند.
-- متن موضوع‌بندی و گویندگان تفکیک می‌شوند.
+- نام، عدد، نقل‌قول یا ادعای تازه بدون تأیید انسان افزوده نمی‌شود.
+- خروجی ناقص مدل زبانی خودکار رد و با متن machine جایگزین می‌شود.
+- پیشنهاد واژه‌نامه مستقیماً اعمال نمی‌شود و نیازمند تصمیم بازبین است.
 - عبارت غیرقابل‌بازیابی با `[نامفهوم]` مشخص می‌شود.
-- برای نقل‌قول کلمه‌به‌کلمه، تطبیق نهایی با صوت همچنان لازم است.
+- همه تغییرات، هش فایل‌ها و نام بازبین در گزارش verification ثبت می‌شود.
 
 ## تست
 
 ```bash
 ruff check src tests
-python -m unittest discover -s tests -v
+pytest -q
 python -m compileall -q src tests
 ```

@@ -70,7 +70,7 @@ def _add_editorial_options(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--no-editorial", action="store_true")
     parser.add_argument(
         "--editorial-model",
-        default=os.getenv("VID_PIPELINE_EDITORIAL_MODEL", "qwen2.5:7b"),
+        default=os.getenv("VID_PIPELINE_EDITORIAL_MODEL", "qwen3:8b"),
     )
     parser.add_argument(
         "--editorial-base-url",
@@ -126,7 +126,7 @@ def build_parser() -> argparse.ArgumentParser:
     edit_parser.add_argument("--source-url", default="")
     edit_parser.add_argument(
         "--editorial-model",
-        default=os.getenv("VID_PIPELINE_EDITORIAL_MODEL", "qwen2.5:7b"),
+        default=os.getenv("VID_PIPELINE_EDITORIAL_MODEL", "qwen3:8b"),
     )
     edit_parser.add_argument(
         "--editorial-base-url",

@@ -1,10 +1,10 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-07-24T12:25:53.502777+00:00",
+  "updated_at": "2026-07-24T12:32:38.820806+00:00",
   "stages": {
     "source": {
       "status": "completed",
-      "updated_at": "2026-07-24T12:25:28.774869+00:00",
+      "updated_at": "2026-07-24T12:31:49.363139+00:00",
       "output_paths": [
         "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-a6444ad5/source.json"
       ],
@@ -26,7 +26,7 @@
     },
     "download": {
       "status": "completed",
-      "updated_at": "2026-07-24T12:25:32.942372+00:00",
+      "updated_at": "2026-07-24T12:32:06.836174+00:00",
       "output_paths": [
         "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-a6444ad5/video/video.mp4",
         "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-a6444ad5/video-info.json"
@@ -36,14 +36,14 @@
         "duration": null,
         "sha256": {
           "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-a6444ad5/video/video.mp4": "6d3efb0e4f87c773904089388a47cdbc0ce8cef8059febec1399a47dacaf97af",
-          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-a6444ad5/video-info.json": "cc8fc175756bf8e142fbe94f8552282a72f32f6afc812015da1d65909abc51fc"
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-a6444ad5/video-info.json": "b636c6ceb1002ed08ce42027daec03635413997aad88d572a81f1ffabe2d66a0"
         }
       },
       "error": ""
     },
     "audio": {
       "status": "completed",
-      "updated_at": "2026-07-24T12:25:33.356066+00:00",
+      "updated_at": "2026-07-24T12:32:07.307904+00:00",
       "output_paths": [
         "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-a6444ad5/audio/audio-16k-mono.wav"
       ],
@@ -70,10 +70,10 @@
     },
     "transcribe": {
       "status": "failed",
-      "updated_at": "2026-07-24T12:25:53.502656+00:00",
+      "updated_at": "2026-07-24T12:32:38.820715+00:00",
       "output_paths": [],
       "details": {},
-      "error": "Transcription failed: No position encodings are defined for positions >= 448, but got position 448"
+      "error": "Transcription failed: The maximum decoding length must be > 0"
     },
     "clean": {
       "status": "pending",

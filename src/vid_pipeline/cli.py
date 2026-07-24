@@ -69,11 +69,11 @@ def _add_editorial_options(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--no-editorial", action="store_true")
     parser.add_argument(
         "--editorial-model",
-        default=os.getenv("VID_PIPELINE_EDITORIAL_MODEL", "gpt-5"),
+        default=os.getenv("VID_PIPELINE_EDITORIAL_MODEL", "qwen2.5:7b"),
     )
     parser.add_argument(
         "--editorial-base-url",
-        default=os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1"),
+        default=os.getenv("OLLAMA_BASE_URL", "http://127.0.0.1:11434"),
     )
     parser.add_argument("--editorial-chunk-chars", type=int, default=7000)
     parser.add_argument("--editorial-max-output-tokens", type=int, default=12000)
@@ -83,7 +83,7 @@ def _add_editorial_options(parser: argparse.ArgumentParser) -> None:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="vid-pipeline",
-        description="Convert a video URL into raw, machine-cleaned, and AI-edited transcripts.",
+        description="Convert a video URL into raw, machine-cleaned, and locally edited transcripts.",
     )
     parser.add_argument("--version", action="version", version=f"%(prog)s {__version__}")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -93,6 +93,7 @@ def build_parser() -> argparse.ArgumentParser:
         help="Download one video URL and create reviewed Markdown and plain-text transcripts.",
     )
     run_parser.add_argument("url")
+    run_parser.add_argument("--source-url", default="")
     run_parser.add_argument("--output-root", type=Path, default=Path("outputs"))
     run_parser.add_argument("--name", default="")
     run_parser.add_argument("--max-paragraph-words", type=int, default=90)
@@ -116,7 +117,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     edit_parser = subparsers.add_parser(
         "edit",
-        help="Create AI-edited final files from an existing Whisper JSON file.",
+        help="Create locally edited final files from an existing Whisper JSON file.",
     )
     edit_parser.add_argument("raw_json", type=Path)
     edit_parser.add_argument("--markdown", type=Path, required=True)
@@ -124,11 +125,11 @@ def build_parser() -> argparse.ArgumentParser:
     edit_parser.add_argument("--source-url", default="")
     edit_parser.add_argument(
         "--editorial-model",
-        default=os.getenv("VID_PIPELINE_EDITORIAL_MODEL", "gpt-5"),
+        default=os.getenv("VID_PIPELINE_EDITORIAL_MODEL", "qwen2.5:7b"),
     )
     edit_parser.add_argument(
         "--editorial-base-url",
-        default=os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1"),
+        default=os.getenv("OLLAMA_BASE_URL", "http://127.0.0.1:11434"),
     )
     edit_parser.add_argument("--editorial-chunk-chars", type=int, default=7000)
     edit_parser.add_argument("--editorial-max-output-tokens", type=int, default=12000)
@@ -155,7 +156,10 @@ def command_run_url(args: argparse.Namespace) -> int:
     results = pipeline.run(
         config,
         editorial_config=editorial_config,
-        editorial_metadata=_editorial_metadata(args, source_url=args.url),
+        editorial_metadata=_editorial_metadata(
+            args,
+            source_url=args.source_url.strip() or args.url,
+        ),
         max_words=args.max_paragraph_words,
         force=args.force,
     )

@@ -52,6 +52,8 @@ on:
   push:
     paths:
       - 'runs/*.request.json'
+  issues:
+    types: [opened]
 
 permissions:
   contents: write
@@ -62,6 +64,7 @@ concurrency:
 
 jobs:
   process:
+    if: github.event_name != 'issues' || startsWith(github.event.issue.title, '[vid-pipeline]')
     runs-on: ubuntu-latest
     timeout-minutes: 360
     env:
@@ -98,6 +101,36 @@ jobs:
           from pathlib import Path
 
           data = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+          mapping = {
+              "VIDEO_URL": data.get("media_url") or data.get("url") or "",
+              "SOURCE_URL": data.get("source_url") or data.get("url") or "",
+              "JOB_NAME": data.get("name") or "",
+              "VIDEO_TITLE": data.get("title") or "",
+              "PROGRAM_NAME": data.get("program") or "",
+              "NETWORK_NAME": data.get("network") or "",
+              "VIDEO_DATE": data.get("date") or "",
+              "GUEST_NAME": data.get("guest") or "",
+              "EDITORIAL_CONTEXT": data.get("editorial_context") or "",
+              "WHISPER_MODEL": data.get("whisper_model") or "large-v3-turbo",
+              "EDITORIAL_MODEL": data.get("editorial_model") or "qwen2.5:7b",
+          }
+          for key, value in mapping.items():
+              text = str(value).replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+              print(f"{key}={text}")
+          PY
+
+      - name: Resolve issue request
+        if: github.event_name == 'issues'
+        shell: bash
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          set -euo pipefail
+          python - >> "$GITHUB_ENV" <<'PY'
+          import json
+          import os
+
+          data = json.loads(os.environ["ISSUE_BODY"])
           mapping = {
               "VIDEO_URL": data.get("media_url") or data.get("url") or "",
               "SOURCE_URL": data.get("source_url") or data.get("url") or "",

@@ -5,9 +5,10 @@ from __future__ import annotations
 import json
 import shutil
 import zipfile
+from collections.abc import Iterable
 from dataclasses import asdict
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any
 
 from vid_pipeline.review_analysis import (
     analyze_segments,
@@ -16,8 +17,8 @@ from vid_pipeline.review_analysis import (
 )
 from vid_pipeline.review_media import extract_clip, retranscribe_items
 from vid_pipeline.review_quality import build_quality_report
-from vid_pipeline.review_subtitles import render_srt, render_vtt
 from vid_pipeline.review_render import assistant_chunks, review_html, review_markdown
+from vid_pipeline.review_subtitles import render_srt, render_vtt
 from vid_pipeline.review_types import (
     TERMINAL_PUNCTUATION,
     ReviewConfig,

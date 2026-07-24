@@ -1,4 +1,4 @@
-"""Local AI-assisted editorial reconstruction for noisy speech-to-text output."""
+"""Local, open-source editorial reconstruction for noisy Persian ASR output."""
 
 from __future__ import annotations
 
@@ -35,15 +35,16 @@ class EditorialMetadata:
 class EditorialConfig:
     """Configuration for the local Ollama editorial model."""
 
-    model: str = "qwen2.5:7b"
+    model: str = "qwen3:8b"
     base_url: str = "http://127.0.0.1:11434"
-    chunk_chars: int = 7000
-    previous_context_chars: int = 1400
-    max_output_tokens: int = 12000
+    chunk_chars: int = 6500
+    previous_context_chars: int = 1200
+    max_output_tokens: int = 9000
     context_window: int = 16384
-    temperature: float = 0.1
+    temperature: float = 0.05
     timeout_seconds: int = 600
     retries: int = 3
+    second_pass: bool = True
 
 
 class EditorialClient(Protocol):
@@ -60,6 +61,7 @@ class OllamaChatClient:
         payload = {
             "model": self.config.model,
             "stream": False,
+            "think": False,
             "messages": [
                 {"role": "system", "content": instructions},
                 {"role": "user", "content": input_text},
@@ -74,7 +76,6 @@ class OllamaChatClient:
         body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
         url = self.config.base_url.rstrip("/") + "/api/chat"
         last_error: Exception | None = None
-
         for attempt in range(self.config.retries):
             request = urllib.request.Request(
                 url,
@@ -86,7 +87,7 @@ class OllamaChatClient:
                 with urllib.request.urlopen(request, timeout=self.config.timeout_seconds) as response:
                     data = json.loads(response.read().decode("utf-8"))
                 text = _ollama_output_text(data)
-                if not text.strip():
+                if not text:
                     raise PipelineError("Local editorial model returned an empty response.")
                 return text
             except urllib.error.HTTPError as exc:
@@ -100,10 +101,9 @@ class OllamaChatClient:
                 last_error = exc
             if attempt + 1 < self.config.retries:
                 time.sleep(2**attempt)
-
         raise PipelineError(
-            "Local editorial stage failed. Make sure Ollama is running and the configured "
-            f"model is installed ({self.config.model}): {last_error}"
+            "Local editorial stage failed. Make sure Ollama is running and the model is "
+            f"installed ({self.config.model}): {last_error}"
         )
 
 
@@ -113,9 +113,7 @@ def _ollama_output_text(data: dict[str, Any]) -> str:
     if isinstance(content, str):
         return content.strip()
     response = data.get("response")
-    if isinstance(response, str):
-        return response.strip()
-    return ""
+    return response.strip() if isinstance(response, str) else ""
 
 
 def _timestamp(seconds: float) -> str:
@@ -125,8 +123,8 @@ def _timestamp(seconds: float) -> str:
     return f"{hours:02d}:{minutes:02d}:{secs:02d}"
 
 
-def build_editorial_chunks(segments: list[dict[str, Any]], max_chars: int = 7000) -> list[str]:
-    """Build ordered, timecoded chunks without splitting a Whisper segment."""
+def build_editorial_chunks(segments: list[dict[str, Any]], max_chars: int = 6500) -> list[str]:
+    """Build ordered, timecoded chunks without splitting Whisper segments."""
     if max_chars < 2000:
         raise ValueError("chunk_chars must be at least 2000")
     chunks: list[str] = []
@@ -156,34 +154,46 @@ def _metadata_text(metadata: EditorialMetadata) -> str:
         ("برنامه", metadata.program),
         ("شبکه/ناشر", metadata.network),
         ("تاریخ", metadata.date),
-        ("مهمان", metadata.guest),
+        ("گوینده/مهمان", metadata.guest),
         ("مدت", metadata.duration),
         ("منبع", metadata.source_url),
-        ("گویندگان احتمالی", "، ".join(metadata.speakers)),
-        ("زمینۀ تکمیلی", metadata.context),
+        ("گویندگان قطعی", "، ".join(metadata.speakers)),
+        ("واژه‌نامه و دستور تکمیلی", metadata.context),
     ]
     return "\n".join(f"- {key}: {value}" for key, value in values if value)
 
 
 def _instructions() -> str:
-    return """شما ویراستار ارشد رونویسی فارسی هستید. متن ورودی، خروجی خام و پرخطای تشخیص گفتار است.
-وظیفه شما بازسازی محتاطانۀ جمله‌های فارسی با حفظ معنا و ترتیب گفت‌وگو است.
+    return """شما ویراستار ارشد رونویسی فارسی هستید. ورودی، خروجی پرخطای تشخیص گفتار است.
+متن را با حفظ کامل معنا و ترتیب گفتار بازسازی کن.
 قواعد قطعی:
-1) هیچ واقعیت، نام، نقل‌قول، آیه، عدد یا ادعای تازه‌ای اضافه نکن.
-2) خطاهای آوایی و دستوری را فقط وقتی از بافت قابل بازیابی‌اند اصلاح کن؛ در غیر این صورت [نامفهوم] بنویس.
-3) تکرارهای ماشینی، مکث‌ها و کلمات پرکننده را حذف کن، اما استدلال و محتوای اصلی را حذف نکن.
-4) گویندگان را با برچسب‌های بولد مانند **مجری:** و **مهمان:** جدا کن. اگر هویت روشن نیست، **گوینده:** بنویس.
-5) متن را با تیترهای معنایی سطح دوم (##) بخش‌بندی کن. از تیترهای کلیشه‌ای و بیش از حد زیاد پرهیز کن.
-6) نثر را فارسی معیار، روان، دقیق و وفادار نگه دار؛ بازنویسی ادبی یا خلاصه‌سازی نکن.
-7) شناسه‌ها و زمان‌نماهای S0001 را در خروجی نیاور.
-8) فقط بدنه Markdown را برگردان؛ عنوان اصلی، مشخصات برنامه و توضیح روش را ننویس.
-9) ابتدای هر بخش را به ادامۀ بخش قبلی متصل نگه دار و متن تکراری نساز.
+1) هیچ واقعیت، نام، عدد، نقل‌قول، آیه یا ادعای تازه‌ای اضافه نکن.
+2) «واژه‌نامه و دستور تکمیلی» فقط برای املای صحیح نام‌ها، مکان‌ها و تشخیص گوینده معتبر است؛ آن را به‌عنوان محتوای تازه وارد متن نکن.
+3) خطاهای آوایی و دستوری را فقط وقتی از بافت قابل بازیابی‌اند اصلاح کن؛ در غیر این صورت [نامفهوم] بنویس.
+4) تکرار ماشینی، مکث و کلمات پرکننده را حذف کن، اما هیچ استدلال یا جملۀ معناداری را خلاصه یا حذف نکن.
+5) اگر مشخصات می‌گوید فقط یک گوینده وجود دارد، همان نام را یک‌بار در آغاز متن بنویس و هرگز «مجری» یا گویندۀ دیگری اختراع نکن.
+6) در گفت‌وگو، گویندگان را با برچسب بولد جدا کن. اگر هویت روشن نیست، **گوینده:** بنویس.
+7) برای متن بلند از تیترهای سطح دوم (##) استفاده کن؛ برای کلیپ کوتاه یک تیتر کافی است.
+8) نثر را فارسی معیار، روان، دقیق و وفادار نگه دار؛ بازنویسی ادبی یا خلاصه‌سازی نکن.
+9) شناسه‌ها و زمان‌نماهای S0001 را در خروجی نیاور.
+10) فقط بدنۀ Markdown را برگردان و هیچ توضیحی دربارۀ فرایند ننویس.
+"""
+
+
+def _quality_instructions() -> str:
+    return """شما کنترل‌گر نهایی کیفیت رونویسی فارسی هستید.
+نسخۀ پیشنهادی را با متن خام و واژه‌نامۀ داده‌شده تطبیق بده و فقط خطاها را اصلاح کن.
+- نام‌ها و مکان‌ها را دقیقاً با املای واژه‌نامه بنویس، اما نام کامل را فقط وقتی جایگزین کن که همان شخص در صوت ذکر شده باشد.
+- اعداد، سن‌ها و عبارت‌های پایانی را حذف نکن.
+- گویندۀ تازه، جمله، ادعا یا تفسیر تازه نساز.
+- اگر فقط یک گوینده معرفی شده، برچسب او را یک‌بار در ابتدای متن نگه دار.
+- فارسی معیار، نیم‌فاصله و نشانه‌گذاری را اصلاح کن.
+- فقط بدنۀ Markdown نهایی را برگردان.
 """
 
 
 def _clean_model_markdown(text: str) -> str:
-    value = text.strip()
-    value = _FENCE_RE.sub("", value).strip()
+    value = _FENCE_RE.sub("", text.strip()).strip()
     lines = [line.rstrip() for line in value.splitlines()]
     compact: list[str] = []
     blank = False
@@ -229,18 +239,18 @@ def render_reviewed_markdown(metadata: EditorialMetadata, body: str) -> str:
     if metadata.date:
         summary.append(f"تاریخ: {metadata.date}")
     if metadata.guest:
-        summary.append(f"مهمان: {metadata.guest}")
+        summary.append(f"گوینده: {metadata.guest}")
     if metadata.duration:
         summary.append(f"مدت: {metadata.duration}")
     if metadata.source_url:
         summary.append(f"منبع: {metadata.source_url}")
     for item in summary:
-        lines.extend([item + "  "])
+        lines.append(item + "  ")
     if summary:
         lines.append("")
     lines.extend(
         [
-            "> این متن فقط از روی صوت ویدئو به‌صورت خودکار استخراج و سپس با یک مدل متن‌باز محلی بازسازی شده است. خطاهای آشکار تبدیل گفتار اصلاح، گویندگان تفکیک و مطالب موضوع‌بندی شده‌اند. عبارت‌های غیرقابل‌بازیابی با `[نامفهوم]` مشخص می‌شوند؛ برای استناد کلمه‌به‌کلمه، تطبیق نهایی با صوت لازم است.",
+            "> این متن فقط از روی صوت ویدئو استخراج و سپس با یک مدل متن‌باز محلی بازسازی شده است. عبارت‌های غیرقابل‌بازیابی با `[نامفهوم]` مشخص می‌شوند؛ برای استناد کلمه‌به‌کلمه، تطبیق نهایی با صوت لازم است.",
             "",
             body.strip(),
             "",
@@ -266,37 +276,53 @@ def edit_transcript(
     config: EditorialConfig | None = None,
     client: EditorialClient | None = None,
 ) -> dict[str, Any]:
-    """Reconstruct a readable reviewed transcript from ordered Whisper segments."""
+    """Reconstruct a readable transcript from ordered Whisper segments."""
     metadata = metadata or EditorialMetadata()
     config = config or EditorialConfig()
     data = json.loads(Path(raw_json).read_text(encoding="utf-8"))
     segments = list(data.get("segments") or [])
     if not segments:
         raise PipelineError("Raw transcript has no segments to edit.")
+
     chunks = build_editorial_chunks(segments, config.chunk_chars)
     active_client = client or OllamaChatClient(config)
     outputs: list[str] = []
     previous = ""
+    metadata_text = _metadata_text(metadata) or "- اطلاعات تکمیلی موجود نیست"
+
     for index, chunk in enumerate(chunks, start=1):
-        prompt = (
-            f"مشخصات محتوا:\n{_metadata_text(metadata) or '- اطلاعات تکمیلی موجود نیست'}\n\n"
-            f"این بخش {index} از {len(chunks)} است.\n"
-        )
+        prompt = f"مشخصات محتوا:\n{metadata_text}\n\nاین بخش {index} از {len(chunks)} است.\n"
         if previous:
             prompt += (
-                "انتهای بخش ویرایش‌شدۀ قبلی فقط برای حفظ پیوستگی (آن را تکرار نکن):\n"
+                "انتهای بخش قبلی فقط برای پیوستگی؛ آن را تکرار نکن:\n"
                 f"{previous[-config.previous_context_chars:]}\n\n"
             )
-        prompt += f"متن خام این بخش:\n{chunk}"
+        prompt += f"متن خام:\n{chunk}"
         edited = _clean_model_markdown(
             active_client.edit(instructions=_instructions(), input_text=prompt)
         )
         if not edited:
             raise PipelineError(f"Editorial chunk {index} was empty.")
+
+        if client is None and config.second_pass:
+            review_prompt = (
+                f"مشخصات و واژه‌نامه:\n{metadata_text}\n\n"
+                f"متن خام همین بخش:\n{chunk}\n\n"
+                f"نسخۀ پیشنهادی:\n{edited}"
+            )
+            reviewed_chunk = _clean_model_markdown(
+                active_client.edit(
+                    instructions=_quality_instructions(),
+                    input_text=review_prompt,
+                )
+            )
+            if reviewed_chunk:
+                edited = reviewed_chunk
+
         outputs.append(edited)
         previous = edited
-    body_parts = _deduplicate_boundaries(outputs)
-    body = "\n\n".join(body_parts).strip()
+
+    body = "\n\n".join(_deduplicate_boundaries(outputs)).strip()
     reviewed = render_reviewed_markdown(metadata, body)
     md_path = Path(output_markdown)
     txt_path = Path(output_text)
@@ -310,6 +336,7 @@ def edit_transcript(
         "provider": "ollama",
         "segments": len(segments),
         "chunks": len(chunks),
+        "quality_passes": 2 if client is None and config.second_pass else 1,
         "markdown": str(md_path),
         "text": str(txt_path),
         "human_audio_verification": False,

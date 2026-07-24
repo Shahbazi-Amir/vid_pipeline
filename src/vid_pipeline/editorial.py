@@ -1,9 +1,8 @@
-"""AI-assisted editorial reconstruction for noisy speech-to-text output."""
+"""Local AI-assisted editorial reconstruction for noisy speech-to-text output."""
 
 from __future__ import annotations
 
 import json
-import os
 import re
 import time
 import urllib.error
@@ -34,13 +33,16 @@ class EditorialMetadata:
 
 @dataclass(slots=True)
 class EditorialConfig:
-    model: str = "gpt-5"
-    api_key: str = ""
-    base_url: str = "https://api.openai.com/v1"
+    """Configuration for the local Ollama editorial model."""
+
+    model: str = "qwen2.5:7b"
+    base_url: str = "http://127.0.0.1:11434"
     chunk_chars: int = 7000
     previous_context_chars: int = 1400
     max_output_tokens: int = 12000
-    timeout_seconds: int = 240
+    context_window: int = 16384
+    temperature: float = 0.1
+    timeout_seconds: int = 600
     retries: int = 3
 
 
@@ -48,69 +50,72 @@ class EditorialClient(Protocol):
     def edit(self, *, instructions: str, input_text: str) -> str: ...
 
 
-class OpenAIResponsesClient:
-    """Small dependency-free client for the OpenAI Responses API."""
+class OllamaChatClient:
+    """Dependency-free client for a local Ollama server."""
 
     def __init__(self, config: EditorialConfig) -> None:
         self.config = config
-        self.api_key = config.api_key or os.getenv("OPENAI_API_KEY", "")
-        if not self.api_key:
-            raise PipelineError(
-                "OPENAI_API_KEY is required for the editorial stage. "
-                "Set it in the environment or run with --no-editorial."
-            )
 
     def edit(self, *, instructions: str, input_text: str) -> str:
         payload = {
             "model": self.config.model,
-            "instructions": instructions,
-            "input": input_text,
-            "max_output_tokens": self.config.max_output_tokens,
-            "store": False,
+            "stream": False,
+            "messages": [
+                {"role": "system", "content": instructions},
+                {"role": "user", "content": input_text},
+            ],
+            "options": {
+                "temperature": self.config.temperature,
+                "num_ctx": self.config.context_window,
+                "num_predict": self.config.max_output_tokens,
+                "repeat_penalty": 1.08,
+            },
         }
         body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
-        url = self.config.base_url.rstrip("/") + "/responses"
-        request = urllib.request.Request(
-            url,
-            data=body,
-            method="POST",
-            headers={
-                "Authorization": f"Bearer {self.api_key}",
-                "Content-Type": "application/json",
-            },
-        )
+        url = self.config.base_url.rstrip("/") + "/api/chat"
         last_error: Exception | None = None
+
         for attempt in range(self.config.retries):
+            request = urllib.request.Request(
+                url,
+                data=body,
+                method="POST",
+                headers={"Content-Type": "application/json"},
+            )
             try:
                 with urllib.request.urlopen(request, timeout=self.config.timeout_seconds) as response:
                     data = json.loads(response.read().decode("utf-8"))
-                text = _response_output_text(data)
+                text = _ollama_output_text(data)
                 if not text.strip():
-                    raise PipelineError("Editorial model returned an empty response.")
+                    raise PipelineError("Local editorial model returned an empty response.")
                 return text
             except urllib.error.HTTPError as exc:
                 message = exc.read().decode("utf-8", errors="replace")
-                last_error = PipelineError(f"Editorial API failed ({exc.code}): {message[:1000]}")
+                last_error = PipelineError(
+                    f"Local editorial server failed ({exc.code}): {message[:1000]}"
+                )
                 if exc.code not in {408, 409, 429, 500, 502, 503, 504}:
                     break
             except (OSError, ValueError) as exc:
                 last_error = exc
             if attempt + 1 < self.config.retries:
                 time.sleep(2**attempt)
-        raise PipelineError(f"Editorial stage failed: {last_error}")
+
+        raise PipelineError(
+            "Local editorial stage failed. Make sure Ollama is running and the configured "
+            f"model is installed ({self.config.model}): {last_error}"
+        )
 
 
-def _response_output_text(data: dict[str, Any]) -> str:
-    direct = data.get("output_text")
-    if isinstance(direct, str) and direct.strip():
-        return direct
-    parts: list[str] = []
-    for item in data.get("output") or []:
-        for content in item.get("content") or []:
-            text = content.get("text")
-            if isinstance(text, str):
-                parts.append(text)
-    return "\n".join(parts).strip()
+def _ollama_output_text(data: dict[str, Any]) -> str:
+    message = data.get("message") or {}
+    content = message.get("content")
+    if isinstance(content, str):
+        return content.strip()
+    response = data.get("response")
+    if isinstance(response, str):
+        return response.strip()
+    return ""
 
 
 def _timestamp(seconds: float) -> str:
@@ -235,7 +240,7 @@ def render_reviewed_markdown(metadata: EditorialMetadata, body: str) -> str:
         lines.append("")
     lines.extend(
         [
-            "> این متن از روی صوت به‌صورت خودکار استخراج و سپس با ویرایش هوشمند بازسازی شده است. خطاهای آشکار تبدیل گفتار اصلاح، گویندگان تفکیک و مطالب موضوع‌بندی شده‌اند. عبارت‌های غیرقابل‌بازیابی با `[نامفهوم]` مشخص می‌شوند؛ برای استناد کلمه‌به‌کلمه، تطبیق نهایی با صوت لازم است.",
+            "> این متن فقط از روی صوت ویدئو به‌صورت خودکار استخراج و سپس با یک مدل متن‌باز محلی بازسازی شده است. خطاهای آشکار تبدیل گفتار اصلاح، گویندگان تفکیک و مطالب موضوع‌بندی شده‌اند. عبارت‌های غیرقابل‌بازیابی با `[نامفهوم]` مشخص می‌شوند؛ برای استناد کلمه‌به‌کلمه، تطبیق نهایی با صوت لازم است.",
             "",
             body.strip(),
             "",
@@ -269,7 +274,7 @@ def edit_transcript(
     if not segments:
         raise PipelineError("Raw transcript has no segments to edit.")
     chunks = build_editorial_chunks(segments, config.chunk_chars)
-    active_client = client or OpenAIResponsesClient(config)
+    active_client = client or OllamaChatClient(config)
     outputs: list[str] = []
     previous = ""
     for index, chunk in enumerate(chunks, start=1):
@@ -300,8 +305,9 @@ def edit_transcript(
     md_path.write_text(reviewed, encoding="utf-8")
     txt_path.write_text(markdown_to_text(reviewed), encoding="utf-8")
     return {
-        "status": "ai_editorial_completed",
+        "status": "local_editorial_completed",
         "model": config.model,
+        "provider": "ollama",
         "segments": len(segments),
         "chunks": len(chunks),
         "markdown": str(md_path),

@@ -143,6 +143,44 @@ def test_build_package_creates_review_files_and_updates_result(tmp_path: Path) -
     assert result["human_audio_verification"] is False
 
 
+def test_clean_job_keeps_completed_status_and_marks_review_optional(tmp_path: Path) -> None:
+    job = _job(tmp_path)
+    raw = {
+        "language": "fa",
+        "segments": [
+            {
+                "id": 0,
+                "start": 0.0,
+                "end": 2.0,
+                "text": "متن روشن و عادی است",
+                "avg_logprob": -0.1,
+                "no_speech_prob": 0.0,
+                "review_flags": [],
+                "words": [
+                    {"word": "روشن", "start": 0.2, "end": 0.8, "probability": 0.98}
+                ],
+            }
+        ],
+    }
+    (job / "raw" / "transcript.raw.json").write_text(
+        json.dumps(raw, ensure_ascii=False), encoding="utf-8"
+    )
+    for path in (
+        job / "machine" / "transcript.machine.txt",
+        job / "final" / "transcript.final.txt",
+    ):
+        path.write_text("متن روشن و عادی است\n", encoding="utf-8")
+    (job / "result.json").write_text(
+        json.dumps({"status": "completed", "review_status": "ai_editorial_completed"}),
+        encoding="utf-8",
+    )
+    manifest = build_review_package(job, config=ReviewConfig(extract_clips=False))
+    result = json.loads((job / "result.json").read_text(encoding="utf-8"))
+    assert manifest["status"] == "human_review_optional"
+    assert result["status"] == "completed"
+    assert result["review_status"] == "human_review_optional"
+
+
 def test_apply_refuses_unresolved_required_items(tmp_path: Path) -> None:
     job = _job(tmp_path)
     build_review_package(job, config=ReviewConfig(extract_clips=False))

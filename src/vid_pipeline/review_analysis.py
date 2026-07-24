@@ -5,8 +5,9 @@ from __future__ import annotations
 import difflib
 import json
 import re
+from collections.abc import Iterable
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any
 
 from vid_pipeline.review_types import (
     NUMBER_RE,
@@ -25,8 +26,19 @@ NAME_MARKER_RE = re.compile(
     r"(?:شهید|آقای|خانم|دکتر|مهندس|حجت(?:‌|\s)?الاسلام|آیت(?:‌|\s)?الله|سردار|استاندار|رئیس(?:‌|\s)?جمهور)\s+([\u0600-\u06FF‌\-]+(?:\s+[\u0600-\u06FF‌\-]+){0,3})"
 )
 QURAN_MARKERS = {
-    "قال", "الله", "الذین", "رب", "ربنا", "ان", "انا", "فی", "الارض",
-    "الآخره", "الاخرة", "صدق", "صدق‌الله",
+    "قال",
+    "الله",
+    "الذین",
+    "رب",
+    "ربنا",
+    "ان",
+    "انا",
+    "فی",
+    "الارض",
+    "الآخره",
+    "الاخرة",
+    "صدق",
+    "صدق‌الله",
 }
 
 
@@ -48,7 +60,9 @@ def load_glossaries(paths: Iterable[str | Path]) -> dict[str, str]:
                 if isinstance(item, dict) and item.get("canonical"):
                     values = item.get("aliases") or []
                     values = [values] if isinstance(values, str) else values
-                    entries.append((str(item["canonical"]), [str(value) for value in values]))
+                    entries.append(
+                        (str(item["canonical"]), [str(value) for value in values])
+                    )
         else:
             raise ReviewError(f"Unsupported glossary structure: {path}")
         for canonical, values in entries:
@@ -61,14 +75,19 @@ def load_glossaries(paths: Iterable[str | Path]) -> dict[str, str]:
     return aliases
 
 
-def glossary_suggestions(text: str, aliases: dict[str, str]) -> tuple[list[dict[str, str]], str]:
+def glossary_suggestions(
+    text: str, aliases: dict[str, str]
+) -> tuple[list[dict[str, str]], str]:
     suggestions: list[dict[str, str]] = []
     proposed = normalize_text(text)
-    for alias, canonical in sorted(aliases.items(), key=lambda item: len(item[0]), reverse=True):
+    for alias, canonical in sorted(
+        aliases.items(), key=lambda item: len(item[0]), reverse=True
+    ):
         if not alias or alias == normalized_key(canonical):
             continue
         pattern = re.compile(
-            r"(?<![\w\u0600-\u06FF])" + re.escape(alias).replace(r"\ ", r"\s+")
+            r"(?<![\w\u0600-\u06FF])"
+            + re.escape(alias).replace(r"\ ", r"\s+")
             + r"(?![\w\u0600-\u06FF])",
             re.IGNORECASE,
         )
@@ -102,7 +121,11 @@ def analyze_segments(
         if no_speech > config.no_speech_threshold:
             reasons.add("possible_non_speech")
         words = list(segment.get("words") or [])
-        confidences = [float(row["probability"]) for row in words if row.get("probability") is not None]
+        confidences = [
+            float(row["probability"])
+            for row in words
+            if row.get("probability") is not None
+        ]
         low_words = [
             {
                 "word": normalize_text(str(row.get("word") or "")),
@@ -111,7 +134,8 @@ def analyze_segments(
                 "probability": round(float(row.get("probability", 0.0) or 0.0), 4),
             }
             for row in words
-            if float(row.get("probability", 1.0) or 1.0) < config.confidence_threshold
+            if float(row.get("probability", 1.0) or 1.0)
+            < config.confidence_threshold
         ]
         if low_words:
             reasons.add("low_word_confidence")
@@ -148,7 +172,9 @@ def analyze_segments(
                 "avg_logprob": round(avg_logprob, 4),
                 "no_speech_probability": round(no_speech, 4),
                 "mean_word_confidence": _mean(confidences),
-                "minimum_word_confidence": round(min(confidences), 4) if confidences else None,
+                "minimum_word_confidence": (
+                    round(min(confidences), 4) if confidences else None
+                ),
                 "low_confidence_words": low_words,
                 "numbers": numbers,
                 "names": names,

@@ -1,0 +1,149 @@
+{
+  "schema_version": 2,
+  "updated_at": "2026-07-24T15:51:12.744044+00:00",
+  "stages": {
+    "source": {
+      "status": "completed",
+      "updated_at": "2026-07-24T15:13:49.027556+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-audio-fast-8523237e/source.json"
+      ],
+      "details": {
+        "schema_version": 2,
+        "job_id": "khamenei-60236-full-audio-fast-8523237e",
+        "url": "https://farsi.khamenei.ir/ndata/news/60237/14040230_46985_128k.mp3",
+        "title": "14040230_46985_128k",
+        "duration": null,
+        "extractor": "Generic",
+        "uploader": "",
+        "channel": "",
+        "upload_date": "20250520",
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-audio-fast-8523237e/source.json": "94ac2ea7faafc5f599b9968e2edf92f76903b22738daecc278d63047878be2e6"
+        }
+      },
+      "error": ""
+    },
+    "download": {
+      "status": "completed",
+      "updated_at": "2026-07-24T15:14:18.869469+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-audio-fast-8523237e/video/video.mp3",
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-audio-fast-8523237e/video-info.json"
+      ],
+      "details": {
+        "video_path": "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-audio-fast-8523237e/video/video.mp3",
+        "duration": null,
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-audio-fast-8523237e/video/video.mp3": "9eedba8b67d2c2d0fc37decac698d220aa3206938f82e407e6667188148735e2",
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-audio-fast-8523237e/video-info.json": "d7571c7a0d00a217e93a990d0d6b8103c642c3462b66639e9dcde1b705826758"
+        }
+      },
+      "error": ""
+    },
+    "audio": {
+      "status": "completed",
+      "updated_at": "2026-07-24T15:14:24.230325+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-audio-fast-8523237e/audio/audio-16k-mono.wav"
+      ],
+      "details": {
+        "probe": {
+          "programs": [],
+          "streams": [
+            {
+              "codec_name": "pcm_s16le",
+              "codec_type": "audio",
+              "sample_rate": "16000",
+              "channels": 1
+            }
+          ],
+          "format": {
+            "duration": "1641.733000"
+          }
+        },
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-audio-fast-8523237e/audio/audio-16k-mono.wav": "01f11acbadca1ae5a339aeb08ce4604a35ce75ec11162dd8d215c930a25c1780"
+        }
+      },
+      "error": ""
+    },
+    "transcribe": {
+      "status": "completed",
+      "updated_at": "2026-07-24T15:24:47.480062+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-audio-fast-8523237e/raw/transcript.raw.json",
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-audio-fast-8523237e/raw/transcript.raw.md"
+      ],
+      "details": {
+        "duration": 1641.733,
+        "segments": 309,
+        "language": "fa",
+        "model": "large-v3-turbo",
+        "device": "cpu",
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-audio-fast-8523237e/raw/transcript.raw.json": "c148ce0084ab7a1648f96f7550c35ca0936f14099cf164cf30bbd1c5791ecc3d",
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-audio-fast-8523237e/raw/transcript.raw.md": "6730f30f0fe00a733de6d475a1fcf3b861ced0d0ca22cc31634f2a7190e27bec"
+        }
+      },
+      "error": ""
+    },
+    "clean": {
+      "status": "completed",
+      "updated_at": "2026-07-24T15:24:47.495901+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-audio-fast-8523237e/machine/transcript.machine.md",
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-audio-fast-8523237e/machine/transcript.machine.txt"
+      ],
+      "details": {
+        "segments_in": 309,
+        "segments_out": 309,
+        "paragraphs": 23,
+        "language": "fa",
+        "markdown": "outputs/khamenei-60236-full-audio-fast-8523237e/machine/transcript.machine.md",
+        "text": "outputs/khamenei-60236-full-audio-fast-8523237e/machine/transcript.machine.txt",
+        "quality": "machine_only",
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-audio-fast-8523237e/machine/transcript.machine.md": "56fa76f98e37fee092f040621df2fa78f6a263eabf3d1c8582ff81d1e3f2f230",
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-audio-fast-8523237e/machine/transcript.machine.txt": "5c78f3bc094cfaba6b70c8e741202acfcaa579832f10251bcc2d7babbb3411d8"
+        }
+      },
+      "error": ""
+    },
+    "editorial": {
+      "status": "completed",
+      "updated_at": "2026-07-24T15:51:12.744009+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-audio-fast-8523237e/final/transcript.final.md",
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-audio-fast-8523237e/final/transcript.final.txt",
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-audio-fast-8523237e/final/editorial-report.json",
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-audio-fast-8523237e/result.json"
+      ],
+      "details": {
+        "status": "local_editorial_completed",
+        "model": "qwen3:0.6b",
+        "provider": "ollama",
+        "segments": 309,
+        "chunks": 3,
+        "quality_passes": 2,
+        "markdown": "outputs/khamenei-60236-full-audio-fast-8523237e/final/transcript.final.md",
+        "text": "outputs/khamenei-60236-full-audio-fast-8523237e/final/transcript.final.txt",
+        "human_audio_verification": false,
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-audio-fast-8523237e/final/transcript.final.md": "1c14b21733733b46c832e8685a44de72de7ae2acbbbb2ce5914010253cb6d47e",
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-audio-fast-8523237e/final/transcript.final.txt": "be75be50f9adeb9986de251d7b0b84b04709ee15377ed384b8dd179a18d0ae26",
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-audio-fast-8523237e/final/editorial-report.json": "00ccbf35acb312b64a820bd0abf06ac7c4852005f0eed6e2f0e1b44935f2f5c2",
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-audio-fast-8523237e/result.json": "cbce23f8fb9954920b7768a44190fc708b31ce49198c390383a28a0d73f3b2c0"
+        }
+      },
+      "error": ""
+    },
+    "finalize_machine": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    }
+  }
+}

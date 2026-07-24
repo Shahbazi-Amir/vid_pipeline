@@ -7,6 +7,10 @@ on:
         description: Video page or direct media URL
         required: true
         type: string
+      source_url:
+        description: Optional public source page shown in the final file
+        required: false
+        type: string
       name:
         description: Optional job name
         required: false
@@ -32,7 +36,7 @@ on:
         required: false
         type: string
       editorial_context:
-        description: Topic and important names for the editor
+        description: Topic and important names for the local editor
         required: false
         type: string
       whisper_model:
@@ -41,10 +45,13 @@ on:
         default: large-v3-turbo
         type: string
       editorial_model:
-        description: OpenAI editorial model
+        description: Local Ollama model
         required: true
-        default: gpt-5
+        default: qwen2.5:7b
         type: string
+  push:
+    paths:
+      - 'runs/*.request.json'
 
 permissions:
   contents: read
@@ -55,11 +62,11 @@ concurrency:
 
 jobs:
   process:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     timeout-minutes: 360
     env:
-      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       VIDEO_URL: ${{ inputs.url }}
+      SOURCE_URL: ${{ inputs.source_url }}
       JOB_NAME: ${{ inputs.name }}
       VIDEO_TITLE: ${{ inputs.title }}
       PROGRAM_NAME: ${{ inputs.program }}
@@ -67,11 +74,54 @@ jobs:
       VIDEO_DATE: ${{ inputs.date }}
       GUEST_NAME: ${{ inputs.guest }}
       EDITORIAL_CONTEXT: ${{ inputs.editorial_context }}
-      WHISPER_MODEL: ${{ inputs.whisper_model }}
-      EDITORIAL_MODEL: ${{ inputs.editorial_model }}
+      WHISPER_MODEL: ${{ inputs.whisper_model || 'large-v3-turbo' }}
+      EDITORIAL_MODEL: ${{ inputs.editorial_model || 'qwen2.5:7b' }}
+      OLLAMA_BASE_URL: http://127.0.0.1:11434
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Resolve request file
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          set -euo pipefail
+          request_file=$(git diff-tree --no-commit-id --name-only -r "$GITHUB_SHA" \
+            | grep '^runs/.*\.request\.json$' \
+            | tail -n 1)
+          test -n "$request_file"
+          python - "$request_file" >> "$GITHUB_ENV" <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+
+          data = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+          mapping = {
+              "VIDEO_URL": data.get("media_url") or data.get("url") or "",
+              "SOURCE_URL": data.get("source_url") or data.get("url") or "",
+              "JOB_NAME": data.get("name") or "",
+              "VIDEO_TITLE": data.get("title") or "",
+              "PROGRAM_NAME": data.get("program") or "",
+              "NETWORK_NAME": data.get("network") or "",
+              "VIDEO_DATE": data.get("date") or "",
+              "GUEST_NAME": data.get("guest") or "",
+              "EDITORIAL_CONTEXT": data.get("editorial_context") or "",
+              "WHISPER_MODEL": data.get("whisper_model") or "large-v3-turbo",
+              "EDITORIAL_MODEL": data.get("editorial_model") or "qwen2.5:7b",
+          }
+          for key, value in mapping.items():
+              text = str(value).replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+              print(f"{key}={text}")
+          PY
+
+      - name: Validate request
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$VIDEO_URL"
+          echo "Video source resolved."
 
       - uses: actions/setup-python@v5
         with:
@@ -79,50 +129,55 @@ jobs:
           cache: pip
 
       - name: Install ffmpeg and Python dependencies
-        shell: pwsh
+        shell: bash
         run: |
-          if (-not (Get-Command ffmpeg -ErrorAction SilentlyContinue)) {
-            choco install ffmpeg -y --no-progress
-          }
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg curl
           python -m pip install --upgrade pip
           pip install -e '.[all]'
           ffmpeg -version
 
-      - name: Validate editorial secret
-        shell: pwsh
+      - name: Install and start local Ollama
+        shell: bash
         run: |
-          if ([string]::IsNullOrWhiteSpace($env:OPENAI_API_KEY)) {
-            throw 'Repository secret OPENAI_API_KEY is required.'
-          }
+          set -euo pipefail
+          curl -fsSL https://ollama.com/install.sh | sh
+          nohup ollama serve > ollama.log 2>&1 &
+          for attempt in $(seq 1 60); do
+            if curl -fsS "$OLLAMA_BASE_URL/api/tags" >/dev/null; then
+              break
+            fi
+            sleep 2
+          done
+          curl -fsS "$OLLAMA_BASE_URL/api/tags" >/dev/null
+          ollama pull "$EDITORIAL_MODEL"
 
-      - name: Run complete URL-to-reviewed-transcript pipeline
-        shell: pwsh
+      - name: Run complete local URL-to-reviewed-transcript pipeline
+        shell: bash
         run: |
-          $args = @(
-            'run-url', $env:VIDEO_URL,
-            '--output-root', 'outputs',
-            '--language', 'fa',
-            '--model', $env:WHISPER_MODEL,
-            '--device', 'cpu',
-            '--compute-type', 'int8',
-            '--editorial-model', $env:EDITORIAL_MODEL
+          set -euo pipefail
+          args=(
+            run-url "$VIDEO_URL"
+            --output-root outputs
+            --language fa
+            --model "$WHISPER_MODEL"
+            --device cpu
+            --compute-type int8
+            --editorial-model "$EDITORIAL_MODEL"
+            --editorial-base-url "$OLLAMA_BASE_URL"
           )
-          $optional = @{
-            '--name' = $env:JOB_NAME
-            '--title' = $env:VIDEO_TITLE
-            '--program' = $env:PROGRAM_NAME
-            '--network' = $env:NETWORK_NAME
-            '--date' = $env:VIDEO_DATE
-            '--guest' = $env:GUEST_NAME
-            '--editorial-context' = $env:EDITORIAL_CONTEXT
-          }
-          foreach ($entry in $optional.GetEnumerator()) {
-            if (-not [string]::IsNullOrWhiteSpace($entry.Value)) {
-              $args += @($entry.Key, $entry.Value)
-            }
-          }
-          & vid-pipeline @args 2>&1 | Tee-Object -FilePath pipeline.log
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          if [[ -n "${SOURCE_URL:-}" ]]; then args+=(--source-url "$SOURCE_URL"); fi
+          if [[ -n "${JOB_NAME:-}" ]]; then args+=(--name "$JOB_NAME"); fi
+          if [[ -n "${VIDEO_TITLE:-}" ]]; then args+=(--title "$VIDEO_TITLE"); fi
+          if [[ -n "${PROGRAM_NAME:-}" ]]; then args+=(--program "$PROGRAM_NAME"); fi
+          if [[ -n "${NETWORK_NAME:-}" ]]; then args+=(--network "$NETWORK_NAME"); fi
+          if [[ -n "${VIDEO_DATE:-}" ]]; then args+=(--date "$VIDEO_DATE"); fi
+          if [[ -n "${GUEST_NAME:-}" ]]; then args+=(--guest "$GUEST_NAME"); fi
+          if [[ -n "${EDITORIAL_CONTEXT:-}" ]]; then
+            args+=(--editorial-context "$EDITORIAL_CONTEXT")
+          fi
+          vid-pipeline "${args[@]}" 2>&1 | tee pipeline.log
 
       - name: Upload reviewed transcript package
         if: always()
@@ -132,5 +187,6 @@ jobs:
           path: |
             outputs/**
             pipeline.log
+            ollama.log
           retention-days: 30
           if-no-files-found: warn

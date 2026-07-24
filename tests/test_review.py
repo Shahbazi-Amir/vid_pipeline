@@ -92,6 +92,24 @@ def test_analyze_segments_flags_confidence_names_numbers_and_glossary(tmp_path: 
     assert "number_or_percentage" in items[1]["reasons"]
 
 
+def test_number_detector_does_not_match_inside_words() -> None:
+    data = {
+        "segments": [
+            {
+                "id": 7,
+                "start": 0.0,
+                "end": 1.0,
+                "text": "این نیک و درست است",
+                "avg_logprob": -0.1,
+                "no_speech_prob": 0.0,
+                "review_flags": [],
+                "words": [{"word": "نیک", "probability": 0.99}],
+            }
+        ]
+    }
+    assert analyze_segments(data) == []
+
+
 def test_audit_detects_large_deletion_and_number_change() -> None:
     audit = audit_transcript_changes(
         "یک دو سه چهار پنج درصد شش هفت هشت نه ده",
@@ -116,6 +134,10 @@ def test_build_package_creates_review_files_and_updates_result(tmp_path: Path) -
     assert manifest["required_item_count"] == 2
     assert (job / "review" / "review.html").exists()
     assert (job / "review" / "assistant-review-package.json").exists()
+    assert (job / "review" / "quality-report.json").exists()
+    assert (job / "review" / "transcript.review.srt").exists()
+    assert (job / "review" / "transcript.review.vtt").exists()
+    assert (job / "final" / "review-package.zip").exists()
     result = json.loads((job / "result.json").read_text(encoding="utf-8"))
     assert result["review_status"] == "human_review_required"
     assert result["human_audio_verification"] is False
@@ -131,6 +153,31 @@ def test_apply_refuses_unresolved_required_items(tmp_path: Path) -> None:
     )
     with pytest.raises(ReviewError, match="incomplete"):
         apply_human_review(job, corrections)
+
+
+def test_human_can_mark_required_segment_unclear(tmp_path: Path) -> None:
+    job = _job(tmp_path)
+    build_review_package(job, config=ReviewConfig(extract_clips=False))
+    uncertain = json.loads(
+        (job / "review" / "uncertain-spans.json").read_text(encoding="utf-8")
+    )
+    corrections = {
+        "reviewer": "بازبین انسانی",
+        "items": [
+            {
+                "segment_id": item["segment_id"],
+                "decision": "unclear" if index == 0 else "accept_original",
+                "replacement": "",
+            }
+            for index, item in enumerate(uncertain["items"])
+        ],
+    }
+    path = job / "review" / "corrections.json"
+    path.write_text(json.dumps(corrections, ensure_ascii=False), encoding="utf-8")
+    apply_human_review(job, path, promote=True)
+    assert "[نامفهوم]" in (
+        job / "final" / "transcript.final.txt"
+    ).read_text(encoding="utf-8")
 
 
 def test_apply_human_review_preserves_all_segments_and_promotes(tmp_path: Path) -> None:
@@ -171,3 +218,6 @@ def test_apply_human_review_preserves_all_segments_and_promotes(tmp_path: Path) 
     published = json.loads((job / "result.json").read_text(encoding="utf-8"))
     assert published["review_status"] == "human_verified"
     assert published["human_audio_verification"] is True
+    assert (job / "final" / "human-verification.json").exists()
+    assert (job / "final" / "transcript.final.srt").exists()
+    assert (job / "final" / "transcript.final.vtt").exists()

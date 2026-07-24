@@ -2,84 +2,7 @@
 [generic] 14040230_67164: Downloading webpage
 [info] 14040230_67164: Downloading 1 format(s): mp4
 [download] Destination: outputs/khamenei-60236-a6444ad5/video/video.mp4
-[download]   0.0% of    8.36MiB at  Unknown B/s ETA Unknown[download]   0.0% of    8.36MiB at    1.32MiB/s ETA 00:06  [download]   0.1% of    8.36MiB at    2.71MiB/s ETA 00:03[download]   0.2% of    8.36MiB at    5.12MiB/s ETA 00:01[download]   0.4% of    8.36MiB at    9.34MiB/s ETA 00:00[download]   0.7% of    8.36MiB at  540.36KiB/s ETA 00:15[download]   1.5% of    8.36MiB at  552.47KiB/s ETA 00:15[download]   3.0% of    8.36MiB at  742.63KiB/s ETA 00:11[download]   6.0% of    8.36MiB at  901.78KiB/s ETA 00:08[download]  12.0% of    8.36MiB at    1.46MiB/s ETA 00:05[download]  23.9% of    8.36MiB at    2.20MiB/s ETA 00:02[download]  47.8% of    8.36MiB at    3.52MiB/s ETA 00:01[download]  95.7% of    8.36MiB at    5.43MiB/s ETA 00:00[download] 100.0% of    8.36MiB at    5.66MiB/s ETA 00:00[download] 100% of    8.36MiB in 00:00:02 at 3.48MiB/s   
+[download]   0.0% of    8.36MiB at  Unknown B/s ETA Unknown[download]   0.0% of    8.36MiB at    1.37MiB/s ETA 00:06  [download]   0.1% of    8.36MiB at    2.81MiB/s ETA 00:02[download]   0.2% of    8.36MiB at    5.38MiB/s ETA 00:01[download]   0.4% of    8.36MiB at    9.97MiB/s ETA 00:00[download]   0.7% of    8.36MiB at  431.83KiB/s ETA 00:19[download]   1.5% of    8.36MiB at  443.54KiB/s ETA 00:19[download]   3.0% of    8.36MiB at  590.29KiB/s ETA 00:14[download]   6.0% of    8.36MiB at  714.70KiB/s ETA 00:11[download]  12.0% of    8.36MiB at    1.16MiB/s ETA 00:06[download]  23.9% of    8.36MiB at    1.74MiB/s ETA 00:03[download]  47.8% of    8.36MiB at    2.79MiB/s ETA 00:01[download]  95.7% of    8.36MiB at    4.29MiB/s ETA 00:00[download] 100.0% of    8.36MiB at    4.48MiB/s ETA 00:00[download] 100% of    8.36MiB in 00:00:02 at 2.81MiB/s   
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-[0;93m2026-07-24 12:11:06.492973511 [W:onnxruntime:Default, device_discovery.cc:133 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename "5620e0c7-8062-4dce-aeb7-520c7ef76171" did not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
-{
-  "job_id": "khamenei-60236-a6444ad5",
-  "job_root": "outputs/khamenei-60236-a6444ad5",
-  "raw_markdown": "outputs/khamenei-60236-a6444ad5/raw/transcript.raw.md",
-  "machine_markdown": "outputs/khamenei-60236-a6444ad5/machine/transcript.machine.md",
-  "final_markdown": "outputs/khamenei-60236-a6444ad5/final/transcript.final.md",
-  "final_text": "outputs/khamenei-60236-a6444ad5/final/transcript.final.txt",
-  "stages": [
-    {
-      "stage": "source",
-      "status": "completed",
-      "schema_version": 2,
-      "job_id": "khamenei-60236-a6444ad5",
-      "url": "https://idc0-cdn5.khamenei.ir/ndata/news/60236/14040230_67164.mp4",
-      "title": "14040230_67164",
-      "duration": null,
-      "extractor": "Generic",
-      "uploader": "",
-      "channel": "",
-      "upload_date": "20250520"
-    },
-    {
-      "stage": "download",
-      "status": "completed",
-      "video_path": "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-a6444ad5/video/video.mp4",
-      "duration": null
-    },
-    {
-      "stage": "audio",
-      "status": "completed",
-      "probe": {
-        "programs": [],
-        "streams": [
-          {
-            "codec_name": "pcm_s16le",
-            "codec_type": "audio",
-            "sample_rate": "16000",
-            "channels": 1
-          }
-        ],
-        "format": {
-          "duration": "104.896000"
-        }
-      }
-    },
-    {
-      "stage": "transcribe",
-      "status": "completed",
-      "duration": 104.896,
-      "segments": 13,
-      "language": "fa",
-      "model": "large-v3-turbo",
-      "device": "cpu"
-    },
-    {
-      "stage": "clean",
-      "status": "completed",
-      "segments_in": 13,
-      "segments_out": 13,
-      "paragraphs": 2,
-      "language": "fa",
-      "markdown": "outputs/khamenei-60236-a6444ad5/machine/transcript.machine.md",
-      "text": "outputs/khamenei-60236-a6444ad5/machine/transcript.machine.txt",
-      "quality": "machine_only"
-    },
-    {
-      "stage": "editorial",
-      "status": "local_editorial_completed",
-      "model": "qwen2.5:7b",
-      "provider": "ollama",
-      "segments": 13,
-      "chunks": 1,
-      "markdown": "outputs/khamenei-60236-a6444ad5/final/transcript.final.md",
-      "text": "outputs/khamenei-60236-a6444ad5/final/transcript.final.txt",
-      "human_audio_verification": false
-    }
-  ]
-}
+[0;93m2026-07-24 12:25:43.793365842 [W:onnxruntime:Default, device_discovery.cc:133 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename "5620e0c7-8062-4dce-aeb7-520c7ef76171" did not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
+error: Transcription failed: No position encodings are defined for positions >= 448, but got position 448

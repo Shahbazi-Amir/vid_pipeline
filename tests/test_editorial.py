@@ -8,6 +8,7 @@ from pathlib import Path
 from vid_pipeline.editorial import (
     EditorialConfig,
     EditorialMetadata,
+    assess_transcript_preservation,
     build_editorial_chunks,
     edit_transcript,
     enforce_readable_paragraphs,
@@ -15,21 +16,56 @@ from vid_pipeline.editorial import (
 )
 
 
-class FakeClient:
+class PreservingClient:
     def __init__(self) -> None:
         self.calls = 0
 
     def edit(self, *, instructions: str, input_text: str) -> str:
         self.calls += 1
-        self.last_instructions = instructions
-        self.last_input = input_text
-        return (
-            "## بخش ۱\n\n"
-            "**گوینده:** جملۀ اول. جملۀ دوم. جملۀ سوم. جملۀ چهارم."
-        )
+        raw = input_text.split("متن خام:\n", 1)[1]
+        lines: list[str] = []
+        for line in raw.splitlines():
+            _, _, text = line.partition("] ")
+            lines.append(text or line)
+        return " ".join(lines)
+
+
+class TruncatingClient:
+    def edit(self, *, instructions: str, input_text: str) -> str:
+        return "بسم الله الرحمن الرحیم"
+
+
+class FailingClient:
+    def edit(self, *, instructions: str, input_text: str) -> str:
+        raise OSError("editorial timeout")
 
 
 class EditorialTests(unittest.TestCase):
+    def _long_raw(self, root: Path, count: int = 80) -> Path:
+        raw = root / "raw.json"
+        raw.write_text(
+            json.dumps(
+                {
+                    "language": "fa",
+                    "segments": [
+                        {
+                            "id": index,
+                            "start": index * 2,
+                            "end": index * 2 + 2,
+                            "text": (
+                                f"این جمله شماره {index} برای آزمایش حفظ کامل متن است "
+                                "و نباید از خروجی حذف شود."
+                            ),
+                        }
+                        for index in range(count)
+                    ],
+                },
+                ensure_ascii=False,
+            ),
+            encoding="utf-8",
+        )
+        return raw
+
     def test_chunks_preserve_segment_order(self) -> None:
         segments = [
             {"id": index, "start": index, "end": index + 1, "text": "واژه " * 300}
@@ -58,8 +94,18 @@ class EditorialTests(unittest.TestCase):
                     {
                         "language": "fa",
                         "segments": [
-                            {"id": 0, "start": 0, "end": 2, "text": "سلام این متن خام است"},
-                            {"id": 1, "start": 2, "end": 4, "text": "ادامه گفتگو"},
+                            {
+                                "id": 0,
+                                "start": 0,
+                                "end": 2,
+                                "text": "جملۀ اول. جملۀ دوم.",
+                            },
+                            {
+                                "id": 1,
+                                "start": 2,
+                                "end": 4,
+                                "text": "جملۀ سوم. جملۀ چهارم.",
+                            },
                         ],
                     },
                     ensure_ascii=False,
@@ -68,7 +114,7 @@ class EditorialTests(unittest.TestCase):
             )
             md = root / "final.md"
             txt = root / "final.txt"
-            fake = FakeClient()
+            fake = PreservingClient()
             result = edit_transcript(
                 raw,
                 md,
@@ -83,13 +129,54 @@ class EditorialTests(unittest.TestCase):
                 client=fake,
             )
             self.assertEqual(result["status"], "local_editorial_completed")
-            self.assertEqual(result["provider"], "ollama")
+            self.assertFalse(result["fallback_used"])
             markdown = md.read_text(encoding="utf-8")
             self.assertIn("# عنوان نمونه", markdown)
-            self.assertIn("**گوینده:**", markdown)
             self.assertIn("جملۀ دوم.\n\nجملۀ سوم.", markdown)
             self.assertNotIn("**", txt.read_text(encoding="utf-8"))
             self.assertEqual(fake.calls, 1)
+
+    def test_truncated_chunk_falls_back_to_complete_source(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            raw = self._long_raw(root)
+            result = edit_transcript(
+                raw,
+                root / "final.md",
+                root / "final.txt",
+                config=EditorialConfig(chunk_chars=2000, second_pass=False),
+                client=TruncatingClient(),
+            )
+            final_text = (root / "final.txt").read_text(encoding="utf-8")
+            self.assertEqual(result["status"], "local_editorial_completed_with_fallback")
+            self.assertTrue(result["fallback_used"])
+            self.assertTrue(result["fallback_chunks"])
+            self.assertTrue(result["final_validation"]["accepted"])
+            self.assertIn("شماره 0", final_text)
+            self.assertIn("شماره 79", final_text)
+
+    def test_editorial_error_falls_back_without_losing_text(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            raw = self._long_raw(root)
+            result = edit_transcript(
+                raw,
+                root / "final.md",
+                root / "final.txt",
+                config=EditorialConfig(chunk_chars=2000, second_pass=False),
+                client=FailingClient(),
+            )
+            final_text = (root / "final.txt").read_text(encoding="utf-8")
+            self.assertTrue(result["fallback_used"])
+            self.assertIn("شماره 79", final_text)
+
+    def test_preservation_metric_rejects_catastrophic_truncation(self) -> None:
+        result = assess_transcript_preservation(
+            "یک دو سه چهار پنج شش هفت هشت نه ده",
+            "یک دو",
+        )
+        self.assertFalse(result["accepted"])
+        self.assertIn("candidate_too_short", result["reasons"])
 
     def test_markdown_to_text_keeps_content(self) -> None:
         value = markdown_to_text("## عنوان\n\n**مجری:** سلام")

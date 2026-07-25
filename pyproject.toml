@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "video-transcript-pipeline"
-version = "0.6.1"
-description = "Standalone audio-to-transcript pipeline with lossless time-aligned pre-review and auditable human review."
+version = "0.7.0"
+description = "Audio-to-transcript pipeline with multi-pass ASR consensus, lossless pre-review, and auditable human review."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
@@ -21,9 +21,21 @@ download = [
 whisper = [
   "faster-whisper>=1.2.1"
 ]
+alignment = [
+  "whisperx>=3.4"
+]
+diarization = [
+  "pyannote.audio>=4.0"
+]
 all = [
   "yt-dlp",
   "faster-whisper>=1.2.1"
+]
+advanced = [
+  "yt-dlp",
+  "faster-whisper>=1.2.1",
+  "whisperx>=3.4",
+  "pyannote.audio>=4.0"
 ]
 dev = [
   "pytest>=8.0",
@@ -33,6 +45,7 @@ dev = [
 [project.scripts]
 vid-pipeline = "vid_pipeline.reliable_cli:main"
 vid-review = "vid_pipeline.review_cli:main"
+vid-accuracy = "vid_pipeline.accuracy_cli:main"
 
 [tool.setuptools]
 package-dir = { "" = "src" }

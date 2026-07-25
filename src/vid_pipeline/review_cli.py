@@ -1,4 +1,4 @@
-"""Command line interface for the auditable human-review stage."""
+"""Command line interface for pre-review and auditable human review."""
 
 from __future__ import annotations
 
@@ -7,6 +7,7 @@ import json
 import sys
 from pathlib import Path
 
+from vid_pipeline.pre_review import PreReviewError, build_pre_review_package
 from vid_pipeline.review import (
     ReviewConfig,
     ReviewError,
@@ -22,11 +23,20 @@ def _print(value: object) -> None:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="vid-review",
-        description="Build and apply an auditable human-review package for one pipeline job.",
+        description="Build lossless pre-review and auditable human-review packages.",
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
 
-    build = subparsers.add_parser("build", help="Create uncertain spans, clips, audit and HTML UI.")
+    pre_review = subparsers.add_parser(
+        "pre-review",
+        help="Create the complete time-aligned transcript before any review.",
+    )
+    pre_review.add_argument("job_root", type=Path)
+
+    build = subparsers.add_parser(
+        "build",
+        help="Create pre-review files, uncertain spans, clips, audit and HTML UI.",
+    )
     build.add_argument("job_root", type=Path)
     build.add_argument("--glossary", action="append", type=Path, default=[])
     build.add_argument("--confidence-threshold", type=float, default=0.68)
@@ -45,7 +55,7 @@ def build_parser() -> argparse.ArgumentParser:
     apply.add_argument("--promote", action="store_true")
     apply.add_argument("--paragraph-words", type=int, default=90)
 
-    status = subparsers.add_parser("status", help="Show review manifest or verification status.")
+    status = subparsers.add_parser("status", help="Show pre-review, review or verification status.")
     status.add_argument("job_root", type=Path)
     return parser
 
@@ -53,6 +63,9 @@ def build_parser() -> argparse.ArgumentParser:
 def main() -> int:
     args = build_parser().parse_args()
     try:
+        if args.command == "pre-review":
+            _print(build_pre_review_package(args.job_root))
+            return 0
         if args.command == "build":
             config = ReviewConfig(
                 confidence_threshold=args.confidence_threshold,
@@ -64,13 +77,13 @@ def main() -> int:
                 retranscribe_compute_type=args.compute_type,
                 retranscribe_beam_size=args.retranscribe_beam_size,
             )
-            _print(
-                build_review_package(
-                    args.job_root,
-                    config=config,
-                    glossary_paths=args.glossary,
-                )
+            pre_review = build_pre_review_package(args.job_root)
+            review = build_review_package(
+                args.job_root,
+                config=config,
+                glossary_paths=args.glossary,
             )
+            _print({"pre_review_stage": pre_review, "review_stage": review})
             return 0
         if args.command == "apply":
             _print(
@@ -85,12 +98,19 @@ def main() -> int:
             return 0
         verification = args.job_root / "human" / "verification.json"
         manifest = args.job_root / "review" / "manifest.json"
-        selected = verification if verification.exists() else manifest
+        pre_review_manifest = args.job_root / "pre_review" / "manifest.json"
+        selected = (
+            verification
+            if verification.exists()
+            else manifest
+            if manifest.exists()
+            else pre_review_manifest
+        )
         if not selected.exists():
-            raise ReviewError("No review manifest or human verification exists for this job.")
+            raise ReviewError("No pre-review, review or human verification exists for this job.")
         _print(json.loads(selected.read_text(encoding="utf-8")))
         return 0
-    except (ReviewError, OSError, ValueError, json.JSONDecodeError) as exc:
+    except (PreReviewError, ReviewError, OSError, ValueError, json.JSONDecodeError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 1
 

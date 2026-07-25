@@ -17,6 +17,20 @@ def _label(score: float) -> str:
     return "low"
 
 
+def _review_penalty(flags: list[str]) -> float:
+    penalties = {
+        "multi_pass_disagreement": 0.20,
+        "protected_name_or_number_disagreement": 0.10,
+        "low_consensus_confidence": 0.20,
+        "low_word_confidence": 0.15,
+        "low_log_probability": 0.15,
+        "possible_non_speech": 0.25,
+        "possible_repetition": 0.20,
+        "empty_text": 1.0,
+    }
+    return min(0.60, sum(penalties.get(flag, 0.05) for flag in set(flags)))
+
+
 def build_quality_report(raw_data: dict[str, Any], *, block_size: int = 5) -> dict[str, Any]:
     segment_scores: list[dict[str, Any]] = []
     for index, segment in enumerate(raw_data.get("segments") or []):
@@ -31,8 +45,13 @@ def build_quality_report(raw_data: dict[str, Any], *, block_size: int = 5) -> di
         speech_score = _clamp(
             1.0 - float(segment.get("no_speech_prob", 0.0) or 0.0)
         )
+        base_score = 100 * (
+            0.60 * word_score + 0.25 * logprob_score + 0.15 * speech_score
+        )
+        flags = list(segment.get("review_flags") or [])
+        penalty = _review_penalty(flags)
         score = round(
-            100 * (0.60 * word_score + 0.25 * logprob_score + 0.15 * speech_score),
+            base_score * (1.0 - penalty),
             1,
         )
         segment_scores.append(
@@ -47,7 +66,8 @@ def build_quality_report(raw_data: dict[str, Any], *, block_size: int = 5) -> di
                 "no_speech_probability": round(
                     float(segment.get("no_speech_prob", 0.0) or 0.0), 4
                 ),
-                "review_flags": list(segment.get("review_flags") or []),
+                "review_flags": flags,
+                "review_penalty": round(penalty, 4),
             }
         )
     blocks: list[dict[str, Any]] = []

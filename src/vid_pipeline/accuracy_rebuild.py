@@ -75,10 +75,12 @@ def rebuild_from_accuracy(
                 "fallback_used": True,
                 "fallback_reason": f"accuracy_editorial_error: {type(exc).__name__}: {exc}",
             }
-    validation = assess_transcript_preservation(
-        raw_transcript_text(source),
-        final_text.read_text(encoding="utf-8"),
-    )
+    validation = dict(editorial_details.get("final_validation") or {})
+    if not validation:
+        validation = assess_transcript_preservation(
+            raw_transcript_text(source),
+            final_text.read_text(encoding="utf-8"),
+        )
     if not validation["accepted"]:
         shutil.copyfile(machine_markdown, final_markdown)
         shutil.copyfile(machine_text, final_text)

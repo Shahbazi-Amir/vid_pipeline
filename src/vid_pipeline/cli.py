@@ -145,12 +145,19 @@ def build_parser() -> argparse.ArgumentParser:
 
 def command_run_url(args: argparse.Namespace) -> int:
     pipeline = VideoPipeline(args.url, args.output_root, args.name)
-    hints = [args.title, args.guest, *list(args.speaker)]
+    hints = [args.title, args.guest, *list(args.speaker), args.editorial_context]
     hint_text = "، ".join(item.strip() for item in hints if item and item.strip())
     initial_prompt = args.initial_prompt.strip() or "رونویسی دقیق یک سخنرانی رسمی فارسی."
     if hint_text:
         initial_prompt = f"{initial_prompt} {hint_text}"[:220]
-    hotwords = args.hotwords.strip()[:160]
+    hotwords = args.hotwords.strip()
+    if not hotwords:
+        hotwords = "، ".join(
+            item.strip()
+            for item in [args.title, args.guest, *list(args.speaker), args.editorial_context]
+            if item and item.strip()
+        )
+    hotwords = hotwords[:240]
     config = TranscriptionConfig(
         model=args.model,
         device=args.device,

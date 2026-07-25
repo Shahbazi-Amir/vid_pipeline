@@ -315,10 +315,12 @@ class VideoPipeline:
                     f"editorial_stage_error: {type(exc).__name__}: {exc}"
                 )
 
-            final_validation = assess_transcript_preservation(
-                raw_transcript_text(self.paths.raw_json),
-                self.paths.final_text.read_text(encoding="utf-8"),
-            )
+            final_validation = dict(details.get("final_validation") or {})
+            if not final_validation:
+                final_validation = assess_transcript_preservation(
+                    raw_transcript_text(self.paths.raw_json),
+                    self.paths.final_text.read_text(encoding="utf-8"),
+                )
             if not final_validation["accepted"]:
                 details = self._machine_fallback_details(
                     "editorial_output_failed_full_transcript_validation"

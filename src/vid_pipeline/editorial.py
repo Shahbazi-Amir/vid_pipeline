@@ -86,7 +86,7 @@ class EditorialConfig:
     retries: int = 3
     second_pass: bool = True
     min_output_ratio: float = 0.65
-    max_output_ratio: float = 1.55
+    max_output_ratio: float = 1.25
     min_token_recall: float = 0.28
     min_sequence_similarity: float = 0.18
     fallback_on_invalid: bool = True

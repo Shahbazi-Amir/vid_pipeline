@@ -178,6 +178,17 @@ class EditorialTests(unittest.TestCase):
         self.assertFalse(result["accepted"])
         self.assertIn("candidate_too_short", result["reasons"])
 
+    def test_preservation_metric_rejects_excessive_expansion(self) -> None:
+        source = "یک دو سه چهار پنج شش هفت هشت نه ده"
+        candidate = source + " یازده دوازده سیزده چهارده"
+        result = assess_transcript_preservation(
+            source,
+            candidate,
+            max_output_ratio=1.25,
+        )
+        self.assertFalse(result["accepted"])
+        self.assertIn("candidate_too_long", result["reasons"])
+
     def test_markdown_to_text_keeps_content(self) -> None:
         value = markdown_to_text("## عنوان\n\n**مجری:** سلام")
         self.assertIn("عنوان", value)

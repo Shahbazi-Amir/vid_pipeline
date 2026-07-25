@@ -10,9 +10,9 @@ import re
 import shutil
 import subprocess
 import sys
+from collections.abc import Iterable
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Iterable
 from urllib.parse import urljoin, urlparse
 
 _STREAM_RE = re.compile(r"^#EXT-X-STREAM-INF:(?P<attrs>.+)$")

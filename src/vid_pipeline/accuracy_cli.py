@@ -7,7 +7,13 @@ import os
 import sys
 from pathlib import Path
 
-from vid_pipeline.accuracy import AccuracyConfig, AccuracyError, build_accuracy_package, evaluate_files
+from vid_pipeline.accuracy import (
+    AccuracyConfig,
+    AccuracyError,
+    build_accuracy_package,
+    evaluate_corpus,
+    evaluate_files,
+)
 from vid_pipeline.accuracy_review import (
     apply_accuracy_review,
     build_accuracy_review,
@@ -51,6 +57,9 @@ def parser() -> argparse.ArgumentParser:
     evaluate.add_argument("reference", type=Path)
     evaluate.add_argument("hypothesis", type=Path)
     evaluate.add_argument("--output", type=Path)
+    corpus = commands.add_parser("evaluate-corpus")
+    corpus.add_argument("manifest", type=Path)
+    corpus.add_argument("--output", type=Path)
     learn = commands.add_parser("learn-glossary")
     learn.add_argument("job_root", type=Path)
     learn.add_argument("corrections", type=Path)
@@ -92,6 +101,8 @@ def main() -> int:
             )
         elif args.command == "evaluate":
             output(evaluate_files(args.reference, args.hypothesis, args.output))
+        elif args.command == "evaluate-corpus":
+            output(evaluate_corpus(args.manifest, args.output))
         else:
             output(
                 update_learned_glossary(

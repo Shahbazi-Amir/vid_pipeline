@@ -72,7 +72,7 @@ on:
     types: [opened]
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: video-transcript-${{ github.run_id }}
@@ -221,52 +221,6 @@ jobs:
           [[ -n "${GUEST_NAME:-}" ]] && args+=(--guest "$GUEST_NAME")
           [[ -n "${EDITORIAL_CONTEXT:-}" ]] && args+=(--editorial-context "$EDITORIAL_CONTEXT")
           vid-pipeline "${args[@]}" 2>&1 | tee pipeline.log
-
-      - name: Publish result to main
-        if: always()
-        shell: bash
-        env:
-          JOB_STATUS: ${{ job.status }}
-          PIPELINE_OUTCOME: ${{ steps.pipeline.outcome }}
-        run: |
-          set -euo pipefail
-          safe_name=$(printf '%s' "${JOB_NAME:-run-$GITHUB_RUN_ID}" | tr -cs 'A-Za-z0-9._-' '-' | sed 's/^-//;s/-$//')
-          target="processing/${safe_name:-run-$GITHUB_RUN_ID}"
-          rm -rf "$target"
-          mkdir -p "$target/reports"
-          job_dir=$(find outputs -mindepth 1 -maxdepth 1 -type d 2>/dev/null | head -n 1 || true)
-          if [[ -n "$job_dir" ]]; then
-            for item in final machine raw accuracy pre_review review human source.json result.json state.json; do
-              [[ -e "$job_dir/$item" ]] && cp -R "$job_dir/$item" "$target/"
-            done
-          fi
-          [[ -f pipeline.log ]] && cp pipeline.log "$target/reports/"
-          [[ -f ollama.log ]] && cp ollama.log "$target/reports/"
-          python - "$target/status.json" <<'PY'
-          import json, os, sys
-          from datetime import datetime, timezone
-          from pathlib import Path
-          payload = {
-              "schema_version": 2,
-              "status": os.getenv("JOB_STATUS", "unknown"),
-              "pipeline_outcome": os.getenv("PIPELINE_OUTCOME", "unknown"),
-              "workflow_run_id": os.getenv("GITHUB_RUN_ID", ""),
-              "media_url": os.getenv("VIDEO_URL", ""),
-              "source_url": os.getenv("SOURCE_URL", ""),
-              "whisper_model": os.getenv("WHISPER_MODEL", ""),
-              "editorial_model": os.getenv("EDITORIAL_MODEL", ""),
-              "accuracy_mode": os.getenv("VID_PIPELINE_ACCURACY_MODE", "balanced"),
-              "updated_at": datetime.now(timezone.utc).isoformat(),
-          }
-          Path(sys.argv[1]).write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-          PY
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -f "$target"
-          git diff --cached --quiet && exit 0
-          git commit -m "Publish transcript result for ${safe_name:-run-$GITHUB_RUN_ID}"
-          git pull --rebase origin main
-          git push origin HEAD:main
 
       - name: Upload complete package
         if: always()

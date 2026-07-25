@@ -7,6 +7,7 @@ from vid_pipeline.accuracy import (
     AccuracyConfig,
     PassSpec,
     build_accuracy_package,
+    evaluate_corpus,
     evaluate_text,
     select_consensus,
 )
@@ -58,6 +59,8 @@ def test_protected_names_require_majority() -> None:
         config,
     )
     assert three["text"] == "شهید آل هاشم"
+    assert three["requires_human"] is True
+    assert "protected_name_or_number_disagreement" in three["reasons"]
 
 
 def test_build_package_with_injected_runner(tmp_path: Path, monkeypatch) -> None:
@@ -169,3 +172,38 @@ def test_apply_accuracy_review(tmp_path: Path) -> None:
     )
     report = apply_accuracy_review(job, corrections)
     assert report["status"] == "accuracy_human_resolved"
+
+
+def test_evaluate_corpus_reports_micro_averaged_metrics(tmp_path: Path) -> None:
+    corpus = tmp_path / "corpus.jsonl"
+    corpus.write_text(
+        "\n".join(
+            [
+                json.dumps(
+                    {"id": "clean", "reference": "این متن درست است", "hypothesis": "این متن درست است"},
+                    ensure_ascii=False,
+                ),
+                json.dumps(
+                    {"id": "error", "reference": "نام علی است", "hypothesis": "نام رضا است"},
+                    ensure_ascii=False,
+                ),
+            ]
+        ),
+        encoding="utf-8",
+    )
+    report = evaluate_corpus(corpus)
+    assert report["sample_count"] == 2
+    assert report["reference_words"] == 7
+    assert report["word_errors"] == 1
+    assert report["wer"] == round(1 / 7, 6)
+
+
+def test_evaluate_corpus_rejects_incomplete_rows(tmp_path: Path) -> None:
+    corpus = tmp_path / "corpus.jsonl"
+    corpus.write_text('{"id": "missing-hypothesis", "reference": "متن"}\n', encoding="utf-8")
+    try:
+        evaluate_corpus(corpus)
+    except Exception as exc:
+        assert "hypothesis" in str(exc)
+    else:
+        raise AssertionError("incomplete corpus row was accepted")

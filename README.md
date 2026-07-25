@@ -28,6 +28,24 @@ Video URL
 
 هیچ `OPENAI_API_KEY` یا Secret پولی لازم نیست.
 
+## سنجش واقعی دقت
+
+برای برآورد دقت، یک فایل JSONL از ویدئوهای دارای متن مرجع بسازید:
+
+```json
+{"id":"clip-01","reference":"متن مرجع انسانی","hypothesis":"خروجی پایپ‌لاین"}
+```
+
+سپس WER و CER کل مجموعه را محاسبه کنید:
+
+```bash
+vid-accuracy evaluate-corpus benchmark.jsonl --output benchmark-report.json
+```
+
+شکست مرحلهٔ Accuracy به‌صورت پیش‌فرض اجرای پایپ‌لاین را ناموفق می‌کند و در
+`result.json` ثبت می‌شود. فقط برای نگه‌داشتن خروجی امن قبلی در حالت اختیاری،
+`VID_PIPELINE_ACCURACY_REQUIRED=false` را تنظیم کنید.
+
 ## نصب محلی
 
 ```bash
@@ -161,7 +179,8 @@ Workflow با نام **Process video URL**:
 2. مدل Whisper را روی CPU اجرا می‌کند.
 3. Ollama و مدل محلی را داخل همان runner نصب و اجرا می‌کند.
 4. بستهٔ Review را در `final/review-package.zip` قرار می‌دهد.
-5. خروجی کامل را به‌صورت Artifact و در مسیر `processing/` منتشر می‌کند.
+5. خروجی کامل را به‌صورت Artifact با ماندگاری ۳۰ روز منتشر می‌کند؛ فایل‌های
+   تولیدی روی شاخهٔ `main` کامیت نمی‌شوند.
 
 هیچ Secret لازم نیست. علاوه بر اجرای دستی، افزودن فایل `runs/*.request.json` نیز workflow را اجرا می‌کند.
 

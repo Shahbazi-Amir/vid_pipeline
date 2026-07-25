@@ -7,10 +7,11 @@ import os
 import re
 import shutil
 import subprocess
+from collections.abc import Callable, Iterable
 from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Callable, Iterable
+from typing import Any
 
 
 class AccuracyError(RuntimeError):
@@ -221,7 +222,7 @@ def select_consensus(candidates: list[dict[str, Any]], config: AccuracyConfig) -
         reasons.append("multi_pass_disagreement")
     if float(selected.get("confidence", 0)) < config.low_confidence:
         reasons.append("low_consensus_confidence")
-    if protected and not majority:
+    if protected and len({item["normalized"] for item in candidates}) > 1:
         reasons.append("protected_name_or_number_disagreement")
     return {
         "text": selected["text"],
@@ -682,11 +683,72 @@ def evaluate_files(
     return result
 
 
+def evaluate_corpus(
+    manifest: str | Path,
+    output: str | Path | None = None,
+) -> dict[str, Any]:
+    """Evaluate a JSONL corpus and report micro-averaged WER/CER.
+
+    Every non-empty line must contain ``id``, ``reference`` and ``hypothesis``.
+    Aggregating raw error counts avoids giving short clips the same weight as
+    long recordings.
+    """
+
+    rows = []
+    totals = {
+        "reference_words": 0,
+        "hypothesis_words": 0,
+        "word_errors": 0,
+        "reference_characters": 0,
+        "hypothesis_characters": 0,
+        "character_errors": 0,
+    }
+    for line_number, line in enumerate(
+        Path(manifest).read_text(encoding="utf-8").splitlines(),
+        1,
+    ):
+        if not line.strip():
+            continue
+        item = json.loads(line)
+        if not isinstance(item, dict):
+            raise AccuracyError(f"corpus line {line_number} must be a JSON object")
+        missing = {"id", "reference", "hypothesis"} - item.keys()
+        if missing:
+            raise AccuracyError(
+                f"corpus line {line_number} is missing: {', '.join(sorted(missing))}"
+            )
+        metrics = evaluate_text(str(item["reference"]), str(item["hypothesis"]))
+        rows.append({"id": str(item["id"]), **metrics})
+        for name in totals:
+            totals[name] += int(metrics[name])
+    if not rows:
+        raise AccuracyError("evaluation corpus is empty")
+    result = {
+        "schema_version": 1,
+        "generated_at": now(),
+        "sample_count": len(rows),
+        **totals,
+        "wer": round(totals["word_errors"] / max(1, totals["reference_words"]), 6),
+        "cer": round(
+            totals["character_errors"] / max(1, totals["reference_characters"]),
+            6,
+        ),
+        "samples": rows,
+    }
+    if output:
+        Path(output).write_text(
+            json.dumps(result, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+    return result
+
+
 __all__ = [
     "AccuracyConfig",
     "AccuracyError",
     "PassSpec",
     "build_accuracy_package",
+    "evaluate_corpus",
     "evaluate_files",
     "evaluate_text",
     "key",

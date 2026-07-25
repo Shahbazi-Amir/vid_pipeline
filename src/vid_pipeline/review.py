@@ -82,6 +82,8 @@ def build_review_package(
     review_dir = root / "review"
     review_dir.mkdir(parents=True, exist_ok=True)
     raw = load_json(raw_path)
+    consensus_path = root / "accuracy" / "transcript.consensus.json"
+    quality_input = load_json(consensus_path) if consensus_path.exists() else raw
     aliases = load_glossaries(glossary_paths)
     items = analyze_segments(raw, config=config, glossary_aliases=aliases)
     warnings: list[str] = []
@@ -145,7 +147,7 @@ def build_review_package(
     )
     quality_path = review_dir / "quality-report.json"
     quality_path.write_text(
-        json.dumps(build_quality_report(raw), ensure_ascii=False, indent=2) + "\n",
+        json.dumps(build_quality_report(quality_input), ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
     review_srt = review_dir / "transcript.review.srt"
@@ -162,6 +164,7 @@ def build_review_package(
         "review_item_count": len(items),
         "required_item_count": len(items),
         "external_reference_used": False,
+        "quality_source": str(consensus_path if consensus_path.exists() else raw_path),
         "source_files": {
             "raw_json": str(raw_path),
             "machine_text": str(machine_path),

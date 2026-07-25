@@ -189,6 +189,13 @@ class EditorialTests(unittest.TestCase):
         self.assertFalse(result["accepted"])
         self.assertIn("candidate_too_long", result["reasons"])
 
+    def test_preservation_metric_rejects_invented_timecodes(self) -> None:
+        source = "این متن خام سخنرانی بدون زمان‌نما است"
+        candidate = "[00:00:00-00:00:05] این متن خام سخنرانی بدون زمان‌نما است"
+        result = assess_transcript_preservation(source, candidate)
+        self.assertFalse(result["accepted"])
+        self.assertIn("unexpected_timecodes", result["reasons"])
+
     def test_markdown_to_text_keeps_content(self) -> None:
         value = markdown_to_text("## عنوان\n\n**مجری:** سلام")
         self.assertIn("عنوان", value)

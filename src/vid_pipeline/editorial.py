@@ -20,6 +20,10 @@ _SPACE_RE = re.compile(r"[ \t]+")
 _MARKDOWN_PREFIX_RE = re.compile(r"^(#{1,6}\s+|>\s*|[-*+]\s+)")
 _SENTENCE_BOUNDARY_RE = re.compile(r"(?<=[.!؟!?])\s+")
 _TIMECODE_RE = re.compile(r"^\[S\d+\s+\d{2}:\d{2}:\d{2}-\d{2}:\d{2}:\d{2}\]\s*")
+_OUTPUT_TIMECODE_RE = re.compile(
+    r"\[(?:S\d+\s+)?\d{2}:\d{2}:\d{2}(?:[.,]\d{3})?\s*(?:→|-)\s*"
+    r"\d{2}:\d{2}:\d{2}"
+)
 _DIACRITICS_RE = re.compile(r"[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06ED]")
 _TOKEN_RE = re.compile(r"[\w\u0600-\u06FF]+", re.UNICODE)
 _ARABIC_TO_PERSIAN = str.maketrans(
@@ -377,6 +381,10 @@ def assess_transcript_preservation(
             token_recall >= min_token_recall
             or sequence_similarity >= min_sequence_similarity
         )
+        and not (
+            _OUTPUT_TIMECODE_RE.search(candidate)
+            and not _OUTPUT_TIMECODE_RE.search(source)
+        )
     )
     reasons: list[str] = []
     if length_ratio < min_output_ratio:
@@ -385,6 +393,8 @@ def assess_transcript_preservation(
         reasons.append("candidate_too_long")
     if token_recall < min_token_recall and sequence_similarity < min_sequence_similarity:
         reasons.append("insufficient_source_overlap")
+    if _OUTPUT_TIMECODE_RE.search(candidate) and not _OUTPUT_TIMECODE_RE.search(source):
+        reasons.append("unexpected_timecodes")
 
     return {
         "accepted": accepted,

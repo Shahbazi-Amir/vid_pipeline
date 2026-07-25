@@ -1,4 +1,4 @@
-"""Reliable CLI defaults plus automatic auditable human-review packaging."""
+"""Reliable CLI defaults plus automatic pre-review and human-review packaging."""
 
 from __future__ import annotations
 
@@ -10,6 +10,7 @@ from pathlib import Path
 
 from vid_pipeline import cli as base_cli
 from vid_pipeline.editorial import EditorialConfig
+from vid_pipeline.pre_review import PreReviewError, build_pre_review_package
 from vid_pipeline.review import ReviewConfig, ReviewError, build_review_package
 from vid_pipeline.standalone import VideoPipeline
 
@@ -72,20 +73,27 @@ def _run_url_with_review(args: Namespace) -> int:
         ).strip(),
     )
     try:
+        pre_review = build_pre_review_package(pipeline.paths.job_root)
         manifest = build_review_package(
             pipeline.paths.job_root,
             config=config,
             glossary_paths=_default_glossaries(),
         )
-    except ReviewError as exc:
-        print(f"error: human-review stage failed: {exc}", file=sys.stderr)
+    except (PreReviewError, ReviewError) as exc:
+        print(f"error: review packaging failed: {exc}", file=sys.stderr)
         return 1
-    print(json.dumps({"review_stage": manifest}, ensure_ascii=False, indent=2))
+    print(
+        json.dumps(
+            {"pre_review_stage": pre_review, "review_stage": manifest},
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
     return 0
 
 
 def main() -> int:
-    """Run the original pipeline, then always build a human-review package."""
+    """Run the original pipeline, then build pre-review and human-review packages."""
 
     base_cli._editorial_config = reliable_editorial_config
     base_cli.command_run_url = _run_url_with_review

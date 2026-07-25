@@ -107,13 +107,24 @@ def runtime(device: str, compute: str) -> tuple[str, str]:
     return device, compute
 
 
-def run_whisper(path: Path, spec: PassSpec, hotwords: str, config: AccuracyConfig) -> dict[str, Any]:
+def run_whisper(
+    path: Path,
+    spec: PassSpec,
+    hotwords: str,
+    config: AccuracyConfig,
+    *,
+    model_instance: Any | None = None,
+) -> dict[str, Any]:
     try:
         from faster_whisper import WhisperModel
     except ImportError as exc:
         raise AccuracyError("faster-whisper is not installed") from exc
     device, compute = runtime(config.device, config.compute_type)
-    model = WhisperModel(spec.model, device=device, compute_type=compute)
+    model = model_instance or WhisperModel(
+        spec.model,
+        device=device,
+        compute_type=compute,
+    )
     stream, info = model.transcribe(
         str(path),
         language=config.language,
@@ -438,9 +449,30 @@ def build_accuracy_package(
     warnings = []
     passes = [("primary", primary)]
     if pass_runner is None:
+        model_cache: dict[tuple[str, str, str], Any] = {}
 
         def runner(path: Path, pass_spec: PassSpec, words: str) -> dict[str, Any]:
-            return run_whisper(path, pass_spec, words, config)
+            try:
+                from faster_whisper import WhisperModel
+            except ImportError as exc:
+                raise AccuracyError("faster-whisper is not installed") from exc
+            device, compute = runtime(config.device, config.compute_type)
+            cache_key = (pass_spec.model, device, compute)
+            model = model_cache.get(cache_key)
+            if model is None:
+                model = WhisperModel(
+                    pass_spec.model,
+                    device=device,
+                    compute_type=compute,
+                )
+                model_cache[cache_key] = model
+            return run_whisper(
+                path,
+                pass_spec,
+                words,
+                config,
+                model_instance=model,
+            )
 
     else:
         runner = pass_runner

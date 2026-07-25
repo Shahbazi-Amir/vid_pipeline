@@ -13,6 +13,7 @@ STAGES = (
     "download",
     "audio",
     "transcribe",
+    "accuracy",
     "pre_review",
     "clean",
     "editorial",

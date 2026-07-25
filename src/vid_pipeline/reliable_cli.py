@@ -9,6 +9,7 @@ from pathlib import Path
 
 from vid_pipeline import cli as base_cli
 from vid_pipeline.accuracy import AccuracyConfig, AccuracyError, build_accuracy_package
+from vid_pipeline.accuracy_judge import advise_disagreements
 from vid_pipeline.accuracy_rebuild import rebuild_from_accuracy
 from vid_pipeline.accuracy_review import build_accuracy_review
 from vid_pipeline.editorial import EditorialConfig
@@ -94,6 +95,11 @@ def _accuracy_config(args: Namespace) -> AccuracyConfig:
             "VID_PIPELINE_MAX_TARGETED_SEGMENTS",
             120,
         ),
+        judge_model=os.getenv("VID_PIPELINE_ACCURACY_JUDGE_MODEL", "").strip(),
+        judge_base_url=os.getenv(
+            "OLLAMA_BASE_URL",
+            "http://127.0.0.1:11434",
+        ).strip(),
         whisperx_alignment=_env_bool(
             "VID_PIPELINE_WHISPERX_ALIGNMENT",
             False,
@@ -164,13 +170,20 @@ def _run_url_with_review(args: Namespace) -> int:
     pipeline = VideoPipeline(args.url, args.output_root, args.name)
     glossaries = _default_glossaries()
     accuracy_manifest = None
+    accuracy_judge = None
     accuracy_rebuild = None
     accuracy_review = None
     try:
+        accuracy_config = _accuracy_config(args)
         accuracy_manifest = build_accuracy_package(
             pipeline.paths.job_root,
-            config=_accuracy_config(args),
+            config=accuracy_config,
             glossary_paths=glossaries,
+        )
+        accuracy_judge = advise_disagreements(
+            pipeline.paths.job_root,
+            model=accuracy_config.judge_model,
+            base_url=accuracy_config.judge_base_url,
         )
         accuracy_review = build_accuracy_review(pipeline.paths.job_root)
         consensus_json = Path(accuracy_manifest["files"]["json"])
@@ -213,6 +226,7 @@ def _run_url_with_review(args: Namespace) -> int:
         json.dumps(
             {
                 "accuracy_stage": accuracy_manifest,
+                "accuracy_judge": accuracy_judge,
                 "accuracy_review": accuracy_review,
                 "accuracy_rebuild": accuracy_rebuild,
                 "pre_review_stage": pre_review,

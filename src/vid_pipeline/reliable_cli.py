@@ -203,7 +203,7 @@ def _run_url_with_review(args: Namespace) -> int:
             editorial_config=editorial_config,
             editorial_metadata=editorial_metadata,
         )
-    except AccuracyError as exc:
+    except (AccuracyError, OSError, RuntimeError, ValueError, json.JSONDecodeError) as exc:
         _record_accuracy_failure(pipeline.paths.job_root, exc)
         if _env_bool("VID_PIPELINE_ACCURACY_REQUIRED", False):
             print(f"error: accuracy stage failed: {exc}", file=sys.stderr)

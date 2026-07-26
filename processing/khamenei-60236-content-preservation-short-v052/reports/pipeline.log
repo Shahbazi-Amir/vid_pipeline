@@ -1,94 +1,0 @@
-[generic] Extracting URL: https://idc0-cdn5.khamenei.ir/ndata/news/60237/14040230_46973_128k.mp3
-[generic] 14040230_46973_128k: Downloading webpage
-[info] 14040230_46973_128k: Downloading 1 format(s): mpeg
-[download] Destination: outputs/khamenei-60236-content-preservation-short-v052-141847df/video/video.mp3
-[download]   0.1% of  676.48KiB at  Unknown B/s ETA Unknown[download]   0.4% of  676.48KiB at  Unknown B/s ETA Unknown[download]   1.0% of  676.48KiB at    5.65MiB/s ETA 00:00  [download]   2.2% of  676.48KiB at    9.15MiB/s ETA 00:00[download]   4.6% of  676.48KiB at   14.95MiB/s ETA 00:00[download]   9.3% of  676.48KiB at  467.82KiB/s ETA 00:01[download]  18.8% of  676.48KiB at  479.80KiB/s ETA 00:01[download]  37.7% of  676.48KiB at  641.24KiB/s ETA 00:00[download]  75.5% of  676.48KiB at  878.20KiB/s ETA 00:00[download] 100.0% of  676.48KiB at  948.04KiB/s ETA 00:00[download] 100% of  676.48KiB in 00:00:01 at 488.87KiB/s 
-Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-[0;93m2026-07-24 17:13:55.289681374 [W:onnxruntime:Default, device_discovery.cc:133 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename "5620e0c7-8062-4dce-aeb7-520c7ef76171" did not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
-{
-  "job_id": "khamenei-60236-content-preservation-short-v052-141847df",
-  "job_root": "outputs/khamenei-60236-content-preservation-short-v052-141847df",
-  "raw_markdown": "outputs/khamenei-60236-content-preservation-short-v052-141847df/raw/transcript.raw.md",
-  "machine_markdown": "outputs/khamenei-60236-content-preservation-short-v052-141847df/machine/transcript.machine.md",
-  "final_markdown": "outputs/khamenei-60236-content-preservation-short-v052-141847df/final/transcript.final.md",
-  "final_text": "outputs/khamenei-60236-content-preservation-short-v052-141847df/final/transcript.final.txt",
-  "stages": [
-    {
-      "stage": "source",
-      "status": "completed",
-      "schema_version": 2,
-      "job_id": "khamenei-60236-content-preservation-short-v052-141847df",
-      "url": "https://idc0-cdn5.khamenei.ir/ndata/news/60237/14040230_46973_128k.mp3",
-      "title": "14040230_46973_128k",
-      "duration": null,
-      "extractor": "Generic",
-      "uploader": "",
-      "channel": "",
-      "upload_date": "20250520"
-    },
-    {
-      "stage": "download",
-      "status": "completed",
-      "video_path": "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-content-preservation-short-v052-141847df/video/video.mp3",
-      "duration": null
-    },
-    {
-      "stage": "audio",
-      "status": "completed",
-      "probe": {
-        "programs": [],
-        "streams": [
-          {
-            "codec_name": "pcm_s16le",
-            "codec_type": "audio",
-            "sample_rate": "16000",
-            "channels": 1
-          }
-        ],
-        "format": {
-          "duration": "41.533000"
-        }
-      }
-    },
-    {
-      "stage": "transcribe",
-      "status": "completed",
-      "duration": 41.533,
-      "segments": 4,
-      "language": "fa",
-      "model": "small",
-      "device": "cpu"
-    },
-    {
-      "stage": "clean",
-      "status": "completed",
-      "segments_in": 4,
-      "segments_out": 4,
-      "paragraphs": 1,
-      "language": "fa",
-      "markdown": "outputs/khamenei-60236-content-preservation-short-v052-141847df/machine/transcript.machine.md",
-      "text": "outputs/khamenei-60236-content-preservation-short-v052-141847df/machine/transcript.machine.txt",
-      "quality": "machine_only"
-    },
-    {
-      "stage": "editorial",
-      "status": "machine_fallback",
-      "provider": "deterministic",
-      "model": null,
-      "fallback_used": true,
-      "fallback_reason": "editorial_output_failed_full_transcript_validation",
-      "final_validation": {
-        "accepted": true,
-        "source_tokens": 45,
-        "candidate_tokens": 45,
-        "length_ratio": 1.0,
-        "token_recall": 1.0,
-        "sequence_similarity": 1.0,
-        "reasons": []
-      },
-      "markdown": "outputs/khamenei-60236-content-preservation-short-v052-141847df/final/transcript.final.md",
-      "text": "outputs/khamenei-60236-content-preservation-short-v052-141847df/final/transcript.final.txt",
-      "human_audio_verification": false
-    }
-  ]
-}

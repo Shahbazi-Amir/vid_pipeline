@@ -1,89 +1,0 @@
-[generic] Extracting URL: https://farsi.khamenei.ir/ndata/news/60237/14040230_46985_128k.mp3
-[generic] 14040230_46985_128k: Downloading webpage
-[redirect] Following redirect to https://idc0-cdn0.khamenei.ir/ndata/news/60237/14040230_46985_128k.mp3
-[generic] Extracting URL: https://idc0-cdn0.khamenei.ir/ndata/news/60237/14040230_46985_128k.mp3
-[generic] 14040230_46985_128k: Downloading webpage
-[info] 14040230_46985_128k: Downloading 1 format(s): mpeg
-[download] Destination: outputs/khamenei-60236-full-audio-fast-8523237e/video/video.mp3
-[download]   0.0% of   25.08MiB at  Unknown B/s ETA Unknown[download]   0.0% of   25.08MiB at  Unknown B/s ETA Unknown[download]   0.0% of   25.08MiB at    5.87MiB/s ETA 00:04  [download]   0.1% of   25.08MiB at    9.43MiB/s ETA 00:02[download]   0.1% of   25.08MiB at  215.38KiB/s ETA 01:59[download]   0.2% of   25.08MiB at  136.11KiB/s ETA 03:08[download]   0.5% of   25.08MiB at  162.13KiB/s ETA 02:37[download]   1.0% of   25.08MiB at  147.82KiB/s ETA 02:51[download]   1.5% of   25.08MiB at  152.11KiB/s ETA 02:46[download]   2.1% of   25.08MiB at  182.70KiB/s ETA 02:17[download]   3.4% of   25.08MiB at  202.24KiB/s ETA 02:02[download]   4.4% of   25.08MiB at  222.98KiB/s ETA 01:50[download]   5.7% of   25.08MiB at  250.30KiB/s ETA 01:36[download]   7.3% of   25.08MiB at  287.83KiB/s ETA 01:22[download]   9.7% of   25.08MiB at  331.92KiB/s ETA 01:09[download]  12.2% of   25.08MiB at  379.60KiB/s ETA 00:59[download]  15.7% of   25.08MiB at  441.90KiB/s ETA 00:49[download]  19.7% of   25.08MiB at  514.05KiB/s ETA 00:40[download]  25.2% of   25.08MiB at  603.68KiB/s ETA 00:31[download]  31.4% of   25.08MiB at  687.72KiB/s ETA 00:25[download]  37.6% of   25.08MiB at  776.35KiB/s ETA 00:20[download]  46.2% of   25.08MiB at  854.51KiB/s ETA 00:16[download]  52.2% of   25.08MiB at  895.90KiB/s ETA 00:13[download]  57.8% of   25.08MiB at  932.63KiB/s ETA 00:11[download]  63.6% of   25.08MiB at  967.73KiB/s ETA 00:09[download]  69.6% of   25.08MiB at 1000.89KiB/s ETA 00:07[download]  75.8% of   25.08MiB at    1.01MiB/s ETA 00:06[download]  82.1% of   25.08MiB at    1.04MiB/s ETA 00:04[download]  88.3% of   25.08MiB at    1.06MiB/s ETA 00:02[download]  94.0% of   25.08MiB at    1.08MiB/s ETA 00:01[download] 100.0% of   25.08MiB at    1.10MiB/s ETA 00:00[download] 100% of   25.08MiB in 00:00:24 at 1.01MiB/s   
-Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-[0;93m2026-07-24 15:14:34.726899354 [W:onnxruntime:Default, device_discovery.cc:133 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename "5620e0c7-8062-4dce-aeb7-520c7ef76171" did not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
-{
-  "job_id": "khamenei-60236-full-audio-fast-8523237e",
-  "job_root": "outputs/khamenei-60236-full-audio-fast-8523237e",
-  "raw_markdown": "outputs/khamenei-60236-full-audio-fast-8523237e/raw/transcript.raw.md",
-  "machine_markdown": "outputs/khamenei-60236-full-audio-fast-8523237e/machine/transcript.machine.md",
-  "final_markdown": "outputs/khamenei-60236-full-audio-fast-8523237e/final/transcript.final.md",
-  "final_text": "outputs/khamenei-60236-full-audio-fast-8523237e/final/transcript.final.txt",
-  "stages": [
-    {
-      "stage": "source",
-      "status": "completed",
-      "schema_version": 2,
-      "job_id": "khamenei-60236-full-audio-fast-8523237e",
-      "url": "https://farsi.khamenei.ir/ndata/news/60237/14040230_46985_128k.mp3",
-      "title": "14040230_46985_128k",
-      "duration": null,
-      "extractor": "Generic",
-      "uploader": "",
-      "channel": "",
-      "upload_date": "20250520"
-    },
-    {
-      "stage": "download",
-      "status": "completed",
-      "video_path": "/home/runner/work/vid_pipeline/vid_pipeline/outputs/khamenei-60236-full-audio-fast-8523237e/video/video.mp3",
-      "duration": null
-    },
-    {
-      "stage": "audio",
-      "status": "completed",
-      "probe": {
-        "programs": [],
-        "streams": [
-          {
-            "codec_name": "pcm_s16le",
-            "codec_type": "audio",
-            "sample_rate": "16000",
-            "channels": 1
-          }
-        ],
-        "format": {
-          "duration": "1641.733000"
-        }
-      }
-    },
-    {
-      "stage": "transcribe",
-      "status": "completed",
-      "duration": 1641.733,
-      "segments": 309,
-      "language": "fa",
-      "model": "large-v3-turbo",
-      "device": "cpu"
-    },
-    {
-      "stage": "clean",
-      "status": "completed",
-      "segments_in": 309,
-      "segments_out": 309,
-      "paragraphs": 23,
-      "language": "fa",
-      "markdown": "outputs/khamenei-60236-full-audio-fast-8523237e/machine/transcript.machine.md",
-      "text": "outputs/khamenei-60236-full-audio-fast-8523237e/machine/transcript.machine.txt",
-      "quality": "machine_only"
-    },
-    {
-      "stage": "editorial",
-      "status": "local_editorial_completed",
-      "model": "qwen3:0.6b",
-      "provider": "ollama",
-      "segments": 309,
-      "chunks": 3,
-      "quality_passes": 2,
-      "markdown": "outputs/khamenei-60236-full-audio-fast-8523237e/final/transcript.final.md",
-      "text": "outputs/khamenei-60236-full-audio-fast-8523237e/final/transcript.final.txt",
-      "human_audio_verification": false
-    }
-  ]
-}

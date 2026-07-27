@@ -176,10 +176,12 @@ vid-pipeline run-url 'https://example.com/video' --no-editorial
 Workflow با نام **Process video URL**:
 
 1. ویدئو و صوت را پردازش می‌کند.
-2. مدل Whisper را روی CPU اجرا می‌کند.
-3. Ollama و مدل محلی را داخل همان runner نصب و اجرا می‌کند.
-4. بستهٔ Review را در `final/review-package.zip` قرار می‌دهد.
-5. خروجی کامل را به‌صورت Artifact با ماندگاری ۳۰ روز منتشر می‌کند؛ فایل‌های
+2. مدل Whisper را روی CPU و `int8` یک‌بار روی کل صوت اجرا می‌کند.
+3. در حالت پیش‌فرض `fast` فقط بخش‌های کم‌اطمینان را دوباره پردازش می‌کند.
+4. Ollama و مدل محلی را داخل همان runner نصب و اجرا می‌کند.
+5. بستهٔ Review را در `final/review-package.zip` قرار می‌دهد.
+6. فقط متن‌ها و گزارش‌های لازم را به‌صورت Artifact با ماندگاری ۳۰ روز منتشر
+   می‌کند؛ ویدئو، WAV و کلیپ‌های موقت داخل Artifact قرار نمی‌گیرند. فایل‌های
    تولیدی روی شاخهٔ `main` کامیت نمی‌شوند.
 
 هیچ Secret لازم نیست. علاوه بر اجرای دستی، افزودن فایل `runs/*.request.json` نیز workflow را اجرا می‌کند.
@@ -195,9 +197,13 @@ Workflow با نام **Process video URL**:
   "network": "نام ناشر",
   "date": "۱۴۰۴/۰۲/۳۰",
   "whisper_model": "large-v3-turbo",
-  "editorial_model": "qwen2.5:7b"
+  "editorial_model": "qwen2.5:7b",
+  "accuracy_mode": "fast"
 }
 ```
+
+حالت‌های `balanced` و `maximum` برای مقایسهٔ چند اجرای کامل ASR باقی مانده‌اند،
+اما روی ویدئوهای طولانی زمان بسیار بیشتری می‌گیرند.
 
 ## اصول ویرایش و بازبینی
 

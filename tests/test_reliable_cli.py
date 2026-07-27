@@ -4,7 +4,11 @@ import json
 from argparse import Namespace
 from unittest.mock import patch
 
-from vid_pipeline.reliable_cli import _run_url_with_review, reliable_editorial_config
+from vid_pipeline.reliable_cli import (
+    _accuracy_config,
+    _run_url_with_review,
+    reliable_editorial_config,
+)
 
 
 def test_reliable_editorial_config_caps_cpu_heavy_values() -> None:
@@ -37,6 +41,23 @@ def test_reliable_editorial_config_preserves_smaller_values() -> None:
 
     assert config.chunk_chars == 2400
     assert config.max_output_tokens == 3000
+
+
+def test_long_video_accuracy_defaults_to_targeted_fast_mode(monkeypatch) -> None:
+    args = Namespace(
+        model="large-v3-turbo",
+        device="cpu",
+        compute_type="int8",
+        language="fa",
+        beam_size=5,
+    )
+    monkeypatch.delenv("VID_PIPELINE_ACCURACY_MODE", raising=False)
+    monkeypatch.delenv("VID_PIPELINE_MAX_TARGETED_SEGMENTS", raising=False)
+
+    config = _accuracy_config(args)
+
+    assert config.mode == "fast"
+    assert config.max_targeted_segments == 40
 
 
 def test_accuracy_failure_is_fatal_by_default(tmp_path, monkeypatch) -> None:

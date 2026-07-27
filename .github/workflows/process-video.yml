@@ -52,7 +52,7 @@ on:
       accuracy_mode:
         description: Multi-pass ASR mode
         required: true
-        default: balanced
+        default: fast
         type: choice
         options: [off, fast, balanced, maximum]
       whisperx_alignment:
@@ -95,7 +95,8 @@ jobs:
       EDITORIAL_CONTEXT: ${{ inputs.editorial_context }}
       WHISPER_MODEL: ${{ inputs.whisper_model || 'large-v3-turbo' }}
       EDITORIAL_MODEL: ${{ inputs.editorial_model || 'qwen2.5:7b' }}
-      VID_PIPELINE_ACCURACY_MODE: ${{ inputs.accuracy_mode || 'balanced' }}
+      VID_PIPELINE_ACCURACY_MODE: ${{ inputs.accuracy_mode || 'fast' }}
+      VID_PIPELINE_MAX_TARGETED_SEGMENTS: 40
       VID_PIPELINE_WHISPERX_ALIGNMENT: ${{ inputs.whisperx_alignment || 'false' }}
       VID_PIPELINE_DIARIZATION: ${{ inputs.diarization || 'false' }}
       HUGGINGFACE_TOKEN: ${{ secrets.HUGGINGFACE_TOKEN }}
@@ -130,7 +131,7 @@ jobs:
               "EDITORIAL_CONTEXT": data.get("editorial_context") or "",
               "WHISPER_MODEL": data.get("whisper_model") or "large-v3-turbo",
               "EDITORIAL_MODEL": data.get("editorial_model") or "qwen2.5:7b",
-              "VID_PIPELINE_ACCURACY_MODE": data.get("accuracy_mode") or "balanced",
+              "VID_PIPELINE_ACCURACY_MODE": data.get("accuracy_mode") or "fast",
               "VID_PIPELINE_WHISPERX_ALIGNMENT": data.get("whisperx_alignment") or False,
               "VID_PIPELINE_DIARIZATION": data.get("diarization") or False,
           }
@@ -161,7 +162,7 @@ jobs:
               "EDITORIAL_CONTEXT": data.get("editorial_context") or "",
               "WHISPER_MODEL": data.get("whisper_model") or "large-v3-turbo",
               "EDITORIAL_MODEL": data.get("editorial_model") or "qwen2.5:7b",
-              "VID_PIPELINE_ACCURACY_MODE": data.get("accuracy_mode") or "balanced",
+              "VID_PIPELINE_ACCURACY_MODE": data.get("accuracy_mode") or "fast",
               "VID_PIPELINE_WHISPERX_ALIGNMENT": data.get("whisperx_alignment") or False,
               "VID_PIPELINE_DIARIZATION": data.get("diarization") or False,
           }
@@ -222,13 +223,29 @@ jobs:
           [[ -n "${EDITORIAL_CONTEXT:-}" ]] && args+=(--editorial-context "$EDITORIAL_CONTEXT")
           vid-pipeline "${args[@]}" 2>&1 | tee pipeline.log
 
-      - name: Upload complete package
+      - name: Upload transcript package
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: reviewed-transcript-${{ github.run_id }}
           path: |
-            outputs/**
+            outputs/**/state.json
+            outputs/**/source.json
+            outputs/**/video-info.json
+            outputs/**/result.json
+            outputs/**/raw/transcript.raw.json
+            outputs/**/raw/transcript.raw.md
+            outputs/**/machine/**
+            outputs/**/final/**
+            outputs/**/accuracy/*.json
+            outputs/**/accuracy/*.md
+            outputs/**/accuracy/*.srt
+            outputs/**/accuracy/*.vtt
+            outputs/**/review/*.json
+            outputs/**/review/*.md
+            outputs/**/review/*.html
+            outputs/**/review/*.srt
+            outputs/**/review/*.vtt
             pipeline.log
             ollama.log
           retention-days: 30

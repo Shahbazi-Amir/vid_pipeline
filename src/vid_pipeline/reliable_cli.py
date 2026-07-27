@@ -74,8 +74,10 @@ def _default_glossaries() -> list[Path]:
 
 def _accuracy_config(args: Namespace) -> AccuracyConfig:
     return AccuracyConfig(
-        mode=os.getenv("VID_PIPELINE_ACCURACY_MODE", "balanced").strip()
-        or "balanced",
+        # The primary transcription already covers the complete audio.  Keep the
+        # default pass targeted so long recordings are not transcribed twice.
+        mode=os.getenv("VID_PIPELINE_ACCURACY_MODE", "fast").strip()
+        or "fast",
         model=os.getenv("VID_PIPELINE_ACCURACY_MODEL", "").strip() or args.model,
         device=os.getenv("VID_PIPELINE_ACCURACY_DEVICE", "").strip()
         or args.device,
@@ -93,7 +95,7 @@ def _accuracy_config(args: Namespace) -> AccuracyConfig:
         ),
         max_targeted_segments=_env_int(
             "VID_PIPELINE_MAX_TARGETED_SEGMENTS",
-            120,
+            40,
         ),
         judge_model=os.getenv("VID_PIPELINE_ACCURACY_JUDGE_MODEL", "").strip(),
         judge_base_url=os.getenv(

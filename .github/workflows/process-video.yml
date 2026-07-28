@@ -8,7 +8,7 @@ on:
         required: true
         type: string
       source_url:
-        description: Optional public source page shown in the final file
+        description: Optional public source page
         required: false
         type: string
       name:
@@ -19,24 +19,8 @@ on:
         description: Optional Persian title
         required: false
         type: string
-      program:
-        description: Optional program name
-        required: false
-        type: string
-      network:
-        description: Optional network or publisher
-        required: false
-        type: string
-      date:
-        description: Optional publication date
-        required: false
-        type: string
-      guest:
-        description: Optional guest name
-        required: false
-        type: string
       editorial_context:
-        description: Topic and important names for the local editor
+        description: Topic and important names
         required: false
         type: string
       whisper_model:
@@ -49,22 +33,6 @@ on:
         required: true
         default: qwen2.5:7b
         type: string
-      accuracy_mode:
-        description: Multi-pass ASR mode
-        required: true
-        default: fast
-        type: choice
-        options: [off, fast, balanced, maximum]
-      whisperx_alignment:
-        description: Install and run optional WhisperX alignment
-        required: true
-        default: false
-        type: boolean
-      diarization:
-        description: Install and run optional pyannote diarization
-        required: true
-        default: false
-        type: boolean
   push:
     paths:
       - 'runs/*.request.json'
@@ -78,175 +46,224 @@ concurrency:
   group: video-transcript-${{ github.run_id }}
   cancel-in-progress: false
 
+env:
+  CHUNK_SECONDS: 600
+
 jobs:
-  process:
+  prepare:
     if: github.event_name != 'issues' || startsWith(github.event.issue.title, '[vid-pipeline]')
     runs-on: ubuntu-latest
-    timeout-minutes: 360
-    env:
-      VIDEO_URL: ${{ inputs.url }}
-      SOURCE_URL: ${{ inputs.source_url }}
-      JOB_NAME: ${{ inputs.name }}
-      VIDEO_TITLE: ${{ inputs.title }}
-      PROGRAM_NAME: ${{ inputs.program }}
-      NETWORK_NAME: ${{ inputs.network }}
-      VIDEO_DATE: ${{ inputs.date }}
-      GUEST_NAME: ${{ inputs.guest }}
-      EDITORIAL_CONTEXT: ${{ inputs.editorial_context }}
-      WHISPER_MODEL: ${{ inputs.whisper_model || 'large-v3-turbo' }}
-      EDITORIAL_MODEL: ${{ inputs.editorial_model || 'qwen2.5:7b' }}
-      VID_PIPELINE_ACCURACY_MODE: ${{ inputs.accuracy_mode || 'fast' }}
-      VID_PIPELINE_MAX_TARGETED_SEGMENTS: 40
-      VID_PIPELINE_WHISPERX_ALIGNMENT: ${{ inputs.whisperx_alignment || 'false' }}
-      VID_PIPELINE_DIARIZATION: ${{ inputs.diarization || 'false' }}
-      HUGGINGFACE_TOKEN: ${{ secrets.HUGGINGFACE_TOKEN }}
-      OLLAMA_BASE_URL: http://127.0.0.1:11434
-
+    timeout-minutes: 60
+    outputs:
+      chunks: ${{ steps.split.outputs.chunks }}
+      source_url: ${{ steps.request.outputs.source_url }}
+      title: ${{ steps.request.outputs.title }}
+      context: ${{ steps.request.outputs.context }}
+      whisper_model: ${{ steps.request.outputs.whisper_model }}
+      editorial_model: ${{ steps.request.outputs.editorial_model }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
 
-      - name: Resolve request file
-        if: github.event_name == 'push'
-        shell: bash
-        run: |
-          set -euo pipefail
-          request_file=$(git diff-tree --no-commit-id --name-only -r "$GITHUB_SHA" \
-            | grep '^runs/.*\.request\.json$' | tail -n 1)
-          test -n "$request_file"
-          python - "$request_file" >> "$GITHUB_ENV" <<'PY'
-          import json, sys
-          from pathlib import Path
-          data = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
-          mapping = {
-              "VIDEO_URL": data.get("media_url") or data.get("url") or "",
-              "SOURCE_URL": data.get("source_url") or data.get("url") or "",
-              "JOB_NAME": data.get("name") or "",
-              "VIDEO_TITLE": data.get("title") or "",
-              "PROGRAM_NAME": data.get("program") or "",
-              "NETWORK_NAME": data.get("network") or "",
-              "VIDEO_DATE": data.get("date") or "",
-              "GUEST_NAME": data.get("guest") or "",
-              "EDITORIAL_CONTEXT": data.get("editorial_context") or "",
-              "WHISPER_MODEL": data.get("whisper_model") or "large-v3-turbo",
-              "EDITORIAL_MODEL": data.get("editorial_model") or "qwen2.5:7b",
-              "VID_PIPELINE_ACCURACY_MODE": data.get("accuracy_mode") or "fast",
-              "VID_PIPELINE_WHISPERX_ALIGNMENT": data.get("whisperx_alignment") or False,
-              "VID_PIPELINE_DIARIZATION": data.get("diarization") or False,
-          }
-          for key, value in mapping.items():
-              text = str(value).replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
-              print(f"{key}={text}")
-          PY
-
-      - name: Resolve issue request
-        if: github.event_name == 'issues'
+      - name: Resolve request
+        id: request
         shell: bash
         env:
+          INPUT_URL: ${{ inputs.url }}
+          INPUT_SOURCE_URL: ${{ inputs.source_url }}
+          INPUT_TITLE: ${{ inputs.title }}
+          INPUT_CONTEXT: ${{ inputs.editorial_context }}
+          INPUT_WHISPER_MODEL: ${{ inputs.whisper_model }}
+          INPUT_EDITORIAL_MODEL: ${{ inputs.editorial_model }}
           ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
           set -euo pipefail
-          python - >> "$GITHUB_ENV" <<'PY'
-          import json, os
-          data = json.loads(os.environ["ISSUE_BODY"])
-          mapping = {
-              "VIDEO_URL": data.get("media_url") or data.get("url") or "",
-              "SOURCE_URL": data.get("source_url") or data.get("url") or "",
-              "JOB_NAME": data.get("name") or "",
-              "VIDEO_TITLE": data.get("title") or "",
-              "PROGRAM_NAME": data.get("program") or "",
-              "NETWORK_NAME": data.get("network") or "",
-              "VIDEO_DATE": data.get("date") or "",
-              "GUEST_NAME": data.get("guest") or "",
-              "EDITORIAL_CONTEXT": data.get("editorial_context") or "",
-              "WHISPER_MODEL": data.get("whisper_model") or "large-v3-turbo",
-              "EDITORIAL_MODEL": data.get("editorial_model") or "qwen2.5:7b",
-              "VID_PIPELINE_ACCURACY_MODE": data.get("accuracy_mode") or "fast",
-              "VID_PIPELINE_WHISPERX_ALIGNMENT": data.get("whisperx_alignment") or False,
-              "VID_PIPELINE_DIARIZATION": data.get("diarization") or False,
+          python - <<'PY'
+          import json, os, subprocess
+          from pathlib import Path
+
+          data = {}
+          if os.environ.get("ISSUE_BODY"):
+              data = json.loads(os.environ["ISSUE_BODY"])
+          elif os.environ.get("GITHUB_EVENT_NAME") == "push":
+              names = subprocess.check_output(
+                  ["git", "diff-tree", "--no-commit-id", "--name-only", "-r", os.environ["GITHUB_SHA"]],
+                  text=True,
+              ).splitlines()
+              request = next(Path(name) for name in reversed(names) if name.startswith("runs/") and name.endswith(".request.json"))
+              data = json.loads(request.read_text(encoding="utf-8"))
+
+          def value(env_name, *keys, default=""):
+              direct = os.environ.get(env_name, "")
+              if direct:
+                  return direct
+              for key in keys:
+                  if data.get(key):
+                      return str(data[key])
+              return default
+
+          values = {
+              "url": value("INPUT_URL", "media_url", "url"),
+              "source_url": value("INPUT_SOURCE_URL", "source_url", "url"),
+              "title": value("INPUT_TITLE", "title"),
+              "context": value("INPUT_CONTEXT", "editorial_context"),
+              "whisper_model": value("INPUT_WHISPER_MODEL", "whisper_model", default="large-v3-turbo"),
+              "editorial_model": value("INPUT_EDITORIAL_MODEL", "editorial_model", default="qwen2.5:7b"),
           }
-          for key, value in mapping.items():
-              text = str(value).replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
-              print(f"{key}={text}")
+          if not values["url"]:
+              raise SystemExit("Video URL is required")
+          with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as output:
+              for key, raw in values.items():
+                  safe = raw.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+                  output.write(f"{key}={safe}\n")
           PY
 
-      - name: Validate request
-        run: test -n "$VIDEO_URL"
+      - name: Install media tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install yt-dlp
 
+      - name: Download and split compressed audio
+        id: split
+        env:
+          VIDEO_URL: ${{ steps.request.outputs.url }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p audio
+          yt-dlp --no-playlist -f 'ba/b' -o 'source.%(ext)s' "$VIDEO_URL"
+          source_file=$(find . -maxdepth 1 -type f -name 'source.*' -print -quit)
+          test -n "$source_file"
+          ffmpeg -hide_banner -loglevel error -i "$source_file" -vn -ac 1 -ar 16000 \
+            -c:a flac -f segment -segment_time "$CHUNK_SECONDS" -reset_timestamps 1 \
+            'audio/chunk-%03d.flac'
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          chunks = [path.name for path in sorted(Path("audio").glob("chunk-*.flac"))]
+          if not chunks:
+              raise SystemExit("No audio chunks created")
+          with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as output:
+              output.write("chunks=" + json.dumps(chunks, separators=(",", ":")) + "\n")
+          PY
+
+      - name: Upload audio chunks
+        uses: actions/upload-artifact@v4
+        with:
+          name: audio-chunks-${{ github.run_id }}
+          path: audio/*.flac
+          retention-days: 1
+          compression-level: 0
+
+  transcribe:
+    needs: prepare
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        chunk: ${{ fromJSON(needs.prepare.outputs.chunks) }}
+    steps:
+      - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: pip
-
-      - name: Install dependencies
-        shell: bash
+      - uses: actions/download-artifact@v4
+        with:
+          name: audio-chunks-${{ github.run_id }}
+          path: audio
+      - name: Install transcription engine
+        run: pip install -e '.[whisper]'
+      - name: Transcribe ${{ matrix.chunk }}
+        env:
+          CHUNK: ${{ matrix.chunk }}
+          MODEL: ${{ needs.prepare.outputs.whisper_model }}
+          CONTEXT: ${{ needs.prepare.outputs.context }}
         run: |
-          set -euo pipefail
-          sudo apt-get update
-          sudo apt-get install -y ffmpeg curl
-          python -m pip install --upgrade pip
-          if [[ "${VID_PIPELINE_WHISPERX_ALIGNMENT,,}" == "true" || "${VID_PIPELINE_DIARIZATION,,}" == "true" ]]; then
-            pip install -e '.[advanced]'
-          else
-            pip install -e '.[all]'
-          fi
+          mkdir -p transcript
+          python scripts/chunked_transcript.py transcribe "audio/$CHUNK" \
+            --output "transcript/${CHUNK%.flac}.json" \
+            --model "$MODEL" --language fa --beam-size 3 \
+            --chunk-seconds "$CHUNK_SECONDS" \
+            --initial-prompt "رونویسی دقیق یک سخنرانی رسمی فارسی. $CONTEXT" \
+            --hotwords "$CONTEXT"
+      - name: Upload chunk transcript
+        uses: actions/upload-artifact@v4
+        with:
+          name: transcript-${{ github.run_id }}-${{ matrix.chunk }}
+          path: transcript/*
+          retention-days: 7
 
-      - name: Install and start local Ollama
-        shell: bash
+  finalize:
+    needs: [prepare, transcribe]
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      OLLAMA_BASE_URL: http://127.0.0.1:11434
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: transcript-${{ github.run_id }}-*
+          path: chunks
+          merge-multiple: true
+      - name: Merge timecodes
         run: |
-          set -euo pipefail
+          pip install -e .
+          mkdir -p outputs/raw outputs/machine outputs/final
+          python scripts/chunked_transcript.py merge chunks \
+            --output-json outputs/raw/transcript.raw.json \
+            --output-markdown outputs/raw/transcript.raw.md \
+            --chunk-seconds "$CHUNK_SECONDS"
+      - name: Create machine-cleaned transcript
+        env:
+          TITLE: ${{ needs.prepare.outputs.title }}
+          SOURCE_URL: ${{ needs.prepare.outputs.source_url }}
+        run: |
+          vid-pipeline clean outputs/raw/transcript.raw.json \
+            --markdown outputs/machine/transcript.cleaned.md \
+            --text outputs/machine/transcript.cleaned.txt \
+            --title "$TITLE" --source-url "$SOURCE_URL"
+      - name: Install and start local editor
+        env:
+          EDITORIAL_MODEL: ${{ needs.prepare.outputs.editorial_model }}
+        run: |
           curl -fsSL https://ollama.com/install.sh | sh
           nohup ollama serve > ollama.log 2>&1 &
           for attempt in $(seq 1 60); do
             curl -fsS "$OLLAMA_BASE_URL/api/tags" >/dev/null && break
             sleep 2
           done
-          curl -fsS "$OLLAMA_BASE_URL/api/tags" >/dev/null
           ollama pull "$EDITORIAL_MODEL"
-
-      - name: Run complete pipeline
-        id: pipeline
-        shell: bash
+      - name: Create edited transcript
+        env:
+          TITLE: ${{ needs.prepare.outputs.title }}
+          SOURCE_URL: ${{ needs.prepare.outputs.source_url }}
+          CONTEXT: ${{ needs.prepare.outputs.context }}
+          EDITORIAL_MODEL: ${{ needs.prepare.outputs.editorial_model }}
         run: |
-          set -euo pipefail
-          args=(run-url "$VIDEO_URL" --output-root outputs --language fa \
-            --model "$WHISPER_MODEL" --device cpu --compute-type int8 \
-            --editorial-model "$EDITORIAL_MODEL" --editorial-base-url "$OLLAMA_BASE_URL")
-          [[ -n "${SOURCE_URL:-}" ]] && args+=(--source-url "$SOURCE_URL")
-          [[ -n "${JOB_NAME:-}" ]] && args+=(--name "$JOB_NAME")
-          [[ -n "${VIDEO_TITLE:-}" ]] && args+=(--title "$VIDEO_TITLE")
-          [[ -n "${PROGRAM_NAME:-}" ]] && args+=(--program "$PROGRAM_NAME")
-          [[ -n "${NETWORK_NAME:-}" ]] && args+=(--network "$NETWORK_NAME")
-          [[ -n "${VIDEO_DATE:-}" ]] && args+=(--date "$VIDEO_DATE")
-          [[ -n "${GUEST_NAME:-}" ]] && args+=(--guest "$GUEST_NAME")
-          [[ -n "${EDITORIAL_CONTEXT:-}" ]] && args+=(--editorial-context "$EDITORIAL_CONTEXT")
-          vid-pipeline "${args[@]}" 2>&1 | tee pipeline.log
-
-      - name: Upload transcript package
+          vid-pipeline edit outputs/raw/transcript.raw.json \
+            --markdown outputs/final/transcript.final.md \
+            --text outputs/final/transcript.final.txt \
+            --title "$TITLE" --source-url "$SOURCE_URL" \
+            --editorial-context "$CONTEXT" \
+            --editorial-model "$EDITORIAL_MODEL" \
+            --editorial-base-url "$OLLAMA_BASE_URL" \
+            --editorial-chunk-chars 3500 \
+            --editorial-max-output-tokens 4500
+      - name: Upload final transcript package
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: reviewed-transcript-${{ github.run_id }}
           path: |
-            outputs/**/state.json
-            outputs/**/source.json
-            outputs/**/video-info.json
-            outputs/**/result.json
-            outputs/**/raw/transcript.raw.json
-            outputs/**/raw/transcript.raw.md
-            outputs/**/machine/**
-            outputs/**/final/**
-            outputs/**/accuracy/*.json
-            outputs/**/accuracy/*.md
-            outputs/**/accuracy/*.srt
-            outputs/**/accuracy/*.vtt
-            outputs/**/review/*.json
-            outputs/**/review/*.md
-            outputs/**/review/*.html
-            outputs/**/review/*.srt
-            outputs/**/review/*.vtt
-            pipeline.log
+            outputs/**
             ollama.log
           retention-days: 30
           if-no-files-found: warn

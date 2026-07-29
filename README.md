@@ -1,12 +1,92 @@
 # Video Transcript Pipeline
 
-The pipeline now accepts URLs, individual local media files, and folders:
+The project supports three distinct execution modes:
+
+1. Online submission from a lightweight computer
+2. Direct processing on a machine with worker dependencies
+3. Docker deployment of the API and worker
+
+## Lightweight macOS client (recommended)
+
+The Mac only hashes and uploads input files, watches job progress, and downloads
+results. FFmpeg, Docker, Whisper, Ollama and model downloads are not required on
+the client computer.
 
 ```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -e '.[client]'
+
+vid-pipeline submit-folder ./input_videos \
+  --recursive \
+  --server-url https://pipeline.example.com \
+  --output-root ./outputs \
+  --profile balanced \
+  --model small \
+  --language fa \
+  --no-editorial \
+  --wait \
+  --download
+```
+
+Authentication can be provided without putting the token in shell history:
+
+```bash
+export VID_PIPELINE_SERVER_URL=https://pipeline.example.com
+export VID_PIPELINE_API_TOKEN=replace-me
+vid-pipeline submit-file ./input_videos/session-01.mp4 --wait --download
+```
+
+Client commands:
+
+```text
+submit-file
+submit-folder
+jobs
+job-status
+wait
+download-results
+```
+
+Resumable state is stored under `.vid_pipeline/`. Completed files are not
+uploaded again, and results are downloaded to `outputs/<job-id>/final/`.
+
+## Direct local/server processing
+
+These commands run FFmpeg and ASR on the current machine and therefore require
+worker dependencies:
+
+```bash
+pip install -e '.[all]'
 vid-pipeline run-url "https://example.com/video"
 vid-pipeline run-file "/path/to/video.mp4" --no-editorial
 vid-pipeline run-folder "/path/to/media" --recursive --no-editorial
 ```
+
+## Docker deployment
+
+The API image contains the control plane only. The worker image contains
+FFmpeg/FFprobe and ASR dependencies. Whisper models are downloaded at runtime
+into the model-cache volume, never during image build.
+
+```bash
+cp .env.example .env
+docker compose up --build
+```
+
+Deployment architecture:
+
+```text
+Lightweight Client
+    ↓
+Online API / Control Plane
+    ↓
+Redis Background Worker
+    ↓
+Local or S3-compatible Artifact Storage
+```
+
+See [online architecture and deployment](docs/online-execution.md).
 
 The core is callable from Python and is independent of GitHub Actions and
 macOS. Overlapping chunk plans, conservative timestamp-aware merging, portable
@@ -36,7 +116,7 @@ Video URL
 
 نسخه‌های خام و ماشینی نگه‌داری می‌شوند تا خروجی نهایی قابل کنترل باشد. متن صفحهٔ منبع وارد رونویسی نمی‌شود؛ محتوا فقط از صوت ویدئو استخراج می‌شود.
 
-## نیازمندی‌ها
+## نیازمندی‌های اجرای مستقیم
 
 - Python 3.10 یا جدیدتر
 - `ffmpeg` و `ffprobe`

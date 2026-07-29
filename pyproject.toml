@@ -15,6 +15,26 @@ authors = [
 dependencies = []
 
 [project.optional-dependencies]
+client = [
+  "httpx>=0.27"
+]
+api = [
+  "boto3>=1.34",
+  "fastapi>=0.115",
+  "psycopg[binary]>=3.2",
+  "redis>=5.0",
+  "rq>=2.0",
+  "sqlalchemy>=2.0",
+  "uvicorn>=0.30"
+]
+worker = [
+  "boto3>=1.34",
+  "faster-whisper>=1.2.1",
+  "psycopg[binary]>=3.2",
+  "redis>=5.0",
+  "rq>=2.0",
+  "sqlalchemy>=2.0"
+]
 download = [
   "yt-dlp"
 ]
@@ -28,6 +48,14 @@ diarization = [
   "pyannote.audio>=4.0"
 ]
 all = [
+  "boto3>=1.34",
+  "fastapi>=0.115",
+  "httpx>=0.27",
+  "psycopg[binary]>=3.2",
+  "redis>=5.0",
+  "rq>=2.0",
+  "sqlalchemy>=2.0",
+  "uvicorn>=0.30",
   "yt-dlp",
   "faster-whisper>=1.2.1"
 ]
@@ -38,9 +66,13 @@ advanced = [
   "pyannote.audio>=4.0"
 ]
 dev = [
+  "boto3>=1.34",
+  "fastapi>=0.115",
+  "httpx>=0.27",
   "jsonschema>=4.23",
   "pytest>=8.0",
-  "ruff>=0.5"
+  "ruff>=0.5",
+  "sqlalchemy>=2.0"
 ]
 
 [project.scripts]

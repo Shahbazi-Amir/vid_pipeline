@@ -81,6 +81,23 @@ def _add_editorial_options(parser: argparse.ArgumentParser) -> None:
     _add_editorial_metadata_options(parser)
 
 
+def _add_online_options(parser: argparse.ArgumentParser, *, discovery: bool = False) -> None:
+    parser.add_argument("--server-url", default=os.getenv("VID_PIPELINE_SERVER_URL", ""))
+    parser.add_argument("--api-token", default=os.getenv("VID_PIPELINE_API_TOKEN", ""))
+    parser.add_argument("--output-root", type=Path, default=Path("outputs"))
+    if discovery:
+        parser.add_argument("--recursive", action="store_true")
+        parser.add_argument("--upload-workers", type=int, default=2)
+    parser.add_argument("--wait", action="store_true")
+    parser.add_argument("--download", action="store_true")
+    parser.add_argument("--resume", action=argparse.BooleanOptionalAction, default=True)
+    parser.add_argument("--force", action="store_true")
+    parser.add_argument("--profile", choices=("fast", "balanced", "accurate"), default="balanced")
+    parser.add_argument("--model", default="small")
+    parser.add_argument("--language", default="fa")
+    parser.add_argument("--no-editorial", action="store_true")
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="vid-pipeline",
@@ -126,6 +143,45 @@ def build_parser() -> argparse.ArgumentParser:
     folder_parser.add_argument("--language", default="fa")
     folder_parser.add_argument("--editorial-model", default=os.getenv("VID_PIPELINE_EDITORIAL_MODEL", "qwen3:8b"))
     folder_parser.add_argument("--no-editorial", action="store_true")
+
+    submit_file = subparsers.add_parser(
+        "submit-file", help="Upload one local media file for online processing."
+    )
+    submit_file.add_argument("path", type=Path)
+    _add_online_options(submit_file)
+
+    submit_folder = subparsers.add_parser(
+        "submit-folder", help="Upload a folder for online processing; no local ASR is run."
+    )
+    submit_folder.add_argument("path", type=Path)
+    _add_online_options(submit_folder, discovery=True)
+
+    jobs_parser = subparsers.add_parser("jobs", help="List online jobs.")
+    jobs_parser.add_argument("--server-url", default=os.getenv("VID_PIPELINE_SERVER_URL", ""))
+    jobs_parser.add_argument("--api-token", default=os.getenv("VID_PIPELINE_API_TOKEN", ""))
+    jobs_parser.add_argument("--output-root", type=Path, default=Path("outputs"))
+
+    job_status_parser = subparsers.add_parser("job-status", help="Show one online job.")
+    job_status_parser.add_argument("job_id")
+    job_status_parser.add_argument("--server-url", default=os.getenv("VID_PIPELINE_SERVER_URL", ""))
+    job_status_parser.add_argument("--api-token", default=os.getenv("VID_PIPELINE_API_TOKEN", ""))
+    job_status_parser.add_argument("--output-root", type=Path, default=Path("outputs"))
+
+    download_results = subparsers.add_parser(
+        "download-results", help="Download all final artifacts for one online job."
+    )
+    download_results.add_argument("job_id")
+    download_results.add_argument("--server-url", default=os.getenv("VID_PIPELINE_SERVER_URL", ""))
+    download_results.add_argument("--api-token", default=os.getenv("VID_PIPELINE_API_TOKEN", ""))
+    download_results.add_argument("--output-root", type=Path, default=Path("outputs"))
+    download_results.add_argument("--resume", action=argparse.BooleanOptionalAction, default=True)
+
+    wait_parser = subparsers.add_parser("wait", help="Wait for an online job.")
+    wait_parser.add_argument("job_id")
+    wait_parser.add_argument("--server-url", default=os.getenv("VID_PIPELINE_SERVER_URL", ""))
+    wait_parser.add_argument("--api-token", default=os.getenv("VID_PIPELINE_API_TOKEN", ""))
+    wait_parser.add_argument("--output-root", type=Path, default=Path("outputs"))
+    wait_parser.add_argument("--download", action="store_true")
 
     inspect_parser = subparsers.add_parser("inspect", help="Inspect a video URL with yt-dlp.")
     inspect_parser.add_argument("url")
@@ -298,6 +354,75 @@ def command_run_folder(args: argparse.Namespace) -> int:
     return 1 if summary["failed"] else 0
 
 
+def _online_client(args: argparse.Namespace):
+    from vid_pipeline.online_client import client_from_args
+
+    return client_from_args(args)
+
+
+def _submit_kwargs(args: argparse.Namespace) -> dict[str, Any]:
+    return {
+        "profile": args.profile,
+        "model": args.model,
+        "language": args.language,
+        "editorial": not args.no_editorial,
+        "resume": args.resume,
+        "force": args.force,
+    }
+
+
+def _finish_online(client: Any, records: list[Any], args: argparse.Namespace) -> int:
+    values = []
+    for record in records:
+        if args.wait:
+            job = client.wait(record.job_id)
+            record.job_status = job["status"]
+            if args.download and job["status"] in {"completed", "completed_with_fallback"}:
+                record.output_directory = str(client.download_results(record.job_id))
+        values.append(vars(record))
+    _json_print(values)
+    return 1 if any(item["job_status"] == "failed" for item in values) else 0
+
+
+def command_submit_file(args: argparse.Namespace) -> int:
+    client = _online_client(args)
+    return _finish_online(client, [client.submit_file(args.path, **_submit_kwargs(args))], args)
+
+
+def command_submit_folder(args: argparse.Namespace) -> int:
+    client = _online_client(args)
+    records = client.submit_folder(
+        args.path, recursive=args.recursive, upload_workers=args.upload_workers,
+        **_submit_kwargs(args),
+    )
+    return _finish_online(client, records, args)
+
+
+def command_jobs(args: argparse.Namespace) -> int:
+    _json_print(_online_client(args).jobs())
+    return 0
+
+
+def command_job_status(args: argparse.Namespace) -> int:
+    _json_print(_online_client(args).job_status(args.job_id))
+    return 0
+
+
+def command_download_results(args: argparse.Namespace) -> int:
+    target = _online_client(args).download_results(args.job_id, resume=args.resume)
+    _json_print({"job_id": args.job_id, "output_directory": str(target)})
+    return 0
+
+
+def command_wait(args: argparse.Namespace) -> int:
+    client = _online_client(args)
+    job = client.wait(args.job_id)
+    if args.download and job["status"] in {"completed", "completed_with_fallback"}:
+        job["output_directory"] = str(client.download_results(args.job_id))
+    _json_print(job)
+    return 1 if job["status"] == "failed" else 0
+
+
 def command_inspect(args: argparse.Namespace) -> int:
     _json_print(extract_metadata(args.url))
     return 0
@@ -341,6 +466,12 @@ def dispatch(args: argparse.Namespace) -> int:
         "run-url": command_run_url,
         "run-file": command_run_file,
         "run-folder": command_run_folder,
+        "submit-file": command_submit_file,
+        "submit-folder": command_submit_folder,
+        "jobs": command_jobs,
+        "job-status": command_job_status,
+        "download-results": command_download_results,
+        "wait": command_wait,
         "inspect": command_inspect,
         "clean": command_clean,
         "edit": command_edit,

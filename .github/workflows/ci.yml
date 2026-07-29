@@ -34,6 +34,16 @@ jobs:
           PY
       - run: python -c "import vid_pipeline"
       - run: vid-pipeline --help
+      - name: Client-only installation
+        run: |
+          python -m venv /tmp/client-venv
+          /tmp/client-venv/bin/pip install -e '.[client]'
+          /tmp/client-venv/bin/vid-pipeline --help
+          /tmp/client-venv/bin/python - <<'PY'
+          import importlib.util
+          assert importlib.util.find_spec("faster_whisper") is None
+          assert importlib.util.find_spec("torch") is None
+          PY
       - name: Reject generated media and oversized files
         run: |
           python - <<'PY'
@@ -67,3 +77,20 @@ jobs:
         run: |
           docker run --rm --entrypoint python vid-pipeline:ci -c "import vid_pipeline"
           docker run --rm vid-pipeline:ci --help
+      - name: Build API image
+        run: docker build -f docker/Dockerfile.api -t vid-pipeline-api:ci .
+      - name: Build worker image
+        run: docker build -f docker/Dockerfile.worker -t vid-pipeline-worker:ci .
+      - name: API smoke test
+        run: |
+          docker run -d --name pipeline-api -p 8000:8000 vid-pipeline-api:ci
+          for i in $(seq 1 20); do
+            curl --fail http://127.0.0.1:8000/health && exit 0
+            sleep 1
+          done
+          docker logs pipeline-api
+          exit 1
+      - name: Worker smoke test
+        run: |
+          docker run --rm --entrypoint ffmpeg vid-pipeline-worker:ci -version
+          docker run --rm --entrypoint ffprobe vid-pipeline-worker:ci -version

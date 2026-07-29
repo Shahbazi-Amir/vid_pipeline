@@ -40,7 +40,7 @@ on:
     types: [opened]
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: video-transcript-${{ github.run_id }}
@@ -57,6 +57,7 @@ jobs:
     outputs:
       chunks: ${{ steps.split.outputs.chunks }}
       source_url: ${{ steps.request.outputs.source_url }}
+      media_url: ${{ steps.request.outputs.url }}
       title: ${{ steps.request.outputs.title }}
       context: ${{ steps.request.outputs.context }}
       whisper_model: ${{ steps.request.outputs.whisper_model }}
@@ -244,6 +245,8 @@ jobs:
           done
           ollama pull "$EDITORIAL_MODEL"
       - name: Create edited transcript
+        id: editorial
+        continue-on-error: true
         env:
           TITLE: ${{ needs.prepare.outputs.title }}
           SOURCE_URL: ${{ needs.prepare.outputs.source_url }}
@@ -259,6 +262,100 @@ jobs:
             --editorial-base-url "$OLLAMA_BASE_URL" \
             --editorial-chunk-chars 3500 \
             --editorial-max-output-tokens 4500
+      - name: Save run result in repository
+        if: always()
+        env:
+          TITLE: ${{ needs.prepare.outputs.title }}
+          SOURCE_URL: ${{ needs.prepare.outputs.source_url }}
+          MEDIA_URL: ${{ needs.prepare.outputs.media_url }}
+          WHISPER_MODEL: ${{ needs.prepare.outputs.whisper_model }}
+          EDITORIAL_MODEL: ${{ needs.prepare.outputs.editorial_model }}
+          EDITORIAL_OUTCOME: ${{ steps.editorial.outcome }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          run_dir="runs/results/${GITHUB_RUN_ID}"
+          mkdir -p "$run_dir"
+
+          cp outputs/raw/transcript.raw.json "$run_dir/transcript.timecoded.json"
+          cp outputs/raw/transcript.raw.md "$run_dir/transcript.timecoded.md"
+          cp outputs/machine/transcript.cleaned.txt "$run_dir/transcript.cleaned.txt"
+          cp outputs/machine/transcript.cleaned.md "$run_dir/transcript.cleaned.md"
+
+          final_status="$EDITORIAL_OUTCOME"
+          if [[ -f outputs/final/transcript.final.txt && -f outputs/final/transcript.final.md ]]; then
+            cp outputs/final/transcript.final.txt "$run_dir/transcript.reviewed.txt"
+            cp outputs/final/transcript.final.md "$run_dir/transcript.reviewed.md"
+          else
+            final_status="fallback-machine-cleaned"
+            cp outputs/machine/transcript.cleaned.txt "$run_dir/transcript.reviewed.txt"
+            cp outputs/machine/transcript.cleaned.md "$run_dir/transcript.reviewed.md"
+          fi
+
+          export RUN_DIR="$run_dir" FINAL_STATUS="$final_status"
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          run_id = os.environ["GITHUB_RUN_ID"]
+          repository = os.environ["GITHUB_REPOSITORY"]
+          server = os.environ["GITHUB_SERVER_URL"]
+          run_url = f"{server}/{repository}/actions/runs/{run_id}"
+          data = {
+              "run_id": run_id,
+              "title": os.environ.get("TITLE", ""),
+              "input_links": {
+                  "source_page": os.environ.get("SOURCE_URL", ""),
+                  "video_or_media": os.environ.get("MEDIA_URL", ""),
+                  "audio_artifact": f"{run_url}#artifacts",
+                  "workflow_run": run_url,
+              },
+              "models": {
+                  "transcription": os.environ.get("WHISPER_MODEL", ""),
+                  "editorial": os.environ.get("EDITORIAL_MODEL", ""),
+              },
+              "editorial_status": os.environ["FINAL_STATUS"],
+              "files": {
+                  "timecoded_markdown": "transcript.timecoded.md",
+                  "timecoded_json": "transcript.timecoded.json",
+                  "cleaned_text": "transcript.cleaned.txt",
+                  "cleaned_markdown": "transcript.cleaned.md",
+                  "reviewed_text": "transcript.reviewed.txt",
+                  "reviewed_markdown": "transcript.reviewed.md",
+              },
+          }
+          run_dir = Path(os.environ["RUN_DIR"])
+          (run_dir / "manifest.json").write_text(
+              json.dumps(data, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+          links = data["input_links"]
+          (run_dir / "README.md").write_text(
+              f"# {data['title'] or 'Video transcript run ' + run_id}\n\n"
+              f"- Workflow run: {links['workflow_run']}\n"
+              f"- Source page: {links['source_page'] or 'not provided'}\n"
+              f"- Video/media input: {links['video_or_media']}\n"
+              f"- Audio files: {links['audio_artifact']}\n"
+              f"- Editorial status: `{data['editorial_status']}`\n\n"
+              "The audio link opens this run's Artifacts section. "
+              "Large video and audio files are not committed to Git.\n",
+              encoding="utf-8",
+          )
+          PY
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$run_dir"
+          git commit -m "Save transcript run ${GITHUB_RUN_ID}"
+          for attempt in 1 2 3; do
+            git pull --rebase origin "$GITHUB_REF_NAME"
+            if git push origin "HEAD:$GITHUB_REF_NAME"; then
+              exit 0
+            fi
+          done
+          echo "Unable to persist run after three attempts" >&2
+          exit 1
       - name: Upload final transcript package
         if: always()
         uses: actions/upload-artifact@v4

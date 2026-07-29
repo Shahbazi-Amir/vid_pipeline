@@ -1,5 +1,6 @@
 # Python
-__pycache__/
+
+**pycache**/
 *.py[cod]
 *.egg-info/
 .pytest_cache/
@@ -13,15 +14,20 @@ pip-modern-metadata-*/
 pip-unpack-*/
 pytest-of-root/
 
-# Editors and OS
+# Editors and operating system
+
 .DS_Store
 .idea/
 .vscode/
 
-# Runtime output and large media
+# Local input media
+
+input_videos/
+
+# Runtime outputs and generated files
+
 outputs/
 runs/results/
-runs/*.request.json
 work/
 stage/
 processing/
@@ -29,24 +35,38 @@ collected/
 normalized/
 downloads/
 audio/
+video/
 models/
 cache/
 tmp/
-video/
+logs/
+
+# Local run requests
+
+runs/*.request.json
+
+# Media files
+
 *.mp4
 *.mkv
 *.webm
 *.mov
+*.m4v
+*.avi
 *.mp3
 *.wav
 *.m4a
 *.flac
+*.ogg
 
 # Generated diagnostics and temporary files
+
 data/generated/
 *.tmp
+*.log
 
 # Secrets and local configuration
+
 .env
 .env.*
 !.env.example

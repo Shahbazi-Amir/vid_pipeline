@@ -18,6 +18,49 @@ jobs:
           cache: pip
       - run: python -m pip install --upgrade pip
       - run: pip install -e '.[dev]'
-      - run: ruff check src tests
-      - run: python -m unittest discover -s tests -v
-      - run: python -m compileall -q src tests
+      - run: ruff check src tests scripts
+      - run: pytest -q
+      - run: python -m compileall -q src tests scripts
+      - name: Validate JSON schemas
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from jsonschema import Draft202012Validator
+
+          for path in sorted(Path("schemas").glob("*.json")):
+              Draft202012Validator.check_schema(json.loads(path.read_text(encoding="utf-8")))
+              print(f"valid: {path}")
+          PY
+      - run: python -c "import vid_pipeline"
+      - run: vid-pipeline --help
+      - name: Reject generated media and oversized files
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          blocked_directories = {"outputs", "cache", "tmp"}
+          blocked_suffixes = {".mp4", ".mkv", ".mov", ".wav", ".flac"}
+          violations = []
+          for path in Path(".").rglob("*"):
+              if not path.is_file() or ".git" in path.parts:
+                  continue
+              if blocked_directories.intersection(path.parts) or path.suffix.lower() in blocked_suffixes:
+                  violations.append(str(path))
+              elif path.stat().st_size > 5 * 1024 * 1024:
+                  violations.append(f"{path} (larger than 5 MiB)")
+          if violations:
+              raise SystemExit("Forbidden generated files:\n" + "\n".join(violations))
+          PY
+
+  docker-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - name: Build Linux CPU image
+        run: docker build -t vid-pipeline:ci .
+      - name: Smoke-test package and CLI
+        run: |
+          docker run --rm --entrypoint python vid-pipeline:ci -c "import vid_pipeline"
+          docker run --rm vid-pipeline:ci --help

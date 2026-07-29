@@ -6,6 +6,12 @@ __pycache__/
 .ruff_cache/
 .venv/
 venv/
+pip-build-env-*/
+pip-ephem-wheel-cache-*/
+pip-metadata-*/
+pip-modern-metadata-*/
+pip-unpack-*/
+pytest-of-root/
 
 # Editors and OS
 .DS_Store
@@ -14,6 +20,8 @@ venv/
 
 # Runtime output and large media
 outputs/
+runs/results/
+runs/*.request.json
 work/
 stage/
 processing/
@@ -22,6 +30,9 @@ normalized/
 downloads/
 audio/
 models/
+cache/
+tmp/
+video/
 *.mp4
 *.mkv
 *.webm

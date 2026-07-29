@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vid-pipeline.local/schemas/review-request-v1.schema.json",
+  "title": "Transcript review request",
+  "type": "object",
+  "required": ["schema_version", "job_id", "language", "segments", "current_text"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "job_id": {"type": "string", "minLength": 1},
+    "language": {"type": "string"},
+    "title": {"type": "string"},
+    "context": {"type": "object"},
+    "source_metadata": {"type": "object"},
+    "segments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["segment_id", "start", "end", "text"],
+        "properties": {
+          "segment_id": {"type": "integer", "minimum": 0},
+          "start": {"type": "number", "minimum": 0},
+          "end": {"type": "number", "minimum": 0},
+          "text": {"type": "string"},
+          "confidence": {"type": ["number", "null"]},
+          "suspicious_flags": {"type": "array", "items": {"type": "string"}},
+          "provenance": {"type": "object"}
+        }
+      }
+    },
+    "glossary": {"type": "array", "items": {"type": "string"}},
+    "current_text": {"type": "string"},
+    "provenance": {"type": "object"}
+  },
+  "additionalProperties": true
+}

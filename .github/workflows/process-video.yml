@@ -199,12 +199,69 @@ jobs:
           path: transcript/*
           retention-days: 7
 
-  finalize:
+  review:
     needs: [prepare, transcribe]
     runs-on: ubuntu-latest
     timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        chunk: ${{ fromJSON(needs.prepare.outputs.chunks) }}
     env:
       OLLAMA_BASE_URL: http://127.0.0.1:11434
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - uses: actions/download-artifact@v4
+        with:
+          name: transcript-${{ github.run_id }}-${{ matrix.chunk }}
+          path: transcript
+      - name: Install and start local editor
+        env:
+          EDITORIAL_MODEL: ${{ needs.prepare.outputs.editorial_model }}
+        run: |
+          pip install -e .
+          curl -fsSL https://ollama.com/install.sh | sh
+          nohup ollama serve > ollama.log 2>&1 &
+          for attempt in $(seq 1 60); do
+            curl -fsS "$OLLAMA_BASE_URL/api/tags" >/dev/null && break
+            sleep 2
+          done
+          ollama pull "$EDITORIAL_MODEL"
+      - name: Human-like review ${{ matrix.chunk }}
+        env:
+          TITLE: ${{ needs.prepare.outputs.title }}
+          SOURCE_URL: ${{ needs.prepare.outputs.source_url }}
+          CONTEXT: ${{ needs.prepare.outputs.context }}
+          EDITORIAL_MODEL: ${{ needs.prepare.outputs.editorial_model }}
+        run: |
+          mkdir -p reviewed
+          stem="${{ matrix.chunk }}"
+          stem="${stem%.flac}"
+          vid-pipeline edit "transcript/${stem}.json" \
+            --markdown "reviewed/${stem}.md" \
+            --text "reviewed/${stem}.txt" \
+            --title "$TITLE" --source-url "$SOURCE_URL" \
+            --editorial-context "$CONTEXT" \
+            --editorial-model "$EDITORIAL_MODEL" \
+            --editorial-base-url "$OLLAMA_BASE_URL" \
+            --editorial-chunk-chars 3500 \
+            --editorial-max-output-tokens 4500
+      - name: Upload reviewed chunk
+        uses: actions/upload-artifact@v4
+        with:
+          name: reviewed-${{ github.run_id }}-${{ matrix.chunk }}
+          path: reviewed/*
+          retention-days: 7
+
+  finalize:
+    needs: [prepare, transcribe, review]
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -216,7 +273,15 @@ jobs:
           pattern: transcript-${{ github.run_id }}-*
           path: chunks
           merge-multiple: true
-      - name: Merge timecodes
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: reviewed-${{ github.run_id }}-*
+          path: reviewed-chunks
+          merge-multiple: true
+      - name: Merge timecodes and reviewed chunks
+        env:
+          TITLE: ${{ needs.prepare.outputs.title }}
+          SOURCE_URL: ${{ needs.prepare.outputs.source_url }}
         run: |
           pip install -e .
           mkdir -p outputs/raw outputs/machine outputs/final
@@ -224,53 +289,21 @@ jobs:
             --output-json outputs/raw/transcript.raw.json \
             --output-markdown outputs/raw/transcript.raw.md \
             --chunk-seconds "$CHUNK_SECONDS"
-      - name: Create machine-cleaned transcript
-        env:
-          TITLE: ${{ needs.prepare.outputs.title }}
-          SOURCE_URL: ${{ needs.prepare.outputs.source_url }}
-        run: |
           vid-pipeline clean outputs/raw/transcript.raw.json \
             --markdown outputs/machine/transcript.cleaned.md \
             --text outputs/machine/transcript.cleaned.txt \
             --title "$TITLE" --source-url "$SOURCE_URL"
-      - name: Install and start local editor
-        env:
-          EDITORIAL_MODEL: ${{ needs.prepare.outputs.editorial_model }}
-        run: |
-          curl -fsSL https://ollama.com/install.sh | sh
-          nohup ollama serve > ollama.log 2>&1 &
-          for attempt in $(seq 1 60); do
-            curl -fsS "$OLLAMA_BASE_URL/api/tags" >/dev/null && break
-            sleep 2
-          done
-          ollama pull "$EDITORIAL_MODEL"
-      - name: Create edited transcript
-        id: editorial
-        continue-on-error: true
-        env:
-          TITLE: ${{ needs.prepare.outputs.title }}
-          SOURCE_URL: ${{ needs.prepare.outputs.source_url }}
-          CONTEXT: ${{ needs.prepare.outputs.context }}
-          EDITORIAL_MODEL: ${{ needs.prepare.outputs.editorial_model }}
-        run: |
-          vid-pipeline edit outputs/raw/transcript.raw.json \
-            --markdown outputs/final/transcript.final.md \
-            --text outputs/final/transcript.final.txt \
-            --title "$TITLE" --source-url "$SOURCE_URL" \
-            --editorial-context "$CONTEXT" \
-            --editorial-model "$EDITORIAL_MODEL" \
-            --editorial-base-url "$OLLAMA_BASE_URL" \
-            --editorial-chunk-chars 3500 \
-            --editorial-max-output-tokens 4500
+          python scripts/assemble_reviewed_chunks.py reviewed-chunks \
+            --markdown outputs/final/transcript.final-reviewed.md \
+            --text outputs/final/transcript.final-reviewed.txt \
+            --title "$TITLE" --source-url "$SOURCE_URL"
       - name: Save run result in repository
-        if: always()
         env:
           TITLE: ${{ needs.prepare.outputs.title }}
           SOURCE_URL: ${{ needs.prepare.outputs.source_url }}
           MEDIA_URL: ${{ needs.prepare.outputs.media_url }}
           WHISPER_MODEL: ${{ needs.prepare.outputs.whisper_model }}
           EDITORIAL_MODEL: ${{ needs.prepare.outputs.editorial_model }}
-          EDITORIAL_OUTCOME: ${{ steps.editorial.outcome }}
         shell: bash
         run: |
           set -euo pipefail
@@ -282,15 +315,11 @@ jobs:
           cp outputs/machine/transcript.cleaned.txt "$run_dir/transcript.cleaned.txt"
           cp outputs/machine/transcript.cleaned.md "$run_dir/transcript.cleaned.md"
 
-          final_status="$EDITORIAL_OUTCOME"
-          if [[ -f outputs/final/transcript.final.txt && -f outputs/final/transcript.final.md ]]; then
-            cp outputs/final/transcript.final.txt "$run_dir/transcript.reviewed.txt"
-            cp outputs/final/transcript.final.md "$run_dir/transcript.reviewed.md"
-          else
-            final_status="fallback-machine-cleaned"
-            cp outputs/machine/transcript.cleaned.txt "$run_dir/transcript.reviewed.txt"
-            cp outputs/machine/transcript.cleaned.md "$run_dir/transcript.reviewed.md"
-          fi
+          final_status="parallel-human-like-review-completed"
+          cp outputs/final/transcript.final-reviewed.txt \
+            "$run_dir/transcript.final-reviewed.txt"
+          cp outputs/final/transcript.final-reviewed.md \
+            "$run_dir/transcript.final-reviewed.md"
 
           export RUN_DIR="$run_dir" FINAL_STATUS="$final_status"
           python - <<'PY'
@@ -321,8 +350,8 @@ jobs:
                   "timecoded_json": "transcript.timecoded.json",
                   "cleaned_text": "transcript.cleaned.txt",
                   "cleaned_markdown": "transcript.cleaned.md",
-                  "reviewed_text": "transcript.reviewed.txt",
-                  "reviewed_markdown": "transcript.reviewed.md",
+                  "final_reviewed_text": "transcript.final-reviewed.txt",
+                  "final_reviewed_markdown": "transcript.final-reviewed.md",
               },
           }
           run_dir = Path(os.environ["RUN_DIR"])
@@ -357,7 +386,6 @@ jobs:
           echo "Unable to persist run after three attempts" >&2
           exit 1
       - name: Upload final transcript package
-        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: reviewed-transcript-${{ github.run_id }}

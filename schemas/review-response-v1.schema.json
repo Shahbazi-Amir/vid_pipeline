@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vid-pipeline.local/schemas/review-response-v1.schema.json",
+  "title": "Transcript review response",
+  "type": "object",
+  "required": ["schema_version", "reviewed_segments", "reviewed_text", "provider"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "reviewed_segments": {"type": "array", "items": {"type": "object"}},
+    "reviewed_text": {"type": "string"},
+    "corrections": {"type": "array", "items": {"type": "object"}},
+    "unresolved_items": {"type": "array", "items": {"type": "object"}},
+    "warnings": {"type": "array", "items": {"type": "string"}},
+    "provider": {"type": "string"},
+    "model": {"type": ["string", "null"]},
+    "usage": {"type": ["object", "null"]}
+  },
+  "additionalProperties": true
+}

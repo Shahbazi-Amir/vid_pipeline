@@ -1,0 +1,23 @@
+{
+  "run_id": "30477871919",
+  "title": "دیدار مسئولان نظام",
+  "input_links": {
+    "source_page": "https://farsi.khamenei.ir/video-content?id=59617",
+    "video_or_media": "https://farsi.khamenei.ir/video-content?id=59617",
+    "audio_artifact": "https://github.com/Shahbazi-Amir/vid_pipeline/actions/runs/30477871919#artifacts",
+    "workflow_run": "https://github.com/Shahbazi-Amir/vid_pipeline/actions/runs/30477871919"
+  },
+  "models": {
+    "transcription": "large-v3-turbo",
+    "editorial": "qwen2.5:7b"
+  },
+  "editorial_status": "parallel-human-like-review-completed",
+  "files": {
+    "timecoded_markdown": "transcript.timecoded.md",
+    "timecoded_json": "transcript.timecoded.json",
+    "cleaned_text": "transcript.cleaned.txt",
+    "cleaned_markdown": "transcript.cleaned.md",
+    "final_reviewed_text": "transcript.final-reviewed.txt",
+    "final_reviewed_markdown": "transcript.final-reviewed.md"
+  }
+}

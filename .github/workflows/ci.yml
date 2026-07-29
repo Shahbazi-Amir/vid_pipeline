@@ -37,14 +37,17 @@ jobs:
       - name: Reject generated media and oversized files
         run: |
           python - <<'PY'
+          import subprocess
           from pathlib import Path
 
           blocked_directories = {"outputs", "cache", "tmp"}
           blocked_suffixes = {".mp4", ".mkv", ".mov", ".wav", ".flac"}
           violations = []
-          for path in Path(".").rglob("*"):
-              if not path.is_file() or ".git" in path.parts:
+          tracked = subprocess.check_output(["git", "ls-files", "-z"]).decode().split("\0")
+          for item in tracked:
+              if not item:
                   continue
+              path = Path(item)
               if blocked_directories.intersection(path.parts) or path.suffix.lower() in blocked_suffixes:
                   violations.append(str(path))
               elif path.stat().st_size > 5 * 1024 * 1024:

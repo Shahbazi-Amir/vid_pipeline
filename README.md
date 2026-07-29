@@ -123,6 +123,26 @@ outputs/<job-id>/
     └── human-verification.json
 ```
 
+GitHub Actions also commits every test result to:
+
+```text
+runs/results/<github-run-id>/
+├── README.md
+├── manifest.json
+├── transcript.timecoded.json
+├── transcript.timecoded.md
+├── transcript.cleaned.txt
+├── transcript.cleaned.md
+├── transcript.reviewed.txt
+└── transcript.reviewed.md
+```
+
+`README.md` and `manifest.json` contain the input page, video/media, audio
+Artifact, and workflow links. Large video and audio files remain in Actions
+Artifacts instead of Git history. If the local editorial model times out, the
+reviewed files contain the machine-cleaned fallback and the manifest records
+`fallback-machine-cleaned`.
+
 فایل‌های `human/` و خروجی‌های زمان‌دار `final/` بعد از اعمال بازبینی انسانی ساخته می‌شوند.
 
 ## بازبینی انسانی

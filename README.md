@@ -1,5 +1,22 @@
 # Video Transcript Pipeline
 
+The pipeline now accepts URLs, individual local media files, and folders:
+
+```bash
+vid-pipeline run-url "https://example.com/video"
+vid-pipeline run-file "/path/to/video.mp4" --no-editorial
+vid-pipeline run-folder "/path/to/media" --recursive --no-editorial
+```
+
+The core is callable from Python and is independent of GitHub Actions and
+macOS. Overlapping chunk plans, conservative timestamp-aware merging, portable
+artifact storage, provider-neutral review contracts, and final JSON, Markdown,
+TXT, SRT, and VTT renderers live under `src/vid_pipeline/`.
+
+See [deployment and worker usage](docs/deployment.md) for Linux, Docker, cache
+mounts, online workers, profiles, and the deliberately unimplemented future
+OpenAI review provider.
+
 یک پایپ‌لاین مستقل برای تبدیل **یک لینک ویدئو** به متن فارسی خام، متن پاک‌سازی‌شده، متن ویرایش‌شده و بستهٔ بازبینی انسانی؛ بدون نیاز به API پولی.
 
 ## مسیر کامل پردازش

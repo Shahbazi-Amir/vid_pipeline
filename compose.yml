@@ -1,0 +1,37 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.api
+    environment:
+      VID_PIPELINE_DATABASE_URL: postgresql+psycopg://pipeline:pipeline@database/pipeline
+      VID_PIPELINE_REDIS_URL: redis://redis:6379/0
+      VID_PIPELINE_STORAGE_ROOT: /data/storage
+    ports: ["8000:8000"]
+    volumes: [pipeline-storage:/data/storage]
+    depends_on: [database, redis]
+  worker:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.worker
+    environment:
+      VID_PIPELINE_DATABASE_URL: postgresql+psycopg://pipeline:pipeline@database/pipeline
+      VID_PIPELINE_REDIS_URL: redis://redis:6379/0
+      VID_PIPELINE_STORAGE_ROOT: /data/storage
+    volumes:
+      - pipeline-storage:/data/storage
+      - model-cache:/models
+    depends_on: [database, redis]
+  redis:
+    image: redis:7-alpine
+  database:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: pipeline
+      POSTGRES_USER: pipeline
+      POSTGRES_PASSWORD: pipeline
+    volumes: [database-data:/var/lib/postgresql/data]
+volumes:
+  database-data:
+  model-cache:
+  pipeline-storage:

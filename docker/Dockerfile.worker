@@ -1,0 +1,11 @@
+FROM python:3.11-slim
+ENV PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1 VID_PIPELINE_MODEL_CACHE=/models
+RUN apt-get update \
+    && apt-get install --no-install-recommends -y ffmpeg \
+    && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+COPY pyproject.toml README.md LICENSE ./
+COPY src ./src
+RUN pip install --upgrade pip && pip install '.[worker]'
+VOLUME ["/models", "/data/storage"]
+CMD ["rq", "worker", "--url", "redis://redis:6379/0", "vid-pipeline"]

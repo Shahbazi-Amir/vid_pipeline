@@ -29,6 +29,14 @@ from vid_pipeline.transcribe import TranscriptionConfig, transcribe_audio
 _SAFE_RE = re.compile(r"[^a-zA-Z0-9._-]+")
 
 
+def _sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for block in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
 def make_job_id(url: str, name: str = "") -> str:
     """Create a stable, filesystem-safe job id from a URL and optional name."""
 
@@ -39,6 +47,16 @@ def make_job_id(url: str, name: str = "") -> str:
     candidate = _SAFE_RE.sub("-", candidate).strip("-._").lower() or "video"
     digest = hashlib.sha256(url.encode("utf-8")).hexdigest()[:8]
     return f"{candidate[:48]}-{digest}"
+
+
+def make_file_job_id(path: str | Path, name: str = "") -> str:
+    source = Path(path).resolve()
+    if not source.is_file():
+        raise ValueError(f"media file does not exist: {source}")
+    candidate = _SAFE_RE.sub("-", (name.strip() or source.stem)).strip("-._").lower() or "media"
+    identity = f"{source}:{_sha256_file(source)}"
+    identity_digest = hashlib.sha256(identity.encode()).hexdigest()[:8]
+    return f"{candidate[:48]}-{identity_digest}"
 
 
 def _duration_text(value: Any) -> str:
@@ -426,3 +444,50 @@ class VideoPipeline:
         else:
             results.append(self.editorial(editorial_config, editorial_metadata, force=force))
         return results
+
+
+class LocalMediaPipeline(VideoPipeline):
+    """Run the canonical pipeline for an existing local media file."""
+
+    def __init__(
+        self, media_path: str | Path, output_root: str | Path = "outputs", name: str = ""
+    ) -> None:
+        self.media_path = Path(media_path).resolve()
+        if not self.media_path.is_file():
+            raise ValueError(f"media file does not exist: {self.media_path}")
+        self.url = ""
+        self.job_id = make_file_job_id(self.media_path, name)
+        self.paths = VideoJobPaths(Path(output_root), self.job_id)
+        self.paths.ensure()
+        self.state = PipelineState(self.paths.state)
+        self.metadata = {}
+        if self.paths.source_metadata.exists():
+            self.metadata = json.loads(self.paths.source_metadata.read_text(encoding="utf-8"))
+
+    def inspect(self, *, force: bool = False) -> dict[str, Any]:
+        def action() -> tuple[list[Path], dict[str, Any]]:
+            payload = {
+                "schema_version": 2,
+                "job_id": self.job_id,
+                "input_type": "file",
+                "path": str(self.media_path),
+                "title": self.media_path.stem,
+                "size": self.media_path.stat().st_size,
+                "sha256": _sha256_file(self.media_path),
+            }
+            self.paths.source_metadata.write_text(
+                json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+            )
+            self.metadata = payload
+            return [self.paths.source_metadata], payload
+
+        return self._run_stage("source", action, force=force)
+
+    def download(self, *, force: bool = False) -> dict[str, Any]:
+        def action() -> tuple[list[Path], dict[str, Any]]:
+            return [self.media_path], {"media_path": str(self.media_path), "downloaded": False}
+
+        return self._run_stage("download", action, force=force)
+
+    def _downloaded_video(self) -> Path:
+        return self.media_path

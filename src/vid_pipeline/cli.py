@@ -14,7 +14,7 @@ from vid_pipeline.clean import clean_transcript
 from vid_pipeline.download import extract_metadata
 from vid_pipeline.editorial import EditorialConfig, EditorialMetadata, edit_transcript
 from vid_pipeline.errors import PipelineError
-from vid_pipeline.standalone import VideoPipeline
+from vid_pipeline.standalone import LocalMediaPipeline, VideoPipeline
 from vid_pipeline.transcribe import DEFAULT_INITIAL_PROMPT, TranscriptionConfig
 
 
@@ -101,6 +101,31 @@ def build_parser() -> argparse.ArgumentParser:
     run_parser.add_argument("--force", action="store_true")
     _add_transcription_options(run_parser)
     _add_editorial_options(run_parser)
+
+    file_parser = subparsers.add_parser("run-file", help="Process one local media file.")
+    file_parser.add_argument("path", type=Path)
+    file_parser.add_argument("--output-root", type=Path, default=Path("outputs"))
+    file_parser.add_argument("--name", default="")
+    file_parser.add_argument("--max-paragraph-words", type=int, default=90)
+    file_parser.add_argument("--force", action="store_true")
+    file_parser.add_argument("--resume", action="store_true")
+    file_parser.add_argument("--profile", choices=("fast", "balanced", "accurate"), default="balanced")
+    _add_transcription_options(file_parser)
+    _add_editorial_options(file_parser)
+
+    folder_parser = subparsers.add_parser("run-folder", help="Process local media files as jobs.")
+    folder_parser.add_argument("path", type=Path)
+    folder_parser.add_argument("--recursive", action="store_true")
+    folder_parser.add_argument("--output-root", type=Path, default=Path("outputs"))
+    folder_parser.add_argument("--workers", type=int, default=1)
+    folder_parser.add_argument("--extensions", default="")
+    folder_parser.add_argument("--force", action="store_true")
+    folder_parser.add_argument("--resume", action="store_true")
+    folder_parser.add_argument("--profile", choices=("fast", "balanced", "accurate"), default="balanced")
+    folder_parser.add_argument("--model", default="small")
+    folder_parser.add_argument("--language", default="fa")
+    folder_parser.add_argument("--editorial-model", default=os.getenv("VID_PIPELINE_EDITORIAL_MODEL", "qwen3:8b"))
+    folder_parser.add_argument("--no-editorial", action="store_true")
 
     inspect_parser = subparsers.add_parser("inspect", help="Inspect a video URL with yt-dlp.")
     inspect_parser.add_argument("url")
@@ -196,6 +221,83 @@ def command_run_url(args: argparse.Namespace) -> int:
     return 0
 
 
+def _transcription_config(args: argparse.Namespace) -> TranscriptionConfig:
+    return TranscriptionConfig(
+        model=args.model,
+        device=args.device,
+        compute_type=args.compute_type,
+        language=args.language,
+        beam_size=args.beam_size,
+        initial_prompt=args.initial_prompt,
+        hotwords=args.hotwords,
+    )
+
+
+def command_run_file(args: argparse.Namespace) -> int:
+    pipeline = LocalMediaPipeline(args.path, args.output_root, args.name)
+    results = pipeline.run(
+        _transcription_config(args),
+        editorial_config=None if args.no_editorial else _editorial_config(args),
+        editorial_metadata=_editorial_metadata(args, source_url=""),
+        max_words=args.max_paragraph_words,
+        force=args.force,
+    )
+    _json_print({"job_id": pipeline.job_id, "job_root": str(pipeline.paths.job_root), "stages": results})
+    return 0
+
+
+_MEDIA_EXTENSIONS = {
+    ".mp4", ".mkv", ".mov", ".webm", ".m4v", ".avi",
+    ".mp3", ".wav", ".m4a", ".flac", ".ogg",
+}
+
+
+def command_run_folder(args: argparse.Namespace) -> int:
+    if not args.path.is_dir():
+        raise ValueError(f"media folder does not exist: {args.path}")
+    extensions = {
+        item if item.startswith(".") else f".{item}"
+        for item in args.extensions.lower().split(",")
+        if item.strip()
+    } or _MEDIA_EXTENSIONS
+    iterator = args.path.rglob("*") if args.recursive else args.path.glob("*")
+    files = sorted(path for path in iterator if path.is_file() and path.suffix.lower() in extensions)
+    summary: dict[str, Any] = {"total": len(files), "successful": 0, "failed": 0, "skipped": 0, "files": []}
+    for path in files:
+        values = {
+            **vars(args),
+            "path": path,
+            "name": "",
+            "device": "auto",
+            "compute_type": "auto",
+            "beam_size": 5,
+            "initial_prompt": DEFAULT_INITIAL_PROMPT,
+            "hotwords": "",
+            "max_paragraph_words": 90,
+            "editorial_base_url": os.getenv("OLLAMA_BASE_URL", "http://127.0.0.1:11434"),
+            "editorial_chunk_chars": 7000,
+            "editorial_max_output_tokens": 12000,
+            "title": "",
+            "program": "",
+            "network": "",
+            "date": "",
+            "guest": "",
+            "duration": "",
+            "speaker": [],
+            "editorial_context": "",
+        }
+        namespace = argparse.Namespace(**values)
+        try:
+            command_run_file(namespace)
+            summary["successful"] += 1
+            summary["files"].append({"path": str(path), "status": "completed"})
+        except Exception as exc:
+            summary["failed"] += 1
+            summary["files"].append({"path": str(path), "status": "failed", "error": str(exc)})
+    _json_print(summary)
+    return 1 if summary["failed"] else 0
+
+
 def command_inspect(args: argparse.Namespace) -> int:
     _json_print(extract_metadata(args.url))
     return 0
@@ -237,6 +339,8 @@ def command_status(args: argparse.Namespace) -> int:
 def dispatch(args: argparse.Namespace) -> int:
     commands = {
         "run-url": command_run_url,
+        "run-file": command_run_file,
+        "run-folder": command_run_folder,
         "inspect": command_inspect,
         "clean": command_clean,
         "edit": command_edit,

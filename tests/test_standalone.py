@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from vid_pipeline.standalone import VideoJobPaths, make_job_id
+from vid_pipeline.standalone import VideoJobPaths, make_file_job_id, make_job_id
 
 
 class StandalonePipelineTests(unittest.TestCase):
@@ -39,6 +39,15 @@ class StandalonePipelineTests(unittest.TestCase):
                 paths.final_text,
                 Path(directory) / "sample-12345678" / "final" / "transcript.final.txt",
             )
+
+    def test_file_job_id_changes_when_content_changes(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            media = Path(directory) / "sample.wav"
+            media.write_bytes(b"first")
+            first = make_file_job_id(media)
+            media.write_bytes(b"other")
+            second = make_file_job_id(media)
+            self.assertNotEqual(first, second)
 
 
 if __name__ == "__main__":

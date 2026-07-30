@@ -28,6 +28,8 @@ def test_uploaded_workflow_uses_bounded_string_inputs():
 
     assert len(input_names) == 10
     assert "release_id" not in input_names
+    assert "asset_name" not in input_names
+    assert "dispatch_id" in input_names
     assert "editorial_model" not in input_names
 
     no_editorial_block = inputs_block.split("      no_editorial:", 1)[1]
@@ -46,6 +48,7 @@ def test_uploaded_workflow_does_not_use_runner_context_in_job_env():
     assert "find /tmp/vid-pipeline-input" in workflow
     assert "permissions:\n  # Draft release assets require" in workflow
     assert "  contents: write" in workflow
+    assert "run-name: Uploaded video ${{ inputs.request_id }} — attempt ${{ inputs.dispatch_id }}" in workflow
 
 
 def test_dispatch_payload_matches_workflow_contract(tmp_path: Path):
@@ -80,8 +83,19 @@ def test_dispatch_payload_matches_workflow_contract(tmp_path: Path):
     assert isinstance(inputs, dict)
     assert len(inputs) == 10
     assert "release_id" not in inputs
+    assert "asset_name" not in inputs
+    assert inputs["dispatch_id"] == request.dispatch_id
+    assert request.dispatch_started_at
     assert inputs["no_editorial"] == "true"
     assert request.status == "queued"
+    workflow = _workflow_text()
+    block = workflow.split("    inputs:", 1)[1].split("\n\npermissions:", 1)[0]
+    workflow_inputs = {
+        line.strip()[:-1]
+        for line in block.splitlines()
+        if line.startswith("      ") and not line.startswith("        ")
+    }
+    assert set(inputs) == workflow_inputs
 
 
 def test_github_http_error_includes_status_and_message(tmp_path: Path):

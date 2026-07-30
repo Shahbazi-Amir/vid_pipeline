@@ -19,6 +19,7 @@ import zipfile
 from collections.abc import Iterable
 from dataclasses import asdict, dataclass
 from datetime import UTC, datetime, timedelta
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 from typing import Any, BinaryIO
 
@@ -29,6 +30,7 @@ TEMPORARY_RELEASE_NAME = "vid-pipeline-temporary-inputs"
 UPLOAD_WORKFLOW = "process-uploaded-video.yml"
 URL_WORKFLOW = "process-video.yml"
 MAX_ASSET_SIZE = 2 * 1024 * 1024 * 1024
+CLOCK_SKEW_TOLERANCE = timedelta(minutes=10)
 TERMINAL_CONCLUSIONS = {
     "success",
     "failure",
@@ -106,6 +108,7 @@ class GitHubRequest:
     workflow_name: str = UPLOAD_WORKFLOW
     dispatch_id: str = ""
     dispatch_started_at: str = ""
+    dispatch_server_at: str = ""
     workflow_run_id: int = 0
     workflow_run_url: str = ""
     artifact_id: int = 0
@@ -345,6 +348,15 @@ class GitHubClient:
             self._repo_url(f"/actions/workflows/{UPLOAD_WORKFLOW}/dispatches"),
             json={"ref": self.ref, "inputs": inputs},
         )
+        server_date = response.headers.get("Date", "")
+        if server_date:
+            try:
+                parsed_server_date = parsedate_to_datetime(server_date)
+                if parsed_server_date.tzinfo is None:
+                    parsed_server_date = parsed_server_date.replace(tzinfo=UTC)
+                request.dispatch_server_at = parsed_server_date.astimezone(UTC).isoformat()
+            except (TypeError, ValueError, OverflowError):
+                request.dispatch_server_at = ""
         if response.content:
             try:
                 request.workflow_run_id = int(response.json().get("workflow_run_id", 0))
@@ -385,7 +397,12 @@ class GitHubClient:
         ).json().get("workflow_runs", [])
         if not request.dispatch_id or not request.dispatch_started_at:
             return None
-        dispatched_at = datetime.fromisoformat(request.dispatch_started_at.replace("Z", "+00:00"))
+        reference_time = request.dispatch_server_at or request.dispatch_started_at
+        try:
+            dispatched_at = datetime.fromisoformat(reference_time.replace("Z", "+00:00"))
+        except ValueError:
+            return None
+        earliest_allowed = dispatched_at - CLOCK_SKEW_TOLERANCE
         expected_title = (
             f"Uploaded video {request.request_id} — attempt {request.dispatch_id}"
         )
@@ -401,7 +418,7 @@ class GitHubClient:
                 or run.get("head_branch") != self.ref
                 or Path(workflow_path).name != request.workflow_name
                 or run.get("display_title") != expected_title
-                or created < dispatched_at
+                or created < earliest_allowed
             ):
                 continue
             request.workflow_run_id = int(run["id"])
@@ -456,7 +473,8 @@ class GitHubClient:
                 self.state.save(request)
                 if run["status"] == "completed":
                     conclusion = run.get("conclusion") or "failure"
-                    request.workflow_completed_at = _now()
+                    completed_at = run.get("updated_at") or run.get("run_completed_at")
+                    request.workflow_completed_at = str(completed_at or _now())
                     request.status = (
                         "workflow_succeeded" if conclusion == "success" else "workflow_failed"
                     )

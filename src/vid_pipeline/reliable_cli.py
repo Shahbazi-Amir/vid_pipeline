@@ -13,6 +13,7 @@ from vid_pipeline.accuracy_judge import advise_disagreements
 from vid_pipeline.accuracy_rebuild import rebuild_from_accuracy
 from vid_pipeline.accuracy_review import build_accuracy_review
 from vid_pipeline.editorial import EditorialConfig
+from vid_pipeline.github_compat import client_from_args as github_client_from_args
 from vid_pipeline.pre_review import PreReviewError, build_pre_review_package
 from vid_pipeline.review import ReviewConfig, ReviewError, build_review_package
 from vid_pipeline.standalone import VideoPipeline
@@ -244,6 +245,7 @@ def _run_url_with_review(args: Namespace) -> int:
 def main() -> int:
     base_cli._editorial_config = reliable_editorial_config
     base_cli.command_run_url = _run_url_with_review
+    base_cli._github_client = github_client_from_args
     return base_cli.main()
 
 

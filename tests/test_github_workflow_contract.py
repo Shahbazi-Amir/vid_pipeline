@@ -4,22 +4,37 @@ import json
 from pathlib import Path
 
 import httpx
+import pytest
 
-from vid_pipeline.github_client import GitHubClient, GitHubRequest
+from vid_pipeline.github_client import GitHubRequest
+from vid_pipeline.github_compat import CompatibleGitHubClient
 
 
-def test_uploaded_workflow_accepts_client_string_boolean():
-    workflow = (
+def _workflow_text() -> str:
+    return (
         Path(__file__).resolve().parents[1]
         / ".github/workflows/process-uploaded-video.yml"
     ).read_text(encoding="utf-8")
 
-    no_editorial_block = workflow.split("      no_editorial:", 1)[1].split(
-        "      editorial_model:", 1
-    )[0]
+
+def test_uploaded_workflow_uses_bounded_string_inputs():
+    workflow = _workflow_text()
+    inputs_block = workflow.split("    inputs:", 1)[1].split("\n\npermissions:", 1)[0]
+    input_names = [
+        line.strip()[:-1]
+        for line in inputs_block.splitlines()
+        if line.startswith("      ") and not line.startswith("        ")
+    ]
+
+    assert len(input_names) == 10
+    assert "release_id" not in input_names
+    assert "editorial_model" not in input_names
+
+    no_editorial_block = inputs_block.split("      no_editorial:", 1)[1]
     assert 'default: "true"' in no_editorial_block
     assert "type: string" in no_editorial_block
     assert "if: inputs.no_editorial == 'false'" in workflow
+    assert "EDITORIAL_MODEL: qwen3:8b" in workflow
 
 
 def test_dispatch_payload_matches_workflow_contract(tmp_path: Path):
@@ -29,7 +44,7 @@ def test_dispatch_payload_matches_workflow_contract(tmp_path: Path):
         captured.update(json.loads(request.read()))
         return httpx.Response(204)
 
-    client = GitHubClient(
+    client = CompatibleGitHubClient(
         "test-token",
         "owner/repo",
         state_root=tmp_path / "state",
@@ -52,5 +67,30 @@ def test_dispatch_payload_matches_workflow_contract(tmp_path: Path):
 
     inputs = captured["inputs"]
     assert isinstance(inputs, dict)
+    assert len(inputs) == 10
+    assert "release_id" not in inputs
     assert inputs["no_editorial"] == "true"
     assert request.status == "queued"
+
+
+def test_github_http_error_includes_status_and_message(tmp_path: Path):
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(
+            422,
+            json={
+                "message": "Validation Failed",
+                "errors": [{"resource": "WorkflowDispatch", "field": "inputs"}],
+            },
+        )
+
+    client = CompatibleGitHubClient(
+        "test-token",
+        "owner/repo",
+        state_root=tmp_path / "state",
+        output_root=tmp_path / "outputs",
+        retries=2,
+        transport=httpx.MockTransport(handler),
+    )
+
+    with pytest.raises(RuntimeError, match=r"HTTP 422: Validation Failed.*inputs"):
+        client._request("POST", "/test")

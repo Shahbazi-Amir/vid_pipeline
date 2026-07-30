@@ -7,7 +7,7 @@ import time
 from pathlib import Path
 from typing import Any
 
-from vid_pipeline.github_client import GitHubClient, UPLOAD_WORKFLOW, _now, detect_repository
+from vid_pipeline.github_client import UPLOAD_WORKFLOW, GitHubClient, _now, detect_repository
 
 
 class CompatibleGitHubClient(GitHubClient):

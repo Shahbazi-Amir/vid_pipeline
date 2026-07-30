@@ -552,7 +552,20 @@ class GitHubClient:
                 return request
             if not request.asset_id:
                 self.upload_asset(request)
-            if not request.workflow_run_id and request.status in {"uploaded", "dispatching", "failed"}:
+            if request.status == "workflow_failed":
+                request.workflow_run_id = 0
+                request.workflow_run_url = ""
+                request.artifact_id = 0
+                request.artifact_name = ""
+                request.status = "uploaded"
+                self.state.save(request)
+            if request.status in {"dispatching", "queued", "in_progress"}:
+                self.find_run(request)
+            if not request.workflow_run_id and request.status in {
+                "uploaded",
+                "dispatching",
+                "failed",
+            }:
                 self.dispatch_upload(request, options)
             if wait and request.status not in {"workflow_succeeded", "validated", "completed"}:
                 run = self.wait(request)

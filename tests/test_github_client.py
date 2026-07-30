@@ -176,6 +176,7 @@ def test_full_mock_github_flow_streams_and_deletes_only_after_validation(tmp_pat
     media = tmp_path / "clip.mp4"
     media.write_bytes(b"x" * (2 * 1024 * 1024 + 7))
     request_id: list[str] = []
+    dispatch_id: list[str] = []
     calls: list[str] = []
     archive = b""
 
@@ -213,6 +214,7 @@ def test_full_mock_github_flow_streams_and_deletes_only_after_validation(tmp_pat
         if path.endswith("/actions/workflows/process-uploaded-video.yml/dispatches"):
             payload = json.loads(request.read())
             request_id.append(payload["inputs"]["request_id"])
+            dispatch_id.append(payload["inputs"]["dispatch_id"])
             archive = _result_zip(request_id[0])
             return httpx.Response(204)
         if path.endswith("/actions/workflows/process-uploaded-video.yml/runs"):
@@ -224,7 +226,14 @@ def test_full_mock_github_flow_streams_and_deletes_only_after_validation(tmp_pat
                             "id": 30,
                             "status": "completed",
                             "conclusion": "success",
-                            "display_title": f"Uploaded video {request_id[0]} — clip.mp4",
+                            "display_title": (
+                                f"Uploaded video {request_id[0]} — "
+                                f"attempt {dispatch_id[0]}"
+                            ),
+                            "event": "workflow_dispatch",
+                            "head_branch": "main",
+                            "path": ".github/workflows/process-uploaded-video.yml",
+                            "created_at": "2099-01-01T00:00:00Z",
                             "html_url": "https://github.test/run/30",
                         }
                     ]
@@ -354,6 +363,8 @@ def test_dispatching_resume_finds_existing_run_before_dispatch(tmp_path: Path):
         file_size=media.stat().st_size,
         sha256=sha256_file(media),
         asset_id=20,
+        dispatch_id="attempt-1",
+        dispatch_started_at="2026-07-30T00:00:00+00:00",
         status="dispatching",
     )
     client.state.save(request)
@@ -372,6 +383,141 @@ def test_dispatching_resume_finds_existing_run_before_dispatch(tmp_path: Path):
 
     assert resumed.workflow_run_id == 31
     assert resumed.asset_id == 20
+
+
+def test_dispatching_resume_does_not_redispatch_when_run_is_delayed(tmp_path: Path):
+    media = tmp_path / "clip.mp4"
+    media.write_bytes(b"unchanged")
+    client = object.__new__(GitHubClient)
+    client.state = GitHubState(tmp_path / "state")
+    request = GitHubRequest(
+        request_id="r1",
+        local_path=str(media),
+        original_name=media.name,
+        safe_asset_name="vp-existing-clip.mp4",
+        file_size=media.stat().st_size,
+        sha256=sha256_file(media),
+        asset_id=20,
+        dispatch_id="attempt-1",
+        dispatch_started_at="2026-07-30T00:00:00+00:00",
+        status="dispatching",
+    )
+    client.state.save(request)
+    client.recover_dispatched_run = lambda item: None
+    client.dispatch_upload = lambda item, options: pytest.fail("duplicate dispatch")
+
+    resumed = client.process_file(
+        media,
+        wait=False,
+        download=False,
+        delete_remote_after_success=False,
+    )
+
+    assert resumed.status == "dispatching"
+    assert resumed.dispatch_id == "attempt-1"
+    assert resumed.workflow_run_id == 0
+
+
+def test_find_run_requires_exact_dispatch_correlation(tmp_path: Path):
+    runs = [
+        {
+            "id": 30,
+            "display_title": "Uploaded video r1 — attempt old-attempt",
+            "event": "workflow_dispatch",
+            "head_branch": "main",
+            "path": ".github/workflows/process-uploaded-video.yml",
+            "created_at": "2026-07-30T00:02:00Z",
+        },
+        {
+            "id": 31,
+            "display_title": "Uploaded video r1 — attempt current-attempt",
+            "event": "workflow_dispatch",
+            "head_branch": "other",
+            "path": ".github/workflows/process-uploaded-video.yml",
+            "created_at": "2026-07-30T00:02:00Z",
+        },
+        {
+            "id": 32,
+            "display_title": "Uploaded video r1 — attempt current-attempt",
+            "event": "workflow_dispatch",
+            "head_branch": "main",
+            "path": ".github/workflows/other.yml",
+            "created_at": "2026-07-30T00:02:00Z",
+        },
+        {
+            "id": 33,
+            "display_title": "Uploaded video r1 — attempt current-attempt",
+            "event": "workflow_dispatch",
+            "head_branch": "main",
+            "path": ".github/workflows/process-uploaded-video.yml",
+            "created_at": "2026-07-29T23:59:59Z",
+        },
+        {
+            "id": 34,
+            "display_title": "Uploaded video r1 — attempt current-attempt",
+            "event": "workflow_dispatch",
+            "head_branch": "main",
+            "path": ".github/workflows/process-uploaded-video.yml@refs/heads/main",
+            "created_at": "2026-07-30T00:02:00Z",
+            "html_url": "https://github.test/run/34",
+        },
+    ]
+    client = object.__new__(GitHubClient)
+    client.repository = "owner/repo"
+    client.ref = "main"
+    client.state = GitHubState(tmp_path / "state")
+    client._request = lambda *args, **kwargs: type(
+        "Response", (), {"json": lambda self: {"workflow_runs": runs}}
+    )()
+    request = GitHubRequest(
+        request_id="r1",
+        dispatch_id="current-attempt",
+        dispatch_started_at="2026-07-30T00:00:00+00:00",
+    )
+
+    run = client.find_run(request)
+
+    assert run and run["id"] == 34
+    assert request.workflow_run_id == 34
+
+
+def test_workflow_failure_stores_failed_step_without_secret(tmp_path: Path):
+    client = object.__new__(GitHubClient)
+    client.repository = "owner/repo"
+    client.state = GitHubState(tmp_path / "state")
+    request = GitHubRequest(
+        request_id="r1", workflow_run_id=30, asset_id=20, status="queued"
+    )
+    client.find_run = lambda item: {
+        "id": 30,
+        "status": "completed",
+        "conclusion": "failure",
+    }
+    client._request = lambda *args, **kwargs: type(
+        "Response",
+        (),
+        {
+            "json": lambda self: {
+                "jobs": [
+                    {
+                        "name": "process",
+                        "conclusion": "failure",
+                        "steps": [
+                            {
+                                "name": "Download authenticated draft release asset",
+                                "conclusion": "failure",
+                            }
+                        ],
+                    }
+                ]
+            }
+        },
+    )()
+
+    client.wait(request, timeout=1)
+
+    assert "Download authenticated draft release asset" in request.last_error
+    assert "token" not in request.last_error.lower()
 
 
 def test_input_media_is_gitignored():

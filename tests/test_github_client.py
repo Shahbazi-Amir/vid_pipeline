@@ -450,7 +450,7 @@ def test_find_run_requires_exact_dispatch_correlation(tmp_path: Path):
             "event": "workflow_dispatch",
             "head_branch": "main",
             "path": ".github/workflows/process-uploaded-video.yml",
-            "created_at": "2026-07-29T23:59:59Z",
+            "created_at": "2026-07-29T23:49:59Z",
         },
         {
             "id": 34,
@@ -479,6 +479,141 @@ def test_find_run_requires_exact_dispatch_correlation(tmp_path: Path):
 
     assert run and run["id"] == 34
     assert request.workflow_run_id == 34
+
+
+def test_find_run_accepts_seven_minute_client_clock_skew(tmp_path: Path):
+    run = {
+        "id": 30511226547,
+        "display_title": (
+            "Uploaded video 268249e8e85148769cc7536bb1df6093"
+            " — attempt cef154c2cf3d4085ad982d7b91c68f33"
+        ),
+        "event": "workflow_dispatch",
+        "head_branch": "agent/fix-github-dispatch-correlation",
+        "path": ".github/workflows/process-uploaded-video.yml",
+        "created_at": "2026-07-30T03:27:20Z",
+    }
+    client = object.__new__(GitHubClient)
+    client.repository = "owner/repo"
+    client.ref = "agent/fix-github-dispatch-correlation"
+    client.state = GitHubState(tmp_path / "state")
+    client._request = lambda *args, **kwargs: type(
+        "Response", (), {"json": lambda self: {"workflow_runs": [run]}}
+    )()
+    request = GitHubRequest(
+        request_id="268249e8e85148769cc7536bb1df6093",
+        dispatch_id="cef154c2cf3d4085ad982d7b91c68f33",
+        dispatch_started_at="2026-07-30T03:33:59.471114+00:00",
+    )
+
+    assert client.find_run(request) == run
+    assert request.workflow_run_id == 30511226547
+
+
+def test_find_run_rejects_run_older_than_clock_skew_tolerance(tmp_path: Path):
+    run = {
+        "id": 30,
+        "display_title": "Uploaded video r1 — attempt current-attempt",
+        "event": "workflow_dispatch",
+        "head_branch": "main",
+        "path": ".github/workflows/process-uploaded-video.yml",
+        "created_at": "2026-07-30T00:49:59Z",
+    }
+    client = object.__new__(GitHubClient)
+    client.repository = "owner/repo"
+    client.ref = "main"
+    client.state = GitHubState(tmp_path / "state")
+    client._request = lambda *args, **kwargs: type(
+        "Response", (), {"json": lambda self: {"workflow_runs": [run]}}
+    )()
+    request = GitHubRequest(
+        request_id="r1",
+        dispatch_id="current-attempt",
+        dispatch_started_at="2026-07-30T01:00:00+00:00",
+    )
+
+    assert client.find_run(request) is None
+    assert request.workflow_run_id == 0
+
+
+@pytest.mark.parametrize("date_header", ["", "not a date"])
+def test_dispatch_invalid_or_missing_server_date_falls_back_to_local_time(
+    tmp_path: Path, date_header: str
+):
+    client = object.__new__(GitHubClient)
+    client.repository = "owner/repo"
+    client.ref = "main"
+    client.state = GitHubState(tmp_path / "state")
+
+    class Response:
+        content = b""
+        headers = {"Date": date_header} if date_header else {}
+
+    client._request = lambda *args, **kwargs: Response()
+    request = GitHubRequest(request_id="r1", asset_id=20)
+
+    client.dispatch_upload(request, {})
+
+    assert request.dispatch_server_at == ""
+    assert request.dispatch_started_at
+    assert request.status == "queued"
+
+
+def test_dispatch_records_github_server_date(tmp_path: Path):
+    client = object.__new__(GitHubClient)
+    client.repository = "owner/repo"
+    client.ref = "main"
+    client.state = GitHubState(tmp_path / "state")
+
+    class Response:
+        content = b""
+        headers = {"Date": "Thu, 30 Jul 2026 03:27:20 GMT"}
+
+    client._request = lambda *args, **kwargs: Response()
+    request = GitHubRequest(request_id="r1", asset_id=20)
+
+    client.dispatch_upload(request, {})
+
+    assert request.dispatch_server_at == "2026-07-30T03:27:20+00:00"
+
+
+def test_old_state_without_dispatch_server_time_loads(tmp_path: Path):
+    state = GitHubState(tmp_path / "state")
+    state.path("old").write_text(
+        '{"request_id":"old","dispatch_started_at":"2026-07-30T00:00:00+00:00"}',
+        encoding="utf-8",
+    )
+
+    request = state.load("old")
+
+    assert request.dispatch_server_at == ""
+
+
+def test_completed_run_records_github_updated_at_and_clears_error(tmp_path: Path):
+    client = object.__new__(GitHubClient)
+    client.state = GitHubState(tmp_path / "state")
+    request = GitHubRequest(
+        request_id="r1",
+        workflow_run_id=30,
+        status="queued",
+        last_error="old error",
+    )
+    client.find_run = lambda item: {
+        "id": 30,
+        "status": "completed",
+        "conclusion": "success",
+        "updated_at": "2026-07-30T03:40:12Z",
+        "html_url": "https://github.test/run/30",
+    }
+
+    client.wait(request, timeout=1)
+
+    loaded = client.state.load("r1")
+    assert loaded.workflow_completed_at == "2026-07-30T03:40:12Z"
+    assert loaded.workflow_run_id == 30
+    assert loaded.workflow_run_url == "https://github.test/run/30"
+    assert loaded.status == "workflow_succeeded"
+    assert loaded.last_error == ""
 
 
 def test_workflow_failure_stores_failed_step_without_secret(tmp_path: Path):

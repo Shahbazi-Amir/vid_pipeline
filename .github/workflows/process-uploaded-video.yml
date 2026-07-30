@@ -7,9 +7,6 @@ on:
       request_id:
         required: true
         type: string
-      release_id:
-        required: true
-        type: string
       asset_id:
         required: true
         type: string
@@ -42,10 +39,6 @@ on:
         required: true
         default: "true"
         type: string
-      editorial_model:
-        required: false
-        default: qwen3:8b
-        type: string
 
 permissions:
   contents: read
@@ -64,7 +57,7 @@ jobs:
       MODEL: ${{ inputs.model }}
       LANGUAGE: ${{ inputs.language }}
       NO_EDITORIAL: ${{ inputs.no_editorial }}
-      EDITORIAL_MODEL: ${{ inputs.editorial_model }}
+      EDITORIAL_MODEL: qwen3:8b
       OLLAMA_BASE_URL: http://127.0.0.1:11434
 
     steps:

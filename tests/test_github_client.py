@@ -293,6 +293,87 @@ def test_workflow_failure_keeps_remote_asset(tmp_path: Path):
     assert request.asset_id == 20
 
 
+def test_resume_workflow_failure_reuses_asset_without_upload(tmp_path: Path):
+    media = tmp_path / "clip.mp4"
+    media.write_bytes(b"unchanged")
+    client = object.__new__(GitHubClient)
+    client.state = GitHubState(tmp_path / "state")
+    request = GitHubRequest(
+        request_id="r1",
+        local_path=str(media),
+        original_name=media.name,
+        safe_asset_name="vp-existing-clip.mp4",
+        file_size=media.stat().st_size,
+        sha256=sha256_file(media),
+        release_id=10,
+        asset_id=20,
+        workflow_run_id=30,
+        status="workflow_failed",
+    )
+    client.state.save(request)
+    uploads: list[int] = []
+    dispatches: list[int] = []
+    client.upload_asset = lambda item: uploads.append(item.asset_id)
+
+    def dispatch(item, options):
+        dispatches.append(item.asset_id)
+        item.workflow_run_id = 31
+        item.status = "queued"
+        client.state.save(item)
+
+    client.dispatch_upload = dispatch
+    client.wait = lambda item: {
+        "id": 31,
+        "status": "completed",
+        "conclusion": "failure",
+    }
+
+    resumed = client.process_file(
+        media,
+        wait=True,
+        download=False,
+        delete_remote_after_success=False,
+    )
+
+    assert uploads == []
+    assert dispatches == [20]
+    assert resumed.asset_id == 20
+    assert resumed.workflow_run_id == 31
+
+
+def test_dispatching_resume_finds_existing_run_before_dispatch(tmp_path: Path):
+    media = tmp_path / "clip.mp4"
+    media.write_bytes(b"unchanged")
+    client = object.__new__(GitHubClient)
+    client.state = GitHubState(tmp_path / "state")
+    request = GitHubRequest(
+        request_id="r1",
+        local_path=str(media),
+        original_name=media.name,
+        safe_asset_name="vp-existing-clip.mp4",
+        file_size=media.stat().st_size,
+        sha256=sha256_file(media),
+        asset_id=20,
+        status="dispatching",
+    )
+    client.state.save(request)
+    client.find_run = lambda item: setattr(item, "workflow_run_id", 31) or {
+        "id": 31,
+        "status": "queued",
+    }
+    client.dispatch_upload = lambda item, options: pytest.fail("duplicate dispatch")
+
+    resumed = client.process_file(
+        media,
+        wait=False,
+        download=False,
+        delete_remote_after_success=False,
+    )
+
+    assert resumed.workflow_run_id == 31
+    assert resumed.asset_id == 20
+
+
 def test_input_media_is_gitignored():
     repository = Path(__file__).resolve().parents[1]
     result = subprocess.run(

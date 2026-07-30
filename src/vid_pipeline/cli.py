@@ -488,7 +488,7 @@ def command_wait(args: argparse.Namespace) -> int:
 
 
 def _github_client(args: argparse.Namespace):
-    from vid_pipeline.github_client import client_from_args
+    from vid_pipeline.github_compat import client_from_args
 
     return client_from_args(args)
 

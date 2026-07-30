@@ -1,5 +1,5 @@
 name: Process uploaded video
-run-name: Uploaded video ${{ inputs.request_id }} — ${{ inputs.original_name }}
+run-name: Uploaded video ${{ inputs.request_id }} — attempt ${{ inputs.dispatch_id }}
 
 on:
   workflow_dispatch:
@@ -10,7 +10,7 @@ on:
       asset_id:
         required: true
         type: string
-      asset_name:
+      dispatch_id:
         required: true
         type: string
       original_name:

@@ -19,6 +19,7 @@ import zipfile
 from collections.abc import Iterable
 from dataclasses import asdict, dataclass
 from datetime import UTC, datetime, timedelta
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 from typing import Any, BinaryIO
 
@@ -29,6 +30,7 @@ TEMPORARY_RELEASE_NAME = "vid-pipeline-temporary-inputs"
 UPLOAD_WORKFLOW = "process-uploaded-video.yml"
 URL_WORKFLOW = "process-video.yml"
 MAX_ASSET_SIZE = 2 * 1024 * 1024 * 1024
+CLOCK_SKEW_TOLERANCE = timedelta(minutes=10)
 TERMINAL_CONCLUSIONS = {
     "success",
     "failure",
@@ -104,6 +106,9 @@ class GitHubRequest:
     release_id: int = 0
     asset_id: int = 0
     workflow_name: str = UPLOAD_WORKFLOW
+    dispatch_id: str = ""
+    dispatch_started_at: str = ""
+    dispatch_server_at: str = ""
     workflow_run_id: int = 0
     workflow_run_url: str = ""
     artifact_id: int = 0
@@ -321,14 +326,15 @@ class GitHubClient:
         self.state.save(request)
 
     def dispatch_upload(self, request: GitHubRequest, options: dict[str, Any]) -> None:
+        request.dispatch_id = uuid.uuid4().hex
+        request.dispatch_started_at = _now()
         request.status = "dispatching"
-        request.workflow_started_at = _now()
+        request.workflow_started_at = request.dispatch_started_at
         self.state.save(request)
         inputs = {
             "request_id": request.request_id,
-            "release_id": str(request.release_id),
             "asset_id": str(request.asset_id),
-            "asset_name": request.safe_asset_name,
+            "dispatch_id": request.dispatch_id,
             "original_name": request.original_name,
             "file_size": str(request.file_size),
             "sha256": request.sha256,
@@ -342,6 +348,15 @@ class GitHubClient:
             self._repo_url(f"/actions/workflows/{UPLOAD_WORKFLOW}/dispatches"),
             json={"ref": self.ref, "inputs": inputs},
         )
+        server_date = response.headers.get("Date", "")
+        if server_date:
+            try:
+                parsed_server_date = parsedate_to_datetime(server_date)
+                if parsed_server_date.tzinfo is None:
+                    parsed_server_date = parsed_server_date.replace(tzinfo=UTC)
+                request.dispatch_server_at = parsed_server_date.astimezone(UTC).isoformat()
+            except (TypeError, ValueError, OverflowError):
+                request.dispatch_server_at = ""
         if response.content:
             try:
                 request.workflow_run_id = int(response.json().get("workflow_run_id", 0))
@@ -380,14 +395,72 @@ class GitHubClient:
             self._repo_url(f"/actions/workflows/{request.workflow_name}/runs"),
             params={"event": "workflow_dispatch", "branch": self.ref, "per_page": 50},
         ).json().get("workflow_runs", [])
+        if not request.dispatch_id or not request.dispatch_started_at:
+            return None
+        reference_time = request.dispatch_server_at or request.dispatch_started_at
+        try:
+            dispatched_at = datetime.fromisoformat(reference_time.replace("Z", "+00:00"))
+        except ValueError:
+            return None
+        earliest_allowed = dispatched_at - CLOCK_SKEW_TOLERANCE
+        expected_title = (
+            f"Uploaded video {request.request_id} — attempt {request.dispatch_id}"
+        )
         for run in runs:
-            title = f"{run.get('display_title', '')} {run.get('name', '')}"
-            if request.request_id in title:
-                request.workflow_run_id = int(run["id"])
-                request.workflow_run_url = run.get("html_url", "")
-                self.state.save(request)
-                return run
+            created_at = str(run.get("created_at", ""))
+            try:
+                created = datetime.fromisoformat(created_at.replace("Z", "+00:00"))
+            except ValueError:
+                continue
+            workflow_path = str(run.get("path", "")).split("@", 1)[0]
+            if (
+                run.get("event") != "workflow_dispatch"
+                or run.get("head_branch") != self.ref
+                or Path(workflow_path).name != request.workflow_name
+                or run.get("display_title") != expected_title
+                or created < earliest_allowed
+            ):
+                continue
+            request.workflow_run_id = int(run["id"])
+            request.workflow_run_url = run.get("html_url", "")
+            self.state.save(request)
+            return run
         return None
+
+    def recover_dispatched_run(
+        self, request: GitHubRequest, *, timeout: float = 60.0
+    ) -> dict[str, Any] | None:
+        deadline = time.monotonic() + timeout
+        delay = 2.0
+        while time.monotonic() < deadline:
+            if run := self.find_run(request):
+                return run
+            time.sleep(delay)
+            delay = min(delay * 1.5, 10.0)
+        return None
+
+    def _workflow_failure_detail(
+        self, request: GitHubRequest, conclusion: str
+    ) -> str:
+        try:
+            jobs = self._request(
+                "GET",
+                self._repo_url(
+                    f"/actions/runs/{request.workflow_run_id}/jobs"
+                ),
+                params={"filter": "latest", "per_page": 100},
+            ).json().get("jobs", [])
+            for job in jobs:
+                for step in job.get("steps", []):
+                    if step.get("conclusion") == "failure":
+                        name = str(step.get("name", "unknown"))[:300]
+                        return f"workflow failure: step={name!r}; conclusion={conclusion}"
+                if job.get("conclusion") == "failure":
+                    name = str(job.get("name", "unknown"))[:300]
+                    return f"workflow failure: job={name!r}; conclusion={conclusion}"
+        except Exception:
+            pass
+        return f"workflow: {conclusion}"
 
     def wait(self, request: GitHubRequest, *, timeout: float = 6 * 3600) -> dict[str, Any]:
         deadline = time.monotonic() + timeout
@@ -400,11 +473,16 @@ class GitHubClient:
                 self.state.save(request)
                 if run["status"] == "completed":
                     conclusion = run.get("conclusion") or "failure"
-                    request.workflow_completed_at = _now()
+                    completed_at = run.get("updated_at") or run.get("run_completed_at")
+                    request.workflow_completed_at = str(completed_at or _now())
                     request.status = (
                         "workflow_succeeded" if conclusion == "success" else "workflow_failed"
                     )
-                    request.last_error = "" if conclusion == "success" else f"workflow: {conclusion}"
+                    request.last_error = (
+                        ""
+                        if conclusion == "success"
+                        else self._workflow_failure_detail(request, conclusion)
+                    )
                     self.state.save(request)
                     return run
             time.sleep(delay)
@@ -557,13 +635,23 @@ class GitHubClient:
                 request.workflow_run_url = ""
                 request.artifact_id = 0
                 request.artifact_name = ""
+                request.job_id = ""
+                request.workflow_completed_at = ""
+                request.last_error = ""
                 request.status = "uploaded"
                 self.state.save(request)
-            if request.status in {"dispatching", "queued", "in_progress"}:
+            if request.status == "dispatching" and not request.workflow_run_id:
+                if not self.recover_dispatched_run(request):
+                    request.last_error = (
+                        "Dispatched workflow run has not appeared yet; "
+                        "resume again without creating a duplicate run."
+                    )
+                    self.state.save(request)
+                    return request
+            elif request.status in {"queued", "in_progress"}:
                 self.find_run(request)
             if not request.workflow_run_id and request.status in {
                 "uploaded",
-                "dispatching",
                 "failed",
             }:
                 self.dispatch_upload(request, options)

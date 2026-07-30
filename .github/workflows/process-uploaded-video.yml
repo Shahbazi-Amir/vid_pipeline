@@ -48,7 +48,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 360
     env:
-      INPUT_MEDIA: ${{ runner.temp }}/vid-pipeline-input/media
+      INPUT_MEDIA: /tmp/vid-pipeline-input/media
       REQUEST_ID: ${{ inputs.request_id }}
       ASSET_ID: ${{ inputs.asset_id }}
       EXPECTED_SIZE: ${{ inputs.file_size }}
@@ -174,5 +174,5 @@ jobs:
         shell: bash
         run: |
           rm -f -- "$INPUT_MEDIA"
-          find "${{ runner.temp }}/vid-pipeline-input" -type f -delete 2>/dev/null || true
+          find /tmp/vid-pipeline-input -type f -delete 2>/dev/null || true
           find outputs -type f \( -name '*.wav' -o -name '*.mp4' -o -name '*.mkv' \) -delete 2>/dev/null || true

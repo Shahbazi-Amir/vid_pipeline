@@ -1,12 +1,83 @@
 # Video Transcript Pipeline
 
-The project supports three distinct execution modes:
+The project supports four distinct execution modes:
 
-1. Online submission from a lightweight computer
-2. Direct processing on a machine with worker dependencies
-3. Docker deployment of the API and worker
+1. GitHub Actions — URL
+2. GitHub Actions — local file upload
+3. Online API/server submission
+4. Direct local/server processing (including Docker deployment)
 
-## Lightweight macOS client (recommended)
+## GitHub Actions — local files from a lightweight Mac
+
+The local video is never committed. The client streams one confirmed file to a
+private asset on a fixed draft GitHub Release, dispatches the worker workflow,
+downloads and validates the transcript, and only then deletes the temporary
+GitHub copy. The original local video is never deleted.
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -e '.[client]'
+
+export VID_PIPELINE_GITHUB_TOKEN="..."
+export VID_PIPELINE_GITHUB_REPO="Shahbazi-Amir/vid_pipeline"
+
+vid-pipeline github-submit-folder ./input_videos \
+  --recursive \
+  --confirm-each \
+  --wait \
+  --download \
+  --output-root ./outputs \
+  --delete-remote-after-success
+```
+
+FFmpeg, Whisper, Ollama, Docker and model downloads do not run on the Mac.
+Each file requires separate confirmation, and only one file is uploaded at a
+time. Input videos remain ignored by Git. Pressing Enter does not approve an
+upload. Files at or above 2 GiB are rejected before upload.
+
+Create a fine-grained GitHub personal access token scoped only to the target
+repository with these minimum repository permissions:
+
+- Contents: Read and write
+- Actions: Read and write
+- Metadata: Read
+
+Store it only in `VID_PIPELINE_GITHUB_TOKEN`; the token is never written to
+`.vid_pipeline/github/`, printed, or passed to a shell command. Request state is
+written atomically to `.vid_pipeline/github/<request-id>.json`. Results are
+downloaded to `outputs/<job-id>/final/`, including
+`transcript.final.txt`.
+
+Available GitHub commands:
+
+```text
+github-submit-file
+github-submit-folder
+github-run-url
+github-job-status
+github-resume
+github-cleanup
+```
+
+Release Asset upload has no reliable byte-level resume. An interrupted upload
+restarts that file from byte zero; a completed asset recorded in local state is
+reused. Failed workflows keep the remote input for retry by default. Failed
+post-validation deletion is recorded as `remote_cleanup_pending`, and
+`github-resume` retries cleanup without uploading or processing again.
+
+## GitHub Actions — URL
+
+The existing URL workflow can be dispatched from the lightweight client:
+
+```bash
+vid-pipeline github-run-url "https://example.com/video.mp4" \
+  --wait \
+  --download \
+  --output-root ./outputs
+```
+
+## Online API/server submission from a lightweight Mac
 
 The Mac only hashes and uploads input files, watches job progress, and downloads
 results. FFmpeg, Docker, Whisper, Ollama and model downloads are not required on

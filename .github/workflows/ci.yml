@@ -32,6 +32,16 @@ jobs:
               Draft202012Validator.check_schema(json.loads(path.read_text(encoding="utf-8")))
               print(f"valid: {path}")
           PY
+      - name: Validate workflow YAML
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import yaml
+
+          for path in sorted(Path(".github/workflows").glob("*.yml")):
+              yaml.safe_load(path.read_text(encoding="utf-8"))
+              print(f"valid: {path}")
+          PY
       - run: python -c "import vid_pipeline"
       - run: vid-pipeline --help
       - name: Client-only installation

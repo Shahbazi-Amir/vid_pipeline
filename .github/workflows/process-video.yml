@@ -1,8 +1,13 @@
 name: Process video URL
+run-name: Video URL ${{ inputs.request_id || github.run_id }} — ${{ inputs.url || github.event_name }}
 
 on:
   workflow_dispatch:
     inputs:
+      request_id:
+        description: Optional client request identifier
+        required: false
+        type: string
       url:
         description: Video page or direct media URL
         required: true

@@ -44,6 +44,8 @@ def test_uploaded_workflow_does_not_use_runner_context_in_job_env():
     assert "runner.temp" not in job_env
     assert "INPUT_MEDIA: /tmp/vid-pipeline-input/media" in job_env
     assert "find /tmp/vid-pipeline-input" in workflow
+    assert "permissions:\n  # Draft release assets require" in workflow
+    assert "  contents: write" in workflow
 
 
 def test_dispatch_payload_matches_workflow_contract(tmp_path: Path):
@@ -103,3 +105,12 @@ def test_github_http_error_includes_status_and_message(tmp_path: Path):
 
     with pytest.raises(RuntimeError, match=r"HTTP 422: Validation Failed.*inputs"):
         client._request("POST", "/test")
+
+
+def test_runner_asset_error_includes_status_headers_and_body():
+    workflow = _workflow_text()
+
+    assert "HTTP {exc.code}" in workflow
+    assert "headers={safe_headers!r}" in workflow
+    assert "body={body!r}" in workflow
+    assert '"authorization"' not in workflow.split("safe_headers =", 1)[1]

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import os
 import time
 from pathlib import Path
 from typing import Any
@@ -88,7 +89,12 @@ class CompatibleGitHubClient(GitHubClient):
 
 
 def client_from_args(args: Any) -> CompatibleGitHubClient:
-    token = __import__("os").getenv("VID_PIPELINE_GITHUB_TOKEN", "")
+    token = os.getenv("VID_PIPELINE_GITHUB_TOKEN", "")
     repository = getattr(args, "repo", "") or detect_repository()
-    ref = getattr(args, "ref", "") or __import__("os").getenv("VID_PIPELINE_GITHUB_REF", "main")
-    return CompatibleGitHubClient(token, repository, ref=ref, output_root=Path(args.output_root))
+    ref = getattr(args, "ref", "") or os.getenv("VID_PIPELINE_GITHUB_REF", "main")
+    return CompatibleGitHubClient(
+        token,
+        repository,
+        ref=ref,
+        output_root=Path(args.output_root),
+    )

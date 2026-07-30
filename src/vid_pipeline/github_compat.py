@@ -7,7 +7,7 @@ import time
 from pathlib import Path
 from typing import Any
 
-from vid_pipeline.github_client import UPLOAD_WORKFLOW, GitHubClient, _now, detect_repository
+from vid_pipeline.github_client import GitHubClient, detect_repository
 
 
 class CompatibleGitHubClient(GitHubClient):
@@ -59,33 +59,7 @@ class CompatibleGitHubClient(GitHubClient):
         raise RuntimeError(self._error_message(last_error or RuntimeError("unknown error")))
 
     def dispatch_upload(self, request: Any, options: dict[str, Any]) -> None:
-        request.status = "dispatching"
-        request.workflow_started_at = _now()
-        self.state.save(request)
-        inputs = {
-            "request_id": request.request_id,
-            "asset_id": str(request.asset_id),
-            "asset_name": request.safe_asset_name,
-            "original_name": request.original_name,
-            "file_size": str(request.file_size),
-            "sha256": request.sha256,
-            "profile": options.get("profile", "balanced"),
-            "model": options.get("model", "small"),
-            "language": options.get("language", "fa"),
-            "no_editorial": str(options.get("no_editorial", True)).lower(),
-        }
-        response = self._request(
-            "POST",
-            self._repo_url(f"/actions/workflows/{UPLOAD_WORKFLOW}/dispatches"),
-            json={"ref": self.ref, "inputs": inputs},
-        )
-        if response.content:
-            try:
-                request.workflow_run_id = int(response.json().get("workflow_run_id", 0))
-            except (TypeError, ValueError, json.JSONDecodeError):
-                pass
-        request.status = "queued"
-        self.state.save(request)
+        super().dispatch_upload(request, options)
 
 
 def client_from_args(args: Any) -> CompatibleGitHubClient:

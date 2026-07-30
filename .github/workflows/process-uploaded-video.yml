@@ -40,8 +40,8 @@ on:
         type: string
       no_editorial:
         required: true
-        default: true
-        type: boolean
+        default: "true"
+        type: string
       editorial_model:
         required: false
         default: qwen3:8b
@@ -131,7 +131,7 @@ jobs:
           PY
 
       - name: Start optional local editorial service
-        if: inputs.no_editorial == false
+        if: inputs.no_editorial == 'false'
         shell: bash
         run: |
           set -euo pipefail

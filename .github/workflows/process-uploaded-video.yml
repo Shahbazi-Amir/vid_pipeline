@@ -1,0 +1,185 @@
+name: Process uploaded video
+run-name: Uploaded video ${{ inputs.request_id }} — ${{ inputs.original_name }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      request_id:
+        required: true
+        type: string
+      release_id:
+        required: true
+        type: string
+      asset_id:
+        required: true
+        type: string
+      asset_name:
+        required: true
+        type: string
+      original_name:
+        required: true
+        type: string
+      file_size:
+        required: true
+        type: string
+      sha256:
+        required: true
+        type: string
+      profile:
+        required: true
+        default: balanced
+        type: choice
+        options: [fast, balanced, accurate]
+      model:
+        required: true
+        default: small
+        type: string
+      language:
+        required: true
+        default: fa
+        type: string
+      no_editorial:
+        required: true
+        default: true
+        type: boolean
+      editorial_model:
+        required: false
+        default: qwen3:8b
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      INPUT_MEDIA: ${{ runner.temp }}/vid-pipeline-input/media
+      REQUEST_ID: ${{ inputs.request_id }}
+      ASSET_ID: ${{ inputs.asset_id }}
+      EXPECTED_SIZE: ${{ inputs.file_size }}
+      EXPECTED_SHA256: ${{ inputs.sha256 }}
+      PROFILE: ${{ inputs.profile }}
+      MODEL: ${{ inputs.model }}
+      LANGUAGE: ${{ inputs.language }}
+      NO_EDITORIAL: ${{ inputs.no_editorial }}
+      EDITORIAL_MODEL: ${{ inputs.editorial_model }}
+      OLLAMA_BASE_URL: http://127.0.0.1:11434
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install worker dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install --upgrade pip
+          pip install -e '.[worker]'
+
+      - name: Download authenticated draft release asset
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$(dirname "$INPUT_MEDIA")"
+          python - "$ASSET_ID" "$INPUT_MEDIA" <<'PY'
+          import os
+          import sys
+          import urllib.request
+
+          asset_id, target = sys.argv[1:]
+          request = urllib.request.Request(
+              f"https://api.github.com/repos/${{ github.repository }}/releases/assets/{asset_id}",
+              headers={
+                  "Accept": "application/octet-stream",
+                  "Authorization": f"Bearer {os.environ['GH_TOKEN']}",
+                  "X-GitHub-Api-Version": "2022-11-28",
+              },
+          )
+          with urllib.request.urlopen(request, timeout=120) as response, open(target, "wb") as output:
+              while chunk := response.read(1024 * 1024):
+                  output.write(chunk)
+          PY
+
+      - name: Verify input size and SHA-256
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - "$INPUT_MEDIA" "$EXPECTED_SIZE" "$EXPECTED_SHA256" <<'PY'
+          import hashlib
+          import os
+          import sys
+
+          path, expected_size, expected_hash = sys.argv[1:]
+          if os.path.getsize(path) != int(expected_size):
+              raise SystemExit("downloaded asset size mismatch")
+          digest = hashlib.sha256()
+          with open(path, "rb") as media:
+              for chunk in iter(lambda: media.read(1024 * 1024), b""):
+                  digest.update(chunk)
+          if digest.hexdigest() != expected_hash:
+              raise SystemExit("downloaded asset SHA-256 mismatch")
+          PY
+
+      - name: Start optional local editorial service
+        if: inputs.no_editorial == false
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsSL https://ollama.com/install.sh | sh
+          nohup ollama serve > ollama.log 2>&1 &
+          for attempt in $(seq 1 60); do
+            curl -fsS "$OLLAMA_BASE_URL/api/tags" >/dev/null && break
+            sleep 2
+          done
+          curl -fsS "$OLLAMA_BASE_URL/api/tags" >/dev/null
+          ollama pull "$EDITORIAL_MODEL"
+
+      - name: Run complete file pipeline
+        shell: bash
+        run: |
+          set -euo pipefail
+          args=(run-file "$INPUT_MEDIA" --name "$REQUEST_ID" --output-root outputs \
+            --profile "$PROFILE" --model "$MODEL" --language "$LANGUAGE" \
+            --device cpu --compute-type int8)
+          if [[ "${NO_EDITORIAL,,}" == "true" ]]; then
+            args+=(--no-editorial)
+          else
+            args+=(--editorial-model "$EDITORIAL_MODEL" --editorial-base-url "$OLLAMA_BASE_URL")
+          fi
+          vid-pipeline "${args[@]}" 2>&1 | tee pipeline.log
+
+      - name: Upload transcript result
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: uploaded-transcript-${{ inputs.request_id }}
+          path: |
+            outputs/**/state.json
+            outputs/**/source.json
+            outputs/**/video-info.json
+            outputs/**/result.json
+            outputs/**/raw/transcript.raw.json
+            outputs/**/raw/transcript.raw.md
+            outputs/**/machine/**
+            outputs/**/final/**
+            pipeline.log
+          retention-days: 1
+          if-no-files-found: error
+
+      - name: Remove input and temporary media
+        if: always()
+        shell: bash
+        run: |
+          rm -f -- "$INPUT_MEDIA"
+          find "${{ runner.temp }}/vid-pipeline-input" -type f -delete 2>/dev/null || true
+          find outputs -type f \( -name '*.wav' -o -name '*.mp4' -o -name '*.mkv' \) -delete 2>/dev/null || true

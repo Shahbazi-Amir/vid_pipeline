@@ -98,6 +98,21 @@ def _add_online_options(parser: argparse.ArgumentParser, *, discovery: bool = Fa
     parser.add_argument("--no-editorial", action="store_true")
 
 
+def _add_github_options(parser: argparse.ArgumentParser, *, output: bool = True) -> None:
+    parser.add_argument("--repo", default=os.getenv("VID_PIPELINE_GITHUB_REPO", ""))
+    parser.add_argument("--ref", default=os.getenv("VID_PIPELINE_GITHUB_REF", "main"))
+    if output:
+        parser.add_argument("--output-root", type=Path, default=Path("outputs"))
+    parser.add_argument("--wait", action="store_true")
+    parser.add_argument("--download", action="store_true")
+    parser.add_argument("--profile", choices=("fast", "balanced", "accurate"), default="balanced")
+    parser.add_argument("--model", default="small")
+    parser.add_argument("--language", default="fa")
+    editorial = parser.add_mutually_exclusive_group()
+    editorial.add_argument("--no-editorial", dest="no_editorial", action="store_true", default=True)
+    editorial.add_argument("--editorial", dest="no_editorial", action="store_false")
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="vid-pipeline",
@@ -182,6 +197,55 @@ def build_parser() -> argparse.ArgumentParser:
     wait_parser.add_argument("--api-token", default=os.getenv("VID_PIPELINE_API_TOKEN", ""))
     wait_parser.add_argument("--output-root", type=Path, default=Path("outputs"))
     wait_parser.add_argument("--download", action="store_true")
+
+    github_file = subparsers.add_parser(
+        "github-submit-file", help="Upload one local file to a private draft release and process it."
+    )
+    github_file.add_argument("path", type=Path)
+    _add_github_options(github_file)
+    github_file.add_argument("--yes", action="store_true")
+    github_file.add_argument("--delete-remote-after-success", action="store_true")
+    github_file.add_argument("--delete-remote-on-failure", action="store_true")
+    github_file.add_argument("--delete-result-artifact-after-download", action="store_true")
+
+    github_folder = subparsers.add_parser(
+        "github-submit-folder", help="Confirm and process local files sequentially on GitHub Actions."
+    )
+    github_folder.add_argument("path", type=Path)
+    github_folder.add_argument("--recursive", action="store_true")
+    github_folder.add_argument("--confirm-each", action=argparse.BooleanOptionalAction, default=True)
+    github_folder.add_argument("--yes", action="store_true")
+    _add_github_options(github_folder)
+    github_folder.add_argument("--delete-remote-after-success", action="store_true")
+    github_folder.add_argument("--delete-remote-on-failure", action="store_true")
+    github_folder.add_argument("--delete-result-artifact-after-download", action="store_true")
+    github_folder.set_defaults(wait=True, download=True, delete_remote_after_success=True)
+
+    github_url = subparsers.add_parser(
+        "github-run-url", help="Dispatch the existing URL workflow on GitHub Actions."
+    )
+    github_url.add_argument("url")
+    _add_github_options(github_url)
+
+    github_status = subparsers.add_parser("github-job-status", help="Show a GitHub request.")
+    github_status.add_argument("request_id")
+    github_status.add_argument("--output-root", type=Path, default=Path("outputs"))
+    github_status.add_argument("--repo", default=os.getenv("VID_PIPELINE_GITHUB_REPO", ""))
+    github_status.add_argument("--ref", default=os.getenv("VID_PIPELINE_GITHUB_REF", "main"))
+
+    github_resume = subparsers.add_parser("github-resume", help="Resume a GitHub request.")
+    github_resume.add_argument("request_id")
+    _add_github_options(github_resume)
+    github_resume.add_argument("--delete-remote-after-success", action="store_true")
+    github_resume.add_argument("--delete-result-artifact-after-download", action="store_true")
+
+    github_cleanup = subparsers.add_parser("github-cleanup", help="Delete stale temporary assets.")
+    github_cleanup.add_argument("--stale", action="store_true")
+    github_cleanup.add_argument("--older-than-hours", type=int, default=24)
+    github_cleanup.add_argument("--yes", action="store_true")
+    github_cleanup.add_argument("--output-root", type=Path, default=Path("outputs"))
+    github_cleanup.add_argument("--repo", default=os.getenv("VID_PIPELINE_GITHUB_REPO", ""))
+    github_cleanup.add_argument("--ref", default=os.getenv("VID_PIPELINE_GITHUB_REF", "main"))
 
     inspect_parser = subparsers.add_parser("inspect", help="Inspect a video URL with yt-dlp.")
     inspect_parser.add_argument("url")
@@ -423,6 +487,125 @@ def command_wait(args: argparse.Namespace) -> int:
     return 1 if job["status"] == "failed" else 0
 
 
+def _github_client(args: argparse.Namespace):
+    from vid_pipeline.github_client import client_from_args
+
+    return client_from_args(args)
+
+
+def _github_options(args: argparse.Namespace) -> dict[str, Any]:
+    return {
+        "wait": args.wait,
+        "download": args.download,
+        "profile": args.profile,
+        "model": args.model,
+        "language": args.language,
+        "no_editorial": args.no_editorial,
+        "delete_remote_after_success": getattr(args, "delete_remote_after_success", False),
+        "delete_result_artifact_after_download": getattr(
+            args, "delete_result_artifact_after_download", False
+        ),
+    }
+
+
+def _confirm_file(path: Path, index: int = 1, total: int = 1) -> str:
+    size = path.stat().st_size / (1024 * 1024)
+    print(f"[{index}/{total}] {path}\nSize: {size:.1f} MiB\n")
+    return input("Upload and process this file on GitHub Actions? [y] yes  [s] skip  [q] quit: ").strip().lower()
+
+
+def command_github_submit_file(args: argparse.Namespace) -> int:
+    if not args.yes and _confirm_file(args.path) != "y":
+        print("File was not uploaded.")
+        return 0
+    client = _github_client(args)
+    request = client.process_file(args.path, **_github_options(args))
+    if request.status == "workflow_failed" and request.asset_id:
+        delete = args.delete_remote_on_failure
+        if not delete and not args.yes:
+            keep = input("Processing failed. Keep the uploaded file for retry? [Y/n] ").strip().lower()
+            delete = keep == "n"
+        if delete:
+            client.delete_asset(request.asset_id)
+            request.asset_id = 0
+            client.state.save(request)
+    _json_print(vars(request))
+    return 1 if request.status in {"failed", "workflow_failed"} else 0
+
+
+def command_github_submit_folder(args: argparse.Namespace) -> int:
+    from vid_pipeline.github_client import discover_media
+
+    files = discover_media(args.path, args.recursive)
+    client = _github_client(args)
+    results = []
+    for index, path in enumerate(files, 1):
+        choice = "y" if args.yes else _confirm_file(path, index, len(files))
+        if choice == "q":
+            break
+        if choice != "y":
+            results.append({"local_path": str(path), "status": "skipped"})
+            continue
+        request = client.process_file(path, **_github_options(args))
+        results.append(vars(request))
+        if request.status in {"failed", "workflow_failed"}:
+            if getattr(args, "delete_remote_on_failure", False) and request.asset_id:
+                client.delete_asset(request.asset_id)
+            elif not args.yes:
+                keep = input("Processing failed. Keep the uploaded file for retry? [Y/n] ").strip().lower()
+                if keep == "n" and request.asset_id:
+                    client.delete_asset(request.asset_id)
+    _json_print(results)
+    return 1 if any(item["status"] in {"failed", "workflow_failed"} for item in results) else 0
+
+
+def command_github_run_url(args: argparse.Namespace) -> int:
+    from vid_pipeline.github_client import GitHubRequest
+
+    client = _github_client(args)
+    request = GitHubRequest(request_id=__import__("uuid").uuid4().hex, original_name=args.url)
+    client.state.save(request)
+    client.dispatch_url(args.url, request, _github_options(args))
+    if args.wait:
+        run = client.wait(request)
+        if args.download and run.get("conclusion") == "success":
+            client.download_and_validate(request)
+    _json_print(vars(request))
+    return 1 if request.status == "workflow_failed" else 0
+
+
+def command_github_job_status(args: argparse.Namespace) -> int:
+    client = _github_client(args)
+    request = client.state.load(args.request_id)
+    if request.status in {"queued", "in_progress"}:
+        client.find_run(request)
+    _json_print(vars(request))
+    return 0
+
+
+def command_github_resume(args: argparse.Namespace) -> int:
+    client = _github_client(args)
+    request = client.state.load(args.request_id)
+    if request.status == "remote_cleanup_pending":
+        client.cleanup_request(request)
+    else:
+        request = client.process_file(Path(request.local_path), **_github_options(args))
+    _json_print(vars(request))
+    return 0
+
+
+def command_github_cleanup(args: argparse.Namespace) -> int:
+    client = _github_client(args)
+    deleted = []
+    for asset in client.stale_assets(args.older_than_hours):
+        print(f"{asset['name']} ({asset['size']} bytes, {asset['created_at']})")
+        if args.yes or input("Delete this temporary asset? [y/N] ").strip().lower() == "y":
+            client.delete_asset(int(asset["id"]))
+            deleted.append(asset["name"])
+    _json_print({"deleted": deleted})
+    return 0
+
+
 def command_inspect(args: argparse.Namespace) -> int:
     _json_print(extract_metadata(args.url))
     return 0
@@ -472,6 +655,12 @@ def dispatch(args: argparse.Namespace) -> int:
         "job-status": command_job_status,
         "download-results": command_download_results,
         "wait": command_wait,
+        "github-submit-file": command_github_submit_file,
+        "github-submit-folder": command_github_submit_folder,
+        "github-run-url": command_github_run_url,
+        "github-job-status": command_github_job_status,
+        "github-resume": command_github_resume,
+        "github-cleanup": command_github_cleanup,
         "inspect": command_inspect,
         "clean": command_clean,
         "edit": command_edit,

@@ -37,6 +37,15 @@ def test_uploaded_workflow_uses_bounded_string_inputs():
     assert "EDITORIAL_MODEL: qwen3:8b" in workflow
 
 
+def test_uploaded_workflow_does_not_use_runner_context_in_job_env():
+    workflow = _workflow_text()
+    job_env = workflow.split("    env:", 1)[1].split("\n\n    steps:", 1)[0]
+
+    assert "runner.temp" not in job_env
+    assert "INPUT_MEDIA: /tmp/vid-pipeline-input/media" in job_env
+    assert "find /tmp/vid-pipeline-input" in workflow
+
+
 def test_dispatch_payload_matches_workflow_contract(tmp_path: Path):
     captured: dict[str, object] = {}
 

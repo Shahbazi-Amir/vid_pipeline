@@ -322,6 +322,72 @@
         {"before": "سوتون دال سوتون جیم و منحای سوتون الف کنید", "after": "برای ستون دال، مقدار ستون جیم را منهای ستون الف کنید", "reason": "روشن‌کردن دستور کاربرگ"}
       ],
       "batch_commit_sha": ""
+    },
+    {
+      "session": "session-18",
+      "status": "completed",
+      "substantive_review_completed": true,
+      "mechanical_content_rewrite_script_used": false,
+      "source_sha256": "b71b1d2e2eee77779ac89a537cd576a3e1dcc9f1db466a5d1881c37035e9fa60",
+      "reviewed_txt_sha256": "0fc9b2f0f441ceb399346ff5d636de6c7bbe679c571b3cc10478bfa9d9f0e908",
+      "reviewed_md_sha256": "159be477d956ea715d51f2c0de95a247744ec274a88063f90dd969b13e347047",
+      "semantic_corrections_count": 82,
+      "orthographic_corrections_count": 181,
+      "unresolved_items": [],
+      "before_after_examples": [
+        {"before": "بانکی مصرصه این تفایی", "after": "بانک یک مؤسسه انتفاعی و بنگاه اقتصادی است", "reason": "اصلاح اصطلاح اقتصادی و بازسازی جمله شکسته"},
+        {"before": "تجهیز منابه، تخصیس منابه", "after": "تجهیز منابع و تخصیص منابع", "reason": "اصلاح دو اصطلاح تخصصی بانکداری"},
+        {"before": "بهش میگن سوده علال حساب", "after": "به آنچه بانک به شما می‌دهد «سود علی‌الحساب» می‌گویند", "reason": "اصلاح اصطلاح بانکی و روشن‌کردن مرجع جمله"},
+        {"before": "پس تفاوت غردول حسانه با حسابه جاری سقط چکه", "after": "تفاوت اصلی حساب قرض‌الحسنه پس‌انداز و حساب جاری، امکان چک است", "reason": "بازسازی معنایی گزاره مقایسه‌ای"},
+        {"before": "رابطه ما با بانک رابطه وکالته", "after": "رابطه ما با بانک در آن رابطه وکالت است", "reason": "اصلاح نحو و حفظ مفهوم حقوقی حساب سپرده"},
+        {"before": "حسابه گرم و یک حساب سرد", "after": "بهتر است یک حساب گرم و یک حساب سرد داشته باشیم", "reason": "تکمیل جمله و حفظ اصطلاح آموزشی جلسه"},
+        {"before": "از جلسه بعد وارد اعتبار و بدهی میشید", "after": "از جلسه بعد وارد موضوع اعتبار و بدهی می‌شویم", "reason": "اصلاح فعل و یکدست‌کردن لحن گوینده"}
+      ],
+      "batch_commit_sha": ""
+    },
+    {
+      "session": "session-20",
+      "status": "completed",
+      "substantive_review_completed": true,
+      "mechanical_content_rewrite_script_used": false,
+      "source_sha256": "dac3324e12d4949addee4a39c76323fa2d02b3d6eae580cebf0691ca434b5dcf",
+      "reviewed_txt_sha256": "4453e68ad41b65cad9139b10ab58f38d4b87d548341c7efb88284e0e4e835d2b",
+      "reviewed_md_sha256": "937c41fd25139e92f177e6dc1c2cb0171b3774adac415bedf474d4bc60ad773c",
+      "semantic_corrections_count": 77,
+      "orthographic_corrections_count": 169,
+      "unresolved_items": [],
+      "before_after_examples": [
+        {"before": "ذرفیت من چقده", "after": "ظرفیت بدهی یعنی چه؟", "reason": "اصلاح واژه محوری و اتصال آن به بحث بدهی"},
+        {"before": "یه وضنی ست کلیو هالون یه باره بولن کنن", "after": "یک وزنه صدکیلویی را یک بار بلند کنم", "reason": "بازسازی مثال ورزشی با اصلاح عدد و فعل"},
+        {"before": "من از کدوم محل میخوامینو پرداخ بکنم", "after": "باید بدانم بدهی را از چه محلی پرداخت می‌کنم", "reason": "بازسازی معنایی نخستین مؤلفه ظرفیت بدهی"},
+        {"before": "اشترات زیادت در بدهی در قرز حرامه", "after": "شرطِ زیاده در قرض رباست", "reason": "اصلاح اصطلاح فقهی و حذف واژه‌های مخدوش ASR"},
+        {"before": "این دو ملیون در باقی حذینه این تسحیلاته", "after": "آن دو میلیون تومان، هزینه تسهیلات است", "reason": "اصلاح اصطلاح بانکی در مثال فروش نسیه"},
+        {"before": "همه این پنشتا تایم کنه که زرفیت بدهیه ما چکت", "after": "مجموع این پنج مورد نشان می‌دهد ظرفیت بدهی ما چقدر است", "reason": "بازسازی جمع‌بندی پنج مؤلفه"},
+        {"before": "تنها سی درفد از درامد آیاندر", "after": "حداکثر سی درصد درآمد آینده", "reason": "اصلاح عدد و عبارت قاعده بازپرداخت"}
+      ],
+      "batch_commit_sha": ""
+    },
+    {
+      "session": "session-21",
+      "status": "completed",
+      "substantive_review_completed": true,
+      "mechanical_content_rewrite_script_used": false,
+      "source_sha256": "ce4edb10b09230053510603881d6cb92a72755b7da4f230a224f45ecd5711ca5",
+      "reviewed_txt_sha256": "56ee5322502b55cc497d31d599b5ba1f5ee9342ae7294043e62c382606383e1f",
+      "reviewed_md_sha256": "efa2fea2cf677956143898fb7a7e14907d6cd5c76eccf405346ad6555ce82533",
+      "semantic_corrections_count": 49,
+      "orthographic_corrections_count": 103,
+      "unresolved_items": [],
+      "before_after_examples": [
+        {"before": "مخم رجوی قرز آالی فخبت کنید", "after": "می‌خواهم درباره «بدهی عالی» صحبت کنم", "reason": "بازسازی عنوان محوری جلسه"},
+        {"before": "طرف اتباره شو استفاده کرده", "after": "آن‌ها از اعتبارشان استفاده کرده‌اند", "reason": "اصلاح فعل و روشن‌کردن مرجع جمله"},
+        {"before": "احروم کردن بیدهی", "after": "اهرم‌کردن بدهی", "reason": "اصلاح اصطلاح تخصصی مالی"},
+        {"before": "دواز ده در صد برام حذینه مالی داره", "after": "دوازده درصد هزینه مالی دارد", "reason": "اصلاح عدد و اصطلاح مالی"},
+        {"before": "از محل اجاره یه اون خونه اقصات بدهی هی احشتاد ملیونی و میدن", "after": "اقساط بدهی هشتادمیلیون‌تومانی را از اجاره آن می‌پردازم", "reason": "بازسازی معنایی مثال مسکن"},
+        {"before": "پسنداز محکوز", "after": "پس‌انداز معکوس", "reason": "اصلاح اصطلاح آموزشی جلسه"},
+        {"before": "یه نمای کولی از وضعیت بدهی خواتون", "after": "تصویری کلی از وضعیت بدهی خود", "reason": "اصلاح خطای واژه و طبیعی‌سازی عبارت کاربرگ"}
+      ],
+      "batch_commit_sha": ""
     }
   ]
 }

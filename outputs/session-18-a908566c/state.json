@@ -1,0 +1,96 @@
+{
+  "schema_version": 2,
+  "updated_at": "2026-07-29T23:24:39.209131+00:00",
+  "stages": {
+    "source": {
+      "status": "completed",
+      "updated_at": "2026-07-29T23:24:39.054177+00:00",
+      "output_paths": [
+        "/Users/macbookpro/Desktop/_PROGRAMING/vid_pipeline/outputs/session-18-a908566c/source.json"
+      ],
+      "details": {
+        "schema_version": 2,
+        "job_id": "session-18-a908566c",
+        "input_type": "file",
+        "path": "/Users/macbookpro/Desktop/_PROGRAMING/vid_pipeline/input_videos/session-18.mp4",
+        "title": "session-18",
+        "size": 51739856,
+        "sha256": {
+          "/Users/macbookpro/Desktop/_PROGRAMING/vid_pipeline/outputs/session-18-a908566c/source.json": "7b52f933ef4253ea0cc6110791e23ab93551de076dfd3b7c6913ab106ccbfa21"
+        }
+      },
+      "error": ""
+    },
+    "download": {
+      "status": "completed",
+      "updated_at": "2026-07-29T23:24:39.206673+00:00",
+      "output_paths": [
+        "/Users/macbookpro/Desktop/_PROGRAMING/vid_pipeline/input_videos/session-18.mp4"
+      ],
+      "details": {
+        "media_path": "/Users/macbookpro/Desktop/_PROGRAMING/vid_pipeline/input_videos/session-18.mp4",
+        "downloaded": false,
+        "sha256": {
+          "/Users/macbookpro/Desktop/_PROGRAMING/vid_pipeline/input_videos/session-18.mp4": "dcd38534d688f242481721ca0c57e050ef1c123a074298257acc74d3915658e9"
+        }
+      },
+      "error": ""
+    },
+    "audio": {
+      "status": "failed",
+      "updated_at": "2026-07-29T23:24:39.209089+00:00",
+      "output_paths": [],
+      "details": {},
+      "error": "Required tool 'ffmpeg' was not found in PATH."
+    },
+    "transcribe": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "accuracy": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "pre_review": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "clean": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "editorial": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "finalize_machine": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "review": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    }
+  }
+}

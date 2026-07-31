@@ -1,0 +1,171 @@
+{
+  "schema_version": 2,
+  "updated_at": "2026-07-30T04:39:18.096798+00:00",
+  "stages": {
+    "source": {
+      "status": "completed",
+      "updated_at": "2026-07-30T04:37:10.696277+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/03b44ff271e643639283b00c8dc8f4d3-d802a0fa/source.json"
+      ],
+      "details": {
+        "schema_version": 2,
+        "job_id": "03b44ff271e643639283b00c8dc8f4d3-d802a0fa",
+        "input_type": "file",
+        "path": "/tmp/vid-pipeline-input/media",
+        "title": "media",
+        "size": 28597056,
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/03b44ff271e643639283b00c8dc8f4d3-d802a0fa/source.json": "f58c2166e309656cdcfcd14826f257bc8b036655b215894fee407c09dcf827e8"
+        }
+      },
+      "error": ""
+    },
+    "download": {
+      "status": "completed",
+      "updated_at": "2026-07-30T04:37:10.717921+00:00",
+      "output_paths": [
+        "/tmp/vid-pipeline-input/media"
+      ],
+      "details": {
+        "media_path": "/tmp/vid-pipeline-input/media",
+        "downloaded": false,
+        "sha256": {
+          "/tmp/vid-pipeline-input/media": "8ee0490ba3de1469cd3d433f0146e5a87b71a9131aaf8388000154b9fd13b473"
+        }
+      },
+      "error": ""
+    },
+    "audio": {
+      "status": "completed",
+      "updated_at": "2026-07-30T04:37:12.190564+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/03b44ff271e643639283b00c8dc8f4d3-d802a0fa/audio/audio-16k-mono.wav"
+      ],
+      "details": {
+        "probe": {
+          "programs": [],
+          "streams": [
+            {
+              "codec_name": "pcm_s16le",
+              "codec_type": "audio",
+              "sample_rate": "16000",
+              "channels": 1
+            }
+          ],
+          "format": {
+            "duration": "332.672313"
+          }
+        },
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/03b44ff271e643639283b00c8dc8f4d3-d802a0fa/audio/audio-16k-mono.wav": "69491c0af17df374eb16a836e534783141555160b7e88baa33dacf405139778c"
+        }
+      },
+      "error": ""
+    },
+    "transcribe": {
+      "status": "completed",
+      "updated_at": "2026-07-30T04:39:18.083969+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/03b44ff271e643639283b00c8dc8f4d3-d802a0fa/raw/transcript.raw.json",
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/03b44ff271e643639283b00c8dc8f4d3-d802a0fa/raw/transcript.raw.md"
+      ],
+      "details": {
+        "duration": 332.6723125,
+        "segments": 66,
+        "language": "fa",
+        "model": "small",
+        "device": "cpu",
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/03b44ff271e643639283b00c8dc8f4d3-d802a0fa/raw/transcript.raw.json": "5de7cf8f1e94cc8dfe2a5c5f349bbf1f2f16c7945056fe14616dcae8579df954",
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/03b44ff271e643639283b00c8dc8f4d3-d802a0fa/raw/transcript.raw.md": "63df7bf9cd5fcd6f5a03b5520f82a89727956e6e6f77dad4287a91f51dac96f6"
+        }
+      },
+      "error": ""
+    },
+    "accuracy": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "pre_review": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "clean": {
+      "status": "completed",
+      "updated_at": "2026-07-30T04:39:18.091302+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/03b44ff271e643639283b00c8dc8f4d3-d802a0fa/machine/transcript.machine.md",
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/03b44ff271e643639283b00c8dc8f4d3-d802a0fa/machine/transcript.machine.txt"
+      ],
+      "details": {
+        "segments_in": 66,
+        "segments_out": 66,
+        "paragraphs": 12,
+        "language": "fa",
+        "markdown": "outputs/03b44ff271e643639283b00c8dc8f4d3-d802a0fa/machine/transcript.machine.md",
+        "text": "outputs/03b44ff271e643639283b00c8dc8f4d3-d802a0fa/machine/transcript.machine.txt",
+        "quality": "machine_only",
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/03b44ff271e643639283b00c8dc8f4d3-d802a0fa/machine/transcript.machine.md": "2fcb103ee9dd4a7876a67885de5de5d19618e9ecc282857b772b0a6750a56d36",
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/03b44ff271e643639283b00c8dc8f4d3-d802a0fa/machine/transcript.machine.txt": "312499237889279620a35463ddff48b8506ea8ceb4af1d90ab8f7a52f9d95621"
+        }
+      },
+      "error": ""
+    },
+    "editorial": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "finalize_machine": {
+      "status": "completed",
+      "updated_at": "2026-07-30T04:39:18.096772+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/03b44ff271e643639283b00c8dc8f4d3-d802a0fa/final/transcript.final.md",
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/03b44ff271e643639283b00c8dc8f4d3-d802a0fa/final/transcript.final.txt",
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/03b44ff271e643639283b00c8dc8f4d3-d802a0fa/result.json"
+      ],
+      "details": {
+        "schema_version": 3,
+        "status": "completed",
+        "review_status": "machine_only",
+        "job_id": "03b44ff271e643639283b00c8dc8f4d3-d802a0fa",
+        "source_url": "",
+        "final_markdown": "outputs/03b44ff271e643639283b00c8dc8f4d3-d802a0fa/final/transcript.final.md",
+        "final_text": "outputs/03b44ff271e643639283b00c8dc8f4d3-d802a0fa/final/transcript.final.txt",
+        "content_preservation": {
+          "accepted": true,
+          "source_tokens": 726,
+          "candidate_tokens": 726,
+          "length_ratio": 1.0,
+          "token_recall": 1.0,
+          "sequence_similarity": 1.0,
+          "reasons": []
+        },
+        "warning": "Editorial stage was disabled; this is not a reviewed transcript.",
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/03b44ff271e643639283b00c8dc8f4d3-d802a0fa/final/transcript.final.md": "2fcb103ee9dd4a7876a67885de5de5d19618e9ecc282857b772b0a6750a56d36",
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/03b44ff271e643639283b00c8dc8f4d3-d802a0fa/final/transcript.final.txt": "312499237889279620a35463ddff48b8506ea8ceb4af1d90ab8f7a52f9d95621",
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/03b44ff271e643639283b00c8dc8f4d3-d802a0fa/result.json": "650053dafc0b5d2b025d7e5af5d307060f1d581f40836a8fa92d0c6cdf7acb15"
+        }
+      },
+      "error": ""
+    },
+    "review": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    }
+  }
+}

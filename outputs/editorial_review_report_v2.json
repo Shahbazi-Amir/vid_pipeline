@@ -1,0 +1,68 @@
+{
+  "schema_version": 2,
+  "mechanical_content_rewrite_script_used": false,
+  "sessions": [
+    {
+      "session": "session-01",
+      "status": "completed",
+      "substantive_review_completed": true,
+      "mechanical_content_rewrite_script_used": false,
+      "source_sha256": "93d59566b4f96f5837ed45f17a0d6a9f27c18c72edce76a7980d75beca4d61c5",
+      "reviewed_txt_sha256": "56cc259d8f4355ab674deafd32a401a23e34a9be892bfb269ea8d2b290aece9c",
+      "reviewed_md_sha256": "58873ae78d8d72e01d846f20bd2ec2b2bf2102ace41c1942c89b904c41bcf1f6",
+      "semantic_corrections_count": 24,
+      "orthographic_corrections_count": 67,
+      "unresolved_items": [],
+      "before_after_examples": [
+        {"before": "گلوگاه اصبیه زندگیم", "after": "گلوگاه اصلی زندگی‌ام", "reason": "اصلاح خطای روشن ASR با توجه به بافت"},
+        {"before": "چه در آمد های یه چگونه که است می کنیم", "after": "چه درآمدهایی را چگونه کسب می‌کنیم", "reason": "بازسازی معنایی جمله شکسته"},
+        {"before": "حقوق بازن شستیگی", "after": "حقوق بازنشستگی", "reason": "اصلاح اصطلاح و جدانویسی اشتباه ASR"},
+        {"before": "سواد مالی یک تدبیر یک مدیرگت", "after": "سواد مالی یک تدبیر و مدیریت است", "reason": "اصلاح واژه و تکمیل ساختار جمله"},
+        {"before": "این دوره ببینید دوره محارتیه", "after": "ببینید، این دوره مهارتی است", "reason": "اصلاح خطای واژه و نحو گفتاری"}
+      ],
+      "batch_commit_sha": ""
+    },
+    {
+      "session": "session-02",
+      "status": "completed",
+      "substantive_review_completed": true,
+      "mechanical_content_rewrite_script_used": false,
+      "source_sha256": "7c171fb08d3ecc312ccd200953f571d2892a454c907d2f7520617f99424f30d1",
+      "reviewed_txt_sha256": "d2e32acd6fff1dd706aa19c5d3ef7acf946823b10fc924a4be1afcef999f2475",
+      "reviewed_md_sha256": "636d24958e905480c31d291f7ea223062d1f5ce8708922d3bfd359a99ff54a3e",
+      "semantic_corrections_count": 14,
+      "orthographic_corrections_count": 31,
+      "unresolved_items": [],
+      "before_after_examples": [
+        {"before": "اون یه مهارتهای رو فروا بگیره", "after": "فرد مهارت‌هایی را فرا بگیرد", "reason": "اصلاح خطای ASR و روشن‌کردن فاعل جمله"},
+        {"before": "توی برنامی ریزی مالی زندگیش روی اصولی حرکت کنه", "after": "در برنامه‌ریزی مالی زندگی‌اش اصولی حرکت کند", "reason": "بازسازی نحوی و اصلاح ترکیب تخصصی"},
+        {"before": "مفاهیم بسورت چار چوب دار و المیم", "after": "مفاهیم به‌صورت چارچوب‌دار و علمی", "reason": "اصلاح چند خطای ASR و رسم‌الخط"},
+        {"before": "همون از ذات نفسی", "after": "همان عزت‌نفسی", "reason": "اصلاح معنایی واژه مشابه صوتی"},
+        {"before": "بحس سرمایی گزاری", "after": "بحث سرمایه‌گذاری", "reason": "اصلاح اصطلاح مالی و املای واژه"}
+      ],
+      "batch_commit_sha": ""
+    },
+    {
+      "session": "session-03",
+      "status": "completed",
+      "substantive_review_completed": true,
+      "mechanical_content_rewrite_script_used": false,
+      "source_sha256": "a4736ff4234fdada39f16eb91b10c2cccf542355b07265f776300e90774178e4",
+      "reviewed_txt_sha256": "0b2733a3b29e250bbb4799a2d0aecad63640053961a51d9d09893ddc6e87d48f",
+      "reviewed_md_sha256": "b97c00458cbb5f2e9f76b4cac55abf15f17a3cccae9873ab070ff1ccf0e1ec2a",
+      "semantic_corrections_count": 21,
+      "orthographic_corrections_count": 38,
+      "unresolved_items": [
+        "چند عبارت کم‌اعتماد در بازه‌های 00:22 تا 00:42 و 01:49 تا 02:23 منبع خام، به‌دلیل غیرقابل‌استنتاج‌بودن دقیق، وارد متن نهایی نشدند."
+      ],
+      "before_after_examples": [
+        {"before": "جوز با کهی فیت ترین منزم ترین و شوست روفت ترین دور های بود", "after": "جزو باکیفیت‌ترین، منظم‌ترین و شسته‌رفته‌ترین دوره‌هایی بود", "reason": "بازسازی معنایی چند خطای متوالی ASR"},
+        {"before": "کار در واقعه به هیش فکش شده", "after": "در واقع به همه‌چیز فکر شده بود", "reason": "اصلاح جمله شکسته با اتکا به بافت"},
+        {"before": "فیلما رو می دیدم تنبرنا رو حل می که دن", "after": "فیلم‌ها را می‌دیدم و تمرین‌ها را حل می‌کردم", "reason": "اصلاح افعال و واژه‌های اشتباه ASR"},
+        {"before": "تراری و تدوین اون بسته", "after": "طراحی و تدوین بسته", "reason": "اصلاح واژه مشابه صوتی"},
+        {"before": "تو راسای بازار مالی، نینی، بازار سرمی بود", "after": "در زمینه بازارهای مالی، یعنی بازار سرمایه، درس خوانده‌ام", "reason": "بازسازی معنایی عبارت تخصصی و فعل حذف‌شده"}
+      ],
+      "batch_commit_sha": ""
+    }
+  ]
+}

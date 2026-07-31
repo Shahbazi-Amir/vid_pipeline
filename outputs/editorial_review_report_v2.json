@@ -388,6 +388,69 @@
         {"before": "یه نمای کولی از وضعیت بدهی خواتون", "after": "تصویری کلی از وضعیت بدهی خود", "reason": "اصلاح خطای واژه و طبیعی‌سازی عبارت کاربرگ"}
       ],
       "batch_commit_sha": ""
+    },
+    {
+      "session": "session-22",
+      "status": "completed",
+      "substantive_review_completed": true,
+      "mechanical_content_rewrite_script_used": false,
+      "source_sha256": "4a14056f41262db60f4d66616a015ce7176726df5fddacfe0c03edf302191415",
+      "reviewed_txt_sha256": "b6e1400c522c3190b05b24b42e89000dc4a2614fac5d8657393ac6138bdf777b",
+      "reviewed_md_sha256": "51746568d28e4467649f94ce2bf725e6535ea0cfc693b70f6d3fef78e9ba221a",
+      "semantic_corrections_count": 74,
+      "orthographic_corrections_count": 162,
+      "unresolved_items": [],
+      "before_after_examples": [
+        {"before": "اعتباره ما چه قد. ما چه قد میرزیم", "after": "اعتبار ما چقدر است و چقدر می‌ارزیم؟", "reason": "بازسازی پرسش محوری جلسه"},
+        {"before": "اضاف برداش از حصاب جاری", "after": "اضافه‌برداشت از حساب جاری", "reason": "اصلاح اصطلاح تخصصی بانکی"},
+        {"before": "پس چار نو پرداخ دم داریم", "after": "پس چهار شیوه بازپرداخت داریم", "reason": "اصلاح عدد و بازسازی جمله جمع‌بندی"},
+        {"before": "ریسک اعتباری یعنی این که ممکن اعتبار بهشون بدیم ختر داره", "after": "ریسک اعتباری یعنی این احتمال که به کسی اعتبار بدهیم و او پول را بازنگرداند", "reason": "بازسازی معنایی تعریف ریسک اعتباری"},
+        {"before": "درامد مهانه و طوان باز پرداخت اقصد", "after": "درآمد ماهانه و توان بازپرداخت اقساط", "reason": "اصلاح عنوان نخستین شاخص اعتبارسنجی"},
+        {"before": "شاقص رفتار اعتباری من", "after": "شاخص چهارم، رفتار اعتباری است", "reason": "اصلاح اصطلاح و ساختار جمله"}
+      ],
+      "batch_commit_sha": ""
+    },
+    {
+      "session": "session-23",
+      "status": "completed",
+      "substantive_review_completed": true,
+      "mechanical_content_rewrite_script_used": false,
+      "source_sha256": "a925737e5693a82e76cd25434bcc977a471f357fe916138245e1496f97d54a58",
+      "reviewed_txt_sha256": "af0911d96036663a4ae460b1fa5c01e987c111ccc81be4db364d712d2481a677",
+      "reviewed_md_sha256": "166a34888af2a35af60bce442832852e95fb5c60c4cbffebdc733a0d12fbf17d",
+      "semantic_corrections_count": 81,
+      "orthographic_corrections_count": 174,
+      "unresolved_items": [],
+      "before_after_examples": [
+        {"before": "تچهیز منابه و پول مردم و جمووریم", "after": "تجهیز منابع؛ یعنی بانک پول مردم را در حساب‌های مختلف جمع‌آوری می‌کند", "reason": "اصلاح اصطلاح بانکی و بازسازی توضیح"},
+        {"before": "حف نو اغد مبادل ای وجود داره", "after": "هفت نوع عقد مبادله‌ای داریم", "reason": "اصلاح عدد و اصطلاح حقوقی"},
+        {"before": "اجاره بشمت تملی", "after": "اجاره به شرط تملیک", "reason": "اصلاح نام دقیق عقد بانکی"},
+        {"before": "بیئی سلف پرکس تنسیه", "after": "بیع سلف برعکس نسیه و همان پیش‌خرید است", "reason": "بازسازی تعریف عقد با حفظ مقایسه گوینده"},
+        {"before": "استسنان از سن ات میاد، یعنی تلب ساخت کردن", "after": "استصناع از صنعت می‌آید و به معنای سفارش ساخت است", "reason": "اصلاح اصطلاح تخصصی و تعریف آن"},
+        {"before": "یه دین واقعیی دارم از کسی میمونو میفروشم به بانک", "after": "یک طلب واقعی از کسی دارم و آن را به بانک می‌فروشم", "reason": "بازسازی معنایی تعریف خرید دین"}
+      ],
+      "batch_commit_sha": ""
+    },
+    {
+      "session": "session-25",
+      "status": "completed",
+      "substantive_review_completed": true,
+      "mechanical_content_rewrite_script_used": false,
+      "source_sha256": "5d0f7cd445b86c1fd3a27192e29d3a67bc86ca147649ee44ce0cbdb6cf2cc0b0",
+      "reviewed_txt_sha256": "7f5c00a8d073a0b1a3c379568bb2cc714cb7c541f0a147ec27a8197e2af6d41a",
+      "reviewed_md_sha256": "4b1ddcfd26955a7891fa5947ac782487b172c5aab612d4b1f14fd71ae54b4ca4",
+      "semantic_corrections_count": 88,
+      "orthographic_corrections_count": 191,
+      "unresolved_items": [],
+      "before_after_examples": [
+        {"before": "از چی شغلی من ناراضی هستیم", "after": "دقیقاً از کدام بخش شغل ناراضی‌ایم", "reason": "بازسازی پرسش اصلی ارزیابی رضایت شغلی"},
+        {"before": "اول چاه هوبه کنگ، بعد بارو مینا را را به دوست", "after": "ابتدا چاه را بکنید و بعد مناره را بدزدید", "reason": "بازیابی ضرب‌المثل با توجه به بافت"},
+        {"before": "معنادار باشه، شادی آور باشه، آزادی بخش باشه", "after": "شغل دلخواه باید معنادار، شادی‌آور و آزادی‌بخش باشد", "reason": "بازسازی گزاره محوری جلسه"},
+        {"before": "هر کسی را بحر کاری ساختن مهران را در دلش انداختن", "after": "هر کسی را بهر کاری ساختند، مهر آن را در دلش انداختند", "reason": "اصلاح عبارت نقل‌شده"},
+        {"before": "زمان جم میشه و باز میشه", "after": "زمان در ذهن ما جمع و باز می‌شود", "reason": "روشن‌کردن مفهوم ادراک ذهنی زمان"},
+        {"before": "همه پولای پوشتر تو خراب نکن", "after": "همه پل‌های پشت سرتان را خراب نکنید", "reason": "اصلاح خطای ASR و بازسازی هشدار انتقال شغلی"}
+      ],
+      "batch_commit_sha": ""
     }
   ]
 }

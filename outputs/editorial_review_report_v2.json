@@ -191,6 +191,71 @@
         {"before": "فقر و میبینن میرن سرق در واغه آموزشهای سواد مالی", "after": "فقر را می‌بینند و سراغ آموزش‌های سواد مالی می‌روند", "reason": "بازسازی جمله و اصلاح حروف اضافه"}
       ],
       "batch_commit_sha": ""
+    },
+    {
+      "session": "session-10",
+      "status": "completed",
+      "substantive_review_completed": true,
+      "mechanical_content_rewrite_script_used": false,
+      "source_sha256": "ba8379e158b8e0a6bed800f3c9250a83e5330890e72c33a1ef9de5846e7cbc60",
+      "reviewed_txt_sha256": "791bb8183f164ab63b0931a2a443d9902997fe36cb2a677e340f040271474a64",
+      "reviewed_md_sha256": "8526703442c6279d808cc51d007b38b5647071b974c6fb2920df5bbd145a66d4",
+      "semantic_corrections_count": 31,
+      "orthographic_corrections_count": 74,
+      "unresolved_items": [
+        "بازه تقریباً 00:52 تا 01:22 منبع خام دارای خروجی چندزبانه و بسیار کم‌اعتماد ASR بود؛ فقط استدلال قابل‌اثبات درباره اثر شرایط بیرونی حفظ شد و جزئیات غیرقابل‌بازیابی وارد متن نهایی نشد."
+      ],
+      "before_after_examples": [
+        {"before": "من بپذیرم که طوان تقیر داره", "after": "من بپذیرم توان تغییر دارم", "reason": "اصلاح خطای ASR و بازسازی طبیعی جمله"},
+        {"before": "پیش فرد دشنی که من انتخاب کرم", "after": "این پیش‌فرض را دارد که من انتخابگرم", "reason": "بازسازی معنایی عبارت کلیدی دوره"},
+        {"before": "شرایت بیرونی مغسر هست، اما تین کنندنیس", "after": "شرایط بیرونی مؤثر است، اما تعیین‌کننده نیست", "reason": "اصلاح دو واژه مشابه صوتی و روشن‌کردن استدلال"},
+        {"before": "خود این شرایت قابلیت هینو نداره در زندگی من مستقیم یه نتیجه یه اجاد بکنه", "after": "خود شرایط نمی‌تواند مستقیماً در زندگی من نتیجه‌ای ایجاد کند", "reason": "بازسازی جمله شکسته با حفظ معنا"},
+        {"before": "من یک ساعد 45 دقه به یک رادیوهی به زبان اینگلیسی گوشمیدن", "after": "در این چهل‌وپنج دقیقه به یک برنامه رادیویی انگلیسی گوش می‌دهم", "reason": "اصلاح عدد، فعل و ساختار مثال"},
+        {"before": "با عصا به خورد به محل کارش برسه", "after": "با اعصاب خرد به محل کار برسد", "reason": "اصلاح خطای روشن ASR"}
+      ],
+      "batch_commit_sha": ""
+    },
+    {
+      "session": "session-12",
+      "status": "completed",
+      "substantive_review_completed": true,
+      "mechanical_content_rewrite_script_used": false,
+      "source_sha256": "ca60adf64f9b4c448346e50214d893fe129c87f5f0c91b9e81096c2bb71a89c3",
+      "reviewed_txt_sha256": "8ce0a33e62a63c7648811b6ff7f8bbe604ddcf2707b0bad1aa204c11db3857d8",
+      "reviewed_md_sha256": "2b831409c86f3308e7294c0a0760f647172e8e20b6f238cd88dbface0d39629c",
+      "semantic_corrections_count": 79,
+      "orthographic_corrections_count": 156,
+      "unresolved_items": [],
+      "before_after_examples": [
+        {"before": "یه متری، یک نردبان مالی، یک پلکان طوانمندی مالی", "after": "معیاری داریم: نردبان مالی یا پلکان توانمندی مالی", "reason": "اصلاح اصطلاح مالی و ساختار جمله"},
+        {"before": "پل ای اول ناطة وانی مالی", "after": "پله اول این نردبان ناتوانی مالی است", "reason": "اصلاح عنوان تخصصی و بازسازی نحو"},
+        {"before": "یعنی آیند خاری میکنیم", "after": "یعنی آینده‌خواری می‌کنیم", "reason": "اصلاح اصطلاح مالی با توجه به توضیح بعدی"},
+        {"before": "پلی چاروم چیه تا باوری یا امنیت مالی", "after": "پله چهارم تاب‌آوری یا امنیت مالی است", "reason": "اصلاح عنوان و خطاهای ASR"},
+        {"before": "رفاه مالی یا آزادی مالی", "after": "وضعیت پنجم یعنی رفاه مالی یا آزادی مالی است", "reason": "تکمیل ساختار توضیح پلکان"},
+        {"before": "قوله یه دوامند", "after": "قله دماوند", "reason": "اصلاح نام مکان با توجه به تمثیل کوهنوردی"}
+      ],
+      "batch_commit_sha": ""
+    },
+    {
+      "session": "session-14",
+      "status": "completed",
+      "substantive_review_completed": true,
+      "mechanical_content_rewrite_script_used": false,
+      "source_sha256": "2ee74b5f2882aab928d7a8538e30d4be3bdb28b17ba142e3f05cbe60e9307a8e",
+      "reviewed_txt_sha256": "68a2f3fa50ee1423cb6f3e2b5b53175463a1041d05a8c56006f26a0c2a1aec49",
+      "reviewed_md_sha256": "7e8e71c805868289e94d775c85db64fc6865a2c12229f70be4450584633fc74c",
+      "semantic_corrections_count": 68,
+      "orthographic_corrections_count": 143,
+      "unresolved_items": [],
+      "before_after_examples": [
+        {"before": "بهترین راه کار ... مدیریت هزینه و کاهش هزین", "after": "بهترین راهکار ... مدیریت و کاهش هزینه‌هاست", "reason": "اصلاح عبارت آموزشی و تکمیل جمله"},
+        {"before": "یه راه کار ساده داره، نذشتن هزین هاک", "after": "راهکاری ساده دارد: نوشتن هزینه‌ها", "reason": "اصلاح خطای روشن ASR در نکته اصلی جلسه"},
+        {"before": "نوشتن مسعل رو از ذهن ما بیروم میاره و رو بروم اون قرار میده", "after": "نوشتن مسئله را از ذهن ما بیرون می‌آورد و روبه‌رویمان قرار می‌دهد", "reason": "بازسازی نحوی جمله"},
+        {"before": "نون ولقلم ومای استورون", "after": "ن وَالْقَلَمِ وَمَا یَسْطُرُونَ", "reason": "اصلاح عبارت قرآنی نقل‌شده"},
+        {"before": "شاخصه کافلته", "after": "شاخص کافه‌لاته", "reason": "اصلاح نام مفهوم مالی"},
+        {"before": "اصنادو ما داره که پوشتی بان", "after": "اسناد و مدارک پشتیبان", "reason": "اصلاح اصطلاح و خطاهای متوالی ASR"}
+      ],
+      "batch_commit_sha": ""
     }
   ]
 }

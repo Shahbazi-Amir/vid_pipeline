@@ -1,0 +1,89 @@
+{
+  "audit_version": 1,
+  "total_v2_sessions": 33,
+  "reviewed_txt_count": 33,
+  "reviewed_markdown_count": 33,
+  "structural_failures": [],
+  "source_files_modified": 0,
+  "source_files_deleted": 0,
+  "source_files_renamed": 0,
+  "temporary_files_remaining": [],
+  "sessions_rechecked": [
+    "session-03",
+    "session-04",
+    "session-10",
+    "session-17",
+    "session-38",
+    "session-40",
+    "session-41"
+  ],
+  "sessions_updated": [],
+  "unresolved_passages": [
+    {
+      "session": "session-03",
+      "passage": "بازه‌های کم‌اعتماد 00:22 تا 00:42 و 01:49 تا 02:23",
+      "reason": "Raw، Machine و Result بازیابی دقیق‌تری فراهم نمی‌کنند و فایل صوتی یا ویدئویی محلی موجود نیست."
+    },
+    {
+      "session": "session-04",
+      "passage": "بازه کم‌اعتماد و چندزبانه تقریباً 01:07 تا 03:13، به‌ویژه 01:18 تا 02:45",
+      "reason": "منابع متنی موجود برای بازسازی دقیق کافی نیستند و فایل صوتی یا ویدئویی محلی موجود نیست."
+    },
+    {
+      "session": "session-10",
+      "passage": "بازه کم‌اعتماد و چندزبانه تقریباً 00:52 تا 01:22",
+      "reason": "منابع متنی موجود جزئیات حذف‌شده را به‌طور مستقل تأیید نمی‌کنند و فایل صوتی یا ویدئویی محلی موجود نیست."
+    },
+    {
+      "session": "session-17",
+      "passage": "بازه کم‌اعتماد و چندزبانه تقریباً 06:19 تا 07:17",
+      "reason": "جزئیات گفتار از Raw، Machine و Result قابل‌بازیابی دقیق نیست و فایل صوتی یا ویدئویی محلی موجود نیست."
+    },
+    {
+      "session": "session-38",
+      "passage": "ذَهابَک، ذَهَبَک و مذهبَک",
+      "reason": "ترتیب و املای فعلی با توضیح فارسی پس از عبارت سازگار است، اما ASR هر سه منبع متنی این قسمت را مخدوش ثبت کرده و صدای محلی برای تأیید ضبط و حرکت‌گذاری دقیق وجود ندارد؛ بنابراین قطعی نیست."
+    }
+  ],
+  "sensitive_names_numbers_verified": [
+    {
+      "session": "session-40",
+      "items": [
+        "قانون موریل",
+        "آبراهام لینکلن",
+        "Jump$tart",
+        "۳۶ موضوع",
+        "۱۲۷ مفهوم جزئی",
+        "۳۸۱ مؤلفه"
+      ],
+      "basis": "گفتار و بافت همان Session؛ نام Jump$tart چند بار تکرار شده و عدد ۳۸۱ با سه بُعد برای ۱۲۷ مفهوم نیز در همان گفتار توضیح داده شده است."
+    },
+    {
+      "session": "session-41",
+      "items": [
+        "سازمان همکاری و توسعه اقتصادی (OECD)"
+      ],
+      "basis": "نام اختصاری در گفتار آمده و کاربرد آن در بافت، پرسش‌نامه ترکیبی سنجش دانش، مهارت و نگرش مالی است."
+    }
+  ],
+  "sensitive_items_not_conclusively_verified": [
+    {
+      "session": "session-38",
+      "item": "ذَهابَک، ذَهَبَک و مذهبَک"
+    }
+  ],
+  "mechanical_content_rewrite_script_used": false,
+  "batch_commit_mapping": [
+    {"commit_sha": "8f22ea65ceca3586490093bc3924b69a71505e0c", "sessions": ["session-01", "session-02", "session-03"]},
+    {"commit_sha": "332f7677151b413a04e4a2ffbabc508b2ef2b301", "sessions": ["session-04", "session-05", "session-06"]},
+    {"commit_sha": "3a5c0a020adf9a12196ad77d98073d1fd91b5e41", "sessions": ["session-07", "session-08", "session-09"]},
+    {"commit_sha": "fe211385b0c7f7c865bfc5f836ad16f44fe2853d", "sessions": ["session-10", "session-12", "session-14"]},
+    {"commit_sha": "a4ed6284667ffa8a47d324834f64a61bf6cb76cc", "sessions": ["session-15", "session-16", "session-17"]},
+    {"commit_sha": "a4daba40fb2a160643216dac46114976ad384069", "sessions": ["session-18", "session-20", "session-21"]},
+    {"commit_sha": "74704a9dbb92a4ba330fe8a699d804e4cbc4bd99", "sessions": ["session-22", "session-23", "session-25"]},
+    {"commit_sha": "c3c37cc7a76c194aedcef2547dda927361393660", "sessions": ["session-26", "session-27", "session-28"]},
+    {"commit_sha": "9035d195e1997e9e22fd350f76f06c418f827b33", "sessions": ["session-30", "session-31", "session-32"]},
+    {"commit_sha": "9c58a6210544756c2a0dc5268309a2dd3d71bf0a", "sessions": ["session-33", "session-35", "session-37"]},
+    {"commit_sha": "c72307f58f50ff00a3881de45c1674cbc2ec4c90", "sessions": ["session-38", "session-40", "session-41"]}
+  ]
+}

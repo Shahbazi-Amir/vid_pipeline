@@ -117,6 +117,8 @@ class CompatibleGitHubClient(GitHubClient):
                     "request_id": request.request_id,
                     "dispatch_id": request.dispatch_id,
                     "whisper_model": options.get("model", "small"),
+                    "language": options.get("language", "fa"),
+                    "no_editorial": str(options.get("no_editorial", True)).lower(),
                     "audio_profile": options.get("audio_profile", "safe"),
                 },
             },

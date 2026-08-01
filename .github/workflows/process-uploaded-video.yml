@@ -39,6 +39,11 @@ on:
         required: true
         default: "true"
         type: string
+      audio_profile:
+        required: true
+        default: safe
+        type: choice
+        options: [none, safe, noisy]
 
 permissions:
   # Draft release assets require a token whose repository identity has push
@@ -59,6 +64,7 @@ jobs:
       MODEL: ${{ inputs.model }}
       LANGUAGE: ${{ inputs.language }}
       NO_EDITORIAL: ${{ inputs.no_editorial }}
+      AUDIO_PROFILE: ${{ inputs.audio_profile }}
       EDITORIAL_MODEL: qwen3:8b
       OLLAMA_BASE_URL: http://127.0.0.1:11434
 
@@ -176,7 +182,7 @@ jobs:
           set -euo pipefail
           args=(run-file "$INPUT_MEDIA" --name "$REQUEST_ID" --output-root outputs \
             --profile "$PROFILE" --model "$MODEL" --language "$LANGUAGE" \
-            --device cpu --compute-type int8)
+            --device cpu --compute-type int8 --audio-profile "$AUDIO_PROFILE")
           if [[ "${NO_EDITORIAL,,}" == "true" ]]; then
             args+=(--no-editorial)
           else
@@ -184,20 +190,35 @@ jobs:
           fi
           vid-pipeline "${args[@]}" 2>&1 | tee pipeline.log
 
+      - name: Verify result belongs to request
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          results=(outputs/"$REQUEST_ID"-*/result.json)
+          if [[ ${#results[@]} -ne 1 ]]; then
+            echo "Expected exactly one result.json for request $REQUEST_ID; found ${#results[@]}" >&2
+            exit 1
+          fi
+          job_root="${results[0]%/result.json}"
+          test -s "$job_root/final/transcript.final.txt"
+          echo "Validated request-scoped job root: $job_root"
+
       - name: Upload transcript result
         if: success()
         uses: actions/upload-artifact@v4
         with:
           name: uploaded-transcript-${{ inputs.request_id }}
           path: |
-            outputs/**/state.json
-            outputs/**/source.json
-            outputs/**/video-info.json
-            outputs/**/result.json
-            outputs/**/raw/transcript.raw.json
-            outputs/**/raw/transcript.raw.md
-            outputs/**/machine/**
-            outputs/**/final/**
+            outputs/${{ inputs.request_id }}-*/state.json
+            outputs/${{ inputs.request_id }}-*/source.json
+            outputs/${{ inputs.request_id }}-*/video-info.json
+            outputs/${{ inputs.request_id }}-*/result.json
+            outputs/${{ inputs.request_id }}-*/audio/audio-quality.json
+            outputs/${{ inputs.request_id }}-*/raw/transcript.raw.json
+            outputs/${{ inputs.request_id }}-*/raw/transcript.raw.md
+            outputs/${{ inputs.request_id }}-*/machine/**
+            outputs/${{ inputs.request_id }}-*/final/**
             pipeline.log
           retention-days: 1
           if-no-files-found: error

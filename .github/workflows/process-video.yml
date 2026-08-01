@@ -1,11 +1,15 @@
 name: Process video URL
-run-name: Video URL ${{ inputs.request_id || github.run_id }} — ${{ inputs.url || github.event_name }}
+run-name: Video URL ${{ inputs.request_id || github.run_id }} — attempt ${{ inputs.dispatch_id || github.run_attempt }}
 
 on:
   workflow_dispatch:
     inputs:
       request_id:
         description: Optional client request identifier
+        required: false
+        type: string
+      dispatch_id:
+        description: Optional client dispatch correlation identifier
         required: false
         type: string
       url:
@@ -49,6 +53,22 @@ on:
         required: true
         default: large-v3-turbo
         type: string
+      language:
+        description: ASR language
+        required: true
+        default: fa
+        type: string
+      no_editorial:
+        description: Skip the local editorial model
+        required: true
+        default: "false"
+        type: string
+      audio_profile:
+        description: Audio preprocessing profile
+        required: true
+        default: safe
+        type: choice
+        options: [none, safe, noisy]
       editorial_model:
         description: Local Ollama model
         required: true
@@ -89,6 +109,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 360
     env:
+      REQUEST_ID: ${{ inputs.request_id }}
+      DISPATCH_ID: ${{ inputs.dispatch_id }}
       VIDEO_URL: ${{ inputs.url }}
       SOURCE_URL: ${{ inputs.source_url }}
       JOB_NAME: ${{ inputs.name }}
@@ -99,6 +121,9 @@ jobs:
       GUEST_NAME: ${{ inputs.guest }}
       EDITORIAL_CONTEXT: ${{ inputs.editorial_context }}
       WHISPER_MODEL: ${{ inputs.whisper_model || 'large-v3-turbo' }}
+      LANGUAGE: ${{ inputs.language || 'fa' }}
+      NO_EDITORIAL: ${{ inputs.no_editorial || 'false' }}
+      AUDIO_PROFILE: ${{ inputs.audio_profile || 'safe' }}
       EDITORIAL_MODEL: ${{ inputs.editorial_model || 'qwen2.5:7b' }}
       VID_PIPELINE_ACCURACY_MODE: ${{ inputs.accuracy_mode || 'fast' }}
       VID_PIPELINE_MAX_TARGETED_SEGMENTS: 40
@@ -135,6 +160,8 @@ jobs:
               "GUEST_NAME": data.get("guest") or "",
               "EDITORIAL_CONTEXT": data.get("editorial_context") or "",
               "WHISPER_MODEL": data.get("whisper_model") or "large-v3-turbo",
+              "LANGUAGE": data.get("language") or "fa",
+              "NO_EDITORIAL": data.get("no_editorial") or False,
               "EDITORIAL_MODEL": data.get("editorial_model") or "qwen2.5:7b",
               "VID_PIPELINE_ACCURACY_MODE": data.get("accuracy_mode") or "fast",
               "VID_PIPELINE_WHISPERX_ALIGNMENT": data.get("whisperx_alignment") or False,
@@ -166,6 +193,8 @@ jobs:
               "GUEST_NAME": data.get("guest") or "",
               "EDITORIAL_CONTEXT": data.get("editorial_context") or "",
               "WHISPER_MODEL": data.get("whisper_model") or "large-v3-turbo",
+              "LANGUAGE": data.get("language") or "fa",
+              "NO_EDITORIAL": data.get("no_editorial") or False,
               "EDITORIAL_MODEL": data.get("editorial_model") or "qwen2.5:7b",
               "VID_PIPELINE_ACCURACY_MODE": data.get("accuracy_mode") or "fast",
               "VID_PIPELINE_WHISPERX_ALIGNMENT": data.get("whisperx_alignment") or False,
@@ -198,6 +227,7 @@ jobs:
           fi
 
       - name: Install and start local Ollama
+        if: env.NO_EDITORIAL != 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -215,11 +245,20 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          args=(run-url "$VIDEO_URL" --output-root outputs --language fa \
+          args=(run-url "$VIDEO_URL" --output-root outputs --language "$LANGUAGE" \
             --model "$WHISPER_MODEL" --device cpu --compute-type int8 \
-            --editorial-model "$EDITORIAL_MODEL" --editorial-base-url "$OLLAMA_BASE_URL")
+            --audio-profile "$AUDIO_PROFILE")
+          if [[ "${NO_EDITORIAL,,}" == "true" ]]; then
+            args+=(--no-editorial)
+          else
+            args+=(--editorial-model "$EDITORIAL_MODEL" --editorial-base-url "$OLLAMA_BASE_URL")
+          fi
           [[ -n "${SOURCE_URL:-}" ]] && args+=(--source-url "$SOURCE_URL")
-          [[ -n "${JOB_NAME:-}" ]] && args+=(--name "$JOB_NAME")
+          if [[ -n "${JOB_NAME:-}" ]]; then
+            args+=(--name "$JOB_NAME")
+          elif [[ -n "${REQUEST_ID:-}" ]]; then
+            args+=(--name "$REQUEST_ID")
+          fi
           [[ -n "${VIDEO_TITLE:-}" ]] && args+=(--title "$VIDEO_TITLE")
           [[ -n "${PROGRAM_NAME:-}" ]] && args+=(--program "$PROGRAM_NAME")
           [[ -n "${NETWORK_NAME:-}" ]] && args+=(--network "$NETWORK_NAME")
@@ -228,8 +267,52 @@ jobs:
           [[ -n "${EDITORIAL_CONTEXT:-}" ]] && args+=(--editorial-context "$EDITORIAL_CONTEXT")
           vid-pipeline "${args[@]}" 2>&1 | tee pipeline.log
 
-      - name: Upload transcript package
-        if: always()
+      - name: Verify dispatched result belongs to request
+        if: github.event_name == 'workflow_dispatch'
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          results=(outputs/"$REQUEST_ID"-*/result.json)
+          if [[ ${#results[@]} -ne 1 ]]; then
+            echo "Expected exactly one result.json for request $REQUEST_ID; found ${#results[@]}" >&2
+            exit 1
+          fi
+          job_root="${results[0]%/result.json}"
+          test -s "$job_root/final/transcript.final.txt"
+          echo "Validated request-scoped job root: $job_root"
+
+      - name: Upload transcript package for dispatch
+        if: always() && github.event_name == 'workflow_dispatch'
+        uses: actions/upload-artifact@v4
+        with:
+          name: reviewed-transcript-${{ inputs.request_id }}
+          path: |
+            outputs/${{ inputs.request_id }}-*/state.json
+            outputs/${{ inputs.request_id }}-*/source.json
+            outputs/${{ inputs.request_id }}-*/video-info.json
+            outputs/${{ inputs.request_id }}-*/result.json
+            outputs/${{ inputs.request_id }}-*/audio/audio-quality.json
+            outputs/${{ inputs.request_id }}-*/raw/transcript.raw.json
+            outputs/${{ inputs.request_id }}-*/raw/transcript.raw.md
+            outputs/${{ inputs.request_id }}-*/machine/**
+            outputs/${{ inputs.request_id }}-*/final/**
+            outputs/${{ inputs.request_id }}-*/accuracy/*.json
+            outputs/${{ inputs.request_id }}-*/accuracy/*.md
+            outputs/${{ inputs.request_id }}-*/accuracy/*.srt
+            outputs/${{ inputs.request_id }}-*/accuracy/*.vtt
+            outputs/${{ inputs.request_id }}-*/review/*.json
+            outputs/${{ inputs.request_id }}-*/review/*.md
+            outputs/${{ inputs.request_id }}-*/review/*.html
+            outputs/${{ inputs.request_id }}-*/review/*.srt
+            outputs/${{ inputs.request_id }}-*/review/*.vtt
+            pipeline.log
+            ollama.log
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: Upload transcript package for non-dispatch events
+        if: always() && github.event_name != 'workflow_dispatch'
         uses: actions/upload-artifact@v4
         with:
           name: reviewed-transcript-${{ github.run_id }}

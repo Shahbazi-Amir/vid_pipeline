@@ -101,6 +101,10 @@ class VideoJobPaths:
         return self.job_root / "audio" / "audio-16k-mono.wav"
 
     @property
+    def audio_quality(self) -> Path:
+        return self.job_root / "audio" / "audio-quality.json"
+
+    @property
     def raw_json(self) -> Path:
         return self.job_root / "raw" / "transcript.raw.json"
 
@@ -147,12 +151,19 @@ class VideoJobPaths:
 class VideoPipeline:
     """Resume-safe pipeline that converts one video URL into final text files."""
 
-    def __init__(self, url: str, output_root: str | Path = "outputs", name: str = "") -> None:
+    def __init__(
+        self,
+        url: str,
+        output_root: str | Path = "outputs",
+        name: str = "",
+        audio_profile: str = "safe",
+    ) -> None:
         self.url = url
         self.job_id = make_job_id(url, name)
         self.paths = VideoJobPaths(Path(output_root), self.job_id)
         self.paths.ensure()
         self.state = PipelineState(self.paths.state)
+        self.audio_profile = audio_profile
         self.metadata: dict[str, Any] = {}
         if self.paths.source_metadata.exists():
             self.metadata = json.loads(self.paths.source_metadata.read_text(encoding="utf-8"))
@@ -200,9 +211,23 @@ class VideoPipeline:
 
     def download(self, *, force: bool = False) -> dict[str, Any]:
         def action() -> tuple[list[Path], dict[str, Any]]:
-            video, metadata = download_video(self.url, self.paths.video_dir)
-            return [video, self.paths.video_metadata], {
-                "video_path": str(video),
+            from vid_pipeline.media import require_decodable_audio
+
+            media_path, metadata = download_video(self.url, self.paths.video_dir)
+            media = require_decodable_audio(media_path)
+            if self.paths.source_metadata.exists():
+                source = json.loads(self.paths.source_metadata.read_text(encoding="utf-8"))
+                source["input_type"] = media["input_type"]
+                source["media"] = media
+                self.paths.source_metadata.write_text(
+                    json.dumps(source, ensure_ascii=False, indent=2) + "\n",
+                    encoding="utf-8",
+                )
+                self.metadata = source
+            return [media_path, self.paths.video_metadata], {
+                "media_path": str(media_path),
+                "video_path": str(media_path),
+                "input_type": media["input_type"],
                 "duration": metadata.get("duration"),
             }
 
@@ -221,8 +246,14 @@ class VideoPipeline:
 
     def audio(self, *, force: bool = False) -> dict[str, Any]:
         def action() -> tuple[list[Path], dict[str, Any]]:
-            normalized = normalize_audio(self._downloaded_video(), self.paths.audio, overwrite=force)
-            return [normalized], {"probe": validate_normalized_audio(normalized)}
+            normalized = normalize_audio(
+                self._downloaded_video(), self.paths.audio, overwrite=force,
+                profile=self.audio_profile, quality_path=self.paths.audio_quality,
+            )
+            return [normalized, self.paths.audio_quality], {
+                "probe": validate_normalized_audio(normalized),
+                "audio_profile": self.audio_profile,
+            }
 
         return self._run_stage("audio", action, force=force)
 
@@ -450,7 +481,11 @@ class LocalMediaPipeline(VideoPipeline):
     """Run the canonical pipeline for an existing local media file."""
 
     def __init__(
-        self, media_path: str | Path, output_root: str | Path = "outputs", name: str = ""
+        self,
+        media_path: str | Path,
+        output_root: str | Path = "outputs",
+        name: str = "",
+        audio_profile: str = "safe",
     ) -> None:
         self.media_path = Path(media_path).resolve()
         if not self.media_path.is_file():
@@ -460,20 +495,25 @@ class LocalMediaPipeline(VideoPipeline):
         self.paths = VideoJobPaths(Path(output_root), self.job_id)
         self.paths.ensure()
         self.state = PipelineState(self.paths.state)
+        self.audio_profile = audio_profile
         self.metadata = {}
         if self.paths.source_metadata.exists():
             self.metadata = json.loads(self.paths.source_metadata.read_text(encoding="utf-8"))
 
     def inspect(self, *, force: bool = False) -> dict[str, Any]:
         def action() -> tuple[list[Path], dict[str, Any]]:
+            from vid_pipeline.media import require_decodable_audio
+
+            media = require_decodable_audio(self.media_path)
             payload = {
                 "schema_version": 2,
                 "job_id": self.job_id,
-                "input_type": "file",
+                "input_type": media["input_type"],
                 "path": str(self.media_path),
                 "title": self.media_path.stem,
                 "size": self.media_path.stat().st_size,
                 "sha256": _sha256_file(self.media_path),
+                "media": media,
             }
             self.paths.source_metadata.write_text(
                 json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"

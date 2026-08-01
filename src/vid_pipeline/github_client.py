@@ -342,6 +342,7 @@ class GitHubClient:
             "model": options.get("model", "small"),
             "language": options.get("language", "fa"),
             "no_editorial": str(options.get("no_editorial", True)).lower(),
+            "audio_profile": options.get("audio_profile", "safe"),
         }
         response = self._request(
             "POST",
@@ -379,6 +380,7 @@ class GitHubClient:
                     "url": url,
                     "request_id": request.request_id,
                     "whisper_model": options.get("model", "small"),
+                    "audio_profile": options.get("audio_profile", "safe"),
                 },
             },
         )

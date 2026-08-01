@@ -13,8 +13,9 @@ from pathlib import Path
 from typing import Any
 
 MEDIA_EXTENSIONS = {
-    ".avi", ".flac", ".m4a", ".m4v", ".mkv", ".mov", ".mp3",
-    ".mp4", ".ogg", ".wav", ".webm",
+    ".aac", ".ac3", ".aif", ".aiff", ".alac", ".amr", ".avi", ".caf",
+    ".flac", ".m4a", ".m4v", ".mkv", ".mov", ".mp3", ".mp4", ".ogg",
+    ".opus", ".wav", ".webm", ".wma",
 }
 CHUNK_SIZE = 8 * 1024 * 1024
 
@@ -138,6 +139,7 @@ class OnlineClient:
         editorial: bool = True,
         resume: bool = True,
         force: bool = False,
+        audio_profile: str = "safe",
     ) -> ClientRecord:
         path = path.resolve()
         if not path.is_file() or path.suffix.lower() not in MEDIA_EXTENSIONS:
@@ -180,6 +182,7 @@ class OnlineClient:
             job = self._request("POST", "/v1/jobs", json={
                 "upload_id": record.upload_id, "profile": profile, "model": model,
                 "language": language, "editorial": editorial,
+                "audio_profile": audio_profile,
             }).json()
             record.job_id = job["job_id"]
             record.job_status = job["status"]

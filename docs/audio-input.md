@@ -19,6 +19,8 @@ Folder discovery recognizes `.wav`, `.mp3`, `.m4a`, `.aac`, `.flac`, `.ogg`,
 as well as supported video extensions. Extensions only select candidates;
 FFprobe validates actual streams on the processing worker. Wrong or absent
 extensions are accepted by direct file processing when the content is decodable.
+Attached album/cover artwork is treated as audio metadata rather than as a real
+video stream, so covered MP3/M4A-style audio remains classified as audio.
 
 Supports common audio formats decodable by the installed FFmpeg build.
 
@@ -44,7 +46,11 @@ compare `safe` and `none` when speech is already clean.
 Each job writes `audio/audio-quality.json` with duration, codec, sample rate,
 channels, peak and mean volume, possible clipping, silence ratio, very-low-volume
 status, an explicitly estimated `noise_probability`, the selected profile,
-applied filters, and warnings. It does not claim an exact SNR.
+applied filters, and warnings. Noise estimation is independent from silence and
+uses FFmpeg `astats` sample entropy plus zero-crossing rate; those source metrics
+are also included in the report for transparency. A `likely_noise` warning is
+added only when the heuristic crosses its conservative threshold. It does not
+claim an exact SNR.
 
 ## Uploads, artifacts, and review
 

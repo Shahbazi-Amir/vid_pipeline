@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from vid_pipeline.github_client import GitHubRequest, GitHubState, URL_WORKFLOW
+from vid_pipeline.github_client import URL_WORKFLOW, GitHubRequest, GitHubState
 from vid_pipeline.github_compat import CompatibleGitHubClient
 
 

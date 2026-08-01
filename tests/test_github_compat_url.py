@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import json
 from pathlib import Path
 
 from vid_pipeline.github_client import GitHubRequest, GitHubState, URL_WORKFLOW

@@ -80,6 +80,23 @@ class CompatibleGitHubClient(GitHubClient):
         except (TypeError, ValueError, OverflowError):
             request.dispatch_server_at = ""
 
+    def create_file_request(self, path: Path):
+        request = super().create_file_request(path)
+        if request.status not in {"workflow_succeeded", "validated", "completed"}:
+            return request
+
+        resolved = Path(path).resolve()
+        fresh = type(request)(
+            request_id=uuid.uuid4().hex,
+            local_path=str(resolved),
+            original_name=resolved.name,
+            safe_asset_name=request.safe_asset_name,
+            file_size=request.file_size,
+            sha256=request.sha256,
+        )
+        self.state.save(fresh)
+        return fresh
+
     def dispatch_upload(self, request: Any, options: dict[str, Any]) -> None:
         super().dispatch_upload(request, options)
 

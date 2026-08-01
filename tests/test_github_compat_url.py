@@ -6,6 +6,46 @@ from vid_pipeline.github_client import GitHubRequest, GitHubState, URL_WORKFLOW
 from vid_pipeline.github_compat import CompatibleGitHubClient
 
 
+def test_completed_file_submission_gets_fresh_request(tmp_path: Path):
+    client = object.__new__(CompatibleGitHubClient)
+    client.state = GitHubState(tmp_path / "state")
+    media = tmp_path / "clip.wav"
+    media.write_bytes(b"audio fixture")
+
+    first = client.create_file_request(media)
+    first.status = "completed"
+    first.workflow_run_id = 123
+    first.dispatch_id = "old-attempt"
+    client.state.save(first)
+
+    second = client.create_file_request(media)
+
+    assert second.request_id != first.request_id
+    assert second.status == "discovered"
+    assert second.workflow_run_id == 0
+    assert second.dispatch_id == ""
+    assert second.sha256 == first.sha256
+    assert second.file_size == first.file_size
+
+
+def test_failed_file_submission_remains_resumable(tmp_path: Path):
+    client = object.__new__(CompatibleGitHubClient)
+    client.state = GitHubState(tmp_path / "state")
+    media = tmp_path / "clip.wav"
+    media.write_bytes(b"audio fixture")
+
+    first = client.create_file_request(media)
+    first.status = "workflow_failed"
+    first.asset_id = 20
+    client.state.save(first)
+
+    resumed = client.create_file_request(media)
+
+    assert resumed.request_id == first.request_id
+    assert resumed.status == "workflow_failed"
+    assert resumed.asset_id == 20
+
+
 def test_dispatch_url_records_correlation_and_input(tmp_path: Path):
     client = object.__new__(CompatibleGitHubClient)
     client.repository = "owner/repo"

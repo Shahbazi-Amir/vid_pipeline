@@ -110,20 +110,32 @@ def test_probe_ignores_extension_and_rejects_invalid_media(tmp_path: Path) -> No
 
 
 def test_audio_with_attached_cover_art_stays_audio(tmp_path: Path) -> None:
-    source = tmp_path / "covered.mp3"
+    base = tmp_path / "base.mp3"
     result = ffmpeg(
         "-f", "lavfi", "-i", "sine=frequency=440:duration=1:sample_rate=44100",
-        "-f", "lavfi", "-i", "color=c=blue:s=32x32:d=1",
-        "-map", "0:a", "-map", "1:v", "-c:a", "libmp3lame", "-c:v", "mjpeg",
-        "-frames:v", "1", "-disposition:v:0", "attached_pic", str(source),
+        "-c:a", "libmp3lame", str(base),
     )
     if result.returncode:
-        pytest.skip(f"cover-art encoder unavailable: {result.stderr.strip()[-200:]}")
+        pytest.skip(f"MP3 encoder unavailable: {result.stderr.strip()[-200:]}")
+    cover = tmp_path / "cover.jpg"
+    result = ffmpeg(
+        "-f", "lavfi", "-i", "color=c=blue:s=32x32:d=0.1",
+        "-frames:v", "1", "-update", "1", str(cover),
+    )
+    assert result.returncode == 0, result.stderr
+    source = tmp_path / "covered.mp3"
+    result = ffmpeg(
+        "-i", str(base), "-i", str(cover), "-map", "0:a", "-map", "1:v",
+        "-c:a", "copy", "-c:v", "mjpeg", "-disposition:v:0", "attached_pic",
+        str(source),
+    )
+    assert result.returncode == 0, result.stderr
     metadata = probe_media(source)
     assert metadata["input_type"] == "audio"
     assert metadata["has_audio_stream"] is True
     assert metadata["has_video_stream"] is False
     assert metadata["has_attached_picture"] is True
+    assert 0.9 <= float(metadata["duration_seconds"]) <= 1.1
     output = tmp_path / "covered-out.wav"
     normalize_audio(source, output, overwrite=True, profile="safe")
     validate_normalized_audio(output)

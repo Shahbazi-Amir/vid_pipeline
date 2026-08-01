@@ -185,22 +185,53 @@ def test_mixed_folder_discovery_and_validation(tmp_path: Path) -> None:
     assert probe_media(invalid)["input_type"] == "invalid"
 
 
-def test_low_volume_clipping_noise_and_silence_reports(tmp_path: Path) -> None:
+@pytest.mark.parametrize(
+    "name,source_filter,expected_warning",
+    [
+        ("low", "sine=frequency=440:duration=1,volume=0.001", "very_low_volume"),
+        ("clipped", "sine=frequency=440:duration=1,volume=10", "possible_clipping"),
+        ("silence", "anullsrc=r=48000:cl=stereo:d=1", "mostly_silence"),
+    ],
+)
+def test_quality_warnings(
+    tmp_path: Path, name: str, source_filter: str, expected_warning: str
+) -> None:
+    source = tmp_path / f"{name}.wav"
+    result = ffmpeg("-f", "lavfi", "-i", source_filter, str(source))
+    assert result.returncode == 0, result.stderr
+    output = tmp_path / f"{name}-out.wav"
+    report_path = tmp_path / f"{name}.json"
+    normalize_audio(
+        source, output, overwrite=True, profile="none", quality_path=report_path
+    )
+    report = json.loads(report_path.read_text())
+    assert expected_warning in report["warnings"]
+    assert 0 <= report["silence_ratio"] <= 1
+
+
+def test_noise_probability_distinguishes_noise_from_clean_tone(tmp_path: Path) -> None:
+    reports: dict[str, dict[str, object]] = {}
     for name, source_filter in {
-        "low": "sine=frequency=440:duration=1,volume=0.001",
-        "clipped": "sine=frequency=440:duration=1,volume=10",
+        "clean": "sine=frequency=440:duration=1,volume=0.2",
         "noise": "anoisesrc=d=1:c=pink:a=0.2",
-        "silence": "anullsrc=r=48000:cl=stereo:d=1",
     }.items():
         source = tmp_path / f"{name}.wav"
         result = ffmpeg("-f", "lavfi", "-i", source_filter, str(source))
         assert result.returncode == 0, result.stderr
         output = tmp_path / f"{name}-out.wav"
         report_path = tmp_path / f"{name}.json"
-        normalize_audio(source, output, overwrite=True, quality_path=report_path)
-        report = json.loads(report_path.read_text())
-        assert 0 <= report["silence_ratio"] <= 1
-        assert isinstance(report["warnings"], list)
+        normalize_audio(
+            source, output, overwrite=True, profile="none", quality_path=report_path
+        )
+        reports[name] = json.loads(report_path.read_text())
+
+    clean_probability = float(reports["clean"]["noise_probability"])
+    noise_probability = float(reports["noise"]["noise_probability"])
+    assert noise_probability > clean_probability + .3
+    assert "likely_noise" not in reports["clean"]["warnings"]
+    assert "likely_noise" in reports["noise"]["warnings"]
+    assert reports["noise"]["sample_entropy"] is not None
+    assert reports["noise"]["zero_crossings_rate"] is not None
 
 
 def test_registry_contains_required_extensions() -> None:

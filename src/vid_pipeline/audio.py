@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 import shutil
 import subprocess
 import uuid
@@ -83,7 +84,10 @@ def normalize_audio(
         normalized = validate_normalized_audio(temporary)
         source_duration = float(source_probe.get("duration_seconds") or 0)
         output_duration = float((normalized.get("format") or {}).get("duration") or 0)
-        if source_duration and (output_duration <= 0 or abs(output_duration - source_duration) > max(2, source_duration * .05)):
+        if source_duration and (
+            output_duration <= 0
+            or abs(output_duration - source_duration) > max(2, source_duration * .05)
+        ):
             raise ExternalToolError("Normalized audio duration differs unexpectedly from input media.")
         temporary.replace(destination)
         report_path = Path(quality_path) if quality_path else destination.parent / "audio-quality.json"
@@ -114,26 +118,48 @@ def probe_media(path: str | Path) -> dict[str, Any]:
     return json.loads(result.stdout)
 
 
+def _clamp_probability(value: float) -> float:
+    return min(1.0, max(0.0, value))
+
+
 def analyze_audio_quality(
     path: Path, source: dict[str, Any], profile: str, filters: list[str]
 ) -> dict[str, Any]:
     ffmpeg = require_tool("ffmpeg")
     result = subprocess.run(
-        [ffmpeg, "-hide_banner", "-nostats", "-i", str(path), "-af",
-         "volumedetect,silencedetect=n=-50dB:d=0.25", "-f", "null", "-"],
-        capture_output=True, text=True, check=False,
+        [
+            ffmpeg,
+            "-hide_banner",
+            "-nostats",
+            "-i",
+            str(path),
+            "-af",
+            "volumedetect,silencedetect=n=-50dB:d=0.25,astats=metadata=0:reset=0",
+            "-f",
+            "null",
+            "-",
+        ],
+        capture_output=True,
+        text=True,
+        check=False,
     )
     text = result.stderr
-    def metric(name: str) -> float | None:
-        import re
+
+    def db_metric(name: str) -> float | None:
         match = re.search(rf"{name}:\s*(-?(?:inf|\d+(?:\.\d+)?))\s*dB", text)
         if not match or match.group(1) == "-inf":
             return None
         return float(match.group(1))
-    peak = metric("max_volume")
-    mean = metric("mean_volume")
-    import re
+
+    def scalar_metric(name: str) -> float | None:
+        matches = re.findall(rf"{re.escape(name)}:\s*(-?\d+(?:\.\d+)?)", text)
+        return float(matches[-1]) if matches else None
+
+    peak = db_metric("max_volume")
+    mean = db_metric("mean_volume")
     silences = [float(v) for v in re.findall(r"silence_duration:\s*(\d+(?:\.\d+)?)", text)]
+    entropy = scalar_metric("Entropy")
+    zero_crossings_rate = scalar_metric("Zero crossings rate")
     duration = float(inspect_media(path).get("duration_seconds") or 0)
     ratio = min(1.0, sum(silences) / duration) if duration else 0.0
     warnings: list[str] = []
@@ -145,14 +171,33 @@ def analyze_audio_quality(
         warnings.append("very_low_volume")
     if ratio > .8:
         warnings.append("mostly_silence")
-    noise_probability = min(1.0, max(0.0, (ratio - .15) * .5))
+
+    if ratio > .8 or mean is None:
+        noise_probability = 0.0
+    else:
+        entropy_score = _clamp_probability(((entropy or 0.0) - .55) / .25)
+        crossing_score = _clamp_probability(((zero_crossings_rate or 0.0) - .05) / .20)
+        noise_probability = _clamp_probability(.6 * entropy_score + .4 * crossing_score)
+    if noise_probability >= .6:
+        warnings.append("likely_noise")
+
     return {
-        "schema_version": 1, "input_type": source.get("input_type", "unknown"),
-        "duration_seconds": duration, "sample_rate": 16000, "channels": 1,
-        "codec": "pcm_s16le", "peak_dbfs": peak, "mean_volume_db": mean,
-        "clipping_detected": clipping, "silence_ratio": ratio,
-        "very_low_volume": low, "noise_probability": noise_probability,
-        "preprocessing_profile": profile, "filters_applied": list(filters),
+        "schema_version": 1,
+        "input_type": source.get("input_type", "unknown"),
+        "duration_seconds": duration,
+        "sample_rate": 16000,
+        "channels": 1,
+        "codec": "pcm_s16le",
+        "peak_dbfs": peak,
+        "mean_volume_db": mean,
+        "clipping_detected": clipping,
+        "silence_ratio": ratio,
+        "very_low_volume": low,
+        "sample_entropy": entropy,
+        "zero_crossings_rate": zero_crossings_rate,
+        "noise_probability": round(noise_probability, 6),
+        "preprocessing_profile": profile,
+        "filters_applied": list(filters),
         "warnings": warnings,
     }
 

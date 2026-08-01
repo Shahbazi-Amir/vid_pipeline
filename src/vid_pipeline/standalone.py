@@ -211,9 +211,23 @@ class VideoPipeline:
 
     def download(self, *, force: bool = False) -> dict[str, Any]:
         def action() -> tuple[list[Path], dict[str, Any]]:
-            video, metadata = download_video(self.url, self.paths.video_dir)
-            return [video, self.paths.video_metadata], {
-                "video_path": str(video),
+            from vid_pipeline.media import require_decodable_audio
+
+            media_path, metadata = download_video(self.url, self.paths.video_dir)
+            media = require_decodable_audio(media_path)
+            if self.paths.source_metadata.exists():
+                source = json.loads(self.paths.source_metadata.read_text(encoding="utf-8"))
+                source["input_type"] = media["input_type"]
+                source["media"] = media
+                self.paths.source_metadata.write_text(
+                    json.dumps(source, ensure_ascii=False, indent=2) + "\n",
+                    encoding="utf-8",
+                )
+                self.metadata = source
+            return [media_path, self.paths.video_metadata], {
+                "media_path": str(media_path),
+                "video_path": str(media_path),
+                "input_type": media["input_type"],
                 "duration": metadata.get("duration"),
             }
 

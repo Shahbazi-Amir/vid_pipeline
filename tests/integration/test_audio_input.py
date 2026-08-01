@@ -12,7 +12,12 @@ import pytest
 from vid_pipeline.audio import normalize_audio, validate_normalized_audio
 from vid_pipeline.cli import build_parser
 from vid_pipeline.errors import ExternalToolError
-from vid_pipeline.media import AUDIO_EXTENSIONS, probe_media, require_decodable_audio
+from vid_pipeline.media import (
+    AUDIO_EXTENSIONS,
+    discover_media,
+    probe_media,
+    require_decodable_audio,
+)
 
 pytestmark = pytest.mark.skipif(
     not shutil.which("ffmpeg") or not shutil.which("ffprobe"),
@@ -113,6 +118,39 @@ def test_video_without_audio_is_rejected(tmp_path: Path) -> None:
     assert probe_media(source)["input_type"] == "video"
     with pytest.raises(ExternalToolError, match="does not contain an audio stream"):
         normalize_audio(source, tmp_path / "out.wav", overwrite=True)
+
+
+def test_video_with_audio_regression(tmp_path: Path) -> None:
+    source = tmp_path / "video.mp4"
+    result = ffmpeg(
+        "-f", "lavfi", "-i", "color=c=black:s=160x120:d=1",
+        "-f", "lavfi", "-i", "sine=frequency=440:duration=1",
+        "-shortest", "-c:v", "mpeg4", "-c:a", "aac", str(source),
+    )
+    assert result.returncode == 0, result.stderr
+    assert probe_media(source)["input_type"] == "video"
+    output = tmp_path / "video-out.wav"
+    normalize_audio(source, output, overwrite=True, profile="safe")
+    validate_normalized_audio(output)
+
+
+def test_mixed_folder_discovery_and_validation(tmp_path: Path) -> None:
+    audio = tmp_path / "speech.wav"
+    tone(audio)
+    video = tmp_path / "interview.mp4"
+    result = ffmpeg(
+        "-f", "lavfi", "-i", "color=c=black:s=160x120:d=1",
+        "-f", "lavfi", "-i", "sine=frequency=330:duration=1",
+        "-shortest", "-c:v", "mpeg4", "-c:a", "aac", str(video),
+    )
+    assert result.returncode == 0, result.stderr
+    invalid = tmp_path / "broken.mp3"
+    invalid.write_bytes(b"corrupt")
+    discovered = discover_media(tmp_path)
+    assert discovered == sorted([invalid, video, audio])
+    assert probe_media(audio)["input_type"] == "audio"
+    assert probe_media(video)["input_type"] == "video"
+    assert probe_media(invalid)["input_type"] == "invalid"
 
 
 def test_low_volume_clipping_noise_and_silence_reports(tmp_path: Path) -> None:

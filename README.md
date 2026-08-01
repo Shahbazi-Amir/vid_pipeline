@@ -1,4 +1,20 @@
-# Video Transcript Pipeline
+# Video and Audio Transcript Pipeline
+
+Local files, mixed media folders, direct media URLs, supported podcast pages,
+online uploads, and GitHub Actions uploads can contain either video or
+audio-only media. Every input is validated with FFprobe and normalized to mono
+16 kHz PCM WAV before ASR. Supports common audio formats decodable by the
+installed FFmpeg build.
+
+```bash
+vid-pipeline run-file ./speech.m4a --audio-profile safe --no-editorial
+vid-pipeline run-url "https://example.com/podcast.mp3" --audio-profile safe
+vid-pipeline github-submit-file ./speech.mp3 --audio-profile safe --wait --download
+```
+
+Audio preprocessing profiles are `none`, `safe` (default), and `noisy`.
+See [Audio input](docs/audio-input.md) for formats, quality reporting,
+limitations, privacy, and review guidance.
 
 The project supports four distinct execution modes:
 

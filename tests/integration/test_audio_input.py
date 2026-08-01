@@ -109,6 +109,26 @@ def test_probe_ignores_extension_and_rejects_invalid_media(tmp_path: Path) -> No
         require_decodable_audio(corrupt)
 
 
+def test_audio_with_attached_cover_art_stays_audio(tmp_path: Path) -> None:
+    source = tmp_path / "covered.mp3"
+    result = ffmpeg(
+        "-f", "lavfi", "-i", "sine=frequency=440:duration=1:sample_rate=44100",
+        "-f", "lavfi", "-i", "color=c=blue:s=32x32:d=1",
+        "-map", "0:a", "-map", "1:v", "-c:a", "libmp3lame", "-c:v", "mjpeg",
+        "-frames:v", "1", "-disposition:v:0", "attached_pic", str(source),
+    )
+    if result.returncode:
+        pytest.skip(f"cover-art encoder unavailable: {result.stderr.strip()[-200:]}")
+    metadata = probe_media(source)
+    assert metadata["input_type"] == "audio"
+    assert metadata["has_audio_stream"] is True
+    assert metadata["has_video_stream"] is False
+    assert metadata["has_attached_picture"] is True
+    output = tmp_path / "covered-out.wav"
+    normalize_audio(source, output, overwrite=True, profile="safe")
+    validate_normalized_audio(output)
+
+
 def test_video_without_audio_is_rejected(tmp_path: Path) -> None:
     source = tmp_path / "silent-video.mp4"
     result = ffmpeg(

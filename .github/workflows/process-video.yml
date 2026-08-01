@@ -49,6 +49,12 @@ on:
         required: true
         default: large-v3-turbo
         type: string
+      audio_profile:
+        description: Audio preprocessing profile
+        required: true
+        default: safe
+        type: choice
+        options: [none, safe, noisy]
       editorial_model:
         description: Local Ollama model
         required: true
@@ -99,6 +105,7 @@ jobs:
       GUEST_NAME: ${{ inputs.guest }}
       EDITORIAL_CONTEXT: ${{ inputs.editorial_context }}
       WHISPER_MODEL: ${{ inputs.whisper_model || 'large-v3-turbo' }}
+      AUDIO_PROFILE: ${{ inputs.audio_profile || 'safe' }}
       EDITORIAL_MODEL: ${{ inputs.editorial_model || 'qwen2.5:7b' }}
       VID_PIPELINE_ACCURACY_MODE: ${{ inputs.accuracy_mode || 'fast' }}
       VID_PIPELINE_MAX_TARGETED_SEGMENTS: 40
@@ -217,7 +224,8 @@ jobs:
           set -euo pipefail
           args=(run-url "$VIDEO_URL" --output-root outputs --language fa \
             --model "$WHISPER_MODEL" --device cpu --compute-type int8 \
-            --editorial-model "$EDITORIAL_MODEL" --editorial-base-url "$OLLAMA_BASE_URL")
+            --audio-profile "$AUDIO_PROFILE" --editorial-model "$EDITORIAL_MODEL" \
+            --editorial-base-url "$OLLAMA_BASE_URL")
           [[ -n "${SOURCE_URL:-}" ]] && args+=(--source-url "$SOURCE_URL")
           [[ -n "${JOB_NAME:-}" ]] && args+=(--name "$JOB_NAME")
           [[ -n "${VIDEO_TITLE:-}" ]] && args+=(--title "$VIDEO_TITLE")

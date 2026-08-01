@@ -14,6 +14,7 @@ from vid_pipeline.clean import clean_transcript
 from vid_pipeline.download import extract_metadata
 from vid_pipeline.editorial import EditorialConfig, EditorialMetadata, edit_transcript
 from vid_pipeline.errors import PipelineError
+from vid_pipeline.media import MEDIA_EXTENSIONS as _MEDIA_EXTENSIONS
 from vid_pipeline.standalone import LocalMediaPipeline, VideoPipeline
 from vid_pipeline.transcribe import DEFAULT_INITIAL_PROMPT, TranscriptionConfig
 
@@ -30,6 +31,7 @@ def _add_transcription_options(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--beam-size", type=int, default=5)
     parser.add_argument("--initial-prompt", default=DEFAULT_INITIAL_PROMPT)
     parser.add_argument("--hotwords", default="")
+    parser.add_argument("--audio-profile", choices=("none", "safe", "noisy"), default="safe")
 
 
 def _add_editorial_metadata_options(parser: argparse.ArgumentParser) -> None:
@@ -96,6 +98,7 @@ def _add_online_options(parser: argparse.ArgumentParser, *, discovery: bool = Fa
     parser.add_argument("--model", default="small")
     parser.add_argument("--language", default="fa")
     parser.add_argument("--no-editorial", action="store_true")
+    parser.add_argument("--audio-profile", choices=("none", "safe", "noisy"), default="safe")
 
 
 def _add_github_options(parser: argparse.ArgumentParser, *, output: bool = True) -> None:
@@ -108,6 +111,7 @@ def _add_github_options(parser: argparse.ArgumentParser, *, output: bool = True)
     parser.add_argument("--profile", choices=("fast", "balanced", "accurate"), default="balanced")
     parser.add_argument("--model", default="small")
     parser.add_argument("--language", default="fa")
+    parser.add_argument("--audio-profile", choices=("none", "safe", "noisy"), default="safe")
     editorial = parser.add_mutually_exclusive_group()
     editorial.add_argument("--no-editorial", dest="no_editorial", action="store_true", default=True)
     editorial.add_argument("--editorial", dest="no_editorial", action="store_false")
@@ -156,6 +160,7 @@ def build_parser() -> argparse.ArgumentParser:
     folder_parser.add_argument("--profile", choices=("fast", "balanced", "accurate"), default="balanced")
     folder_parser.add_argument("--model", default="small")
     folder_parser.add_argument("--language", default="fa")
+    folder_parser.add_argument("--audio-profile", choices=("none", "safe", "noisy"), default="safe")
     folder_parser.add_argument("--editorial-model", default=os.getenv("VID_PIPELINE_EDITORIAL_MODEL", "qwen3:8b"))
     folder_parser.add_argument("--no-editorial", action="store_true")
 
@@ -289,7 +294,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def command_run_url(args: argparse.Namespace) -> int:
-    pipeline = VideoPipeline(args.url, args.output_root, args.name)
+    pipeline = VideoPipeline(args.url, args.output_root, args.name, args.audio_profile)
     hints = [args.title, args.guest, *list(args.speaker), args.editorial_context]
     hint_text = "، ".join(item.strip() for item in hints if item and item.strip())
     initial_prompt = args.initial_prompt.strip() or "رونویسی دقیق یک سخنرانی رسمی فارسی."
@@ -354,7 +359,7 @@ def _transcription_config(args: argparse.Namespace) -> TranscriptionConfig:
 
 
 def command_run_file(args: argparse.Namespace) -> int:
-    pipeline = LocalMediaPipeline(args.path, args.output_root, args.name)
+    pipeline = LocalMediaPipeline(args.path, args.output_root, args.name, args.audio_profile)
     results = pipeline.run(
         _transcription_config(args),
         editorial_config=None if args.no_editorial else _editorial_config(args),
@@ -364,12 +369,6 @@ def command_run_file(args: argparse.Namespace) -> int:
     )
     _json_print({"job_id": pipeline.job_id, "job_root": str(pipeline.paths.job_root), "stages": results})
     return 0
-
-
-_MEDIA_EXTENSIONS = {
-    ".mp4", ".mkv", ".mov", ".webm", ".m4v", ".avi",
-    ".mp3", ".wav", ".m4a", ".flac", ".ogg",
-}
 
 
 def command_run_folder(args: argparse.Namespace) -> int:
@@ -432,6 +431,7 @@ def _submit_kwargs(args: argparse.Namespace) -> dict[str, Any]:
         "editorial": not args.no_editorial,
         "resume": args.resume,
         "force": args.force,
+        "audio_profile": args.audio_profile,
     }
 
 
@@ -501,6 +501,7 @@ def _github_options(args: argparse.Namespace) -> dict[str, Any]:
         "model": args.model,
         "language": args.language,
         "no_editorial": args.no_editorial,
+        "audio_profile": args.audio_profile,
         "delete_remote_after_success": getattr(args, "delete_remote_after_success", False),
         "delete_result_artifact_after_download": getattr(
             args, "delete_result_artifact_after_download", False

@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-01T22:05:47.472870+00:00",
+  "config": {
+    "confidence_threshold": 0.68,
+    "segment_logprob_threshold": -0.85,
+    "no_speech_threshold": 0.5,
+    "clip_context_seconds": 3.0,
+    "extract_clips": true,
+    "retranscribe_model": "",
+    "retranscribe_device": "cpu",
+    "retranscribe_compute_type": "int8",
+    "retranscribe_beam_size": 8,
+    "paragraph_words": 90
+  },
+  "items": [
+    {
+      "id": "segment-0001",
+      "segment_id": 1,
+      "segment_index": 0,
+      "start": 0.91,
+      "end": 3.65,
+      "source_text": "The stale smell of old beer lingers.",
+      "proposed_text": "The stale smell of old beer lingers.",
+      "required": true,
+      "reasons": [
+        "possible_non_speech"
+      ],
+      "avg_logprob": -0.1588,
+      "no_speech_probability": 0.5483,
+      "mean_word_confidence": 0.9175,
+      "minimum_word_confidence": 0.771,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0001.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0002",
+      "segment_id": 2,
+      "segment_index": 1,
+      "start": 4.13,
+      "end": 6.15,
+      "source_text": "It takes heat to bring out the odor.",
+      "proposed_text": "It takes heat to bring out the odor.",
+      "required": true,
+      "reasons": [
+        "possible_non_speech"
+      ],
+      "avg_logprob": -0.1588,
+      "no_speech_probability": 0.5483,
+      "mean_word_confidence": 0.992,
+      "minimum_word_confidence": 0.9675,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0002.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0003",
+      "segment_id": 3,
+      "segment_index": 2,
+      "start": 7.03,
+      "end": 9.19,
+      "source_text": "A cold dip restores health and zest.",
+      "proposed_text": "A cold dip restores health and zest.",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "possible_non_speech"
+      ],
+      "avg_logprob": -0.1588,
+      "no_speech_probability": 0.5483,
+      "mean_word_confidence": 0.948,
+      "minimum_word_confidence": 0.6778,
+      "low_confidence_words": [
+        {
+          "word": "and",
+          "start": 8.71,
+          "end": 8.97,
+          "probability": 0.6778
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0003.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0004",
+      "segment_id": 4,
+      "segment_index": 3,
+      "start": 9.97,
+      "end": 11.99,
+      "source_text": "A salt pickle tastes fine with ham.",
+      "proposed_text": "A salt pickle tastes fine with ham.",
+      "required": true,
+      "reasons": [
+        "possible_non_speech"
+      ],
+      "avg_logprob": -0.1588,
+      "no_speech_probability": 0.5483,
+      "mean_word_confidence": 0.973,
+      "minimum_word_confidence": 0.8732,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0004.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0005",
+      "segment_id": 5,
+      "segment_index": 4,
+      "start": 12.57,
+      "end": 14.29,
+      "source_text": "Tacos al pastor are my favorite.",
+      "proposed_text": "Tacos al pastor are my favorite.",
+      "required": true,
+      "reasons": [
+        "possible_non_speech"
+      ],
+      "avg_logprob": -0.1588,
+      "no_speech_probability": 0.5483,
+      "mean_word_confidence": 0.9472,
+      "minimum_word_confidence": 0.8453,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0005.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0006",
+      "segment_id": 6,
+      "segment_index": 5,
+      "start": 15.11,
+      "end": 17.43,
+      "source_text": "A zestful food is the hot cross bun.",
+      "proposed_text": "A zestful food is the hot cross bun.",
+      "required": true,
+      "reasons": [
+        "possible_non_speech"
+      ],
+      "avg_logprob": -0.1588,
+      "no_speech_probability": 0.5483,
+      "mean_word_confidence": 0.9535,
+      "minimum_word_confidence": 0.7569,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0006.wav",
+      "retranscription": null
+    }
+  ]
+}

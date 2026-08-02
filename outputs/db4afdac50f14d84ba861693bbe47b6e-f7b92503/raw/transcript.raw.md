@@ -1,0 +1,19 @@
+# متن خام زمان‌دار
+
+[00:00.910 → 00:03.650]
+The stale smell of old beer lingers.
+
+[00:04.130 → 00:06.150]
+It takes heat to bring out the odor.
+
+[00:07.030 → 00:09.190]
+A cold dip restores health and zest.
+
+[00:09.970 → 00:11.990]
+A salt pickle tastes fine with ham.
+
+[00:12.570 → 00:14.290]
+Tacos al pastor are my favorite.
+
+[00:15.110 → 00:17.430]
+A zestful food is the hot cross bun.

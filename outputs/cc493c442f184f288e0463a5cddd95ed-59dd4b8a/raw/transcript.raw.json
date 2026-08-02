@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "language": "en",
+  "language_probability": 1.0,
+  "duration": 3.4954375,
+  "model": "small",
+  "device": "cpu",
+  "compute_type": "int8",
+  "text": "This is a live audio input test for the video pipeline.",
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 3.04,
+      "text": "This is a live audio input test for the video pipeline.",
+      "avg_logprob": -0.2279440939426422,
+      "compression_ratio": 0.9649122807017544,
+      "no_speech_prob": 0.0006856838590465486,
+      "words": [
+        {
+          "start": 0.0,
+          "end": 0.22,
+          "word": " This",
+          "probability": 0.8617051243782043
+        },
+        {
+          "start": 0.22,
+          "end": 0.38,
+          "word": " is",
+          "probability": 0.9915229082107544
+        },
+        {
+          "start": 0.38,
+          "end": 0.52,
+          "word": " a",
+          "probability": 0.9827515482902527
+        },
+        {
+          "start": 0.52,
+          "end": 0.72,
+          "word": " live",
+          "probability": 0.9184909462928772
+        },
+        {
+          "start": 0.72,
+          "end": 1.1,
+          "word": " audio",
+          "probability": 0.9794586896896362
+        },
+        {
+          "start": 1.1,
+          "end": 1.38,
+          "word": " input",
+          "probability": 0.9870743751525879
+        },
+        {
+          "start": 1.38,
+          "end": 1.82,
+          "word": " test",
+          "probability": 0.9903546571731567
+        },
+        {
+          "start": 1.82,
+          "end": 2.14,
+          "word": " for",
+          "probability": 0.9625931978225708
+        },
+        {
+          "start": 2.14,
+          "end": 2.32,
+          "word": " the",
+          "probability": 0.9944920539855957
+        },
+        {
+          "start": 2.32,
+          "end": 2.66,
+          "word": " video",
+          "probability": 0.8553671836853027
+        },
+        {
+          "start": 2.66,
+          "end": 3.04,
+          "word": " pipeline.",
+          "probability": 0.9840002655982971
+        }
+      ],
+      "review_flags": []
+    }
+  ]
+}

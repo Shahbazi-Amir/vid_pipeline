@@ -38,7 +38,12 @@ def _valid_segments(payload: dict[str, Any]) -> list[dict[str, Any]]:
             continue
         if not text or start < 0 or end < start:
             continue
-        valid.append({"start": start, "end": end, "text": text})
+        valid.append({
+            "start": start, "end": end, "text": text,
+            **({"speaker": segment["speaker"]} if segment.get("speaker") else {}),
+            **({"speaker_role": segment["speaker_role"]} if segment.get("speaker_role") else {}),
+            **({"speaker_role_confidence": segment["speaker_role_confidence"]} if segment.get("speaker_role_confidence") is not None else {}),
+        })
     return valid
 
 
@@ -56,6 +61,20 @@ def select_timestamp_source(job_root: str | Path) -> tuple[Path, list[dict[str, 
         if path.is_file():
             segments = _valid_segments(_load(path))
             if segments:
+                if not any(segment.get("speaker") for segment in segments):
+                    consensus = root / "accuracy" / "transcript.consensus.json"
+                    if consensus.is_file() and consensus != path:
+                        speaker_segments = _valid_segments(_load(consensus))
+                        for segment in segments:
+                            matches = [
+                                row for row in speaker_segments if row.get("speaker") and
+                                min(segment["end"], row["end"]) > max(segment["start"], row["start"])
+                            ]
+                            if matches:
+                                best = max(matches, key=lambda row: min(segment["end"], row["end"]) - max(segment["start"], row["start"]))
+                                for key in ("speaker", "speaker_role", "speaker_role_confidence"):
+                                    if key in best:
+                                        segment[key] = best[key]
                 return path, segments
     raise ValueError("No transcript source contains valid, real segment timestamps.")
 
@@ -64,14 +83,39 @@ def render_timestamped(segments: list[dict[str, Any]], *, title: str = "") -> st
     heading = f"# {title.strip()}" if title.strip() else "# متن زمان‌بندی‌شده"
     lines = [heading, ""]
     for segment in segments:
-        lines.extend(
-            [
-                f"[{_stamp(segment['start'])} → {_stamp(segment['end'])}]",
-                "",
-                segment["text"],
-                "",
-            ]
-        )
+        label = _speaker_label(segment)
+        header = f"[{_stamp(segment['start'])} → {_stamp(segment['end'])}]"
+        lines.extend([f"{header} **{label}**" if label else header, "", segment["text"], ""])
+    return "\n".join(lines).rstrip() + "\n"
+
+
+def _speaker_label(segment: dict[str, Any]) -> str:
+    if segment.get("speaker_role"):
+        return str(segment["speaker_role"])
+    speaker = str(segment.get("speaker") or "")
+    if speaker.startswith("SPEAKER_") and speaker[8:].isdigit():
+        number = str(int(speaker[8:]) + 1).translate(str.maketrans("0123456789", "۰۱۲۳۴۵۶۷۸۹"))
+        return f"گوینده {number}"
+    return speaker
+
+
+def _render_speaker_markdown(segments: list[dict[str, Any]], title: str) -> str:
+    lines = [f"# {title.strip()}" if title.strip() else "# Transcript", ""]
+    for segment in segments:
+        label = _speaker_label(segment)
+        if label:
+            lines.extend([f"**{label}**", ""])
+        lines.extend([segment["text"], ""])
+    return "\n".join(lines).rstrip() + "\n"
+
+
+def _render_speaker_text(segments: list[dict[str, Any]]) -> str:
+    lines = []
+    for segment in segments:
+        label = _speaker_label(segment)
+        if label:
+            lines.append(f"{label}:")
+        lines.extend([segment["text"], ""])
     return "\n".join(lines).rstrip() + "\n"
 
 
@@ -93,8 +137,14 @@ def export_final_outputs(job_root: str | Path) -> dict[str, Any]:
     if temporary.exists():
         shutil.rmtree(temporary)
     temporary.mkdir(parents=True)
-    shutil.copyfile(markdown_source, temporary / OUTPUT_NAMES[0])
-    shutil.copyfile(text_source, temporary / OUTPUT_NAMES[1])
+    if any(segment.get("speaker") for segment in segments):
+        (temporary / OUTPUT_NAMES[0]).write_text(
+            _render_speaker_markdown(segments, str(metadata.get("title") or "")), encoding="utf-8"
+        )
+        (temporary / OUTPUT_NAMES[1]).write_text(_render_speaker_text(segments), encoding="utf-8")
+    else:
+        shutil.copyfile(markdown_source, temporary / OUTPUT_NAMES[0])
+        shutil.copyfile(text_source, temporary / OUTPUT_NAMES[1])
     (temporary / OUTPUT_NAMES[2]).write_text(
         render_timestamped(segments, title=str(metadata.get("title") or "")), encoding="utf-8"
     )

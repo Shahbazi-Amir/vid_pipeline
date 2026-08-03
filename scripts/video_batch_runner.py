@@ -23,7 +23,6 @@ from vid_pipeline.github_client import (
     discover_media,
 )
 
-
 TRANSIENT_ERRORS = (
     "LocalProtocolError",
     "RemoteProtocolError",

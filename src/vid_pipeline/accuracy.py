@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import difflib
 import json
-import os
 import re
 import shutil
 import subprocess
@@ -41,7 +40,11 @@ class AccuracyConfig:
     whisperx_alignment: bool = False
     whisperx_model: str = ""
     diarization: bool = False
+    diarization_required: bool = False
+    num_speakers: int | None = 2
     diarization_model: str = "pyannote/speaker-diarization-community-1"
+    speaker_role_mode: str = "generic"
+    speaker_role_overrides: dict[str, str] | None = None
     huggingface_token: str = ""
 
 
@@ -334,39 +337,27 @@ def optional_enrichment(
         except Exception as exc:
             warnings.append(f"whisperx_alignment_failed: {type(exc).__name__}: {exc}")
     if config.diarization:
-        token = config.huggingface_token or os.getenv("HUGGINGFACE_TOKEN", "")
-        if not token:
-            warnings.append("diarization_skipped_missing_huggingface_token")
-        else:
-            try:
-                from pyannote.audio import Pipeline
+        from vid_pipeline.diarization import DiarizationConfig, run_diarization
 
-                output = Pipeline.from_pretrained(config.diarization_model, token=token)(str(audio))
-                annotation = (
-                    getattr(output, "exclusive_speaker_diarization", None)
-                    or getattr(output, "speaker_diarization", None)
-                    or output
-                )
-                turns = [
-                    (float(turn.start), float(turn.end), str(speaker))
-                    for turn, _, speaker in annotation.itertracks(yield_label=True)
-                ]
-                for segment in segments:
-                    best = max(
-                        turns,
-                        key=lambda turn: max(
-                            0,
-                            min(segment["end"], turn[1]) - max(segment["start"], turn[0]),
-                        ),
-                        default=None,
-                    )
-                    if best and max(
-                        0,
-                        min(segment["end"], best[1]) - max(segment["start"], best[0]),
-                    ) > 0:
-                        segment["speaker"] = best[2]
-            except Exception as exc:
-                warnings.append(f"diarization_failed: {type(exc).__name__}: {exc}")
+        try:
+            segments, _ = run_diarization(
+                audio,
+                segments,
+                DiarizationConfig(
+                    enabled=True,
+                    required=config.diarization_required,
+                    num_speakers=config.num_speakers,
+                    model=config.diarization_model,
+                    role_mode=config.speaker_role_mode,
+                    role_overrides=config.speaker_role_overrides,
+                    token=config.huggingface_token,
+                ),
+                output=audio.parents[1] / "diarization" / "diarization.json",
+            )
+        except Exception as exc:
+            if config.diarization_required:
+                raise AccuracyError(f"required diarization failed: {exc}") from exc
+            warnings.append(f"diarization_failed: {type(exc).__name__}: {exc}")
     return segments, warnings
 
 
@@ -639,7 +630,7 @@ def build_accuracy_package(
         else "accuracy_consensus_complete",
         "generated_at": now(),
         "mode": config.mode,
-        "config": asdict(config),
+        "config": {key: value for key, value in asdict(config).items() if key != "huggingface_token"},
         "primary_segment_count": len(primary_segments),
         "pass_count": len(passes),
         "targeted_segment_count": len(target_ids),

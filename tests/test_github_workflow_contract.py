@@ -26,7 +26,7 @@ def test_uploaded_workflow_uses_bounded_string_inputs():
         if line.startswith("      ") and not line.startswith("        ")
     ]
 
-    assert len(input_names) == 11
+    assert len(input_names) == 16
     assert "release_id" not in input_names
     assert "asset_name" not in input_names
     assert "dispatch_id" in input_names
@@ -98,7 +98,7 @@ def test_dispatch_payload_matches_workflow_contract(tmp_path: Path):
 
     inputs = captured["inputs"]
     assert isinstance(inputs, dict)
-    assert len(inputs) == 11
+    assert len(inputs) == 16
     assert "release_id" not in inputs
     assert "asset_name" not in inputs
     assert inputs["dispatch_id"] == request.dispatch_id

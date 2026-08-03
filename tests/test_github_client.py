@@ -201,6 +201,8 @@ def test_full_mock_github_flow_streams_and_deletes_only_after_validation(tmp_pat
                 json={
                     "id": 20,
                     "size": media.stat().st_size,
+                    "state": "uploaded",
+                    "digest": f"sha256:{sha256_file(media)}",
                     "browser_download_url": "https://github.test/private/asset",
                 },
             )

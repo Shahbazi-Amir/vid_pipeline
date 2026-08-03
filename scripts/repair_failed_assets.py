@@ -12,7 +12,6 @@ from vid_pipeline.github_client import (
     GitHubRequest,
 )
 
-
 REPOSITORY = "Shahbazi-Amir/vid_pipeline"
 REF = "main"
 STATE_ROOT = Path(".vid_pipeline/github")

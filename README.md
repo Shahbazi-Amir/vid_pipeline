@@ -431,3 +431,37 @@ ruff check src tests
 pytest -q
 python -m compileall -q src tests
 ```
+
+## Speaker diarization
+
+Speaker diarization is opt-in and runs independently from editorial processing. The worker uses
+`pyannote.audio>=4` with `pyannote/speaker-diarization-community-1`, the existing normalized
+mono 16 kHz audio, and CPU on GitHub-hosted runners. Configure the repository Actions secret
+`HF_TOKEN`; never put its value in commands or state files. Install locally with:
+
+```bash
+pip install -e '.[worker,diarization]'
+```
+
+`--diarize` enables safe optional fallback; add `--diarization-required` when missing credentials,
+model access, or inference failure must fail the job. `--num-speakers 2` is recommended for the
+current interview dataset. `--speaker-role-mode host-teacher` maps roles only above a conservative
+confidence threshold; otherwise outputs use `گوینده ۱`, `گوینده ۲`, etc. Manual mappings use
+`--speaker-role SPEAKER_00=host` and are applied without decorating raw transcript text.
+
+```bash
+vid-pipeline github-submit-folder ./input_videos/tehran_ \
+  --recursive --confirm-each \
+  --repo Shahbazi-Amir/vid_pipeline --ref main \
+  --profile balanced --language fa --no-editorial \
+  --diarize --diarization-required --num-speakers 2 \
+  --speaker-role-mode host-teacher \
+  --wait --download --output-root ./_tehran_pipeline_downloads \
+  --delete-remote-after-success --delete-result-artifact-after-download
+```
+
+The draft release upload validates `state=uploaded`, size, and SHA-256 digest where GitHub exposes
+it. Interrupted streams retry from byte zero with a fresh file handle; broken `starter` assets are
+deleted. Resume reuses only validated uploaded assets and does not create duplicate workflow runs.
+Normal delivery remains exactly `transcript.md`, `transcript.txt`, and
+`transcript.timestamped.md`; diarization diagnostics are debug-only.

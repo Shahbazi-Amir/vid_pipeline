@@ -90,6 +90,7 @@ where = ["src"]
 [tool.ruff]
 target-version = "py310"
 line-length = 100
+extend-exclude = ["scripts/video_batch_runner.ipynb"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP"]

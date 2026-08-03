@@ -115,6 +115,19 @@ def _add_github_options(parser: argparse.ArgumentParser, *, output: bool = True)
     editorial = parser.add_mutually_exclusive_group()
     editorial.add_argument("--no-editorial", dest="no_editorial", action="store_true", default=True)
     editorial.add_argument("--editorial", dest="no_editorial", action="store_false")
+    _add_diarization_options(parser)
+
+
+def _add_diarization_options(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--diarize", action=argparse.BooleanOptionalAction, default=False)
+    parser.add_argument("--diarization-required", action="store_true")
+    parser.add_argument("--num-speakers", type=int, default=2)
+    parser.add_argument(
+        "--speaker-role-mode", choices=("generic", "host-teacher"), default="generic"
+    )
+    parser.add_argument(
+        "--speaker-role", action="append", default=[], metavar="SPEAKER_00=host"
+    )
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -141,6 +154,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
     _add_transcription_options(run_parser, profile_aware=True)
     _add_editorial_options(run_parser)
+    _add_diarization_options(run_parser)
 
     file_parser = subparsers.add_parser("run-file", help="Process one local media file.")
     file_parser.add_argument("path", type=Path)
@@ -153,6 +167,7 @@ def build_parser() -> argparse.ArgumentParser:
     file_parser.add_argument("--profile", choices=("fast", "balanced", "accurate"), default="balanced")
     _add_transcription_options(file_parser, profile_aware=True)
     _add_editorial_options(file_parser)
+    _add_diarization_options(file_parser)
 
     folder_parser = subparsers.add_parser("run-folder", help="Process local media files as jobs.")
     folder_parser.add_argument("path", type=Path)
@@ -168,6 +183,7 @@ def build_parser() -> argparse.ArgumentParser:
     folder_parser.add_argument("--language", default="fa")
     folder_parser.add_argument("--editorial-model", default=os.getenv("VID_PIPELINE_EDITORIAL_MODEL", "qwen3:8b"))
     folder_parser.add_argument("--no-editorial", action="store_true")
+    _add_diarization_options(folder_parser)
 
     submit_file = subparsers.add_parser(
         "submit-file", help="Upload one local media file for online processing."
@@ -520,6 +536,11 @@ def _github_options(args: argparse.Namespace) -> dict[str, Any]:
         "language": args.language,
         "no_editorial": args.no_editorial,
         "keep_debug_artifacts": getattr(args, "keep_debug_artifacts", False),
+        "diarize": getattr(args, "diarize", False),
+        "diarization_required": getattr(args, "diarization_required", False),
+        "num_speakers": getattr(args, "num_speakers", 2),
+        "speaker_role_mode": getattr(args, "speaker_role_mode", "generic"),
+        "speaker_role": getattr(args, "speaker_role", []),
         "delete_remote_after_success": getattr(args, "delete_remote_after_success", False),
         "delete_result_artifact_after_download": getattr(
             args, "delete_result_artifact_after_download", False

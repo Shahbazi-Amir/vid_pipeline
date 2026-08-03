@@ -289,7 +289,13 @@ class GitHubClient:
             ),
             None,
         )
-        if existing and int(existing.get("size", -1)) == request.file_size:
+        expected_digest = f"sha256:{request.sha256}"
+        if (
+            existing
+            and int(existing.get("size", -1)) == request.file_size
+            and existing.get("state") == "uploaded"
+            and existing.get("digest") in {None, expected_digest}
+        ):
             request.asset_id = int(existing["id"])
             asset = existing
         else:
@@ -297,22 +303,48 @@ class GitHubClient:
                 self.delete_asset(int(existing["id"]))
             content_type = mimetypes.guess_type(path.name)[0] or "application/octet-stream"
             upload_url = str(release["upload_url"]).split("{", 1)[0]
-            with path.open("rb") as handle:
-                response = self._request(
-                    "POST",
-                    upload_url,
-                    params={"name": request.safe_asset_name, "label": request.sha256},
-                    headers={
-                        "Content-Type": content_type,
-                        "Content-Length": str(request.file_size),
-                    },
-                    content=_ProgressFile(handle, request.file_size),
-                )
+            response = None
+            for attempt in range(self.retries + 1):
+                try:
+                    # A new handle and body object are mandatory: httpx may consume the
+                    # previous stream completely before a connection failure is raised.
+                    with path.open("rb") as handle:
+                        response = self.http.request(
+                            "POST", upload_url,
+                            params={"name": request.safe_asset_name, "label": request.sha256},
+                            headers={"Content-Type": content_type, "Content-Length": str(request.file_size)},
+                            content=_ProgressFile(handle, request.file_size),
+                        )
+                        response.raise_for_status()
+                    break
+                except Exception:
+                    for broken in self.list_assets(request.release_id):
+                        if broken.get("name") == request.safe_asset_name:
+                            self.delete_asset(int(broken["id"]))
+                    if attempt >= self.retries:
+                        raise RuntimeError("GitHub asset upload failed after clean retries") from None
+                    time.sleep(min(2**attempt, 4))
+            assert response is not None
             asset = response.json()
-            if int(asset.get("size", -1)) != request.file_size:
-                self.delete_asset(int(asset["id"]))
-                raise RuntimeError("uploaded asset size mismatch")
             request.asset_id = int(asset["id"])
+        deadline = time.monotonic() + 20
+        while (
+            asset.get("state") != "uploaded"
+            or int(asset.get("size", -1)) != request.file_size
+            or (asset.get("digest") is not None and asset.get("digest") != expected_digest)
+        ) and time.monotonic() < deadline:
+            time.sleep(1)
+            asset = self._request(
+                "GET", self._repo_url(f"/releases/assets/{request.asset_id}")
+            ).json()
+        if asset.get("state") != "uploaded" or int(asset.get("size", -1)) != request.file_size:
+            self.delete_asset(request.asset_id)
+            request.asset_id = 0
+            raise RuntimeError("uploaded asset did not reach a valid uploaded state")
+        if asset.get("digest") is not None and asset.get("digest") != expected_digest:
+            self.delete_asset(request.asset_id)
+            request.asset_id = 0
+            raise RuntimeError("uploaded asset digest mismatch")
         public_url = asset.get("browser_download_url", "")
         if public_url:
             unauthenticated = self.public_http.get(public_url)
@@ -343,6 +375,11 @@ class GitHubClient:
             "language": options.get("language", "fa"),
             "no_editorial": str(options.get("no_editorial", True)).lower(),
             "keep_debug_artifacts": str(options.get("keep_debug_artifacts", False)).lower(),
+            "diarization_enabled": str(options.get("diarize", False)).lower(),
+            "diarization_required": str(options.get("diarization_required", False)).lower(),
+            "num_speakers": str(options.get("num_speakers", 2)),
+            "speaker_role_mode": options.get("speaker_role_mode", "generic"),
+            "speaker_roles": ",".join(options.get("speaker_role", [])),
         }
         response = self._request(
             "POST",

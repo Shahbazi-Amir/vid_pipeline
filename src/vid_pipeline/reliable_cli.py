@@ -12,6 +12,7 @@ from vid_pipeline.accuracy import AccuracyConfig, AccuracyError, build_accuracy_
 from vid_pipeline.accuracy_judge import advise_disagreements
 from vid_pipeline.accuracy_rebuild import rebuild_from_accuracy
 from vid_pipeline.accuracy_review import build_accuracy_review
+from vid_pipeline.diarization import parse_role_overrides
 from vid_pipeline.editorial import EditorialConfig
 from vid_pipeline.final_export import export_final_outputs, record_export_failure
 from vid_pipeline.github_compat import client_from_args as github_client_from_args
@@ -114,12 +115,16 @@ def _accuracy_config(args: Namespace) -> AccuracyConfig:
             False,
         ),
         whisperx_model=os.getenv("VID_PIPELINE_WHISPERX_MODEL", "").strip(),
-        diarization=_env_bool("VID_PIPELINE_DIARIZATION", False),
+        diarization=getattr(args, "diarize", False) or _env_bool("VID_PIPELINE_DIARIZATION", False),
+        diarization_required=getattr(args, "diarization_required", False),
+        num_speakers=getattr(args, "num_speakers", 2),
         diarization_model=os.getenv(
             "VID_PIPELINE_DIARIZATION_MODEL",
             "pyannote/speaker-diarization-community-1",
         ).strip(),
-        huggingface_token=os.getenv("HUGGINGFACE_TOKEN", "").strip(),
+        speaker_role_mode=getattr(args, "speaker_role_mode", "generic"),
+        speaker_role_overrides=parse_role_overrides(getattr(args, "speaker_role", [])),
+        huggingface_token=(os.getenv("HF_TOKEN", "") or os.getenv("HUGGINGFACE_TOKEN", "")).strip(),
     )
 
 

@@ -44,6 +44,27 @@ on:
         required: true
         default: "false"
         type: string
+      diarization_enabled:
+        required: true
+        default: "false"
+        type: string
+      diarization_required:
+        required: true
+        default: "false"
+        type: string
+      num_speakers:
+        required: true
+        default: "2"
+        type: string
+      speaker_role_mode:
+        required: true
+        default: generic
+        type: choice
+        options: [generic, host-teacher]
+      speaker_roles:
+        required: false
+        default: ""
+        type: string
 
 permissions:
   # Draft release assets require a token whose repository identity has push
@@ -64,6 +85,13 @@ jobs:
       MODEL: ${{ inputs.model }}
       LANGUAGE: ${{ inputs.language }}
       NO_EDITORIAL: ${{ inputs.no_editorial }}
+      DIARIZATION_ENABLED: ${{ inputs.diarization_enabled }}
+      DIARIZATION_REQUIRED: ${{ inputs.diarization_required }}
+      NUM_SPEAKERS: ${{ inputs.num_speakers }}
+      SPEAKER_ROLE_MODE: ${{ inputs.speaker_role_mode }}
+      SPEAKER_ROLES: ${{ inputs.speaker_roles }}
+      HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      HF_HOME: ${{ github.workspace }}/.cache/huggingface
       EDITORIAL_MODEL: qwen3:8b
       OLLAMA_BASE_URL: http://127.0.0.1:11434
 
@@ -75,6 +103,13 @@ jobs:
           python-version: "3.11"
           cache: pip
 
+      - name: Cache diarization models
+        if: inputs.diarization_enabled == 'true'
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.HF_HOME }}
+          key: diarization-${{ runner.os }}-py311-community-1-pyannote4
+
       - name: Install worker dependencies
         shell: bash
         run: |
@@ -82,7 +117,11 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y ffmpeg
           python -m pip install --upgrade pip
-          pip install -e '.[worker]'
+          if [[ "${DIARIZATION_ENABLED,,}" == "true" ]]; then
+            pip install -e '.[worker,diarization]'
+          else
+            pip install -e '.[worker]'
+          fi
 
       - name: Download authenticated draft release asset
         shell: bash
@@ -94,6 +133,8 @@ jobs:
           python - "$ASSET_ID" "$INPUT_MEDIA" <<'PY'
           import os
           import sys
+          import hashlib
+          import time
           import urllib.error
           import urllib.request
 
@@ -106,7 +147,9 @@ jobs:
                   "X-GitHub-Api-Version": "2022-11-28",
               },
           )
-          try:
+          temporary = target + ".part"
+          for attempt in range(4):
+            try:
               with urllib.request.urlopen(request, timeout=120) as response:
                   status = response.status
                   if status != 200:
@@ -114,10 +157,20 @@ jobs:
                       raise RuntimeError(
                           f"GitHub asset download returned HTTP {status}; body={body!r}"
                       )
-                  with open(target, "wb") as output:
+                  with open(temporary, "wb") as output:
                       while chunk := response.read(1024 * 1024):
                           output.write(chunk)
-          except urllib.error.HTTPError as exc:
+              if os.path.getsize(temporary) != int(os.environ["EXPECTED_SIZE"]):
+                  raise RuntimeError("downloaded asset size mismatch")
+              digest = hashlib.sha256()
+              with open(temporary, "rb") as media:
+                  for chunk in iter(lambda: media.read(1024 * 1024), b""):
+                      digest.update(chunk)
+              if digest.hexdigest() != os.environ["EXPECTED_SHA256"]:
+                  raise RuntimeError("downloaded asset SHA-256 mismatch")
+              os.replace(temporary, target)
+              break
+            except urllib.error.HTTPError as exc:
               body = exc.read(4096).decode("utf-8", "replace")
               safe_headers = {
                   key: value
@@ -136,9 +189,17 @@ jobs:
                   403: "The workflow token cannot read this private draft release asset.",
                   404: "The asset is missing or hidden from the workflow token.",
               }.get(exc.code, "GitHub rejected the asset download.")
-              raise SystemExit(
+              if exc.code in {401, 403, 404} or attempt == 3:
+                raise SystemExit(
                   f"{hint} HTTP {exc.code}; headers={safe_headers!r}; body={body!r}"
-              ) from None
+                ) from None
+            except Exception:
+              if attempt == 3:
+                  raise
+            finally:
+              if os.path.exists(temporary) and not os.path.exists(target):
+                  os.remove(temporary)
+            time.sleep(2 ** attempt)
           PY
 
       - name: Verify input size and SHA-256
@@ -187,6 +248,12 @@ jobs:
             args+=(--no-editorial)
           else
             args+=(--editorial-model "$EDITORIAL_MODEL" --editorial-base-url "$OLLAMA_BASE_URL")
+          fi
+          if [[ "${DIARIZATION_ENABLED,,}" == "true" ]]; then
+            args+=(--diarize --num-speakers "$NUM_SPEAKERS" --speaker-role-mode "$SPEAKER_ROLE_MODE")
+            [[ "${DIARIZATION_REQUIRED,,}" == "true" ]] && args+=(--diarization-required)
+            IFS=',' read -ra roles <<< "$SPEAKER_ROLES"
+            for role in "${roles[@]}"; do [[ -n "$role" ]] && args+=(--speaker-role "$role"); done
           fi
           vid-pipeline "${args[@]}" 2>&1 | tee pipeline.log
 

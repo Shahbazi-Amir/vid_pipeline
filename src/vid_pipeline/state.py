@@ -117,3 +117,13 @@ class PipelineState:
         record = self.stage(name)
         record.update(status="failed", updated_at=utc_now(), error=str(error))
         self.save()
+
+    def mark_skipped(self, name: str, reason: str) -> None:
+        self.data["stages"][name] = {
+            "status": "skipped",
+            "updated_at": utc_now(),
+            "output_paths": [],
+            "details": {"reason": reason},
+            "error": "",
+        }
+        self.save()

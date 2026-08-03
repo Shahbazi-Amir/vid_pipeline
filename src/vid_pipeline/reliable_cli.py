@@ -24,6 +24,7 @@ _CONTEXT_WINDOW = 8192
 _TIMEOUT_SECONDS = 900
 _RETRIES = 2
 _ORIGINAL_RUN_URL = base_cli.command_run_url
+_ORIGINAL_RUN_FILE = base_cli.command_run_file
 
 
 def reliable_editorial_config(args: Namespace) -> EditorialConfig:
@@ -74,12 +75,16 @@ def _default_glossaries() -> list[Path]:
 
 
 def _accuracy_config(args: Namespace) -> AccuracyConfig:
+    profile_modes = {"fast": "fast", "balanced": "fast", "accurate": "maximum"}
+    profile = getattr(args, "profile", "balanced")
     return AccuracyConfig(
         # The primary transcription already covers the complete audio.  Keep the
         # default pass targeted so long recordings are not transcribed twice.
-        mode=os.getenv("VID_PIPELINE_ACCURACY_MODE", "fast").strip()
-        or "fast",
-        model=os.getenv("VID_PIPELINE_ACCURACY_MODEL", "").strip() or args.model,
+        mode=os.getenv("VID_PIPELINE_ACCURACY_MODE", "").strip()
+        or profile_modes.get(profile, "fast"),
+        model=os.getenv("VID_PIPELINE_ACCURACY_MODEL", "").strip()
+        or args.model
+        or {"fast": "small", "balanced": "large-v3-turbo", "accurate": "large-v3"}.get(profile, "large-v3-turbo"),
         device=os.getenv("VID_PIPELINE_ACCURACY_DEVICE", "").strip()
         or args.device,
         compute_type=os.getenv("VID_PIPELINE_ACCURACY_COMPUTE_TYPE", "").strip()
@@ -164,24 +169,38 @@ def _record_accuracy_failure(root: Path, error: Exception) -> None:
         json.dumps(result, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
+    state_path = root / "state.json"
+    if state_path.exists():
+        state = json.loads(state_path.read_text(encoding="utf-8"))
+        state.setdefault("stages", {}).setdefault("accuracy", {}).update(
+            {"status": "failed", "error": str(error), "output_paths": []}
+        )
+        state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
-def _run_url_with_review(args: Namespace) -> int:
-    result = _ORIGINAL_RUN_URL(args)
-    if result != 0:
-        return result
-    pipeline = VideoPipeline(args.url, args.output_root, args.name)
+def _record_review_failure(root: Path, error: Exception) -> None:
+    result_path = root / "result.json"
+    result = json.loads(result_path.read_text(encoding="utf-8")) if result_path.exists() else {}
+    result.update({"status": "failed", "review_status": "failed", "review_error": str(error)})
+    result_path.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    state_path = root / "state.json"
+    if state_path.exists():
+        state = json.loads(state_path.read_text(encoding="utf-8"))
+        pending = state.setdefault("stages", {}).get("pre_review", {}).get("status") == "pending"
+        stage = "pre_review" if pending else "review"
+        state["stages"].setdefault(stage, {}).update(
+            {"status": "failed", "error": str(error), "output_paths": []}
+        )
+        state_path.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def _postprocess_with_review(pipeline: VideoPipeline, args: Namespace) -> int:
     glossaries = _default_glossaries()
-    accuracy_manifest = None
-    accuracy_judge = None
-    accuracy_rebuild = None
-    accuracy_review = None
+    accuracy_manifest = accuracy_judge = accuracy_rebuild = accuracy_review = None
     try:
         accuracy_config = _accuracy_config(args)
         accuracy_manifest = build_accuracy_package(
-            pipeline.paths.job_root,
-            config=accuracy_config,
-            glossary_paths=glossaries,
+            pipeline.paths.job_root, config=accuracy_config, glossary_paths=glossaries
         )
         accuracy_judge = advise_disagreements(
             pipeline.paths.job_root,
@@ -189,62 +208,57 @@ def _run_url_with_review(args: Namespace) -> int:
             base_url=accuracy_config.judge_base_url,
         )
         accuracy_review = build_accuracy_review(pipeline.paths.job_root)
-        consensus_json = Path(accuracy_manifest["files"]["json"])
-        editorial_config = (
-            None if args.no_editorial else reliable_editorial_config(args)
-        )
-        editorial_metadata = base_cli._editorial_metadata(
-            args,
-            source_url=args.source_url.strip() or args.url,
-        )
         accuracy_rebuild = rebuild_from_accuracy(
             pipeline.paths.job_root,
-            consensus_json,
-            title=args.title,
-            source_url=args.source_url.strip() or args.url,
+            Path(accuracy_manifest["files"]["json"]),
+            title=getattr(args, "title", ""),
+            source_url=getattr(args, "source_url", "") or getattr(args, "url", ""),
             max_words=args.max_paragraph_words,
-            editorial_config=editorial_config,
-            editorial_metadata=editorial_metadata,
+            editorial_config=None if args.no_editorial else reliable_editorial_config(args),
+            editorial_metadata=base_cli._editorial_metadata(
+                args, source_url=getattr(args, "source_url", "") or getattr(args, "url", "")
+            ),
         )
     except (AccuracyError, OSError, RuntimeError, ValueError, json.JSONDecodeError) as exc:
         _record_accuracy_failure(pipeline.paths.job_root, exc)
         if _env_bool("VID_PIPELINE_ACCURACY_REQUIRED", True):
             print(f"error: accuracy stage failed: {exc}", file=sys.stderr)
             return 1
-        print(
-            f"warning: accuracy stage failed; original safe output retained: {exc}",
-            file=sys.stderr,
-        )
     try:
         pre_review = build_pre_review_package(pipeline.paths.job_root)
         review = build_review_package(
-            pipeline.paths.job_root,
-            config=_review_config(),
-            glossary_paths=glossaries,
+            pipeline.paths.job_root, config=_review_config(), glossary_paths=glossaries
         )
     except (PreReviewError, ReviewError) as exc:
+        _record_review_failure(pipeline.paths.job_root, exc)
         print(f"error: review packaging failed: {exc}", file=sys.stderr)
         return 1
-    print(
-        json.dumps(
-            {
-                "accuracy_stage": accuracy_manifest,
-                "accuracy_judge": accuracy_judge,
-                "accuracy_review": accuracy_review,
-                "accuracy_rebuild": accuracy_rebuild,
-                "pre_review_stage": pre_review,
-                "review_stage": review,
-            },
-            ensure_ascii=False,
-            indent=2,
-        )
-    )
+    print(json.dumps({
+        "accuracy_stage": accuracy_manifest, "accuracy_judge": accuracy_judge,
+        "accuracy_review": accuracy_review, "accuracy_rebuild": accuracy_rebuild,
+        "pre_review_stage": pre_review, "review_stage": review,
+    }, ensure_ascii=False, indent=2))
     return 0
+
+
+def _run_url_with_review(args: Namespace) -> int:
+    result = _ORIGINAL_RUN_URL(args)
+    if result != 0:
+        return result
+    return _postprocess_with_review(VideoPipeline(args.url, args.output_root, args.name), args)
+
+
+def _run_file_with_review(args: Namespace) -> int:
+    result = _ORIGINAL_RUN_FILE(args)
+    if result != 0:
+        return result
+    return _postprocess_with_review(base_cli.LocalMediaPipeline(args.path, args.output_root, args.name), args)
 
 
 def main() -> int:
     base_cli._editorial_config = reliable_editorial_config
     base_cli.command_run_url = _run_url_with_review
+    base_cli.command_run_file = _run_file_with_review
     base_cli._github_client = github_client_from_args
     return base_cli.main()
 

@@ -405,8 +405,8 @@ class VideoPipeline:
                     "Machine-only final transcript failed content-preservation validation."
                 )
             result = {
-                "schema_version": 3,
-                "status": "completed",
+                "schema_version": 4,
+                "status": "machine_processing_complete",
                 "review_status": "machine_only",
                 "job_id": self.job_id,
                 "source_url": self.url,
@@ -440,6 +440,7 @@ class VideoPipeline:
             self.clean(max_words=max_words, force=force),
         ]
         if editorial_config is None:
+            self.state.mark_skipped("editorial", "disabled_by_no_editorial")
             results.append(self.finalize_machine_only(force=force))
         else:
             results.append(self.editorial(editorial_config, editorial_metadata, force=force))

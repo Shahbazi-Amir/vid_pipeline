@@ -196,6 +196,24 @@ Video URL
 
 هیچ `OPENAI_API_KEY` یا Secret پولی لازم نیست.
 
+## وضعیت کیفیت و بازبینی
+
+جریان‌های عادی `run-url`، `run-file` و `run-folder` پردازش ماشینی را از
+تأیید انسانی جدا می‌کنند. `machine_processing_complete` فقط یعنی ASR و متن
+ماشینیِ content-preserving موجود است. پس از تحلیل کیفیت بدون متن مرجع و
+pre-review، نتیجه در صورت وجود بخش مشکوک `human_review_required` و در غیر این
+صورت `completed` است. فقط اعمال بازبینی انسانی مقدار
+`review_status: human_verified` می‌سازد.
+
+`--no-editorial` فقط ویرایش سبکی را خاموش می‌کند؛ Accuracy، selective retry،
+pre-review و review package همچنان اجرا می‌شوند. profile سریع از `small`،
+profile متعادل از `large-v3-turbo` با retry انتخابی، و profile دقیق از
+`large-v3` با verification بیشتر استفاده می‌کند. `--model` صریح این انتخاب را
+override می‌کند. Context و glossary فقط bias محافظه‌کارانه‌اند و صوت منبع حقیقت
+باقی می‌ماند.
+
+Quality بدون reference شامل confidence و anomaly است و WER/CER ادعا نمی‌کند.
+
 ## سنجش واقعی دقت
 
 برای برآورد دقت، یک فایل JSONL از ویدئوهای دارای متن مرجع بسازید:

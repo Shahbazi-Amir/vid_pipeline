@@ -85,7 +85,7 @@ def build_review_package(
     consensus_path = root / "accuracy" / "transcript.consensus.json"
     quality_input = load_json(consensus_path) if consensus_path.exists() else raw
     aliases = load_glossaries(glossary_paths)
-    items = analyze_segments(raw, config=config, glossary_aliases=aliases)
+    items = analyze_segments(quality_input, config=config, glossary_aliases=aliases)
     warnings: list[str] = []
     if config.extract_clips:
         if not audio_path.exists():
@@ -137,7 +137,7 @@ def build_review_package(
                 "schema_version": 1,
                 "source": "audio_and_whisper_only",
                 "external_reference_used": False,
-                "chunks": assistant_chunks(list(raw.get("segments") or []), items),
+                "chunks": assistant_chunks(list(quality_input.get("segments") or []), items),
             },
             ensure_ascii=False,
             indent=2,
@@ -152,8 +152,8 @@ def build_review_package(
     )
     review_srt = review_dir / "transcript.review.srt"
     review_vtt = review_dir / "transcript.review.vtt"
-    review_srt.write_text(render_srt(raw.get("segments") or []), encoding="utf-8")
-    review_vtt.write_text(render_vtt(raw.get("segments") or []), encoding="utf-8")
+    review_srt.write_text(render_srt(quality_input.get("segments") or []), encoding="utf-8")
+    review_vtt.write_text(render_vtt(quality_input.get("segments") or []), encoding="utf-8")
     manifest_path = review_dir / "manifest.json"
     manifest = {
         "schema_version": 1,

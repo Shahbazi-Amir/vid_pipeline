@@ -93,7 +93,7 @@ def _add_online_options(parser: argparse.ArgumentParser, *, discovery: bool = Fa
     parser.add_argument("--resume", action=argparse.BooleanOptionalAction, default=True)
     parser.add_argument("--force", action="store_true")
     parser.add_argument("--profile", choices=("fast", "balanced", "accurate"), default="balanced")
-    parser.add_argument("--model", default="small")
+    parser.add_argument("--model", default="")
     parser.add_argument("--language", default="fa")
     parser.add_argument("--no-editorial", action="store_true")
 
@@ -106,7 +106,7 @@ def _add_github_options(parser: argparse.ArgumentParser, *, output: bool = True)
     parser.add_argument("--wait", action="store_true")
     parser.add_argument("--download", action="store_true")
     parser.add_argument("--profile", choices=("fast", "balanced", "accurate"), default="balanced")
-    parser.add_argument("--model", default="small")
+    parser.add_argument("--model", default="")
     parser.add_argument("--language", default="fa")
     editorial = parser.add_mutually_exclusive_group()
     editorial.add_argument("--no-editorial", dest="no_editorial", action="store_true", default=True)
@@ -154,7 +154,7 @@ def build_parser() -> argparse.ArgumentParser:
     folder_parser.add_argument("--force", action="store_true")
     folder_parser.add_argument("--resume", action="store_true")
     folder_parser.add_argument("--profile", choices=("fast", "balanced", "accurate"), default="balanced")
-    folder_parser.add_argument("--model", default="small")
+    folder_parser.add_argument("--model", default="")
     folder_parser.add_argument("--language", default="fa")
     folder_parser.add_argument("--editorial-model", default=os.getenv("VID_PIPELINE_EDITORIAL_MODEL", "qwen3:8b"))
     folder_parser.add_argument("--no-editorial", action="store_true")
@@ -342,8 +342,9 @@ def command_run_url(args: argparse.Namespace) -> int:
 
 
 def _transcription_config(args: argparse.Namespace) -> TranscriptionConfig:
+    profile_models = {"fast": "small", "balanced": "large-v3-turbo", "accurate": "large-v3"}
     return TranscriptionConfig(
-        model=args.model,
+        model=args.model or profile_models.get(getattr(args, "profile", "balanced"), "large-v3-turbo"),
         device=args.device,
         compute_type=args.compute_type,
         language=args.language,

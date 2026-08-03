@@ -149,7 +149,7 @@ def create_app(
             "job_id": job_id, "upload_id": upload["upload_id"],
             "input_object": upload["object_key"], "input_hash": upload["sha256"],
             "file_name": upload["file_name"], "file_size": upload["file_size"],
-            "profile": payload.get("profile", "balanced"), "model": payload.get("model", "small"),
+            "profile": payload.get("profile", "balanced"), "model": payload.get("model", ""),
             "language": payload.get("language", "fa"),
             "review_settings": {"editorial": bool(payload.get("editorial", True))},
             "status": "queued", "progress_percent": 0, "current_stage": "queued",

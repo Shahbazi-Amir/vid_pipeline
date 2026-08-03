@@ -32,6 +32,10 @@ class AccuracyConfig:
     vote_similarity: float = 0.88
     minimum_score: float = 0.72
     low_confidence: float = 0.68
+    minimum_word_confidence: float = 0.45
+    maximum_no_speech: float = 0.60
+    minimum_avg_logprob: float = -1.0
+    maximum_compression_ratio: float = 2.4
     judge_model: str = ""
     judge_base_url: str = "http://127.0.0.1:11434"
     whisperx_alignment: bool = False
@@ -90,6 +94,30 @@ def confidence(segment: dict[str, Any]) -> float:
     if values:
         return max(0.0, min(1.0, sum(values) / len(values)))
     return max(0.0, min(1.0, 1.0 + float(segment.get("avg_logprob", -1.0) or -1.0) / 2.0))
+
+
+def quality_reasons(segment: dict[str, Any], config: AccuracyConfig) -> list[str]:
+    reasons = list(segment.get("review_flags") or [])
+    words = [
+        float(item["probability"])
+        for item in segment.get("words") or []
+        if isinstance(item, dict) and item.get("probability") is not None
+    ]
+    text = norm(segment.get("text") or "")
+    if float(segment.get("avg_logprob", 0.0) or 0.0) < config.minimum_avg_logprob:
+        reasons.append("low_log_probability")
+    if float(segment.get("no_speech_prob", 0.0) or 0.0) > config.maximum_no_speech:
+        reasons.append("possible_non_speech")
+    if words and (sum(words) / len(words) < config.low_confidence or min(words) < config.minimum_word_confidence):
+        reasons.append("low_word_confidence")
+    if float(segment.get("compression_ratio", 0.0) or 0.0) > config.maximum_compression_ratio:
+        reasons.append("abnormal_compression_ratio")
+    tokens_ = text.split()
+    if len(tokens_) >= 12 and len(set(tokens_)) / len(tokens_) < 0.35:
+        reasons.append("possible_repetition")
+    if not text or float(segment.get("end", 0.0) or 0.0) <= float(segment.get("start", 0.0) or 0.0):
+        reasons.append("malformed_segment")
+    return list(dict.fromkeys(reasons))
 
 
 def runtime(device: str, compute: str) -> tuple[str, str]:
@@ -512,7 +540,7 @@ def build_accuracy_package(
         int(segment.get("id", index))
         for index, segment in enumerate(primary_segments)
         if preliminary[int(segment.get("id", index))]["requires_human"]
-        or segment.get("review_flags")
+        or quality_reasons(segment, config)
     ][: config.max_targeted_segments]
     if config.mode != "off" and audio.exists():
         target_spec = PassSpec(
@@ -568,7 +596,7 @@ def build_accuracy_package(
         segment_id = int(segment.get("id", index))
         decision = select_consensus(candidates[segment_id], config)
         flags = list(
-            dict.fromkeys([*(segment.get("review_flags") or []), *decision["reasons"]])
+            dict.fromkeys([*quality_reasons(segment, config), *decision["reasons"]])
         )
         row = {
             **segment,
@@ -653,6 +681,7 @@ def build_accuracy_package(
             "accuracy_manifest": str(manifest_path),
             "accuracy_files": manifest["files"],
             "accuracy_human_verification": False,
+            "accuracy_kind": "reference_free_quality",
         }
     )
     result_path.write_text(

@@ -29,7 +29,7 @@ on:
         options: [fast, balanced, accurate]
       model:
         required: true
-        default: small
+        default: large-v3-turbo
         type: string
       language:
         required: true
@@ -198,6 +198,9 @@ jobs:
             outputs/**/raw/transcript.raw.md
             outputs/**/machine/**
             outputs/**/final/**
+            outputs/**/accuracy/**
+            outputs/**/pre_review/**
+            outputs/**/review/**
             pipeline.log
           retention-days: 1
           if-no-files-found: error

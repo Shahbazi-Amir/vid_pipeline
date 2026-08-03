@@ -28,8 +28,9 @@ on:
         type: choice
         options: [fast, balanced, accurate]
       model:
-        required: true
-        default: large-v3-turbo
+        description: Optional explicit model override; empty uses the selected profile
+        required: false
+        default: ""
         type: string
       language:
         required: true
@@ -175,8 +176,9 @@ jobs:
         run: |
           set -euo pipefail
           args=(run-file "$INPUT_MEDIA" --name "$REQUEST_ID" --output-root outputs \
-            --profile "$PROFILE" --model "$MODEL" --language "$LANGUAGE" \
+            --profile "$PROFILE" --language "$LANGUAGE" \
             --device cpu --compute-type int8)
+          [[ -n "${MODEL:-}" ]] && args+=(--model "$MODEL")
           if [[ "${NO_EDITORIAL,,}" == "true" ]]; then
             args+=(--no-editorial)
           else

@@ -45,10 +45,16 @@ on:
         required: false
         type: string
       whisper_model:
-        description: faster-whisper model
-        required: true
-        default: large-v3-turbo
+        description: Optional explicit faster-whisper model override
+        required: false
+        default: ""
         type: string
+      profile:
+        description: ASR quality profile used when whisper_model is empty
+        required: true
+        default: balanced
+        type: choice
+        options: [fast, balanced, accurate]
       editorial_model:
         description: Local Ollama model
         required: true
@@ -98,7 +104,8 @@ jobs:
       VIDEO_DATE: ${{ inputs.date }}
       GUEST_NAME: ${{ inputs.guest }}
       EDITORIAL_CONTEXT: ${{ inputs.editorial_context }}
-      WHISPER_MODEL: ${{ inputs.whisper_model || 'large-v3-turbo' }}
+      PROFILE: ${{ inputs.profile || 'balanced' }}
+      WHISPER_MODEL: ${{ inputs.whisper_model }}
       EDITORIAL_MODEL: ${{ inputs.editorial_model || 'qwen2.5:7b' }}
       VID_PIPELINE_ACCURACY_MODE: ${{ inputs.accuracy_mode || 'fast' }}
       VID_PIPELINE_MAX_TARGETED_SEGMENTS: 40
@@ -134,7 +141,8 @@ jobs:
               "VIDEO_DATE": data.get("date") or "",
               "GUEST_NAME": data.get("guest") or "",
               "EDITORIAL_CONTEXT": data.get("editorial_context") or "",
-              "WHISPER_MODEL": data.get("whisper_model") or "large-v3-turbo",
+              "PROFILE": data.get("profile") or "balanced",
+              "WHISPER_MODEL": data.get("whisper_model") or "",
               "EDITORIAL_MODEL": data.get("editorial_model") or "qwen2.5:7b",
               "VID_PIPELINE_ACCURACY_MODE": data.get("accuracy_mode") or "fast",
               "VID_PIPELINE_WHISPERX_ALIGNMENT": data.get("whisperx_alignment") or False,
@@ -165,7 +173,8 @@ jobs:
               "VIDEO_DATE": data.get("date") or "",
               "GUEST_NAME": data.get("guest") or "",
               "EDITORIAL_CONTEXT": data.get("editorial_context") or "",
-              "WHISPER_MODEL": data.get("whisper_model") or "large-v3-turbo",
+              "PROFILE": data.get("profile") or "balanced",
+              "WHISPER_MODEL": data.get("whisper_model") or "",
               "EDITORIAL_MODEL": data.get("editorial_model") or "qwen2.5:7b",
               "VID_PIPELINE_ACCURACY_MODE": data.get("accuracy_mode") or "fast",
               "VID_PIPELINE_WHISPERX_ALIGNMENT": data.get("whisperx_alignment") or False,
@@ -216,8 +225,9 @@ jobs:
         run: |
           set -euo pipefail
           args=(run-url "$VIDEO_URL" --output-root outputs --language fa \
-            --model "$WHISPER_MODEL" --device cpu --compute-type int8 \
+            --profile "$PROFILE" --device cpu --compute-type int8 \
             --editorial-model "$EDITORIAL_MODEL" --editorial-base-url "$OLLAMA_BASE_URL")
+          [[ -n "${WHISPER_MODEL:-}" ]] && args+=(--model "$WHISPER_MODEL")
           [[ -n "${SOURCE_URL:-}" ]] && args+=(--source-url "$SOURCE_URL")
           [[ -n "${JOB_NAME:-}" ]] && args+=(--name "$JOB_NAME")
           [[ -n "${VIDEO_TITLE:-}" ]] && args+=(--title "$VIDEO_TITLE")

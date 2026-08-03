@@ -14,6 +14,7 @@ from vid_pipeline.clean import clean_transcript
 from vid_pipeline.download import extract_metadata
 from vid_pipeline.editorial import EditorialConfig, EditorialMetadata, edit_transcript
 from vid_pipeline.errors import PipelineError
+from vid_pipeline.profiles import DEFAULT_PROFILE, resolve_transcription_model
 from vid_pipeline.standalone import LocalMediaPipeline, VideoPipeline
 from vid_pipeline.transcribe import DEFAULT_INITIAL_PROMPT, TranscriptionConfig
 
@@ -22,8 +23,10 @@ def _json_print(value: Any) -> None:
     print(json.dumps(value, ensure_ascii=False, indent=2))
 
 
-def _add_transcription_options(parser: argparse.ArgumentParser) -> None:
-    parser.add_argument("--model", default="large-v3-turbo")
+def _add_transcription_options(
+    parser: argparse.ArgumentParser, *, profile_aware: bool = False
+) -> None:
+    parser.add_argument("--model", default="" if profile_aware else "large-v3-turbo")
     parser.add_argument("--device", default="auto", choices=("auto", "cpu", "cuda"))
     parser.add_argument("--compute-type", default="auto")
     parser.add_argument("--language", default="fa")
@@ -131,7 +134,10 @@ def build_parser() -> argparse.ArgumentParser:
     run_parser.add_argument("--name", default="")
     run_parser.add_argument("--max-paragraph-words", type=int, default=90)
     run_parser.add_argument("--force", action="store_true")
-    _add_transcription_options(run_parser)
+    run_parser.add_argument(
+        "--profile", choices=("fast", "balanced", "accurate"), default=DEFAULT_PROFILE
+    )
+    _add_transcription_options(run_parser, profile_aware=True)
     _add_editorial_options(run_parser)
 
     file_parser = subparsers.add_parser("run-file", help="Process one local media file.")
@@ -142,7 +148,7 @@ def build_parser() -> argparse.ArgumentParser:
     file_parser.add_argument("--force", action="store_true")
     file_parser.add_argument("--resume", action="store_true")
     file_parser.add_argument("--profile", choices=("fast", "balanced", "accurate"), default="balanced")
-    _add_transcription_options(file_parser)
+    _add_transcription_options(file_parser, profile_aware=True)
     _add_editorial_options(file_parser)
 
     folder_parser = subparsers.add_parser("run-folder", help="Process local media files as jobs.")
@@ -304,7 +310,7 @@ def command_run_url(args: argparse.Namespace) -> int:
         )
     hotwords = hotwords[:240]
     config = TranscriptionConfig(
-        model=args.model,
+        model=resolve_transcription_model(args.profile, args.model),
         device=args.device,
         compute_type=args.compute_type,
         language=args.language,
@@ -342,9 +348,10 @@ def command_run_url(args: argparse.Namespace) -> int:
 
 
 def _transcription_config(args: argparse.Namespace) -> TranscriptionConfig:
-    profile_models = {"fast": "small", "balanced": "large-v3-turbo", "accurate": "large-v3"}
     return TranscriptionConfig(
-        model=args.model or profile_models.get(getattr(args, "profile", "balanced"), "large-v3-turbo"),
+        model=resolve_transcription_model(
+            getattr(args, "profile", DEFAULT_PROFILE), args.model
+        ),
         device=args.device,
         compute_type=args.compute_type,
         language=args.language,
@@ -409,9 +416,15 @@ def command_run_folder(args: argparse.Namespace) -> int:
         }
         namespace = argparse.Namespace(**values)
         try:
-            command_run_file(namespace)
-            summary["successful"] += 1
-            summary["files"].append({"path": str(path), "status": "completed"})
+            return_code = command_run_file(namespace)
+            if return_code == 0:
+                summary["successful"] += 1
+                summary["files"].append({"path": str(path), "status": "completed"})
+            else:
+                summary["failed"] += 1
+                summary["files"].append(
+                    {"path": str(path), "status": "failed", "return_code": return_code}
+                )
         except Exception as exc:
             summary["failed"] += 1
             summary["files"].append({"path": str(path), "status": "failed", "error": str(exc)})

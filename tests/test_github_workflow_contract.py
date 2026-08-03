@@ -37,6 +37,11 @@ def test_uploaded_workflow_uses_bounded_string_inputs():
     assert "type: string" in no_editorial_block
     assert "if: inputs.no_editorial == 'false'" in workflow
     assert "EDITORIAL_MODEL: qwen3:8b" in workflow
+    model_block = inputs_block.split("      model:", 1)[1].split("      language:", 1)[0]
+    assert "required: false" in model_block
+    assert 'default: ""' in model_block
+    assert '[[ -n "${MODEL:-}" ]] && args+=(--model "$MODEL")' in workflow
+    assert '--profile "$PROFILE" --model "$MODEL"' not in workflow
 
 
 def test_uploaded_workflow_does_not_use_runner_context_in_job_env():
@@ -87,6 +92,7 @@ def test_dispatch_payload_matches_workflow_contract(tmp_path: Path):
     assert inputs["dispatch_id"] == request.dispatch_id
     assert request.dispatch_started_at
     assert inputs["no_editorial"] == "true"
+    assert inputs["model"] == ""
     assert request.status == "queued"
     workflow = _workflow_text()
     block = workflow.split("    inputs:", 1)[1].split("\n\npermissions:", 1)[0]

@@ -130,3 +130,22 @@ def test_run_folder_is_recursive_and_isolates_failures(tmp_path: Path, capsys) -
     assert summary["total"] == 2
     assert summary["successful"] == 1
     assert summary["failed"] == 1
+
+
+def test_run_folder_counts_nonzero_child_return_as_failure(tmp_path: Path, capsys) -> None:
+    media = tmp_path / "media"
+    media.mkdir()
+    (media / "failed.mp4").write_bytes(b"media")
+    args = Namespace(
+        path=media, recursive=False, output_root=tmp_path / "outputs", workers=1,
+        extensions="", force=False, resume=True, profile="fast", model="",
+        language="fa", editorial_model="unused", no_editorial=True,
+    )
+
+    with patch("vid_pipeline.cli.command_run_file", return_value=1):
+        assert command_run_folder(args) == 1
+
+    summary = json.loads(capsys.readouterr().out)
+    assert summary["successful"] == 0
+    assert summary["failed"] == 1
+    assert summary["files"][0]["return_code"] == 1

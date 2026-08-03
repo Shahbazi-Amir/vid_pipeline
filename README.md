@@ -212,6 +212,9 @@ profile متعادل از `large-v3-turbo` با retry انتخابی، و profil
 override می‌کند. Context و glossary فقط bias محافظه‌کارانه‌اند و صوت منبع حقیقت
 باقی می‌ماند.
 
+`run-folder` پس از خطای هر فایل، فایل‌های بعدی را ادامه می‌دهد، اما آن خطا را در
+summary ثبت می‌کند و در صورت وجود هر failure با exit code غیرصفر پایان می‌یابد.
+
 Quality بدون reference شامل confidence و anomaly است و WER/CER ادعا نمی‌کند.
 
 ## سنجش واقعی دقت

@@ -15,6 +15,7 @@ from vid_pipeline.accuracy_review import build_accuracy_review
 from vid_pipeline.editorial import EditorialConfig
 from vid_pipeline.github_compat import client_from_args as github_client_from_args
 from vid_pipeline.pre_review import PreReviewError, build_pre_review_package
+from vid_pipeline.profiles import resolve_transcription_model
 from vid_pipeline.review import ReviewConfig, ReviewError, build_review_package
 from vid_pipeline.standalone import VideoPipeline
 
@@ -83,8 +84,7 @@ def _accuracy_config(args: Namespace) -> AccuracyConfig:
         mode=os.getenv("VID_PIPELINE_ACCURACY_MODE", "").strip()
         or profile_modes.get(profile, "fast"),
         model=os.getenv("VID_PIPELINE_ACCURACY_MODEL", "").strip()
-        or args.model
-        or {"fast": "small", "balanced": "large-v3-turbo", "accurate": "large-v3"}.get(profile, "large-v3-turbo"),
+        or resolve_transcription_model(profile, args.model),
         device=os.getenv("VID_PIPELINE_ACCURACY_DEVICE", "").strip()
         or args.device,
         compute_type=os.getenv("VID_PIPELINE_ACCURACY_COMPUTE_TYPE", "").strip()
@@ -152,7 +152,7 @@ def _review_config() -> ReviewConfig:
     )
 
 
-def _record_accuracy_failure(root: Path, error: Exception) -> None:
+def _record_accuracy_failure(root: Path, error: Exception, *, required: bool) -> None:
     result_path = root / "result.json"
     result = (
         json.loads(result_path.read_text(encoding="utf-8"))
@@ -161,6 +161,7 @@ def _record_accuracy_failure(root: Path, error: Exception) -> None:
     )
     result.update(
         {
+            **({"status": "failed"} if required else {}),
             "accuracy_status": "failed",
             "accuracy_error": f"{type(error).__name__}: {error}",
         }
@@ -220,8 +221,9 @@ def _postprocess_with_review(pipeline: VideoPipeline, args: Namespace) -> int:
             ),
         )
     except (AccuracyError, OSError, RuntimeError, ValueError, json.JSONDecodeError) as exc:
-        _record_accuracy_failure(pipeline.paths.job_root, exc)
-        if _env_bool("VID_PIPELINE_ACCURACY_REQUIRED", True):
+        accuracy_required = _env_bool("VID_PIPELINE_ACCURACY_REQUIRED", True)
+        _record_accuracy_failure(pipeline.paths.job_root, exc, required=accuracy_required)
+        if accuracy_required:
             print(f"error: accuracy stage failed: {exc}", file=sys.stderr)
             return 1
     try:

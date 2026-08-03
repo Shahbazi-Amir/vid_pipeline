@@ -339,7 +339,7 @@ class GitHubClient:
             "file_size": str(request.file_size),
             "sha256": request.sha256,
             "profile": options.get("profile", "balanced"),
-            "model": options.get("model", "small"),
+            "model": options.get("model") or "",
             "language": options.get("language", "fa"),
             "no_editorial": str(options.get("no_editorial", True)).lower(),
         }
@@ -378,7 +378,8 @@ class GitHubClient:
                 "inputs": {
                     "url": url,
                     "request_id": request.request_id,
-                    "whisper_model": options.get("model", "small"),
+                    "profile": options.get("profile") or "balanced",
+                    "whisper_model": options.get("model") or "",
                 },
             },
         )

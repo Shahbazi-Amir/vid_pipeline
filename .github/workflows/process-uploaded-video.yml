@@ -90,8 +90,7 @@ jobs:
       NUM_SPEAKERS: ${{ inputs.num_speakers }}
       SPEAKER_ROLE_MODE: ${{ inputs.speaker_role_mode }}
       SPEAKER_ROLES: ${{ inputs.speaker_roles }}
-      HF_TOKEN: ${{ secrets.HF_TOKEN }}
-      HF_HOME: ${{ github.workspace }}/.cache/huggingface
+      VID_PIPELINE_DIARIZATION_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/diarization
       EDITORIAL_MODEL: qwen3:8b
       OLLAMA_BASE_URL: http://127.0.0.1:11434
 
@@ -107,8 +106,8 @@ jobs:
         if: inputs.diarization_enabled == 'true'
         uses: actions/cache@v4
         with:
-          path: ${{ env.HF_HOME }}
-          key: diarization-${{ runner.os }}-py311-community-1-pyannote4
+          path: ${{ env.VID_PIPELINE_DIARIZATION_CACHE }}
+          key: diarization-${{ runner.os }}-py311-sherpa-1.13.4-segmentation-3.0-int8-3dspeaker-eres2net
 
       - name: Install worker dependencies
         shell: bash

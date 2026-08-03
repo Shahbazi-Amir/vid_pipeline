@@ -72,7 +72,7 @@ on:
         default: false
         type: boolean
       diarization:
-        description: Install and run optional pyannote diarization
+        description: Install and run optional sherpa-onnx diarization
         required: true
         default: false
         type: boolean
@@ -116,7 +116,7 @@ jobs:
       VID_PIPELINE_MAX_TARGETED_SEGMENTS: 40
       VID_PIPELINE_WHISPERX_ALIGNMENT: ${{ inputs.whisperx_alignment || 'false' }}
       VID_PIPELINE_DIARIZATION: ${{ inputs.diarization || 'false' }}
-      HUGGINGFACE_TOKEN: ${{ secrets.HUGGINGFACE_TOKEN }}
+      VID_PIPELINE_DIARIZATION_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/diarization
       OLLAMA_BASE_URL: http://127.0.0.1:11434
 
     steps:
@@ -197,6 +197,12 @@ jobs:
         with:
           python-version: '3.11'
           cache: pip
+
+      - name: Cache diarization models
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.VID_PIPELINE_DIARIZATION_CACHE }}
+          key: diarization-${{ runner.os }}-py311-sherpa-1.13.4-segmentation-3.0-int8-3dspeaker-eres2net
 
       - name: Install dependencies
         shell: bash

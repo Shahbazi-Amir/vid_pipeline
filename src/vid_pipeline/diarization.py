@@ -2,9 +2,15 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import os
+import shutil
+import sys
+import tarfile
+import tempfile
 import time
+import urllib.request
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Protocol
@@ -26,12 +32,124 @@ class DiarizationConfig:
     enabled: bool = False
     required: bool = False
     num_speakers: int | None = 2
-    model: str = "pyannote/speaker-diarization-community-1"
+    backend: str = "sherpa-onnx"
+    segmentation_model: str = "segmentation-3.0-int8"
+    embedding_model: str = "3dspeaker-eres2net-base"
+    model_cache_dir: Path | None = None
     role_mode: str = "generic"  # generic|host-teacher
     role_overrides: dict[str, str] | None = None
     role_threshold: float = 0.72
     merge_gap_seconds: float = 0.45
-    token: str = ""
+
+
+@dataclass(frozen=True, slots=True)
+class ModelArtifact:
+    name: str
+    url: str
+    sha256: str
+    required_file: str
+    file_sha256: str
+    archive: bool = False
+
+
+SEGMENTATION_ARTIFACT = ModelArtifact(
+    name="sherpa-onnx-pyannote-segmentation-3-0",
+    url=("https://github.com/k2-fsa/sherpa-onnx/releases/download/"
+         "speaker-segmentation-models/sherpa-onnx-pyannote-segmentation-3-0.tar.bz2"),
+    sha256="24615ee884c897d9d2ba09bb4d30da6bb1b15e685065962db5b02e76e4996488",
+    required_file="model.int8.onnx",
+    file_sha256="d582f4b4c6b48205de7e0643c57df0df5615a3c176189be3fc461e9d18827b5d",
+    archive=True,
+)
+EMBEDDING_ARTIFACT = ModelArtifact(
+    name="3dspeaker-eres2net-base",
+    url=("https://github.com/k2-fsa/sherpa-onnx/releases/download/"
+         "speaker-recongition-models/3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx"),
+    sha256="1a331345f04805badbb495c775a6ddffcdd1a732567d5ec8b3d5749e3c7a5e4b",
+    required_file="3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx",
+    file_sha256="1a331345f04805badbb495c775a6ddffcdd1a732567d5ec8b3d5749e3c7a5e4b",
+)
+
+
+class DiarizationModelManager:
+    def __init__(self, cache_dir: Path | None = None, *, opener: Any = None) -> None:
+        configured = os.getenv("VID_PIPELINE_DIARIZATION_CACHE", "").strip()
+        self.cache_dir = Path(cache_dir or configured or Path.home() / ".cache/vid-pipeline/diarization")
+        self.opener = opener or urllib.request.urlopen
+
+    @staticmethod
+    def _digest(path: Path) -> str:
+        digest = hashlib.sha256()
+        with path.open("rb") as stream:
+            for chunk in iter(lambda: stream.read(1024 * 1024), b""):
+                digest.update(chunk)
+        return digest.hexdigest()
+
+    @staticmethod
+    def _safe_extract(archive: Path, target: Path) -> None:
+        with tarfile.open(archive, "r:bz2") as bundle:
+            root = target.resolve()
+            for member in bundle.getmembers():
+                if member.issym() or member.islnk():
+                    raise DiarizationError("model archive contains a link")
+                destination = (target / member.name).resolve()
+                if root not in destination.parents and destination != root:
+                    raise DiarizationError("model archive contains an unsafe path")
+            if sys.version_info >= (3, 12):
+                bundle.extractall(target, filter="data")
+            else:  # Python 3.10/3.11 have no extraction filter API.
+                bundle.extractall(target)
+
+    def _download(self, artifact: ModelArtifact, target: Path) -> None:
+        part = target.with_suffix(target.suffix + ".part")
+        part.unlink(missing_ok=True)
+        print(f"downloading diarization model: {artifact.url}")
+        try:
+            request = urllib.request.Request(artifact.url, headers={"User-Agent": "vid-pipeline"})
+            with self.opener(request, timeout=180) as response, part.open("wb") as output:
+                shutil.copyfileobj(response, output, length=1024 * 1024)
+            if self._digest(part) != artifact.sha256:
+                raise DiarizationError(f"checksum mismatch for {artifact.name}")
+            part.replace(target)
+        except Exception:
+            part.unlink(missing_ok=True)
+            raise
+
+    def provision(self, artifact: ModelArtifact) -> Path:
+        model_dir = self.cache_dir / artifact.name
+        required = model_dir / artifact.required_file
+        if required.is_file() and self._digest(required) == artifact.file_sha256:
+            print(f"diarization model cache hit: {artifact.name}")
+            return required
+        if model_dir.exists():
+            shutil.rmtree(model_dir)
+        self.cache_dir.mkdir(parents=True, exist_ok=True)
+        archive = self.cache_dir / (artifact.name + (".tar.bz2" if artifact.archive else ".download"))
+        self._download(artifact, archive)
+        temporary = Path(tempfile.mkdtemp(prefix=f".{artifact.name}-", dir=self.cache_dir))
+        try:
+            if artifact.archive:
+                self._safe_extract(archive, temporary)
+                candidates = list(temporary.rglob(artifact.required_file))
+                if len(candidates) != 1:
+                    raise DiarizationError(f"missing model file: {artifact.required_file}")
+                source_dir = candidates[0].parent
+                shutil.move(str(source_dir), str(model_dir))
+            else:
+                temporary_file = temporary / artifact.required_file
+                archive.replace(temporary_file)
+                temporary.replace(model_dir)
+            if not required.is_file():
+                raise DiarizationError(f"missing model file: {artifact.required_file}")
+            if self._digest(required) != artifact.file_sha256:
+                raise DiarizationError(f"model file checksum mismatch for {artifact.name}")
+            return required
+        except (tarfile.TarError, OSError) as exc:
+            raise DiarizationError(f"could not extract {artifact.name}: {type(exc).__name__}") from exc
+        finally:
+            archive.unlink(missing_ok=True)
+            if temporary.exists():
+                shutil.rmtree(temporary)
 
 
 class DiarizationBackend(Protocol):
@@ -40,35 +158,55 @@ class DiarizationBackend(Protocol):
     def diarize(self, audio: Path, *, num_speakers: int | None) -> list[SpeakerTurn]: ...
 
 
-class PyannoteDiarizationBackend:
-    name = "pyannote.audio"
+class SherpaOnnxDiarizationBackend:
+    name = "sherpa-onnx"
 
-    def __init__(self, model: str, token: str = "") -> None:
-        token = token or os.getenv("HF_TOKEN", "") or os.getenv("HUGGINGFACE_TOKEN", "")
-        if not token:
-            raise DiarizationError("HF_TOKEN is required for the configured diarization model")
+    def __init__(self, manager: DiarizationModelManager | None = None) -> None:
+        manager = manager or DiarizationModelManager()
+        segmentation = manager.provision(SEGMENTATION_ARTIFACT)
+        embedding = manager.provision(EMBEDDING_ARTIFACT)
         try:
-            from pyannote.audio import Pipeline
+            import sherpa_onnx
         except ImportError as exc:
-            raise DiarizationError("pyannote.audio is not installed; install .[diarization]") from exc
-        try:
-            self.pipeline = Pipeline.from_pretrained(model, token=token)
-        except Exception as exc:
-            raise DiarizationError(f"could not load diarization model: {type(exc).__name__}") from None
+            raise DiarizationError("sherpa-onnx is not installed; install .[diarization]") from exc
+        self.sherpa = sherpa_onnx
+        self.segmentation = segmentation
+        self.embedding = embedding
 
     def diarize(self, audio: Path, *, num_speakers: int | None) -> list[SpeakerTurn]:
-        kwargs = {"num_speakers": num_speakers} if num_speakers else {}
         try:
-            output = self.pipeline(str(audio), **kwargs)
-            annotation = (
-                getattr(output, "exclusive_speaker_diarization", None)
-                or getattr(output, "speaker_diarization", None)
-                or output
+            import soundfile as sf
+
+            samples, sample_rate = sf.read(audio, dtype="float32", always_2d=True)
+            if sample_rate != 16000 or samples.shape[1] != 1:
+                raise DiarizationError("diarization audio must be mono 16 kHz")
+            config = self.sherpa.OfflineSpeakerDiarizationConfig(
+                segmentation=self.sherpa.OfflineSpeakerSegmentationModelConfig(
+                    pyannote=self.sherpa.OfflineSpeakerSegmentationPyannoteModelConfig(
+                        model=str(self.segmentation)
+                    ),
+                    provider="cpu",
+                ),
+                embedding=self.sherpa.SpeakerEmbeddingExtractorConfig(
+                    model=str(self.embedding), provider="cpu"
+                ),
+                clustering=self.sherpa.FastClusteringConfig(
+                    num_clusters=num_speakers if num_speakers is not None else -1,
+                    threshold=0.5,
+                ),
+                min_duration_on=0.3,
+                min_duration_off=0.5,
             )
+            if not config.validate():
+                raise DiarizationError("invalid sherpa-onnx diarization configuration")
+            diarizer = self.sherpa.OfflineSpeakerDiarization(config)
+            result = diarizer.process(samples[:, 0]).sort_by_start_time()
             return [
-                SpeakerTurn(float(turn.start), float(turn.end), str(speaker))
-                for turn, _, speaker in annotation.itertracks(yield_label=True)
+                SpeakerTurn(float(turn.start), float(turn.end), f"speaker_{int(turn.speaker):02d}")
+                for turn in result
             ]
+        except DiarizationError:
+            raise
         except Exception as exc:
             raise DiarizationError(f"diarization inference failed: {type(exc).__name__}") from None
 
@@ -167,7 +305,9 @@ def apply_roles(segments: list[dict[str, Any]], mapping: dict[str, dict[str, Any
 
 def run_diarization(audio: Path, segments: list[dict[str, Any]], config: DiarizationConfig, *, backend: DiarizationBackend | None = None, output: Path | None = None) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     started = time.monotonic()
-    backend = backend or PyannoteDiarizationBackend(config.model, config.token)
+    backend = backend or SherpaOnnxDiarizationBackend(
+        DiarizationModelManager(config.model_cache_dir)
+    )
     turns = normalize_turns(backend.diarize(audio, num_speakers=config.num_speakers))
     if not turns:
         raise DiarizationError("diarization returned zero speakers")
@@ -179,11 +319,17 @@ def run_diarization(audio: Path, segments: list[dict[str, Any]], config: Diariza
         durations[turn.speaker] = durations.get(turn.speaker, 0.0) + turn.end - turn.start
     report = {
         "schema_version": 1, "status": "completed", "backend": backend.name,
-        "model": config.model, "requested_speaker_count": config.num_speakers,
+        "models": {
+            "segmentation": config.segmentation_model,
+            "embedding": config.embedding_model,
+        }, "requested_speaker_count": config.num_speakers,
         "detected_speaker_count": len(durations), "speaker_durations": durations,
         "speaker_turn_count": len(turns), "ambiguous_assignments": ambiguous,
         "role_mapping": mapping, "runtime_seconds": round(time.monotonic() - started, 3),
-        "config": {k: v for k, v in asdict(config).items() if k != "token"},
+        "config": {
+            key: str(value) if isinstance(value, Path) else value
+            for key, value in asdict(config).items()
+        },
         "turns": [asdict(t) for t in turns],
     }
     if output:

@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
 import sys
 from pathlib import Path
 
@@ -42,11 +41,7 @@ def parser() -> argparse.ArgumentParser:
     build.add_argument("--whisperx", action="store_true")
     build.add_argument("--whisperx-model", default="")
     build.add_argument("--diarize", action="store_true")
-    build.add_argument(
-        "--diarization-model",
-        default="pyannote/speaker-diarization-community-1",
-    )
-    build.add_argument("--hf-token", default=os.getenv("HUGGINGFACE_TOKEN", ""))
+    build.add_argument("--diarization-cache-dir", type=Path)
     review = commands.add_parser("review")
     review.add_argument("job_root", type=Path)
     apply = commands.add_parser("apply-review")
@@ -79,8 +74,7 @@ def main() -> int:
                 whisperx_alignment=args.whisperx,
                 whisperx_model=args.whisperx_model,
                 diarization=args.diarize,
-                diarization_model=args.diarization_model,
-                huggingface_token=args.hf_token,
+                diarization_cache_dir=args.diarization_cache_dir,
             )
             output(
                 build_accuracy_package(

@@ -117,14 +117,13 @@ vid-accuracy build outputs/<job-id> --mode maximum --whisperx
 pip install -e '.[diarization]'
 ```
 
-مدل `pyannote/speaker-diarization-community-1` به توکن Hugging Face نیاز دارد:
+مدل‌های عمومی sherpa-onnx بدون حساب، توکن یا credential خارجی دریافت می‌شوند:
 
 ```bash
-export HUGGINGFACE_TOKEN='...'
 vid-accuracy build outputs/<job-id> --diarize
 ```
 
-این قابلیت اختیاری است و نبود توکن باعث حذف یا خراب‌شدن متن نمی‌شود.
+این قابلیت اختیاری است و در حالت غیرالزامی، خطای دانلود یا inference باعث حذف متن نمی‌شود.
 
 ## متغیرهای اجرای خودکار
 
@@ -140,8 +139,7 @@ VID_PIPELINE_MAX_TARGETED_SEGMENTS
 VID_PIPELINE_WHISPERX_ALIGNMENT
 VID_PIPELINE_WHISPERX_MODEL
 VID_PIPELINE_DIARIZATION
-VID_PIPELINE_DIARIZATION_MODEL
-HUGGINGFACE_TOKEN
+VID_PIPELINE_DIARIZATION_CACHE
 ```
 
 اگر Accuracy شکست بخورد، خروجی ایمن قبلی حفظ می‌شود. برای اجباری‌کردن موفقیت این مرحله:

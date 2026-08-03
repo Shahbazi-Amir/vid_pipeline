@@ -42,10 +42,9 @@ class AccuracyConfig:
     diarization: bool = False
     diarization_required: bool = False
     num_speakers: int | None = 2
-    diarization_model: str = "pyannote/speaker-diarization-community-1"
+    diarization_cache_dir: Path | None = None
     speaker_role_mode: str = "generic"
     speaker_role_overrides: dict[str, str] | None = None
-    huggingface_token: str = ""
 
 
 @dataclass(slots=True)
@@ -347,10 +346,9 @@ def optional_enrichment(
                     enabled=True,
                     required=config.diarization_required,
                     num_speakers=config.num_speakers,
-                    model=config.diarization_model,
+                    model_cache_dir=config.diarization_cache_dir,
                     role_mode=config.speaker_role_mode,
                     role_overrides=config.speaker_role_overrides,
-                    token=config.huggingface_token,
                 ),
                 output=audio.parents[1] / "diarization" / "diarization.json",
             )
@@ -630,7 +628,10 @@ def build_accuracy_package(
         else "accuracy_consensus_complete",
         "generated_at": now(),
         "mode": config.mode,
-        "config": {key: value for key, value in asdict(config).items() if key != "huggingface_token"},
+        "config": {
+            key: str(value) if isinstance(value, Path) else value
+            for key, value in asdict(config).items()
+        },
         "primary_segment_count": len(primary_segments),
         "pass_count": len(passes),
         "targeted_segment_count": len(target_ids),

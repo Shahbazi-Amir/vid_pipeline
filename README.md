@@ -434,17 +434,24 @@ python -m compileall -q src tests
 
 ## Speaker diarization
 
-Speaker diarization is opt-in and runs independently from editorial processing. The worker uses
-`pyannote.audio>=4` with `pyannote/speaker-diarization-community-1`, the existing normalized
-mono 16 kHz audio, and CPU on GitHub-hosted runners. Configure the repository Actions secret
-`HF_TOKEN`; never put its value in commands or state files. Install locally with:
+Speaker diarization is opt-in and runs independently from editorial processing. It uses
+`sherpa-onnx` locally on the GitHub Actions CPU runner with the existing normalized mono 16 kHz
+audio. No Hugging Face account, access token, paid API, or external credential is required.
+Install locally with:
 
 ```bash
 pip install -e '.[worker,diarization]'
 ```
 
-`--diarize` enables safe optional fallback; add `--diarization-required` when missing credentials,
-model access, or inference failure must fail the job. `--num-speakers 2` is recommended for the
+The default public models are `sherpa-onnx-pyannote-segmentation-3-0/model.int8.onnx`
+(MIT license in its official archive) and
+`3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx` (3D-Speaker, Apache-2.0), both
+downloaded without credentials from the official `k2-fsa/sherpa-onnx` GitHub Releases. The engine
+is Apache-2.0. Archives are version-pinned by URL and SHA-256, extracted atomically, and reused from
+`~/.cache/vid-pipeline/diarization` (also cached by GitHub Actions).
+
+`--diarize` enables safe optional fallback; add `--diarization-required` when model download,
+initialization, or inference failure must fail the job. `--num-speakers 2` is recommended for the
 current interview dataset. `--speaker-role-mode host-teacher` maps roles only above a conservative
 confidence threshold; otherwise outputs use `گوینده ۱`, `گوینده ۲`, etc. Manual mappings use
 `--speaker-role SPEAKER_00=host` and are applied without decorating raw transcript text.

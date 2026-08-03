@@ -118,13 +118,10 @@ def _accuracy_config(args: Namespace) -> AccuracyConfig:
         diarization=getattr(args, "diarize", False) or _env_bool("VID_PIPELINE_DIARIZATION", False),
         diarization_required=getattr(args, "diarization_required", False),
         num_speakers=getattr(args, "num_speakers", 2),
-        diarization_model=os.getenv(
-            "VID_PIPELINE_DIARIZATION_MODEL",
-            "pyannote/speaker-diarization-community-1",
-        ).strip(),
+        diarization_cache_dir=Path(os.getenv("VID_PIPELINE_DIARIZATION_CACHE", "").strip())
+        if os.getenv("VID_PIPELINE_DIARIZATION_CACHE", "").strip() else None,
         speaker_role_mode=getattr(args, "speaker_role_mode", "generic"),
         speaker_role_overrides=parse_role_overrides(getattr(args, "speaker_role", [])),
-        huggingface_token=(os.getenv("HF_TOKEN", "") or os.getenv("HUGGINGFACE_TOKEN", "")).strip(),
     )
 
 

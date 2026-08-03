@@ -26,14 +26,9 @@ from vid_pipeline.github_client import (
 def _result_zip(request_id: str) -> bytes:
     stream = io.BytesIO()
     with zipfile.ZipFile(stream, "w") as archive:
-        archive.writestr(
-            f"outputs/{request_id}/result.json",
-            json.dumps({"job_id": request_id, "status": "completed"}),
-        )
-        archive.writestr(
-            f"outputs/{request_id}/final/transcript.final.txt",
-            "رونویسی نهایی\n",
-        )
+        archive.writestr("transcript.md", "# رونویسی نهایی\n")
+        archive.writestr("transcript.txt", "رونویسی نهایی\n")
+        archive.writestr("transcript.timestamped.md", "# زمان‌بندی‌شده\n")
     return stream.getvalue()
 
 
@@ -254,7 +249,7 @@ def test_full_mock_github_flow_streams_and_deletes_only_after_validation(tmp_pat
         if path == "/repos/owner/repo/actions/artifacts/40/zip":
             return httpx.Response(200, content=archive)
         if path == "/repos/owner/repo/releases/assets/20" and request.method == "DELETE":
-            transcript = tmp_path / "outputs" / request_id[0] / "final/transcript.final.txt"
+            transcript = tmp_path / "outputs" / request_id[0] / "transcript.txt"
             assert transcript.read_text(encoding="utf-8").strip()
             return httpx.Response(204)
         raise AssertionError(f"unexpected request: {request.method} {request.url}")
@@ -278,7 +273,7 @@ def test_full_mock_github_flow_streams_and_deletes_only_after_validation(tmp_pat
     assert result.status == "completed"
     assert result.asset_id == 0
     assert media.exists()
-    assert (tmp_path / "outputs" / result.job_id / "final/transcript.final.txt").exists()
+    assert (tmp_path / "outputs" / result.job_id / "transcript.txt").exists()
     assert calls.index("POST /releases/10/assets") < calls.index(
         "POST /repos/owner/repo/actions/workflows/process-uploaded-video.yml/dispatches"
     )

@@ -40,6 +40,10 @@ on:
         required: true
         default: "true"
         type: string
+      keep_debug_artifacts:
+        required: true
+        default: "false"
+        type: string
 
 permissions:
   # Draft release assets require a token whose repository identity has push
@@ -186,26 +190,45 @@ jobs:
           fi
           vid-pipeline "${args[@]}" 2>&1 | tee pipeline.log
 
+      - name: Prepare lean transcript artifact
+        if: success()
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p transcript-artifact
+          find outputs -path '*/delivery/*' -type f -exec cp {} transcript-artifact/ \;
+          test "$(find transcript-artifact -maxdepth 1 -type f | wc -l)" -eq 3
+
       - name: Upload transcript result
         if: success()
         uses: actions/upload-artifact@v4
         with:
           name: uploaded-transcript-${{ inputs.request_id }}
-          path: |
-            outputs/**/state.json
-            outputs/**/source.json
-            outputs/**/video-info.json
-            outputs/**/result.json
-            outputs/**/raw/transcript.raw.json
-            outputs/**/raw/transcript.raw.md
-            outputs/**/machine/**
-            outputs/**/final/**
-            outputs/**/accuracy/**
-            outputs/**/pre_review/**
-            outputs/**/review/**
-            pipeline.log
+          path: transcript-artifact/*
           retention-days: 1
           if-no-files-found: error
+
+      - name: Upload debug package
+        if: success() && inputs.keep_debug_artifacts == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-artifacts-${{ inputs.request_id }}
+          path: |
+            outputs/**
+            pipeline.log
+          retention-days: 1
+
+      - name: Upload failure diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: failure-diagnostics-${{ inputs.request_id }}
+          path: |
+            outputs/**/state.json
+            outputs/**/result.json
+            pipeline.log
+          retention-days: 7
+          if-no-files-found: warn
 
       - name: Remove input and temporary media
         if: always()

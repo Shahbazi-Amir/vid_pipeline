@@ -111,6 +111,7 @@ def _add_github_options(parser: argparse.ArgumentParser, *, output: bool = True)
     parser.add_argument("--profile", choices=("fast", "balanced", "accurate"), default="balanced")
     parser.add_argument("--model", default="")
     parser.add_argument("--language", default="fa")
+    parser.add_argument("--keep-debug-artifacts", action="store_true")
     editorial = parser.add_mutually_exclusive_group()
     editorial.add_argument("--no-editorial", dest="no_editorial", action="store_true", default=True)
     editorial.add_argument("--editorial", dest="no_editorial", action="store_false")
@@ -134,6 +135,7 @@ def build_parser() -> argparse.ArgumentParser:
     run_parser.add_argument("--name", default="")
     run_parser.add_argument("--max-paragraph-words", type=int, default=90)
     run_parser.add_argument("--force", action="store_true")
+    run_parser.add_argument("--keep-debug-artifacts", action="store_true")
     run_parser.add_argument(
         "--profile", choices=("fast", "balanced", "accurate"), default=DEFAULT_PROFILE
     )
@@ -147,6 +149,7 @@ def build_parser() -> argparse.ArgumentParser:
     file_parser.add_argument("--max-paragraph-words", type=int, default=90)
     file_parser.add_argument("--force", action="store_true")
     file_parser.add_argument("--resume", action="store_true")
+    file_parser.add_argument("--keep-debug-artifacts", action="store_true")
     file_parser.add_argument("--profile", choices=("fast", "balanced", "accurate"), default="balanced")
     _add_transcription_options(file_parser, profile_aware=True)
     _add_editorial_options(file_parser)
@@ -159,6 +162,7 @@ def build_parser() -> argparse.ArgumentParser:
     folder_parser.add_argument("--extensions", default="")
     folder_parser.add_argument("--force", action="store_true")
     folder_parser.add_argument("--resume", action="store_true")
+    folder_parser.add_argument("--keep-debug-artifacts", action="store_true")
     folder_parser.add_argument("--profile", choices=("fast", "balanced", "accurate"), default="balanced")
     folder_parser.add_argument("--model", default="")
     folder_parser.add_argument("--language", default="fa")
@@ -515,6 +519,7 @@ def _github_options(args: argparse.Namespace) -> dict[str, Any]:
         "model": args.model,
         "language": args.language,
         "no_editorial": args.no_editorial,
+        "keep_debug_artifacts": getattr(args, "keep_debug_artifacts", False),
         "delete_remote_after_success": getattr(args, "delete_remote_after_success", False),
         "delete_result_artifact_after_download": getattr(
             args, "delete_result_artifact_after_download", False

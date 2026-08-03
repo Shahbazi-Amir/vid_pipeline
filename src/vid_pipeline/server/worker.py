@@ -78,11 +78,16 @@ def process_job(
         quality.write_text(json.dumps({"segments": len(document.segments), "valid": True}) + "\n")
         result = storage.path(f"jobs/{job_id}/final/result.json")
         result.write_text(json.dumps({"job_id": job_id, "status": "completed"}) + "\n")
+        delivery = storage.path(f"jobs/{job_id}/delivery")
+        delivery.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(outputs["markdown"], delivery / "transcript.md")
+        shutil.copyfile(outputs["text"], delivery / "transcript.txt")
+        shutil.copyfile(outputs["timecoded_markdown"], delivery / "transcript.timestamped.md")
         state = storage.path(f"jobs/{job_id}/state.json")
         manifest = storage.path(f"jobs/{job_id}/manifest.json")
         artifacts = [
-            str(Path(path).relative_to(storage.path(f"jobs/{job_id}")))
-            for path in [*map(Path, outputs.values()), quality, result]
+            str(path.relative_to(storage.path(f"jobs/{job_id}")))
+            for path in sorted(delivery.iterdir())
         ]
         job.update(
             status="completed", current_stage="completed", progress_percent=100,

@@ -401,6 +401,8 @@ def apply_human_review(
         encoding="utf-8",
     )
     if promote:
+        from vid_pipeline.final_export import export_final_outputs
+
         final_dir = root / "final"
         final_dir.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(text_path, final_dir / "transcript.final.txt")
@@ -427,6 +429,7 @@ def apply_human_review(
             json.dumps(result, ensure_ascii=False, indent=2) + "\n",
             encoding="utf-8",
         )
+        export_final_outputs(root)
     return verification
 
 

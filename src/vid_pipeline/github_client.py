@@ -342,6 +342,7 @@ class GitHubClient:
             "model": options.get("model") or "",
             "language": options.get("language", "fa"),
             "no_editorial": str(options.get("no_editorial", True)).lower(),
+            "keep_debug_artifacts": str(options.get("keep_debug_artifacts", False)).lower(),
         }
         response = self._request(
             "POST",
@@ -380,6 +381,7 @@ class GitHubClient:
                     "request_id": request.request_id,
                     "profile": options.get("profile") or "balanced",
                     "whisper_model": options.get("model") or "",
+                    "keep_debug_artifacts": bool(options.get("keep_debug_artifacts", False)),
                 },
             },
         )
@@ -537,23 +539,24 @@ class GitHubClient:
         staging = Path(tempfile.mkdtemp(prefix=".github-result-", dir=self.output_root))
         try:
             self._safe_extract(archive, staging)
-            results = list(staging.rglob("result.json"))
-            if not results:
-                raise ValueError("Final transcript validation failed; result.json is missing.")
-            result = json.loads(results[0].read_text(encoding="utf-8"))
-            if str(result.get("status", "")).lower() in {"failed", "cancelled"}:
-                raise ValueError("Final transcript validation failed; job failed.")
-            job_root = results[0].parent
-            transcript = job_root / "final" / "transcript.final.txt"
+            expected_files = {
+                "transcript.md", "transcript.txt", "transcript.timestamped.md"
+            }
+            files = [item for item in staging.rglob("*") if item.is_file()]
+            if {item.name for item in files} != expected_files or len(files) != 3:
+                raise ValueError("Final transcript artifact must contain exactly three files.")
+            transcript = next(item for item in files if item.name == "transcript.txt")
             if not transcript.is_file() or not transcript.read_text(encoding="utf-8").strip():
                 raise ValueError("Final transcript validation failed; final text is empty.")
-            request.job_id = str(result.get("job_id") or job_root.name)
+            request.job_id = request.job_id or request.request_id
             destination = self.output_root / request.job_id
             if destination.exists():
                 import shutil
 
                 shutil.rmtree(destination)
-            job_root.replace(destination)
+            destination.mkdir(parents=True)
+            for item in files:
+                item.replace(destination / item.name)
             request.output_path = str(destination)
             request.download_completed_at = _now()
             request.status = "validated"

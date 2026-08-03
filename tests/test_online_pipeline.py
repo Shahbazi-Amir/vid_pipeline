@@ -111,20 +111,15 @@ def test_end_to_end_job_and_all_final_artifacts(services, tmp_path: Path):
     job = process_job(job_id, repository, storage, MockProcessor())
     assert job["status"] == "completed"
     expected = {
-        "final/transcript.final.txt",
-        "final/transcript.final.md",
-        "final/transcript.final.timecoded.json",
-        "final/transcript.final.timecoded.md",
-        "final/transcript.final.srt",
-        "final/transcript.final.vtt",
-        "final/quality-report.json",
-        "final/result.json",
+        "delivery/transcript.md",
+        "delivery/transcript.txt",
+        "delivery/transcript.timestamped.md",
     }
-    assert expected.issubset(set(job["artifacts"]))
+    assert expected == set(job["artifacts"])
     listed = client.get(f"/v1/jobs/{job_id}/artifacts", headers=headers).json()["artifacts"]
-    assert expected.issubset({item["name"] for item in listed})
+    assert expected == {item["name"] for item in listed}
     download = client.get(
-        f"/v1/jobs/{job_id}/artifacts/final/transcript.final.txt", headers=headers
+        f"/v1/jobs/{job_id}/artifacts/delivery/transcript.txt", headers=headers
     )
     assert download.status_code == 200
     assert "سلام دنیا" in download.text

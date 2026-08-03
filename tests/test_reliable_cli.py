@@ -136,6 +136,7 @@ def test_accuracy_failure_updates_state_and_is_optional_when_configured(tmp_path
         patch("vid_pipeline.reliable_cli.build_accuracy_package", side_effect=RuntimeError("optional failure")),
         patch("vid_pipeline.reliable_cli.build_pre_review_package", return_value={}),
         patch("vid_pipeline.reliable_cli.build_review_package", return_value={}),
+        patch("vid_pipeline.reliable_cli.export_final_outputs", return_value={}),
     ):
         assert _postprocess_with_review(pipeline, _pipeline_args()) == 0
     result = json.loads((root / "result.json").read_text(encoding="utf-8"))

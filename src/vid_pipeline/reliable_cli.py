@@ -13,6 +13,7 @@ from vid_pipeline.accuracy_judge import advise_disagreements
 from vid_pipeline.accuracy_rebuild import rebuild_from_accuracy
 from vid_pipeline.accuracy_review import build_accuracy_review
 from vid_pipeline.editorial import EditorialConfig
+from vid_pipeline.final_export import export_final_outputs, record_export_failure
 from vid_pipeline.github_compat import client_from_args as github_client_from_args
 from vid_pipeline.pre_review import PreReviewError, build_pre_review_package
 from vid_pipeline.profiles import resolve_transcription_model
@@ -235,10 +236,16 @@ def _postprocess_with_review(pipeline: VideoPipeline, args: Namespace) -> int:
         _record_review_failure(pipeline.paths.job_root, exc)
         print(f"error: review packaging failed: {exc}", file=sys.stderr)
         return 1
+    try:
+        final_export = export_final_outputs(pipeline.paths.job_root)
+    except (OSError, ValueError, json.JSONDecodeError) as exc:
+        record_export_failure(pipeline.paths.job_root, exc)
+        print(f"error: final export failed: {exc}", file=sys.stderr)
+        return 1
     print(json.dumps({
         "accuracy_stage": accuracy_manifest, "accuracy_judge": accuracy_judge,
         "accuracy_review": accuracy_review, "accuracy_rebuild": accuracy_rebuild,
-        "pre_review_stage": pre_review, "review_stage": review,
+        "pre_review_stage": pre_review, "review_stage": review, "export_stage": final_export,
     }, ensure_ascii=False, indent=2))
     return 0
 

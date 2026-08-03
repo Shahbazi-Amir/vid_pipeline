@@ -19,6 +19,7 @@ STAGES = (
     "editorial",
     "finalize_machine",
     "review",
+    "export",
 )
 
 

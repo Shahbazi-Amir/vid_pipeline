@@ -76,6 +76,11 @@ on:
         required: true
         default: false
         type: boolean
+      keep_debug_artifacts:
+        description: Upload a separate package containing internal pipeline artifacts
+        required: true
+        default: false
+        type: boolean
   push:
     paths:
       - 'runs/*.request.json'
@@ -238,31 +243,44 @@ jobs:
           [[ -n "${EDITORIAL_CONTEXT:-}" ]] && args+=(--editorial-context "$EDITORIAL_CONTEXT")
           vid-pipeline "${args[@]}" 2>&1 | tee pipeline.log
 
+      - name: Prepare lean transcript artifact
+        if: success()
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p transcript-artifact
+          find outputs -path '*/delivery/*' -type f -exec cp {} transcript-artifact/ \;
+          test "$(find transcript-artifact -maxdepth 1 -type f | wc -l)" -eq 3
+
       - name: Upload transcript package
-        if: always()
+        if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: reviewed-transcript-${{ github.run_id }}
+          name: transcript-${{ github.run_id }}
+          path: transcript-artifact/*
+          retention-days: 30
+          if-no-files-found: error
+
+      - name: Upload debug package
+        if: success() && inputs.keep_debug_artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-artifacts-${{ github.run_id }}
           path: |
-            outputs/**/state.json
-            outputs/**/source.json
-            outputs/**/video-info.json
-            outputs/**/result.json
-            outputs/**/raw/transcript.raw.json
-            outputs/**/raw/transcript.raw.md
-            outputs/**/machine/**
-            outputs/**/final/**
-            outputs/**/accuracy/*.json
-            outputs/**/accuracy/*.md
-            outputs/**/accuracy/*.srt
-            outputs/**/accuracy/*.vtt
-            outputs/**/pre_review/**
-            outputs/**/review/*.json
-            outputs/**/review/*.md
-            outputs/**/review/*.html
-            outputs/**/review/*.srt
-            outputs/**/review/*.vtt
+            outputs/**
             pipeline.log
             ollama.log
-          retention-days: 30
+          retention-days: 7
+
+      - name: Upload failure diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: failure-diagnostics-${{ github.run_id }}
+          path: |
+            outputs/**/state.json
+            outputs/**/result.json
+            pipeline.log
+            ollama.log
+          retention-days: 7
           if-no-files-found: warn

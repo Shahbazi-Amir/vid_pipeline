@@ -49,6 +49,27 @@ written atomically to `.vid_pipeline/github/<request-id>.json`. Results are
 downloaded to `outputs/<job-id>/final/`, including
 `transcript.final.txt`.
 
+## خروجی نهایی کم‌حجم
+
+هر اجرای موفق در پوشه `delivery/` فقط سه فایل قابل تحویل می‌سازد:
+
+```text
+transcript.md
+transcript.txt
+transcript.timestamped.md
+```
+
+دو فایل اول از بهترین متن نهایی Pipeline (از جمله editorial یا بازبینی انسانی)
+ساخته می‌شوند. فایل زمان‌بندی‌شده از segmentهای دارای زمان واقعی با اولویت
+بازبینی انسانی، consensus مرحله Accuracy، machine segmentها و در نهایت raw ASR
+ساخته می‌شود. اگر editorial نگاشت زمانی مطمئن نداشته باشد، متن آن برای فایل
+زمان‌بندی‌شده استفاده نمی‌شود و timestamp جدیدی نیز ساخته نمی‌شود.
+
+فایل‌های داخلی برای resume و review روی filesystem باقی می‌مانند، اما artifact
+عادی GitHub Actions فقط همین سه فایل را دارد. گزینه `--keep-debug-artifacts`
+برای درخواست نگه‌داری/انتشار artifact جداگانهٔ debug است؛ در failure نیز گزارش
+تشخیصی جدا از خروجی عادی ساخته می‌شود.
+
 Available GitHub commands:
 
 ```text

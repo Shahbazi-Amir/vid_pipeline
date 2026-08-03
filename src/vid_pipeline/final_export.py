@@ -48,7 +48,7 @@ def _valid_segments(payload: dict[str, Any]) -> list[dict[str, Any]]:
 
 
 def select_timestamp_source(job_root: str | Path) -> tuple[Path, list[dict[str, Any]]]:
-    """Select real segment timing, preferring reviewed and consensus data."""
+    """Select best text unless it would destroy a finer speaker timeline."""
 
     root = Path(job_root)
     candidates = (
@@ -57,25 +57,26 @@ def select_timestamp_source(job_root: str | Path) -> tuple[Path, list[dict[str, 
         root / "machine" / "transcript.machine.json",
         root / "raw" / "transcript.raw.json",
     )
+    available: list[tuple[Path, list[dict[str, Any]]]] = []
     for path in candidates:
         if path.is_file():
             segments = _valid_segments(_load(path))
             if segments:
-                if not any(segment.get("speaker") for segment in segments):
-                    consensus = root / "accuracy" / "transcript.consensus.json"
-                    if consensus.is_file() and consensus != path:
-                        speaker_segments = _valid_segments(_load(consensus))
-                        for segment in segments:
-                            matches = [
-                                row for row in speaker_segments if row.get("speaker") and
-                                min(segment["end"], row["end"]) > max(segment["start"], row["start"])
-                            ]
-                            if matches:
-                                best = max(matches, key=lambda row: min(segment["end"], row["end"]) - max(segment["start"], row["start"]))
-                                for key in ("speaker", "speaker_role", "speaker_role_confidence"):
-                                    if key in best:
-                                        segment[key] = best[key]
-                return path, segments
+                available.append((path, segments))
+    if available:
+        text_path, text_segments = available[0]
+
+        def resolution(item: tuple[Path, list[dict[str, Any]]]) -> tuple[int, int]:
+            speaker_rows = [row for row in item[1] if row.get("speaker")]
+            return len({str(row["speaker"]) for row in speaker_rows}), len(speaker_rows)
+
+        timeline_path, timeline_segments = max(available, key=resolution)
+        if resolution((text_path, text_segments)) >= resolution((timeline_path, timeline_segments)):
+            return text_path, text_segments
+        # Without word timings, splitting a reviewed coarse segment across a
+        # finer speaker timeline would duplicate or invent text. Preserve the
+        # already aligned timeline and its text rather than collapsing speakers.
+        return timeline_path, timeline_segments
     raise ValueError("No transcript source contains valid, real segment timestamps.")
 
 

@@ -292,6 +292,8 @@ jobs:
           path: |
             outputs/**/state.json
             outputs/**/result.json
+            outputs/**/diarization/diarization.json
+            outputs/**/accuracy/transcript.consensus.json
             pipeline.log
           retention-days: 7
           if-no-files-found: warn

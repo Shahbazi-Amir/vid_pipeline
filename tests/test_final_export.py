@@ -60,3 +60,20 @@ def test_export_refuses_to_invent_timestamps(tmp_path: Path) -> None:
 def test_timestamp_renderer_supports_more_than_one_hour() -> None:
     rendered = render_timestamped([{"start": 7215, "end": 7228, "text": "متن"}])
     assert "[02:00:15 → 02:00:28]" in rendered
+
+
+def test_better_coarse_text_does_not_collapse_finer_speaker_timeline(tmp_path: Path) -> None:
+    root = _job(tmp_path)
+    _write_json(root / "human/verification.json", {
+        "segments": [{"start": 0, "end": 10, "reviewed_text": "متن بازبینی‌شده"}]
+    })
+    consensus = root / "accuracy/transcript.consensus.json"
+    _write_json(consensus, {"segments": [
+        {"start": 0, "end": 5, "text": "سلام", "speaker": "SPEAKER_00"},
+        {"start": 5, "end": 10, "text": "پاسخ", "speaker": "SPEAKER_01"},
+    ]})
+    result = export_final_outputs(root)
+    timestamped = (root / "delivery/transcript.timestamped.md").read_text(encoding="utf-8")
+    assert "گوینده ۱" in timestamped
+    assert "گوینده ۲" in timestamped
+    assert result["timestamp_source"] == str(consensus.resolve())

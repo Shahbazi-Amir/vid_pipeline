@@ -11,6 +11,7 @@ import tarfile
 import tempfile
 import time
 import urllib.request
+from collections import Counter
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Protocol
@@ -40,6 +41,12 @@ class DiarizationConfig:
     role_overrides: dict[str, str] | None = None
     role_threshold: float = 0.72
     merge_gap_seconds: float = 0.45
+    effective_min_duration_seconds: float = 2.0
+    effective_min_turns: int = 1
+    effective_min_fraction: float = 0.01
+    clustering_threshold: float = 0.5
+    min_duration_on: float = 0.3
+    min_duration_off: float = 0.5
 
 
 @dataclass(frozen=True, slots=True)
@@ -161,7 +168,14 @@ class DiarizationBackend(Protocol):
 class SherpaOnnxDiarizationBackend:
     name = "sherpa-onnx"
 
-    def __init__(self, manager: DiarizationModelManager | None = None) -> None:
+    def __init__(
+        self,
+        manager: DiarizationModelManager | None = None,
+        *,
+        clustering_threshold: float = 0.5,
+        min_duration_on: float = 0.3,
+        min_duration_off: float = 0.5,
+    ) -> None:
         manager = manager or DiarizationModelManager()
         segmentation = manager.provision(SEGMENTATION_ARTIFACT)
         embedding = manager.provision(EMBEDDING_ARTIFACT)
@@ -172,6 +186,10 @@ class SherpaOnnxDiarizationBackend:
         self.sherpa = sherpa_onnx
         self.segmentation = segmentation
         self.embedding = embedding
+        self.clustering_threshold = clustering_threshold
+        self.min_duration_on = min_duration_on
+        self.min_duration_off = min_duration_off
+        self.last_num_clusters: int | None = None
 
     def diarize(self, audio: Path, *, num_speakers: int | None) -> list[SpeakerTurn]:
         try:
@@ -192,11 +210,17 @@ class SherpaOnnxDiarizationBackend:
                 ),
                 clustering=self.sherpa.FastClusteringConfig(
                     num_clusters=num_speakers if num_speakers is not None else -1,
-                    threshold=0.5,
+                    threshold=getattr(self, "clustering_threshold", 0.5),
                 ),
-                min_duration_on=0.3,
-                min_duration_off=0.5,
+                min_duration_on=getattr(self, "min_duration_on", 0.3),
+                min_duration_off=getattr(self, "min_duration_off", 0.5),
             )
+            self.last_num_clusters = config.clustering.num_clusters
+            if num_speakers is not None and self.last_num_clusters != num_speakers:
+                raise DiarizationError(
+                    "sherpa clustering speaker count was not applied: "
+                    f"requested={num_speakers} configured={self.last_num_clusters}"
+                )
             if not config.validate():
                 raise DiarizationError("invalid sherpa-onnx diarization configuration")
             diarizer = self.sherpa.OfflineSpeakerDiarization(config)
@@ -236,13 +260,39 @@ def assign_speaker(start: float, end: float, turns: list[SpeakerTurn]) -> tuple[
     return ranked[0][0], ambiguous
 
 
+_CLOSING_PUNCTUATION = frozenset(".,،:;؛!؟?)]}")
+_OPENING_PUNCTUATION = frozenset("([{«")
+
+
+def join_word_tokens(tokens: list[str]) -> str:
+    """Join Whisper word tokens while preserving Persian ZWNJ and punctuation."""
+
+    result = ""
+    for raw in tokens:
+        if not raw:
+            continue
+        token = raw.strip(" \t\r\n")
+        if not token:
+            continue
+        if not result:
+            result = token
+        elif token[0] in _CLOSING_PUNCTUATION or result[-1] in _OPENING_PUNCTUATION:
+            result += token
+        else:
+            # A leading Whisper space is a word boundary, not an instruction to
+            # concatenate. Tokens without it still need a boundary for Persian
+            # and other whitespace-delimited languages.
+            result += " " + token
+    return result.strip()
+
+
 def align_segments(segments: list[dict[str, Any]], turns: list[SpeakerTurn], *, merge_gap: float = 0.45) -> tuple[list[dict[str, Any]], int]:
     """Assign words by overlap and rebuild contiguous speaker utterances."""
     rows: list[dict[str, Any]] = []
     ambiguous = 0
     for segment in segments:
         words = [w for w in (segment.get("words") or []) if w.get("start") is not None and w.get("end") is not None]
-        word_text = " ".join(str(w.get("word") or "").strip() for w in words).strip()
+        word_text = join_word_tokens([str(w.get("word") or "") for w in words])
         segment_text = " ".join(str(segment.get("text") or "").split())
         # Accuracy/human review may replace the text while retaining the old word
         # timings. Never overwrite that better text with stale Whisper words.
@@ -255,8 +305,7 @@ def align_segments(segments: list[dict[str, Any]], turns: list[SpeakerTurn], *, 
                     continue
                 row = {"start": float(word["start"]), "end": float(word["end"]), "text": text.strip(), "speaker": speaker}
                 if rows and rows[-1]["speaker"] == speaker and row["start"] - rows[-1]["end"] <= merge_gap:
-                    joiner = "" if text[:1].isspace() else " "
-                    rows[-1]["text"] = (rows[-1]["text"] + joiner + text.strip()).strip()
+                    rows[-1]["text"] = join_word_tokens([rows[-1]["text"], text])
                     rows[-1]["end"] = row["end"]
                 else:
                     rows.append(row)
@@ -306,25 +355,77 @@ def apply_roles(segments: list[dict[str, Any]], mapping: dict[str, dict[str, Any
 def run_diarization(audio: Path, segments: list[dict[str, Any]], config: DiarizationConfig, *, backend: DiarizationBackend | None = None, output: Path | None = None) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     started = time.monotonic()
     backend = backend or SherpaOnnxDiarizationBackend(
-        DiarizationModelManager(config.model_cache_dir)
+        DiarizationModelManager(config.model_cache_dir),
+        clustering_threshold=config.clustering_threshold,
+        min_duration_on=config.min_duration_on,
+        min_duration_off=config.min_duration_off,
     )
-    turns = normalize_turns(backend.diarize(audio, num_speakers=config.num_speakers))
+    raw_turns = backend.diarize(audio, num_speakers=config.num_speakers)
+    turns = normalize_turns(raw_turns)
     if not turns:
         raise DiarizationError("diarization returned zero speakers")
     aligned, ambiguous = align_segments(segments, turns, merge_gap=config.merge_gap_seconds)
-    mapping = map_roles(aligned, config.role_mode, config.role_overrides, config.role_threshold)
-    apply_roles(aligned, mapping)
     durations: dict[str, float] = {}
+    turn_counts: Counter[str] = Counter()
     for turn in turns:
         durations[turn.speaker] = durations.get(turn.speaker, 0.0) + turn.end - turn.start
+        turn_counts[turn.speaker] += 1
+    total_duration = sum(durations.values())
+    effective = sorted(
+        speaker for speaker, duration in durations.items()
+        if duration >= config.effective_min_duration_seconds
+        and turn_counts[speaker] >= config.effective_min_turns
+        and (duration / total_duration if total_duration else 0) >= config.effective_min_fraction
+    )
+    aligned_segment_counts = Counter(
+        str(segment.get("speaker")) for segment in aligned if segment.get("speaker")
+    )
+    aligned_word_counts = Counter()
+    unassigned_words = 0
+    for segment in aligned:
+        count = len(segment.get("words") or []) or len(str(segment.get("text") or "").split())
+        speaker = str(segment.get("speaker") or "")
+        if speaker:
+            aligned_word_counts[speaker] += count
+        else:
+            unassigned_words += count
+    mapping = map_roles(
+        aligned,
+        config.role_mode if len(effective) >= 2 else "generic",
+        config.role_overrides,
+        config.role_threshold,
+    )
+    apply_roles(aligned, mapping)
+    quality_gate_passed = (
+        config.num_speakers is None or len(effective) >= config.num_speakers
+    )
     report = {
-        "schema_version": 1, "status": "completed", "backend": backend.name,
+        "schema_version": 1,
+        "status": "failed" if config.required and not quality_gate_passed else "completed",
+        "backend": backend.name,
         "models": {
             "segmentation": config.segmentation_model,
             "embedding": config.embedding_model,
         }, "requested_speaker_count": config.num_speakers,
+        "raw_turn_count": len(raw_turns),
+        "raw_speakers": sorted({turn.speaker for turn in raw_turns}),
+        "normalized_turn_count": len(turns),
+        "normalized_speakers": sorted(durations),
         "detected_speaker_count": len(durations), "speaker_durations": durations,
-        "speaker_turn_count": len(turns), "ambiguous_assignments": ambiguous,
+        "speaker_turn_count": len(turns), "speaker_turn_counts": dict(turn_counts),
+        "aligned_segment_counts": dict(aligned_segment_counts),
+        "aligned_word_counts": dict(aligned_word_counts),
+        "unassigned_word_count": unassigned_words,
+        "ambiguous_word_count": ambiguous,
+        "ambiguous_assignments": ambiguous,
+        "effective_speakers": effective,
+        "effective_speaker_count": len(effective),
+        "quality_gate_passed": quality_gate_passed,
+        "quality_warning": (
+            "" if quality_gate_passed
+            else "Diarization quality gate failed: "
+            f"requested={config.num_speakers} effective={len(effective)}"
+        ),
         "role_mapping": mapping, "runtime_seconds": round(time.monotonic() - started, 3),
         "config": {
             key: str(value) if isinstance(value, Path) else value
@@ -335,6 +436,22 @@ def run_diarization(audio: Path, segments: list[dict[str, Any]], config: Diariza
     if output:
         output.parent.mkdir(parents=True, exist_ok=True)
         output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(
+        "diarization diagnostics: "
+        f"requested={config.num_speakers} raw_speakers={len(report['raw_speakers'])} "
+        f"raw_turns={len(raw_turns)} normalized_speakers={len(durations)} "
+        f"effective_speakers={len(effective)} aligned_speakers={len(aligned_segment_counts)} "
+        f"ambiguous_words={ambiguous} durations={durations}"
+    )
+    if (
+        config.required
+        and config.num_speakers is not None
+        and len(effective) < config.num_speakers
+    ):
+        raise DiarizationError(
+            "Diarization quality gate failed: "
+            f"requested={config.num_speakers} effective={len(effective)}"
+        )
     return aligned, report
 
 

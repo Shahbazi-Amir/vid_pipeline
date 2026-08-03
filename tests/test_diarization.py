@@ -16,6 +16,7 @@ from vid_pipeline.diarization import (
     SherpaOnnxDiarizationBackend,
     SpeakerTurn,
     align_segments,
+    join_word_tokens,
     map_roles,
     normalize_turns,
     run_diarization,
@@ -202,6 +203,16 @@ def test_real_sherpa_two_voice_integration(tmp_path: Path):
             target.writeframes(b"\0\0" * 8000)
     turns = SherpaOnnxDiarizationBackend().diarize(output, num_speakers=2)
     assert len({turn.speaker for turn in turns}) == 2
+    normalized = normalize_turns(turns)
+    assert len({turn.speaker for turn in normalized}) == 2
+    segments = [{
+        "start": turn.start,
+        "end": turn.end,
+        "text": f"word {index}",
+        "words": [{"start": turn.start, "end": turn.end, "word": f" word{index}"}],
+    } for index, turn in enumerate(normalized)]
+    aligned, _ = align_segments(segments, normalized)
+    assert len({row["speaker"] for row in aligned}) == 2
 
 
 def test_normalization_word_split_and_short_interjection():
@@ -214,6 +225,47 @@ def test_normalization_word_split_and_short_interjection():
     assert [row["speaker"] for row in aligned] == ["SPEAKER_00", "SPEAKER_01"]
     assert [row["text"] for row in aligned] == ["سلام", "بله"]
     assert ambiguous == 0
+
+
+@pytest.mark.parametrize(("tokens", "expected"), [
+    (["سلام", " به", " همه"], "سلام به همه"),
+    (["این", " یک", " تست", " است"], "این یک تست است"),
+    (["سلام", "،", " دنیا"], "سلام، دنیا"),
+    (["آیا", " خوب", " است", "؟"], "آیا خوب است؟"),
+    (["می\u200cشود"], "می\u200cشود"),
+    (["برنامه\u200cریزی", " و", " سرمایه\u200cگذاری"], "برنامه\u200cریزی و سرمایه\u200cگذاری"),
+])
+def test_join_word_tokens_preserves_persian_spacing(tokens, expected):
+    assert join_word_tokens(tokens) == expected
+
+
+def test_alignment_preserves_persian_spacing_and_speaker_timeline():
+    turns = normalize_turns([
+        SpeakerTurn(0, 5, "speaker_00"),
+        SpeakerTurn(5, 10, "speaker_01"),
+        SpeakerTurn(10, 15, "speaker_00"),
+    ])
+    segments = [{"start": 0, "end": 15, "text": "سلام به همه بله دوباره", "words": [
+        {"start": 1, "end": 2, "word": "سلام"},
+        {"start": 2, "end": 3, "word": " به"},
+        {"start": 3, "end": 4, "word": " همه"},
+        {"start": 6, "end": 7, "word": " بله"},
+        {"start": 11, "end": 12, "word": " دوباره"},
+    ]}]
+    aligned, ambiguous = align_segments(segments, turns)
+    assert [row["speaker"] for row in aligned] == [
+        "SPEAKER_00", "SPEAKER_01", "SPEAKER_00"
+    ]
+    assert [row["text"] for row in aligned] == ["سلام به همه", "بله", "دوباره"]
+    assert " ".join(row["text"] for row in aligned) == segments[0]["text"]
+    assert ambiguous == 0
+
+
+def test_normalization_never_collapses_distinct_raw_labels():
+    turns = normalize_turns([
+        SpeakerTurn(0, 1, "speaker_00"), SpeakerTurn(1, 2, "speaker_01")
+    ])
+    assert [turn.speaker for turn in turns] == ["SPEAKER_00", "SPEAKER_01"]
 
 
 def test_overlap_is_deterministic_and_three_speakers_are_generic():
@@ -245,6 +297,65 @@ def test_manual_roles_and_fake_backend(tmp_path: Path):
     ), backend=FakeBackend())
     assert report["detected_speaker_count"] == 2
     assert segments[0]["speaker_role"] == "مجری"
+
+
+def test_diagnostics_and_required_quality_gate(tmp_path: Path):
+    class CollapsedBackend:
+        name = "sherpa-onnx"
+
+        def diarize(self, audio: Path, *, num_speakers: int | None):
+            assert num_speakers == 2
+            return [SpeakerTurn(0, 500, "speaker_00"), SpeakerTurn(500, 500.2, "speaker_01")]
+
+    output = tmp_path / "diarization.json"
+    config = DiarizationConfig(enabled=True, required=True, num_speakers=2)
+    with pytest.raises(DiarizationError, match=r"requested=2 effective=1"):
+        run_diarization(
+            tmp_path / "audio.wav",
+            [{"start": 0, "end": 500.2, "text": "متن"}],
+            config,
+            backend=CollapsedBackend(),
+            output=output,
+        )
+    report = __import__("json").loads(output.read_text(encoding="utf-8"))
+    assert report["raw_speakers"] == ["speaker_00", "speaker_01"]
+    assert report["normalized_speakers"] == ["SPEAKER_00", "SPEAKER_01"]
+    assert report["effective_speakers"] == ["SPEAKER_00"]
+    assert report["effective_speaker_count"] == 1
+    assert report["quality_gate_passed"] is False
+
+
+def test_optional_mode_records_quality_warning_instead_of_failing(tmp_path: Path):
+    class OneBackend:
+        name = "sherpa-onnx"
+
+        def diarize(self, audio: Path, *, num_speakers: int | None):
+            return [SpeakerTurn(0, 10, "speaker_00")]
+
+    _, report = run_diarization(
+        tmp_path / "audio.wav",
+        [{"start": 0, "end": 10, "text": "متن"}],
+        DiarizationConfig(enabled=True, required=False, num_speakers=2),
+        backend=OneBackend(),
+    )
+    assert report["effective_speaker_count"] == 1
+    assert "requested=2 effective=1" in report["quality_warning"]
+
+
+def test_meaningful_second_speaker_passes_effective_gate(tmp_path: Path):
+    class HealthyBackend:
+        name = "sherpa-onnx"
+
+        def diarize(self, audio: Path, *, num_speakers: int | None):
+            return [SpeakerTurn(0, 400, "speaker_00"), SpeakerTurn(400, 480, "speaker_01")]
+
+    _, report = run_diarization(
+        tmp_path / "audio.wav",
+        [{"start": 0, "end": 400, "text": "الف"}, {"start": 400, "end": 480, "text": "ب"}],
+        DiarizationConfig(enabled=True, required=True, num_speakers=2),
+        backend=HealthyBackend(),
+    )
+    assert report["effective_speaker_count"] == 2
 
 
 def test_speaker_aware_three_file_export(tmp_path: Path):

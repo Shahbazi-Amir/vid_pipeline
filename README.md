@@ -452,7 +452,11 @@ is Apache-2.0. Archives are version-pinned by URL and SHA-256, extracted atomica
 
 `--diarize` enables safe optional fallback; add `--diarization-required` when model download,
 initialization, or inference failure must fail the job. `--num-speakers 2` is recommended for the
-current interview dataset. `--speaker-role-mode host-teacher` maps roles only above a conservative
+current interview dataset. Required mode also enforces an effective-speaker quality gate: each
+speaker must have at least 2 seconds of speech, one turn, and 1% of total voiced duration. These
+defaults are configurable through `DiarizationConfig`; raw, normalized, aligned, ambiguous, and
+effective speaker metrics are written to debug diagnostics. `--speaker-role-mode host-teacher`
+maps roles only above a conservative
 confidence threshold; otherwise outputs use `گوینده ۱`, `گوینده ۲`, etc. Manual mappings use
 `--speaker-role SPEAKER_00=host` and are applied without decorating raw transcript text.
 
@@ -472,3 +476,8 @@ it. Interrupted streams retry from byte zero with a fresh file handle; broken `s
 deleted. Resume reuses only validated uploaded assets and does not create duplicate workflow runs.
 Normal delivery remains exactly `transcript.md`, `transcript.txt`, and
 `transcript.timestamped.md`; diarization diagnostics are debug-only.
+
+The separate unauthenticated Hugging Face warning can come from `faster-whisper`, which downloads
+the public CTranslate2 Whisper model (including `large-v3-turbo`) through `huggingface_hub`. It does
+not require a token or paid API. This is unrelated to sherpa diarization; the ASR backend and model
+quality are intentionally unchanged.

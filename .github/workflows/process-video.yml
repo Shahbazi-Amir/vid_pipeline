@@ -286,6 +286,8 @@ jobs:
           path: |
             outputs/**/state.json
             outputs/**/result.json
+            outputs/**/diarization/diarization.json
+            outputs/**/accuracy/transcript.consensus.json
             pipeline.log
             ollama.log
           retention-days: 7

@@ -77,3 +77,18 @@ def test_better_coarse_text_does_not_collapse_finer_speaker_timeline(tmp_path: P
     assert "گوینده ۱" in timestamped
     assert "گوینده ۲" in timestamped
     assert result["timestamp_source"] == str(consensus.resolve())
+
+
+def test_required_export_rejects_speaker_collapse(tmp_path: Path) -> None:
+    root = _job(tmp_path)
+    _write_json(root / "accuracy/transcript.consensus.json", {
+        "segments": [{"start": 0, "end": 10, "text": "فقط یک نفر", "speaker": "SPEAKER_00"}]
+    })
+    _write_json(root / "diarization/diarization.json", {
+        "requested_speaker_count": 2,
+        "aligned_effective_speakers": ["SPEAKER_00", "SPEAKER_01"],
+        "config": {"required": True},
+    })
+    with pytest.raises(ValueError, match=r"requested=2.*exported_effective=1"):
+        export_final_outputs(root)
+    assert not (root / "delivery").exists()

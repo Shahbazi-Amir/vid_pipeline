@@ -44,6 +44,10 @@ class DiarizationConfig:
     effective_min_duration_seconds: float = 2.0
     effective_min_turns: int = 1
     effective_min_fraction: float = 0.01
+    aligned_min_word_count: int = 3
+    aligned_min_duration_seconds: float = 1.0
+    aligned_min_segments: int = 1
+    aligned_min_fraction: float = 0.005
     clustering_threshold: float = 0.5
     min_duration_on: float = 0.3
     min_duration_off: float = 0.5
@@ -251,13 +255,54 @@ def overlap(start: float, end: float, turn: SpeakerTurn) -> float:
 
 def assign_speaker(start: float, end: float, turns: list[SpeakerTurn]) -> tuple[str, bool]:
     scores: dict[str, float] = {}
+    shortest_overlapping_turn: dict[str, float] = {}
     for turn in turns:
-        scores[turn.speaker] = scores.get(turn.speaker, 0.0) + overlap(start, end, turn)
-    ranked = sorted(scores.items(), key=lambda item: (-item[1], item[0]))
+        amount = overlap(start, end, turn)
+        scores[turn.speaker] = scores.get(turn.speaker, 0.0) + amount
+        if amount > 0:
+            duration = turn.end - turn.start
+            shortest_overlapping_turn[turn.speaker] = min(
+                duration, shortest_overlapping_turn.get(turn.speaker, duration)
+            )
+    # Sherpa can emit a short speaker turn nested inside a long turn for another
+    # speaker. A word wholly inside both then has equal overlap. Prefer the more
+    # temporally specific turn instead of collapsing every tie to SPEAKER_00.
+    ranked = sorted(
+        scores.items(),
+        key=lambda item: (
+            -item[1], shortest_overlapping_turn.get(item[0], float("inf")), item[0]
+        ),
+    )
     if not ranked or ranked[0][1] <= 0:
         return "", True
     ambiguous = len(ranked) > 1 and abs(ranked[0][1] - ranked[1][1]) <= 1e-6
     return ranked[0][0], ambiguous
+
+
+def _interval_overlap_duration(
+    start: float, end: float, turns: list[SpeakerTurn]
+) -> float:
+    """Return union overlap so overlapping same-speaker turns are not double-counted."""
+
+    intervals = sorted(
+        (max(start, turn.start), min(end, turn.end))
+        for turn in turns
+        if overlap(start, end, turn) > 0
+    )
+    total = 0.0
+    current_start: float | None = None
+    current_end: float | None = None
+    for interval_start, interval_end in intervals:
+        if current_start is None:
+            current_start, current_end = interval_start, interval_end
+        elif interval_start <= current_end:
+            current_end = max(current_end, interval_end)
+        else:
+            total += current_end - current_start
+            current_start, current_end = interval_start, interval_end
+    if current_start is not None and current_end is not None:
+        total += current_end - current_start
+    return total
 
 
 _CLOSING_PUNCTUATION = frozenset(".,،:;؛!؟?)]}")
@@ -381,23 +426,88 @@ def run_diarization(audio: Path, segments: list[dict[str, Any]], config: Diariza
         str(segment.get("speaker")) for segment in aligned if segment.get("speaker")
     )
     aligned_word_counts = Counter()
+    aligned_text_durations: dict[str, float] = {}
     unassigned_words = 0
     for segment in aligned:
         count = len(segment.get("words") or []) or len(str(segment.get("text") or "").split())
         speaker = str(segment.get("speaker") or "")
         if speaker:
             aligned_word_counts[speaker] += count
+            aligned_text_durations[speaker] = (
+                aligned_text_durations.get(speaker, 0.0)
+                + max(0.0, float(segment["end"]) - float(segment["start"]))
+            )
         else:
             unassigned_words += count
+    words = [
+        word
+        for segment in segments
+        for word in (segment.get("words") or [])
+        if word.get("start") is not None and word.get("end") is not None
+    ]
+    total_aligned_duration = sum(aligned_text_durations.values())
+    speaker_diagnostics: dict[str, dict[str, Any]] = {}
+    for speaker in sorted(durations):
+        speaker_turns = [turn for turn in turns if turn.speaker == speaker]
+        word_overlap_duration = sum(
+            _interval_overlap_duration(float(word["start"]), float(word["end"]), speaker_turns)
+            for word in words
+        )
+        overlapping_words = sum(
+            _interval_overlap_duration(float(word["start"]), float(word["end"]), speaker_turns) > 0
+            for word in words
+        )
+        segment_overlap_duration = sum(
+            _interval_overlap_duration(float(segment["start"]), float(segment["end"]), speaker_turns)
+            for segment in segments
+        )
+        overlapping_segments = sum(
+            _interval_overlap_duration(float(segment["start"]), float(segment["end"]), speaker_turns) > 0
+            for segment in segments
+        )
+        speaker_diagnostics[speaker] = {
+            "raw_duration": round(durations[speaker], 6),
+            "raw_turns": turn_counts[speaker],
+            "word_overlap_duration": round(word_overlap_duration, 6),
+            "word_overlap_count": overlapping_words,
+            "segment_overlap_duration": round(segment_overlap_duration, 6),
+            "segment_overlap_count": overlapping_segments,
+            "aligned_words": aligned_word_counts[speaker],
+            "aligned_segments": aligned_segment_counts[speaker],
+            "aligned_text_duration": round(aligned_text_durations.get(speaker, 0.0), 6),
+            "aligned_voiced_fraction": round(
+                aligned_text_durations.get(speaker, 0.0) / total_aligned_duration
+                if total_aligned_duration else 0.0,
+                6,
+            ),
+            "coverage_ratio": round(
+                word_overlap_duration / durations[speaker] if durations[speaker] else 0.0, 6
+            ),
+        }
+    aligned_effective = sorted(
+        speaker
+        for speaker in durations
+        if aligned_word_counts[speaker] >= config.aligned_min_word_count
+        and aligned_text_durations.get(speaker, 0.0) >= config.aligned_min_duration_seconds
+        and aligned_segment_counts[speaker] >= config.aligned_min_segments
+        and (
+            aligned_text_durations.get(speaker, 0.0) / total_aligned_duration
+            if total_aligned_duration else 0.0
+        ) >= config.aligned_min_fraction
+    )
     mapping = map_roles(
         aligned,
-        config.role_mode if len(effective) >= 2 else "generic",
+        config.role_mode if len(aligned_effective) >= 2 else "generic",
         config.role_overrides,
         config.role_threshold,
     )
     apply_roles(aligned, mapping)
     quality_gate_passed = (
-        config.num_speakers is None or len(effective) >= config.num_speakers
+        config.num_speakers is None
+        or (
+            len(effective) >= config.num_speakers
+            and len(aligned_effective) >= config.num_speakers
+        )
     )
     report = {
         "schema_version": 1,
@@ -420,11 +530,17 @@ def run_diarization(audio: Path, segments: list[dict[str, Any]], config: Diariza
         "ambiguous_assignments": ambiguous,
         "effective_speakers": effective,
         "effective_speaker_count": len(effective),
+        "raw_effective_speakers": effective,
+        "raw_effective_speaker_count": len(effective),
+        "aligned_effective_speakers": aligned_effective,
+        "aligned_effective_speaker_count": len(aligned_effective),
+        "speakers": speaker_diagnostics,
         "quality_gate_passed": quality_gate_passed,
         "quality_warning": (
             "" if quality_gate_passed
-            else "Diarization quality gate failed: "
-            f"requested={config.num_speakers} effective={len(effective)}"
+            else "Diarization quality gate failed after alignment: "
+            f"requested={config.num_speakers} raw_effective={len(effective)} "
+            f"aligned_effective={len(aligned_effective)}"
         ),
         "role_mapping": mapping, "runtime_seconds": round(time.monotonic() - started, 3),
         "config": {
@@ -440,17 +556,22 @@ def run_diarization(audio: Path, segments: list[dict[str, Any]], config: Diariza
         "diarization diagnostics: "
         f"requested={config.num_speakers} raw_speakers={len(report['raw_speakers'])} "
         f"raw_turns={len(raw_turns)} normalized_speakers={len(durations)} "
-        f"effective_speakers={len(effective)} aligned_speakers={len(aligned_segment_counts)} "
+        f"raw_effective={len(effective)} aligned_speakers={len(aligned_segment_counts)} "
+        f"aligned_effective={len(aligned_effective)} "
         f"ambiguous_words={ambiguous} durations={durations}"
     )
     if (
         config.required
         and config.num_speakers is not None
-        and len(effective) < config.num_speakers
+        and (
+            len(effective) < config.num_speakers
+            or len(aligned_effective) < config.num_speakers
+        )
     ):
         raise DiarizationError(
-            "Diarization quality gate failed: "
-            f"requested={config.num_speakers} effective={len(effective)}"
+            "Diarization quality gate failed after alignment: "
+            f"requested={config.num_speakers} raw_effective={len(effective)} "
+            f"aligned_effective={len(aligned_effective)}"
         )
     return aligned, report
 

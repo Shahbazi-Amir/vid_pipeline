@@ -281,6 +281,22 @@ def test_overlap_is_deterministic_and_three_speakers_are_generic():
     assert all(not value["role"] for value in mapping.values())
 
 
+def test_nested_sherpa_turn_wins_equal_overlap_by_temporal_specificity():
+    turns = [
+        SpeakerTurn(0, 100, "SPEAKER_00"),
+        SpeakerTurn(20, 22, "SPEAKER_01"),
+    ]
+    aligned, ambiguous = align_segments([{
+        "start": 20, "end": 22, "text": "پاسخ کوتاه",
+        "words": [
+            {"start": 20.1, "end": 20.8, "word": " پاسخ"},
+            {"start": 20.8, "end": 21.5, "word": " کوتاه"},
+        ],
+    }], turns)
+    assert {row["speaker"] for row in aligned} == {"SPEAKER_01"}
+    assert ambiguous == 2
+
+
 def test_changed_consensus_text_is_never_overwritten_by_stale_words():
     aligned, _ = align_segments([{
         "start": 0, "end": 2, "text": "متن بهتر انسانی",
@@ -299,20 +315,31 @@ def test_manual_roles_and_fake_backend(tmp_path: Path):
     assert segments[0]["speaker_role"] == "مجری"
 
 
-def test_diagnostics_and_required_quality_gate(tmp_path: Path):
+def test_diagnostics_and_required_quality_gate_after_alignment(tmp_path: Path):
     class CollapsedBackend:
         name = "sherpa-onnx"
 
         def diarize(self, audio: Path, *, num_speakers: int | None):
             assert num_speakers == 2
-            return [SpeakerTurn(0, 500, "speaker_00"), SpeakerTurn(500, 500.2, "speaker_01")]
+            return [SpeakerTurn(0, 90, "speaker_00"), SpeakerTurn(90, 100, "speaker_01")]
 
     output = tmp_path / "diarization.json"
     config = DiarizationConfig(enabled=True, required=True, num_speakers=2)
-    with pytest.raises(DiarizationError, match=r"requested=2 effective=1"):
+    with pytest.raises(
+        DiarizationError,
+        match=r"requested=2 raw_effective=2 aligned_effective=1",
+    ):
         run_diarization(
             tmp_path / "audio.wav",
-            [{"start": 0, "end": 500.2, "text": "متن"}],
+            [{
+                "start": 0, "end": 90, "text": "یک متن معنی دار",
+                "words": [
+                    {"start": 1, "end": 2, "word": " یک"},
+                    {"start": 2, "end": 3, "word": " متن"},
+                    {"start": 3, "end": 4, "word": " معنی"},
+                    {"start": 4, "end": 5, "word": " دار"},
+                ],
+            }],
             config,
             backend=CollapsedBackend(),
             output=output,
@@ -320,8 +347,10 @@ def test_diagnostics_and_required_quality_gate(tmp_path: Path):
     report = __import__("json").loads(output.read_text(encoding="utf-8"))
     assert report["raw_speakers"] == ["speaker_00", "speaker_01"]
     assert report["normalized_speakers"] == ["SPEAKER_00", "SPEAKER_01"]
-    assert report["effective_speakers"] == ["SPEAKER_00"]
-    assert report["effective_speaker_count"] == 1
+    assert report["raw_effective_speaker_count"] == 2
+    assert report["aligned_effective_speaker_count"] == 1
+    assert report["speakers"]["SPEAKER_01"]["word_overlap_duration"] == 0
+    assert report["speakers"]["SPEAKER_01"]["aligned_words"] == 0
     assert report["quality_gate_passed"] is False
 
 
@@ -339,7 +368,7 @@ def test_optional_mode_records_quality_warning_instead_of_failing(tmp_path: Path
         backend=OneBackend(),
     )
     assert report["effective_speaker_count"] == 1
-    assert "requested=2 effective=1" in report["quality_warning"]
+    assert "requested=2 raw_effective=1 aligned_effective=0" in report["quality_warning"]
 
 
 def test_meaningful_second_speaker_passes_effective_gate(tmp_path: Path):
@@ -349,13 +378,67 @@ def test_meaningful_second_speaker_passes_effective_gate(tmp_path: Path):
         def diarize(self, audio: Path, *, num_speakers: int | None):
             return [SpeakerTurn(0, 400, "speaker_00"), SpeakerTurn(400, 480, "speaker_01")]
 
-    _, report = run_diarization(
+    words = [
+        {"start": start, "end": start + 1, "word": f" واژه{index}"}
+        for index, start in enumerate((1, 3, 5, 401, 403, 405))
+    ]
+    aligned, report = run_diarization(
         tmp_path / "audio.wav",
-        [{"start": 0, "end": 400, "text": "الف"}, {"start": 400, "end": 480, "text": "ب"}],
+        [{
+            "start": 0, "end": 480,
+            "text": " ".join(word["word"].strip() for word in words),
+            "words": words,
+        }],
         DiarizationConfig(enabled=True, required=True, num_speakers=2),
         backend=HealthyBackend(),
     )
     assert report["effective_speaker_count"] == 2
+    assert report["aligned_effective_speaker_count"] == 2
+    assert {row["speaker"] for row in aligned} == {"SPEAKER_00", "SPEAKER_01"}
+
+
+def test_two_speakers_survive_raw_normalized_aligned_and_export(tmp_path: Path):
+    class ThreePeriodBackend:
+        name = "sherpa-onnx"
+
+        def diarize(self, audio: Path, *, num_speakers: int | None):
+            return [
+                SpeakerTurn(0, 5, "speaker_00"),
+                SpeakerTurn(5, 10, "speaker_01"),
+                SpeakerTurn(10, 15, "speaker_00"),
+            ]
+
+    words = [
+        {"start": second, "end": second + 0.8, "word": f" واژه{index}"}
+        for index, second in enumerate((1, 2, 3, 6, 7, 8, 11, 12, 13))
+    ]
+    text = " ".join(word["word"].strip() for word in words)
+    aligned, report = run_diarization(
+        tmp_path / "audio.wav",
+        [{"start": 0, "end": 15, "text": text, "words": words}],
+        DiarizationConfig(enabled=True, required=True, num_speakers=2),
+        backend=ThreePeriodBackend(),
+        output=tmp_path / "diarization" / "diarization.json",
+    )
+    assert len(report["raw_speakers"]) == 2
+    assert len(report["normalized_speakers"]) == 2
+    assert len({row["speaker"] for row in aligned}) == 2
+    assert report["aligned_effective_speaker_count"] == 2
+
+    root = tmp_path
+    (root / "final").mkdir()
+    (root / "accuracy").mkdir()
+    (root / "final/transcript.final.md").write_text(text, encoding="utf-8")
+    (root / "final/transcript.final.txt").write_text(text, encoding="utf-8")
+    (root / "accuracy/transcript.consensus.json").write_text(
+        __import__("json").dumps({"segments": aligned}, ensure_ascii=False),
+        encoding="utf-8",
+    )
+    result = export_final_outputs(root)
+    assert result["exported_effective_speaker_count"] == 2
+    assert "گوینده ۲" in (root / "delivery/transcript.timestamped.md").read_text(
+        encoding="utf-8"
+    )
 
 
 def test_speaker_aware_three_file_export(tmp_path: Path):

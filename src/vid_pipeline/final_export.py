@@ -131,6 +131,20 @@ def export_final_outputs(job_root: str | Path) -> dict[str, Any]:
     if not markdown_source.is_file() or not text_source.is_file():
         raise ValueError("Final Markdown and text transcripts are required for export.")
     source, segments = select_timestamp_source(root)
+    diarization_path = root / "diarization" / "diarization.json"
+    diarization = _load(diarization_path) if diarization_path.is_file() else {}
+    config = diarization.get("config") or {}
+    requested = diarization.get("requested_speaker_count")
+    required = bool(config.get("required"))
+    exported_speakers = sorted({str(row["speaker"]) for row in segments if row.get("speaker")})
+    aligned_effective = set(diarization.get("aligned_effective_speakers") or [])
+    exported_effective = sorted(set(exported_speakers) & aligned_effective)
+    if required and requested is not None and len(exported_effective) < int(requested):
+        raise ValueError(
+            "Diarization quality gate failed at export: "
+            f"requested={requested} aligned_effective={len(aligned_effective)} "
+            f"exported_effective={len(exported_effective)}"
+        )
     metadata_path = root / "source.json"
     metadata = _load(metadata_path) if metadata_path.is_file() else {}
 
@@ -156,12 +170,23 @@ def export_final_outputs(job_root: str | Path) -> dict[str, Any]:
     outputs = {name: str((delivery / filename).resolve()) for name, filename in zip(
         ("markdown", "text", "timestamped_markdown"), OUTPUT_NAMES, strict=True
     )}
-    details = {"status": "completed", "timestamp_source": str(source.resolve()), "final_outputs": outputs}
+    details = {
+        "status": "completed", "timestamp_source": str(source.resolve()),
+        "final_outputs": outputs, "exported_speakers": exported_speakers,
+        "exported_effective_speakers": exported_effective,
+        "exported_effective_speaker_count": len(exported_effective),
+    }
     state = PipelineState(root / "state.json")
     state.mark_complete("export", list(outputs.values()), details)
     result_path = root / "result.json"
     result = _load(result_path) if result_path.is_file() else {}
-    result.update({"export_status": "completed", "final_outputs": outputs, "timestamp_source": str(source.resolve())})
+    result.update({
+        "export_status": "completed", "final_outputs": outputs,
+        "timestamp_source": str(source.resolve()),
+        "exported_speakers": exported_speakers,
+        "exported_effective_speakers": exported_effective,
+        "exported_effective_speaker_count": len(exported_effective),
+    })
     result_path.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return details
 

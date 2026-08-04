@@ -1,1 +1,1 @@
-apply-pyannote-production-v1
+apply-pyannote-production-v2

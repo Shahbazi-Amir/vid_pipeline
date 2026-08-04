@@ -91,6 +91,7 @@ jobs:
       SPEAKER_ROLE_MODE: ${{ inputs.speaker_role_mode }}
       SPEAKER_ROLES: ${{ inputs.speaker_roles }}
       VID_PIPELINE_DIARIZATION_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/diarization
+      VID_PIPELINE_ASR_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/asr
       EDITORIAL_MODEL: qwen3:8b
       OLLAMA_BASE_URL: http://127.0.0.1:11434
 
@@ -108,6 +109,12 @@ jobs:
         with:
           path: ${{ env.VID_PIPELINE_DIARIZATION_CACHE }}
           key: diarization-${{ runner.os }}-py311-sherpa-1.13.4-segmentation-3.0-int8-3dspeaker-eres2net
+
+      - name: Cache project-controlled ASR model
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.VID_PIPELINE_ASR_CACHE }}
+          key: asr-${{ runner.os }}-faster-whisper-1.2.1-large-v3-turbo-ct2-v1
 
       - name: Install worker dependencies
         shell: bash
@@ -237,6 +244,9 @@ jobs:
 
       - name: Run complete file pipeline
         shell: bash
+        env:
+          HF_TOKEN: ""
+          HUGGING_FACE_HUB_TOKEN: ""
         run: |
           set -euo pipefail
           args=(run-file "$INPUT_MEDIA" --name "$REQUEST_ID" --output-root outputs \

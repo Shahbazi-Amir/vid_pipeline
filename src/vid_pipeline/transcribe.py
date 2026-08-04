@@ -8,6 +8,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from vid_pipeline.asr_model import resolve_asr_model
 from vid_pipeline.errors import ExternalToolError
 
 DEFAULT_INITIAL_PROMPT = ""
@@ -105,7 +106,10 @@ def transcribe_audio(
     _, WhisperModel = _load_whisper()
     device, compute_type = resolve_runtime(config.device, config.compute_type)
     try:
-        model = WhisperModel(config.model, device=device, compute_type=compute_type)
+        provisioned_model = resolve_asr_model(config.model)
+        model = WhisperModel(
+            str(provisioned_model.path), device=device, compute_type=compute_type
+        )
         segments_iter, info = model.transcribe(
             str(source),
             language=config.language,
@@ -157,6 +161,8 @@ def transcribe_audio(
             "model": config.model,
             "device": device,
             "compute_type": compute_type,
+            **provisioned_model.diagnostics,
+            "faster_whisper_version": _faster_whisper_version(),
             "text": " ".join(all_text).strip(),
             "segments": segments,
         }
@@ -183,3 +189,12 @@ def transcribe_audio(
         lines.append("")
     md_path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
     return result
+
+
+def _faster_whisper_version() -> str:
+    try:
+        from importlib.metadata import version
+
+        return version("faster-whisper")
+    except Exception:
+        return "unknown"

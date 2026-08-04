@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "name": "large-v3-turbo",
+  "format": "CTranslate2",
+  "artifact_version": "large-v3-turbo-ct2-v1",
+  "release_tag": "asr-model-large-v3-turbo-ct2-v1",
+  "asset_name": "large-v3-turbo-ct2-v1.tar.gz",
+  "asset_url": "https://github.com/Shahbazi-Amir/vid_pipeline/releases/download/asr-model-large-v3-turbo-ct2-v1/large-v3-turbo-ct2-v1.tar.gz",
+  "asset_size": 1491379096,
+  "asset_sha256": "96390faf1e8f291fd0dfe49f3eabe902d7889536393fa8d0dc367ed39a452769",
+  "files": [
+    {
+      "path": "README.md",
+      "size": 1445,
+      "sha256": "b3068692728faed23580cce5cd569fc47ff76c690c032b2641ffd5554ea64d8f"
+    },
+    {
+      "path": "config.json",
+      "size": 2263,
+      "sha256": "b0253ea6c0d3bea6b1e19e91a02acfd3b53f4467362efcb5a3e6b16c9b3a9b7e"
+    },
+    {
+      "path": "model.bin",
+      "size": 1617884929,
+      "sha256": "e76620f83d5f5b69efd3d87e3dc180c1bd21df9fbebacfd4335e5e1efcc018da"
+    },
+    {
+      "path": "preprocessor_config.json",
+      "size": 340,
+      "sha256": "7ccc62c6f2765af1f3b46c00c9b5894426835a05021c8b9c01eecb6dfb542711"
+    },
+    {
+      "path": "tokenizer.json",
+      "size": 2710337,
+      "sha256": "297b13372ac43916285644fb9687add3cc62ee2a1adb60da3dc25cc94c1871fd"
+    },
+    {
+      "path": "vocabulary.json",
+      "size": 1068114,
+      "sha256": "c69260f2ab26d659b7c398f9a2b2b48ed0df16c3b47d7326782fd9cba71690c1"
+    }
+  ],
+  "source_provenance": {
+    "repository": "mobiuslabsgmbh/faster-whisper-large-v3-turbo",
+    "revision": "0a363e9161cbc7ed1431c9597a8ceaf0c4f78fcf",
+    "base_model": "openai/whisper-large-v3-turbo",
+    "conversion": "ct2-transformers-converter with tokenizer.json and preprocessor_config.json copied; FP16 weights"
+  },
+  "license": "MIT",
+  "faster_whisper_version": "1.2.1"
+}

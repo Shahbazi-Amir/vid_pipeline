@@ -67,6 +67,49 @@ def test_smoothing_preserves_strong_short_reply(reply):
     assert diagnostics["micro_turns_preserved"] == 1
 
 
+def test_smoothing_merges_strong_fragmentary_micro_island_from_live_shape():
+    rows = [
+        _aligned_turn(0.0, 5.48, "SPEAKER_00", "ساختاری از دانش نگرش و مهارت که ظاهرا", margin=1.0),
+        _aligned_turn(5.48, 6.08, "SPEAKER_01", "قراره بهش", margin=0.937),
+        _aligned_turn(6.08, 7.54, "SPEAKER_00", "بگیم سواد مالی", margin=1.0),
+    ]
+    rows[1]["speaker_evidence"]["supporting_raw_turn_duration"] = 0.759
+    before_words = sum(int(row["aligned_word_count"]) for row in rows)
+    result, diagnostics = smooth_speaker_turns(rows, DiarizationConfig())
+    assert len(result) == 1
+    assert result[0]["speaker"] == "SPEAKER_00"
+    assert result[0]["text"] == (
+        "ساختاری از دانش نگرش و مهارت که ظاهرا قراره بهش بگیم سواد مالی"
+    )
+    assert int(result[0]["aligned_word_count"]) == before_words
+    assert diagnostics["strong_micro_islands_merged"] == 1
+    assert diagnostics["weak_micro_turns_merged"] == 0
+    assert diagnostics["speaker_switches_after"] == 0
+
+
+def test_smoothing_preserves_protected_backchannel_without_question_boundary():
+    rows = [
+        _aligned_turn(0, 5, "SPEAKER_00", "این نکته خیلی مهم است", margin=1),
+        _aligned_turn(5, 5.6, "SPEAKER_01", "دقیقاً", margin=0.95),
+        _aligned_turn(5.6, 10, "SPEAKER_00", "و باید ادامه بدهیم", margin=1),
+    ]
+    result, diagnostics = smooth_speaker_turns(rows, DiarizationConfig())
+    assert [row["speaker"] for row in result] == ["SPEAKER_00", "SPEAKER_01", "SPEAKER_00"]
+    assert diagnostics["protected_short_replies_preserved"] == 1
+
+
+def test_smoothing_does_not_merge_short_text_with_long_raw_support():
+    rows = [
+        _aligned_turn(0, 5, "SPEAKER_00", "شروع جمله", margin=1),
+        _aligned_turn(5, 5.6, "SPEAKER_01", "دو کلمه", margin=0.95),
+        _aligned_turn(5.6, 10, "SPEAKER_00", "ادامه جمله", margin=1),
+    ]
+    rows[1]["speaker_evidence"]["supporting_raw_turn_duration"] = 1.8
+    result, diagnostics = smooth_speaker_turns(rows, DiarizationConfig())
+    assert len(result) == 3
+    assert diagnostics["strong_micro_islands_merged"] == 0
+
+
 def test_smoothing_merges_near_zero_weak_token_but_not_a_b_c():
     config = DiarizationConfig()
     sandwich = [

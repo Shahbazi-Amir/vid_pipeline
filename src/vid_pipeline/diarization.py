@@ -52,6 +52,8 @@ class DiarizationConfig:
     smoothing_enabled: bool = True
     micro_turn_max_duration_seconds: float = 1.25
     micro_turn_max_words: int = 3
+    strong_micro_island_max_duration_seconds: float = 0.90
+    strong_micro_island_max_words: int = 2
     smoothing_max_gap_seconds: float = 0.25
     smoothing_min_overlap_margin: float = 0.20
     minimum_export_turn_span_seconds: float = 0.10
@@ -581,21 +583,41 @@ def _speaker_switches(rows: list[dict[str, Any]]) -> int:
     return sum(current != previous for previous, current in zip(speakers, speakers[1:]))
 
 
+_PROTECTED_SHORT_REPLIES = frozenset({
+    "بله", "نه", "آره", "اره", "خب", "درسته", "درست", "دقیقاً", "دقیقا",
+    "حتماً", "حتما", "البته", "باشه", "ممنون",
+})
+_SHORT_REPLY_TRIM = " \t\r\n.,،:;؛!؟?…«»()[]{}\"'"
+
+
+def _normalized_short_reply(text: str) -> str:
+    value = " ".join(str(text or "").strip().split()).strip(_SHORT_REPLY_TRIM)
+    return value.replace("ي", "ی").replace("ك", "ک")
+
+
+def _is_protected_short_reply(text: str) -> bool:
+    return _normalized_short_reply(text) in _PROTECTED_SHORT_REPLIES
+
+
 def smooth_speaker_turns(
     rows: list[dict[str, Any]], config: DiarizationConfig
 ) -> tuple[list[dict[str, Any]], dict[str, int]]:
-    """Conservatively remove weak same-speaker sandwich micro-turns."""
+    """Conservatively remove false same-speaker sandwich micro-turns."""
 
     smoothed = [dict(row) for row in rows]
     before = len(smoothed)
     switches_before = _speaker_switches(smoothed)
     merged = preserved = 0
+    weak_merged = strong_merged = protected_preserved = 0
     if config.smoothing_enabled:
         index = 1
         while index < len(smoothed) - 1:
             previous, candidate, following = smoothed[index - 1:index + 2]
             duration = max(0.0, float(candidate["end"]) - float(candidate["start"]))
-            word_count = int(candidate.get("aligned_word_count") or len(str(candidate.get("text") or "").split()))
+            word_count = int(
+                candidate.get("aligned_word_count")
+                or len(str(candidate.get("text") or "").split())
+            )
             evidence = candidate.get("speaker_evidence") or {}
             same_speaker_sandwich = (
                 previous.get("speaker") == following.get("speaker")
@@ -615,26 +637,52 @@ def smooth_speaker_turns(
             weak = bool(evidence.get("ambiguous", True)) or float(
                 evidence.get("overlap_margin", 0.0)
             ) < config.smoothing_min_overlap_margin
-            boundary = str(previous.get("text") or "").rstrip().endswith(tuple(".!؟?")) or str(
-                candidate.get("text") or ""
-            ).rstrip().endswith(tuple(".!؟?"))
+            boundary = str(previous.get("text") or "").rstrip().endswith(
+                tuple(".!؟?")
+            ) or str(candidate.get("text") or "").rstrip().endswith(tuple(".!؟?"))
+            protected_reply = _is_protected_short_reply(str(candidate.get("text") or ""))
+            raw_support = float(evidence.get("supporting_raw_turn_duration", 0.0) or 0.0)
+            strong_fragmentary_island = (
+                duration <= config.strong_micro_island_max_duration_seconds
+                and word_count <= config.strong_micro_island_max_words
+                and raw_support > 0.0
+                and raw_support <= config.strong_micro_island_max_duration_seconds
+                and not protected_reply
+                and not boundary
+            )
             eligible = same_speaker_sandwich and local and micro
-            if eligible and weak and (near_zero or not boundary):
+            should_merge = (
+                eligible
+                and not protected_reply
+                and (near_zero or not boundary)
+                and (weak or strong_fragmentary_island)
+            )
+            if should_merge:
                 previous["text"] = join_word_tokens([
-                    str(previous.get("text") or ""), str(candidate.get("text") or ""),
+                    str(previous.get("text") or ""),
+                    str(candidate.get("text") or ""),
                     str(following.get("text") or ""),
                 ])
                 previous["end"] = following["end"]
                 previous["aligned_word_count"] = sum(
-                    int(row.get("aligned_word_count") or len(str(row.get("text") or "").split()))
+                    int(
+                        row.get("aligned_word_count")
+                        or len(str(row.get("text") or "").split())
+                    )
                     for row in (previous, candidate, following)
                 )
                 smoothed[index - 1:index + 2] = [previous]
                 merged += 1
+                if strong_fragmentary_island and not weak:
+                    strong_merged += 1
+                else:
+                    weak_merged += 1
                 index = max(1, index - 1)
                 continue
             if eligible:
                 preserved += 1
+                if protected_reply:
+                    protected_preserved += 1
             index += 1
     return smoothed, {
         "pre_smoothing_segments": before,
@@ -642,6 +690,9 @@ def smooth_speaker_turns(
         "speaker_switches_before": switches_before,
         "speaker_switches_after": _speaker_switches(smoothed),
         "micro_turns_merged": merged,
+        "weak_micro_turns_merged": weak_merged,
+        "strong_micro_islands_merged": strong_merged,
+        "protected_short_replies_preserved": protected_preserved,
         "micro_turns_preserved": preserved,
     }
 

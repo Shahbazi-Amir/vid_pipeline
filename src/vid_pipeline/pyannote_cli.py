@@ -8,14 +8,13 @@ from dataclasses import replace
 from pathlib import Path
 from typing import Any
 
-from vid_pipeline import accuracy
+from vid_pipeline import accuracy, reliable_cli
 from vid_pipeline.diarization import DiarizationConfig, run_diarization
 from vid_pipeline.pyannote_diarization import (
     PYANNOTE_BACKEND_NAME,
     PYANNOTE_MODEL_ID,
     PyannoteDiarizationBackend,
 )
-from vid_pipeline import reliable_cli
 
 _ORIGINAL_OPTIONAL_ENRICHMENT = accuracy.optional_enrichment
 

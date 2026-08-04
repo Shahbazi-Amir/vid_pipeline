@@ -1,6 +1,5 @@
 {
-  "count": 4,
-  "runs": [
+  "live_runs": [
     {
       "id": 30958145524,
       "status": "in_progress",
@@ -44,6 +43,63 @@
       "html_url": "https://github.com/Shahbazi-Amir/vid_pipeline/actions/runs/30954697527",
       "run_attempt": 1,
       "display_title": "test: trigger pyannote live validation"
+    }
+  ],
+  "production_apply_runs": [
+    {
+      "id": 30958594288,
+      "status": "completed",
+      "conclusion": "failure",
+      "head_sha": "473858166d71a8e7028b76e500ecf84686def7e4",
+      "created_at": "2026-08-04T23:02:04Z",
+      "updated_at": "2026-08-04T23:02:04Z",
+      "html_url": "https://github.com/Shahbazi-Amir/vid_pipeline/actions/runs/30958594288",
+      "run_attempt": 1,
+      "display_title": "test: probe pyannote integration workflows"
+    },
+    {
+      "id": 30958587556,
+      "status": "completed",
+      "conclusion": "failure",
+      "head_sha": "12bea82e88d91e7118a7e956618a7df70010267c",
+      "created_at": "2026-08-04T23:01:57Z",
+      "updated_at": "2026-08-04T23:01:57Z",
+      "html_url": "https://github.com/Shahbazi-Amir/vid_pipeline/actions/runs/30958587556",
+      "run_attempt": 1,
+      "display_title": "test: extend pyannote status probe"
+    },
+    {
+      "id": 30958398741,
+      "status": "completed",
+      "conclusion": "failure",
+      "head_sha": "db932cd2d71620b27186a5a351ed0cc6e6c1eebe",
+      "created_at": "2026-08-04T22:58:53Z",
+      "updated_at": "2026-08-04T22:58:53Z",
+      "html_url": "https://github.com/Shahbazi-Amir/vid_pipeline/actions/runs/30958398741",
+      "run_attempt": 1,
+      "display_title": "test: refresh pyannote live validation status"
+    },
+    {
+      "id": 30958233569,
+      "status": "completed",
+      "conclusion": "failure",
+      "head_sha": "8c7082b97d0a43b7b63238cea87dad0bd2501296",
+      "created_at": "2026-08-04T22:56:04Z",
+      "updated_at": "2026-08-04T22:56:04Z",
+      "html_url": "https://github.com/Shahbazi-Amir/vid_pipeline/actions/runs/30958233569",
+      "run_attempt": 1,
+      "display_title": "feat: apply pyannote production wiring"
+    },
+    {
+      "id": 30958226723,
+      "status": "completed",
+      "conclusion": "failure",
+      "head_sha": "a6c4730a6657ac14e01ce68be25d71f8f79cfbc3",
+      "created_at": "2026-08-04T22:55:57Z",
+      "updated_at": "2026-08-04T22:55:57Z",
+      "html_url": "https://github.com/Shahbazi-Amir/vid_pipeline/actions/runs/30958226723",
+      "run_attempt": 1,
+      "display_title": "chore: add one-time production wiring workflow"
     }
   ]
 }

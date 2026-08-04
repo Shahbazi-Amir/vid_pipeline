@@ -1,0 +1,118 @@
+name: Apply pyannote production wiring
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/bootstrap/apply-pyannote-production.trigger"
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Wire backend selection into production paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          def replace_once(path, old, new):
+              p = Path(path)
+              text = p.read_text(encoding='utf-8')
+              if old not in text:
+                  raise SystemExit(f'expected snippet not found in {path}: {old[:120]!r}')
+              if text.count(old) != 1:
+                  raise SystemExit(f'expected exactly one snippet in {path}; found {text.count(old)}')
+              p.write_text(text.replace(old, new, 1), encoding='utf-8')
+
+          replace_once(
+              'src/vid_pipeline/cli.py',
+              '    parser.add_argument("--num-speakers", type=int, default=2)\n    parser.add_argument(\n        "--speaker-role-mode", choices=("generic", "host-teacher"), default="generic"\n    )',
+              '    parser.add_argument("--num-speakers", type=int, default=2)\n    parser.add_argument(\n        "--diarization-backend",\n        choices=("sherpa-onnx", "pyannote-community-1"),\n        default="sherpa-onnx",\n    )\n    parser.add_argument(\n        "--speaker-role-mode", choices=("generic", "host-teacher"), default="generic"\n    )',
+          )
+          replace_once(
+              'src/vid_pipeline/cli.py',
+              '        "num_speakers": getattr(args, "num_speakers", 2),\n        "speaker_role_mode": getattr(args, "speaker_role_mode", "generic"),',
+              '        "num_speakers": getattr(args, "num_speakers", 2),\n        "diarization_backend": getattr(args, "diarization_backend", "sherpa-onnx"),\n        "speaker_role_mode": getattr(args, "speaker_role_mode", "generic"),',
+          )
+          replace_once(
+              'src/vid_pipeline/github_client.py',
+              '            "num_speakers": str(options.get("num_speakers", 2)),\n            "speaker_role_mode": options.get("speaker_role_mode", "generic"),',
+              '            "num_speakers": str(options.get("num_speakers", 2)),\n            "diarization_backend": options.get("diarization_backend", "sherpa-onnx"),\n            "speaker_role_mode": options.get("speaker_role_mode", "generic"),',
+          )
+
+          workflow = '.github/workflows/process-uploaded-video.yml'
+          replace_once(
+              workflow,
+              '      num_speakers:\n        required: true\n        default: "2"\n        type: string\n      speaker_role_mode:',
+              '      num_speakers:\n        required: true\n        default: "2"\n        type: string\n      diarization_backend:\n        required: true\n        default: sherpa-onnx\n        type: choice\n        options: [sherpa-onnx, pyannote-community-1]\n      speaker_role_mode:',
+          )
+          replace_once(
+              workflow,
+              '      NUM_SPEAKERS: ${{ inputs.num_speakers }}\n      SPEAKER_ROLE_MODE: ${{ inputs.speaker_role_mode }}',
+              '      NUM_SPEAKERS: ${{ inputs.num_speakers }}\n      DIARIZATION_BACKEND: ${{ inputs.diarization_backend }}\n      SPEAKER_ROLE_MODE: ${{ inputs.speaker_role_mode }}',
+          )
+          replace_once(
+              workflow,
+              '      VID_PIPELINE_DIARIZATION_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/diarization\n      VID_PIPELINE_ASR_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/asr',
+              '      VID_PIPELINE_DIARIZATION_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/diarization\n      VID_PIPELINE_ASR_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/asr\n      HF_HOME: ${{ github.workspace }}/.cache/huggingface\n      HF_HUB_CACHE: ${{ github.workspace }}/.cache/huggingface/hub',
+          )
+          replace_once(
+              workflow,
+              '      - name: Cache diarization models\n        if: inputs.diarization_enabled == \'true\'\n        uses: actions/cache@v4\n        with:\n          path: ${{ env.VID_PIPELINE_DIARIZATION_CACHE }}\n          key: diarization-${{ runner.os }}-py311-sherpa-1.13.4-segmentation-3.0-int8-3dspeaker-eres2net',
+              '      - name: Cache Sherpa diarization models\n        if: inputs.diarization_enabled == \'true\' && inputs.diarization_backend == \'sherpa-onnx\'\n        uses: actions/cache@v4\n        with:\n          path: ${{ env.VID_PIPELINE_DIARIZATION_CACHE }}\n          key: diarization-${{ runner.os }}-py311-sherpa-1.13.4-segmentation-3.0-int8-3dspeaker-eres2net\n\n      - name: Cache pyannote Community-1 model\n        if: inputs.diarization_enabled == \'true\' && inputs.diarization_backend == \'pyannote-community-1\'\n        uses: actions/cache@v4\n        with:\n          path: ${{ env.HF_HUB_CACHE }}\n          key: pyannote-${{ runner.os }}-py311-audio-4.0.4-community-1-v1',
+          )
+          replace_once(
+              workflow,
+              '          if [[ "${DIARIZATION_ENABLED,,}" == "true" ]]; then\n            pip install -e \'.[worker,diarization]\'\n          else\n            pip install -e \'.[worker]\'\n          fi',
+              '          if [[ "${DIARIZATION_ENABLED,,}" == "true" ]]; then\n            case "$DIARIZATION_BACKEND" in\n              sherpa-onnx) pip install -e \'.[worker,diarization]\' ;;\n              pyannote-community-1) pip install -e \'.[worker,diarization-pyannote]\' ;;\n              *) echo "unsupported diarization backend: $DIARIZATION_BACKEND" >&2; exit 2 ;;\n            esac\n          else\n            pip install -e \'.[worker]\'\n          fi',
+          )
+          replace_once(
+              workflow,
+              '        env:\n          HF_TOKEN: ""\n          HUGGING_FACE_HUB_TOKEN: ""\n        run: |',
+              '        env:\n          HF_TOKEN: ""\n          HUGGING_FACE_HUB_TOKEN: ""\n          VID_PIPELINE_PYANNOTE_TOKEN: ${{ inputs.diarization_backend == \'pyannote-community-1\' && secrets.HF_TOKEN || \'\' }}\n        run: |',
+          )
+          replace_once(
+              workflow,
+              '          if [[ "${DIARIZATION_ENABLED,,}" == "true" ]]; then\n            args+=(--diarize --num-speakers "$NUM_SPEAKERS" --speaker-role-mode "$SPEAKER_ROLE_MODE")',
+              '          if [[ "${DIARIZATION_ENABLED,,}" == "true" ]]; then\n            echo "ASR model source: project-controlled local path"\n            echo "Diarization backend: $DIARIZATION_BACKEND"\n            args+=(--diarize --num-speakers "$NUM_SPEAKERS" --diarization-backend "$DIARIZATION_BACKEND" --speaker-role-mode "$SPEAKER_ROLE_MODE")',
+          )
+          PY
+      - name: Install test dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          pip install -e '.[dev,worker,diarization]'
+      - name: Validate
+        shell: bash
+        run: |
+          set -euo pipefail
+          pytest -q
+          ruff check .
+          python -m compileall -q src tests
+          git diff --check
+      - name: Commit production wiring
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .github/bootstrap/apply-pyannote-production.trigger
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/vid_pipeline/cli.py src/vid_pipeline/github_client.py .github/workflows/process-uploaded-video.yml .github/bootstrap/apply-pyannote-production.trigger
+          git commit -m "feat: wire pyannote backend into production workflow"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main

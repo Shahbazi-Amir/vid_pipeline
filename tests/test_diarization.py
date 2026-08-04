@@ -16,10 +16,12 @@ from vid_pipeline.diarization import (
     SherpaOnnxDiarizationBackend,
     SpeakerTurn,
     align_segments,
+    compare_diarization_runs,
     join_word_tokens,
     map_roles,
     normalize_turns,
     run_diarization,
+    select_diarization_consensus,
     smooth_speaker_turns,
 )
 from vid_pipeline.final_export import export_final_outputs
@@ -53,7 +55,7 @@ def test_smoothing_merges_weak_fragmentation_and_preserves_persian_text():
     assert diagnostics["speaker_switches_after"] == 0
 
 
-@pytest.mark.parametrize("reply", ["بله", "نه"])
+@pytest.mark.parametrize("reply", ["بله", "نه", "درسته", "دقیقاً", "خب", "آره"])
 def test_smoothing_preserves_strong_short_reply(reply):
     rows = [
         _aligned_turn(0, 5, "SPEAKER_00", "آیا این موضوع روشن است؟", margin=1),
@@ -78,7 +80,7 @@ def test_smoothing_merges_near_zero_weak_token_but_not_a_b_c():
     assert len(smooth_speaker_turns(distinct, config)[0]) == 3
 
 
-def test_required_gate_is_recomputed_after_smoothing(tmp_path: Path):
+def test_required_gate_rolls_back_smoothing_speaker_collapse(tmp_path: Path):
     class NestedWeakBackend:
         name = "sherpa-onnx"
 
@@ -95,24 +97,112 @@ def test_required_gate_is_recomputed_after_smoothing(tmp_path: Path):
         {"start": 5.8, "end": 6.8, "word": " ادامه"},
     ]
     output = tmp_path / "diarization.json"
-    with pytest.raises(DiarizationError, match=r"aligned_effective=1"):
-        run_diarization(
-            tmp_path / "audio.wav",
-            [{"start": 0, "end": 10, "text": "شروع لغزش کوتاه ادامه", "words": words}],
-            DiarizationConfig(
-                enabled=True, required=True, num_speakers=2,
-                effective_min_duration_seconds=0.5, effective_min_fraction=0.01,
-                aligned_min_word_count=1, aligned_min_duration_seconds=0.1,
-                aligned_min_fraction=0.01,
-            ),
-            backend=NestedWeakBackend(), output=output,
-        )
+    aligned, _ = run_diarization(
+        tmp_path / "audio.wav",
+        [{"start": 0, "end": 10, "text": "شروع لغزش کوتاه ادامه", "words": words}],
+        DiarizationConfig(
+            enabled=True, required=True, num_speakers=2,
+            effective_min_duration_seconds=0.5, effective_min_fraction=0.01,
+            aligned_min_word_count=1, aligned_min_duration_seconds=0.1,
+            aligned_min_fraction=0.01,
+        ),
+        backend=NestedWeakBackend(), output=output,
+    )
     report = __import__("json").loads(output.read_text(encoding="utf-8"))
     assert report["pre_smoothing_segments"] == 3
     assert report["post_smoothing_segments"] == 1
     assert report["micro_turns_merged"] == 1
-    assert report["aligned_effective_speaker_count"] == 1
-    assert report["status"] == "failed"
+    assert report["candidate_post_smoothing_effective_speaker_count"] == 1
+    assert report["aligned_effective_speaker_count"] == 2
+    assert report["smoothing_accepted"] is False
+    assert report["smoothing_rollback"] is True
+    assert report["smoothing_rollback_reason"] == "speaker_collapse"
+    assert [(row["start"], row["end"], row["speaker"], row["text"]) for row in aligned] == [
+        (4.0, 5.0, "SPEAKER_00", "شروع"),
+        (5.0, 5.8, "SPEAKER_01", "لغزش کوتاه"),
+        (5.8, 6.8, "SPEAKER_00", "ادامه"),
+    ]
+
+
+def _healthy_turns(first="speaker_00", second="speaker_01"):
+    return [
+        SpeakerTurn(0, 410, first),
+        SpeakerTurn(410, 935, second),
+    ]
+
+
+def test_reproducibility_comparison_ignores_label_permutation():
+    comparison = compare_diarization_runs(
+        _healthy_turns(), _healthy_turns("speaker_01", "speaker_00")
+    )
+    assert comparison["speaker_count_agreement"] is True
+    assert comparison["timeline_assignment_agreement"] == pytest.approx(1.0)
+
+
+def test_reproducibility_detects_severe_duration_collapse():
+    pathological = [
+        SpeakerTurn(0, 932, "speaker_00"),
+        SpeakerTurn(123, 137, "speaker_01"),
+    ]
+    comparison = compare_diarization_runs(_healthy_turns(), pathological)
+    assert comparison["timeline_assignment_agreement"] < 0.9
+    assert comparison["minority_fraction_difference"] > 0.4
+
+
+def test_reproducibility_selects_consensus_and_rejects_all_disagree():
+    config = DiarizationConfig()
+    healthy = _healthy_turns()
+    swapped = _healthy_turns("speaker_01", "speaker_00")
+    pathological = [
+        SpeakerTurn(0, 932, "speaker_00"),
+        SpeakerTurn(123, 137, "speaker_01"),
+    ]
+    selected, report = select_diarization_consensus([healthy, swapped, pathological], config)
+    assert selected in {0, 1}
+    assert report["best_pair_agreement"] == pytest.approx(1.0)
+    assert report["stable"] is False
+
+    third = [
+        SpeakerTurn(0, 100, "speaker_00"),
+        SpeakerTurn(100, 935, "speaker_01"),
+    ]
+    with pytest.raises(DiarizationError, match="severe_disagreement=true"):
+        select_diarization_consensus([healthy, pathological, third], config)
+
+
+def test_pathological_backend_retries_and_keeps_healthy_consensus(tmp_path: Path):
+    outputs = [
+        [SpeakerTurn(0, 932, "speaker_00"), SpeakerTurn(123, 137, "speaker_01")],
+        _healthy_turns(),
+        _healthy_turns("speaker_01", "speaker_00"),
+    ]
+
+    class Backend:
+        name = "fake"
+
+        def __init__(self):
+            self.calls = 0
+
+        def diarize(self, audio: Path, *, num_speakers: int | None):
+            value = outputs[self.calls]
+            self.calls += 1
+            return value
+
+    words = [
+        {"start": second, "end": second + 1, "word": f" واژه{index}"}
+        for index, second in enumerate((1, 2, 3, 500, 501, 502))
+    ]
+    backend = Backend()
+    _, report = run_diarization(
+        tmp_path / "audio.wav",
+        [{"start": 0, "end": 935, "text": " ".join(w["word"].strip() for w in words),
+          "words": words}],
+        DiarizationConfig(required=True, num_speakers=2),
+        backend=backend,
+    )
+    assert backend.calls == 3
+    assert report["reproducibility"]["selected_attempt"] in {2, 3}
+    assert report["raw_effective_speaker_count"] == 2
 
 
 class FakeBackend:

@@ -13,6 +13,7 @@ import time
 import urllib.request
 from collections import Counter
 from dataclasses import asdict, dataclass
+from itertools import permutations
 from pathlib import Path
 from typing import Any, Protocol
 
@@ -54,6 +55,11 @@ class DiarizationConfig:
     smoothing_max_gap_seconds: float = 0.25
     smoothing_min_overlap_margin: float = 0.20
     minimum_export_turn_span_seconds: float = 0.10
+    num_threads: int = 1
+    reproducibility_attempts: int = 3
+    suspicious_minority_fraction: float = 0.03
+    stability_min_timeline_agreement: float = 0.90
+    stability_max_turn_count_fraction: float = 0.35
     clustering_threshold: float = 0.5
     min_duration_on: float = 0.3
     min_duration_off: float = 0.5
@@ -185,6 +191,7 @@ class SherpaOnnxDiarizationBackend:
         clustering_threshold: float = 0.5,
         min_duration_on: float = 0.3,
         min_duration_off: float = 0.5,
+        num_threads: int = 1,
     ) -> None:
         manager = manager or DiarizationModelManager()
         segmentation = manager.provision(SEGMENTATION_ARTIFACT)
@@ -199,7 +206,9 @@ class SherpaOnnxDiarizationBackend:
         self.clustering_threshold = clustering_threshold
         self.min_duration_on = min_duration_on
         self.min_duration_off = min_duration_off
+        self.num_threads = num_threads
         self.last_num_clusters: int | None = None
+        self.last_config: dict[str, Any] = {}
 
     def diarize(self, audio: Path, *, num_speakers: int | None) -> list[SpeakerTurn]:
         try:
@@ -213,10 +222,11 @@ class SherpaOnnxDiarizationBackend:
                     pyannote=self.sherpa.OfflineSpeakerSegmentationPyannoteModelConfig(
                         model=str(self.segmentation)
                     ),
-                    provider="cpu",
+                    num_threads=getattr(self, "num_threads", 1), provider="cpu",
                 ),
                 embedding=self.sherpa.SpeakerEmbeddingExtractorConfig(
-                    model=str(self.embedding), provider="cpu"
+                    model=str(self.embedding), num_threads=getattr(self, "num_threads", 1),
+                    provider="cpu"
                 ),
                 clustering=self.sherpa.FastClusteringConfig(
                     num_clusters=num_speakers if num_speakers is not None else -1,
@@ -226,6 +236,17 @@ class SherpaOnnxDiarizationBackend:
                 min_duration_off=getattr(self, "min_duration_off", 0.5),
             )
             self.last_num_clusters = config.clustering.num_clusters
+            self.last_config = {
+                "segmentation_model": str(self.segmentation.resolve()),
+                "embedding_model": str(self.embedding.resolve()),
+                "num_clusters": config.clustering.num_clusters,
+                "clustering_threshold": config.clustering.threshold,
+                "num_threads": getattr(self, "num_threads", 1),
+                "segmentation_provider": config.segmentation.provider,
+                "embedding_provider": config.embedding.provider,
+                "min_duration_on": config.min_duration_on,
+                "min_duration_off": config.min_duration_off,
+            }
             if num_speakers is not None and self.last_num_clusters != num_speakers:
                 raise DiarizationError(
                     "sherpa clustering speaker count was not applied: "
@@ -243,6 +264,155 @@ class SherpaOnnxDiarizationBackend:
             raise
         except Exception as exc:
             raise DiarizationError(f"diarization inference failed: {type(exc).__name__}") from None
+
+
+def _file_manifest(path: Path, *, expected_sha256: str = "") -> dict[str, Any]:
+    stat = path.stat()
+    actual = DiarizationModelManager._digest(path)
+    return {
+        "path": str(path.resolve()),
+        "filename": path.name,
+        "size": stat.st_size,
+        "sha256": actual,
+        "expected_sha256": expected_sha256,
+        "integrity_ok": not expected_sha256 or actual == expected_sha256,
+    }
+
+
+def _audio_manifest(path: Path) -> dict[str, Any]:
+    import soundfile as sf
+
+    info = sf.info(path)
+    return {
+        **_file_manifest(path),
+        "sample_rate": info.samplerate,
+        "channels": info.channels,
+        "sample_count": info.frames,
+        "duration": info.duration,
+    }
+
+
+def _turn_summary(turns: list[SpeakerTurn], run_index: int) -> dict[str, Any]:
+    durations: Counter[str] = Counter()
+    counts: Counter[str] = Counter()
+    for turn in turns:
+        durations[turn.speaker] += max(0.0, turn.end - turn.start)
+        counts[turn.speaker] += 1
+    total = sum(durations.values())
+    minority = min(durations.values(), default=0.0) / total if total else 0.0
+    ordered = sorted(turns, key=lambda turn: (turn.start, turn.end, turn.speaker))
+    return {
+        "run_index": run_index,
+        "raw_turn_count": len(turns),
+        "raw_speaker_count": len(durations),
+        "per_speaker_raw_duration": dict(durations),
+        "per_speaker_raw_turn_count": dict(counts),
+        "minority_speaker_fraction": minority,
+        "speaker_switch_count": _raw_speaker_switches(ordered),
+        "first_raw_turns": [asdict(turn) for turn in ordered[:5]],
+        "last_raw_turns": [asdict(turn) for turn in ordered[-5:]],
+    }
+
+
+def _raw_speaker_switches(turns: list[SpeakerTurn]) -> int:
+    labels = [turn.speaker for turn in turns]
+    return sum(left != right for left, right in zip(labels, labels[1:]))
+
+
+def compare_diarization_runs(
+    left: list[SpeakerTurn], right: list[SpeakerTurn]
+) -> dict[str, Any]:
+    """Compare timelines while treating speaker-label permutations as equivalent."""
+
+    left_labels = sorted({turn.speaker for turn in left})
+    right_labels = sorted({turn.speaker for turn in right})
+    boundaries = sorted({value for turn in left + right for value in (turn.start, turn.end)})
+    intervals = list(zip(boundaries, boundaries[1:]))
+    total = sum(end - start for start, end in intervals)
+
+    def active(turns: list[SpeakerTurn], midpoint: float) -> set[str]:
+        return {turn.speaker for turn in turns if turn.start <= midpoint < turn.end}
+
+    best = 0.0
+    best_mapping: dict[str, str] = {}
+    if len(left_labels) == len(right_labels):
+        for permuted in permutations(right_labels):
+            mapping = dict(zip(permuted, left_labels))
+            agreed = 0.0
+            for start, end in intervals:
+                midpoint = (start + end) / 2
+                lhs = active(left, midpoint)
+                rhs = {mapping[label] for label in active(right, midpoint)}
+                if lhs == rhs:
+                    agreed += end - start
+            if agreed > best:
+                best, best_mapping = agreed, mapping
+    agreement = best / total if total else 1.0
+    left_summary = _turn_summary(left, 0)
+    right_summary = _turn_summary(right, 0)
+    turn_difference = abs(len(left) - len(right))
+    turn_fraction = turn_difference / max(len(left), len(right), 1)
+    return {
+        "speaker_count_agreement": len(left_labels) == len(right_labels),
+        "turn_count_difference": turn_difference,
+        "turn_count_difference_fraction": turn_fraction,
+        "speaker_switch_count_difference": abs(
+            left_summary["speaker_switch_count"] - right_summary["speaker_switch_count"]
+        ),
+        "minority_fraction_difference": abs(
+            left_summary["minority_speaker_fraction"]
+            - right_summary["minority_speaker_fraction"]
+        ),
+        "timeline_assignment_agreement": agreement,
+        "label_mapping": best_mapping,
+    }
+
+
+def select_diarization_consensus(
+    attempts: list[list[SpeakerTurn]], config: DiarizationConfig
+) -> tuple[int, dict[str, Any]]:
+    if not attempts:
+        raise DiarizationError("diarization reproducibility check received no attempts")
+    comparisons: list[dict[str, Any]] = []
+    scores = [0.0] * len(attempts)
+    strong_pairs: list[tuple[int, int]] = []
+    for left_index in range(len(attempts)):
+        for right_index in range(left_index + 1, len(attempts)):
+            comparison = compare_diarization_runs(attempts[left_index], attempts[right_index])
+            severe = (
+                not comparison["speaker_count_agreement"]
+                or comparison["timeline_assignment_agreement"]
+                < config.stability_min_timeline_agreement
+                or comparison["turn_count_difference_fraction"]
+                > config.stability_max_turn_count_fraction
+            )
+            comparison.update({"left": left_index + 1, "right": right_index + 1, "severe": severe})
+            comparisons.append(comparison)
+            scores[left_index] += comparison["timeline_assignment_agreement"]
+            scores[right_index] += comparison["timeline_assignment_agreement"]
+            if not severe:
+                strong_pairs.append((left_index, right_index))
+    if len(attempts) > 1 and not strong_pairs:
+        agreements = [item["timeline_assignment_agreement"] for item in comparisons]
+        raise DiarizationError(
+            "Diarization reproducibility check failed: "
+            f"attempts={len(attempts)} severe_disagreement=true "
+            f"best_pair_agreement={max(agreements, default=0.0):.6f} "
+            f"worst_pair_agreement={min(agreements, default=0.0):.6f}"
+        )
+    selected = max(range(len(attempts)), key=lambda index: (scores[index], -index))
+    if strong_pairs and not any(selected in pair for pair in strong_pairs):
+        selected = strong_pairs[0][0]
+    values = [comparison["timeline_assignment_agreement"] for comparison in comparisons]
+    return selected, {
+        "attempt_count": len(attempts),
+        "stable": not comparisons or all(not item["severe"] for item in comparisons),
+        "best_pair_agreement": max(values, default=1.0),
+        "worst_pair_agreement": min(values, default=1.0),
+        "selected_attempt": selected + 1,
+        "selection_reason": "single_run" if len(attempts) == 1 else "highest_cross_run_agreement",
+        "comparisons": comparisons,
+    }
 
 
 def normalize_turns(turns: list[SpeakerTurn]) -> list[SpeakerTurn]:
@@ -509,6 +679,39 @@ def apply_roles(segments: list[dict[str, Any]], mapping: dict[str, dict[str, Any
             segment["speaker_role_confidence"] = item["confidence"]
 
 
+def _aligned_counts(rows: list[dict[str, Any]], config: DiarizationConfig) -> dict[str, Any]:
+    segments = Counter(str(row.get("speaker")) for row in rows if row.get("speaker"))
+    words: Counter[str] = Counter()
+    durations: Counter[str] = Counter()
+    for row in rows:
+        speaker = str(row.get("speaker") or "")
+        if not speaker:
+            continue
+        words[speaker] += int(
+            row.get("aligned_word_count")
+            or len(row.get("words") or [])
+            or len(str(row.get("text") or "").split())
+        )
+        durations[speaker] += max(0.0, float(row["end"]) - float(row["start"]))
+    total = sum(durations.values())
+    effective = sorted(
+        speaker for speaker in segments
+        if words[speaker] >= config.aligned_min_word_count
+        and durations[speaker] >= config.aligned_min_duration_seconds
+        and segments[speaker] >= config.aligned_min_segments
+        and (durations[speaker] / total if total else 0.0) >= config.aligned_min_fraction
+    )
+    return {
+        "speaker_count": len(segments),
+        "effective_speakers": effective,
+        "effective_speaker_count": len(effective),
+        "segment_counts": dict(segments),
+        "word_counts": dict(words),
+        "durations": dict(durations),
+        "speaker_switch_count": _speaker_switches(rows),
+    }
+
+
 def run_diarization(audio: Path, segments: list[dict[str, Any]], config: DiarizationConfig, *, backend: DiarizationBackend | None = None, output: Path | None = None) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     started = time.monotonic()
     backend = backend or SherpaOnnxDiarizationBackend(
@@ -516,13 +719,40 @@ def run_diarization(audio: Path, segments: list[dict[str, Any]], config: Diariza
         clustering_threshold=config.clustering_threshold,
         min_duration_on=config.min_duration_on,
         min_duration_off=config.min_duration_off,
+        num_threads=config.num_threads,
     )
-    raw_turns = backend.diarize(audio, num_speakers=config.num_speakers)
+    attempts = [backend.diarize(audio, num_speakers=config.num_speakers)]
+    first_summary = _turn_summary(attempts[0], 1)
+    suspicious = (
+        config.num_speakers is not None
+        and (
+            first_summary["raw_speaker_count"] < config.num_speakers
+            or first_summary["minority_speaker_fraction"]
+            < config.suspicious_minority_fraction
+        )
+    )
+    if suspicious:
+        for _ in range(1, max(1, config.reproducibility_attempts)):
+            attempts.append(backend.diarize(audio, num_speakers=config.num_speakers))
+    attempt_summaries = [_turn_summary(turns, index + 1) for index, turns in enumerate(attempts)]
+    try:
+        selected_attempt, reproducibility = select_diarization_consensus(attempts, config)
+    except DiarizationError:
+        if output:
+            output.parent.mkdir(parents=True, exist_ok=True)
+            (output.parent / "diarization-reproducibility.json").write_text(
+                json.dumps({"attempts": attempt_summaries, "severe_disagreement": True}, indent=2)
+                + "\n",
+                encoding="utf-8",
+            )
+        raise
+    raw_turns = attempts[selected_attempt]
     turns = normalize_turns(raw_turns)
     if not turns:
         raise DiarizationError("diarization returned zero speakers")
-    aligned, ambiguous = align_segments(segments, turns, merge_gap=config.merge_gap_seconds)
-    aligned, smoothing_diagnostics = smooth_speaker_turns(aligned, config)
+    aligned_original, ambiguous = align_segments(
+        segments, turns, merge_gap=config.merge_gap_seconds
+    )
     durations: dict[str, float] = {}
     turn_counts: Counter[str] = Counter()
     for turn in turns:
@@ -535,6 +765,24 @@ def run_diarization(audio: Path, segments: list[dict[str, Any]], config: Diariza
         and turn_counts[speaker] >= config.effective_min_turns
         and (duration / total_duration if total_duration else 0) >= config.effective_min_fraction
     )
+    pre_smoothing = _aligned_counts(aligned_original, config)
+    smoothed_candidate, smoothing_diagnostics = smooth_speaker_turns(aligned_original, config)
+    post_smoothing_candidate = _aligned_counts(smoothed_candidate, config)
+    collapse = (
+        config.num_speakers is not None
+        and pre_smoothing["effective_speaker_count"] >= config.num_speakers
+        and post_smoothing_candidate["effective_speaker_count"] < config.num_speakers
+    )
+    aligned = aligned_original if collapse else smoothed_candidate
+    post_smoothing = _aligned_counts(aligned, config)
+    smoothing_diagnostics.update({
+        "smoothing_accepted": not collapse,
+        "smoothing_rollback": collapse,
+        "smoothing_rollback_reason": "speaker_collapse" if collapse else "",
+        "candidate_post_smoothing_effective_speaker_count": (
+            post_smoothing_candidate["effective_speaker_count"]
+        ),
+    })
     aligned_segment_counts = Counter(
         str(segment.get("speaker")) for segment in aligned if segment.get("speaker")
     )
@@ -634,6 +882,25 @@ def run_diarization(audio: Path, segments: list[dict[str, Any]], config: Diariza
         "raw_speakers": sorted({turn.speaker for turn in raw_turns}),
         "normalized_turn_count": len(turns),
         "normalized_speakers": sorted(durations),
+        "raw_stage": {
+            "speaker_count": attempt_summaries[selected_attempt]["raw_speaker_count"],
+            "turn_count": attempt_summaries[selected_attempt]["raw_turn_count"],
+            "speaker_switch_count": attempt_summaries[selected_attempt]["speaker_switch_count"],
+            "per_speaker_duration": attempt_summaries[selected_attempt][
+                "per_speaker_raw_duration"
+            ],
+            "per_speaker_turn_count": attempt_summaries[selected_attempt][
+                "per_speaker_raw_turn_count"
+            ],
+        },
+        "normalized_stage": {
+            "speaker_count": len(durations),
+            "effective_speaker_count": len(effective),
+            "turn_count": len(turns),
+            "speaker_switch_count": _raw_speaker_switches(turns),
+            "per_speaker_duration": durations,
+            "per_speaker_turn_count": dict(turn_counts),
+        },
         "detected_speaker_count": len(durations), "speaker_durations": durations,
         "speaker_turn_count": len(turns), "speaker_turn_counts": dict(turn_counts),
         "aligned_segment_counts": dict(aligned_segment_counts),
@@ -642,6 +909,12 @@ def run_diarization(audio: Path, segments: list[dict[str, Any]], config: Diariza
         "ambiguous_word_count": ambiguous,
         "ambiguous_assignments": ambiguous,
         **smoothing_diagnostics,
+        "pre_smoothing_speaker_count": pre_smoothing["speaker_count"],
+        "pre_smoothing_effective_speaker_count": pre_smoothing["effective_speaker_count"],
+        "post_smoothing_speaker_count": post_smoothing["speaker_count"],
+        "post_smoothing_effective_speaker_count": post_smoothing["effective_speaker_count"],
+        "pre_smoothing": pre_smoothing,
+        "post_smoothing": post_smoothing,
         "effective_speakers": effective,
         "effective_speaker_count": len(effective),
         "raw_effective_speakers": effective,
@@ -657,6 +930,8 @@ def run_diarization(audio: Path, segments: list[dict[str, Any]], config: Diariza
             f"aligned_effective={len(aligned_effective)}"
         ),
         "role_mapping": mapping, "runtime_seconds": round(time.monotonic() - started, 3),
+        "reproducibility": reproducibility,
+        "diarization_attempts": attempt_summaries,
         "config": {
             key: str(value) if isinstance(value, Path) else value
             for key, value in asdict(config).items()
@@ -666,6 +941,52 @@ def run_diarization(audio: Path, segments: list[dict[str, Any]], config: Diariza
     if output:
         output.parent.mkdir(parents=True, exist_ok=True)
         output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        for index, attempt in enumerate(attempts, 1):
+            (output.parent / f"raw-turns-attempt-{index}.json").write_text(
+                json.dumps([asdict(turn) for turn in attempt], ensure_ascii=False, indent=2)
+                + "\n",
+                encoding="utf-8",
+            )
+        (output.parent / "diarization-reproducibility.json").write_text(
+            json.dumps({**reproducibility, "attempts": attempt_summaries}, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        (output.parent / "alignment-pre-smoothing.json").write_text(
+            json.dumps(aligned_original, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
+        (output.parent / "alignment-post-smoothing.json").write_text(
+            json.dumps(aligned, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
+        if audio.is_file():
+            (output.parent / "audio-manifest.json").write_text(
+                json.dumps(_audio_manifest(audio), indent=2) + "\n", encoding="utf-8"
+            )
+        if isinstance(backend, SherpaOnnxDiarizationBackend):
+            model_manifest = {
+                "segmentation": {
+                    **_file_manifest(
+                        backend.segmentation, expected_sha256=SEGMENTATION_ARTIFACT.file_sha256
+                    ),
+                    "model_name": SEGMENTATION_ARTIFACT.name,
+                    "source": SEGMENTATION_ARTIFACT.url,
+                    "cache_key": SEGMENTATION_ARTIFACT.name,
+                    "cache_status": "verified",
+                },
+                "embedding": {
+                    **_file_manifest(
+                        backend.embedding, expected_sha256=EMBEDDING_ARTIFACT.file_sha256
+                    ),
+                    "model_name": EMBEDDING_ARTIFACT.name,
+                    "source": EMBEDDING_ARTIFACT.url,
+                    "cache_key": EMBEDDING_ARTIFACT.name,
+                    "cache_status": "verified",
+                },
+                "config": backend.last_config,
+                "sherpa_onnx_version": getattr(backend.sherpa, "__version__", "unknown"),
+            }
+            (output.parent / "model-manifest.json").write_text(
+                json.dumps(model_manifest, indent=2) + "\n", encoding="utf-8"
+            )
     print(
         "diarization diagnostics: "
         f"requested={config.num_speakers} raw_speakers={len(report['raw_speakers'])} "

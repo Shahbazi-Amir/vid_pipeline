@@ -2,10 +2,6 @@ name: Process uploaded video
 run-name: Uploaded video ${{ inputs.request_id }} — attempt ${{ inputs.dispatch_id }}
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - ".github/bootstrap/live-asr-validation.trigger"
   workflow_dispatch:
     inputs:
       request_id:
@@ -81,19 +77,19 @@ jobs:
     timeout-minutes: 360
     env:
       INPUT_MEDIA: /tmp/vid-pipeline-input/media
-      REQUEST_ID: ${{ inputs.request_id || 'asr-no-hf-live-tehran' }}
-      ASSET_ID: ${{ inputs.asset_id || '500737451' }}
-      EXPECTED_SIZE: ${{ inputs.file_size || '79482204' }}
-      EXPECTED_SHA256: ${{ inputs.sha256 || '1204ddc8aa1dbfcfdeb6fa23d2664b3354ee7f43d614cb3816815753b52d76f7' }}
-      PROFILE: ${{ inputs.profile || 'balanced' }}
-      MODEL: ${{ inputs.model || '' }}
-      LANGUAGE: ${{ inputs.language || 'fa' }}
-      NO_EDITORIAL: ${{ inputs.no_editorial || 'true' }}
-      DIARIZATION_ENABLED: ${{ inputs.diarization_enabled || 'true' }}
-      DIARIZATION_REQUIRED: ${{ inputs.diarization_required || 'true' }}
-      NUM_SPEAKERS: ${{ inputs.num_speakers || '2' }}
-      SPEAKER_ROLE_MODE: ${{ inputs.speaker_role_mode || 'host-teacher' }}
-      SPEAKER_ROLES: ${{ inputs.speaker_roles || '' }}
+      REQUEST_ID: ${{ inputs.request_id }}
+      ASSET_ID: ${{ inputs.asset_id }}
+      EXPECTED_SIZE: ${{ inputs.file_size }}
+      EXPECTED_SHA256: ${{ inputs.sha256 }}
+      PROFILE: ${{ inputs.profile }}
+      MODEL: ${{ inputs.model }}
+      LANGUAGE: ${{ inputs.language }}
+      NO_EDITORIAL: ${{ inputs.no_editorial }}
+      DIARIZATION_ENABLED: ${{ inputs.diarization_enabled }}
+      DIARIZATION_REQUIRED: ${{ inputs.diarization_required }}
+      NUM_SPEAKERS: ${{ inputs.num_speakers }}
+      SPEAKER_ROLE_MODE: ${{ inputs.speaker_role_mode }}
+      SPEAKER_ROLES: ${{ inputs.speaker_roles }}
       VID_PIPELINE_DIARIZATION_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/diarization
       VID_PIPELINE_ASR_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/asr
       EDITORIAL_MODEL: qwen3:8b

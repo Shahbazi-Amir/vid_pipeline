@@ -47,6 +47,17 @@
   ],
   "production_apply_runs": [
     {
+      "id": 30958807567,
+      "status": "completed",
+      "conclusion": "failure",
+      "head_sha": "aa93a27b7aed626ddb02402a6575c6720d90f44c",
+      "created_at": "2026-08-04T23:05:33Z",
+      "updated_at": "2026-08-04T23:06:10Z",
+      "html_url": "https://github.com/Shahbazi-Amir/vid_pipeline/actions/runs/30958807567",
+      "run_attempt": 1,
+      "display_title": "feat: rerun pyannote production wiring"
+    },
+    {
       "id": 30958594288,
       "status": "completed",
       "conclusion": "failure",
@@ -89,17 +100,6 @@
       "html_url": "https://github.com/Shahbazi-Amir/vid_pipeline/actions/runs/30958233569",
       "run_attempt": 1,
       "display_title": "feat: apply pyannote production wiring"
-    },
-    {
-      "id": 30958226723,
-      "status": "completed",
-      "conclusion": "failure",
-      "head_sha": "a6c4730a6657ac14e01ce68be25d71f8f79cfbc3",
-      "created_at": "2026-08-04T22:55:57Z",
-      "updated_at": "2026-08-04T22:55:57Z",
-      "html_url": "https://github.com/Shahbazi-Amir/vid_pipeline/actions/runs/30958226723",
-      "run_attempt": 1,
-      "display_title": "chore: add one-time production wiring workflow"
     }
   ]
 }

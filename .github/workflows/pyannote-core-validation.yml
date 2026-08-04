@@ -1,0 +1,147 @@
+name: Pyannote Core Validation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/bootstrap/pyannote-core-validation.trigger"
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      INPUT_MEDIA: /tmp/vid-pipeline-input/media.mp4
+      INPUT_AUDIO: /tmp/vid-pipeline-input/audio-16k-mono.wav
+      EXPECTED_SIZE: "79482204"
+      EXPECTED_SHA256: "1204ddc8aa1dbfcfdeb6fa23d2664b3354ee7f43d614cb3816815753b52d76f7"
+      ASSET_ID: "500737451"
+      HF_HOME: ${{ github.workspace }}/.cache/huggingface
+      HF_HUB_CACHE: ${{ github.workspace }}/.cache/huggingface/hub
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Cache pyannote model
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.HF_HUB_CACHE }}
+          key: pyannote-${{ runner.os }}-py311-audio-4.0.4-community-1-v1
+
+      - name: Install
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install --upgrade pip
+          pip install -e '.[diarization-pyannote]'
+
+      - name: Download and normalize Video 1 audio
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$(dirname "$INPUT_MEDIA")"
+          curl --fail --location --retry 3 \
+            -H "Accept: application/octet-stream" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${{ github.repository }}/releases/assets/$ASSET_ID" \
+            -o "$INPUT_MEDIA"
+          python - <<'PY'
+          import hashlib, os
+          p = os.environ['INPUT_MEDIA']
+          assert os.path.getsize(p) == int(os.environ['EXPECTED_SIZE'])
+          h = hashlib.sha256()
+          with open(p, 'rb') as f:
+              for chunk in iter(lambda: f.read(1024 * 1024), b''):
+                  h.update(chunk)
+          assert h.hexdigest() == os.environ['EXPECTED_SHA256']
+          PY
+          ffmpeg -hide_banner -loglevel error -y -i "$INPUT_MEDIA" -vn -ac 1 -ar 16000 -c:a pcm_s16le "$INPUT_AUDIO"
+
+      - name: Run Community-1 directly
+        shell: bash
+        env:
+          HF_TOKEN: ""
+          HUGGING_FACE_HUB_TOKEN: ""
+          VID_PIPELINE_PYANNOTE_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import os
+          import time
+          from collections import Counter
+          from pathlib import Path
+
+          from vid_pipeline.pyannote_diarization import PyannoteDiarizationBackend
+
+          audio = Path(os.environ['INPUT_AUDIO'])
+          started = time.monotonic()
+          backend = PyannoteDiarizationBackend()
+          turns = backend.diarize(audio, num_speakers=2)
+          elapsed = time.monotonic() - started
+          durations = Counter()
+          counts = Counter()
+          for turn in turns:
+              durations[turn.speaker] += max(0.0, turn.end - turn.start)
+              counts[turn.speaker] += 1
+          speakers = sorted(durations)
+          window = [
+              {'start': t.start, 'end': t.end, 'speaker': t.speaker}
+              for t in turns if t.end >= 118 and t.start <= 133
+          ]
+          result = {
+              'schema_version': 1,
+              'github_run_id': os.getenv('GITHUB_RUN_ID', ''),
+              'github_run_attempt': os.getenv('GITHUB_RUN_ATTEMPT', ''),
+              'backend': backend.name,
+              'model_id': backend.model_id,
+              'pyannote_audio_version': backend.pyannote_audio_version,
+              'requested_speaker_count': 2,
+              'detected_speaker_count': len(speakers),
+              'speaker_durations': dict(durations),
+              'speaker_turn_counts': dict(counts),
+              'speaker_turn_count': len(turns),
+              'speaker_switch_count': sum(a.speaker != b.speaker for a, b in zip(turns, turns[1:])),
+              'exclusive_speaker_diarization_used': backend.last_used_exclusive,
+              'runtime_seconds': round(elapsed, 3),
+              'turns_01_58_to_02_13': window,
+              'baseline_sherpa': {
+                  'speaker_00_seconds_approx': 932,
+                  'speaker_01_seconds_approx': 14,
+              },
+          }
+          Path('validation').mkdir(exist_ok=True)
+          Path('validation/pyannote-core-result.json').write_text(
+              json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+          )
+          print(json.dumps(result, ensure_ascii=False, indent=2))
+          if len(speakers) != 2:
+              raise SystemExit('expected exactly two speakers')
+          PY
+
+      - name: Commit result and cleanup marker
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .github/bootstrap/pyannote-core-validation.trigger
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add validation/pyannote-core-result.json .github/bootstrap/pyannote-core-validation.trigger
+          git commit -m "test: record pyannote core validation" || true
+          git push origin HEAD:main

@@ -121,8 +121,8 @@ jobs:
             echo "Release asset with this immutable name already exists; refusing overwrite."
             exit 1
           fi
-          curl -fsS "${auth[@]}" -H 'Content-Type: application/gzip' \
-            --data-binary "@/tmp/$ASSET_NAME" \
+          curl -fsS "${auth[@]}" -H 'Content-Type: application/gzip' -X POST \
+            --upload-file "/tmp/$ASSET_NAME" \
             "https://uploads.github.com/repos/$GITHUB_REPOSITORY/releases/$release_id/assets?name=$ASSET_NAME" \
             >/tmp/uploaded-asset.json
 

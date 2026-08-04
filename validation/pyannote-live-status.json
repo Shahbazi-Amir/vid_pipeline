@@ -1,23 +1,34 @@
 {
   "live_runs": [
     {
-      "id": 30958145524,
+      "id": 30960573797,
       "status": "in_progress",
       "conclusion": null,
+      "head_sha": "3668363a3341c778c93d246cc7e819afa5b25784",
+      "created_at": "2026-08-04T23:36:44Z",
+      "updated_at": "2026-08-04T23:36:53Z",
+      "html_url": "https://github.com/Shahbazi-Amir/vid_pipeline/actions/runs/30960573797",
+      "run_attempt": 1,
+      "display_title": "test: rerun pyannote live validation after micro-switch fix"
+    },
+    {
+      "id": 30958145524,
+      "status": "completed",
+      "conclusion": "success",
       "head_sha": "2f446e697ed275085c6a01f150a1ec1b4a493f5f",
       "created_at": "2026-08-04T22:54:36Z",
-      "updated_at": "2026-08-04T22:54:45Z",
+      "updated_at": "2026-08-04T23:24:26Z",
       "html_url": "https://github.com/Shahbazi-Amir/vid_pipeline/actions/runs/30958145524",
       "run_attempt": 1,
       "display_title": "test: rerun pyannote pipeline after dependency fix"
     },
     {
       "id": 30957347982,
-      "status": "in_progress",
-      "conclusion": null,
+      "status": "completed",
+      "conclusion": "failure",
       "head_sha": "78c59fb9e2ce0ee7c34a711d4c38e3dbe536ac51",
       "created_at": "2026-08-04T22:41:40Z",
-      "updated_at": "2026-08-04T22:41:42Z",
+      "updated_at": "2026-08-04T23:07:44Z",
       "html_url": "https://github.com/Shahbazi-Amir/vid_pipeline/actions/runs/30957347982",
       "run_attempt": 1,
       "display_title": "test: rerun full pyannote pipeline validation"

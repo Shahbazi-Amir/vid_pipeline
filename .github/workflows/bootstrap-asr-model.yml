@@ -112,19 +112,34 @@ jobs:
           fi
           release_id=$(python -c 'import json; print(json.load(open("/tmp/release.json"))["id"])')
           curl -fsS "${auth[@]}" "$api/releases/$release_id/assets?per_page=100" >/tmp/assets.json
-          conflict=$(python - "$ASSET_NAME" <<'PY'
+          reuse=$(python - "$ASSET_NAME" <<'PY'
           import json, sys
-          print(next((str(x["id"]) for x in json.load(open("/tmp/assets.json")) if x["name"] == sys.argv[1]), ""))
+          assets = json.load(open("/tmp/assets.json"))
+          manifest = json.load(open("models/asr/large-v3-turbo-ct2-v1.json"))
+          asset = next((x for x in assets if x["name"] == sys.argv[1]), None)
+          if asset is None:
+              print("upload")
+          elif (
+              asset.get("digest") == "sha256:" + manifest["asset_sha256"]
+              and asset["size"] == manifest["asset_size"]
+          ):
+              print("reuse")
+          else:
+              print("conflict")
           PY
           )
-          if [[ -n "$conflict" ]]; then
-            echo "Release asset with this immutable name already exists; refusing overwrite."
+          if [[ "$reuse" == conflict ]]; then
+            echo "Release asset name exists with a different digest or size; refusing overwrite."
             exit 1
           fi
-          curl -fsS "${auth[@]}" -H 'Content-Type: application/gzip' -X POST \
-            --upload-file "/tmp/$ASSET_NAME" \
-            "https://uploads.github.com/repos/$GITHUB_REPOSITORY/releases/$release_id/assets?name=$ASSET_NAME" \
-            >/tmp/uploaded-asset.json
+          if [[ "$reuse" == upload ]]; then
+            curl -fsS "${auth[@]}" -H 'Content-Type: application/gzip' -X POST \
+              --upload-file "/tmp/$ASSET_NAME" \
+              "https://uploads.github.com/repos/$GITHUB_REPOSITORY/releases/$release_id/assets?name=$ASSET_NAME" \
+              >/tmp/uploaded-asset.json
+          else
+            echo "Existing immutable Release asset digest and size match; reusing it."
+          fi
 
       - name: Commit real manifest and remove the one-time marker
         shell: bash
@@ -142,7 +157,8 @@ jobs:
           PY
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add models/asr/large-v3-turbo-ct2-v1.json \
+          git add -f models/asr/large-v3-turbo-ct2-v1.json
+          git add \
             .github/bootstrap/asr-large-v3-turbo-v1.trigger \
             .github/workflows/bootstrap-asr-model.yml
           git commit -m "chore: pin project-controlled ASR model artifact"

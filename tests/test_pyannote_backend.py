@@ -1,0 +1,123 @@
+from pathlib import Path
+
+import pytest
+
+from vid_pipeline.diarization import DiarizationError
+from vid_pipeline.pyannote_diarization import (
+    PYANNOTE_MODEL_ID,
+    PyannoteDiarizationBackend,
+    annotation_to_speaker_turns,
+)
+
+
+class Segment:
+    def __init__(self, start, end):
+        self.start = start
+        self.end = end
+
+
+class Annotation:
+    def __init__(self, rows):
+        self.rows = rows
+
+    def itertracks(self, yield_label=False):
+        assert yield_label is True
+        for index, (start, end, speaker) in enumerate(self.rows):
+            yield Segment(start, end), index, speaker
+
+
+class Output:
+    def __init__(self, regular, exclusive=None):
+        self.speaker_diarization = regular
+        self.exclusive_speaker_diarization = exclusive
+
+
+def test_annotation_adapter_sorts_turns():
+    turns = annotation_to_speaker_turns(
+        Annotation([(2.0, 3.0, "B"), (0.0, 1.0, "A")])
+    )
+    assert [(t.start, t.end, t.speaker) for t in turns] == [
+        (0.0, 1.0, "A"),
+        (2.0, 3.0, "B"),
+    ]
+
+
+def test_exclusive_timeline_is_preferred_and_num_speakers_is_passed():
+    captured = {}
+
+    class Pipeline:
+        def __call__(self, audio, **kwargs):
+            captured["call"] = (audio, kwargs)
+            return Output(
+                Annotation([(0.0, 10.0, "regular")]),
+                Annotation([(0.0, 4.0, "host"), (4.0, 10.0, "teacher")]),
+            )
+
+    def loader(model_id, **kwargs):
+        captured["load"] = (model_id, kwargs)
+        return Pipeline()
+
+    backend = PyannoteDiarizationBackend(
+        token="hf_test_secret",
+        pipeline_loader=loader,
+    )
+    turns = backend.diarize(Path("/tmp/audio.wav"), num_speakers=2)
+
+    assert captured["load"][0] == PYANNOTE_MODEL_ID
+    assert captured["load"][1]["token"] == "hf_test_secret"
+    assert captured["call"][1] == {"num_speakers": 2}
+    assert [t.speaker for t in turns] == ["host", "teacher"]
+    assert backend.last_used_exclusive is True
+
+
+def test_regular_timeline_is_fallback():
+    class Pipeline:
+        def __call__(self, audio, **kwargs):
+            return Output(Annotation([(0.0, 2.0, "A")]), None)
+
+    backend = PyannoteDiarizationBackend(
+        token="hf_test_secret",
+        pipeline_loader=lambda *args, **kwargs: Pipeline(),
+    )
+    turns = backend.diarize(Path("/tmp/audio.wav"), num_speakers=2)
+    assert [t.speaker for t in turns] == ["A"]
+    assert backend.last_used_exclusive is False
+
+
+def test_missing_hf_token_fails_cleanly(monkeypatch):
+    monkeypatch.delenv("HF_TOKEN", raising=False)
+    monkeypatch.delenv("VID_PIPELINE_PYANNOTE_TOKEN", raising=False)
+    with pytest.raises(
+        DiarizationError,
+        match="HF_TOKEN is required for pyannote Community-1 model download",
+    ):
+        PyannoteDiarizationBackend(pipeline_loader=lambda *args, **kwargs: object())
+
+
+def test_loader_exception_does_not_leak_token():
+    secret = "hf_super_secret_value"
+
+    def loader(*args, **kwargs):
+        raise RuntimeError(f"upstream accidentally echoed {kwargs['token']}")
+
+    with pytest.raises(DiarizationError) as error:
+        PyannoteDiarizationBackend(token=secret, pipeline_loader=loader)
+    assert secret not in str(error.value)
+
+
+def test_dedicated_env_token_works_when_standard_hf_token_is_empty(monkeypatch):
+    monkeypatch.setenv("VID_PIPELINE_PYANNOTE_TOKEN", "hf_dedicated_test")
+    monkeypatch.setenv("HF_TOKEN", "")
+    captured = {}
+
+    class Pipeline:
+        def __call__(self, audio, **kwargs):
+            return Output(Annotation([(0.0, 1.0, "A")]), None)
+
+    def loader(model_id, **kwargs):
+        captured.update(kwargs)
+        return Pipeline()
+
+    backend = PyannoteDiarizationBackend(pipeline_loader=loader)
+    backend.diarize(Path("/tmp/audio.wav"), num_speakers=1)
+    assert captured["token"] == "hf_dedicated_test"

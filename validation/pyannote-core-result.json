@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "github_run_id": "30956373076",
+  "github_run_attempt": "1",
+  "backend": "pyannote-community-1",
+  "model_id": "pyannote/speaker-diarization-community-1",
+  "pyannote_audio_version": "4.0.4",
+  "requested_speaker_count": 2,
+  "detected_speaker_count": 2,
+  "speaker_durations": {
+    "SPEAKER_01": 394.90875000000005,
+    "SPEAKER_00": 517.2356250000008
+  },
+  "speaker_turn_counts": {
+    "SPEAKER_01": 44,
+    "SPEAKER_00": 76
+  },
+  "speaker_turn_count": 120,
+  "speaker_switch_count": 74,
+  "exclusive_speaker_diarization_used": true,
+  "runtime_seconds": 423.952,
+  "turns_01_58_to_02_13": [
+    {
+      "start": 112.09784375000001,
+      "end": 123.77534375,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 123.77534375,
+      "end": 124.53471875000001,
+      "speaker": "SPEAKER_00"
+    },
+    {
+      "start": 124.53471875000001,
+      "end": 125.78346875000001,
+      "speaker": "SPEAKER_01"
+    },
+    {
+      "start": 126.18846875000001,
+      "end": 134.10284375,
+      "speaker": "SPEAKER_00"
+    }
+  ],
+  "baseline_sherpa": {
+    "speaker_00_seconds_approx": 932,
+    "speaker_01_seconds_approx": 14
+  }
+}

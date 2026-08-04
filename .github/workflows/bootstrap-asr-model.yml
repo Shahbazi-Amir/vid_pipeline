@@ -146,20 +146,9 @@ jobs:
         run: |
           set -euo pipefail
           rm -f .github/bootstrap/asr-large-v3-turbo-v1.trigger
-          python - <<'PY'
-          from pathlib import Path
-          path = Path('.github/workflows/bootstrap-asr-model.yml')
-          text = path.read_text(encoding='utf-8')
-          push_block = '  push:\n    branches: [main]\n    paths:\n      - ".github/bootstrap/asr-large-v3-turbo-v1.trigger"\n'
-          if push_block not in text:
-              raise SystemExit('bootstrap push trigger block not found')
-          path.write_text(text.replace(push_block, ''), encoding='utf-8')
-          PY
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add -f models/asr/large-v3-turbo-ct2-v1.json
-          git add \
-            .github/bootstrap/asr-large-v3-turbo-v1.trigger \
-            .github/workflows/bootstrap-asr-model.yml
+          git add .github/bootstrap/asr-large-v3-turbo-v1.trigger
           git commit -m "chore: pin project-controlled ASR model artifact"
           git push origin HEAD:main

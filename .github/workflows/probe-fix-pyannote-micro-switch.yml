@@ -1,0 +1,55 @@
+name: Probe pyannote micro-switch fix
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/bootstrap/probe-fix-pyannote-micro-switch.trigger"
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Read latest fix run
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p validation
+          curl --fail --silent --show-error \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/fix-pyannote-micro-switch.yml/runs?event=push&branch=main&per_page=5" \
+            > /tmp/runs.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data = json.loads(Path('/tmp/runs.json').read_text())
+          fields = ('id','status','conclusion','head_sha','created_at','updated_at','html_url','run_attempt','display_title')
+          payload = {'runs': [{k: run.get(k) for k in fields} for run in data.get('workflow_runs', [])]}
+          Path('validation/fix-pyannote-micro-switch-status.json').write_text(
+              json.dumps(payload, indent=2) + '\n', encoding='utf-8'
+          )
+          print(json.dumps(payload, indent=2))
+          PY
+      - name: Commit status and cleanup
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .github/bootstrap/probe-fix-pyannote-micro-switch.trigger
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add validation/fix-pyannote-micro-switch-status.json .github/bootstrap/probe-fix-pyannote-micro-switch.trigger
+          git commit -m "test: record micro-switch fix status" || true
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main

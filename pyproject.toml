@@ -48,6 +48,9 @@ diarization = [
   "sherpa-onnx>=1.13.4,<1.14",
   "soundfile>=0.12,<1"
 ]
+diarization-pyannote = [
+  "pyannote.audio==4.0.4"
+]
 all = [
   "boto3>=1.34",
   "fastapi>=0.115",
@@ -79,7 +82,7 @@ dev = [
 ]
 
 [project.scripts]
-vid-pipeline = "vid_pipeline.reliable_cli:main"
+vid-pipeline = "vid_pipeline.pyannote_cli:main"
 vid-review = "vid_pipeline.review_cli:main"
 vid-accuracy = "vid_pipeline.accuracy_cli:main"
 

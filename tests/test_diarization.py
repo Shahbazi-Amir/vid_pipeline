@@ -20,8 +20,99 @@ from vid_pipeline.diarization import (
     map_roles,
     normalize_turns,
     run_diarization,
+    smooth_speaker_turns,
 )
 from vid_pipeline.final_export import export_final_outputs
+
+
+def _aligned_turn(start, end, speaker, text, *, margin, ambiguous=False):
+    return {
+        "start": start, "end": end, "speaker": speaker, "text": text,
+        "aligned_word_count": len(text.split()),
+        "speaker_evidence": {
+            "winning_overlap": end - start, "runner_up_overlap": 0.0,
+            "overlap_margin": margin, "ambiguous": ambiguous,
+            "supporting_raw_turn_duration": end - start,
+        },
+    }
+
+
+def test_smoothing_merges_weak_fragmentation_and_preserves_persian_text():
+    rows = [
+        _aligned_turn(0, 5, "SPEAKER_00", "ساختاری از دانش نگرش و مهارت که ظاهراً", margin=1),
+        _aligned_turn(5, 5.8, "SPEAKER_01", "قراره بهش", margin=0, ambiguous=True),
+        _aligned_turn(5.8, 10, "SPEAKER_00", "بگیم سواد مالی، می\u200cشود.", margin=1),
+    ]
+    result, diagnostics = smooth_speaker_turns(rows, DiarizationConfig())
+    assert [(row["speaker"], row["text"]) for row in result] == [(
+        "SPEAKER_00",
+        "ساختاری از دانش نگرش و مهارت که ظاهراً قراره بهش بگیم سواد مالی، می\u200cشود.",
+    )]
+    assert diagnostics["micro_turns_merged"] == 1
+    assert diagnostics["speaker_switches_before"] == 2
+    assert diagnostics["speaker_switches_after"] == 0
+
+
+@pytest.mark.parametrize("reply", ["بله", "نه"])
+def test_smoothing_preserves_strong_short_reply(reply):
+    rows = [
+        _aligned_turn(0, 5, "SPEAKER_00", "آیا این موضوع روشن است؟", margin=1),
+        _aligned_turn(5, 5.7, "SPEAKER_01", reply, margin=1),
+        _aligned_turn(5.7, 10, "SPEAKER_00", "پس ادامه می\u200cدهیم", margin=1),
+    ]
+    result, diagnostics = smooth_speaker_turns(rows, DiarizationConfig())
+    assert [row["speaker"] for row in result] == ["SPEAKER_00", "SPEAKER_01", "SPEAKER_00"]
+    assert diagnostics["micro_turns_preserved"] == 1
+
+
+def test_smoothing_merges_near_zero_weak_token_but_not_a_b_c():
+    config = DiarizationConfig()
+    sandwich = [
+        _aligned_turn(0, 5, "SPEAKER_00", "شروع", margin=1),
+        _aligned_turn(5, 5.05, "SPEAKER_01", "لغزش؟", margin=0, ambiguous=True),
+        _aligned_turn(5.05, 10, "SPEAKER_00", "ادامه", margin=1),
+    ]
+    assert len(smooth_speaker_turns(sandwich, config)[0]) == 1
+    distinct = [dict(row) for row in sandwich]
+    distinct[-1]["speaker"] = "SPEAKER_02"
+    assert len(smooth_speaker_turns(distinct, config)[0]) == 3
+
+
+def test_required_gate_is_recomputed_after_smoothing(tmp_path: Path):
+    class NestedWeakBackend:
+        name = "sherpa-onnx"
+
+        def diarize(self, audio: Path, *, num_speakers: int | None):
+            return [
+                SpeakerTurn(0, 10, "speaker_00"),
+                SpeakerTurn(5, 5.8, "speaker_01"),
+            ]
+
+    words = [
+        {"start": 4, "end": 5, "word": " شروع"},
+        {"start": 5, "end": 5.4, "word": " لغزش"},
+        {"start": 5.4, "end": 5.8, "word": " کوتاه"},
+        {"start": 5.8, "end": 6.8, "word": " ادامه"},
+    ]
+    output = tmp_path / "diarization.json"
+    with pytest.raises(DiarizationError, match=r"aligned_effective=1"):
+        run_diarization(
+            tmp_path / "audio.wav",
+            [{"start": 0, "end": 10, "text": "شروع لغزش کوتاه ادامه", "words": words}],
+            DiarizationConfig(
+                enabled=True, required=True, num_speakers=2,
+                effective_min_duration_seconds=0.5, effective_min_fraction=0.01,
+                aligned_min_word_count=1, aligned_min_duration_seconds=0.1,
+                aligned_min_fraction=0.01,
+            ),
+            backend=NestedWeakBackend(), output=output,
+        )
+    report = __import__("json").loads(output.read_text(encoding="utf-8"))
+    assert report["pre_smoothing_segments"] == 3
+    assert report["post_smoothing_segments"] == 1
+    assert report["micro_turns_merged"] == 1
+    assert report["aligned_effective_speaker_count"] == 1
+    assert report["status"] == "failed"
 
 
 class FakeBackend:

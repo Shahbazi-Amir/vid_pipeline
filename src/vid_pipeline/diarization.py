@@ -48,6 +48,12 @@ class DiarizationConfig:
     aligned_min_duration_seconds: float = 1.0
     aligned_min_segments: int = 1
     aligned_min_fraction: float = 0.005
+    smoothing_enabled: bool = True
+    micro_turn_max_duration_seconds: float = 1.25
+    micro_turn_max_words: int = 3
+    smoothing_max_gap_seconds: float = 0.25
+    smoothing_min_overlap_margin: float = 0.20
+    minimum_export_turn_span_seconds: float = 0.10
     clustering_threshold: float = 0.5
     min_duration_on: float = 0.3
     min_duration_off: float = 0.5
@@ -254,6 +260,13 @@ def overlap(start: float, end: float, turn: SpeakerTurn) -> float:
 
 
 def assign_speaker(start: float, end: float, turns: list[SpeakerTurn]) -> tuple[str, bool]:
+    evidence = _speaker_evidence(start, end, turns)
+    return str(evidence["speaker"]), bool(evidence["ambiguous"])
+
+
+def _speaker_evidence(
+    start: float, end: float, turns: list[SpeakerTurn]
+) -> dict[str, Any]:
     scores: dict[str, float] = {}
     shortest_overlapping_turn: dict[str, float] = {}
     for turn in turns:
@@ -274,9 +287,23 @@ def assign_speaker(start: float, end: float, turns: list[SpeakerTurn]) -> tuple[
         ),
     )
     if not ranked or ranked[0][1] <= 0:
-        return "", True
+        return {
+            "speaker": "", "winning_overlap": 0.0, "runner_up_overlap": 0.0,
+            "overlap_margin": 0.0, "ambiguous": True,
+            "supporting_raw_turn_duration": 0.0,
+        }
     ambiguous = len(ranked) > 1 and abs(ranked[0][1] - ranked[1][1]) <= 1e-6
-    return ranked[0][0], ambiguous
+    winner, winning_overlap = ranked[0]
+    runner_up_overlap = ranked[1][1] if len(ranked) > 1 else 0.0
+    margin = (winning_overlap - runner_up_overlap) / max(winning_overlap, 1e-9)
+    return {
+        "speaker": winner,
+        "winning_overlap": winning_overlap,
+        "runner_up_overlap": runner_up_overlap,
+        "overlap_margin": margin,
+        "ambiguous": ambiguous,
+        "supporting_raw_turn_duration": shortest_overlapping_turn.get(winner, 0.0),
+    }
 
 
 def _interval_overlap_duration(
@@ -343,15 +370,30 @@ def align_segments(segments: list[dict[str, Any]], turns: list[SpeakerTurn], *, 
         # timings. Never overwrite that better text with stale Whisper words.
         if words and " ".join(word_text.split()) == segment_text:
             for word in words:
-                speaker, unclear = assign_speaker(float(word["start"]), float(word["end"]), turns)
+                evidence = _speaker_evidence(float(word["start"]), float(word["end"]), turns)
+                speaker, unclear = str(evidence["speaker"]), bool(evidence["ambiguous"])
                 ambiguous += int(unclear)
                 text = str(word.get("word") or "")
                 if not text:
                     continue
-                row = {"start": float(word["start"]), "end": float(word["end"]), "text": text.strip(), "speaker": speaker}
+                row = {"start": float(word["start"]), "end": float(word["end"]), "text": text.strip(), "speaker": speaker,
+                       "speaker_evidence": evidence, "aligned_word_count": 1}
                 if rows and rows[-1]["speaker"] == speaker and row["start"] - rows[-1]["end"] <= merge_gap:
                     rows[-1]["text"] = join_word_tokens([rows[-1]["text"], text])
                     rows[-1]["end"] = row["end"]
+                    previous = rows[-1]["speaker_evidence"]
+                    previous["winning_overlap"] += evidence["winning_overlap"]
+                    previous["runner_up_overlap"] += evidence["runner_up_overlap"]
+                    previous["overlap_margin"] = (
+                        (previous["winning_overlap"] - previous["runner_up_overlap"])
+                        / max(previous["winning_overlap"], 1e-9)
+                    )
+                    previous["ambiguous"] = previous["ambiguous"] or unclear
+                    previous["supporting_raw_turn_duration"] = min(
+                        previous["supporting_raw_turn_duration"] or float("inf"),
+                        evidence["supporting_raw_turn_duration"] or float("inf"),
+                    )
+                    rows[-1]["aligned_word_count"] += 1
                 else:
                     rows.append(row)
         else:
@@ -362,6 +404,76 @@ def align_segments(segments: list[dict[str, Any]], turns: list[SpeakerTurn], *, 
             ambiguous += int(unclear or len(boundaries) > 2)
             rows.append({**segment, "speaker": speaker, "speaker_ambiguous": len(boundaries) > 2})
     return rows, ambiguous
+
+
+def _speaker_switches(rows: list[dict[str, Any]]) -> int:
+    speakers = [str(row.get("speaker") or "") for row in rows]
+    return sum(current != previous for previous, current in zip(speakers, speakers[1:]))
+
+
+def smooth_speaker_turns(
+    rows: list[dict[str, Any]], config: DiarizationConfig
+) -> tuple[list[dict[str, Any]], dict[str, int]]:
+    """Conservatively remove weak same-speaker sandwich micro-turns."""
+
+    smoothed = [dict(row) for row in rows]
+    before = len(smoothed)
+    switches_before = _speaker_switches(smoothed)
+    merged = preserved = 0
+    if config.smoothing_enabled:
+        index = 1
+        while index < len(smoothed) - 1:
+            previous, candidate, following = smoothed[index - 1:index + 2]
+            duration = max(0.0, float(candidate["end"]) - float(candidate["start"]))
+            word_count = int(candidate.get("aligned_word_count") or len(str(candidate.get("text") or "").split()))
+            evidence = candidate.get("speaker_evidence") or {}
+            same_speaker_sandwich = (
+                previous.get("speaker") == following.get("speaker")
+                and candidate.get("speaker") != previous.get("speaker")
+            )
+            local = (
+                float(candidate["start"]) - float(previous["end"])
+                <= config.smoothing_max_gap_seconds
+                and float(following["start"]) - float(candidate["end"])
+                <= config.smoothing_max_gap_seconds
+            )
+            micro = (
+                duration <= config.micro_turn_max_duration_seconds
+                and word_count <= config.micro_turn_max_words
+            )
+            near_zero = duration < config.minimum_export_turn_span_seconds
+            weak = bool(evidence.get("ambiguous", True)) or float(
+                evidence.get("overlap_margin", 0.0)
+            ) < config.smoothing_min_overlap_margin
+            boundary = str(previous.get("text") or "").rstrip().endswith(tuple(".!؟?")) or str(
+                candidate.get("text") or ""
+            ).rstrip().endswith(tuple(".!؟?"))
+            eligible = same_speaker_sandwich and local and micro
+            if eligible and weak and (near_zero or not boundary):
+                previous["text"] = join_word_tokens([
+                    str(previous.get("text") or ""), str(candidate.get("text") or ""),
+                    str(following.get("text") or ""),
+                ])
+                previous["end"] = following["end"]
+                previous["aligned_word_count"] = sum(
+                    int(row.get("aligned_word_count") or len(str(row.get("text") or "").split()))
+                    for row in (previous, candidate, following)
+                )
+                smoothed[index - 1:index + 2] = [previous]
+                merged += 1
+                index = max(1, index - 1)
+                continue
+            if eligible:
+                preserved += 1
+            index += 1
+    return smoothed, {
+        "pre_smoothing_segments": before,
+        "post_smoothing_segments": len(smoothed),
+        "speaker_switches_before": switches_before,
+        "speaker_switches_after": _speaker_switches(smoothed),
+        "micro_turns_merged": merged,
+        "micro_turns_preserved": preserved,
+    }
 
 
 def map_roles(segments: list[dict[str, Any]], mode: str, overrides: dict[str, str] | None = None, threshold: float = 0.72) -> dict[str, dict[str, Any]]:
@@ -410,6 +522,7 @@ def run_diarization(audio: Path, segments: list[dict[str, Any]], config: Diariza
     if not turns:
         raise DiarizationError("diarization returned zero speakers")
     aligned, ambiguous = align_segments(segments, turns, merge_gap=config.merge_gap_seconds)
+    aligned, smoothing_diagnostics = smooth_speaker_turns(aligned, config)
     durations: dict[str, float] = {}
     turn_counts: Counter[str] = Counter()
     for turn in turns:
@@ -528,6 +641,7 @@ def run_diarization(audio: Path, segments: list[dict[str, Any]], config: Diariza
         "unassigned_word_count": unassigned_words,
         "ambiguous_word_count": ambiguous,
         "ambiguous_assignments": ambiguous,
+        **smoothing_diagnostics,
         "effective_speakers": effective,
         "effective_speaker_count": len(effective),
         "raw_effective_speakers": effective,

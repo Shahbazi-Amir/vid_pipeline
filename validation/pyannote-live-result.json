@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "github_run_id": "30958145524",
+  "github_run_id": "30960573797",
   "github_run_attempt": "1",
   "pipeline_exit_code": 0,
   "video_sha256": "1204ddc8aa1dbfcfdeb6fa23d2664b3354ee7f43d614cb3816815753b52d76f7",
@@ -27,7 +27,7 @@
   },
   "speaker_turn_count": 120,
   "speaker_switch_count": 74,
-  "ambiguous_assignments": 0,
+  "ambiguous_assignments": 1,
   "exclusive_speaker_diarization_used": true,
   "pyannote_audio_version": "4.0.4",
   "quality_gate_passed": true,
@@ -56,8 +56,8 @@
   "aligned_01_58_to_02_13": [
     {
       "start": 118.26,
-      "end": 123.74,
-      "text": "ساختاری از دانش نگرش و مهارت که ظاهرا",
+      "end": 125.8,
+      "text": "ساختاری از دانش نگرش و محارت که ظاهرا قراره بهش بگیم سواد مالی",
       "speaker": "SPEAKER_00",
       "speaker_evidence": {
         "speaker": "SPEAKER_00",
@@ -67,41 +67,7 @@
         "ambiguous": false,
         "supporting_raw_turn_duration": 11.677499999999995
       },
-      "aligned_word_count": 8,
-      "speaker_role": "استاد",
-      "speaker_role_confidence": 0.95
-    },
-    {
-      "start": 123.74,
-      "end": 124.34,
-      "text": "قراره بهش",
-      "speaker": "SPEAKER_01",
-      "speaker_evidence": {
-        "speaker": "SPEAKER_01",
-        "winning_overlap": 0.5646562499999987,
-        "runner_up_overlap": 0.03534375000000978,
-        "overlap_margin": 0.937406608002639,
-        "ambiguous": false,
-        "supporting_raw_turn_duration": 0.7593750000000057
-      },
-      "aligned_word_count": 2,
-      "speaker_role": "مجری",
-      "speaker_role_confidence": 0.95
-    },
-    {
-      "start": 124.34,
-      "end": 125.8,
-      "text": "بگیم سواد مالی",
-      "speaker": "SPEAKER_00",
-      "speaker_evidence": {
-        "speaker": "SPEAKER_00",
-        "winning_overlap": 1.2487500000000011,
-        "runner_up_overlap": 0.19471875000000693,
-        "overlap_margin": 0.8440690690690636,
-        "ambiguous": false,
-        "supporting_raw_turn_duration": 1.2487500000000011
-      },
-      "aligned_word_count": 3,
+      "aligned_word_count": 13,
       "speaker_role": "استاد",
       "speaker_role_confidence": 0.95
     },

@@ -7,7 +7,6 @@ import shutil
 import uuid
 from pathlib import Path
 
-
 _FINAL_FILES = {
     "transcript.md": ("md", ".md"),
     "transcript.timestamped.md": ("timestamped", ".md"),

@@ -14,6 +14,7 @@ from vid_pipeline.llm_review import (
     validate_review,
 )
 from vid_pipeline.review_cli import build_parser
+from vid_pipeline.review_prompt import PERSIAN_TRANSCRIPT_REVIEW_PROMPT
 
 SOURCE = """# media
 
@@ -44,6 +45,20 @@ REVIEWED = """# media
 
 بله، درست است.
 """
+
+
+def test_production_prompt_is_generic_not_transcript_specific():
+    forbidden_examples = (
+        "دویتر جان",
+        "دکتر جان",
+        "ثواد مالی",
+        "تلاتوم",
+        "مرفع",
+    )
+
+    assert all(item not in PERSIAN_TRANSCRIPT_REVIEW_PROMPT for item in forbidden_examples)
+    assert "any number of speakers" in PERSIAN_TRANSCRIPT_REVIEW_PROMPT
+    assert "Never assume specific speaker names" in PERSIAN_TRANSCRIPT_REVIEW_PROMPT
 
 
 def test_validate_review_preserves_generic_structure():

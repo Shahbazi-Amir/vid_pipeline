@@ -120,10 +120,6 @@ jobs:
               'exclusive_speaker_diarization_used': backend.last_used_exclusive,
               'runtime_seconds': round(elapsed, 3),
               'turns_01_58_to_02_13': window,
-              'baseline_sherpa': {
-                  'speaker_00_seconds_approx': 932,
-                  'speaker_01_seconds_approx': 14,
-              },
           }
           Path('validation').mkdir(exist_ok=True)
           Path('validation/pyannote-core-result.json').write_text(

@@ -117,13 +117,13 @@ vid-accuracy build outputs/<job-id> --mode maximum --whisperx
 pip install -e '.[diarization]'
 ```
 
-مدل‌های عمومی sherpa-onnx بدون حساب، توکن یا credential خارجی دریافت می‌شوند:
+تشخیص گوینده با `pyannote/speaker-diarization-community-1` انجام می‌شود. حساب Hugging Face باید به مدل دسترسی داشته باشد و توکن از `VID_PIPELINE_PYANNOTE_TOKEN` یا `HF_TOKEN` خوانده می‌شود:
 
 ```bash
 vid-accuracy build outputs/<job-id> --diarize
 ```
 
-این قابلیت اختیاری است و در حالت غیرالزامی، خطای دانلود یا inference باعث حذف متن نمی‌شود.
+این قابلیت اختیاری است و در حالت غیرالزامی، خطای دسترسی مدل یا inference باعث حذف متن نمی‌شود.
 
 ## متغیرهای اجرای خودکار
 

@@ -45,7 +45,7 @@ alignment = [
   "whisperx>=3.4"
 ]
 diarization = [
-  "sherpa-onnx>=1.13.4,<1.14",
+  "pyannote.audio==4.0.4",
   "soundfile>=0.12,<1"
 ]
 diarization-pyannote = [
@@ -68,7 +68,7 @@ advanced = [
   "yt-dlp",
   "faster-whisper>=1.2.1",
   "whisperx>=3.4",
-  "sherpa-onnx>=1.13.4,<1.14",
+  "pyannote.audio==4.0.4",
   "soundfile>=0.12,<1"
 ]
 dev = [

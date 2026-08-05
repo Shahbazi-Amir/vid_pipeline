@@ -1,0 +1,216 @@
+name: Pyannote Live Validation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/bootstrap/pyannote-live-validation.trigger"
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      INPUT_MEDIA: /tmp/vid-pipeline-input/media.mp4
+      EXPECTED_SIZE: "79482204"
+      EXPECTED_SHA256: "1204ddc8aa1dbfcfdeb6fa23d2664b3354ee7f43d614cb3816815753b52d76f7"
+      ASSET_ID: "500737451"
+      VID_PIPELINE_ASR_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/asr
+      HF_HOME: ${{ github.workspace }}/.cache/huggingface
+      HF_HUB_CACHE: ${{ github.workspace }}/.cache/huggingface/hub
+      VID_PIPELINE_DIARIZATION_BACKEND: pyannote-community-1
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Cache project-controlled ASR model
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.VID_PIPELINE_ASR_CACHE }}
+          key: asr-${{ runner.os }}-faster-whisper-1.2.1-large-v3-turbo-ct2-v1
+
+      - name: Cache pyannote Community-1 model
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.HF_HUB_CACHE }}
+          key: pyannote-${{ runner.os }}-py311-audio-4.0.4-community-1-v1
+
+      - name: Install dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install --upgrade pip
+          pip install -e '.[dev,worker,diarization-pyannote]'
+
+      - name: Static and unit validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          pytest -q
+          ruff check .
+          python -m compileall -q src tests
+          git diff --check
+
+      - name: Download Video 1 authenticated asset
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$(dirname "$INPUT_MEDIA")"
+          curl --fail --location --retry 3 \
+            -H "Accept: application/octet-stream" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${{ github.repository }}/releases/assets/$ASSET_ID" \
+            -o "$INPUT_MEDIA"
+          python - <<'PY'
+          import hashlib, os
+          path = os.environ['INPUT_MEDIA']
+          if os.path.getsize(path) != int(os.environ['EXPECTED_SIZE']):
+              raise SystemExit('input size mismatch')
+          h = hashlib.sha256()
+          with open(path, 'rb') as f:
+              for chunk in iter(lambda: f.read(1024 * 1024), b''):
+                  h.update(chunk)
+          if h.hexdigest() != os.environ['EXPECTED_SHA256']:
+              raise SystemExit('input sha256 mismatch')
+          print('Video 1 integrity verified')
+          PY
+
+      - name: Run full pipeline with pyannote
+        id: pipeline
+        shell: bash
+        env:
+          HF_TOKEN: ""
+          HUGGING_FACE_HUB_TOKEN: ""
+          VID_PIPELINE_PYANNOTE_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          set -uo pipefail
+          echo "ASR model source: project-controlled local path"
+          echo "Diarization backend: pyannote-community-1"
+          set +e
+          vid-pipeline run-file "$INPUT_MEDIA" \
+            --name pyannote-live-tehran \
+            --output-root outputs \
+            --profile balanced \
+            --language fa \
+            --device cpu \
+            --compute-type int8 \
+            --no-editorial \
+            --diarize \
+            --diarization-required \
+            --num-speakers 2 \
+            --speaker-role-mode host-teacher \
+            2>&1 | tee pipeline.log
+          code=${PIPESTATUS[0]}
+          echo "$code" > pipeline-exit-code.txt
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Build validation report
+        if: always()
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          exit_file = Path('pipeline-exit-code.txt')
+          exit_code = int(exit_file.read_text().strip()) if exit_file.exists() else -1
+          reports = list(Path('outputs').glob('**/diarization/diarization.json'))
+          report = {
+              'schema_version': 1,
+              'github_run_id': os.getenv('GITHUB_RUN_ID', ''),
+              'github_run_attempt': os.getenv('GITHUB_RUN_ATTEMPT', ''),
+              'pipeline_exit_code': exit_code,
+              'video_sha256': '1204ddc8aa1dbfcfdeb6fa23d2664b3354ee7f43d614cb3816815753b52d76f7',
+              'backend': 'pyannote-community-1',
+          }
+          if reports:
+              d = json.loads(reports[0].read_text(encoding='utf-8'))
+              report.update({
+                  'diarization_status': d.get('status'),
+                  'models': d.get('models'),
+                  'requested_speaker_count': d.get('requested_speaker_count'),
+                  'detected_speaker_count': d.get('detected_speaker_count'),
+                  'effective_speaker_count': d.get('effective_speaker_count'),
+                  'aligned_effective_speaker_count': d.get('aligned_effective_speaker_count'),
+                  'speaker_durations': d.get('speaker_durations'),
+                  'speaker_turn_counts': d.get('speaker_turn_counts'),
+                  'speaker_turn_count': d.get('speaker_turn_count'),
+                  'speaker_switch_count': (d.get('normalized_stage') or {}).get('speaker_switch_count'),
+                  'ambiguous_assignments': d.get('ambiguous_assignments'),
+                  'exclusive_speaker_diarization_used': d.get('exclusive_speaker_diarization_used'),
+                  'pyannote_audio_version': d.get('pyannote_audio_version'),
+                  'quality_gate_passed': d.get('quality_gate_passed'),
+              })
+              turns = d.get('turns') or []
+              report['turns_01_58_to_02_13'] = [
+                  t for t in turns
+                  if float(t.get('end', 0)) >= 118 and float(t.get('start', 0)) <= 133
+              ]
+              aligned_paths = list(reports[0].parent.glob('alignment-post-smoothing.json'))
+              if aligned_paths:
+                  rows = json.loads(aligned_paths[0].read_text(encoding='utf-8'))
+                  report['aligned_01_58_to_02_13'] = [
+                      r for r in rows
+                      if float(r.get('end', 0)) >= 118 and float(r.get('start', 0)) <= 133
+                  ]
+          delivery = list(Path('outputs').glob('**/delivery/*'))
+          report['delivery_files'] = sorted(p.name for p in delivery if p.is_file())
+          report['delivery_file_count'] = len([p for p in delivery if p.is_file()])
+          Path('validation-report.json').write_text(
+              json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+          )
+          print(json.dumps(report, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Upload validation artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pyannote-live-validation
+          path: |
+            validation-report.json
+            pipeline.log
+            outputs/**/diarization/**
+            outputs/**/delivery/**
+          retention-days: 7
+          if-no-files-found: warn
+
+      - name: Commit validation report and remove marker
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p validation
+          cp validation-report.json validation/pyannote-live-result.json
+          rm -f .github/bootstrap/pyannote-live-validation.trigger
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add validation/pyannote-live-result.json .github/bootstrap/pyannote-live-validation.trigger
+          git commit -m "test: record pyannote live validation" || true
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
+
+      - name: Enforce pipeline success
+        if: always()
+        shell: bash
+        run: |
+          code=$(cat pipeline-exit-code.txt 2>/dev/null || echo 1)
+          test "$code" -eq 0

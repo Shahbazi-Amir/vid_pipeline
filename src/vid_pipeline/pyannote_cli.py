@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import json
-import os
 from dataclasses import replace
 from pathlib import Path
 from typing import Any
@@ -26,11 +25,10 @@ def _pyannote_optional_enrichment(
     segments: list[dict[str, Any]],
     config: accuracy.AccuracyConfig,
 ) -> tuple[list[dict[str, Any]], list[str]]:
-    backend_name = os.getenv("VID_PIPELINE_DIARIZATION_BACKEND", "sherpa-onnx").strip()
-    if backend_name != PYANNOTE_BACKEND_NAME or not config.diarization:
+    if not config.diarization:
         return _ORIGINAL_OPTIONAL_ENRICHMENT(audio, segments, config)
 
-    # Preserve WhisperX alignment behavior, but suppress the legacy Sherpa call.
+    # Preserve WhisperX alignment behavior before pyannote diarization.
     aligned, warnings = _ORIGINAL_OPTIONAL_ENRICHMENT(
         audio,
         segments,
@@ -43,9 +41,6 @@ def _pyannote_optional_enrichment(
         enabled=True,
         required=config.diarization_required,
         num_speakers=config.num_speakers,
-        backend=PYANNOTE_BACKEND_NAME,
-        segmentation_model=PYANNOTE_MODEL_ID,
-        embedding_model="",
         model_cache_dir=config.diarization_cache_dir,
         role_mode=config.speaker_role_mode,
         role_overrides=config.speaker_role_overrides,

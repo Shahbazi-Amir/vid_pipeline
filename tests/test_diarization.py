@@ -1,9 +1,3 @@
-import hashlib
-import io
-import os
-import subprocess
-import tarfile
-import wave
 from pathlib import Path
 
 import pytest
@@ -11,9 +5,6 @@ import pytest
 from vid_pipeline.diarization import (
     DiarizationConfig,
     DiarizationError,
-    DiarizationModelManager,
-    ModelArtifact,
-    SherpaOnnxDiarizationBackend,
     SpeakerTurn,
     align_segments,
     compare_diarization_runs,
@@ -125,7 +116,7 @@ def test_smoothing_merges_near_zero_weak_token_but_not_a_b_c():
 
 def test_required_gate_rolls_back_smoothing_speaker_collapse(tmp_path: Path):
     class NestedWeakBackend:
-        name = "sherpa-onnx"
+        name = "fake"
 
         def diarize(self, audio: Path, *, num_speakers: int | None):
             return [
@@ -256,141 +247,6 @@ class FakeBackend:
         return [SpeakerTurn(0, 1, "alice"), SpeakerTurn(1, 2, "bob")]
 
 
-class Response(io.BytesIO):
-    def __enter__(self):
-        return self
-
-    def __exit__(self, *args):
-        self.close()
-
-
-def artifact(data: bytes, *, archive: bool = False, required_file: str = "model.onnx"):
-    return ModelArtifact(
-        name="test-model", url="https://example.invalid/model",
-        sha256=hashlib.sha256(data).hexdigest(), required_file=required_file,
-        file_sha256=hashlib.sha256(b"model").hexdigest(), archive=archive,
-    )
-
-
-def test_model_manager_download_and_cache_hit(tmp_path: Path):
-    calls = []
-    manager = DiarizationModelManager(tmp_path, opener=lambda *args, **kwargs: (
-        calls.append(args[0].full_url) or Response(b"model")
-    ))
-    spec = artifact(b"model")
-    assert manager.provision(spec).read_bytes() == b"model"
-    assert manager.provision(spec).read_bytes() == b"model"
-    assert len(calls) == 1
-
-
-def test_model_manager_recovers_from_corrupt_cached_model(tmp_path: Path):
-    calls = []
-    spec = artifact(b"model")
-    cached = tmp_path / spec.name / spec.required_file
-    cached.parent.mkdir(parents=True)
-    cached.write_bytes(b"partial")
-    manager = DiarizationModelManager(tmp_path, opener=lambda *args, **kwargs: (
-        calls.append(1) or Response(b"model")
-    ))
-    assert manager.provision(spec).read_bytes() == b"model"
-    assert calls == [1]
-
-
-def test_model_manager_cleans_partial_file_after_checksum_mismatch(tmp_path: Path):
-    manager = DiarizationModelManager(tmp_path, opener=lambda *args, **kwargs: Response(b"bad"))
-    with pytest.raises(DiarizationError, match="checksum mismatch"):
-        manager.provision(artifact(b"good"))
-    assert not list(tmp_path.glob("*.part"))
-
-
-def test_model_manager_extracts_archive_and_rejects_corruption(tmp_path: Path):
-    stream = io.BytesIO()
-    with tarfile.open(fileobj=stream, mode="w:bz2") as bundle:
-        info = tarfile.TarInfo("bundle/model.onnx")
-        info.size = 5
-        bundle.addfile(info, io.BytesIO(b"model"))
-    data = stream.getvalue()
-    manager = DiarizationModelManager(tmp_path, opener=lambda *args, **kwargs: Response(data))
-    assert manager.provision(artifact(data, archive=True)).read_bytes() == b"model"
-
-    corrupt = b"not an archive"
-    broken = DiarizationModelManager(tmp_path / "broken", opener=lambda *args, **kwargs: Response(corrupt))
-    with pytest.raises(DiarizationError, match="extract"):
-        broken.provision(artifact(corrupt, archive=True))
-
-
-def test_model_manager_rejects_missing_model_file(tmp_path: Path):
-    stream = io.BytesIO()
-    with tarfile.open(fileobj=stream, mode="w:bz2") as bundle:
-        info = tarfile.TarInfo("bundle/other.txt")
-        info.size = 1
-        bundle.addfile(info, io.BytesIO(b"x"))
-    data = stream.getvalue()
-    manager = DiarizationModelManager(tmp_path, opener=lambda *args, **kwargs: Response(data))
-    with pytest.raises(DiarizationError, match="missing model file"):
-        manager.provision(artifact(data, archive=True))
-
-
-class FakeSherpa:
-    class Config:
-        def __init__(self, **kwargs):
-            self.__dict__.update(kwargs)
-
-        def validate(self):
-            return True
-
-    OfflineSpeakerDiarizationConfig = Config
-    OfflineSpeakerSegmentationModelConfig = Config
-    OfflineSpeakerSegmentationPyannoteModelConfig = Config
-    SpeakerEmbeddingExtractorConfig = Config
-    FastClusteringConfig = Config
-
-
-@pytest.mark.parametrize("requested", [1, 2, 3])
-def test_sherpa_config_passes_requested_cluster_count(tmp_path: Path, requested: int):
-    sf = pytest.importorskip("soundfile")
-    audio = tmp_path / "audio.wav"
-    sf.write(audio, [0.0] * 1600, 16000)
-    captured = {}
-
-    class Segment:
-        start, end, speaker = 0.0, 0.1, 0
-
-    class Result(list):
-        def sort_by_start_time(self):
-            return self
-
-    class Diarizer:
-        sample_rate = 16000
-
-        def __init__(self, config):
-            captured["clusters"] = config.clustering.num_clusters
-
-        def process(self, samples):
-            return Result([Segment()])
-
-    FakeSherpa.OfflineSpeakerDiarization = Diarizer
-    backend = object.__new__(SherpaOnnxDiarizationBackend)
-    backend.sherpa = FakeSherpa
-    backend.segmentation = tmp_path / "seg.onnx"
-    backend.embedding = tmp_path / "emb.onnx"
-    assert backend.diarize(audio, num_speakers=requested)[0].speaker == "speaker_00"
-    assert captured["clusters"] == requested
-
-
-def test_sherpa_backend_reports_initialization_failure(tmp_path: Path):
-    sf = pytest.importorskip("soundfile")
-    audio = tmp_path / "audio.wav"
-    sf.write(audio, [0.0] * 1600, 16000)
-    FakeSherpa.OfflineSpeakerDiarization = lambda config: (_ for _ in ()).throw(RuntimeError())
-    backend = object.__new__(SherpaOnnxDiarizationBackend)
-    backend.sherpa = FakeSherpa
-    backend.segmentation = tmp_path / "seg.onnx"
-    backend.embedding = tmp_path / "emb.onnx"
-    with pytest.raises(DiarizationError, match="inference failed"):
-        backend.diarize(audio, num_speakers=2)
-
-
 def test_run_diarization_rejects_zero_turns(tmp_path: Path):
     class EmptyBackend:
         name = "empty"
@@ -402,41 +258,6 @@ def test_run_diarization_rejects_zero_turns(tmp_path: Path):
         run_diarization(
             tmp_path / "audio.wav", [], DiarizationConfig(enabled=True), backend=EmptyBackend()
         )
-
-
-@pytest.mark.skipif(
-    os.getenv("RUN_SHERPA_DIARIZATION_INTEGRATION") != "1",
-    reason="real public-model integration is opt-in",
-)
-def test_real_sherpa_two_voice_integration(tmp_path: Path):
-    if subprocess.run(["sh", "-c", "command -v espeak-ng || command -v espeak"], capture_output=True).returncode:
-        pytest.skip("espeak is not installed")
-    executable = "espeak-ng" if subprocess.run(["sh", "-c", "command -v espeak-ng"], capture_output=True).returncode == 0 else "espeak"
-    clips = []
-    for index, (voice, text) in enumerate((("en-us", "The first speaker begins."), ("en-sc", "The second speaker replies.")) * 3):
-        clip = tmp_path / f"voice-{index}.wav"
-        subprocess.run([executable, "-v", voice, "-s", "135", "-w", str(clip), text], check=True)
-        clips.append(clip)
-    output = tmp_path / "two-speakers.wav"
-    with wave.open(str(output), "wb") as target:
-        target.setparams((1, 2, 16000, 0, "NONE", "not compressed"))
-        for clip in clips:
-            with wave.open(str(clip), "rb") as source:
-                frames = source.readframes(source.getnframes())
-            target.writeframes(frames)
-            target.writeframes(b"\0\0" * 8000)
-    turns = SherpaOnnxDiarizationBackend().diarize(output, num_speakers=2)
-    assert len({turn.speaker for turn in turns}) == 2
-    normalized = normalize_turns(turns)
-    assert len({turn.speaker for turn in normalized}) == 2
-    segments = [{
-        "start": turn.start,
-        "end": turn.end,
-        "text": f"word {index}",
-        "words": [{"start": turn.start, "end": turn.end, "word": f" word{index}"}],
-    } for index, turn in enumerate(normalized)]
-    aligned, _ = align_segments(segments, normalized)
-    assert len({row["speaker"] for row in aligned}) == 2
 
 
 def test_normalization_word_split_and_short_interjection():
@@ -505,7 +326,7 @@ def test_overlap_is_deterministic_and_three_speakers_are_generic():
     assert all(not value["role"] for value in mapping.values())
 
 
-def test_nested_sherpa_turn_wins_equal_overlap_by_temporal_specificity():
+def test_nested_turn_wins_equal_overlap_by_temporal_specificity():
     turns = [
         SpeakerTurn(0, 100, "SPEAKER_00"),
         SpeakerTurn(20, 22, "SPEAKER_01"),
@@ -541,7 +362,7 @@ def test_manual_roles_and_fake_backend(tmp_path: Path):
 
 def test_diagnostics_and_required_quality_gate_after_alignment(tmp_path: Path):
     class CollapsedBackend:
-        name = "sherpa-onnx"
+        name = "fake"
 
         def diarize(self, audio: Path, *, num_speakers: int | None):
             assert num_speakers == 2
@@ -580,7 +401,7 @@ def test_diagnostics_and_required_quality_gate_after_alignment(tmp_path: Path):
 
 def test_optional_mode_records_quality_warning_instead_of_failing(tmp_path: Path):
     class OneBackend:
-        name = "sherpa-onnx"
+        name = "fake"
 
         def diarize(self, audio: Path, *, num_speakers: int | None):
             return [SpeakerTurn(0, 10, "speaker_00")]
@@ -597,7 +418,7 @@ def test_optional_mode_records_quality_warning_instead_of_failing(tmp_path: Path
 
 def test_meaningful_second_speaker_passes_effective_gate(tmp_path: Path):
     class HealthyBackend:
-        name = "sherpa-onnx"
+        name = "fake"
 
         def diarize(self, audio: Path, *, num_speakers: int | None):
             return [SpeakerTurn(0, 400, "speaker_00"), SpeakerTurn(400, 480, "speaker_01")]
@@ -623,7 +444,7 @@ def test_meaningful_second_speaker_passes_effective_gate(tmp_path: Path):
 
 def test_two_speakers_survive_raw_normalized_aligned_and_export(tmp_path: Path):
     class ThreePeriodBackend:
-        name = "sherpa-onnx"
+        name = "fake"
 
         def diarize(self, audio: Path, *, num_speakers: int | None):
             return [

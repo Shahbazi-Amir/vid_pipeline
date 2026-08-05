@@ -434,31 +434,25 @@ python -m compileall -q src tests
 
 ## Speaker diarization
 
-Speaker diarization is opt-in and runs independently from editorial processing. It uses
-`sherpa-onnx` locally on the GitHub Actions CPU runner with the existing normalized mono 16 kHz
-audio. No Hugging Face account, access token, paid API, or external credential is required.
+Speaker diarization is opt-in and uses `pyannote.audio` with
+`pyannote/speaker-diarization-community-1` on the GitHub Actions CPU runner. The model
+requires Hugging Face access to Community-1 and a repository Actions secret named
+`HF_TOKEN`. The workflow exposes that credential only as `VID_PIPELINE_PYANNOTE_TOKEN`;
+standard Hugging Face token variables stay empty for the ASR stage.
+
 Install locally with:
 
 ```bash
-pip install -e '.[worker,diarization]'
+pip install -e '.[worker,diarization-pyannote]'
 ```
 
-The default public models are `sherpa-onnx-pyannote-segmentation-3-0/model.int8.onnx`
-(MIT license in its official archive) and
-`3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx` (3D-Speaker, Apache-2.0), both
-downloaded without credentials from the official `k2-fsa/sherpa-onnx` GitHub Releases. The engine
-is Apache-2.0. Archives are version-pinned by URL and SHA-256, extracted atomically, and reused from
-`~/.cache/vid-pipeline/diarization` (also cached by GitHub Actions).
-
-`--diarize` enables safe optional fallback; add `--diarization-required` when model download,
-initialization, or inference failure must fail the job. `--num-speakers 2` is recommended for the
-current interview dataset. Required mode also enforces an effective-speaker quality gate: each
-speaker must have at least 2 seconds of speech, one turn, and 1% of total voiced duration. These
-defaults are configurable through `DiarizationConfig`; raw, normalized, aligned, ambiguous, and
-effective speaker metrics are written to debug diagnostics. `--speaker-role-mode host-teacher`
-maps roles only above a conservative
-confidence threshold; otherwise outputs use `گوینده ۱`, `گوینده ۲`, etc. Manual mappings use
-`--speaker-role SPEAKER_00=host` and are applied without decorating raw transcript text.
+The compatibility extra `.[worker,diarization]` resolves to the same pyannote backend.
+`--diarize` enables speaker diarization; add `--diarization-required` when a model-access,
+initialization, inference, or quality-gate failure must fail the job. `--num-speakers 2`
+is recommended for the current interview dataset. Diagnostics record raw, normalized,
+aligned, ambiguous, and effective-speaker metrics. `--speaker-role-mode host-teacher`
+applies the conservative role mapper, while manual mappings such as
+`--speaker-role SPEAKER_00=host` remain authoritative.
 
 ```bash
 vid-pipeline github-submit-folder ./input_videos/tehran_ \
@@ -471,13 +465,7 @@ vid-pipeline github-submit-folder ./input_videos/tehran_ \
   --delete-remote-after-success --delete-result-artifact-after-download
 ```
 
-The draft release upload validates `state=uploaded`, size, and SHA-256 digest where GitHub exposes
-it. Interrupted streams retry from byte zero with a fresh file handle; broken `starter` assets are
-deleted. Resume reuses only validated uploaded assets and does not create duplicate workflow runs.
-Normal delivery remains exactly `transcript.md`, `transcript.txt`, and
-`transcript.timestamped.md`; diarization diagnostics are debug-only.
-
-The separate unauthenticated Hugging Face warning can come from `faster-whisper`, which downloads
-the public CTranslate2 Whisper model (including `large-v3-turbo`) through `huggingface_hub`. It does
-not require a token or paid API. This is unrelated to sherpa diarization; the ASR backend and model
-quality are intentionally unchanged.
+The ASR model remains project-controlled through the repository release/cache path; the
+pyannote Hugging Face credential is not used to provision ASR. Normal delivery remains
+exactly `transcript.md`, `transcript.txt`, and `transcript.timestamped.md`; diarization
+diagnostics are debug-only.

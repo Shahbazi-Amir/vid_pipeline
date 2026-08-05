@@ -1,0 +1,307 @@
+name: Process video URL
+run-name: Video URL ${{ inputs.request_id || github.run_id }} — ${{ inputs.url || github.event_name }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      request_id:
+        description: Optional client request identifier
+        required: false
+        type: string
+      url:
+        description: Video page or direct media URL
+        required: true
+        type: string
+      source_url:
+        description: Optional public source page shown in the final file
+        required: false
+        type: string
+      name:
+        description: Optional job name
+        required: false
+        type: string
+      title:
+        description: Optional Persian title
+        required: false
+        type: string
+      program:
+        description: Optional program name
+        required: false
+        type: string
+      network:
+        description: Optional network or publisher
+        required: false
+        type: string
+      date:
+        description: Optional publication date
+        required: false
+        type: string
+      guest:
+        description: Optional guest name
+        required: false
+        type: string
+      editorial_context:
+        description: Topic and important names for the local editor
+        required: false
+        type: string
+      whisper_model:
+        description: Optional explicit faster-whisper model override
+        required: false
+        default: ""
+        type: string
+      profile:
+        description: ASR quality profile used when whisper_model is empty
+        required: true
+        default: balanced
+        type: choice
+        options: [fast, balanced, accurate]
+      editorial_model:
+        description: Local Ollama model
+        required: true
+        default: qwen2.5:7b
+        type: string
+      accuracy_mode:
+        description: Multi-pass ASR mode
+        required: true
+        default: fast
+        type: choice
+        options: [off, fast, balanced, maximum]
+      whisperx_alignment:
+        description: Install and run optional WhisperX alignment
+        required: true
+        default: false
+        type: boolean
+      diarization:
+        description: Install and run optional pyannote Community-1 diarization
+        required: true
+        default: false
+        type: boolean
+      keep_debug_artifacts:
+        description: Upload a separate package containing internal pipeline artifacts
+        required: true
+        default: false
+        type: boolean
+  push:
+    paths:
+      - 'runs/*.request.json'
+  issues:
+    types: [opened]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: video-transcript-${{ github.run_id }}
+  cancel-in-progress: false
+
+jobs:
+  process:
+    if: github.event_name != 'issues' || startsWith(github.event.issue.title, '[vid-pipeline]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      VIDEO_URL: ${{ inputs.url }}
+      SOURCE_URL: ${{ inputs.source_url }}
+      JOB_NAME: ${{ inputs.name }}
+      VIDEO_TITLE: ${{ inputs.title }}
+      PROGRAM_NAME: ${{ inputs.program }}
+      NETWORK_NAME: ${{ inputs.network }}
+      VIDEO_DATE: ${{ inputs.date }}
+      GUEST_NAME: ${{ inputs.guest }}
+      EDITORIAL_CONTEXT: ${{ inputs.editorial_context }}
+      PROFILE: ${{ inputs.profile || 'balanced' }}
+      WHISPER_MODEL: ${{ inputs.whisper_model }}
+      EDITORIAL_MODEL: ${{ inputs.editorial_model || 'qwen2.5:7b' }}
+      VID_PIPELINE_ACCURACY_MODE: ${{ inputs.accuracy_mode || 'fast' }}
+      VID_PIPELINE_MAX_TARGETED_SEGMENTS: 40
+      VID_PIPELINE_WHISPERX_ALIGNMENT: ${{ inputs.whisperx_alignment || 'false' }}
+      VID_PIPELINE_DIARIZATION: ${{ inputs.diarization || 'false' }}
+      VID_PIPELINE_DIARIZATION_BACKEND: pyannote-community-1
+      VID_PIPELINE_ASR_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/asr
+      HF_HOME: ${{ github.workspace }}/.cache/huggingface
+      HF_HUB_CACHE: ${{ github.workspace }}/.cache/huggingface/hub
+      OLLAMA_BASE_URL: http://127.0.0.1:11434
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Resolve request file
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          set -euo pipefail
+          request_file=$(git diff-tree --no-commit-id --name-only -r "$GITHUB_SHA" \
+            | grep '^runs/.*\.request\.json$' | tail -n 1)
+          test -n "$request_file"
+          python - "$request_file" >> "$GITHUB_ENV" <<'PY'
+          import json, sys
+          from pathlib import Path
+          data = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+          mapping = {
+              "VIDEO_URL": data.get("media_url") or data.get("url") or "",
+              "SOURCE_URL": data.get("source_url") or data.get("url") or "",
+              "JOB_NAME": data.get("name") or "",
+              "VIDEO_TITLE": data.get("title") or "",
+              "PROGRAM_NAME": data.get("program") or "",
+              "NETWORK_NAME": data.get("network") or "",
+              "VIDEO_DATE": data.get("date") or "",
+              "GUEST_NAME": data.get("guest") or "",
+              "EDITORIAL_CONTEXT": data.get("editorial_context") or "",
+              "PROFILE": data.get("profile") or "balanced",
+              "WHISPER_MODEL": data.get("whisper_model") or "",
+              "EDITORIAL_MODEL": data.get("editorial_model") or "qwen2.5:7b",
+              "VID_PIPELINE_ACCURACY_MODE": data.get("accuracy_mode") or "fast",
+              "VID_PIPELINE_WHISPERX_ALIGNMENT": data.get("whisperx_alignment") or False,
+              "VID_PIPELINE_DIARIZATION": data.get("diarization") or False,
+          }
+          for key, value in mapping.items():
+              text = str(value).replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+              print(f"{key}={text}")
+          PY
+
+      - name: Resolve issue request
+        if: github.event_name == 'issues'
+        shell: bash
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          set -euo pipefail
+          python - >> "$GITHUB_ENV" <<'PY'
+          import json, os
+          data = json.loads(os.environ["ISSUE_BODY"])
+          mapping = {
+              "VIDEO_URL": data.get("media_url") or data.get("url") or "",
+              "SOURCE_URL": data.get("source_url") or data.get("url") or "",
+              "JOB_NAME": data.get("name") or "",
+              "VIDEO_TITLE": data.get("title") or "",
+              "PROGRAM_NAME": data.get("program") or "",
+              "NETWORK_NAME": data.get("network") or "",
+              "VIDEO_DATE": data.get("date") or "",
+              "GUEST_NAME": data.get("guest") or "",
+              "EDITORIAL_CONTEXT": data.get("editorial_context") or "",
+              "PROFILE": data.get("profile") or "balanced",
+              "WHISPER_MODEL": data.get("whisper_model") or "",
+              "EDITORIAL_MODEL": data.get("editorial_model") or "qwen2.5:7b",
+              "VID_PIPELINE_ACCURACY_MODE": data.get("accuracy_mode") or "fast",
+              "VID_PIPELINE_WHISPERX_ALIGNMENT": data.get("whisperx_alignment") or False,
+              "VID_PIPELINE_DIARIZATION": data.get("diarization") or False,
+          }
+          for key, value in mapping.items():
+              text = str(value).replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+              print(f"{key}={text}")
+          PY
+
+      - name: Validate request
+        run: test -n "$VIDEO_URL"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Cache pyannote Community-1 model
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.HF_HUB_CACHE }}
+          key: pyannote-${{ runner.os }}-py311-audio-4.0.4-community-1-v1
+
+      - name: Cache project-controlled ASR model
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.VID_PIPELINE_ASR_CACHE }}
+          key: asr-${{ runner.os }}-faster-whisper-1.2.1-large-v3-turbo-ct2-v1
+
+      - name: Install dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg curl
+          python -m pip install --upgrade pip
+          if [[ "${VID_PIPELINE_WHISPERX_ALIGNMENT,,}" == "true" || "${VID_PIPELINE_DIARIZATION,,}" == "true" ]]; then
+            pip install -e '.[advanced]'
+          else
+            pip install -e '.[all]'
+          fi
+
+      - name: Install and start local Ollama
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsSL https://ollama.com/install.sh | sh
+          nohup ollama serve > ollama.log 2>&1 &
+          for attempt in $(seq 1 60); do
+            curl -fsS "$OLLAMA_BASE_URL/api/tags" >/dev/null && break
+            sleep 2
+          done
+          curl -fsS "$OLLAMA_BASE_URL/api/tags" >/dev/null
+          ollama pull "$EDITORIAL_MODEL"
+
+      - name: Run complete pipeline
+        id: pipeline
+        shell: bash
+        env:
+          HF_TOKEN: ""
+          HUGGING_FACE_HUB_TOKEN: ""
+          VID_PIPELINE_PYANNOTE_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          set -euo pipefail
+          args=(run-url "$VIDEO_URL" --output-root outputs --language fa \
+            --profile "$PROFILE" --device cpu --compute-type int8 \
+            --editorial-model "$EDITORIAL_MODEL" --editorial-base-url "$OLLAMA_BASE_URL")
+          [[ -n "${WHISPER_MODEL:-}" ]] && args+=(--model "$WHISPER_MODEL")
+          [[ -n "${SOURCE_URL:-}" ]] && args+=(--source-url "$SOURCE_URL")
+          [[ -n "${JOB_NAME:-}" ]] && args+=(--name "$JOB_NAME")
+          [[ -n "${VIDEO_TITLE:-}" ]] && args+=(--title "$VIDEO_TITLE")
+          [[ -n "${PROGRAM_NAME:-}" ]] && args+=(--program "$PROGRAM_NAME")
+          [[ -n "${NETWORK_NAME:-}" ]] && args+=(--network "$NETWORK_NAME")
+          [[ -n "${VIDEO_DATE:-}" ]] && args+=(--date "$VIDEO_DATE")
+          [[ -n "${GUEST_NAME:-}" ]] && args+=(--guest "$GUEST_NAME")
+          [[ -n "${EDITORIAL_CONTEXT:-}" ]] && args+=(--editorial-context "$EDITORIAL_CONTEXT")
+          vid-pipeline "${args[@]}" 2>&1 | tee pipeline.log
+
+      - name: Prepare lean transcript artifact
+        if: success()
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p transcript-artifact
+          find outputs -path '*/delivery/*' -type f -exec cp {} transcript-artifact/ \;
+          test "$(find transcript-artifact -maxdepth 1 -type f | wc -l)" -eq 3
+
+      - name: Upload transcript package
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: transcript-${{ github.run_id }}
+          path: transcript-artifact/*
+          retention-days: 30
+          if-no-files-found: error
+
+      - name: Upload debug package
+        if: success() && inputs.keep_debug_artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-artifacts-${{ github.run_id }}
+          path: |
+            outputs/**
+            pipeline.log
+            ollama.log
+          retention-days: 7
+
+      - name: Upload failure diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: failure-diagnostics-${{ github.run_id }}
+          path: |
+            outputs/**/state.json
+            outputs/**/result.json
+            outputs/**/diarization/diarization.json
+            outputs/**/accuracy/transcript.consensus.json
+            pipeline.log
+            ollama.log
+          retention-days: 7
+          if-no-files-found: warn

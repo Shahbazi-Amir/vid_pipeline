@@ -32,60 +32,62 @@ jobs:
 
           path = Path('.github/workflows/process-uploaded-video.yml')
           text = path.read_text(encoding='utf-8')
+          lines = text.splitlines()
+          workspace = '$' + '{{ github.workspace }}'
+          env_hf_cache = '$' + '{{ env.HF_HUB_CACHE }}'
+          runner_os = '$' + '{{ runner.os }}'
+          secret_token = '$' + '{{ secrets.HF_TOKEN }}'
 
-          old = '''      VID_PIPELINE_DIARIZATION_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/diarization
-      VID_PIPELINE_ASR_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/asr
-'''
-          new = '''      VID_PIPELINE_DIARIZATION_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/diarization
-      VID_PIPELINE_DIARIZATION_BACKEND: pyannote-community-1
-      VID_PIPELINE_ASR_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/asr
-      HF_HOME: ${{ github.workspace }}/.cache/huggingface
-      HF_HUB_CACHE: ${{ github.workspace }}/.cache/huggingface/hub
-'''
-          if old not in text:
-              raise SystemExit('job env anchor not found')
-          text = text.replace(old, new, 1)
+          asr_index = next(
+              index for index, line in enumerate(lines)
+              if line.startswith('      VID_PIPELINE_ASR_CACHE:')
+          )
+          if not any('VID_PIPELINE_DIARIZATION_BACKEND:' in line for line in lines):
+              lines[asr_index:asr_index] = [
+                  '      VID_PIPELINE_DIARIZATION_BACKEND: pyannote-community-1',
+              ]
+              asr_index += 1
+          if not any(line.startswith('      HF_HOME:') for line in lines):
+              lines[asr_index + 1:asr_index + 1] = [
+                  f'      HF_HOME: {workspace}/.cache/huggingface',
+                  f'      HF_HUB_CACHE: {workspace}/.cache/huggingface/hub',
+              ]
 
-          old = '''      - name: Cache diarization models
-        if: inputs.diarization_enabled == 'true'
-        uses: actions/cache@v4
-        with:
-          path: ${{ env.VID_PIPELINE_DIARIZATION_CACHE }}
-          key: diarization-${{ runner.os }}-py311-sherpa-1.13.4-segmentation-3.0-int8-3dspeaker-eres2net
-'''
-          new = '''      - name: Cache pyannote Community-1 model
-        if: inputs.diarization_enabled == 'true'
-        uses: actions/cache@v4
-        with:
-          path: ${{ env.HF_HUB_CACHE }}
-          key: pyannote-${{ runner.os }}-py311-audio-4.0.4-community-1-v1
-'''
-          if old not in text:
-              raise SystemExit('diarization cache anchor not found')
-          text = text.replace(old, new, 1)
+          start = next(
+              index for index, line in enumerate(lines)
+              if line == '      - name: Cache diarization models'
+          )
+          end = next(
+              index for index in range(start + 1, len(lines))
+              if lines[index].startswith('      - name: ')
+          )
+          lines[start:end] = [
+              '      - name: Cache pyannote Community-1 model',
+              "        if: inputs.diarization_enabled == 'true'",
+              '        uses: actions/cache@v4',
+              '        with:',
+              f'          path: {env_hf_cache}',
+              f'          key: pyannote-{runner_os}-py311-audio-4.0.4-community-1-v1',
+              '',
+          ]
 
-          old = "            pip install -e '.[worker,diarization]'"
-          new = "            pip install -e '.[worker,diarization-pyannote]'"
-          if old not in text:
+          dependency = "            pip install -e '.[worker,diarization]'"
+          replacement = "            pip install -e '.[worker,diarization-pyannote]'"
+          if dependency not in lines:
               raise SystemExit('dependency anchor not found')
-          text = text.replace(old, new, 1)
+          lines[lines.index(dependency)] = replacement
 
-          old = '''        env:
-          HF_TOKEN: ""
-          HUGGING_FACE_HUB_TOKEN: ""
-        run: |
-'''
-          new = '''        env:
-          HF_TOKEN: ""
-          HUGGING_FACE_HUB_TOKEN: ""
-          VID_PIPELINE_PYANNOTE_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: |
-'''
-          if old not in text:
-              raise SystemExit('pipeline secret anchor not found')
-          text = text.replace(old, new, 1)
+          hub_index = next(
+              index for index, line in enumerate(lines)
+              if line == '          HUGGING_FACE_HUB_TOKEN: ""'
+          )
+          if not any('VID_PIPELINE_PYANNOTE_TOKEN:' in line for line in lines):
+              lines.insert(
+                  hub_index + 1,
+                  f'          VID_PIPELINE_PYANNOTE_TOKEN: {secret_token}',
+              )
 
-          path.write_text(text, encoding='utf-8')
+          path.write_text('\n'.join(lines) + '\n', encoding='utf-8')
           PY
 
       - name: Install validation dependencies

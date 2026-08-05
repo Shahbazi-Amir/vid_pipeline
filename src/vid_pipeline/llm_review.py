@@ -39,6 +39,7 @@ class ReviewAPIConfig:
     model: str
     timeout_seconds: float = 900.0
     max_attempts: int = 4
+    chunk_chars: int = 24000
 
     @classmethod
     def from_env(cls) -> "ReviewAPIConfig":
@@ -51,16 +52,20 @@ class ReviewAPIConfig:
         try:
             timeout = float(os.environ.get("VID_PIPELINE_REVIEW_TIMEOUT_SECONDS", "900"))
             attempts = int(os.environ.get("VID_PIPELINE_REVIEW_MAX_ATTEMPTS", "4"))
+            chunk_chars = int(os.environ.get("VID_PIPELINE_REVIEW_CHUNK_CHARS", "24000"))
         except ValueError as exc:
-            raise AIReviewError("invalid review timeout or retry configuration") from exc
-        if timeout <= 0 or attempts < 1:
-            raise AIReviewError("review timeout must be positive and attempts must be at least 1")
+            raise AIReviewError("invalid review timeout, retry, or chunk configuration") from exc
+        if timeout <= 0 or attempts < 1 or chunk_chars < 1000:
+            raise AIReviewError(
+                "review timeout must be positive, attempts at least 1, and chunk size at least 1000"
+            )
         return cls(
             api_key=values["VID_PIPELINE_REVIEW_API_KEY"],
             base_url=values["VID_PIPELINE_REVIEW_BASE_URL"].rstrip("/"),
             model=values["VID_PIPELINE_REVIEW_MODEL"],
             timeout_seconds=timeout,
             max_attempts=attempts,
+            chunk_chars=chunk_chars,
         )
 
 
@@ -135,6 +140,13 @@ def validate_review(source: str, reviewed: str) -> list[TranscriptBlock]:
             f"({source_chars} -> {reviewed_chars} characters)"
         )
     return reviewed_blocks
+
+
+def render_review_timestamped(blocks: list[TranscriptBlock]) -> str:
+    parts = ["# media"]
+    for block in blocks:
+        parts.extend([f"{block.timestamp} **{block.speaker}**", block.text])
+    return "\n\n".join(parts).rstrip() + "\n"
 
 
 def _group_consecutive_speakers(
@@ -216,6 +228,40 @@ def _call_review_api(text: str, config: ReviewAPIConfig) -> str:
     raise AIReviewError("review API request failed")
 
 
+def _chunk_blocks(
+    blocks: list[TranscriptBlock],
+    max_chars: int,
+) -> list[list[TranscriptBlock]]:
+    chunks: list[list[TranscriptBlock]] = []
+    current: list[TranscriptBlock] = []
+    current_chars = len("# media\n\n")
+
+    for block in blocks:
+        block_chars = len(block.timestamp) + len(block.speaker) + len(block.text) + 10
+        if current and current_chars + block_chars > max_chars:
+            chunks.append(current)
+            current = []
+            current_chars = len("# media\n\n")
+        current.append(block)
+        current_chars += block_chars
+
+    if current:
+        chunks.append(current)
+    return chunks
+
+
+def _review_blocks(
+    source_blocks: list[TranscriptBlock],
+    config: ReviewAPIConfig,
+) -> list[TranscriptBlock]:
+    reviewed_blocks: list[TranscriptBlock] = []
+    for chunk in _chunk_blocks(source_blocks, config.chunk_chars):
+        source_chunk = render_review_timestamped(chunk)
+        reviewed_chunk = _call_review_api(source_chunk, config)
+        reviewed_blocks.extend(validate_review(source_chunk, reviewed_chunk))
+    return reviewed_blocks
+
+
 def review_collection_output(
     collection_root: Path,
     result_number: int,
@@ -245,15 +291,23 @@ def review_collection_output(
         }
 
     source_text = source.read_text(encoding="utf-8")
+    source_blocks = _extract_blocks(source_text)
+    if not source_blocks:
+        raise AIReviewError("source transcript has no timestamped speaker blocks")
+
     if reviewed_timed.is_file() and reviewed_timed.stat().st_size > 0 and not force:
         reviewed_text = reviewed_timed.read_text(encoding="utf-8")
         blocks = validate_review(source_text, reviewed_text)
         api_used = False
+        chunks = 0
     else:
-        reviewed_text = _call_review_api(source_text, config or ReviewAPIConfig.from_env())
+        active_config = config or ReviewAPIConfig.from_env()
+        blocks = _review_blocks(source_blocks, active_config)
+        reviewed_text = render_review_timestamped(blocks)
         blocks = validate_review(source_text, reviewed_text)
-        _atomic_write(reviewed_timed, reviewed_text.rstrip() + "\n")
+        _atomic_write(reviewed_timed, reviewed_text)
         api_used = True
+        chunks = len(_chunk_blocks(source_blocks, active_config.chunk_chars))
 
     _atomic_write(reviewed_md, render_review_markdown(blocks))
     _atomic_write(reviewed_txt, render_review_text(blocks))
@@ -262,6 +316,7 @@ def review_collection_output(
         "status": "completed",
         "result_number": result_number,
         "api_used": api_used,
+        "chunks": chunks,
         "timestamped": str(reviewed_timed),
         "markdown": str(reviewed_md),
         "text": str(reviewed_txt),

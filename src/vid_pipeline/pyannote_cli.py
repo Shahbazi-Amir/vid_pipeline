@@ -3,13 +3,16 @@
 from __future__ import annotations
 
 import json
+import sys
 from dataclasses import replace
 from pathlib import Path
 from typing import Any
 
 from vid_pipeline import accuracy, reliable_cli
 from vid_pipeline import diarization as diarization_module
+from vid_pipeline.collection_output import materialize_collection_output
 from vid_pipeline.diarization import DiarizationConfig, run_diarization
+from vid_pipeline.github_client import GitHubState, sha256_file
 from vid_pipeline.pyannote_diarization import (
     PYANNOTE_BACKEND_NAME,
     PYANNOTE_MODEL_ID,
@@ -47,7 +50,7 @@ def _pyannote_optional_enrichment(
     )
 
     # run_diarization keeps speaker segmentation and role attribution separate,
-    # but historically used its module-local heuristic.  Swap in the conservative
+    # but historically used its module-local heuristic. Swap in the conservative
     # mapper only for the pyannote path and restore the legacy mapper afterwards.
     original_mapper = diarization_module.map_roles
     diarization_module.map_roles = map_roles
@@ -93,9 +96,118 @@ def _pyannote_optional_enrichment(
     return aligned, warnings
 
 
+def _consume_collection_options(argv: list[str]) -> tuple[list[str], Path | None, int | None]:
+    if len(argv) < 3 or argv[1] != "github-submit-file":
+        return argv, None, None
+
+    collection_root: Path | None = None
+    result_number: int | None = None
+    cleaned = [argv[0], argv[1], argv[2]]
+    index = 3
+    while index < len(argv):
+        item = argv[index]
+        if item == "--collection-output-root":
+            if index + 1 >= len(argv):
+                raise ValueError("--collection-output-root requires a path")
+            collection_root = Path(argv[index + 1])
+            index += 2
+            continue
+        if item.startswith("--collection-output-root="):
+            collection_root = Path(item.split("=", 1)[1])
+            index += 1
+            continue
+        if item == "--result-number":
+            if index + 1 >= len(argv):
+                raise ValueError("--result-number requires an integer")
+            result_number = int(argv[index + 1])
+            index += 2
+            continue
+        if item.startswith("--result-number="):
+            result_number = int(item.split("=", 1)[1])
+            index += 1
+            continue
+        if item == "--delete-result-artifact-after-save":
+            cleaned.append("--delete-result-artifact-after-download")
+            index += 1
+            continue
+        cleaned.append(item)
+        index += 1
+
+    if collection_root is None:
+        return cleaned, None, result_number
+
+    without_output_root: list[str] = []
+    index = 0
+    while index < len(cleaned):
+        item = cleaned[index]
+        if item == "--output-root":
+            index += 2
+            continue
+        if item.startswith("--output-root="):
+            index += 1
+            continue
+        without_output_root.append(item)
+        index += 1
+    cleaned = without_output_root
+
+    if "--wait" not in cleaned:
+        cleaned.append("--wait")
+    if "--download" not in cleaned:
+        cleaned.append("--download")
+    cleaned.extend(["--output-root", ".vid_pipeline/github-results"])
+    return cleaned, collection_root, result_number
+
+
+def _materialize_collection_result(
+    source: Path,
+    collection_root: Path,
+    result_number: int | None,
+) -> Path:
+    source = source.resolve()
+    state = GitHubState()
+    request = state.find_digest(sha256_file(source), source.stat().st_size)
+    if request is None or not request.output_path:
+        raise ValueError("completed GitHub result state was not found")
+
+    target = collection_root.resolve()
+    downloaded = Path(request.output_path).resolve()
+    if downloaded != target:
+        target = materialize_collection_output(
+            downloaded,
+            collection_root,
+            source,
+            result_number=result_number,
+        )
+    request.output_path = str(target)
+    state.save(request)
+    return target
+
+
 def main() -> int:
     accuracy.optional_enrichment = _pyannote_optional_enrichment
-    return reliable_cli.main()
+    original_argv = sys.argv[:]
+    try:
+        prepared, collection_root, result_number = _consume_collection_options(original_argv)
+        sys.argv = prepared
+        result = reliable_cli.main()
+        if result == 0 and collection_root is not None:
+            target = _materialize_collection_result(
+                Path(original_argv[2]),
+                collection_root,
+                result_number,
+            )
+            print(
+                json.dumps(
+                    {"collection_output": str(target)},
+                    ensure_ascii=False,
+                )
+            )
+        return result
+    except (OSError, ValueError) as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 1
+    finally:
+        sys.argv = original_argv
 
 
 if __name__ == "__main__":

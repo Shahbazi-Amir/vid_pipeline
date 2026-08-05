@@ -1,0 +1,121 @@
+name: Promote pyannote production backend
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/bootstrap/promote-pyannote-production.trigger"
+
+permissions:
+  contents: write
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Make pyannote the production diarization backend
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('.github/workflows/process-uploaded-video.yml')
+          text = path.read_text(encoding='utf-8')
+
+          old = '''      VID_PIPELINE_DIARIZATION_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/diarization
+      VID_PIPELINE_ASR_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/asr
+'''
+          new = '''      VID_PIPELINE_DIARIZATION_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/diarization
+      VID_PIPELINE_DIARIZATION_BACKEND: pyannote-community-1
+      VID_PIPELINE_ASR_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/asr
+      HF_HOME: ${{ github.workspace }}/.cache/huggingface
+      HF_HUB_CACHE: ${{ github.workspace }}/.cache/huggingface/hub
+'''
+          if old not in text:
+              raise SystemExit('job env anchor not found')
+          text = text.replace(old, new, 1)
+
+          old = '''      - name: Cache diarization models
+        if: inputs.diarization_enabled == 'true'
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.VID_PIPELINE_DIARIZATION_CACHE }}
+          key: diarization-${{ runner.os }}-py311-sherpa-1.13.4-segmentation-3.0-int8-3dspeaker-eres2net
+'''
+          new = '''      - name: Cache pyannote Community-1 model
+        if: inputs.diarization_enabled == 'true'
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.HF_HUB_CACHE }}
+          key: pyannote-${{ runner.os }}-py311-audio-4.0.4-community-1-v1
+'''
+          if old not in text:
+              raise SystemExit('diarization cache anchor not found')
+          text = text.replace(old, new, 1)
+
+          old = "            pip install -e '.[worker,diarization]'"
+          new = "            pip install -e '.[worker,diarization-pyannote]'"
+          if old not in text:
+              raise SystemExit('dependency anchor not found')
+          text = text.replace(old, new, 1)
+
+          old = '''        env:
+          HF_TOKEN: ""
+          HUGGING_FACE_HUB_TOKEN: ""
+        run: |
+'''
+          new = '''        env:
+          HF_TOKEN: ""
+          HUGGING_FACE_HUB_TOKEN: ""
+          VID_PIPELINE_PYANNOTE_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+'''
+          if old not in text:
+              raise SystemExit('pipeline secret anchor not found')
+          text = text.replace(old, new, 1)
+
+          path.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Install validation dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          pip install -e '.[dev,worker,diarization]'
+
+      - name: Validate repository and workflow contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          pytest -q
+          ruff check .
+          python -m compileall -q src tests
+          git diff --check
+
+      - name: Commit production promotion and clean temporary trigger
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .github/bootstrap/promote-pyannote-production.trigger
+          rm -f .github/workflows/promote-pyannote-production.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A .github/workflows/process-uploaded-video.yml \
+            .github/bootstrap/promote-pyannote-production.trigger \
+            .github/workflows/promote-pyannote-production.yml
+          git commit -m "feat: make pyannote the production diarization backend"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main

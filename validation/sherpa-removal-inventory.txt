@@ -1,0 +1,60 @@
+.github/workflows/process-video.yml:75:        description: Install and run optional sherpa-onnx diarization
+.github/workflows/process-video.yml:206:          key: diarization-${{ runner.os }}-py311-sherpa-1.13.4-segmentation-3.0-int8-3dspeaker-eres2net
+.github/workflows/pyannote-core-validation.yml:123:              'baseline_sherpa': {
+.github/workflows/pyannote-live-validation.yml:142:              'baseline_sherpa': {
+README.md:438:`sherpa-onnx` locally on the GitHub Actions CPU runner with the existing normalized mono 16 kHz
+README.md:446:The default public models are `sherpa-onnx-pyannote-segmentation-3-0/model.int8.onnx`
+README.md:449:downloaded without credentials from the official `k2-fsa/sherpa-onnx` GitHub Releases. The engine
+README.md:482:not require a token or paid API. This is unrelated to sherpa diarization; the ASR backend and model
+docs/accuracy-review.md:120:مدل‌های عمومی sherpa-onnx بدون حساب، توکن یا credential خارجی دریافت می‌شوند:
+pyproject.toml:48:  "sherpa-onnx>=1.13.4,<1.14",
+pyproject.toml:71:  "sherpa-onnx>=1.13.4,<1.14",
+scripts/diarization_reproducibility.py:2:"""Run sherpa diarization repeatedly on one immutable WAV and compare timelines."""
+scripts/diarization_reproducibility.py:17:    SherpaOnnxDiarizationBackend,
+scripts/diarization_reproducibility.py:49:    backend = SherpaOnnxDiarizationBackend(
+scripts/diarization_reproducibility.py:72:        "sherpa_onnx_version": package_version("sherpa-onnx"),
+src/vid_pipeline/diarization.py:37:    backend: str = "sherpa-onnx"
+src/vid_pipeline/diarization.py:81:    name="sherpa-onnx-pyannote-segmentation-3-0",
+src/vid_pipeline/diarization.py:82:    url=("https://github.com/k2-fsa/sherpa-onnx/releases/download/"
+src/vid_pipeline/diarization.py:83:         "speaker-segmentation-models/sherpa-onnx-pyannote-segmentation-3-0.tar.bz2"),
+src/vid_pipeline/diarization.py:91:    url=("https://github.com/k2-fsa/sherpa-onnx/releases/download/"
+src/vid_pipeline/diarization.py:186:class SherpaOnnxDiarizationBackend:
+src/vid_pipeline/diarization.py:187:    name = "sherpa-onnx"
+src/vid_pipeline/diarization.py:202:            import sherpa_onnx
+src/vid_pipeline/diarization.py:204:            raise DiarizationError("sherpa-onnx is not installed; install .[diarization]") from exc
+src/vid_pipeline/diarization.py:205:        self.sherpa = sherpa_onnx
+src/vid_pipeline/diarization.py:222:            config = self.sherpa.OfflineSpeakerDiarizationConfig(
+src/vid_pipeline/diarization.py:223:                segmentation=self.sherpa.OfflineSpeakerSegmentationModelConfig(
+src/vid_pipeline/diarization.py:224:                    pyannote=self.sherpa.OfflineSpeakerSegmentationPyannoteModelConfig(
+src/vid_pipeline/diarization.py:229:                embedding=self.sherpa.SpeakerEmbeddingExtractorConfig(
+src/vid_pipeline/diarization.py:233:                clustering=self.sherpa.FastClusteringConfig(
+src/vid_pipeline/diarization.py:254:                    "sherpa clustering speaker count was not applied: "
+src/vid_pipeline/diarization.py:258:                raise DiarizationError("invalid sherpa-onnx diarization configuration")
+src/vid_pipeline/diarization.py:259:            diarizer = self.sherpa.OfflineSpeakerDiarization(config)
+src/vid_pipeline/diarization.py:452:    # Sherpa can emit a short speaker turn nested inside a long turn for another
+src/vid_pipeline/diarization.py:768:    backend = backend or SherpaOnnxDiarizationBackend(
+src/vid_pipeline/diarization.py:1015:        if isinstance(backend, SherpaOnnxDiarizationBackend):
+src/vid_pipeline/diarization.py:1036:                "sherpa_onnx_version": getattr(backend.sherpa, "__version__", "unknown"),
+src/vid_pipeline/pyannote_cli.py:29:    backend_name = os.getenv("VID_PIPELINE_DIARIZATION_BACKEND", "sherpa-onnx").strip()
+src/vid_pipeline/pyannote_cli.py:33:    # Preserve WhisperX alignment behavior, but suppress the legacy Sherpa call.
+tests/test_diarization.py:16:    SherpaOnnxDiarizationBackend,
+tests/test_diarization.py:128:        name = "sherpa-onnx"
+tests/test_diarization.py:334:class FakeSherpa:
+tests/test_diarization.py:350:def test_sherpa_config_passes_requested_cluster_count(tmp_path: Path, requested: int):
+tests/test_diarization.py:372:    FakeSherpa.OfflineSpeakerDiarization = Diarizer
+tests/test_diarization.py:373:    backend = object.__new__(SherpaOnnxDiarizationBackend)
+tests/test_diarization.py:374:    backend.sherpa = FakeSherpa
+tests/test_diarization.py:381:def test_sherpa_backend_reports_initialization_failure(tmp_path: Path):
+tests/test_diarization.py:385:    FakeSherpa.OfflineSpeakerDiarization = lambda config: (_ for _ in ()).throw(RuntimeError())
+tests/test_diarization.py:386:    backend = object.__new__(SherpaOnnxDiarizationBackend)
+tests/test_diarization.py:387:    backend.sherpa = FakeSherpa
+tests/test_diarization.py:408:    os.getenv("RUN_SHERPA_DIARIZATION_INTEGRATION") != "1",
+tests/test_diarization.py:411:def test_real_sherpa_two_voice_integration(tmp_path: Path):
+tests/test_diarization.py:428:    turns = SherpaOnnxDiarizationBackend().diarize(output, num_speakers=2)
+tests/test_diarization.py:508:def test_nested_sherpa_turn_wins_equal_overlap_by_temporal_specificity():
+tests/test_diarization.py:544:        name = "sherpa-onnx"
+tests/test_diarization.py:583:        name = "sherpa-onnx"
+tests/test_diarization.py:600:        name = "sherpa-onnx"
+tests/test_diarization.py:626:        name = "sherpa-onnx"
+validation/pyannote-core-result.json:44:  "baseline_sherpa": {
+validation/pyannote-live-result.json:8:  "baseline_sherpa": {

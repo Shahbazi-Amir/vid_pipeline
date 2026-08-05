@@ -9,8 +9,10 @@ from vid_pipeline.llm_review import (
     render_review_markdown,
     render_review_text,
     review_collection_output,
+    review_collection_output_if_configured,
     validate_review,
 )
+from vid_pipeline.review_cli import build_parser
 
 SOURCE = """# media
 
@@ -101,3 +103,28 @@ def test_review_collection_output_writes_three_review_files(
 
     skipped = review_collection_output(root, 7, config=config)
     assert skipped["status"] == "skipped"
+
+
+def test_review_is_optional_when_no_review_environment_is_configured(
+    monkeypatch: pytest.MonkeyPatch,
+    tmp_path: Path,
+):
+    for name in (
+        "VID_PIPELINE_REVIEW_API_KEY",
+        "VID_PIPELINE_REVIEW_BASE_URL",
+        "VID_PIPELINE_REVIEW_MODEL",
+    ):
+        monkeypatch.delenv(name, raising=False)
+
+    result = review_collection_output_if_configured(tmp_path, 3)
+
+    assert result["status"] == "skipped"
+    assert result["reason"] == "review API is not configured"
+
+
+def test_review_cli_exposes_ai_collection_command():
+    args = build_parser().parse_args(["ai-collection", "outputs/uni_tehran", "3"])
+
+    assert args.command == "ai-collection"
+    assert args.collection_root == Path("outputs/uni_tehran")
+    assert args.result_number == 3

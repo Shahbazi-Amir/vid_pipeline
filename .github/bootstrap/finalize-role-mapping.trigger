@@ -1,1 +1,1 @@
-run-role-mapping-finalization-v1
+run-role-mapping-finalization-v2

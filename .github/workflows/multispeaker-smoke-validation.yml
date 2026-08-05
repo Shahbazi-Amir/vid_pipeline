@@ -1,0 +1,200 @@
+name: Three Speaker Smoke Validation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/bootstrap/multispeaker-smoke-validation.trigger"
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      INPUT_MEDIA: /tmp/vid-pipeline-input/cdc-anthem.webm
+      SOURCE_URL: https://upload.wikimedia.org/wikipedia/commons/4/44/CDC-_Tips_from_Former_Smokers_-_Anthem_Ad.webm
+      EXPECTED_SIZE: "5811203"
+      EXPECTED_SHA1: f540ea945ddc4d370246e3180157f6c763cea291
+      VID_PIPELINE_ASR_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/asr
+      HF_HOME: ${{ github.workspace }}/.cache/huggingface
+      HF_HUB_CACHE: ${{ github.workspace }}/.cache/huggingface/hub
+      VID_PIPELINE_DIARIZATION_BACKEND: pyannote-community-1
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Cache project-controlled ASR model
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.VID_PIPELINE_ASR_CACHE }}
+          key: asr-${{ runner.os }}-faster-whisper-1.2.1-large-v3-turbo-ct2-v1
+
+      - name: Cache pyannote Community-1 model
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.HF_HUB_CACHE }}
+          key: pyannote-${{ runner.os }}-py311-audio-4.0.4-community-1-v1
+
+      - name: Install dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install --upgrade pip
+          pip install -e '.[dev,worker,diarization-pyannote]'
+
+      - name: Download public-domain three-speaker sample
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$(dirname "$INPUT_MEDIA")"
+          curl --fail --location --retry 3 "$SOURCE_URL" -o "$INPUT_MEDIA"
+          python - <<'PY'
+          import hashlib, os
+          path = os.environ['INPUT_MEDIA']
+          if os.path.getsize(path) != int(os.environ['EXPECTED_SIZE']):
+              raise SystemExit('input size mismatch')
+          h = hashlib.sha1()
+          with open(path, 'rb') as f:
+              for chunk in iter(lambda: f.read(1024 * 1024), b''):
+                  h.update(chunk)
+          if h.hexdigest() != os.environ['EXPECTED_SHA1']:
+              raise SystemExit('input sha1 mismatch')
+          print('source integrity verified')
+          PY
+          ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 "$INPUT_MEDIA"
+
+      - name: Run full pipeline with three speakers
+        id: pipeline
+        shell: bash
+        env:
+          HF_TOKEN: ""
+          HUGGING_FACE_HUB_TOKEN: ""
+          VID_PIPELINE_PYANNOTE_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          set -uo pipefail
+          set +e
+          vid-pipeline run-file "$INPUT_MEDIA" \
+            --name cdc-three-speaker-smoke \
+            --output-root outputs \
+            --profile balanced \
+            --language en \
+            --device cpu \
+            --compute-type int8 \
+            --no-editorial \
+            --diarize \
+            --diarization-required \
+            --num-speakers 3 \
+            --speaker-role-mode generic \
+            2>&1 | tee pipeline.log
+          code=${PIPESTATUS[0]}
+          echo "$code" > pipeline-exit-code.txt
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Build evaluation report
+        if: always()
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          exit_file = Path('pipeline-exit-code.txt')
+          exit_code = int(exit_file.read_text().strip()) if exit_file.exists() else -1
+          diarization_paths = list(Path('outputs').glob('**/diarization/diarization.json'))
+          delivery_paths = sorted(p for p in Path('outputs').glob('**/delivery/*') if p.is_file())
+          result = {
+              'schema_version': 1,
+              'github_run_id': os.getenv('GITHUB_RUN_ID', ''),
+              'github_run_attempt': os.getenv('GITHUB_RUN_ATTEMPT', ''),
+              'source': {
+                  'name': 'CDC Tips from Former Smokers - Anthem Ad',
+                  'url': os.environ['SOURCE_URL'],
+                  'duration_seconds_expected': 30.723,
+                  'size_bytes': int(os.environ['EXPECTED_SIZE']),
+                  'sha1': os.environ['EXPECTED_SHA1'],
+                  'known_people_speaking': 3,
+                  'license': 'US federal government public domain',
+              },
+              'pipeline_exit_code': exit_code,
+              'backend': 'pyannote-community-1',
+              'requested_speaker_count': 3,
+              'delivery_files': [p.name for p in delivery_paths],
+              'delivery_file_count': len(delivery_paths),
+              'delivery_contents': {p.name: p.read_text(encoding='utf-8') for p in delivery_paths},
+          }
+          if diarization_paths:
+              d = json.loads(diarization_paths[0].read_text(encoding='utf-8'))
+              result['diarization'] = d
+              result['detected_speaker_count'] = d.get('detected_speaker_count')
+              result['effective_speaker_count'] = d.get('effective_speaker_count')
+              result['aligned_effective_speaker_count'] = d.get('aligned_effective_speaker_count')
+              result['speaker_durations'] = d.get('speaker_durations')
+              result['speaker_turn_counts'] = d.get('speaker_turn_counts')
+              result['speaker_turn_count'] = d.get('speaker_turn_count')
+              result['speaker_switch_count'] = (d.get('normalized_stage') or {}).get('speaker_switch_count')
+              result['ambiguous_assignments'] = d.get('ambiguous_assignments')
+              result['quality_gate_passed'] = d.get('quality_gate_passed')
+              result['exclusive_speaker_diarization_used'] = d.get('exclusive_speaker_diarization_used')
+          alignment_paths = list(Path('outputs').glob('**/diarization/alignment-post-smoothing.json'))
+          if alignment_paths:
+              result['aligned_segments'] = json.loads(alignment_paths[0].read_text(encoding='utf-8'))
+          Path('validation').mkdir(exist_ok=True)
+          Path('validation/multispeaker-cdc-result.json').write_text(
+              json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+          )
+          print(json.dumps({
+              'pipeline_exit_code': result['pipeline_exit_code'],
+              'detected_speaker_count': result.get('detected_speaker_count'),
+              'effective_speaker_count': result.get('effective_speaker_count'),
+              'aligned_effective_speaker_count': result.get('aligned_effective_speaker_count'),
+              'delivery_file_count': result['delivery_file_count'],
+          }, indent=2))
+          PY
+
+      - name: Upload evaluation artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: three-speaker-smoke-validation
+          path: |
+            validation/multispeaker-cdc-result.json
+            pipeline.log
+            outputs/**/diarization/**
+            outputs/**/delivery/**
+          retention-days: 7
+          if-no-files-found: warn
+
+      - name: Commit report and remove trigger
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .github/bootstrap/multispeaker-smoke-validation.trigger
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add validation/multispeaker-cdc-result.json .github/bootstrap/multispeaker-smoke-validation.trigger
+          git commit -m "test: record three-speaker smoke validation" || true
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
+
+      - name: Enforce pipeline success
+        if: always()
+        shell: bash
+        run: |
+          code=$(cat pipeline-exit-code.txt 2>/dev/null || echo 1)
+          test "$code" -eq 0

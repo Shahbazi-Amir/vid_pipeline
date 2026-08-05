@@ -1,0 +1,611 @@
+{
+  "schema_version": 1,
+  "github_run_id": "30974781899",
+  "github_run_attempt": "1",
+  "source": {
+    "name": "CDC Tips from Former Smokers - Anthem Ad",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/44/CDC-_Tips_from_Former_Smokers_-_Anthem_Ad.webm",
+    "duration_seconds_expected": 30.723,
+    "size_bytes": 5811203,
+    "sha1": "f540ea945ddc4d370246e3180157f6c763cea291",
+    "known_people_speaking": 3,
+    "license": "US federal government public domain"
+  },
+  "pipeline_exit_code": 0,
+  "backend": "pyannote-community-1",
+  "requested_speaker_count": 3,
+  "delivery_files": [
+    "transcript.md",
+    "transcript.timestamped.md",
+    "transcript.txt"
+  ],
+  "delivery_file_count": 3,
+  "delivery_contents": {
+    "transcript.md": "# cdc-anthem\n\n**گوینده ۱**\n\nWhen you have a hole in your neck, don't face the shower end.\n\n**گوینده ۱**\n\nSuction out your tube before you eat.\n\n**گوینده ۲**\n\nCrouch, don't bend over. You don't want to lose the food in your stomach.\n\n**گوینده ۳**\n\nSuction out, it's not mouth to mouth. It's mouth to snow.\n\n**گوینده ۳**\n\nDon't use spray paint.\n\n**گوینده ۳**\n\nBe very careful shaving.\n",
+    "transcript.timestamped.md": "# cdc-anthem\n\n[00:00:03 → 00:00:06] **گوینده ۱**\n\nWhen you have a hole in your neck, don't face the shower end.\n\n[00:00:07 → 00:00:09] **گوینده ۱**\n\nSuction out your tube before you eat.\n\n[00:00:09 → 00:00:12] **گوینده ۲**\n\nCrouch, don't bend over. You don't want to lose the food in your stomach.\n\n[00:00:13 → 00:00:16] **گوینده ۳**\n\nSuction out, it's not mouth to mouth. It's mouth to snow.\n\n[00:00:17 → 00:00:19] **گوینده ۳**\n\nDon't use spray paint.\n\n[00:00:20 → 00:00:21] **گوینده ۳**\n\nBe very careful shaving.\n",
+    "transcript.txt": "گوینده ۱:\nWhen you have a hole in your neck, don't face the shower end.\n\nگوینده ۱:\nSuction out your tube before you eat.\n\nگوینده ۲:\nCrouch, don't bend over. You don't want to lose the food in your stomach.\n\nگوینده ۳:\nSuction out, it's not mouth to mouth. It's mouth to snow.\n\nگوینده ۳:\nDon't use spray paint.\n\nگوینده ۳:\nBe very careful shaving.\n"
+  },
+  "diarization": {
+    "schema_version": 1,
+    "status": "completed",
+    "backend": "pyannote-community-1",
+    "models": {
+      "pipeline": "pyannote/speaker-diarization-community-1"
+    },
+    "requested_speaker_count": 3,
+    "raw_turn_count": 8,
+    "raw_speakers": [
+      "SPEAKER_00",
+      "SPEAKER_01",
+      "SPEAKER_02"
+    ],
+    "normalized_turn_count": 8,
+    "normalized_speakers": [
+      "SPEAKER_00",
+      "SPEAKER_01",
+      "SPEAKER_02"
+    ],
+    "raw_stage": {
+      "speaker_count": 3,
+      "turn_count": 8,
+      "speaker_switch_count": 5,
+      "per_speaker_duration": {
+        "SPEAKER_02": 5.09625,
+        "SPEAKER_01": 3.324375,
+        "SPEAKER_00": 5.838749999999997
+      },
+      "per_speaker_turn_count": {
+        "SPEAKER_02": 3,
+        "SPEAKER_01": 2,
+        "SPEAKER_00": 3
+      }
+    },
+    "normalized_stage": {
+      "speaker_count": 3,
+      "effective_speaker_count": 3,
+      "turn_count": 8,
+      "speaker_switch_count": 5,
+      "per_speaker_duration": {
+        "SPEAKER_00": 5.096250000000001,
+        "SPEAKER_01": 3.324375,
+        "SPEAKER_02": 5.838749999999997
+      },
+      "per_speaker_turn_count": {
+        "SPEAKER_00": 3,
+        "SPEAKER_01": 2,
+        "SPEAKER_02": 3
+      }
+    },
+    "detected_speaker_count": 3,
+    "speaker_durations": {
+      "SPEAKER_00": 5.096250000000001,
+      "SPEAKER_01": 3.324375,
+      "SPEAKER_02": 5.838749999999997
+    },
+    "speaker_turn_count": 8,
+    "speaker_turn_counts": {
+      "SPEAKER_00": 3,
+      "SPEAKER_01": 2,
+      "SPEAKER_02": 3
+    },
+    "aligned_segment_counts": {
+      "SPEAKER_00": 2,
+      "SPEAKER_01": 1,
+      "SPEAKER_02": 3
+    },
+    "aligned_word_counts": {
+      "SPEAKER_00": 20,
+      "SPEAKER_01": 14,
+      "SPEAKER_02": 19
+    },
+    "unassigned_word_count": 0,
+    "ambiguous_word_count": 0,
+    "ambiguous_assignments": 0,
+    "pre_smoothing_segments": 6,
+    "post_smoothing_segments": 6,
+    "speaker_switches_before": 2,
+    "speaker_switches_after": 2,
+    "micro_turns_merged": 0,
+    "weak_micro_turns_merged": 0,
+    "strong_micro_islands_merged": 0,
+    "protected_short_replies_preserved": 0,
+    "micro_turns_preserved": 0,
+    "smoothing_accepted": true,
+    "smoothing_rollback": false,
+    "smoothing_rollback_reason": "",
+    "candidate_post_smoothing_effective_speaker_count": 3,
+    "pre_smoothing_speaker_count": 3,
+    "pre_smoothing_effective_speaker_count": 3,
+    "post_smoothing_speaker_count": 3,
+    "post_smoothing_effective_speaker_count": 3,
+    "pre_smoothing": {
+      "speaker_count": 3,
+      "effective_speakers": [
+        "SPEAKER_00",
+        "SPEAKER_01",
+        "SPEAKER_02"
+      ],
+      "effective_speaker_count": 3,
+      "segment_counts": {
+        "SPEAKER_00": 2,
+        "SPEAKER_01": 1,
+        "SPEAKER_02": 3
+      },
+      "word_counts": {
+        "SPEAKER_00": 20,
+        "SPEAKER_01": 14,
+        "SPEAKER_02": 19
+      },
+      "durations": {
+        "SPEAKER_00": 5.159999999999998,
+        "SPEAKER_01": 3.0999999999999996,
+        "SPEAKER_02": 5.879999999999997
+      },
+      "speaker_switch_count": 2
+    },
+    "post_smoothing": {
+      "speaker_count": 3,
+      "effective_speakers": [
+        "SPEAKER_00",
+        "SPEAKER_01",
+        "SPEAKER_02"
+      ],
+      "effective_speaker_count": 3,
+      "segment_counts": {
+        "SPEAKER_00": 2,
+        "SPEAKER_01": 1,
+        "SPEAKER_02": 3
+      },
+      "word_counts": {
+        "SPEAKER_00": 20,
+        "SPEAKER_01": 14,
+        "SPEAKER_02": 19
+      },
+      "durations": {
+        "SPEAKER_00": 5.159999999999998,
+        "SPEAKER_01": 3.0999999999999996,
+        "SPEAKER_02": 5.879999999999997
+      },
+      "speaker_switch_count": 2
+    },
+    "effective_speakers": [
+      "SPEAKER_00",
+      "SPEAKER_01",
+      "SPEAKER_02"
+    ],
+    "effective_speaker_count": 3,
+    "raw_effective_speakers": [
+      "SPEAKER_00",
+      "SPEAKER_01",
+      "SPEAKER_02"
+    ],
+    "raw_effective_speaker_count": 3,
+    "aligned_effective_speakers": [
+      "SPEAKER_00",
+      "SPEAKER_01",
+      "SPEAKER_02"
+    ],
+    "aligned_effective_speaker_count": 3,
+    "speakers": {
+      "SPEAKER_00": {
+        "raw_duration": 5.09625,
+        "raw_turns": 3,
+        "word_overlap_duration": 4.526531,
+        "word_overlap_count": 20,
+        "segment_overlap_duration": 4.746531,
+        "segment_overlap_count": 2,
+        "aligned_words": 20,
+        "aligned_segments": 2,
+        "aligned_text_duration": 5.16,
+        "aligned_voiced_fraction": 0.364922,
+        "coverage_ratio": 0.888208
+      },
+      "SPEAKER_01": {
+        "raw_duration": 3.324375,
+        "raw_turns": 2,
+        "word_overlap_duration": 2.731531,
+        "word_overlap_count": 15,
+        "segment_overlap_duration": 2.951531,
+        "segment_overlap_count": 3,
+        "aligned_words": 14,
+        "aligned_segments": 1,
+        "aligned_text_duration": 3.1,
+        "aligned_voiced_fraction": 0.219236,
+        "coverage_ratio": 0.821668
+      },
+      "SPEAKER_02": {
+        "raw_duration": 5.83875,
+        "raw_turns": 3,
+        "word_overlap_duration": 4.942437,
+        "word_overlap_count": 19,
+        "segment_overlap_duration": 5.082437,
+        "segment_overlap_count": 4,
+        "aligned_words": 19,
+        "aligned_segments": 3,
+        "aligned_text_duration": 5.88,
+        "aligned_voiced_fraction": 0.415842,
+        "coverage_ratio": 0.846489
+      }
+    },
+    "quality_gate_passed": true,
+    "quality_warning": "",
+    "role_mapping": {
+      "SPEAKER_00": {
+        "role": "",
+        "confidence": 0.0,
+        "source": "unresolved"
+      },
+      "SPEAKER_01": {
+        "role": "",
+        "confidence": 0.0,
+        "source": "unresolved"
+      },
+      "SPEAKER_02": {
+        "role": "",
+        "confidence": 0.0,
+        "source": "unresolved"
+      }
+    },
+    "runtime_seconds": 20.923,
+    "reproducibility": {
+      "attempt_count": 1,
+      "stable": true,
+      "best_pair_agreement": 1.0,
+      "worst_pair_agreement": 1.0,
+      "selected_attempt": 1,
+      "selection_reason": "single_run",
+      "comparisons": []
+    },
+    "diarization_attempts": [
+      {
+        "run_index": 1,
+        "raw_turn_count": 8,
+        "raw_speaker_count": 3,
+        "per_speaker_raw_duration": {
+          "SPEAKER_02": 5.09625,
+          "SPEAKER_01": 3.324375,
+          "SPEAKER_00": 5.838749999999997
+        },
+        "per_speaker_raw_turn_count": {
+          "SPEAKER_02": 3,
+          "SPEAKER_01": 2,
+          "SPEAKER_00": 3
+        },
+        "minority_speaker_fraction": 0.23313609467455623,
+        "speaker_switch_count": 5,
+        "first_raw_turns": [
+          {
+            "start": 4.01346875,
+            "end": 7.11846875,
+            "speaker": "SPEAKER_02"
+          },
+          {
+            "start": 7.40534375,
+            "end": 9.36284375,
+            "speaker": "SPEAKER_02"
+          },
+          {
+            "start": 9.61596875,
+            "end": 12.872843750000001,
+            "speaker": "SPEAKER_01"
+          },
+          {
+            "start": 13.075343750000002,
+            "end": 16.48409375,
+            "speaker": "SPEAKER_00"
+          },
+          {
+            "start": 18.08721875,
+            "end": 18.15471875,
+            "speaker": "SPEAKER_01"
+          }
+        ],
+        "last_raw_turns": [
+          {
+            "start": 13.075343750000002,
+            "end": 16.48409375,
+            "speaker": "SPEAKER_00"
+          },
+          {
+            "start": 18.08721875,
+            "end": 18.15471875,
+            "speaker": "SPEAKER_01"
+          },
+          {
+            "start": 18.15471875,
+            "end": 19.28534375,
+            "speaker": "SPEAKER_00"
+          },
+          {
+            "start": 20.70284375,
+            "end": 22.00221875,
+            "speaker": "SPEAKER_00"
+          },
+          {
+            "start": 22.00221875,
+            "end": 22.035968750000002,
+            "speaker": "SPEAKER_02"
+          }
+        ]
+      }
+    ],
+    "config": {
+      "enabled": true,
+      "required": true,
+      "num_speakers": 3,
+      "backend": "pyannote-community-1",
+      "model_cache_dir": null,
+      "role_mode": "generic",
+      "role_overrides": {},
+      "role_threshold": 0.72,
+      "merge_gap_seconds": 0.45,
+      "effective_min_duration_seconds": 2.0,
+      "effective_min_turns": 1,
+      "effective_min_fraction": 0.01,
+      "aligned_min_word_count": 3,
+      "aligned_min_duration_seconds": 1.0,
+      "aligned_min_segments": 1,
+      "aligned_min_fraction": 0.005,
+      "smoothing_enabled": true,
+      "micro_turn_max_duration_seconds": 1.25,
+      "micro_turn_max_words": 3,
+      "strong_micro_island_max_duration_seconds": 0.9,
+      "strong_micro_island_max_words": 2,
+      "smoothing_max_gap_seconds": 0.25,
+      "smoothing_min_overlap_margin": 0.2,
+      "minimum_export_turn_span_seconds": 0.1,
+      "reproducibility_attempts": 3,
+      "suspicious_minority_fraction": 0.03,
+      "stability_min_timeline_agreement": 0.9,
+      "stability_max_turn_count_fraction": 0.35
+    },
+    "turns": [
+      {
+        "start": 4.01346875,
+        "end": 7.11846875,
+        "speaker": "SPEAKER_00"
+      },
+      {
+        "start": 7.40534375,
+        "end": 9.36284375,
+        "speaker": "SPEAKER_00"
+      },
+      {
+        "start": 9.61596875,
+        "end": 12.872843750000001,
+        "speaker": "SPEAKER_01"
+      },
+      {
+        "start": 13.075343750000002,
+        "end": 16.48409375,
+        "speaker": "SPEAKER_02"
+      },
+      {
+        "start": 18.08721875,
+        "end": 18.15471875,
+        "speaker": "SPEAKER_01"
+      },
+      {
+        "start": 18.15471875,
+        "end": 19.28534375,
+        "speaker": "SPEAKER_02"
+      },
+      {
+        "start": 20.70284375,
+        "end": 22.00221875,
+        "speaker": "SPEAKER_02"
+      },
+      {
+        "start": 22.00221875,
+        "end": 22.035968750000002,
+        "speaker": "SPEAKER_00"
+      }
+    ],
+    "exclusive_speaker_diarization_used": true,
+    "pyannote_audio_version": "4.0.4",
+    "role_mapping_mode": "generic",
+    "role_mapping_status": "unresolved_mode",
+    "role_mapping_features": {
+      "SPEAKER_00": {
+        "utterance_count": 2,
+        "question_count": 0,
+        "question_fraction": 0.0,
+        "mean_words": 10.0,
+        "median_words": 10.0,
+        "mean_duration": 2.579999999999999,
+        "median_duration": 2.579999999999999,
+        "short_turn_fraction": 1.0,
+        "long_turn_fraction": 0.0,
+        "total_words": 20,
+        "total_duration": 5.159999999999998
+      },
+      "SPEAKER_01": {
+        "utterance_count": 1,
+        "question_count": 0,
+        "question_fraction": 0.0,
+        "mean_words": 14.0,
+        "median_words": 14.0,
+        "mean_duration": 3.0999999999999996,
+        "median_duration": 3.0999999999999996,
+        "short_turn_fraction": 1.0,
+        "long_turn_fraction": 0.0,
+        "total_words": 14,
+        "total_duration": 3.0999999999999996
+      },
+      "SPEAKER_02": {
+        "utterance_count": 3,
+        "question_count": 0,
+        "question_fraction": 0.0,
+        "mean_words": 6.333333333333333,
+        "median_words": 4.0,
+        "mean_duration": 1.959999999999999,
+        "median_duration": 1.379999999999999,
+        "short_turn_fraction": 1.0,
+        "long_turn_fraction": 0.0,
+        "total_words": 19,
+        "total_duration": 5.879999999999997
+      }
+    },
+    "role_mapping_confidence": 0.0,
+    "role_mapping_source": "none",
+    "role_mapping_diagnostics": {
+      "mode": "generic",
+      "status": "unresolved_mode",
+      "source": "none",
+      "confidence": 0.0,
+      "threshold": 0.72,
+      "features": {
+        "SPEAKER_00": {
+          "utterance_count": 2,
+          "question_count": 0,
+          "question_fraction": 0.0,
+          "mean_words": 10.0,
+          "median_words": 10.0,
+          "mean_duration": 2.579999999999999,
+          "median_duration": 2.579999999999999,
+          "short_turn_fraction": 1.0,
+          "long_turn_fraction": 0.0,
+          "total_words": 20,
+          "total_duration": 5.159999999999998
+        },
+        "SPEAKER_01": {
+          "utterance_count": 1,
+          "question_count": 0,
+          "question_fraction": 0.0,
+          "mean_words": 14.0,
+          "median_words": 14.0,
+          "mean_duration": 3.0999999999999996,
+          "median_duration": 3.0999999999999996,
+          "short_turn_fraction": 1.0,
+          "long_turn_fraction": 0.0,
+          "total_words": 14,
+          "total_duration": 3.0999999999999996
+        },
+        "SPEAKER_02": {
+          "utterance_count": 3,
+          "question_count": 0,
+          "question_fraction": 0.0,
+          "mean_words": 6.333333333333333,
+          "median_words": 4.0,
+          "mean_duration": 1.959999999999999,
+          "median_duration": 1.379999999999999,
+          "short_turn_fraction": 1.0,
+          "long_turn_fraction": 0.0,
+          "total_words": 19,
+          "total_duration": 5.879999999999997
+        }
+      },
+      "host_score_margin": 0.0
+    }
+  },
+  "detected_speaker_count": 3,
+  "effective_speaker_count": 3,
+  "aligned_effective_speaker_count": 3,
+  "speaker_durations": {
+    "SPEAKER_00": 5.096250000000001,
+    "SPEAKER_01": 3.324375,
+    "SPEAKER_02": 5.838749999999997
+  },
+  "speaker_turn_counts": {
+    "SPEAKER_00": 3,
+    "SPEAKER_01": 2,
+    "SPEAKER_02": 3
+  },
+  "speaker_turn_count": 8,
+  "speaker_switch_count": 5,
+  "ambiguous_assignments": 0,
+  "quality_gate_passed": true,
+  "exclusive_speaker_diarization_used": true,
+  "aligned_segments": [
+    {
+      "start": 3.6,
+      "end": 6.92,
+      "text": "When you have a hole in your neck, don't face the shower end.",
+      "speaker": "SPEAKER_00",
+      "speaker_evidence": {
+        "speaker": "SPEAKER_00",
+        "winning_overlap": 2.68653125,
+        "runner_up_overlap": 0.0,
+        "overlap_margin": 1.0,
+        "ambiguous": false,
+        "supporting_raw_turn_duration": 3.1049999999999995
+      },
+      "aligned_word_count": 13
+    },
+    {
+      "start": 7.44,
+      "end": 9.28,
+      "text": "Suction out your tube before you eat.",
+      "speaker": "SPEAKER_00",
+      "speaker_evidence": {
+        "speaker": "SPEAKER_00",
+        "winning_overlap": 1.839999999999999,
+        "runner_up_overlap": 0.0,
+        "overlap_margin": 1.0,
+        "ambiguous": false,
+        "supporting_raw_turn_duration": 1.9574999999999996
+      },
+      "aligned_word_count": 7
+    },
+    {
+      "start": 9.56,
+      "end": 12.66,
+      "text": "Crouch, don't bend over. You don't want to lose the food in your stomach.",
+      "speaker": "SPEAKER_01",
+      "speaker_evidence": {
+        "speaker": "SPEAKER_01",
+        "winning_overlap": 2.664031249999999,
+        "runner_up_overlap": 0.0,
+        "overlap_margin": 1.0,
+        "ambiguous": false,
+        "supporting_raw_turn_duration": 3.256875000000001
+      },
+      "aligned_word_count": 14
+    },
+    {
+      "start": 13.08,
+      "end": 16.24,
+      "text": "Suction out, it's not mouth to mouth. It's mouth to snow.",
+      "speaker": "SPEAKER_02",
+      "speaker_evidence": {
+        "speaker": "SPEAKER_02",
+        "winning_overlap": 2.6999999999999993,
+        "runner_up_overlap": 0.0,
+        "overlap_margin": 1.0,
+        "ambiguous": false,
+        "supporting_raw_turn_duration": 3.4087499999999977
+      },
+      "aligned_word_count": 11
+    },
+    {
+      "start": 17.86,
+      "end": 19.2,
+      "text": "Don't use spray paint.",
+      "speaker": "SPEAKER_02",
+      "speaker_evidence": {
+        "speaker": "SPEAKER_02",
+        "winning_overlap": 1.0452812499999986,
+        "runner_up_overlap": 0.067499999999999,
+        "overlap_margin": 0.9354240784477871,
+        "ambiguous": false,
+        "supporting_raw_turn_duration": 1.1306249999999984
+      },
+      "aligned_word_count": 4
+    },
+    {
+      "start": 20.52,
+      "end": 21.9,
+      "text": "Be very careful shaving.",
+      "speaker": "SPEAKER_02",
+      "speaker_evidence": {
+        "speaker": "SPEAKER_02",
+        "winning_overlap": 1.197156249999999,
+        "runner_up_overlap": 0.0,
+        "overlap_margin": 1.0,
+        "ambiguous": false,
+        "supporting_raw_turn_duration": 1.2993750000000013
+      },
+      "aligned_word_count": 4
+    }
+  ]
+}

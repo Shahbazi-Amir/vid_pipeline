@@ -8,7 +8,8 @@ from dataclasses import replace
 from pathlib import Path
 from typing import Any
 
-from vid_pipeline import accuracy, diarization as diarization_module, reliable_cli
+from vid_pipeline import accuracy, reliable_cli
+from vid_pipeline import diarization as diarization_module
 from vid_pipeline.diarization import DiarizationConfig, run_diarization
 from vid_pipeline.pyannote_diarization import (
     PYANNOTE_BACKEND_NAME,

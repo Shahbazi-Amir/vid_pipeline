@@ -1,1 +1,1 @@
-2026-08-05 validate collection output
+2026-08-05 validate collection output diagnostics rerun

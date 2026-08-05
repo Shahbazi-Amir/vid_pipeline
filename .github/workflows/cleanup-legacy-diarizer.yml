@@ -1,0 +1,480 @@
+name: Cleanup legacy diarizer
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/bootstrap/cleanup-legacy-diarizer.trigger"
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Remove legacy backend and keep pyannote only
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from __future__ import annotations
+
+          import json
+          import re
+          from pathlib import Path
+
+          def write(path: str, text: str) -> None:
+              Path(path).write_text(text, encoding='utf-8')
+
+          # Core diarization module: keep backend-neutral alignment/quality logic,
+          # remove the retired model manager/backend, and default to pyannote.
+          path = Path('src/vid_pipeline/diarization.py')
+          text = path.read_text(encoding='utf-8')
+          for line in (
+              'import hashlib\n',
+              'import os\n',
+              'import shutil\n',
+              'import sys\n',
+              'import tarfile\n',
+              'import tempfile\n',
+              'import urllib.request\n',
+          ):
+              text = text.replace(line, '')
+          text = text.replace('    backend: str = "sherpa-onnx"\n', '    backend: str = "pyannote-community-1"\n')
+          for prefix in (
+              '    segmentation_model:',
+              '    embedding_model:',
+              '    num_threads:',
+              '    clustering_threshold:',
+              '    min_duration_on:',
+              '    min_duration_off:',
+          ):
+              text = '\n'.join(
+                  line for line in text.splitlines() if not line.startswith(prefix)
+              ) + '\n'
+
+          start = text.index('@dataclass(frozen=True, slots=True)\nclass ModelArtifact:')
+          end = text.index('class DiarizationBackend(Protocol):', start)
+          text = text[:start] + text[end:]
+
+          start = text.index('class SherpaOnnxDiarizationBackend:')
+          end = text.index('def _file_manifest(', start)
+          text = text[:start] + text[end:]
+
+          start = text.index('def _file_manifest(')
+          end = text.index('def _audio_manifest(', start)
+          replacement = '''def _file_manifest(path: Path, *, expected_sha256: str = "") -> dict[str, Any]:
+              import hashlib
+
+              stat = path.stat()
+              digest = hashlib.sha256()
+              with path.open("rb") as stream:
+                  for chunk in iter(lambda: stream.read(1024 * 1024), b""):
+                      digest.update(chunk)
+              actual = digest.hexdigest()
+              return {
+                  "path": str(path.resolve()),
+                  "filename": path.name,
+                  "size": stat.st_size,
+                  "sha256": actual,
+                  "expected_sha256": expected_sha256,
+                  "integrity_ok": not expected_sha256 or actual == expected_sha256,
+              }
+
+
+          '''
+          replacement = '\n'.join(
+              line[10:] if line.startswith('          ') else line
+              for line in replacement.splitlines()
+          ) + '\n'
+          text = text[:start] + replacement + text[end:]
+
+          text = text.replace(
+              '    # Sherpa can emit a short speaker turn nested inside a long turn for another\n'
+              '    # speaker. A word wholly inside both then has equal overlap. Prefer the more\n'
+              '    # temporally specific turn instead of collapsing every tie to SPEAKER_00.\n',
+              '    # Overlapping timelines can contain a short turn nested inside a longer turn.\n'
+              '    # Prefer the more temporally specific turn when overlap scores are tied.\n',
+          )
+
+          start = text.index('    backend = backend or SherpaOnnxDiarizationBackend(')
+          end = text.index('    attempts = [', start)
+          text = text[:start] + (
+              '    if backend is None:\n'
+              '        from vid_pipeline.pyannote_diarization import PyannoteDiarizationBackend\n\n'
+              '        backend = PyannoteDiarizationBackend()\n'
+          ) + text[end:]
+
+          report_start = text.index('    report = {')
+          models_start = text.index('        "models": {', report_start)
+          requested = text.index('        }, "requested_speaker_count":', models_start)
+          text = text[:models_start] + (
+              '        "models": (\n'
+              '            {"pipeline": str(getattr(backend, "model_id"))}\n'
+              '            if getattr(backend, "model_id", "")\n'
+              '            else {}\n'
+              '        ),\n'
+              '        "requested_speaker_count": config.num_speakers,\n'
+          ) + text[requested + len('        }, "requested_speaker_count": config.num_speakers,\n'):]
+
+          marker = '        if isinstance(backend, SherpaOnnxDiarizationBackend):'
+          if marker in text:
+              start = text.index(marker)
+              end = text.index('    print(\n', start)
+              text = text[:start] + text[end:]
+
+          if 'sherpa' in text.casefold():
+              raise SystemExit('legacy backend reference remains in diarization.py')
+          write(str(path), text)
+
+          # CLI: diarization now always means pyannote; there is no backend fallback.
+          path = Path('src/vid_pipeline/pyannote_cli.py')
+          text = path.read_text(encoding='utf-8')
+          text = text.replace('import os\n', '')
+          old = (
+              '    backend_name = os.getenv("VID_PIPELINE_DIARIZATION_BACKEND", "sherpa-onnx").strip()\n'
+              '    if backend_name != PYANNOTE_BACKEND_NAME or not config.diarization:\n'
+          )
+          if old not in text:
+              raise SystemExit('pyannote CLI backend gate anchor missing')
+          text = text.replace(old, '    if not config.diarization:\n', 1)
+          text = text.replace(
+              '    # Preserve WhisperX alignment behavior, but suppress the legacy Sherpa call.\n',
+              '    # Preserve WhisperX alignment behavior before pyannote diarization.\n',
+          )
+          text = '\n'.join(
+              line for line in text.splitlines()
+              if not line.lstrip().startswith(('backend=', 'segmentation_model=', 'embedding_model='))
+          ) + '\n'
+          if 'sherpa' in text.casefold():
+              raise SystemExit('legacy backend reference remains in pyannote_cli.py')
+          write(str(path), text)
+
+          # Dependencies: both diarization extras resolve to the working pyannote backend.
+          path = Path('pyproject.toml')
+          text = path.read_text(encoding='utf-8')
+          old = '''diarization = [
+            "sherpa-onnx>=1.13.4,<1.14",
+            "soundfile>=0.12,<1"
+          ]'''
+          new = '''diarization = [
+            "pyannote.audio==4.0.4",
+            "soundfile>=0.12,<1"
+          ]'''
+          old = '\n'.join(line[10:] if line.startswith('          ') else line for line in old.splitlines())
+          new = '\n'.join(line[10:] if line.startswith('          ') else line for line in new.splitlines())
+          if old not in text:
+              raise SystemExit('diarization dependency anchor missing')
+          text = text.replace(old, new, 1)
+          text = text.replace('  "sherpa-onnx>=1.13.4,<1.14",\n', '  "pyannote.audio==4.0.4",\n')
+          if 'sherpa' in text.casefold():
+              raise SystemExit('legacy dependency remains in pyproject.toml')
+          write(str(path), text)
+
+          # Generic diarization tests: drop backend-specific downloader/config tests.
+          path = Path('tests/test_diarization.py')
+          text = path.read_text(encoding='utf-8')
+          for line in (
+              'import hashlib\n', 'import io\n', 'import os\n',
+              'import subprocess\n', 'import tarfile\n', 'import wave\n',
+              '    DiarizationModelManager,\n', '    ModelArtifact,\n',
+              '    SherpaOnnxDiarizationBackend,\n',
+          ):
+              text = text.replace(line, '')
+          start = text.index('class Response(')
+          end = text.index('def test_run_diarization_rejects_zero_turns', start)
+          text = text[:start] + text[end:]
+          start = text.index('@pytest.mark.skipif(\n    os.getenv("RUN_SHERPA_DIARIZATION_INTEGRATION")')
+          end = text.index('def test_normalization_word_split_and_short_interjection', start)
+          text = text[:start] + text[end:]
+          text = text.replace('name = "sherpa-onnx"', 'name = "fake"')
+          text = text.replace(
+              'def test_nested_sherpa_turn_wins_equal_overlap_by_temporal_specificity():',
+              'def test_nested_turn_wins_equal_overlap_by_temporal_specificity():',
+          )
+          if 'sherpa' in text.casefold():
+              raise SystemExit('legacy backend reference remains in test_diarization.py')
+          write(str(path), text)
+
+          # Reproducibility utility now exercises pyannote directly.
+          write('scripts/diarization_reproducibility.py', '''#!/usr/bin/env python3
+          """Run pyannote diarization repeatedly on one immutable WAV and compare timelines."""
+
+          from __future__ import annotations
+
+          import argparse
+          import json
+          import platform
+          from pathlib import Path
+
+          from vid_pipeline.diarization import (
+              DiarizationConfig,
+              _audio_manifest,
+              _turn_summary,
+              compare_diarization_runs,
+              select_diarization_consensus,
+          )
+          from vid_pipeline.pyannote_diarization import (
+              PYANNOTE_MODEL_ID,
+              PyannoteDiarizationBackend,
+          )
+
+
+          def main() -> None:
+              parser = argparse.ArgumentParser()
+              parser.add_argument("audio", type=Path)
+              parser.add_argument("--attempts", type=int, default=3)
+              parser.add_argument("--num-speakers", type=int, default=2)
+              parser.add_argument("--output", type=Path, required=True)
+              args = parser.parse_args()
+
+              config = DiarizationConfig(num_speakers=args.num_speakers)
+              backend = PyannoteDiarizationBackend()
+              attempts = []
+              for index in range(args.attempts):
+                  turns = backend.diarize(args.audio, num_speakers=args.num_speakers)
+                  attempts.append(turns)
+                  print(json.dumps(_turn_summary(turns, index + 1), sort_keys=True))
+
+              selected, summary = select_diarization_consensus(attempts, config)
+              comparisons = []
+              for left in range(len(attempts)):
+                  for right in range(left + 1, len(attempts)):
+                      comparisons.append({
+                          "left": left + 1,
+                          "right": right + 1,
+                          **compare_diarization_runs(attempts[left], attempts[right]),
+                      })
+
+              report = {
+                  "python_version": platform.python_version(),
+                  "backend": backend.name,
+                  "model_id": PYANNOTE_MODEL_ID,
+                  "pyannote_audio_version": backend.pyannote_audio_version,
+                  "audio": _audio_manifest(args.audio),
+                  "attempts": [
+                      _turn_summary(turns, index + 1)
+                      for index, turns in enumerate(attempts)
+                  ],
+                  "comparisons": comparisons,
+                  "summary": summary,
+                  "selected_attempt": selected + 1,
+              }
+              args.output.parent.mkdir(parents=True, exist_ok=True)
+              args.output.write_text(json.dumps(report, indent=2) + "\\n", encoding="utf-8")
+
+
+          if __name__ == "__main__":
+              main()
+          '''.replace('          ', ''))
+
+          # URL-processing workflow: use the same production pyannote wiring.
+          path = Path('.github/workflows/process-video.yml')
+          lines = path.read_text(encoding='utf-8').splitlines()
+          workspace = '$' + '{{ github.workspace }}'
+          env_hf_cache = '$' + '{{ env.HF_HUB_CACHE }}'
+          runner_os = '$' + '{{ runner.os }}'
+          secret_token = '$' + '{{ secrets.HF_TOKEN }}'
+          lines = [
+              line.replace('Install and run optional sherpa-onnx diarization',
+                           'Install and run optional pyannote Community-1 diarization')
+              for line in lines
+              if 'VID_PIPELINE_DIARIZATION_CACHE:' not in line
+          ]
+          if not any('VID_PIPELINE_DIARIZATION_BACKEND:' in line for line in lines):
+              index = next(i for i, line in enumerate(lines) if line.startswith('      VID_PIPELINE_DIARIZATION:'))
+              lines.insert(index + 1, '      VID_PIPELINE_DIARIZATION_BACKEND: pyannote-community-1')
+          if not any(line.startswith('      HF_HOME:') for line in lines):
+              index = next(i for i, line in enumerate(lines) if line.startswith('      VID_PIPELINE_ASR_CACHE:'))
+              lines[index + 1:index + 1] = [
+                  f'      HF_HOME: {workspace}/.cache/huggingface',
+                  f'      HF_HUB_CACHE: {workspace}/.cache/huggingface/hub',
+              ]
+          start = next(i for i, line in enumerate(lines) if line == '      - name: Cache diarization models')
+          end = next(i for i in range(start + 1, len(lines)) if lines[i].startswith('      - name: '))
+          lines[start:end] = [
+              '      - name: Cache pyannote Community-1 model',
+              '        uses: actions/cache@v4',
+              '        with:',
+              f'          path: {env_hf_cache}',
+              f'          key: pyannote-{runner_os}-py311-audio-4.0.4-community-1-v1',
+              '',
+          ]
+          hub_index = next(i for i, line in enumerate(lines) if line == '          HUGGING_FACE_HUB_TOKEN: ""')
+          if not any('VID_PIPELINE_PYANNOTE_TOKEN:' in line for line in lines):
+              lines.insert(hub_index + 1, f'          VID_PIPELINE_PYANNOTE_TOKEN: {secret_token}')
+          text = '\n'.join(lines) + '\n'
+          if 'sherpa' in text.casefold():
+              raise SystemExit('legacy backend reference remains in process-video.yml')
+          write(str(path), text)
+
+          # Validation workflows/results no longer carry comparisons to the retired backend.
+          for file_name in (
+              '.github/workflows/pyannote-core-validation.yml',
+              '.github/workflows/pyannote-live-validation.yml',
+          ):
+              path = Path(file_name)
+              text = path.read_text(encoding='utf-8')
+              text, count = re.subn(
+                  r"\n\s*'baseline_sherpa': \{\n\s*'speaker_00_seconds_approx': 932,\n\s*'speaker_01_seconds_approx': 14,\n\s*\},",
+                  '',
+                  text,
+                  count=1,
+              )
+              if count != 1:
+                  raise SystemExit(f'baseline anchor missing in {file_name}')
+              write(file_name, text)
+
+          for file_name in (
+              'validation/pyannote-core-result.json',
+              'validation/pyannote-live-result.json',
+          ):
+              path = Path(file_name)
+              data = json.loads(path.read_text(encoding='utf-8'))
+              data.pop('baseline_sherpa', None)
+              path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          # Documentation reflects the production backend and secret isolation.
+          path = Path('README.md')
+          text = path.read_text(encoding='utf-8')
+          head = text.split('## Speaker diarization', 1)[0]
+          section = '''## Speaker diarization
+
+          Speaker diarization is opt-in and uses `pyannote.audio` with
+          `pyannote/speaker-diarization-community-1` on the GitHub Actions CPU runner. The model
+          requires Hugging Face access to Community-1 and a repository Actions secret named
+          `HF_TOKEN`. The workflow exposes that credential only as `VID_PIPELINE_PYANNOTE_TOKEN`;
+          standard Hugging Face token variables stay empty for the ASR stage.
+
+          Install locally with:
+
+          ```bash
+          pip install -e '.[worker,diarization-pyannote]'
+          ```
+
+          The compatibility extra `.[worker,diarization]` resolves to the same pyannote backend.
+          `--diarize` enables speaker diarization; add `--diarization-required` when a model-access,
+          initialization, inference, or quality-gate failure must fail the job. `--num-speakers 2`
+          is recommended for the current interview dataset. Diagnostics record raw, normalized,
+          aligned, ambiguous, and effective-speaker metrics. `--speaker-role-mode host-teacher`
+          applies the conservative role mapper, while manual mappings such as
+          `--speaker-role SPEAKER_00=host` remain authoritative.
+
+          ```bash
+          vid-pipeline github-submit-folder ./input_videos/tehran_ \\
+            --recursive --confirm-each \\
+            --repo Shahbazi-Amir/vid_pipeline --ref main \\
+            --profile balanced --language fa --no-editorial \\
+            --diarize --diarization-required --num-speakers 2 \\
+            --speaker-role-mode host-teacher \\
+            --wait --download --output-root ./_tehran_pipeline_downloads \\
+            --delete-remote-after-success --delete-result-artifact-after-download
+          ```
+
+          The ASR model remains project-controlled through the repository release/cache path; the
+          pyannote Hugging Face credential is not used to provision ASR. Normal delivery remains
+          exactly `transcript.md`, `transcript.txt`, and `transcript.timestamped.md`; diarization
+          diagnostics are debug-only.
+          '''.replace('          ', '')
+          path.write_text(head + section, encoding='utf-8')
+
+          path = Path('docs/accuracy-review.md')
+          text = path.read_text(encoding='utf-8')
+          old = '''مدل‌های عمومی sherpa-onnx بدون حساب، توکن یا credential خارجی دریافت می‌شوند:
+
+          ```bash
+          vid-accuracy build outputs/<job-id> --diarize
+          ```
+
+          این قابلیت اختیاری است و در حالت غیرالزامی، خطای دانلود یا inference باعث حذف متن نمی‌شود.'''.replace('          ', '')
+          new = '''تشخیص گوینده با `pyannote/speaker-diarization-community-1` انجام می‌شود. حساب Hugging Face باید به مدل دسترسی داشته باشد و توکن از `VID_PIPELINE_PYANNOTE_TOKEN` یا `HF_TOKEN` خوانده می‌شود:
+
+          ```bash
+          vid-accuracy build outputs/<job-id> --diarize
+          ```
+
+          این قابلیت اختیاری است و در حالت غیرالزامی، خطای دسترسی مدل یا inference باعث حذف متن نمی‌شود.'''.replace('          ', '')
+          if old not in text:
+              raise SystemExit('accuracy review documentation anchor missing')
+          path.write_text(text.replace(old, new, 1), encoding='utf-8')
+          PY
+
+      - name: Install validation dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          pip install -e '.[dev,worker,diarization-pyannote]'
+
+      - name: Validate pyannote-only repository
+        shell: bash
+        run: |
+          set -euo pipefail
+          pytest -q
+          ruff check .
+          python -m compileall -q src tests scripts
+          git diff --check
+
+      - name: Commit cleanup and self-clean
+        if: success()
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .github/bootstrap/cleanup-legacy-diarizer.trigger
+          rm -f .github/workflows/cleanup-legacy-diarizer.yml
+          rm -f validation/sherpa-removal-inventory.txt
+          python - <<'PY'
+          from pathlib import Path
+
+          matches = []
+          for path in sorted(Path('.').rglob('*')):
+              if not path.is_file() or '.git' in path.parts:
+                  continue
+              try:
+                  text = path.read_text(encoding='utf-8')
+              except (UnicodeDecodeError, OSError):
+                  continue
+              if 'sherpa' in text.casefold():
+                  matches.append(str(path))
+          if matches:
+              raise SystemExit('legacy backend references remain: ' + ', '.join(matches))
+          PY
+          mkdir -p validation
+          printf '%s\n' '{"status":"success","backend":"pyannote-community-1","legacy_backend_removed":true,"pytest":"pass","ruff":"pass","compileall":"pass","diff_check":"pass","repository_scan":"pass"}' > validation/diarization-backend-cleanup.json
+          git diff --check
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "refactor: remove legacy diarization backend"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
+
+      - name: Record failure and self-clean
+        if: failure()
+        shell: bash
+        run: |
+          set -euo pipefail
+          git reset --hard "$GITHUB_SHA"
+          rm -f .github/bootstrap/cleanup-legacy-diarizer.trigger
+          rm -f .github/workflows/cleanup-legacy-diarizer.yml
+          mkdir -p validation
+          printf '%s\n' '{"status":"failure","backend":"pyannote-community-1","legacy_backend_removed":false}' > validation/diarization-backend-cleanup.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "test: record diarization backend cleanup failure" || true
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main

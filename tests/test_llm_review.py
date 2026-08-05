@@ -8,6 +8,7 @@ from vid_pipeline.llm_review import (
     ReviewAPIConfig,
     render_review_markdown,
     render_review_text,
+    render_review_timestamped,
     review_collection_output,
     review_collection_output_if_configured,
     validate_review,
@@ -50,6 +51,7 @@ def test_validate_review_preserves_generic_structure():
 
     assert [block.speaker for block in blocks] == ["SPEAKER_00", "SPEAKER_00", "Guest A"]
     assert blocks[0].text == "این یک دغدغه مهم است."
+    assert render_review_timestamped(blocks) == REVIEWED
 
 
 def test_validate_review_rejects_timestamp_or_speaker_changes():
@@ -93,6 +95,7 @@ def test_review_collection_output_writes_three_review_files(
 
     assert result["status"] == "completed"
     assert result["api_used"] is True
+    assert result["chunks"] == 1
     reviewed_timed = root / "review" / "timestamped" / "7.md"
     reviewed_md = root / "review" / "md" / "7.md"
     reviewed_txt = root / "review" / "txt" / "7.txt"
@@ -103,6 +106,63 @@ def test_review_collection_output_writes_three_review_files(
 
     skipped = review_collection_output(root, 7, config=config)
     assert skipped["status"] == "skipped"
+
+
+def test_review_chunks_long_input_and_canonicalizes_each_response(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+):
+    root = tmp_path / "outputs" / "collection"
+    source = root / "timestamped" / "8.md"
+    source.parent.mkdir(parents=True)
+    source.write_text(SOURCE, encoding="utf-8")
+    calls: list[str] = []
+
+    def fake_review(text: str, config: ReviewAPIConfig) -> str:
+        calls.append(text)
+        return "extra model commentary\n\n" + text.replace("دقدقه", "دغدغه")
+
+    monkeypatch.setattr(llm_review, "_call_review_api", fake_review)
+    config = ReviewAPIConfig(
+        api_key="secret",
+        base_url="https://example.invalid/v1",
+        model="model",
+        chunk_chars=90,
+    )
+
+    result = review_collection_output(root, 8, config=config)
+
+    assert result["status"] == "completed"
+    assert result["chunks"] == len(calls)
+    assert result["chunks"] > 1
+    reviewed = (root / "review" / "timestamped" / "8.md").read_text(encoding="utf-8")
+    assert reviewed == REVIEWED
+    assert "extra model commentary" not in reviewed
+
+
+def test_existing_reviewed_timestamped_file_rebuilds_derived_outputs_without_api(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+):
+    root = tmp_path / "outputs" / "collection"
+    source = root / "timestamped" / "9.md"
+    source.parent.mkdir(parents=True)
+    source.write_text(SOURCE, encoding="utf-8")
+    reviewed_timed = root / "review" / "timestamped" / "9.md"
+    reviewed_timed.parent.mkdir(parents=True)
+    reviewed_timed.write_text(REVIEWED, encoding="utf-8")
+
+    def fail_if_called(text: str, config: ReviewAPIConfig) -> str:
+        raise AssertionError("API must not be called when validated timestamped review exists")
+
+    monkeypatch.setattr(llm_review, "_call_review_api", fail_if_called)
+    result = review_collection_output(root, 9)
+
+    assert result["status"] == "completed"
+    assert result["api_used"] is False
+    assert result["chunks"] == 0
+    assert (root / "review" / "md" / "9.md").exists()
+    assert (root / "review" / "txt" / "9.txt").exists()
 
 
 def test_review_is_optional_when_no_review_environment_is_configured(

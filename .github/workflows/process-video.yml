@@ -72,7 +72,7 @@ on:
         default: false
         type: boolean
       diarization:
-        description: Install and run optional sherpa-onnx diarization
+        description: Install and run optional pyannote Community-1 diarization
         required: true
         default: false
         type: boolean
@@ -116,8 +116,10 @@ jobs:
       VID_PIPELINE_MAX_TARGETED_SEGMENTS: 40
       VID_PIPELINE_WHISPERX_ALIGNMENT: ${{ inputs.whisperx_alignment || 'false' }}
       VID_PIPELINE_DIARIZATION: ${{ inputs.diarization || 'false' }}
-      VID_PIPELINE_DIARIZATION_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/diarization
+      VID_PIPELINE_DIARIZATION_BACKEND: pyannote-community-1
       VID_PIPELINE_ASR_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/asr
+      HF_HOME: ${{ github.workspace }}/.cache/huggingface
+      HF_HUB_CACHE: ${{ github.workspace }}/.cache/huggingface/hub
       OLLAMA_BASE_URL: http://127.0.0.1:11434
 
     steps:
@@ -199,11 +201,11 @@ jobs:
           python-version: '3.11'
           cache: pip
 
-      - name: Cache diarization models
+      - name: Cache pyannote Community-1 model
         uses: actions/cache@v4
         with:
-          path: ${{ env.VID_PIPELINE_DIARIZATION_CACHE }}
-          key: diarization-${{ runner.os }}-py311-sherpa-1.13.4-segmentation-3.0-int8-3dspeaker-eres2net
+          path: ${{ env.HF_HUB_CACHE }}
+          key: pyannote-${{ runner.os }}-py311-audio-4.0.4-community-1-v1
 
       - name: Cache project-controlled ASR model
         uses: actions/cache@v4
@@ -243,6 +245,7 @@ jobs:
         env:
           HF_TOKEN: ""
           HUGGING_FACE_HUB_TOKEN: ""
+          VID_PIPELINE_PYANNOTE_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           set -euo pipefail
           args=(run-url "$VIDEO_URL" --output-root outputs --language fa \

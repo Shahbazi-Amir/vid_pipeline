@@ -1,4 +1,4 @@
-"""Command line interface for pre-review and auditable human review."""
+"""Command line interface for pre-review, AI review, and auditable human review."""
 
 from __future__ import annotations
 
@@ -7,6 +7,7 @@ import json
 import sys
 from pathlib import Path
 
+from vid_pipeline.llm_review import AIReviewError, review_collection_output
 from vid_pipeline.pre_review import PreReviewError, build_pre_review_package
 from vid_pipeline.review import (
     ReviewConfig,
@@ -23,9 +24,21 @@ def _print(value: object) -> None:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="vid-review",
-        description="Build lossless pre-review and auditable human-review packages.",
+        description="Build automated, pre-review, and auditable human-review outputs.",
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
+
+    ai_collection = subparsers.add_parser(
+        "ai-collection",
+        help="Review one numbered collection transcript through the configured LLM API.",
+    )
+    ai_collection.add_argument("collection_root", type=Path)
+    ai_collection.add_argument("result_number", type=int)
+    ai_collection.add_argument(
+        "--force",
+        action="store_true",
+        help="Run the API again even when a reviewed timestamped file already exists.",
+    )
 
     pre_review = subparsers.add_parser(
         "pre-review",
@@ -63,6 +76,15 @@ def build_parser() -> argparse.ArgumentParser:
 def main() -> int:
     args = build_parser().parse_args()
     try:
+        if args.command == "ai-collection":
+            _print(
+                review_collection_output(
+                    args.collection_root,
+                    args.result_number,
+                    force=args.force,
+                )
+            )
+            return 0
         if args.command == "pre-review":
             _print(build_pre_review_package(args.job_root))
             return 0
@@ -110,7 +132,14 @@ def main() -> int:
             raise ReviewError("No pre-review, review or human verification exists for this job.")
         _print(json.loads(selected.read_text(encoding="utf-8")))
         return 0
-    except (PreReviewError, ReviewError, OSError, ValueError, json.JSONDecodeError) as exc:
+    except (
+        AIReviewError,
+        PreReviewError,
+        ReviewError,
+        OSError,
+        ValueError,
+        json.JSONDecodeError,
+    ) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 1
 

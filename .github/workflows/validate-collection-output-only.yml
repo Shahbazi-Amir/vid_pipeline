@@ -30,10 +30,12 @@ jobs:
         shell: bash
         run: |
           set +e
+          mkdir -p validation
           pytest -q
           pytest_rc=$?
-          ruff check .
+          ruff check . > validation/collection-output-ruff.txt 2>&1
           ruff_rc=$?
+          cat validation/collection-output-ruff.txt
           python -m compileall -q src tests
           compile_rc=$?
           git diff --check
@@ -47,15 +49,14 @@ jobs:
           values = [int(value) for value in sys.argv[1:]]
           report = {name: "pass" if value == 0 else "fail" for name, value in zip(names, values)}
           report["status"] = "success" if all(value == 0 for value in values) else "failure"
-          Path("validation").mkdir(exist_ok=True)
           Path("validation/collection-output-validation.json").write_text(
               json.dumps(report, separators=(",", ":")) + "\n", encoding="utf-8"
           )
           PY
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add validation/collection-output-validation.json
-          git commit -m "test: validate collection output mode" || true
+          git add validation/collection-output-validation.json validation/collection-output-ruff.txt
+          git commit -m "test: record collection output diagnostics" || true
           git push origin HEAD:main
           test "$pytest_rc" -eq 0
           test "$ruff_rc" -eq 0

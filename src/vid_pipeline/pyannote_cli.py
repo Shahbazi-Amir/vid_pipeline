@@ -10,9 +10,10 @@ from typing import Any
 
 from vid_pipeline import accuracy, reliable_cli
 from vid_pipeline import diarization as diarization_module
-from vid_pipeline.collection_output import materialize_collection_output
+from vid_pipeline.collection_output import infer_result_number, materialize_collection_output
 from vid_pipeline.diarization import DiarizationConfig, run_diarization
 from vid_pipeline.github_client import GitHubState, sha256_file
+from vid_pipeline.llm_review import AIReviewError, review_collection_output_if_configured
 from vid_pipeline.pyannote_diarization import (
     PYANNOTE_BACKEND_NAME,
     PYANNOTE_MODEL_ID,
@@ -191,19 +192,25 @@ def main() -> int:
         sys.argv = prepared
         result = reliable_cli.main()
         if result == 0 and collection_root is not None:
+            source = Path(original_argv[2])
             target = _materialize_collection_result(
-                Path(original_argv[2]),
+                source,
                 collection_root,
                 result_number,
             )
+            number = infer_result_number(source, result_number)
+            review = review_collection_output_if_configured(target, number)
             print(
                 json.dumps(
-                    {"collection_output": str(target)},
+                    {
+                        "collection_output": str(target),
+                        "review": review,
+                    },
                     ensure_ascii=False,
                 )
             )
         return result
-    except (OSError, ValueError) as exc:
+    except (AIReviewError, OSError, ValueError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 1
     finally:

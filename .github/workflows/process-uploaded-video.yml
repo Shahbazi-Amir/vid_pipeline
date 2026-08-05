@@ -91,7 +91,10 @@ jobs:
       SPEAKER_ROLE_MODE: ${{ inputs.speaker_role_mode }}
       SPEAKER_ROLES: ${{ inputs.speaker_roles }}
       VID_PIPELINE_DIARIZATION_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/diarization
+      VID_PIPELINE_DIARIZATION_BACKEND: pyannote-community-1
       VID_PIPELINE_ASR_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/asr
+      HF_HOME: ${{ github.workspace }}/.cache/huggingface
+      HF_HUB_CACHE: ${{ github.workspace }}/.cache/huggingface/hub
       EDITORIAL_MODEL: qwen3:8b
       OLLAMA_BASE_URL: http://127.0.0.1:11434
 
@@ -103,12 +106,12 @@ jobs:
           python-version: "3.11"
           cache: pip
 
-      - name: Cache diarization models
+      - name: Cache pyannote Community-1 model
         if: inputs.diarization_enabled == 'true'
         uses: actions/cache@v4
         with:
-          path: ${{ env.VID_PIPELINE_DIARIZATION_CACHE }}
-          key: diarization-${{ runner.os }}-py311-sherpa-1.13.4-segmentation-3.0-int8-3dspeaker-eres2net
+          path: ${{ env.HF_HUB_CACHE }}
+          key: pyannote-${{ runner.os }}-py311-audio-4.0.4-community-1-v1
 
       - name: Cache project-controlled ASR model
         uses: actions/cache@v4
@@ -124,7 +127,7 @@ jobs:
           sudo apt-get install -y ffmpeg
           python -m pip install --upgrade pip
           if [[ "${DIARIZATION_ENABLED,,}" == "true" ]]; then
-            pip install -e '.[worker,diarization]'
+            pip install -e '.[worker,diarization-pyannote]'
           else
             pip install -e '.[worker]'
           fi
@@ -247,6 +250,7 @@ jobs:
         env:
           HF_TOKEN: ""
           HUGGING_FACE_HUB_TOKEN: ""
+          VID_PIPELINE_PYANNOTE_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           set -euo pipefail
           args=(run-file "$INPUT_MEDIA" --name "$REQUEST_ID" --output-root outputs \

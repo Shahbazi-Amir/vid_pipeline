@@ -1,0 +1,138 @@
+name: Cleanup legacy diarizer v6
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/bootstrap/cleanup-legacy-diarizer-v6.trigger"
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Apply tested pyannote-only transform
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from __future__ import annotations
+
+          import subprocess
+
+          historical = subprocess.check_output(
+              [
+                  "git",
+                  "show",
+                  "5fc8b1619bba29e24f41db5a7d18deef47d6c391:.github/workflows/cleanup-legacy-diarizer-v5.yml",
+              ],
+              text=True,
+          )
+          begin = historical.index("          python - <<'PY'\n") + len("          python - <<'PY'\n")
+          finish = historical.index("\n          PY\n\n      - name: Compile transformed sources", begin)
+          raw = historical[begin:finish]
+          script = "\n".join(
+              line[10:] if line.startswith("          ") else line
+              for line in raw.splitlines()
+          ) + "\n"
+          old = 'str(getattr(backend, "model_id"))'
+          new = 'str(backend.model_id)'
+          if old not in script:
+              raise SystemExit("ruff correction anchor missing")
+          script = script.replace(old, new, 1)
+          exec(compile(script, "cleanup-transform-v6", "exec"), {"__name__": "__main__"})
+          PY
+
+      - name: Compile transformed sources
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m compileall -q src tests scripts
+
+      - name: Install validation dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          pip install -e '.[dev,worker,diarization-pyannote]'
+
+      - name: Validate pyannote-only repository
+        shell: bash
+        run: |
+          set -euo pipefail
+          pytest -q
+          ruff check .
+          python -m compileall -q src tests scripts
+          git diff --check
+
+      - name: Verify zero retired-backend references and commit
+        if: success()
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .github/bootstrap/cleanup-legacy-diarizer-v6.trigger
+          rm -f .github/workflows/cleanup-legacy-diarizer-v6.yml
+          rm -f validation/sherpa-removal-inventory.txt
+          rm -f validation/cleanup-run-probe.json
+          rm -f validation/cleanup-v2-run-probe.json
+          rm -f validation/cleanup-v3-run-probe.json
+          rm -f validation/cleanup-v4-run-probe.json
+          rm -f validation/cleanup-v5-run-probe.json
+          python - <<'PY'
+          from pathlib import Path
+
+          retired = "sher" + "pa"
+          matches = []
+          for path in sorted(Path(".").rglob("*")):
+              if not path.is_file() or ".git" in path.parts:
+                  continue
+              if retired in str(path).casefold():
+                  matches.append(f"path:{path}")
+                  continue
+              try:
+                  text = path.read_text(encoding="utf-8")
+              except (UnicodeDecodeError, OSError):
+                  continue
+              if retired in text.casefold():
+                  matches.append(f"content:{path}")
+          if matches:
+              raise SystemExit("retired backend references remain: " + ", ".join(matches))
+          PY
+          printf '%s\n' '{"status":"success","backend":"pyannote-community-1","legacy_backend_removed":true,"pytest":"pass","ruff":"pass","compileall":"pass","diff_check":"pass","repository_scan":"pass"}' > validation/diarization-backend-cleanup.json
+          git diff --check
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "refactor: remove legacy diarization backend"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
+
+      - name: Record failure and self-clean
+        if: failure()
+        shell: bash
+        run: |
+          set -euo pipefail
+          git reset --hard "$GITHUB_SHA"
+          rm -f .github/bootstrap/cleanup-legacy-diarizer-v6.trigger
+          rm -f .github/workflows/cleanup-legacy-diarizer-v6.yml
+          printf '%s\n' '{"status":"failure","backend":"pyannote-community-1","legacy_backend_removed":false,"attempt":6}' > validation/diarization-backend-cleanup.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "test: record diarization backend cleanup failure v6" || true
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main

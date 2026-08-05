@@ -121,7 +121,7 @@ def validate_review(source: str, reviewed: str) -> list[TranscriptBlock]:
     if reviewed_speakers != source_speakers:
         raise AIReviewError("review changed speaker labels or speaker ordering")
 
-    for source_block, reviewed_block in zip(source_blocks, reviewed_blocks):
+    for source_block, reviewed_block in zip(source_blocks, reviewed_blocks, strict=True):
         if source_block.text and not reviewed_block.text:
             raise AIReviewError(
                 f"review emptied transcript block at {source_block.timestamp}"
@@ -235,11 +235,8 @@ def review_collection_output(
     reviewed_md = root / "review" / "md" / f"{result_number}.md"
     reviewed_txt = root / "review" / "txt" / f"{result_number}.txt"
 
-    if not force and all(path.is_file() and path.stat().st_size > 0 for path in (
-        reviewed_timed,
-        reviewed_md,
-        reviewed_txt,
-    )):
+    review_paths = (reviewed_timed, reviewed_md, reviewed_txt)
+    if not force and all(path.is_file() and path.stat().st_size > 0 for path in review_paths):
         return {
             "status": "skipped",
             "reason": "review outputs already complete",

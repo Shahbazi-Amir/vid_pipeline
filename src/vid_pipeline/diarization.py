@@ -347,7 +347,12 @@ def align_segments(segments: list[dict[str, Any]], turns: list[SpeakerTurn], *, 
                     continue
                 row = {"start": float(word["start"]), "end": float(word["end"]), "text": text.strip(), "speaker": speaker,
                        "speaker_evidence": evidence, "aligned_word_count": 1}
-                if rows and rows[-1]["speaker"] == speaker and row["start"] - rows[-1]["end"] <= merge_gap:
+                if (
+                    rows
+                    and "speaker_evidence" in rows[-1]
+                    and rows[-1]["speaker"] == speaker
+                    and row["start"] - rows[-1]["end"] <= merge_gap
+                ):
                     rows[-1]["text"] = join_word_tokens([rows[-1]["text"], text])
                     rows[-1]["end"] = row["end"]
                     previous = rows[-1]["speaker_evidence"]

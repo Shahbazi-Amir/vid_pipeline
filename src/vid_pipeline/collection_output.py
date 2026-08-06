@@ -65,7 +65,8 @@ def materialize_collection_output(
         temporary.replace(target)
 
     shutil.rmtree(downloaded)
-    parent = downloaded.parent
-    if parent.name == "github-results" and parent.exists() and not any(parent.iterdir()):
-        parent.rmdir()
+    # Keep the shared github-results parent directory even when it is empty.
+    # Parallel submit workers use the same parent and another worker can be
+    # between mkdir() and tempfile.mkdtemp(); removing the parent here creates
+    # a race that can make an otherwise successful concurrent download fail.
     return root

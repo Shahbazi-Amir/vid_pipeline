@@ -39,6 +39,8 @@ def test_materialize_collection_output_moves_three_files(tmp_path: Path):
     assert (collection / "timestamped/2.md").read_text(encoding="utf-8") == "timed\n"
     assert (collection / "txt/2.txt").read_text(encoding="utf-8") == "text\n"
     assert not downloaded.exists()
+    # The parent is shared by parallel GitHub submit workers and must remain.
+    assert (tmp_path / ".vid_pipeline/github-results").is_dir()
 
 
 def test_materialize_refuses_different_existing_output(tmp_path: Path):
@@ -107,3 +109,4 @@ def test_materialize_collection_result_updates_saved_state(
     assert (tmp_path / "outputs/uni_tehran/md/2.md").exists()
     assert state.load("request-2").output_path == str(target)
     assert not (tmp_path / ".vid_pipeline/github-results/request-2").exists()
+    assert (tmp_path / ".vid_pipeline/github-results").is_dir()

@@ -83,6 +83,7 @@ def test_align_segments_does_not_merge_word_row_into_stale_text_row():
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add src/vid_pipeline/diarization.py tests/test_diarization.py
           git commit -m "fix: handle mixed diarization alignment rows"
+          git pull --rebase origin main
           git push origin HEAD:main
 
-# Triggered after the workflow existed on main.
+# Retriggered after the workflow existed on main; rebase protects concurrent main updates.

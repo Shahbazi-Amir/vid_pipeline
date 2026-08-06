@@ -34,7 +34,6 @@ jobs:
 
           test_path = Path('tests/test_diarization.py')
           tests = test_path.read_text(encoding='utf-8')
-          marker = '\n\ndef _speaker_switches'  # not present in tests; just guard against duplicate below
           test_name = 'test_align_segments_does_not_merge_word_row_into_stale_text_row'
           if test_name not in tests:
               addition = r'''
@@ -85,3 +84,5 @@ def test_align_segments_does_not_merge_word_row_into_stale_text_row():
           git add src/vid_pipeline/diarization.py tests/test_diarization.py
           git commit -m "fix: handle mixed diarization alignment rows"
           git push origin HEAD:main
+
+# Triggered after the workflow existed on main.

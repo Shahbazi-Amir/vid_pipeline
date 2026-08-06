@@ -2,29 +2,26 @@ name: Release input smoke test
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - '.github/release-input-test.trigger'
+  issues:
+    types: [opened]
 
 permissions:
-  contents: write
+  contents: read
+  issues: write
 
 jobs:
   benchmark:
+    if: github.event_name == 'workflow_dispatch' || github.event.issue.title == '[release-input-smoke]'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
       - name: Benchmark latest non-temporary draft release
+        id: benchmark
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p benchmarks
           python - <<'PY'
           import hashlib
           import json
@@ -34,10 +31,10 @@ jobs:
           import urllib.error
           import urllib.request
 
-          report_path = "benchmarks/release-input-latest.json"
+          result_path = "/tmp/release-input-result.json"
 
           def write_report(report):
-              with open(report_path, "w", encoding="utf-8") as output:
+              with open(result_path, "w", encoding="utf-8") as output:
                   json.dump(report, output, ensure_ascii=False, indent=2)
                   output.write("\n")
               print(json.dumps(report, ensure_ascii=False, indent=2))
@@ -166,16 +163,36 @@ jobs:
               traceback.print_exc()
           PY
 
-      - name: Persist benchmark result
+      - name: Comment result on trigger issue
+        if: github.event_name == 'issues'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
         shell: bash
         run: |
           set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add benchmarks/release-input-latest.json
-          if git diff --cached --quiet; then
-            exit 0
-          fi
-          git commit -m "test: record release input benchmark"
-          git pull --rebase origin main
-          git push origin HEAD:main
+          python - <<'PY'
+          import json
+          import os
+          import urllib.request
+
+          with open('/tmp/release-input-result.json', encoding='utf-8') as handle:
+              report = json.load(handle)
+          body = 'Release input smoke test result:\n\n```json\n' + json.dumps(report, ensure_ascii=False, indent=2) + '\n```'
+          payload = json.dumps({'body': body}, ensure_ascii=False).encode('utf-8')
+          request = urllib.request.Request(
+              f"https://api.github.com/repos/{os.environ['GITHUB_REPOSITORY']}/issues/{os.environ['ISSUE_NUMBER']}/comments",
+              data=payload,
+              method='POST',
+              headers={
+                  'Accept': 'application/vnd.github+json',
+                  'Authorization': f"Bearer {os.environ['GH_TOKEN']}",
+                  'Content-Type': 'application/json',
+                  'X-GitHub-Api-Version': '2022-11-28',
+                  'User-Agent': 'vid-pipeline-release-smoke-test',
+              },
+          )
+          with urllib.request.urlopen(request, timeout=120) as response:
+              if response.status not in {200, 201}:
+                  raise SystemExit(f'Comment creation failed: HTTP {response.status}')
+          PY

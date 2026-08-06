@@ -3,7 +3,7 @@ name: Temporary diarization regression fix
 on:
   push:
     paths:
-      - .github/workflows/fix-diarization-speaker-evidence.yml
+      - .github/trigger-diarization-fix
 
 permissions:
   contents: write
@@ -85,5 +85,3 @@ def test_align_segments_does_not_merge_word_row_into_stale_text_row():
           git commit -m "fix: handle mixed diarization alignment rows"
           git pull --rebase origin main
           git push origin HEAD:main
-
-# Retriggered after the workflow existed on main; rebase protects concurrent main updates.

@@ -18,4 +18,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Stop active private collection processing
-        run: echo "Private collection orchestration stopped to prevent further external review API usage."
+        run: echo "External-review spending stop requested; cancel any active private collection run in this concurrency group."

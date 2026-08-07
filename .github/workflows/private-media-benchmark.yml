@@ -9,18 +9,22 @@ on:
         required: true
         default: "1"
         type: string
+  issues:
+    types: [opened]
 
 permissions:
   contents: read
+  issues: write
 
 jobs:
   benchmark:
+    if: github.event_name == 'workflow_dispatch' || github.event.issue.title == '[private-media-benchmark]'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
       PRIVATE_MEDIA_REPO: ${{ secrets.PRIVATE_MEDIA_REPO }}
       PRIVATE_MEDIA_TOKEN: ${{ secrets.PRIVATE_MEDIA_TOKEN }}
-      ASSET_INDEX: ${{ inputs.asset_index }}
+      ASSET_INDEX: ${{ inputs.asset_index || '1' }}
       TARGET: /tmp/vid-pipeline-private-media.bin
 
     steps:
@@ -121,22 +125,75 @@ jobs:
               output.write(f"size_bytes={size}\n")
               output.write(f"seconds={elapsed:.3f}\n")
               output.write(f"mib_per_second={mib_per_second:.3f}\n")
-
-          print(f"Private asset verified: {size} bytes")
-          print(f"Download time: {elapsed:.3f} seconds")
-          print(f"Download speed: {mib_per_second:.3f} MiB/s")
           PY
 
-      - name: Write benchmark summary
+      - name: Comment benchmark result
+        if: github.event_name == 'issues' && success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          SIZE_BYTES: ${{ steps.benchmark.outputs.size_bytes }}
+          SECONDS: ${{ steps.benchmark.outputs.seconds }}
+          MIB_PER_SECOND: ${{ steps.benchmark.outputs.mib_per_second }}
         shell: bash
         run: |
-          {
-            echo "## Private media benchmark"
-            echo ""
-            echo "- Size: ${{ steps.benchmark.outputs.size_bytes }} bytes"
-            echo "- Download time: ${{ steps.benchmark.outputs.seconds }} seconds"
-            echo "- Speed: ${{ steps.benchmark.outputs.mib_per_second }} MiB/s"
-          } >> "$GITHUB_STEP_SUMMARY"
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import os
+          import urllib.request
+
+          body = (
+              "Private media benchmark: success\n\n"
+              f"- Size: {os.environ['SIZE_BYTES']} bytes\n"
+              f"- Download time: {os.environ['SECONDS']} seconds\n"
+              f"- Speed: {os.environ['MIB_PER_SECOND']} MiB/s\n"
+          )
+          payload = json.dumps({"body": body}).encode()
+          req = urllib.request.Request(
+              f"https://api.github.com/repos/{os.environ['GITHUB_REPOSITORY']}/issues/{os.environ['ISSUE_NUMBER']}/comments",
+              data=payload,
+              method="POST",
+              headers={
+                  "Accept": "application/vnd.github+json",
+                  "Authorization": f"Bearer {os.environ['GH_TOKEN']}",
+                  "Content-Type": "application/json",
+                  "X-GitHub-Api-Version": "2022-11-28",
+                  "User-Agent": "vid-pipeline-private-media-benchmark",
+              },
+          )
+          with urllib.request.urlopen(req, timeout=120):
+              pass
+          PY
+
+      - name: Comment benchmark failure
+        if: github.event_name == 'issues' && failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import os
+          import urllib.request
+          payload = json.dumps({"body": "Private media benchmark: failed. Check the Actions run log; no secret value is printed."}).encode()
+          req = urllib.request.Request(
+              f"https://api.github.com/repos/{os.environ['GITHUB_REPOSITORY']}/issues/{os.environ['ISSUE_NUMBER']}/comments",
+              data=payload,
+              method="POST",
+              headers={
+                  "Accept": "application/vnd.github+json",
+                  "Authorization": f"Bearer {os.environ['GH_TOKEN']}",
+                  "Content-Type": "application/json",
+                  "X-GitHub-Api-Version": "2022-11-28",
+                  "User-Agent": "vid-pipeline-private-media-benchmark",
+              },
+          )
+          with urllib.request.urlopen(req, timeout=120):
+              pass
+          PY
 
       - name: Remove downloaded media
         if: always()

@@ -4,11 +4,17 @@ set -euo pipefail
 required=(
   PRIVATE_MEDIA_REPO PRIVATE_MEDIA_TOKEN ASSET_ID EXPECTED_SIZE MEDIA_SUFFIX
   RESULT_NUMBER COLLECTION_ROOT DIARIZATION_ENABLED
-  VID_PIPELINE_REVIEW_API_KEY VID_PIPELINE_REVIEW_BASE_URL VID_PIPELINE_REVIEW_MODEL
 )
 for name in "${required[@]}"; do
   [[ -n "${!name:-}" ]] || { echo "Missing required environment variable: $name" >&2; exit 2; }
 done
+
+AI_REVIEW_ENABLED="${AI_REVIEW_ENABLED:-false}"
+if [[ "${AI_REVIEW_ENABLED,,}" == "true" ]]; then
+  for name in VID_PIPELINE_REVIEW_API_KEY VID_PIPELINE_REVIEW_BASE_URL VID_PIPELINE_REVIEW_MODEL; do
+    [[ -n "${!name:-}" ]] || { echo "Missing required review environment variable: $name" >&2; exit 2; }
+  done
+fi
 
 mkdir -p /tmp/vid-pipeline-private
 INPUT_MEDIA="/tmp/vid-pipeline-private/media${MEDIA_SUFFIX}"
@@ -86,10 +92,7 @@ vid-pipeline "${args[@]}"
 mkdir -p \
   "$COLLECTION_ROOT/md" \
   "$COLLECTION_ROOT/timestamped" \
-  "$COLLECTION_ROOT/txt" \
-  "$COLLECTION_ROOT/review/md" \
-  "$COLLECTION_ROOT/review/timestamped" \
-  "$COLLECTION_ROOT/review/txt"
+  "$COLLECTION_ROOT/txt"
 
 copy_one() {
   local source_name="$1"
@@ -106,18 +109,29 @@ copy_one transcript.md "$COLLECTION_ROOT/md/$RESULT_NUMBER.md"
 copy_one transcript.timestamped.md "$COLLECTION_ROOT/timestamped/$RESULT_NUMBER.md"
 copy_one transcript.txt "$COLLECTION_ROOT/txt/$RESULT_NUMBER.txt"
 
-vid-review ai-collection "$COLLECTION_ROOT" "$RESULT_NUMBER"
-
 for path in \
   "$COLLECTION_ROOT/md/$RESULT_NUMBER.md" \
   "$COLLECTION_ROOT/timestamped/$RESULT_NUMBER.md" \
-  "$COLLECTION_ROOT/txt/$RESULT_NUMBER.txt" \
-  "$COLLECTION_ROOT/review/md/$RESULT_NUMBER.md" \
-  "$COLLECTION_ROOT/review/timestamped/$RESULT_NUMBER.md" \
-  "$COLLECTION_ROOT/review/txt/$RESULT_NUMBER.txt"; do
-  [[ -s "$path" ]] || { echo "Expected output is missing or empty: $path" >&2; exit 1; }
+  "$COLLECTION_ROOT/txt/$RESULT_NUMBER.txt"; do
+  [[ -s "$path" ]] || { echo "Expected base output is missing or empty: $path" >&2; exit 1; }
 done
+
+if [[ "${AI_REVIEW_ENABLED,,}" == "true" ]]; then
+  mkdir -p \
+    "$COLLECTION_ROOT/review/md" \
+    "$COLLECTION_ROOT/review/timestamped" \
+    "$COLLECTION_ROOT/review/txt"
+  vid-review ai-collection "$COLLECTION_ROOT" "$RESULT_NUMBER"
+  for path in \
+    "$COLLECTION_ROOT/review/md/$RESULT_NUMBER.md" \
+    "$COLLECTION_ROOT/review/timestamped/$RESULT_NUMBER.md" \
+    "$COLLECTION_ROOT/review/txt/$RESULT_NUMBER.txt"; do
+    [[ -s "$path" ]] || { echo "Expected review output is missing or empty: $path" >&2; exit 1; }
+  done
+  echo "Result $RESULT_NUMBER completed with AI review"
+else
+  echo "Result $RESULT_NUMBER completed without external AI review"
+fi
 
 rm -rf outputs
 rm -f "$INPUT_MEDIA"
-echo "Result $RESULT_NUMBER completed with AI review"

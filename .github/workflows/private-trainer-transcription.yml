@@ -1,0 +1,165 @@
+name: Private trainer transcription
+run-name: Private trainer transcription #${{ github.run_number }}
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/private-trainer-transcription.trigger"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: private-trainer-transcription
+  cancel-in-progress: false
+
+env:
+  PRIVATE_MEDIA_REPO: ${{ secrets.PRIVATE_MEDIA_REPO }}
+  PRIVATE_MEDIA_TOKEN: ${{ secrets.PRIVATE_MEDIA_TOKEN }}
+  AI_REVIEW_ENABLED: "false"
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    outputs:
+      ready: ${{ steps.check.outputs.ready }}
+    steps:
+      - id: check
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "$PRIVATE_MEDIA_REPO" || -z "$PRIVATE_MEDIA_TOKEN" ]]; then
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "Private media access secrets are missing."
+            exit 1
+          fi
+          echo "ready=true" >> "$GITHUB_OUTPUT"
+          echo "Trainer transcription preflight passed. External AI review is disabled."
+
+  discover:
+    needs: preflight
+    if: needs.preflight.outputs.ready == 'true'
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.manifest.outputs.matrix }}
+      count: ${{ steps.manifest.outputs.count }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: manifest
+        shell: bash
+        env:
+          RELEASE_SELECTOR: "تربیت مربی"
+          NUMBERING_MODE: auto
+          EXPECTED_NUMBERS: ""
+        run: python scripts/private_release_manifest.py
+
+  process:
+    needs: discover
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix: ${{ fromJSON(needs.discover.outputs.matrix) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      ASSET_ID: ${{ matrix.asset_id }}
+      EXPECTED_SIZE: ${{ matrix.size }}
+      EXPECTED_DIGEST: ${{ matrix.digest }}
+      MEDIA_SUFFIX: ${{ matrix.suffix }}
+      RESULT_NUMBER: ${{ matrix.result_number }}
+      COLLECTION_ROOT: private-result
+      DIARIZATION_ENABLED: "false"
+      DIARIZATION_REQUIRED: "false"
+      NUM_SPEAKERS: "1"
+      SPEAKER_ROLE_MODE: generic
+      VID_PIPELINE_ASR_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/asr
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - uses: actions/cache@v4
+        with:
+          path: ${{ env.VID_PIPELINE_ASR_CACHE }}
+          key: asr-${{ runner.os }}-faster-whisper-1.2.1-large-v3-turbo-ct2-v1
+      - name: Install worker dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install --upgrade pip
+          pip install -e '.[worker]'
+      - name: Transcribe private trainer media without external AI review
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in 1 2; do
+            bash scripts/process_private_release_asset.sh && exit 0
+            echo "Processing attempt $attempt failed for result $RESULT_NUMBER" >&2
+            rm -rf outputs private-result /tmp/vid-pipeline-private
+            sleep $((attempt * 10))
+          done
+          exit 1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: private-trainer-${{ matrix.result_number }}
+          path: private-result/**
+          retention-days: 2
+          if-no-files-found: error
+      - name: Remove media
+        if: always()
+        run: rm -rf /tmp/vid-pipeline-private
+
+  commit:
+    needs: [discover, process]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: private-trainer-*
+          path: staging
+          merge-multiple: true
+      - name: Merge and verify trainer base transcripts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/merge_collection_artifacts.py staging outputs/tarbiat_morabi
+          python scripts/verify_collection.py outputs/tarbiat_morabi --base-only
+      - name: Commit trainer base collection
+        shell: bash
+        env:
+          COUNT: ${{ needs.discover.outputs.count }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import os
+          from datetime import UTC, datetime
+          from pathlib import Path
+
+          payload = {
+              "state": "running",
+              "phase": "trainer_base_complete",
+              "ai_review": "disabled",
+              "trainer_processed": int(os.environ["COUNT"]),
+              "updated_at_utc": datetime.now(UTC).isoformat(),
+          }
+          path = Path("benchmarks/private-collections-status.json")
+          path.parent.mkdir(parents=True, exist_ok=True)
+          path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add outputs/tarbiat_morabi benchmarks/private-collections-status.json
+          git commit -m "data: add trainer base transcript collection"
+          for attempt in 1 2 3; do
+            git push origin HEAD:main && exit 0
+            git pull --rebase origin main
+          done
+          exit 1

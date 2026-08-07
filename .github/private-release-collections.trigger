@@ -1,1 +1,1 @@
-start private release collections
+rerun private release collections after review secrets configured

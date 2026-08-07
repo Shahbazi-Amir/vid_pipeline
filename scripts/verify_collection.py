@@ -3,10 +3,12 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-GROUPS = (
+BASE_GROUPS = (
     ("md", ".md"),
     ("timestamped", ".md"),
     ("txt", ".txt"),
+)
+REVIEW_GROUPS = (
     ("review/md", ".md"),
     ("review/timestamped", ".md"),
     ("review/txt", ".txt"),
@@ -52,21 +54,28 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("root", type=Path)
     parser.add_argument("--numbers", default="")
+    parser.add_argument(
+        "--base-only",
+        action="store_true",
+        help="Verify only raw transcript outputs and do not require AI-review outputs.",
+    )
     args = parser.parse_args()
 
+    groups = BASE_GROUPS if args.base_only else BASE_GROUPS + REVIEW_GROUPS
     root = args.root.resolve()
-    observed = [numbers_for(root, folder, suffix) for folder, suffix in GROUPS]
+    observed = [numbers_for(root, folder, suffix) for folder, suffix in groups]
     expected = parse_numbers(args.numbers) if args.numbers else observed[0]
     if not expected:
         raise SystemExit("collection contains no complete numbered outputs")
-    for (folder, _), actual in zip(GROUPS, observed, strict=True):
+    for (folder, _), actual in zip(groups, observed, strict=True):
         missing = sorted(expected - actual)
         extra = sorted(actual - expected) if args.numbers else []
         if missing or extra:
             raise SystemExit(
                 f"collection verification failed for {folder}: missing={missing}, extra={extra}"
             )
-    print(f"Verified {len(expected)} complete reviewed transcript results")
+    mode = "base transcript" if args.base_only else "reviewed transcript"
+    print(f"Verified {len(expected)} complete {mode} results")
 
 
 if __name__ == "__main__":

@@ -15,7 +15,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  render-one:
+  render-pending:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -30,38 +30,36 @@ jobs:
       - name: Install local review CLI
         run: python -m pip install -e .
 
-      - name: Render one incomplete reviewed transcript
+      - name: Render incomplete reviewed transcripts locally
         id: render
         shell: bash
         run: |
           set -euo pipefail
-          python - <<'PY' > /tmp/review-target.env
+          unset VID_PIPELINE_REVIEW_API_KEY VID_PIPELINE_REVIEW_BASE_URL VID_PIPELINE_REVIEW_MODEL
+          export AI_REVIEW_ENABLED=false
+
+          changed=false
+          while IFS=$'\t' read -r collection number; do
+            [[ -n "$collection" && -n "$number" ]] || continue
+            echo "Rendering local derivatives for $collection review $number"
+            vid-review ai-collection "$collection" "$number"
+            changed=true
+          done < <(python - <<'PY'
           from pathlib import Path
 
           for timed in sorted(Path("outputs").glob("*/review/timestamped/*.md")):
               collection = timed.parents[2]
               number = timed.stem
-              if not number.isdigit():
+              if not number.isdigit() or not timed.stat().st_size:
                   continue
               md = collection / "review" / "md" / f"{number}.md"
               txt = collection / "review" / "txt" / f"{number}.txt"
               if not md.is_file() or not md.stat().st_size or not txt.is_file() or not txt.stat().st_size:
-                  print(f"COLLECTION={collection}")
-                  print(f"NUMBER={number}")
-                  break
+                  print(f"{collection}\t{number}")
           PY
-          source /tmp/review-target.env || true
-          if [[ -z "${COLLECTION:-}" || -z "${NUMBER:-}" ]]; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-            echo "No incomplete reviewed transcript found."
-            exit 0
-          fi
+          )
 
-          unset VID_PIPELINE_REVIEW_API_KEY VID_PIPELINE_REVIEW_BASE_URL VID_PIPELINE_REVIEW_MODEL
-          vid-review ai-collection "$COLLECTION" "$NUMBER"
-          echo "changed=true" >> "$GITHUB_OUTPUT"
-          echo "collection=$COLLECTION" >> "$GITHUB_OUTPUT"
-          echo "number=$NUMBER" >> "$GITHUB_OUTPUT"
+          echo "changed=$changed" >> "$GITHUB_OUTPUT"
 
       - name: Commit rendered Markdown and text
         if: steps.render.outputs.changed == 'true'
@@ -70,9 +68,8 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "${{ steps.render.outputs.collection }}/review/md/${{ steps.render.outputs.number }}.md" \
-                  "${{ steps.render.outputs.collection }}/review/txt/${{ steps.render.outputs.number }}.txt"
-          git commit -m "review: render ChatGPT review ${{ steps.render.outputs.collection }} ${{ steps.render.outputs.number }}" || exit 0
+          git add 'outputs/*/review/md/*.md' 'outputs/*/review/txt/*.txt'
+          git commit -m "review: render pending ChatGPT derivatives" || exit 0
           for attempt in 1 2 3; do
             git push origin HEAD:main && exit 0
             git pull --rebase origin main

@@ -35,6 +35,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          # Local-only derivative rendering: never allow an external review endpoint here.
           unset VID_PIPELINE_REVIEW_API_KEY VID_PIPELINE_REVIEW_BASE_URL VID_PIPELINE_REVIEW_MODEL
           export AI_REVIEW_ENABLED=false
 

@@ -27,6 +27,7 @@ jobs:
           token_present=false
           repo_access=false
           release_manifest_ok=false
+          manifest_error_code="not_run"
           if [[ -n "${PRIVATE_MEDIA_REPO:-}" ]]; then repo_present=true; fi
           if [[ -n "${PRIVATE_MEDIA_TOKEN:-}" ]]; then token_present=true; fi
           if [[ "$repo_present" == true && "$token_present" == true ]]; then
@@ -38,9 +39,24 @@ jobs:
             if RELEASE_SELECTOR="تربیت مربی" NUMBERING_MODE=auto EXPECTED_NUMBERS="" \
               python scripts/private_release_manifest.py >/tmp/manifest.out 2>/tmp/manifest.err; then
               release_manifest_ok=true
+              manifest_error_code="none"
+            else
+              err=$(cat /tmp/manifest.err)
+              case "$err" in
+                *"Requested published private release was not found"*) manifest_error_code="release_not_found" ;;
+                *"Private release selector is ambiguous"*) manifest_error_code="release_selector_ambiguous" ;;
+                *"Selected private release has no supported uploaded media assets"*) manifest_error_code="no_supported_media_assets" ;;
+                *"A release asset is missing the required leading result number"*) manifest_error_code="missing_leading_number" ;;
+                *"Duplicate result numbers were inferred from private release assets"*) manifest_error_code="duplicate_result_numbers" ;;
+                *"Selected private release does not contain the expected result-number set"*) manifest_error_code="unexpected_result_number_set" ;;
+                *"HTTP Error 401"*) manifest_error_code="http_401" ;;
+                *"HTTP Error 403"*) manifest_error_code="http_403" ;;
+                *"HTTP Error 404"*) manifest_error_code="http_404" ;;
+                *) manifest_error_code="other_manifest_error" ;;
+              esac
             fi
           fi
-          REPO_PRESENT="$repo_present" TOKEN_PRESENT="$token_present" REPO_ACCESS="$repo_access" RELEASE_OK="$release_manifest_ok" python - <<'PY'
+          REPO_PRESENT="$repo_present" TOKEN_PRESENT="$token_present" REPO_ACCESS="$repo_access" RELEASE_OK="$release_manifest_ok" MANIFEST_ERROR_CODE="$manifest_error_code" python - <<'PY'
           import json, os
           from pathlib import Path
           as_bool = lambda name: os.environ[name].lower() == "true"
@@ -49,6 +65,7 @@ jobs:
             "private_media_token_present": as_bool("TOKEN_PRESENT"),
             "private_repo_access_ok": as_bool("REPO_ACCESS"),
             "trainer_release_manifest_ok": as_bool("RELEASE_OK"),
+            "manifest_error_code": os.environ["MANIFEST_ERROR_CODE"],
           }
           p = Path("benchmarks/private-trainer-diagnostic.json")
           p.parent.mkdir(parents=True, exist_ok=True)

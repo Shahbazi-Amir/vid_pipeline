@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from vid_pipeline.llm_review import (
+    AIReviewError,
     _atomic_write,
     render_review_markdown,
     render_review_text,
@@ -12,6 +13,7 @@ from vid_pipeline.llm_review import (
 
 def main() -> int:
     changed = 0
+    invalid = 0
     for reviewed_timed in sorted(Path("outputs").glob("*/review/timestamped/*.md")):
         if not reviewed_timed.is_file() or not reviewed_timed.stat().st_size:
             continue
@@ -21,7 +23,9 @@ def main() -> int:
         collection = reviewed_timed.parents[2]
         source = collection / "timestamped" / f"{number}.md"
         if not source.is_file() or not source.stat().st_size:
-            raise SystemExit(f"missing base timestamped source: {source}")
+            print(f"skipping {collection} review {number}: missing base timestamped source")
+            invalid += 1
+            continue
 
         reviewed_md = collection / "review" / "md" / f"{number}.md"
         reviewed_txt = collection / "review" / "txt" / f"{number}.txt"
@@ -35,13 +39,20 @@ def main() -> int:
 
         source_text = source.read_text(encoding="utf-8")
         reviewed_text = reviewed_timed.read_text(encoding="utf-8")
-        blocks = validate_review(source_text, reviewed_text)
+        try:
+            blocks = validate_review(source_text, reviewed_text)
+        except AIReviewError as exc:
+            print(f"skipping invalid {collection} review {number}: {exc}")
+            invalid += 1
+            continue
+
         _atomic_write(reviewed_md, render_review_markdown(blocks))
         _atomic_write(reviewed_txt, render_review_text(blocks))
         changed += 1
         print(f"rendered {collection} review {number} locally")
 
     print(f"rendered_count={changed}")
+    print(f"invalid_count={invalid}")
     return 0
 
 

@@ -28,6 +28,8 @@ jobs:
           repo_access=false
           release_manifest_ok=false
           manifest_error_code="not_run"
+          canonical_published_match=false
+          canonical_draft_match=false
           if [[ -n "${PRIVATE_MEDIA_REPO:-}" ]]; then repo_present=true; fi
           if [[ -n "${PRIVATE_MEDIA_TOKEN:-}" ]]; then token_present=true; fi
           if [[ "$repo_present" == true && "$token_present" == true ]]; then
@@ -55,8 +57,37 @@ jobs:
                 *) manifest_error_code="other_manifest_error" ;;
               esac
             fi
+            eval "$(python - <<'PY'
+          import json, os, re, unicodedata, urllib.request
+          def canon(s):
+              s = unicodedata.normalize('NFKC', s or '')
+              s = s.translate(str.maketrans({'ي':'ی','ى':'ی','ك':'ک','ۀ':'ه','ة':'ه'}))
+              s = s.replace('\u200c',' ').replace('\u200f',' ').replace('\u200e',' ')
+              s = re.sub(r'[\s_-]+', ' ', s.strip().casefold())
+              return s
+          target = canon('تربیت مربی')
+          req = urllib.request.Request(
+              f"https://api.github.com/repos/{os.environ['PRIVATE_MEDIA_REPO']}/releases?per_page=100",
+              headers={'Authorization': f"Bearer {os.environ['PRIVATE_MEDIA_TOKEN']}", 'Accept':'application/vnd.github+json','User-Agent':'trainer-diagnostic'}
+          )
+          try:
+              with urllib.request.urlopen(req, timeout=120) as r:
+                  releases = json.load(r)
+          except Exception:
+              releases = []
+          pub = draft = False
+          for item in releases:
+              vals = [canon(str(item.get('name') or '')), canon(str(item.get('tag_name') or ''))]
+              match = any(target == v or (target and target in v) for v in vals)
+              if match:
+                  if item.get('draft'): draft = True
+                  else: pub = True
+          print(f'canonical_published_match={str(pub).lower()}')
+          print(f'canonical_draft_match={str(draft).lower()}')
+          PY
+          )"
           fi
-          REPO_PRESENT="$repo_present" TOKEN_PRESENT="$token_present" REPO_ACCESS="$repo_access" RELEASE_OK="$release_manifest_ok" MANIFEST_ERROR_CODE="$manifest_error_code" python - <<'PY'
+          REPO_PRESENT="$repo_present" TOKEN_PRESENT="$token_present" REPO_ACCESS="$repo_access" RELEASE_OK="$release_manifest_ok" MANIFEST_ERROR_CODE="$manifest_error_code" CANONICAL_PUBLISHED_MATCH="$canonical_published_match" CANONICAL_DRAFT_MATCH="$canonical_draft_match" python - <<'PY'
           import json, os
           from pathlib import Path
           as_bool = lambda name: os.environ[name].lower() == "true"
@@ -66,6 +97,8 @@ jobs:
             "private_repo_access_ok": as_bool("REPO_ACCESS"),
             "trainer_release_manifest_ok": as_bool("RELEASE_OK"),
             "manifest_error_code": os.environ["MANIFEST_ERROR_CODE"],
+            "canonical_published_match": as_bool("CANONICAL_PUBLISHED_MATCH"),
+            "canonical_draft_match": as_bool("CANONICAL_DRAFT_MATCH"),
           }
           p = Path("benchmarks/private-trainer-diagnostic.json")
           p.parent.mkdir(parents=True, exist_ok=True)

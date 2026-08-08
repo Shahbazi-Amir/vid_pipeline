@@ -1,0 +1,68 @@
+name: Private trainer diagnostic
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/private-trainer-diagnostic.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    env:
+      PRIVATE_MEDIA_REPO: ${{ secrets.PRIVATE_MEDIA_REPO }}
+      PRIVATE_MEDIA_TOKEN: ${{ secrets.PRIVATE_MEDIA_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Diagnose trainer prerequisites safely
+        shell: bash
+        run: |
+          set -euo pipefail
+          repo_present=false
+          token_present=false
+          repo_access=false
+          release_manifest_ok=false
+          if [[ -n "${PRIVATE_MEDIA_REPO:-}" ]]; then repo_present=true; fi
+          if [[ -n "${PRIVATE_MEDIA_TOKEN:-}" ]]; then token_present=true; fi
+          if [[ "$repo_present" == true && "$token_present" == true ]]; then
+            code=$(curl -sS -o /tmp/repo.json -w '%{http_code}' \
+              -H "Authorization: Bearer $PRIVATE_MEDIA_TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/$PRIVATE_MEDIA_REPO" || true)
+            if [[ "$code" == "200" ]]; then repo_access=true; fi
+            if RELEASE_SELECTOR="تربیت مربی" NUMBERING_MODE=auto EXPECTED_NUMBERS="" \
+              python scripts/private_release_manifest.py >/tmp/manifest.out 2>/tmp/manifest.err; then
+              release_manifest_ok=true
+            fi
+          fi
+          python - <<PY
+          import json
+          from pathlib import Path
+          payload = {
+            "private_media_repo_present": $repo_present,
+            "private_media_token_present": $token_present,
+            "private_repo_access_ok": $repo_access,
+            "trainer_release_manifest_ok": $release_manifest_ok,
+          }
+          p = Path("benchmarks/private-trainer-diagnostic.json")
+          p.parent.mkdir(parents=True, exist_ok=True)
+          p.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+          PY
+      - name: Commit safe diagnostic result
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add benchmarks/private-trainer-diagnostic.json
+          git commit -m "ci: record trainer diagnostic" || exit 0
+          for attempt in 1 2 3; do
+            git push origin HEAD:main && exit 0
+            git pull --rebase origin main
+          done
+          exit 1

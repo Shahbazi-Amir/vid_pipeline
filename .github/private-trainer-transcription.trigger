@@ -1,1 +1,1 @@
-release-selector-fixed-sevencollection-2026-08-08
+resume-trainer-pending-only-2026-08-08T13:47Z

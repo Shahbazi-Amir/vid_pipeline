@@ -1,1 +1,1 @@
-2026-08-08T13:14:26+03:30
+release-selector-fixed-sevencollection-2026-08-08

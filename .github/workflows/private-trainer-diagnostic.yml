@@ -40,14 +40,15 @@ jobs:
               release_manifest_ok=true
             fi
           fi
-          python - <<PY
-          import json
+          REPO_PRESENT="$repo_present" TOKEN_PRESENT="$token_present" REPO_ACCESS="$repo_access" RELEASE_OK="$release_manifest_ok" python - <<'PY'
+          import json, os
           from pathlib import Path
+          as_bool = lambda name: os.environ[name].lower() == "true"
           payload = {
-            "private_media_repo_present": $repo_present,
-            "private_media_token_present": $token_present,
-            "private_repo_access_ok": $repo_access,
-            "trainer_release_manifest_ok": $release_manifest_ok,
+            "private_media_repo_present": as_bool("REPO_PRESENT"),
+            "private_media_token_present": as_bool("TOKEN_PRESENT"),
+            "private_repo_access_ok": as_bool("REPO_ACCESS"),
+            "trainer_release_manifest_ok": as_bool("RELEASE_OK"),
           }
           p = Path("benchmarks/private-trainer-diagnostic.json")
           p.parent.mkdir(parents=True, exist_ok=True)

@@ -42,10 +42,13 @@ jobs:
     if: needs.preflight.outputs.ready == 'true'
     runs-on: ubuntu-latest
     outputs:
-      matrix: ${{ steps.manifest.outputs.matrix }}
-      count: ${{ steps.manifest.outputs.count }}
+      matrix: ${{ steps.filter.outputs.matrix }}
+      remaining_count: ${{ steps.filter.outputs.remaining_count }}
+      total_count: ${{ steps.manifest.outputs.count }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - id: manifest
         shell: bash
         env:
@@ -53,9 +56,39 @@ jobs:
           NUMBERING_MODE: auto
           EXPECTED_NUMBERS: ""
         run: python scripts/private_release_manifest.py
+      - id: filter
+        shell: bash
+        env:
+          MATRIX: ${{ steps.manifest.outputs.matrix }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          matrix = json.loads(os.environ["MATRIX"])
+          root = Path("outputs/tarbiat_morabi")
+          pending = []
+          for item in matrix.get("include", []):
+              number = str(item["result_number"])
+              complete = all(
+                  (root / kind / f"{number}.{ext}").is_file()
+                  and (root / kind / f"{number}.{ext}").stat().st_size > 0
+                  for kind, ext in (("md", "md"), ("timestamped", "md"), ("txt", "txt"))
+              )
+              if not complete:
+                  pending.append(item)
+          out = os.environ["GITHUB_OUTPUT"]
+          with open(out, "a", encoding="utf-8") as handle:
+              handle.write("matrix=" + json.dumps({"include": pending}, separators=(",", ":"), ensure_ascii=False) + "\n")
+              handle.write(f"remaining_count={len(pending)}\n")
+          print(f"Trainer assets remaining: {len(pending)} of {len(matrix.get('include', []))}")
+          PY
 
   process:
     needs: discover
+    if: needs.discover.outputs.remaining_count != '0'
     strategy:
       fail-fast: false
       max-parallel: 3
@@ -76,6 +109,8 @@ jobs:
       VID_PIPELINE_ASR_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/asr
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -103,51 +138,58 @@ jobs:
             sleep $((attempt * 10))
           done
           exit 1
-      - uses: actions/upload-artifact@v4
-        with:
-          name: private-trainer-${{ matrix.result_number }}
-          path: private-result/**
-          retention-days: 2
-          if-no-files-found: error
+      - name: Commit this trainer base transcript immediately
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p outputs/tarbiat_morabi/md outputs/tarbiat_morabi/timestamped outputs/tarbiat_morabi/txt
+          cp "private-result/md/$RESULT_NUMBER.md" "outputs/tarbiat_morabi/md/$RESULT_NUMBER.md"
+          cp "private-result/timestamped/$RESULT_NUMBER.md" "outputs/tarbiat_morabi/timestamped/$RESULT_NUMBER.md"
+          cp "private-result/txt/$RESULT_NUMBER.txt" "outputs/tarbiat_morabi/txt/$RESULT_NUMBER.txt"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "outputs/tarbiat_morabi/md/$RESULT_NUMBER.md" \
+                  "outputs/tarbiat_morabi/timestamped/$RESULT_NUMBER.md" \
+                  "outputs/tarbiat_morabi/txt/$RESULT_NUMBER.txt"
+          git commit -m "data: add trainer base transcript $RESULT_NUMBER" || exit 0
+          for attempt in 1 2 3 4; do
+            git push origin HEAD:main && exit 0
+            git pull --rebase origin main
+          done
+          exit 1
       - name: Remove media
         if: always()
-        run: rm -rf /tmp/vid-pipeline-private
+        run: rm -rf /tmp/vid-pipeline-private private-result
 
-  commit:
+  finalize:
     needs: [discover, process]
+    if: always() && needs.discover.result == 'success' && (needs.process.result == 'success' || needs.process.result == 'skipped')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           ref: main
-      - uses: actions/download-artifact@v4
-        with:
-          pattern: private-trainer-*
-          path: staging
-          merge-multiple: true
-      - name: Merge and verify trainer base transcripts
+      - name: Verify complete trainer base collection
         shell: bash
         run: |
           set -euo pipefail
-          python scripts/merge_collection_artifacts.py staging outputs/tarbiat_morabi
           python scripts/verify_collection.py outputs/tarbiat_morabi --base-only
-      - name: Commit trainer base collection
+      - name: Record trainer base completion
         shell: bash
-        env:
-          COUNT: ${{ needs.discover.outputs.count }}
         run: |
           set -euo pipefail
           python - <<'PY'
           import json
-          import os
           from datetime import UTC, datetime
           from pathlib import Path
 
+          root = Path("outputs/tarbiat_morabi/timestamped")
+          count = sum(1 for path in root.glob("*.md") if path.stem.isdigit() and path.stat().st_size > 0)
           payload = {
               "state": "running",
               "phase": "trainer_base_complete",
               "ai_review": "disabled",
-              "trainer_processed": int(os.environ["COUNT"]),
+              "trainer_processed": count,
               "updated_at_utc": datetime.now(UTC).isoformat(),
           }
           path = Path("benchmarks/private-collections-status.json")
@@ -156,8 +198,8 @@ jobs:
           PY
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add outputs/tarbiat_morabi benchmarks/private-collections-status.json
-          git commit -m "data: add trainer base transcript collection"
+          git add benchmarks/private-collections-status.json
+          git commit -m "data: complete trainer base transcript collection" || exit 0
           for attempt in 1 2 3; do
             git push origin HEAD:main && exit 0
             git pull --rebase origin main

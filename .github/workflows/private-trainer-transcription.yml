@@ -52,7 +52,7 @@ jobs:
       - id: manifest
         shell: bash
         env:
-          RELEASE_SELECTOR: "تربیت مربی"
+          RELEASE_SELECTOR: "sevencollection"
           NUMBERING_MODE: auto
           EXPECTED_NUMBERS: ""
         run: python scripts/private_release_manifest.py
@@ -62,7 +62,7 @@ jobs:
           MATRIX: ${{ steps.manifest.outputs.matrix }}
         run: |
           set -euo pipefail
-          python - <<'PY'
+          python - <<'PY' > /tmp/filter.out
           import json
           import os
           from pathlib import Path
@@ -85,6 +85,7 @@ jobs:
               handle.write(f"remaining_count={len(pending)}\n")
           print(f"Trainer assets remaining: {len(pending)} of {len(matrix.get('include', []))}")
           PY
+          cat /tmp/filter.out
 
   process:
     needs: discover

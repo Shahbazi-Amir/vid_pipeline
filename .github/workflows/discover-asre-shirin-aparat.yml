@@ -28,15 +28,20 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Discover and validate all 26 Aparat episodes
+      - name: Discover Aparat episodes and preserve diagnostics
         id: discover
         shell: bash
         run: |
+          set -uo pipefail
+          mkdir -p sources/asre_shirin
           set +e
-          python scripts/discover_asre_shirin_aparat.py
+          python scripts/discover_asre_shirin_aparat.py > sources/asre_shirin/discovery.stdout.txt 2> sources/asre_shirin/discovery.stderr.txt
           status=$?
           set -e
           echo "status=$status" >> "$GITHUB_OUTPUT"
+          printf 'exit_status=%s\n' "$status" > sources/asre_shirin/discovery.status.txt
+          cat sources/asre_shirin/discovery.stdout.txt || true
+          cat sources/asre_shirin/discovery.stderr.txt >&2 || true
 
       - name: Publish discovery manifest and diagnostics
         shell: bash
@@ -44,19 +49,20 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add sources/asre_shirin/aparat_manifest.json sources/asre_shirin/links.md
+          git add sources/asre_shirin
           if git diff --cached --quiet; then
             echo "Discovery output unchanged"
-          else
-            git commit -m "data: discover Asre Shirin Aparat links"
-            for attempt in 1 2 3 4; do
-              if git push origin HEAD:main; then
-                break
-              fi
-              git pull --rebase origin main
-              sleep $((attempt * 3))
-            done
+            exit 0
           fi
+          git commit -m "data: record Asre Shirin Aparat discovery"
+          for attempt in 1 2 3 4 5; do
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            git pull --rebase origin main
+            sleep $((attempt * 3))
+          done
+          exit 1
 
       - name: Require complete 1..26 manifest
         shell: bash
@@ -64,10 +70,7 @@ jobs:
           DISCOVERY_STATUS: ${{ steps.discover.outputs.status }}
         run: |
           set -euo pipefail
-          if [[ "$DISCOVERY_STATUS" != "0" ]]; then
-            echo "Asre Shirin discovery is incomplete; inspect committed diagnostics." >&2
-            exit "$DISCOVERY_STATUS"
-          fi
+          [[ "$DISCOVERY_STATUS" == "0" ]] || exit "$DISCOVERY_STATUS"
           python - <<'PY'
           import json
           from pathlib import Path

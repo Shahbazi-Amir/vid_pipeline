@@ -9,7 +9,10 @@ from pathlib import Path
 TIMESTAMP_BLOCK = re.compile(
     r"\[(\d{2}):(\d{2}):(\d{2})\s*→\s*(\d{2}):(\d{2}):(\d{2})\]\s+\*\*([^*]+)\*\*"
 )
-GENERIC_SPEAKER = re.compile(r"^گوینده\s+([۰-۹0-9]+)$")
+
+HOST_MAX_FIRST_START_SECONDS = 12.0
+HOST_MIN_FIRST_TURN_SECONDS = 4.0
+DOCTOR_MIN_DOMINANCE_RATIO = 1.20
 
 
 def seconds(h: str, m: str, s: str) -> int:
@@ -31,7 +34,6 @@ def parse_timeline(path: Path) -> list[dict[str, object]]:
 
 
 def replace_labels(text: str, mapping: dict[str, str]) -> str:
-    # Replace longest labels first and only in explicit speaker-label contexts.
     for old in sorted(mapping, key=len, reverse=True):
         new = mapping[old]
         text = text.replace(f"**{old}**", f"**{new}**")
@@ -71,35 +73,65 @@ def main() -> None:
     if len(labels) < 2:
         raise SystemExit(f"Expected at least two diarized speakers; got {labels}")
 
-    # User-supplied program structure: Ms. Motavalian opens the program. Select
-    # the earliest substantial speaker; if the first turn is tiny, prefer the
-    # strongest speaker in the first 120 seconds among speakers starting early.
-    substantial = [label for label in labels if first_duration[label] >= 4.0]
-    if substantial:
-        host = min(substantial, key=lambda value: (first_start[value], -opening_totals[value]))
-    else:
-        host = max(labels, key=lambda value: (opening_totals[value], -first_start[value]))
+    # The user supplied only one structural identity cue: Ms. Motavalian opens
+    # the program. Apply that identity only when the diarization actually shows
+    # a substantial speaker beginning near time zero. Otherwise preserve an
+    # explicit unresolved label instead of inventing a name.
+    substantial = [
+        label
+        for label in labels
+        if first_duration[label] >= HOST_MIN_FIRST_TURN_SECONDS
+        and first_start[label] <= HOST_MAX_FIRST_START_SECONDS
+    ]
+    host = (
+        min(substantial, key=lambda value: (first_start[value], -opening_totals[value]))
+        if substantial
+        else None
+    )
 
     remaining = [label for label in labels if label != host]
-    doctor = max(remaining, key=lambda value: (totals[value], -first_start[value]))
-    participants = [
-        label
-        for label in sorted(remaining, key=lambda value: (first_start[value], -totals[value], value))
-        if label != doctor
-    ]
+    doctor_candidate = max(remaining, key=lambda value: (totals[value], -first_start[value]))
+    other_nonhost = [label for label in remaining if label != doctor_candidate]
+    next_nonhost_duration = max((totals[label] for label in other_nonhost), default=0.0)
+    doctor_ratio = totals[doctor_candidate] / max(next_nonhost_duration, 1.0)
+    doctor_resolved = len(remaining) == 1 or doctor_ratio >= DOCTOR_MIN_DOMINANCE_RATIO
+    doctor = doctor_candidate if doctor_resolved else None
 
-    mapping = {host: "خانم متولیان", doctor: "دکتر کمیل رودی"}
-    for index, label in enumerate(participants, 1):
-        mapping[label] = f"شرکت‌کننده {index}"
+    mapping: dict[str, str] = {}
+    unresolved: list[str] = []
+    if host is not None:
+        mapping[host] = "خانم متولیان"
+    if doctor is not None:
+        mapping[doctor] = "دکتر کمیل رودی"
 
-    doctor_others = sorted((totals[label] for label in participants), reverse=True)
-    next_nonhost = doctor_others[0] if doctor_others else 0.0
-    doctor_ratio = totals[doctor] / max(next_nonhost, 1.0)
-    host_is_first = first_start[host] == min(first_start.values())
+    participant_index = 1
+    for label in sorted(labels, key=lambda value: (first_start[value], -totals[value], value)):
+        if label in mapping:
+            continue
+        if label == doctor_candidate and not doctor_resolved:
+            mapping[label] = "گوینده نامشخص (کاندید دکتر کمیل رودی)"
+            unresolved.append(label)
+            continue
+        if host is None and label == labels[0]:
+            mapping[label] = "گوینده نامشخص (کاندید خانم متولیان)"
+            unresolved.append(label)
+            continue
+        mapping[label] = f"شرکت‌کننده {participant_index}"
+        participant_index += 1
+
+    host_is_first = host is not None and first_start[host] == min(first_start.values())
+    status = "mapped" if host is not None and doctor is not None else "partially_unresolved"
+    warnings: list[str] = []
+    if host is None:
+        warnings.append("Host identity unresolved: no substantial diarized speaker starts near the beginning.")
+    if doctor is None:
+        warnings.append(
+            "Doctor identity unresolved: dominant non-host evidence is insufficient; identity was not invented."
+        )
 
     diagnostics = {
         "episode": episode,
-        "method": "opening-host-and-dominant-nonhost-v1",
+        "method": "conservative-opening-host-and-dominant-nonhost-v2",
         "user_program_structure": {
             "host": "خانم متولیان",
             "expert": "دکتر کمیل رودی",
@@ -114,19 +146,22 @@ def main() -> None:
         "mapping": mapping,
         "host_selection": {
             "raw_label": host,
+            "resolved": host is not None,
             "is_earliest_speaker": host_is_first,
-            "first_turn_seconds": round(first_duration[host], 3),
+            "first_turn_seconds": round(first_duration[host], 3) if host is not None else None,
+            "max_first_start_seconds": HOST_MAX_FIRST_START_SECONDS,
+            "min_first_turn_seconds": HOST_MIN_FIRST_TURN_SECONDS,
         },
         "doctor_selection": {
             "raw_label": doctor,
+            "candidate_raw_label": doctor_candidate,
+            "resolved": doctor is not None,
             "dominant_nonhost_duration_ratio_vs_next": round(doctor_ratio, 3),
+            "required_ratio": DOCTOR_MIN_DOMINANCE_RATIO,
         },
-        "status": "mapped",
-        "warning": (
-            "Doctor/participant assignment is heuristic and should be spot-checked when the dominant-nonhost ratio is low."
-            if doctor_ratio < 1.20 and participants
-            else ""
-        ),
+        "unresolved_raw_labels": unresolved,
+        "status": status,
+        "warnings": warnings,
     }
 
     for path in (timestamped, markdown, text_path):
@@ -141,7 +176,12 @@ def main() -> None:
     (roles_dir / f"{episode}.json").write_text(
         json.dumps(diagnostics, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
-    print(json.dumps({"episode": episode, "mapping": mapping, "warning": diagnostics["warning"]}, ensure_ascii=False))
+    print(
+        json.dumps(
+            {"episode": episode, "mapping": mapping, "status": status, "warnings": warnings},
+            ensure_ascii=False,
+        )
+    )
 
 
 if __name__ == "__main__":

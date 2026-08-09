@@ -1,0 +1,283 @@
+name: Private Asre Shirin transcription
+run-name: Private Asre Shirin transcription #${{ github.run_number }}
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/private-asre-shirin-transcription.trigger"
+
+permissions:
+  actions: read
+  contents: write
+
+concurrency:
+  group: private-asre-shirin-transcription
+  cancel-in-progress: false
+
+env:
+  AI_REVIEW_ENABLED: "false"
+  VID_PIPELINE_ASR_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/asr
+  HF_HOME: ${{ github.workspace }}/.cache/huggingface
+  HF_HUB_CACHE: ${{ github.workspace }}/.cache/huggingface/hub
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.pending.outputs.matrix }}
+      remaining_count: ${{ steps.pending.outputs.remaining_count }}
+      total_count: ${{ steps.pending.outputs.total_count }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - id: pending
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          manifest_path = Path("sources/asre_shirin/aparat_manifest.json")
+          if not manifest_path.is_file():
+              raise SystemExit("Verified Asre Shirin Aparat manifest is missing")
+          data = json.loads(manifest_path.read_text(encoding="utf-8"))
+          videos = data.get("videos") or []
+          numbers = [int(row["result_number"]) for row in videos]
+          if data.get("complete") is not True or numbers != list(range(1, 27)):
+              raise SystemExit(f"Asre Shirin manifest is not complete 1..26: {numbers}")
+
+          root = Path("outputs/asre_shirin")
+          pending = []
+          for row in videos:
+              n = str(int(row["result_number"]))
+              complete = all(
+                  path.is_file() and path.stat().st_size > 0
+                  for path in (
+                      root / "md" / f"{n}.md",
+                      root / "timestamped" / f"{n}.md",
+                      root / "txt" / f"{n}.txt",
+                      root / "roles" / f"{n}.json",
+                      root / "sources" / f"{n}.json",
+                  )
+              )
+              if not complete:
+                  pending.append({
+                      "result_number": int(row["result_number"]),
+                      "url": str(row["url"]),
+                      "title": str(row.get("title") or ""),
+                  })
+
+          out = os.environ["GITHUB_OUTPUT"]
+          with open(out, "a", encoding="utf-8") as handle:
+              handle.write("matrix=" + json.dumps({"include": pending}, separators=(",", ":"), ensure_ascii=False) + "\n")
+              handle.write(f"remaining_count={len(pending)}\n")
+              handle.write(f"total_count={len(videos)}\n")
+          print(f"Asre Shirin pending: {len(pending)} of {len(videos)}")
+          PY
+
+  process:
+    name: process Asre Shirin ${{ matrix.result_number }}
+    needs: discover
+    if: needs.discover.outputs.remaining_count != '0'
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix: ${{ fromJSON(needs.discover.outputs.matrix) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 210
+    env:
+      VID_PIPELINE_PYANNOTE_TOKEN: ${{ secrets.HF_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Cache pyannote Community-1 model
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.HF_HUB_CACHE }}
+          key: pyannote-${{ runner.os }}-py311-audio-4.0.4-community-1-v1
+
+      - name: Cache ASR model
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.VID_PIPELINE_ASR_CACHE }}
+          key: asr-${{ runner.os }}-faster-whisper-1.2.1-large-v3-turbo-ct2-v1
+
+      - name: Install worker dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install --upgrade pip
+          pip install -e '.[advanced]'
+
+      - name: Transcribe and diarize without external AI review
+        shell: bash
+        env:
+          VIDEO_URL: ${{ matrix.url }}
+          RESULT_NUMBER: ${{ matrix.result_number }}
+          VIDEO_TITLE: ${{ matrix.title }}
+        run: |
+          set -euo pipefail
+          for attempt in 1 2; do
+            echo "Starting Asre Shirin $RESULT_NUMBER attempt $attempt"
+            rm -rf worker-output private-result
+            set +e
+            timeout --verbose --signal=TERM --kill-after=2m 90m \
+              python scripts/process_asre_shirin_url.py \
+                --url "$VIDEO_URL" \
+                --episode "$RESULT_NUMBER" \
+                --title "$VIDEO_TITLE" \
+                --collection-root private-result \
+                --work-root worker-output
+            status=$?
+            set -e
+            if (( status == 0 )); then
+              exit 0
+            fi
+            echo "ASRE_SHIRIN_ATTEMPT_FAILED episode=$RESULT_NUMBER attempt=$attempt status=$status" >&2
+            sleep $((attempt * 15))
+          done
+          exit 1
+
+      - name: Validate checkpoint
+        shell: bash
+        env:
+          RESULT_NUMBER: ${{ matrix.result_number }}
+        run: |
+          set -euo pipefail
+          test -s "private-result/md/$RESULT_NUMBER.md"
+          test -s "private-result/timestamped/$RESULT_NUMBER.md"
+          test -s "private-result/txt/$RESULT_NUMBER.txt"
+          test -s "private-result/roles/$RESULT_NUMBER.json"
+          test -s "private-result/sources/$RESULT_NUMBER.json"
+          grep -q "خانم متولیان" "private-result/timestamped/$RESULT_NUMBER.md"
+          grep -q "دکتر کمیل رودی" "private-result/timestamped/$RESULT_NUMBER.md"
+
+      - name: Checkpoint successful episode
+        uses: actions/upload-artifact@v4
+        with:
+          name: asre-shirin-${{ matrix.result_number }}
+          path: private-result/**
+          retention-days: 7
+          if-no-files-found: error
+
+      - name: Cleanup worker media
+        if: always()
+        run: rm -rf worker-output private-result
+
+  publish:
+    name: publish Asre Shirin checkpoints
+    needs: [discover, process]
+    if: always() && needs.discover.result == 'success' && needs.discover.outputs.remaining_count != '0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: asre-shirin-*
+          path: staging
+          merge-multiple: true
+
+      - name: Merge checkpoints and publish once
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git checkout --detach origin/main
+            python scripts/merge_collection_artifacts.py \
+              staging outputs/asre_shirin --skip-existing-complete-base
+            git add outputs/asre_shirin
+            if git diff --cached --quiet; then
+              echo "All checkpointed Asre Shirin results already exist on main"
+              exit 0
+            fi
+            git commit -m "data: publish Asre Shirin base transcript batch"
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Publisher lost a push race; rebuilding from latest main" >&2
+            sleep $((attempt * 5))
+          done
+          exit 1
+
+  status:
+    needs: [discover, process, publish]
+    if: always() && needs.discover.result == 'success' && (needs.discover.outputs.remaining_count == '0' || needs.publish.result == 'success')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Record collection progress
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          python - <<'PY'
+          import json
+          from datetime import UTC, datetime
+          from pathlib import Path
+
+          root = Path("outputs/asre_shirin")
+          complete = []
+          for n in range(1, 27):
+              if all(
+                  path.is_file() and path.stat().st_size > 0
+                  for path in (
+                      root / "md" / f"{n}.md",
+                      root / "timestamped" / f"{n}.md",
+                      root / "txt" / f"{n}.txt",
+                      root / "roles" / f"{n}.json",
+                      root / "sources" / f"{n}.json",
+                  )
+              ):
+                  complete.append(n)
+          payload = {
+              "state": "complete" if len(complete) == 26 else "running",
+              "phase": "asre_shirin_base_complete" if len(complete) == 26 else "asre_shirin_base_partial",
+              "ai_review": "disabled",
+              "target_count": 26,
+              "processed": len(complete),
+              "completed_numbers": complete,
+              "remaining_numbers": [n for n in range(1, 27) if n not in complete],
+              "speaker_roles": ["خانم متولیان", "دکتر کمیل رودی", "شرکت‌کننده‌ها"],
+              "updated_at_utc": datetime.now(UTC).isoformat(),
+          }
+          path = Path("benchmarks/private-asre-shirin-status.json")
+          path.parent.mkdir(parents=True, exist_ok=True)
+          path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          print(json.dumps(payload, ensure_ascii=False))
+          PY
+          git add benchmarks/private-asre-shirin-status.json
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "data: update Asre Shirin transcription progress"
+          for attempt in 1 2 3 4; do
+            git push origin HEAD:main && exit 0
+            git pull --rebase origin main
+            sleep $((attempt * 4))
+          done
+          exit 1

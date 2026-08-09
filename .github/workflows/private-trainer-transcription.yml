@@ -8,6 +8,7 @@ on:
       - ".github/private-trainer-transcription.trigger"
 
 permissions:
+  actions: read
   contents: write
 
 concurrency:
@@ -88,6 +89,7 @@ jobs:
           cat /tmp/filter.out
 
   process:
+    name: process trainer ${{ matrix.result_number }}
     needs: discover
     if: needs.discover.outputs.remaining_count != '0'
     strategy:
@@ -95,7 +97,7 @@ jobs:
       max-parallel: 6
       matrix: ${{ fromJSON(needs.discover.outputs.matrix) }}
     runs-on: ubuntu-latest
-    timeout-minutes: 360
+    timeout-minutes: 100
     env:
       ASSET_ID: ${{ matrix.asset_id }}
       EXPECTED_SIZE: ${{ matrix.size }}
@@ -126,45 +128,92 @@ jobs:
           set -euo pipefail
           sudo apt-get update
           sudo apt-get install -y ffmpeg
-          python -m pip install --upgrade pip
-          pip install -e '.[worker]'
+          pip install -e '.[whisper]'
       - name: Transcribe private trainer media without external AI review
         shell: bash
         run: |
           set -euo pipefail
           for attempt in 1 2; do
-            bash scripts/process_private_release_asset.sh && exit 0
-            echo "Processing attempt $attempt failed for result $RESULT_NUMBER" >&2
+            echo "Starting result $RESULT_NUMBER attempt $attempt with a 45-minute stage timeout"
+            set +e
+            timeout --verbose --signal=TERM --kill-after=2m 45m \
+              bash scripts/process_private_release_asset.sh
+            status=$?
+            set -e
+            if (( status == 0 )); then
+              exit 0
+            fi
+            if (( status == 124 || status == 137 )); then
+              echo "ASR_TIMEOUT result=$RESULT_NUMBER attempt=$attempt status=$status" >&2
+            else
+              echo "ASR_FAILED result=$RESULT_NUMBER attempt=$attempt status=$status" >&2
+            fi
             rm -rf outputs private-result /tmp/vid-pipeline-private
             sleep $((attempt * 10))
           done
           exit 1
-      - name: Commit this trainer base transcript immediately
+      - name: Checkpoint this trainer base transcript
+        uses: actions/upload-artifact@v4
+        with:
+          name: private-trainer-${{ matrix.result_number }}
+          path: private-result/**
+          retention-days: 7
+          if-no-files-found: error
+      - name: Remove media
+        if: always()
+        run: rm -rf /tmp/vid-pipeline-private outputs private-result
+
+  publish:
+    name: publish trainer checkpoints
+    needs: [discover, process]
+    if: always() && needs.discover.result == 'success' && needs.discover.outputs.remaining_count != '0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: private-trainer-*
+          path: staging
+          merge-multiple: true
+      - name: Merge checkpoints and publish once
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p outputs/tarbiat_morabi/md outputs/tarbiat_morabi/timestamped outputs/tarbiat_morabi/txt
-          cp "private-result/md/$RESULT_NUMBER.md" "outputs/tarbiat_morabi/md/$RESULT_NUMBER.md"
-          cp "private-result/timestamped/$RESULT_NUMBER.md" "outputs/tarbiat_morabi/timestamped/$RESULT_NUMBER.md"
-          cp "private-result/txt/$RESULT_NUMBER.txt" "outputs/tarbiat_morabi/txt/$RESULT_NUMBER.txt"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "outputs/tarbiat_morabi/md/$RESULT_NUMBER.md" \
-                  "outputs/tarbiat_morabi/timestamped/$RESULT_NUMBER.md" \
-                  "outputs/tarbiat_morabi/txt/$RESULT_NUMBER.txt"
-          git commit -m "data: add trainer base transcript $RESULT_NUMBER" || exit 0
-          for attempt in 1 2 3 4; do
-            git push origin HEAD:main && exit 0
-            git pull --rebase origin main
+          for attempt in 1 2 3 4 5; do
+            if ! git fetch origin main; then
+              echo "Publisher fetch attempt $attempt failed" >&2
+              sleep $((attempt * 5))
+              continue
+            fi
+            git checkout --detach origin/main
+            python scripts/merge_collection_artifacts.py \
+              staging outputs/tarbiat_morabi --skip-existing-complete-base
+            git add outputs/tarbiat_morabi
+            if git diff --cached --quiet; then
+              echo "All checkpointed trainer results already exist on main"
+              exit 0
+            fi
+            git commit -m "data: publish trainer base transcript batch"
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Publisher push attempt $attempt lost a race; rebuilding on latest main" >&2
+            sleep $((attempt * 5))
           done
           exit 1
-      - name: Remove media
-        if: always()
-        run: rm -rf /tmp/vid-pipeline-private private-result
 
   finalize:
-    needs: [discover, process]
-    if: always() && needs.discover.result == 'success' && (needs.process.result == 'success' || needs.process.result == 'skipped')
+    needs: [discover, process, publish]
+    if: >-
+      always() && needs.discover.result == 'success' &&
+      (needs.discover.outputs.remaining_count == '0' ||
+      (needs.process.result == 'success' && needs.publish.result == 'success'))
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

@@ -151,7 +151,7 @@ jobs:
           done
           exit 1
 
-      - name: Validate checkpoint
+      - name: Validate checkpoint and role diagnostics
         shell: bash
         env:
           RESULT_NUMBER: ${{ matrix.result_number }}
@@ -162,8 +162,32 @@ jobs:
           test -s "private-result/txt/$RESULT_NUMBER.txt"
           test -s "private-result/roles/$RESULT_NUMBER.json"
           test -s "private-result/sources/$RESULT_NUMBER.json"
-          grep -q "خانم متولیان" "private-result/timestamped/$RESULT_NUMBER.md"
-          grep -q "دکتر کمیل رودی" "private-result/timestamped/$RESULT_NUMBER.md"
+          python - "$RESULT_NUMBER" <<'PY'
+          import json
+          import sys
+          from pathlib import Path
+
+          n = sys.argv[1]
+          root = Path("private-result")
+          role = json.loads((root / "roles" / f"{n}.json").read_text(encoding="utf-8"))
+          status = role.get("status")
+          if status not in {"mapped", "partially_unresolved"}:
+              raise SystemExit(f"Unexpected role status: {status!r}")
+          mapping = role.get("mapping") or {}
+          values = set(mapping.values())
+          timestamped = (root / "timestamped" / f"{n}.md").read_text(encoding="utf-8")
+          if status == "mapped":
+              if "خانم متولیان" not in values or "دکتر کمیل رودی" not in values:
+                  raise SystemExit("Mapped role diagnostics do not contain both known identities")
+              if "خانم متولیان" not in timestamped or "دکتر کمیل رودی" not in timestamped:
+                  raise SystemExit("Mapped transcript is missing known role labels")
+          else:
+              if not role.get("unresolved_raw_labels"):
+                  raise SystemExit("partially_unresolved status must identify unresolved raw labels")
+              if "گوینده نامشخص" not in timestamped:
+                  raise SystemExit("Unresolved role must remain visibly unresolved in transcript")
+          print(json.dumps({"episode": n, "role_status": status, "mapping": mapping}, ensure_ascii=False))
+          PY
 
       - name: Checkpoint successful episode
         uses: actions/upload-artifact@v4
@@ -262,7 +286,7 @@ jobs:
               "processed": len(complete),
               "completed_numbers": complete,
               "remaining_numbers": [n for n in range(1, 27) if n not in complete],
-              "speaker_roles": ["خانم متولیان", "دکتر کمیل رودی", "شرکت‌کننده‌ها"],
+              "speaker_roles": ["خانم متولیان", "دکتر کمیل رودی", "شرکت‌کننده‌ها", "گوینده نامشخص در موارد مبهم"],
               "updated_at_utc": datetime.now(UTC).isoformat(),
           }
           path = Path("benchmarks/private-asre-shirin-status.json")

@@ -2,11 +2,18 @@
 
 - Channel: https://www.aparat.com/fintelligence/videos
 - Expected: 26
-- Discovered: 19
-- Missing: 1, 2, 3, 4, 5, 8, 9
+- Discovered: 26
+- Missing: none
 
+1. [سواد مالی برای خانم‌ها؛ واقعاً ضروری است؟](https://www.aparat.com/v/r97b53j)
+2. [سواد مالی خانم‌ها؛ وضعیت چقدر بحرانی است؟](https://www.aparat.com/v/2ptDl)
+3. [سواد مالی خانم‌ها؛ روی کدام پلکان؟](https://www.aparat.com/v/O51vh)
+4. [سواد مالی خانم‌ها؛ افزایش درآمد یا کاهش هزینه؟](https://www.aparat.com/v/e15b18u)
+5. [سواد مالی خانم‌ها؛ پول‌ها کجا می‌روند؟](https://www.aparat.com/v/lhE6W)
 6. [عصر شیرین قسمت ششم](https://www.aparat.com/v/60uwC)
 7. [عصر شیرین قسمت هفتم](https://www.aparat.com/v/T1hZM)
+8. [عصر شیرین (قسمت هشتم)](https://www.aparat.com/v/xk2LT)
+9. [عصر شیرین (قسمت نهم)](https://www.aparat.com/v/m92z59x)
 10. [سواد مالی در عصر شیرین | قسمت دهم](https://www.aparat.com/v/zQd39)
 11. [سواد مالی در عصر شیرین | قسمت یازدهم](https://www.aparat.com/v/p14l8s2)
 12. [سواد مالی در عصر شیرین | قسمت دوازدهم](https://www.aparat.com/v/i163hxt)

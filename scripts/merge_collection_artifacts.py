@@ -8,6 +8,8 @@ ALLOWED = {
     "md": ".md",
     "timestamped": ".md",
     "txt": ".txt",
+    "roles": ".json",
+    "sources": ".json",
     "review/md": ".md",
     "review/timestamped": ".md",
     "review/txt": ".txt",
@@ -55,7 +57,7 @@ def main() -> None:
     merged = 0
     skipped = 0
     for source, relative, parent in validated:
-        if parent in {"md", "timestamped", "txt"} and source.stem in complete_numbers:
+        if parent in {"md", "timestamped", "txt", "roles", "sources"} and source.stem in complete_numbers:
             skipped += 1
             continue
         destination = target / relative

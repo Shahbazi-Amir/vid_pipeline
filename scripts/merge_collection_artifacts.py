@@ -57,7 +57,9 @@ def main() -> None:
     merged = 0
     skipped = 0
     for source, relative, parent in validated:
-        if parent in {"md", "timestamped", "txt", "roles", "sources"} and source.stem in complete_numbers:
+        # Preserve an already-complete base transcript, but still allow new
+        # sidecar metadata such as roles/ and sources/ to be filled on resume.
+        if parent in {"md", "timestamped", "txt"} and source.stem in complete_numbers:
             skipped += 1
             continue
         destination = target / relative

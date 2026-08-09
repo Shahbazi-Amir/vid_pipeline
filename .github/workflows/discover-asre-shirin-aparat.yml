@@ -1,0 +1,80 @@
+name: Discover Asre Shirin Aparat links
+run-name: Discover Asre Shirin Aparat links #${{ github.run_number }}
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/asre-shirin-aparat-discovery.trigger"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: discover-asre-shirin-aparat
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Discover and validate all 26 Aparat episodes
+        id: discover
+        shell: bash
+        run: |
+          set +e
+          python scripts/discover_asre_shirin_aparat.py
+          status=$?
+          set -e
+          echo "status=$status" >> "$GITHUB_OUTPUT"
+
+      - name: Publish discovery manifest and diagnostics
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sources/asre_shirin/aparat_manifest.json sources/asre_shirin/links.md
+          if git diff --cached --quiet; then
+            echo "Discovery output unchanged"
+          else
+            git commit -m "data: discover Asre Shirin Aparat links"
+            for attempt in 1 2 3 4; do
+              if git push origin HEAD:main; then
+                break
+              fi
+              git pull --rebase origin main
+              sleep $((attempt * 3))
+            done
+          fi
+
+      - name: Require complete 1..26 manifest
+        shell: bash
+        env:
+          DISCOVERY_STATUS: ${{ steps.discover.outputs.status }}
+        run: |
+          set -euo pipefail
+          if [[ "$DISCOVERY_STATUS" != "0" ]]; then
+            echo "Asre Shirin discovery is incomplete; inspect committed diagnostics." >&2
+            exit "$DISCOVERY_STATUS"
+          fi
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data = json.loads(Path("sources/asre_shirin/aparat_manifest.json").read_text(encoding="utf-8"))
+          numbers = [int(row["result_number"]) for row in data["videos"]]
+          assert numbers == list(range(1, 27)), numbers
+          assert data["complete"] is True
+          assert data["discovered_count"] == 26
+          print("Validated Asre Shirin Aparat manifest: 26/26")
+          PY

@@ -17,7 +17,7 @@ concurrency:
 jobs:
   discover:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
         with:
@@ -28,7 +28,19 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Discover Aparat episodes and preserve diagnostics
+      - name: Probe current Aparat channel HTML
+        id: probe
+        shell: bash
+        run: |
+          set +e
+          python scripts/probe_aparat_channel_html.py > /tmp/probe.stdout 2> /tmp/probe.stderr
+          status=$?
+          set -e
+          echo "status=$status" >> "$GITHUB_OUTPUT"
+          cat /tmp/probe.stdout || true
+          cat /tmp/probe.stderr >&2 || true
+
+      - name: Try legacy Aparat discovery API
         id: discover
         shell: bash
         run: |
@@ -43,7 +55,7 @@ jobs:
           cat sources/asre_shirin/discovery.stdout.txt || true
           cat sources/asre_shirin/discovery.stderr.txt >&2 || true
 
-      - name: Publish discovery manifest and diagnostics
+      - name: Publish probe, discovery manifest, and diagnostics
         shell: bash
         run: |
           set -euo pipefail

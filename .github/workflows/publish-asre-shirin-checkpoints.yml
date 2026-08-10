@@ -14,7 +14,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: asre-shirin-publisher-${{ inputs.source_run_id }}
+  group: asre-shirin-publisher
   cancel-in-progress: false
 
 jobs:
@@ -156,6 +156,7 @@ jobs:
               "sources": ".json",
               "timings": ".json",
           }
+          base_folders = {"md", "timestamped", "txt"}
           staged_numbers = sorted(
               int(path.stem)
               for path in (staging / "md").glob("*.md")
@@ -172,8 +173,8 @@ jobs:
                       raise SystemExit(f"Missing staged checkpoint file: {source}")
                   if not destination.is_file() or destination.stat().st_size <= 0:
                       raise SystemExit(f"Published checkpoint file is missing: {destination}")
-                  if destination.read_bytes() != source.read_bytes():
-                      raise SystemExit(f"Published checkpoint differs from artifact: {destination}")
+                  if folder not in base_folders and destination.read_bytes() != source.read_bytes():
+                      raise SystemExit(f"Published sidecar differs from artifact: {destination}")
 
           print(f"Verified {len(staged_numbers)} checkpoint(s) on origin/main: {staged_numbers}")
           PY

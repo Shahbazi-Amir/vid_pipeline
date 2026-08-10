@@ -104,6 +104,13 @@ class PyannoteDiarizationBackend:
                 "HF_TOKEN is required for pyannote Community-1 model download"
             )
 
+        # pyannote forwards the explicit token to its top-level pipeline loader,
+        # but nested Hugging Face Hub downloads can consult HF_TOKEN directly.
+        # Mirror the dedicated pipeline token only when HF_TOKEN is absent/empty
+        # so all dependent model fetches are authenticated without printing it.
+        if not os.getenv("HF_TOKEN", "").strip():
+            os.environ["HF_TOKEN"] = resolved_token
+
         if pipeline_loader is None:
             try:
                 from pyannote.audio import Pipeline

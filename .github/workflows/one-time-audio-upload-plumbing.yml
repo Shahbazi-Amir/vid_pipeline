@@ -1,0 +1,64 @@
+name: One-time audio upload plumbing
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/one-time-audio-upload-plumbing.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/audio-integration-main
+          fetch-depth: 0
+      - name: Apply upload audio plumbing
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          def replace(path, old, new):
+              p = Path(path)
+              text = p.read_text(encoding='utf-8')
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f'{path}: expected one context, found {count}: {old[:100]!r}')
+              p.write_text(text.replace(old, new, 1), encoding='utf-8')
+
+          replace(
+              'src/vid_pipeline/github_client.py',
+              '            "no_editorial": str(options.get("no_editorial", True)).lower(),\n            "keep_debug_artifacts":',
+              '            "no_editorial": str(options.get("no_editorial", True)).lower(),\n            "audio_profile": options.get("audio_profile", "safe"),\n            "keep_debug_artifacts":',
+          )
+          replace(
+              '.github/workflows/process-uploaded-video.yml',
+              '      no_editorial:\n        required: true\n        default: "true"\n        type: string\n      keep_debug_artifacts:',
+              '      no_editorial:\n        required: true\n        default: "true"\n        type: string\n      audio_profile:\n        required: true\n        default: safe\n        type: choice\n        options: [none, safe, noisy]\n      keep_debug_artifacts:',
+          )
+          replace(
+              '.github/workflows/process-uploaded-video.yml',
+              '      NO_EDITORIAL: ${{ inputs.no_editorial }}\n      DIARIZATION_ENABLED:',
+              '      NO_EDITORIAL: ${{ inputs.no_editorial }}\n      AUDIO_PROFILE: ${{ inputs.audio_profile }}\n      DIARIZATION_ENABLED:',
+          )
+          replace(
+              '.github/workflows/process-uploaded-video.yml',
+              '            --profile "$PROFILE" --language "$LANGUAGE" \\\n            --device cpu --compute-type int8)\n',
+              '            --profile "$PROFILE" --language "$LANGUAGE" \\\n            --device cpu --compute-type int8 --audio-profile "$AUDIO_PROFILE")\n',
+          )
+          PY
+      - name: Commit upload plumbing
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm -f .github/workflows/one-time-audio-upload-plumbing.yml
+          git add src/vid_pipeline/github_client.py .github/workflows/process-uploaded-video.yml
+          git commit -m "audio: wire profile through GitHub upload workflow"
+          git push origin HEAD:agent/audio-integration-main

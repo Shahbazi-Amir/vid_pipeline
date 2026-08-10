@@ -2,46 +2,40 @@ name: Actions old run history cleanup
 run-name: Actions old run history cleanup
 
 on:
-  workflow_dispatch:
   pull_request:
     branches:
       - main
-  push:
-    branches:
-      - agent/actions-storage-cleanup
-    paths:
-      - ".github/bootstrap/actions-storage-audit.trigger"
 
 permissions:
   actions: write
-  contents: write
+  contents: read
 
 jobs:
   cleanup:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 10
     steps:
-      - name: Delete completed workflow runs before cutoff
+      - name: Delete one safe chunk of completed old workflow runs
         env:
           GH_TOKEN: ${{ github.token }}
           REPOSITORY: ${{ github.repository }}
-          REF_NAME: ${{ github.head_ref || github.ref_name }}
           CURRENT_CLEANUP_RUN: ${{ github.run_id }}
           PROTECTED_PRODUCTION_RUN: "31348536690"
           OLD_CUTOFF_UTC: "2026-08-10T00:00:00Z"
+          CHUNK_SIZE: "100"
         shell: bash
         run: |
           set -euo pipefail
           python - <<'PY'
-          import base64, json, os, time, urllib.error, urllib.parse, urllib.request
+          import json, os, time, urllib.error, urllib.request
           from datetime import datetime
 
           repo = os.environ['REPOSITORY']
-          ref_name = os.environ['REF_NAME']
           token = os.environ['GH_TOKEN']
           current_cleanup_run = int(os.environ['CURRENT_CLEANUP_RUN'])
           protected_run = int(os.environ['PROTECTED_PRODUCTION_RUN'])
           cutoff = datetime.fromisoformat(os.environ['OLD_CUTOFF_UTC'].replace('Z', '+00:00'))
+          chunk_size = int(os.environ['CHUNK_SIZE'])
           headers = {
               'Authorization': f'Bearer {token}',
               'Accept': 'application/vnd.github+json',
@@ -49,10 +43,23 @@ jobs:
               'User-Agent': 'vid-pipeline-actions-run-history-cleanup',
           }
 
+          def http_error_info(exc):
+              h = exc.headers or {}
+              return {
+                  'http': exc.code,
+                  'rate_remaining': h.get('X-RateLimit-Remaining'),
+                  'rate_reset': h.get('X-RateLimit-Reset'),
+                  'retry_after': h.get('Retry-After'),
+              }
+
           def api_json(url):
               req = urllib.request.Request(url, headers=headers)
-              with urllib.request.urlopen(req, timeout=30) as response:
-                  return json.load(response)
+              try:
+                  with urllib.request.urlopen(req, timeout=30) as response:
+                      return json.load(response)
+              except urllib.error.HTTPError as exc:
+                  print('API_LIST_ERROR=' + json.dumps(http_error_info(exc), separators=(',', ':')))
+                  raise
 
           def list_runs():
               rows, page = [], 1
@@ -71,20 +78,20 @@ jobs:
               return datetime.fromisoformat(str(row.get('created_at') or '1970-01-01T00:00:00Z').replace('Z', '+00:00'))
 
           before = list_runs()
-          candidates = [
+          all_candidates = [
               row for row in before
               if str(row.get('status') or '') == 'completed'
               and dt(row) < cutoff
               and int(row.get('id') or 0) not in {protected_run, current_cleanup_run}
           ]
-          candidates.sort(key=dt)
-          deleted, failures = [], []
+          all_candidates.sort(key=dt)
+          selected = all_candidates[:chunk_size]
+          deleted = 0
+          rate_limited = None
+          failures = []
 
-          for row in candidates:
+          for row in selected:
               run_id = int(row.get('id') or 0)
-              if run_id <= 0:
-                  failures.append({'id': run_id, 'error': 'invalid_id'})
-                  continue
               req = urllib.request.Request(
                   f'https://api.github.com/repos/{repo}/actions/runs/{run_id}',
                   headers=headers,
@@ -94,71 +101,43 @@ jobs:
                   with urllib.request.urlopen(req, timeout=30) as response:
                       status = int(getattr(response, 'status', 204) or 204)
                   if status == 204:
-                      deleted.append({'id': run_id, 'name': row.get('name'), 'created_at': row.get('created_at'), 'conclusion': row.get('conclusion')})
+                      deleted += 1
                   else:
                       failures.append({'id': run_id, 'error': f'http_{status}'})
               except urllib.error.HTTPError as exc:
                   if exc.code == 404:
-                      deleted.append({'id': run_id, 'name': row.get('name'), 'created_at': row.get('created_at'), 'conclusion': row.get('conclusion'), 'already_gone': True})
+                      deleted += 1
+                  elif exc.code == 403:
+                      rate_limited = http_error_info(exc)
+                      print('DELETE_RATE_LIMIT=' + json.dumps(rate_limited, separators=(',', ':')))
+                      break
                   else:
                       failures.append({'id': run_id, 'error': f'http_{exc.code}'})
-              time.sleep(0.03)
+              time.sleep(0.65)
 
-          after = list_runs()
-          remaining = [
-              row for row in after
-              if str(row.get('status') or '') == 'completed'
-              and dt(row) < cutoff
-              and int(row.get('id') or 0) not in {protected_run, current_cleanup_run}
-          ]
-          report = {
-              'schema_version': 1,
-              'repository': repo,
-              'cutoff_utc': cutoff.isoformat(),
+          estimated_remaining = max(0, len(all_candidates) - deleted)
+          summary = {
+              'visible_runs_before': len(before),
+              'old_completed_candidates_before': len(all_candidates),
+              'chunk_selected': len(selected),
+              'deleted_this_run': deleted,
+              'estimated_old_completed_remaining': estimated_remaining,
               'protected_production_run': protected_run,
-              'cleanup_run': current_cleanup_run,
-              'before_run_count': len(before),
-              'candidate_count': len(candidates),
-              'deleted_count': len(deleted),
+              'rate_limited': rate_limited,
               'failure_count': len(failures),
               'failures': failures,
-              'after_run_count': len(after),
-              'remaining_old_completed_count': len(remaining),
-              'deleted': deleted,
           }
-          print(json.dumps({k: report[k] for k in report if k != 'deleted'}, ensure_ascii=False, indent=2))
+          print('RUN_CLEANUP_SUMMARY=' + json.dumps(summary, separators=(',', ':'), ensure_ascii=False))
           with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as handle:
               handle.write(
-                  '# Actions run history cleanup\n\n'
-                  f"Before: **{len(before)}**\n\n"
-                  f"Candidates: **{len(candidates)}**\n\n"
-                  f"Deleted: **{len(deleted)}**\n\n"
-                  f"After: **{len(after)}**\n\n"
-                  f"Remaining old completed: **{len(remaining)}**\n\n"
+                  '# Actions run history cleanup chunk\n\n'
+                  f"Old completed before chunk: **{len(all_candidates)}**\n\n"
+                  f"Deleted this run: **{deleted}**\n\n"
+                  f"Estimated remaining: **{estimated_remaining}**\n\n"
                   f"Failures: **{len(failures)}**\n"
               )
-
-          path = 'benchmarks/actions-run-history-cleanup.json'
-          url = f'https://api.github.com/repos/{repo}/contents/{path}'
-          existing_sha = None
-          try:
-              req = urllib.request.Request(url + '?ref=' + urllib.parse.quote(ref_name, safe=''), headers=headers)
-              with urllib.request.urlopen(req, timeout=30) as response:
-                  existing_sha = json.load(response).get('sha')
-          except urllib.error.HTTPError as exc:
-              if exc.code != 404:
-                  raise
-          body = {
-              'message': 'chore: record Actions run history cleanup',
-              'content': base64.b64encode((json.dumps(report, ensure_ascii=False, indent=2) + '\n').encode()).decode(),
-              'branch': ref_name,
-          }
-          if existing_sha:
-              body['sha'] = existing_sha
-          req = urllib.request.Request(url, data=json.dumps(body).encode(), headers={**headers, 'Content-Type': 'application/json'}, method='PUT')
-          with urllib.request.urlopen(req, timeout=30) as response:
-              saved = json.load(response)
-          print('CLEANUP_REPORT_COMMIT=' + str((saved.get('commit') or {}).get('sha') or ''))
-          if failures or remaining:
-              raise SystemExit(f'cleanup incomplete: failures={len(failures)} remaining={len(remaining)}')
+          if failures:
+              raise SystemExit(f'non-rate-limit delete failures: {failures[:5]}')
+          if rate_limited:
+              raise SystemExit('GitHub API rate limited this chunk; retry after reset')
           PY

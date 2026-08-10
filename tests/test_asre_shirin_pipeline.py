@@ -159,9 +159,14 @@ def test_cpu_dependency_contract_excludes_unused_execution_paths() -> None:
     assert "pyannote.audio==4.0.4" in extra
     assert "whisperx" not in extra
     assert "yt-dlp" not in extra
+    constraints = (ROOT / "constraints/asre-shirin-cpu.txt").read_text(encoding="utf-8")
+    assert "torch==2.8.0" in constraints
+    assert "torchaudio==2.8.0" in constraints
+    assert "torchcodec==0.7.0" in constraints
     workflow = (ROOT / ".github/workflows/private-asre-shirin-transcription.yml").read_text(
         encoding="utf-8"
     )
     assert "https://download.pytorch.org/whl/cpu" in workflow
+    assert "torchcodec==0.7.0" in workflow
     assert "constraints/asre-shirin-cpu.txt" in workflow
     assert "hashFiles('pyproject.toml', 'constraints/asre-shirin-cpu.txt')" in workflow

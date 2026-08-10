@@ -10,6 +10,7 @@ import time
 from dataclasses import replace
 from pathlib import Path
 
+from vid_pipeline import cli as base_cli
 from vid_pipeline import pyannote_cli, reliable_cli
 from vid_pipeline.aparat import ensure_verified_aparat_media, resolve_aparat_media
 from vid_pipeline.asre_shirin import AsreShirinCheckpoints, collect_timing
@@ -74,6 +75,48 @@ def run_pipeline(
         return pyannote_cli.main()
     finally:
         reliable_cli._accuracy_config = original_accuracy_config
+        sys.argv = original_argv
+
+
+def run_primary_asr(
+    media_path: Path,
+    source_url: str,
+    episode: int,
+    title: str,
+    output_root: Path,
+) -> int:
+    """Finish the expensive primary ASR checkpoint without entering diarization."""
+
+    original_argv = sys.argv[:]
+    try:
+        sys.argv = [
+            "vid-pipeline",
+            "run-file",
+            str(media_path),
+            "--source-url",
+            source_url,
+            "--output-root",
+            str(output_root),
+            "--name",
+            f"asre-shirin-{episode}",
+            "--title",
+            title or f"سواد مالی در عصر شیرین | قسمت {episode}",
+            "--profile",
+            "balanced",
+            "--model",
+            "large-v3-turbo",
+            "--language",
+            "fa",
+            "--device",
+            "cpu",
+            "--compute-type",
+            "int8",
+            "--no-editorial",
+            "--no-diarize",
+            "--resume",
+        ]
+        return base_cli.main()
+    finally:
         sys.argv = original_argv
 
 
@@ -162,6 +205,8 @@ def main() -> None:
     parser.add_argument("--collection-root", type=Path, required=True)
     parser.add_argument("--work-root", type=Path, default=Path("worker-output"))
     parser.add_argument("--resolver-only", action="store_true")
+    parser.add_argument("--ingest-only", action="store_true")
+    parser.add_argument("--asr-only", action="store_true")
     args = parser.parse_args()
 
     if not 1 <= args.episode <= 26:
@@ -194,6 +239,7 @@ def main() -> None:
     ingest_root = args.work_root / "ingest" / f"episode-{args.episode}"
     media_path = ingest_root / "media.mp4"
     media_metadata_path = ingest_root / "media.json"
+    print(f"ASRE_STAGE episode={args.episode} stage=media_downloaded_verified status=started")
     try:
         ingest = ensure_verified_aparat_media(
             args.url,
@@ -206,12 +252,32 @@ def main() -> None:
             [media_path, media_metadata_path],
             _safe_ingest_metadata(ingest),
         )
+        print(
+            f"ASRE_STAGE episode={args.episode} "
+            "stage=media_downloaded_verified status=completed"
+        )
     except Exception as exc:
         ledger.mark_failed("media_downloaded_verified", exc)
         raise
 
+    if args.ingest_only:
+        print(json.dumps({"episode": args.episode, "status": "ingest_complete"}))
+        return
+
     pipeline_root = args.work_root / "pipeline"
     pipeline = _pipeline(media_path, pipeline_root, args.episode)
+    if args.asr_only:
+        print(f"ASRE_STAGE episode={args.episode} stage=raw_asr_complete status=started")
+        status = run_primary_asr(
+            media_path, args.url, args.episode, args.title, pipeline_root
+        )
+        pipeline = _pipeline(media_path, pipeline_root, args.episode)
+        _sync_compute_checkpoints(ledger, pipeline)
+        if status != 0 or not ledger.is_complete("raw_asr_complete"):
+            ledger.mark_failed("raw_asr_complete", f"pipeline_return_code_{status}")
+            raise SystemExit(status or 1)
+        print(f"ASRE_STAGE episode={args.episode} stage=raw_asr_complete status=completed")
+        return
     role_outputs = [
         args.collection_root / "md" / f"{args.episode}.md",
         args.collection_root / "timestamped" / f"{args.episode}.md",

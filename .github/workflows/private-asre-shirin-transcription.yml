@@ -92,6 +92,10 @@ jobs:
     timeout-minutes: 210
     env:
       VID_PIPELINE_PYANNOTE_TOKEN: ${{ secrets.HF_TOKEN }}
+      VIDEO_URL: ${{ matrix.url }}
+      VIDEO_UID: ${{ matrix.uid }}
+      RESULT_NUMBER: ${{ matrix.result_number }}
+      VIDEO_TITLE: ${{ matrix.title }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -126,8 +130,16 @@ jobs:
           sudo apt-get install -y ffmpeg
           python -m pip install --upgrade pip
           pip install --index-url https://download.pytorch.org/whl/cpu \
-            torch==2.8.0 torchaudio==2.8.0
+            torch==2.8.0 torchaudio==2.8.0 torchcodec==0.7.0
           pip install -c constraints/asre-shirin-cpu.txt -e '.[asre-shirin-cpu]'
+          python - <<'PY'
+          from importlib.metadata import version
+          import torch
+          assert torch.__version__ == "2.8.0+cpu", torch.__version__
+          assert version("torchcodec").split("+", 1)[0] == "0.7.0", version("torchcodec")
+          assert not torch.cuda.is_available()
+          print(f"CPU_DEPENDENCIES torch={torch.__version__} torchcodec={version('torchcodec')}")
+          PY
           elapsed=$((SECONDS - started))
           echo "ASRE_SHIRIN_SETUP_SECONDS=$elapsed" >> "$GITHUB_ENV"
           python - <<'PY'
@@ -146,17 +158,68 @@ jobs:
                   raise SystemExit(f"unused dependency unexpectedly installed: {unused}={value}")
           PY
 
-      - name: Transcribe and diarize without external AI review
+      - name: Resolve, download once, and verify local media
         shell: bash
-        env:
-          VIDEO_URL: ${{ matrix.url }}
-          VIDEO_UID: ${{ matrix.uid }}
-          RESULT_NUMBER: ${{ matrix.result_number }}
-          VIDEO_TITLE: ${{ matrix.title }}
         run: |
           set -euo pipefail
           for attempt in 1 2; do
-            echo "Starting Asre Shirin $RESULT_NUMBER attempt $attempt"
+            echo "Starting Asre Shirin $RESULT_NUMBER ingest attempt $attempt"
+            set +e
+            timeout --verbose --signal=TERM --kill-after=2m 20m \
+              python scripts/process_asre_shirin_url.py \
+                --url "$VIDEO_URL" \
+                --episode "$RESULT_NUMBER" \
+                --expected-uid "$VIDEO_UID" \
+                --title "$VIDEO_TITLE" \
+                --collection-root private-result \
+                --work-root worker-output \
+                --ingest-only
+            status=$?
+            set -e
+            if (( status == 0 )); then
+              exit 0
+            fi
+            echo "ASRE_SHIRIN_STAGE_FAILED episode=$RESULT_NUMBER stage=ingest attempt=$attempt status=$status" >&2
+            if (( attempt < 2 )); then
+              sleep $((attempt * 15))
+            fi
+          done
+          exit 1
+
+      - name: Primary ASR from verified local media
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in 1 2; do
+            echo "Starting Asre Shirin $RESULT_NUMBER primary ASR attempt $attempt"
+            set +e
+            timeout --verbose --signal=TERM --kill-after=2m 75m \
+              python scripts/process_asre_shirin_url.py \
+                --url "$VIDEO_URL" \
+                --episode "$RESULT_NUMBER" \
+                --expected-uid "$VIDEO_UID" \
+                --title "$VIDEO_TITLE" \
+                --collection-root private-result \
+                --work-root worker-output \
+                --asr-only
+            status=$?
+            set -e
+            if (( status == 0 )); then
+              exit 0
+            fi
+            echo "ASRE_SHIRIN_STAGE_FAILED episode=$RESULT_NUMBER stage=asr attempt=$attempt status=$status" >&2
+            if (( attempt < 2 )); then
+              sleep $((attempt * 15))
+            fi
+          done
+          exit 1
+
+      - name: Diarize, align, map roles, and prepare delivery
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in 1 2; do
+            echo "Starting Asre Shirin $RESULT_NUMBER diarization attempt $attempt"
             set +e
             timeout --verbose --signal=TERM --kill-after=2m 90m \
               python scripts/process_asre_shirin_url.py \
@@ -171,7 +234,7 @@ jobs:
             if (( status == 0 )); then
               exit 0
             fi
-            echo "ASRE_SHIRIN_ATTEMPT_FAILED episode=$RESULT_NUMBER attempt=$attempt status=$status" >&2
+            echo "ASRE_SHIRIN_STAGE_FAILED episode=$RESULT_NUMBER stage=diarization_delivery attempt=$attempt status=$status" >&2
             if (( attempt < 2 )); then
               sleep $((attempt * 15))
             fi

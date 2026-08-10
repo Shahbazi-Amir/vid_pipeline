@@ -39,7 +39,9 @@ def _pyannote_optional_enrichment(
         replace(config, diarization=False),
     )
 
+    print("PIPELINE_STAGE stage=pyannote_model_load status=started")
     backend = PyannoteDiarizationBackend()
+    print("PIPELINE_STAGE stage=pyannote_model_load status=completed")
     output = audio.parents[1] / "diarization" / "diarization.json"
     diarization_config = DiarizationConfig(
         enabled=True,
@@ -56,6 +58,7 @@ def _pyannote_optional_enrichment(
     original_mapper = diarization_module.map_roles
     diarization_module.map_roles = map_roles
     try:
+        print("PIPELINE_STAGE stage=diarization_alignment status=started")
         aligned, report = run_diarization(
             audio,
             aligned,
@@ -63,6 +66,7 @@ def _pyannote_optional_enrichment(
             backend=backend,
             output=output,
         )
+        print("PIPELINE_STAGE stage=diarization_alignment status=completed")
     finally:
         diarization_module.map_roles = original_mapper
 

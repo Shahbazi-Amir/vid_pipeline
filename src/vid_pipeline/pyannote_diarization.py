@@ -15,6 +15,35 @@ PYANNOTE_MODEL_ID = "pyannote/speaker-diarization-community-1"
 PYANNOTE_BACKEND_NAME = "pyannote-community-1"
 
 
+def load_waveform(audio: Path) -> dict[str, Any]:
+    """Load verified PCM audio without pyannote's optional TorchCodec decoder.
+
+    Asre Shirin always hands this backend the normalized local WAV.  Passing an
+    in-memory waveform keeps that file as the single compute input and avoids
+    TorchCodec selecting a CUDA-linked decoder wheel on CPU-only runners.
+    """
+
+    if not audio.is_file() or audio.stat().st_size <= 0:
+        raise DiarizationError("pyannote waveform input is missing or empty")
+    try:
+        import soundfile as sf
+        import torch
+
+        frames, sample_rate = sf.read(
+            str(audio), dtype="float32", always_2d=True
+        )
+        if frames.shape[0] <= 0 or frames.shape[1] <= 0 or int(sample_rate) <= 0:
+            raise ValueError("empty decoded waveform")
+        waveform = torch.from_numpy(frames.T.copy())
+    except DiarizationError:
+        raise
+    except Exception as exc:
+        raise DiarizationError(
+            f"pyannote waveform load failed: {type(exc).__name__}"
+        ) from None
+    return {"waveform": waveform, "sample_rate": int(sample_rate)}
+
+
 def _package_version(name: str) -> str:
     try:
         return version(name)
@@ -63,6 +92,7 @@ class PyannoteDiarizationBackend:
         *,
         token: str | None = None,
         pipeline_loader: Callable[..., Any] | None = None,
+        waveform_loader: Callable[[Path], dict[str, Any]] | None = None,
     ) -> None:
         resolved_token = (
             token
@@ -97,7 +127,11 @@ class PyannoteDiarizationBackend:
             raise DiarizationError("pyannote model load failed: empty pipeline")
 
         self.pipeline = pipeline
+        self.waveform_loader = waveform_loader or load_waveform
+        self._loaded_audio_path: Path | None = None
+        self._waveform_input: dict[str, Any] | None = None
         self.model_load_seconds = time.monotonic() - model_load_started
+        self.audio_load_seconds = 0.0
         self.inference_seconds = 0.0
         self.pyannote_audio_version = _package_version("pyannote.audio")
         self.last_used_exclusive = False
@@ -110,9 +144,23 @@ class PyannoteDiarizationBackend:
         if num_speakers is not None:
             kwargs["num_speakers"] = num_speakers
 
+        resolved_audio = audio.resolve()
+        if self._loaded_audio_path != resolved_audio or self._waveform_input is None:
+            audio_load_started = time.monotonic()
+            try:
+                self._waveform_input = self.waveform_loader(audio)
+            except DiarizationError:
+                raise
+            except Exception as exc:
+                raise DiarizationError(
+                    f"pyannote waveform load failed: {type(exc).__name__}"
+                ) from None
+            self.audio_load_seconds += time.monotonic() - audio_load_started
+            self._loaded_audio_path = resolved_audio
+
         inference_started = time.monotonic()
         try:
-            output = self.pipeline(str(audio), **kwargs)
+            output = self.pipeline(self._waveform_input, **kwargs)
         except Exception as exc:
             raise DiarizationError(
                 f"pyannote diarization inference failed: {type(exc).__name__}"

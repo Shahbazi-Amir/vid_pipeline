@@ -166,14 +166,21 @@ class VideoPipeline:
         force: bool,
     ) -> dict[str, Any]:
         if not force and self.state.is_complete(name):
+            print(f"PIPELINE_STAGE job={self.job_id} stage={name} status=checkpoint_reused")
             return {"stage": name, "status": "skipped", "reason": "already complete"}
+        print(f"PIPELINE_STAGE job={self.job_id} stage={name} status=started")
         self.state.mark_running(name)
         try:
             outputs, details = action()
             self.state.mark_complete(name, outputs, details)
+            print(f"PIPELINE_STAGE job={self.job_id} stage={name} status=completed")
             return {"stage": name, "status": "completed", **details}
         except Exception as exc:
             self.state.mark_failed(name, exc)
+            print(
+                f"PIPELINE_STAGE job={self.job_id} stage={name} "
+                f"status=failed error_type={type(exc).__name__}"
+            )
             raise
 
     def inspect(self, *, force: bool = False) -> dict[str, Any]:

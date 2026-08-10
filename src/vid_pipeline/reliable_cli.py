@@ -207,12 +207,15 @@ def _postprocess_with_review(pipeline: VideoPipeline, args: Namespace) -> int:
         state = PipelineState(pipeline.paths.job_root / "state.json")
         manifest_path = pipeline.paths.job_root / "accuracy" / "manifest.json"
         if state.is_complete("accuracy") and manifest_path.is_file():
+            print("PIPELINE_STAGE stage=accuracy status=checkpoint_reused")
             accuracy_manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
             accuracy_manifest["resumed_from_checkpoint"] = True
         else:
+            print("PIPELINE_STAGE stage=accuracy status=started")
             accuracy_manifest = build_accuracy_package(
                 pipeline.paths.job_root, config=accuracy_config, glossary_paths=glossaries
             )
+            print("PIPELINE_STAGE stage=accuracy status=completed")
         accuracy_judge = advise_disagreements(
             pipeline.paths.job_root,
             model=accuracy_config.judge_model,
@@ -237,16 +240,20 @@ def _postprocess_with_review(pipeline: VideoPipeline, args: Namespace) -> int:
             print(f"error: accuracy stage failed: {exc}", file=sys.stderr)
             return 1
     try:
+        print("PIPELINE_STAGE stage=review_packaging status=started")
         pre_review = build_pre_review_package(pipeline.paths.job_root)
         review = build_review_package(
             pipeline.paths.job_root, config=_review_config(), glossary_paths=glossaries
         )
+        print("PIPELINE_STAGE stage=review_packaging status=completed")
     except (PreReviewError, ReviewError) as exc:
         _record_review_failure(pipeline.paths.job_root, exc)
         print(f"error: review packaging failed: {exc}", file=sys.stderr)
         return 1
     try:
+        print("PIPELINE_STAGE stage=export status=started")
         final_export = export_final_outputs(pipeline.paths.job_root)
+        print("PIPELINE_STAGE stage=export status=completed")
     except (OSError, ValueError, json.JSONDecodeError) as exc:
         record_export_failure(pipeline.paths.job_root, exc)
         print(f"error: final export failed: {exc}", file=sys.stderr)

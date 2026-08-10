@@ -58,8 +58,16 @@ jobs:
           sudo apt-get install -y ffmpeg
           python -m pip install --upgrade pip
           pip install --index-url https://download.pytorch.org/whl/cpu \
-            torch==2.8.0 torchaudio==2.8.0
+            torch==2.8.0 torchaudio==2.8.0 torchcodec==0.7.0
           pip install -c constraints/asre-shirin-cpu.txt -e '.[asre-shirin-cpu]'
+          python - <<'PY'
+          from importlib.metadata import version
+          import torch
+          assert torch.__version__ == "2.8.0+cpu", torch.__version__
+          assert version("torchcodec").split("+", 1)[0] == "0.7.0", version("torchcodec")
+          assert not torch.cuda.is_available()
+          print(f"CPU_DEPENDENCIES torch={torch.__version__} torchcodec={version('torchcodec')}")
+          PY
           elapsed=$((SECONDS - started))
           echo "ASRE_SHIRIN_SETUP_SECONDS=$elapsed" >> "$GITHUB_ENV"
           echo "PILOT_SETUP_SECONDS=$elapsed" >> "$GITHUB_ENV"
@@ -96,11 +104,39 @@ jobs:
             --work-root pilot-work \
             --resolver-only
 
-      - name: Candidate B - verified media, run-file, automatic diarization
+      - name: Candidate B - resolve, download once, and verify media
         shell: bash
         run: |
           set -euo pipefail
-          timeout --verbose --signal=TERM --kill-after=2m 150m \
+          timeout --verbose --signal=TERM --kill-after=2m 20m \
+            python scripts/process_asre_shirin_url.py \
+              --url "$PILOT_URL" \
+              --expected-uid "$PILOT_UID" \
+              --episode 2 \
+              --title "$PILOT_TITLE" \
+              --collection-root pilot-candidate \
+              --work-root pilot-work \
+              --ingest-only
+
+      - name: Candidate B - primary ASR from verified local media
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout --verbose --signal=TERM --kill-after=2m 75m \
+            python scripts/process_asre_shirin_url.py \
+              --url "$PILOT_URL" \
+              --expected-uid "$PILOT_UID" \
+              --episode 2 \
+              --title "$PILOT_TITLE" \
+              --collection-root pilot-candidate \
+              --work-root pilot-work \
+              --asr-only
+
+      - name: Candidate B - resume ASR and run automatic diarization
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout --verbose --signal=TERM --kill-after=2m 90m \
             python scripts/process_asre_shirin_url.py \
               --url "$PILOT_URL" \
               --expected-uid "$PILOT_UID" \

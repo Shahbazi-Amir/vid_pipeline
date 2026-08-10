@@ -32,6 +32,10 @@ class Output:
         self.exclusive_speaker_diarization = exclusive
 
 
+def fake_waveform(_audio):
+    return {"waveform": "preloaded-pcm", "sample_rate": 16_000}
+
+
 def test_annotation_adapter_sorts_turns():
     turns = annotation_to_speaker_turns(
         Annotation([(2.0, 3.0, "B"), (0.0, 1.0, "A")])
@@ -60,11 +64,16 @@ def test_exclusive_timeline_is_preferred_and_num_speakers_is_passed():
     backend = PyannoteDiarizationBackend(
         token="hf_test_secret",
         pipeline_loader=loader,
+        waveform_loader=fake_waveform,
     )
     turns = backend.diarize(Path("/tmp/audio.wav"), num_speakers=2)
 
     assert captured["load"][0] == PYANNOTE_MODEL_ID
     assert captured["load"][1]["token"] == "hf_test_secret"
+    assert captured["call"][0] == {
+        "waveform": "preloaded-pcm",
+        "sample_rate": 16_000,
+    }
     assert captured["call"][1] == {"num_speakers": 2}
     assert [t.speaker for t in turns] == ["host", "teacher"]
     assert backend.last_used_exclusive is True
@@ -78,10 +87,34 @@ def test_regular_timeline_is_fallback():
     backend = PyannoteDiarizationBackend(
         token="hf_test_secret",
         pipeline_loader=lambda *args, **kwargs: Pipeline(),
+        waveform_loader=fake_waveform,
     )
     turns = backend.diarize(Path("/tmp/audio.wav"), num_speakers=2)
     assert [t.speaker for t in turns] == ["A"]
     assert backend.last_used_exclusive is False
+
+
+def test_preloaded_waveform_is_reused_across_diarization_attempts():
+    loads = 0
+
+    class Pipeline:
+        def __call__(self, audio, **kwargs):
+            return Output(Annotation([(0.0, 2.0, "A")]), None)
+
+    def loader(_audio):
+        nonlocal loads
+        loads += 1
+        return fake_waveform(_audio)
+
+    backend = PyannoteDiarizationBackend(
+        token="hf_test_secret",
+        pipeline_loader=lambda *args, **kwargs: Pipeline(),
+        waveform_loader=loader,
+    )
+    path = Path("/tmp/audio.wav")
+    backend.diarize(path, num_speakers=None)
+    backend.diarize(path, num_speakers=None)
+    assert loads == 1
 
 
 def test_missing_hf_token_fails_cleanly(monkeypatch):
@@ -118,6 +151,29 @@ def test_dedicated_env_token_works_when_standard_hf_token_is_empty(monkeypatch):
         captured.update(kwargs)
         return Pipeline()
 
-    backend = PyannoteDiarizationBackend(pipeline_loader=loader)
+    backend = PyannoteDiarizationBackend(
+        pipeline_loader=loader,
+        waveform_loader=fake_waveform,
+    )
     backend.diarize(Path("/tmp/audio.wav"), num_speakers=1)
     assert captured["token"] == "hf_dedicated_test"
+
+
+def test_waveform_loader_failure_is_sanitized():
+    secret = "signed-media-query-secret"
+
+    class Pipeline:
+        def __call__(self, audio, **kwargs):
+            raise AssertionError("pipeline must not run")
+
+    def broken_loader(_audio):
+        raise RuntimeError(secret)
+
+    backend = PyannoteDiarizationBackend(
+        token="hf_test_secret",
+        pipeline_loader=lambda *args, **kwargs: Pipeline(),
+        waveform_loader=broken_loader,
+    )
+    with pytest.raises(DiarizationError, match="waveform load failed: RuntimeError") as error:
+        backend.diarize(Path("/tmp/audio.wav"), num_speakers=None)
+    assert secret not in str(error.value)

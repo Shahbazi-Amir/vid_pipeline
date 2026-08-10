@@ -123,6 +123,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          started_epoch=$(date +%s)
+          echo "ASRE_SHIRIN_WORKER_STARTED_EPOCH=$started_epoch" >> "$GITHUB_ENV"
+          export ASRE_SHIRIN_WORKER_STARTED_EPOCH=$started_epoch
           timeout --verbose --signal=TERM --kill-after=2m 20m \
             python scripts/process_asre_shirin_url.py \
               --url "$PILOT_URL" \

@@ -98,7 +98,7 @@ def _speaker_label(segment: dict[str, Any]) -> str:
     if speaker.startswith("SPEAKER_") and speaker[8:].isdigit():
         number = str(int(speaker[8:]) + 1).translate(str.maketrans("0123456789", "۰۱۲۳۴۵۶۷۸۹"))
         return f"گوینده {number}"
-    return speaker
+    return speaker or "گوینده نامشخص"
 
 
 def _render_speaker_markdown(segments: list[dict[str, Any]], title: str) -> str:

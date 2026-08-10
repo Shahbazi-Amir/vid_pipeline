@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import json
+import os
 import resource
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -101,6 +103,21 @@ class AsreShirinCheckpoints:
 
 def _read_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8")) if path.is_file() else {}
+
+
+def total_worker_seconds(invocation_started: float) -> float:
+    """Measure across stage-split workflow invocations when the runner provides an epoch."""
+
+    raw_epoch = os.getenv("ASRE_SHIRIN_WORKER_STARTED_EPOCH", "").strip()
+    if raw_epoch:
+        try:
+            epoch = float(raw_epoch)
+        except ValueError:
+            epoch = 0.0
+        now = time.time()
+        if 0 < epoch <= now:
+            return now - epoch
+    return time.monotonic() - invocation_started
 
 
 def collect_timing(

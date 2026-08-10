@@ -165,6 +165,10 @@ def test_verified_media_is_reused_without_resolve_or_redownload(tmp_path: Path, 
         "media_size_bytes": len(content),
         "media_sha256": hashlib.sha256(content).hexdigest(),
         "duration_seconds": 10.0,
+        "resolve_seconds": 1.25,
+        "download_seconds": 2.5,
+        "download_mib_per_second": 3.75,
+        "ffprobe_seconds": 0.4,
     }
     metadata_path = tmp_path / "media.json"
     metadata_path.write_text(json.dumps(metadata), encoding="utf-8")
@@ -185,4 +189,8 @@ def test_verified_media_is_reused_without_resolve_or_redownload(tmp_path: Path, 
         expected_uid="2ptDl",
     )
     assert result["reused_verified_media"] is True
-    assert result["download_seconds"] == 0
+    assert result["resolve_seconds"] == 1.25
+    assert result["download_seconds"] == 2.5
+    assert result["download_mib_per_second"] == 3.75
+    assert result["ffprobe_seconds"] == 0.4
+    assert result["resume_validation_ffprobe_seconds"] >= 0

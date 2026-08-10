@@ -134,6 +134,10 @@ def main() -> None:
     for label in sorted(labels, key=lambda value: (first_start[value], -totals[value], value)):
         if label in mapping:
             continue
+        if label.startswith("گوینده نامشخص"):
+            mapping[label] = label
+            unresolved.append(label)
+            continue
         if host is None and label == labels[0]:
             mapping[label] = f"گوینده نامشخص {unresolved_index}"
             unresolved_index += 1
@@ -148,7 +152,11 @@ def main() -> None:
             participant_index += 1
 
     host_is_first = host is not None and first_start[host] == min(first_start.values())
-    status = "mapped" if host is not None and doctor is not None else "partially_unresolved"
+    status = (
+        "mapped"
+        if host is not None and doctor is not None and not unresolved
+        else "partially_unresolved"
+    )
     warnings: list[str] = []
     if host is None:
         warnings.append("Host identity unresolved: no substantial diarized speaker starts near the beginning.")

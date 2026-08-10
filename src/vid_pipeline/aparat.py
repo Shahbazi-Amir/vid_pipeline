@@ -308,7 +308,11 @@ def validate_verified_media(path: Path, metadata: dict[str, Any]) -> dict[str, A
     if not expected or _sha256(path) != expected:
         return None
     probe, ffprobe_seconds = _probe_summary(path)
-    return {**metadata, **probe, "ffprobe_seconds": round(ffprobe_seconds, 6)}
+    return {
+        **metadata,
+        **probe,
+        "resume_validation_ffprobe_seconds": round(ffprobe_seconds, 6),
+    }
 
 
 def ensure_verified_aparat_media(
@@ -329,9 +333,6 @@ def ensure_verified_aparat_media(
                 if validated is not None:
                     result = {
                         **validated,
-                        "resolve_seconds": 0.0,
-                        "download_seconds": 0.0,
-                        "download_mib_per_second": 0.0,
                         "reused_verified_media": True,
                     }
                     return result

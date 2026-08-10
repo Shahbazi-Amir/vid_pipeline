@@ -177,6 +177,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          started_epoch=$(date +%s)
+          echo "ASRE_SHIRIN_WORKER_STARTED_EPOCH=$started_epoch" >> "$GITHUB_ENV"
+          export ASRE_SHIRIN_WORKER_STARTED_EPOCH=$started_epoch
           for attempt in 1 2; do
             echo "Starting Asre Shirin $RESULT_NUMBER ingest attempt $attempt"
             set +e

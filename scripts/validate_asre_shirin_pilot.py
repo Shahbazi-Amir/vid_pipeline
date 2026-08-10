@@ -9,9 +9,12 @@ from typing import Any
 TIMESTAMP = re.compile(
     r"\[(\d{2}):(\d{2}):(\d{2})\s*→\s*(\d{2}):(\d{2}):(\d{2})\]\s+\*\*([^*]+)\*\*"
 )
+TIMESTAMP_HEADER = re.compile(
+    r"(?m)^\[\d{2}:\d{2}:\d{2}\s*→\s*\d{2}:\d{2}:\d{2}\]"
+)
 PERSIAN = re.compile(r"[\u0600-\u06ff]")
 ALLOWED_ROLE = re.compile(
-    r"^(?:خانم متولیان|دکتر کمیل رودی|شرکت‌کننده \d+|گوینده نامشخص \d+)$"
+    r"^(?:خانم متولیان|دکتر کمیل رودی|شرکت‌کننده \d+|گوینده نامشخص(?: \d+)?)$"
 )
 
 
@@ -34,6 +37,7 @@ def _job_root(root: Path) -> Path:
 def _timeline_quality(path: Path, media_duration: float) -> dict[str, Any]:
     text = path.read_text(encoding="utf-8")
     matches = list(TIMESTAMP.finditer(text))
+    timestamp_headers = list(TIMESTAMP_HEADER.finditer(text))
     rows = []
     for index, match in enumerate(matches):
         start = _seconds(match.group(1, 2, 3))
@@ -44,6 +48,7 @@ def _timeline_quality(path: Path, media_duration: float) -> dict[str, Any]:
     checks: dict[str, bool] = {
         "persian_transcript": bool(PERSIAN.search(text)),
         "timestamp_rows_present": bool(rows),
+        "all_timestamp_blocks_have_speaker": len(matches) == len(timestamp_headers),
         "timestamps_monotonic": all(
             row["end"] >= row["start"]
             and (index == 0 or row["start"] >= rows[index - 1]["start"])

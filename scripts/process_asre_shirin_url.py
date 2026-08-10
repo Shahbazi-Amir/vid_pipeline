@@ -13,7 +13,11 @@ from pathlib import Path
 from vid_pipeline import cli as base_cli
 from vid_pipeline import pyannote_cli, reliable_cli
 from vid_pipeline.aparat import ensure_verified_aparat_media, resolve_aparat_media
-from vid_pipeline.asre_shirin import AsreShirinCheckpoints, collect_timing
+from vid_pipeline.asre_shirin import (
+    AsreShirinCheckpoints,
+    collect_timing,
+    total_worker_seconds,
+)
 from vid_pipeline.standalone import LocalMediaPipeline
 
 
@@ -358,7 +362,7 @@ def main() -> None:
         ingest,
         role_mapping_seconds=role_mapping_seconds,
         artifact_prepare_seconds=artifact_prepare_seconds,
-        total_worker_seconds=time.monotonic() - worker_started,
+        total_worker_seconds=total_worker_seconds(worker_started),
     )
     timings = args.collection_root / "timings"
     timings.mkdir(parents=True, exist_ok=True)

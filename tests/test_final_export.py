@@ -60,6 +60,7 @@ def test_export_refuses_to_invent_timestamps(tmp_path: Path) -> None:
 def test_timestamp_renderer_supports_more_than_one_hour() -> None:
     rendered = render_timestamped([{"start": 7215, "end": 7228, "text": "متن"}])
     assert "[02:00:15 → 02:00:28]" in rendered
+    assert "**گوینده نامشخص**" in rendered
 
 
 def test_better_coarse_text_does_not_collapse_finer_speaker_timeline(tmp_path: Path) -> None:

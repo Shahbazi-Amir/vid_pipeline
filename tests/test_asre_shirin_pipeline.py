@@ -9,7 +9,7 @@ import pytest
 
 from vid_pipeline import accuracy
 from vid_pipeline.accuracy import AccuracyConfig, build_accuracy_package
-from vid_pipeline.asre_shirin import AsreShirinCheckpoints
+from vid_pipeline.asre_shirin import AsreShirinCheckpoints, total_worker_seconds
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -108,6 +108,12 @@ def test_stage_checkpoint_rejects_corrupt_output(tmp_path: Path) -> None:
     assert not state.is_complete("raw_asr_complete")
 
 
+def test_stage_split_worker_total_uses_workflow_epoch(monkeypatch) -> None:
+    monkeypatch.setenv("ASRE_SHIRIN_WORKER_STARTED_EPOCH", "1000")
+    monkeypatch.setattr("vid_pipeline.asre_shirin.time.time", lambda: 1123.5)
+    assert total_worker_seconds(9999.0) == pytest.approx(123.5)
+
+
 def test_role_labeling_does_not_name_doctor_from_dominance(tmp_path: Path) -> None:
     root = tmp_path / "collection"
     for directory, suffix in (("timestamped", ".md"), ("md", ".md"), ("txt", ".txt")):
@@ -128,6 +134,28 @@ def test_role_labeling_does_not_name_doctor_from_dominance(tmp_path: Path) -> No
     assert "دکتر کمیل رودی" not in roles["mapping"].values()
     assert roles["doctor_selection"]["dominance_not_used_for_identity"] is True
     assert len(roles["unresolved_raw_labels"]) == 2
+
+
+def test_role_labeling_preserves_explicit_unknown_segment(tmp_path: Path) -> None:
+    root = tmp_path / "collection"
+    content = (
+        "[00:00:00 → 00:00:08] **گوینده ۱**\n\nدکتر رودی خوش آمدید\n\n"
+        "[00:00:08 → 00:00:16] **گوینده ۲**\n\nخیلی ممنون\n\n"
+        "[00:00:16 → 00:00:17] **گوینده نامشخص**\n\nبله\n"
+    )
+    for directory, suffix in (("timestamped", ".md"), ("md", ".md"), ("txt", ".txt")):
+        path = root / directory / f"2{suffix}"
+        path.parent.mkdir(parents=True)
+        path.write_text(content, encoding="utf-8")
+    subprocess.run(
+        [sys.executable, str(ROOT / "scripts/label_asre_shirin_roles.py"), str(root), "2"],
+        check=True,
+        cwd=ROOT,
+    )
+    roles = json.loads((root / "roles" / "2.json").read_text(encoding="utf-8"))
+    assert roles["mapping"]["گوینده نامشخص"] == "گوینده نامشخص"
+    assert "گوینده نامشخص" in roles["unresolved_raw_labels"]
+    assert roles["status"] == "partially_unresolved"
 
 
 def test_asre_workflow_contract() -> None:

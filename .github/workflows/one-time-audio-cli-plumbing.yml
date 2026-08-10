@@ -1,0 +1,85 @@
+name: One-time audio CLI plumbing
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/one-time-audio-cli-plumbing.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/audio-integration-main
+          fetch-depth: 0
+      - name: Apply fail-closed CLI patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('src/vid_pipeline/cli.py')
+          text = path.read_text(encoding='utf-8')
+
+          replacements = [
+              (
+                  '    parser.add_argument("--hotwords", default="")\n',
+                  '    parser.add_argument("--hotwords", default="")\n'
+                  '    parser.add_argument("--audio-profile", choices=("none", "safe", "noisy"), default="safe")\n',
+              ),
+              (
+                  '    parser.add_argument("--language", default="fa")\n    parser.add_argument("--no-editorial", action="store_true")\n\n\ndef _add_github_options',
+                  '    parser.add_argument("--language", default="fa")\n    parser.add_argument("--no-editorial", action="store_true")\n'
+                  '    parser.add_argument("--audio-profile", choices=("none", "safe", "noisy"), default="safe")\n\n\ndef _add_github_options',
+              ),
+              (
+                  '    parser.add_argument("--language", default="fa")\n    parser.add_argument("--keep-debug-artifacts", action="store_true")\n',
+                  '    parser.add_argument("--language", default="fa")\n'
+                  '    parser.add_argument("--audio-profile", choices=("none", "safe", "noisy"), default="safe")\n'
+                  '    parser.add_argument("--keep-debug-artifacts", action="store_true")\n',
+              ),
+              (
+                  '    folder_parser.add_argument("--language", default="fa")\n    folder_parser.add_argument("--editorial-model",',
+                  '    folder_parser.add_argument("--language", default="fa")\n'
+                  '    folder_parser.add_argument("--audio-profile", choices=("none", "safe", "noisy"), default="safe")\n'
+                  '    folder_parser.add_argument("--editorial-model",',
+              ),
+              (
+                  '    pipeline = VideoPipeline(args.url, args.output_root, args.name)\n',
+                  '    pipeline = VideoPipeline(args.url, args.output_root, args.name, args.audio_profile)\n',
+              ),
+              (
+                  '    pipeline = LocalMediaPipeline(args.path, args.output_root, args.name)\n',
+                  '    pipeline = LocalMediaPipeline(args.path, args.output_root, args.name, args.audio_profile)\n',
+              ),
+              (
+                  '        "force": args.force,\n    }\n\n\ndef _finish_online',
+                  '        "force": args.force,\n        "audio_profile": args.audio_profile,\n    }\n\n\ndef _finish_online',
+              ),
+              (
+                  '        "no_editorial": args.no_editorial,\n        "keep_debug_artifacts":',
+                  '        "no_editorial": args.no_editorial,\n        "audio_profile": args.audio_profile,\n        "keep_debug_artifacts":',
+              ),
+          ]
+          for old, new in replacements:
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f'CLI patch context expected once, found {count}: {old[:90]!r}')
+              text = text.replace(old, new, 1)
+          path.write_text(text, encoding='utf-8')
+          PY
+      - name: Commit CLI patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm -f .github/workflows/one-time-audio-cli-plumbing.yml
+          git add src/vid_pipeline/cli.py
+          git commit -m "audio: wire preprocessing profile through CLI"
+          git push origin HEAD:agent/audio-integration-main

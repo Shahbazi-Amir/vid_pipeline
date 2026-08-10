@@ -1,0 +1,111 @@
+name: Publish reviewed Khane To and dar_again
+
+on:
+  push:
+    paths:
+      - ".github/publish-reviewed-khane-dar.trigger"
+
+permissions:
+  actions: read
+  contents: write
+  statuses: write
+
+concurrency:
+  group: publish-reviewed-khane-dar
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Publish run link
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          curl -fsS -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" -d "{\"state\":\"pending\",\"context\":\"review/final-khane-dar\",\"target_url\":\"https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}\"}"
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Download successful Khane To checkpoints
+        uses: actions/download-artifact@v4
+        with:
+          pattern: khane-to-*
+          path: /tmp/khane-artifacts
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: 31395831268
+      - name: Normalize Khane To timestamped inputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import shutil
+          src=Path('/tmp/khane-artifacts'); dst=Path('/tmp/khane-input')
+          for n in range(1,14):
+              matches=[p for p in src.rglob(f'{n}.md') if p.parent.name=='timestamped']
+              if len(matches)!=1:
+                  raise SystemExit(f'Khane {n}: expected one timestamped source, got {matches}')
+              target=dst/str(n)/'timestamped'/f'{n}.md'; target.parent.mkdir(parents=True,exist_ok=True); shutil.copy2(matches[0],target)
+          print('normalized 13 Khane To sources')
+          PY
+      - name: Build reviewed Khane To and dar_again outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/local_review_session_v2.py khane /tmp/khane-input /tmp/khane-review
+          python scripts/local_review_session_v2.py dar outputs/dar_jostojo_dar_again_raw /tmp/dar-review
+      - name: Validate exact timestamps and three-format contracts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          rx=re.compile(r'^\[(\d\d:\d\d:\d\d → \d\d:\d\d:\d\d)\]',re.M)
+          def times(p): return rx.findall(p.read_text(encoding='utf-8'))
+          def verify(root, nums, src_for):
+              root=Path(root)
+              exp={str(n) for n in nums}
+              for kind,ext in [('timestamped','md'),('md','md'),('txt','txt')]:
+                  got={p.stem for p in (root/kind).glob(f'*.{ext}') if p.stat().st_size>0}
+                  assert got==exp,(root,kind,sorted(exp-got),sorted(got-exp))
+              for n in nums:
+                  dst=root/'timestamped'/f'{n}.md'; src=src_for(n)
+                  assert times(src)==times(dst),(n,len(times(src)),len(times(dst)))
+                  s=dst.read_text(encoding='utf-8')
+                  assert 'گوینده نامشخص' not in s and 'گویمده' not in s and 'گوینداره' not in s
+          verify('/tmp/khane-review',range(1,14),lambda n:Path('/tmp/khane-input')/str(n)/'timestamped'/f'{n}.md')
+          dar=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,22,23,24,25,26,27,28,29,30]
+          verify('/tmp/dar-review',dar,lambda n:Path('outputs/dar_jostojo_dar_again_raw/timestamped')/f'{n}.md')
+          print('final review validation PASS: Khane 13x3, dar_again 29x3')
+          PY
+      - name: Publish reviewed collections on main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          rm -rf outputs/khane_to/review outputs/dar_jostojo_dar_again_raw/review
+          mkdir -p outputs/khane_to/review outputs/dar_jostojo_dar_again_raw/review
+          cp -a /tmp/khane-review/timestamped /tmp/khane-review/md /tmp/khane-review/txt outputs/khane_to/review/
+          cp -a /tmp/dar-review/timestamped /tmp/dar-review/md /tmp/dar-review/txt outputs/dar_jostojo_dar_again_raw/review/
+          rm -f scripts/local_review_session_v2.py
+          rm -f .github/workflows/publish-reviewed-khane-dar.yml .github/publish-reviewed-khane-dar.trigger
+          rm -f .github/workflows/bundle-dar-again-raw-review-input.yml .github/dar-again-review-bundle.trigger
+          git add -A
+          git commit -m 'review: publish final Khane To and dar_again local reviews'
+          for attempt in 1 2 3 4 5; do
+            if git push origin HEAD:main; then exit 0; fi
+            git pull --rebase origin main
+            sleep $((attempt * 3))
+          done
+          exit 1
+      - name: Mark success
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          curl -fsS -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" -d "{\"state\":\"success\",\"context\":\"review/final-khane-dar\",\"target_url\":\"https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}\"}"

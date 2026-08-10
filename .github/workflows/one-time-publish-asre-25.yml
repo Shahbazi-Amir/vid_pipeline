@@ -62,7 +62,10 @@ jobs:
           print("Validated 25 completed Asre Shirin checkpoints; episode 15 intentionally excluded")
           PY
 
-          python scripts/merge_collection_artifacts.py staging outputs/asre_shirin --skip-existing-complete-base
+          for folder in md timestamped txt roles sources timings; do
+            mkdir -p "outputs/asre_shirin/$folder"
+            cp -a "staging/$folder/." "outputs/asre_shirin/$folder/"
+          done
 
           python - <<'PY'
           import json

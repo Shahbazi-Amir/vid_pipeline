@@ -2,9 +2,7 @@ name: Private Asre Shirin episode 2 pilot
 run-name: Asre Shirin episode 2 A-B pilot #${{ github.run_number }}
 
 on:
-  push:
-    paths:
-      - ".github/private-asre-shirin-pilot.trigger"
+  workflow_dispatch:
 
 permissions:
   actions: read

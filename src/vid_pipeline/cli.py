@@ -14,6 +14,7 @@ from vid_pipeline.clean import clean_transcript
 from vid_pipeline.download import extract_metadata
 from vid_pipeline.editorial import EditorialConfig, EditorialMetadata, edit_transcript
 from vid_pipeline.errors import PipelineError
+from vid_pipeline.media import MEDIA_EXTENSIONS as _MEDIA_EXTENSIONS
 from vid_pipeline.profiles import DEFAULT_PROFILE, resolve_transcription_model
 from vid_pipeline.standalone import LocalMediaPipeline, VideoPipeline
 from vid_pipeline.transcribe import DEFAULT_INITIAL_PROMPT, TranscriptionConfig
@@ -397,12 +398,6 @@ def command_run_file(args: argparse.Namespace) -> int:
     )
     _json_print({"job_id": pipeline.job_id, "job_root": str(pipeline.paths.job_root), "stages": results})
     return 0
-
-
-_MEDIA_EXTENSIONS = {
-    ".mp4", ".mkv", ".mov", ".webm", ".m4v", ".avi",
-    ".mp3", ".wav", ".m4a", ".flac", ".ogg",
-}
 
 
 def command_run_folder(args: argparse.Namespace) -> int:

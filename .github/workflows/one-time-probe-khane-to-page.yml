@@ -1,0 +1,72 @@
+name: One-time probe Khane To page
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    if: github.event.pull_request.head.ref == 'agent/trigger-khane-to-discovery'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Extract Fintelligence client endpoints and JS hints
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import html,json,re,ssl,urllib.request
+          from pathlib import Path
+          url='https://www.fintelligence.ir/Blog/List?t=2042'
+          req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0','Accept':'text/html,*/*','Referer':'https://www.fintelligence.ir/'})
+          with urllib.request.urlopen(req,timeout=30,context=ssl.create_default_context()) as r:
+              raw=r.read().decode(r.headers.get_content_charset() or 'utf-8',errors='replace')
+          decoded=html.unescape(raw).replace('\\/','/')
+          quoted=[]
+          for m in re.finditer(r'["\']([^"\']{1,400})["\']',decoded):
+              s=m.group(1)
+              low=s.lower()
+              if any(k in low for k in ('blog','ajax','api','2042','load','search','filter')):
+                  quoted.append(s)
+          quoted=list(dict.fromkeys(quoted))[:500]
+          script_src=re.findall(r'<script[^>]+src=["\']([^"\']+)',decoded,flags=re.I)
+          inline=[]
+          for m in re.finditer(r'<script(?:\s[^>]*)?>(.*?)</script>',decoded,flags=re.I|re.S):
+              s=m.group(1)
+              low=s.lower()
+              if any(k in low for k in ('2042','ajax','blog','api')):
+                  compact=re.sub(r'\s+',' ',s).strip()
+                  inline.append(compact[:8000])
+          paths=[]
+          for m in re.finditer(r'(?:https?://[^\s"\'<>]+|/[A-Za-z0-9_?=&%./-]+)',decoded):
+              s=m.group(0)
+              low=s.lower()
+              if any(k in low for k in ('blog','api','ajax')):
+                  paths.append(s)
+          paths=list(dict.fromkeys(paths))[:500]
+          payload={'url':url,'html_bytes':len(raw.encode("utf-8")),'script_src':script_src,'quoted_hints':quoted,'path_hints':paths,'inline_script_snippets':inline}
+          Path('benchmarks').mkdir(exist_ok=True)
+          Path('benchmarks/private-khane-to-page-probe.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps({'quoted':len(quoted),'paths':len(paths),'inline_scripts':len(inline)},ensure_ascii=False))
+          PY
+      - name: Publish probe
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add benchmarks/private-khane-to-page-probe.json
+          git commit -m 'data: probe Khane To page endpoints' || exit 0
+          for attempt in 1 2 3 4 5; do
+            git push origin HEAD:main && exit 0
+            git pull --rebase origin main
+            sleep $((attempt * 3))
+          done
+          exit 1

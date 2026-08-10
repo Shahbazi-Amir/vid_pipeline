@@ -114,14 +114,22 @@ def test_find_url_run_uses_url_specific_title(tmp_path: Path):
     assert request_state.workflow_run_url == "https://github.test/run/77"
 
 
-def test_url_workflow_scopes_dispatched_artifact_to_request():
+def test_url_workflow_keeps_correlation_and_lean_success_artifact():
     workflow = (
         Path(__file__).resolve().parents[1] / ".github/workflows/process-video.yml"
     ).read_text(encoding="utf-8")
 
     assert "dispatch_id:" in workflow
     assert "Video URL ${{ inputs.request_id || github.run_id }} — attempt" in workflow
-    assert "name: Verify dispatched result belongs to request" in workflow
-    assert "reviewed-transcript-${{ inputs.request_id }}" in workflow
-    assert "outputs/${{ inputs.request_id }}-*/result.json" in workflow
-    assert "outputs/${{ inputs.request_id }}-*/audio/audio-quality.json" in workflow
+    assert "audio_profile:" in workflow
+    assert "AUDIO_PROFILE: ${{ inputs.audio_profile || 'safe' }}" in workflow
+    assert '--audio-profile "$AUDIO_PROFILE"' in workflow
+
+    success = workflow.split("- name: Upload transcript package", 1)[1].split("- name:", 1)[0]
+    assert "name: transcript-${{ github.run_id }}" in success
+    assert "path: transcript-artifact/*" in success
+    assert "outputs/**" not in success
+
+    debug = workflow.split("- name: Upload debug package", 1)[1].split("- name:", 1)[0]
+    assert "debug-artifacts-${{ github.run_id }}" in debug
+    assert "outputs/**" in debug

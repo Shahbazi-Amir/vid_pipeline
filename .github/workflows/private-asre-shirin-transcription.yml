@@ -63,6 +63,7 @@ jobs:
                       root / "txt" / f"{n}.txt",
                       root / "roles" / f"{n}.json",
                       root / "sources" / f"{n}.json",
+                      root / "timings" / f"{n}.json",
                   )
               )
               if not complete:
@@ -91,6 +92,10 @@ jobs:
       matrix: ${{ fromJSON(needs.discover.outputs.matrix) }}
     runs-on: ubuntu-latest
     timeout-minutes: 210
+    permissions:
+      actions: write
+      contents: read
+      statuses: write
     env:
       VID_PIPELINE_PYANNOTE_TOKEN: ${{ secrets.HF_TOKEN }}
       VIDEO_URL: ${{ matrix.url }}
@@ -306,6 +311,19 @@ jobs:
           retention-days: 7
           if-no-files-found: error
 
+      - name: Dispatch serialized checkpoint publisher
+        continue-on-error: true
+        uses: actions/github-script@v7
+        with:
+          retries: 3
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              ...context.repo,
+              workflow_id: "publish-asre-shirin-checkpoints.yml",
+              ref: "main",
+              inputs: { source_run_id: String(context.runId) },
+            });
+
       - name: Checkpoint failed resumable stages
         if: failure()
         uses: actions/upload-artifact@v4
@@ -341,83 +359,23 @@ jobs:
               target_url: `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
             });
 
-  publish:
-    name: publish Asre Shirin checkpoints
+  dispatch-final-publish:
+    name: dispatch final Asre Shirin checkpoint publish
     needs: [discover, process]
     if: always() && needs.discover.result == 'success' && needs.discover.outputs.remaining_count != '0'
     runs-on: ubuntu-latest
-    timeout-minutes: 20
     permissions:
-      actions: read
-      contents: write
+      actions: write
+      contents: read
     steps:
-      - uses: actions/checkout@v4
+      - name: Dispatch serialized publisher fallback
+        uses: actions/github-script@v7
         with:
-          ref: main
-          fetch-depth: 0
-
-      - uses: actions/download-artifact@v4
-        with:
-          pattern: asre-shirin-*
-          path: staging
-          merge-multiple: true
-
-      - name: Merge checkpoints and publish once
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          for attempt in 1 2 3 4 5; do
-            git fetch origin main
-            git checkout --detach origin/main
-            python scripts/merge_collection_artifacts.py \
-              staging outputs/asre_shirin --skip-existing-complete-base
-            python - <<'PY'
-            import json
-            from datetime import UTC, datetime
-            from pathlib import Path
-
-            root = Path("outputs/asre_shirin")
-            complete = []
-            for n in range(1, 27):
-                if all(
-                    path.is_file() and path.stat().st_size > 0
-                    for path in (
-                        root / "md" / f"{n}.md",
-                        root / "timestamped" / f"{n}.md",
-                        root / "txt" / f"{n}.txt",
-                        root / "roles" / f"{n}.json",
-                        root / "sources" / f"{n}.json",
-                    )
-                ):
-                    complete.append(n)
-            payload = {
-                "state": "complete" if len(complete) == 26 else "running",
-                "phase": "asre_shirin_base_complete" if len(complete) == 26 else "asre_shirin_base_partial",
-                "ai_review": "disabled",
-                "target_count": 26,
-                "processed": len(complete),
-                "completed_numbers": complete,
-                "remaining_numbers": [n for n in range(1, 27) if n not in complete],
-                "speaker_roles": ["خانم متولیان", "دکتر کمیل رودی", "شرکت‌کننده‌ها", "گوینده نامشخص در موارد مبهم"],
-                "updated_at_utc": datetime.now(UTC).isoformat(),
-            }
-            path = Path("benchmarks/private-asre-shirin-status.json")
-            path.parent.mkdir(parents=True, exist_ok=True)
-            path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-            print(json.dumps(payload, ensure_ascii=False))
-            PY
-            git add outputs/asre_shirin benchmarks/private-asre-shirin-status.json
-            if git diff --cached --quiet; then
-              echo "All checkpointed Asre Shirin results already exist on main"
-              exit 0
-            fi
-            git commit -m "data: publish Asre Shirin base transcript batch"
-            if git push origin HEAD:main; then
-              exit 0
-            fi
-            echo "Publisher lost a push race; rebuilding from latest main" >&2
-            sleep $((attempt * 5))
-          done
-          exit 1
+          retries: 3
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              ...context.repo,
+              workflow_id: "publish-asre-shirin-checkpoints.yml",
+              ref: "main",
+              inputs: { source_run_id: String(context.runId) },
+            });

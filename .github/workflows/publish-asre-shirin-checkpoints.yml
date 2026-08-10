@@ -1,0 +1,200 @@
+name: Publish Asre Shirin checkpoints
+run-name: Publish Asre Shirin checkpoints from run ${{ inputs.source_run_id }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_run_id:
+        description: Source Asre Shirin transcription workflow run ID
+        required: true
+        type: string
+
+permissions:
+  actions: write
+  contents: write
+
+concurrency:
+  group: asre-shirin-publisher
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Snapshot successful checkpoint artifacts
+        id: artifacts
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const runId = Number('${{ inputs.source_run_id }}');
+            if (!Number.isSafeInteger(runId) || runId <= 0) {
+              core.setFailed('source_run_id must be a positive integer');
+              return;
+            }
+            const artifacts = await github.paginate(
+              github.rest.actions.listWorkflowRunArtifacts,
+              { ...context.repo, run_id: runId, per_page: 100 },
+            );
+            const successful = artifacts
+              .filter((artifact) => /^asre-shirin-\d+$/.test(artifact.name) && !artifact.expired)
+              .sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }));
+            core.setOutput('count', String(successful.length));
+            core.setOutput('ids', JSON.stringify(successful.map((artifact) => artifact.id)));
+            core.info(`Found ${successful.length} publishable checkpoint artifact(s)`);
+            for (const artifact of successful) {
+              core.info(`${artifact.name} -> ${artifact.id}`);
+            }
+
+      - name: Download current successful checkpoints
+        if: steps.artifacts.outputs.count != '0'
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.source_run_id }}
+          pattern: asre-shirin-*
+          path: staging
+          merge-multiple: true
+
+      - name: Merge, publish, and verify checkpoints on main
+        if: steps.artifacts.outputs.count != '0'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          published=false
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git checkout --detach origin/main
+
+            python scripts/merge_collection_artifacts.py \
+              staging outputs/asre_shirin --skip-existing-complete-base
+
+            python - <<'PY'
+            import json
+            from datetime import UTC, datetime
+            from pathlib import Path
+
+            root = Path("outputs/asre_shirin")
+            complete = []
+            for n in range(1, 27):
+                if all(
+                    path.is_file() and path.stat().st_size > 0
+                    for path in (
+                        root / "md" / f"{n}.md",
+                        root / "timestamped" / f"{n}.md",
+                        root / "txt" / f"{n}.txt",
+                        root / "roles" / f"{n}.json",
+                        root / "sources" / f"{n}.json",
+                        root / "timings" / f"{n}.json",
+                    )
+                ):
+                    complete.append(n)
+
+            payload = {
+                "state": "complete" if len(complete) == 26 else "running",
+                "phase": "asre_shirin_base_complete" if len(complete) == 26 else "asre_shirin_base_partial",
+                "ai_review": "disabled",
+                "target_count": 26,
+                "processed": len(complete),
+                "completed_numbers": complete,
+                "remaining_numbers": [n for n in range(1, 27) if n not in complete],
+                "speaker_roles": ["خانم متولیان", "دکتر کمیل رودی", "شرکت‌کننده‌ها", "گوینده نامشخص در موارد مبهم"],
+                "updated_at_utc": datetime.now(UTC).isoformat(),
+            }
+            status_path = Path("benchmarks/private-asre-shirin-status.json")
+            status_path.parent.mkdir(parents=True, exist_ok=True)
+            status_path.write_text(
+                json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
+            print(json.dumps(payload, ensure_ascii=False))
+            PY
+
+            git add outputs/asre_shirin benchmarks/private-asre-shirin-status.json
+            if git diff --cached --quiet; then
+              echo "All downloaded checkpoints already exist on main"
+              published=true
+              break
+            fi
+
+            git commit -m "data: publish Asre Shirin base transcript batch"
+            if git push origin HEAD:main; then
+              published=true
+              break
+            fi
+
+            echo "Publisher lost a push race; rebuilding from latest main" >&2
+            sleep $((attempt * 5))
+          done
+
+          if [[ "$published" != true ]]; then
+            echo "Failed to publish Asre Shirin checkpoints after retries" >&2
+            exit 1
+          fi
+
+          git fetch origin main
+          git checkout --detach origin/main
+          python - <<'PY'
+          from pathlib import Path
+
+          staging = Path("staging")
+          target = Path("outputs/asre_shirin")
+          suffixes = {
+              "md": ".md",
+              "timestamped": ".md",
+              "txt": ".txt",
+              "roles": ".json",
+              "sources": ".json",
+              "timings": ".json",
+          }
+          base_folders = {"md", "timestamped", "txt"}
+          staged_numbers = sorted(
+              int(path.stem)
+              for path in (staging / "md").glob("*.md")
+              if path.stem.isdigit()
+          )
+          if not staged_numbers:
+              raise SystemExit("Downloaded checkpoints contained no numbered base transcripts")
+
+          for number in staged_numbers:
+              for folder, suffix in suffixes.items():
+                  source = staging / folder / f"{number}{suffix}"
+                  destination = target / folder / f"{number}{suffix}"
+                  if not source.is_file() or source.stat().st_size <= 0:
+                      raise SystemExit(f"Missing staged checkpoint file: {source}")
+                  if not destination.is_file() or destination.stat().st_size <= 0:
+                      raise SystemExit(f"Published checkpoint file is missing: {destination}")
+                  if folder not in base_folders and destination.read_bytes() != source.read_bytes():
+                      raise SystemExit(f"Published sidecar differs from artifact: {destination}")
+
+          print(f"Verified {len(staged_numbers)} checkpoint(s) on origin/main: {staged_numbers}")
+          PY
+
+      - name: Delete verified successful checkpoint artifacts
+        if: steps.artifacts.outputs.count != '0' && success()
+        uses: actions/github-script@v7
+        env:
+          ARTIFACT_IDS: ${{ steps.artifacts.outputs.ids }}
+        with:
+          script: |
+            const ids = JSON.parse(process.env.ARTIFACT_IDS || '[]');
+            for (const artifactId of ids) {
+              await github.rest.actions.deleteArtifact({
+                ...context.repo,
+                artifact_id: artifactId,
+              });
+              core.info(`Deleted verified checkpoint artifact ${artifactId}`);
+            }
+
+      - name: No publishable checkpoints yet
+        if: steps.artifacts.outputs.count == '0'
+        run: echo "No successful Asre Shirin checkpoint artifacts remain to publish"

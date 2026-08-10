@@ -56,14 +56,18 @@ jobs:
           assert importlib.util.find_spec("faster_whisper") is None
           assert importlib.util.find_spec("torch") is None
           PY
-      - name: Reject generated media and oversized files
+      - name: Reject raw media, transient directories, and oversized files
         run: |
           python - <<'PY'
           import subprocess
           from pathlib import Path
 
-          blocked_directories = {"outputs", "cache", "tmp"}
-          blocked_suffixes = {".mp4", ".mkv", ".mov", ".wav", ".flac"}
+          blocked_directories = {"cache", "tmp"}
+          blocked_suffixes = {
+              ".aac", ".aif", ".aiff", ".avi", ".flac", ".m4a", ".m4v",
+              ".mkv", ".mov", ".mp3", ".mp4", ".mpeg", ".mpg", ".ogg",
+              ".wav", ".webm",
+          }
           violations = []
           tracked = subprocess.check_output(["git", "ls-files", "-z"]).decode().split("\0")
           for item in tracked:
@@ -75,7 +79,7 @@ jobs:
               elif path.stat().st_size > 5 * 1024 * 1024:
                   violations.append(f"{path} (larger than 5 MiB)")
           if violations:
-              raise SystemExit("Forbidden generated files:\n" + "\n".join(violations))
+              raise SystemExit("Forbidden raw/transient files:\n" + "\n".join(violations))
           PY
 
   docker-build:

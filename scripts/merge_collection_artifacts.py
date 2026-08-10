@@ -10,6 +10,7 @@ ALLOWED = {
     "txt": ".txt",
     "roles": ".json",
     "sources": ".json",
+    "timings": ".json",
     "review/md": ".md",
     "review/timestamped": ".md",
     "review/txt": ".txt",
@@ -58,7 +59,7 @@ def main() -> None:
     skipped = 0
     for source, relative, parent in validated:
         # Preserve an already-complete base transcript, but still allow new
-        # sidecar metadata such as roles/ and sources/ to be filled on resume.
+        # sidecar metadata such as roles/, sources/, and timings/ to be filled on resume.
         if parent in {"md", "timestamped", "txt"} and source.stem in complete_numbers:
             skipped += 1
             continue

@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 import pytest
@@ -157,6 +158,19 @@ def test_dedicated_env_token_works_when_standard_hf_token_is_empty(monkeypatch):
     )
     backend.diarize(Path("/tmp/audio.wav"), num_speakers=1)
     assert captured["token"] == "hf_dedicated_test"
+    assert os.environ["HF_TOKEN"] == "hf_dedicated_test"
+
+
+def test_existing_standard_hf_token_is_not_overwritten(monkeypatch):
+    monkeypatch.setenv("VID_PIPELINE_PYANNOTE_TOKEN", "hf_dedicated_test")
+    monkeypatch.setenv("HF_TOKEN", "hf_standard_test")
+
+    backend = PyannoteDiarizationBackend(
+        pipeline_loader=lambda *args, **kwargs: object(),
+        waveform_loader=fake_waveform,
+    )
+    assert backend is not None
+    assert os.environ["HF_TOKEN"] == "hf_standard_test"
 
 
 def test_waveform_loader_failure_is_sanitized():

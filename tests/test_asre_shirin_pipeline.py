@@ -159,22 +159,37 @@ def test_role_labeling_preserves_explicit_unknown_segment(tmp_path: Path) -> Non
 
 
 def test_asre_workflow_contract() -> None:
-    workflow = (ROOT / ".github/workflows/private-asre-shirin-transcription.yml").read_text(
+    worker = (ROOT / ".github/workflows/private-asre-shirin-transcription.yml").read_text(
         encoding="utf-8"
     )
-    process_block = workflow.split("  process:", 1)[1].split("\n  publish:", 1)[0]
+    publisher = (ROOT / ".github/workflows/publish-asre-shirin-checkpoints.yml").read_text(
+        encoding="utf-8"
+    )
+    process_block = worker.split("  process:", 1)[1].split("\n  dispatch-final-publish:", 1)[0]
+
     assert "max-parallel: 6" in process_block
     assert "git push" not in process_block
-    assert "AI_REVIEW_ENABLED: \"false\"" in workflow
-    assert "run-url" not in workflow
-    assert "timings/$RESULT_NUMBER.json" in workflow
-    assert "--skip-existing-complete-base" in workflow
-    assert workflow.count("git push") == 1
-    assert workflow.count("  publish:") == 1
-    assert "statuses: write" in workflow
-    assert "context.runId" in workflow
-    assert "sleep $((attempt * 15))" in workflow
-    assert "if (( attempt < 2 ))" in workflow
+    assert "AI_REVIEW_ENABLED: \"false\"" in worker
+    assert "run-url" not in worker
+    assert "timings/$RESULT_NUMBER.json" in worker
+    assert "statuses: write" in worker
+    assert "context.runId" in worker
+    assert "sleep $((attempt * 15))" in worker
+    assert "if (( attempt < 2 ))" in worker
+    assert "createWorkflowDispatch" in worker
+    assert 'workflow_id: "publish-asre-shirin-checkpoints.yml"' in worker
+    assert "dispatch-final-publish:" in worker
+    assert "\n  publish:\n" not in worker
+
+    assert "workflow_dispatch:" in publisher
+    assert "actions: write" in publisher
+    assert "contents: write" in publisher
+    assert "group: asre-shirin-publisher" in publisher
+    assert "--skip-existing-complete-base" in publisher
+    assert "git push origin HEAD:main" in publisher
+    assert "deleteArtifact" in publisher
+    assert '"timings": ".json"' in publisher
+    assert "git fetch origin main" in publisher
 
     manifest = json.loads(
         (ROOT / "sources/asre_shirin/aparat_manifest.json").read_text(encoding="utf-8")

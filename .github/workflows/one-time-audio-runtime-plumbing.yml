@@ -1,0 +1,101 @@
+name: One-time audio runtime plumbing
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/one-time-audio-runtime-plumbing.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/audio-integration-main
+          fetch-depth: 0
+      - name: Apply fail-closed runtime patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          def replace(path: str, old: str, new: str) -> None:
+              target = Path(path)
+              text = target.read_text(encoding='utf-8')
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f'{path}: expected one context, found {count}: {old[:100]!r}')
+              target.write_text(text.replace(old, new, 1), encoding='utf-8')
+              print(f'patched {path}')
+
+          replace(
+              'src/vid_pipeline/standalone.py',
+              '    def audio(self) -> Path:\n        return self.job_root / "audio" / "audio-16k-mono.wav"\n\n    @property\n    def raw_json',
+              '    def audio(self) -> Path:\n        return self.job_root / "audio" / "audio-16k-mono.wav"\n\n    @property\n    def audio_quality(self) -> Path:\n        return self.job_root / "audio" / "audio-quality.json"\n\n    @property\n    def raw_json',
+          )
+          replace(
+              'src/vid_pipeline/standalone.py',
+              '    def __init__(self, url: str, output_root: str | Path = "outputs", name: str = "") -> None:\n        self.url = url\n        self.job_id = make_job_id(url, name)\n        self.paths = VideoJobPaths(Path(output_root), self.job_id)\n        self.paths.ensure()\n        self.state = PipelineState(self.paths.state)\n        self.metadata: dict[str, Any] = {}\n',
+              '    def __init__(\n        self,\n        url: str,\n        output_root: str | Path = "outputs",\n        name: str = "",\n        audio_profile: str = "safe",\n    ) -> None:\n        self.url = url\n        self.job_id = make_job_id(url, name)\n        self.paths = VideoJobPaths(Path(output_root), self.job_id)\n        self.paths.ensure()\n        self.state = PipelineState(self.paths.state)\n        self.audio_profile = audio_profile\n        self.metadata: dict[str, Any] = {}\n',
+          )
+          replace(
+              'src/vid_pipeline/standalone.py',
+              '            normalized = normalize_audio(self._downloaded_video(), self.paths.audio, overwrite=force)\n            normalize_seconds = time.monotonic() - normalize_started\n            probe_started = time.monotonic()\n            probe = validate_normalized_audio(normalized)\n            probe_seconds = time.monotonic() - probe_started\n            return [normalized], {\n                "probe": probe,\n                "normalize_seconds": round(normalize_seconds, 6),\n                "ffprobe_seconds": round(probe_seconds, 6),\n            }\n',
+              '            normalized = normalize_audio(\n                self._downloaded_video(),\n                self.paths.audio,\n                overwrite=force,\n                profile=self.audio_profile,\n                quality_path=self.paths.audio_quality,\n            )\n            normalize_seconds = time.monotonic() - normalize_started\n            probe_started = time.monotonic()\n            probe = validate_normalized_audio(normalized)\n            probe_seconds = time.monotonic() - probe_started\n            return [normalized, self.paths.audio_quality], {\n                "probe": probe,\n                "audio_profile": self.audio_profile,\n                "normalize_seconds": round(normalize_seconds, 6),\n                "ffprobe_seconds": round(probe_seconds, 6),\n            }\n',
+          )
+          replace(
+              'src/vid_pipeline/standalone.py',
+              '    def __init__(\n        self, media_path: str | Path, output_root: str | Path = "outputs", name: str = ""\n    ) -> None:\n',
+              '    def __init__(\n        self,\n        media_path: str | Path,\n        output_root: str | Path = "outputs",\n        name: str = "",\n        audio_profile: str = "safe",\n    ) -> None:\n',
+          )
+          replace(
+              'src/vid_pipeline/standalone.py',
+              '        self.state = PipelineState(self.paths.state)\n        self.metadata = {}\n        if self.paths.source_metadata.exists():\n',
+              '        self.state = PipelineState(self.paths.state)\n        self.audio_profile = audio_profile\n        self.metadata = {}\n        if self.paths.source_metadata.exists():\n',
+          )
+          replace(
+              'src/vid_pipeline/standalone.py',
+              '        def action() -> tuple[list[Path], dict[str, Any]]:\n            payload = {\n                "schema_version": 2,\n                "job_id": self.job_id,\n                "input_type": "file",\n                "path": str(self.media_path),\n                "title": self.media_path.stem,\n                "size": self.media_path.stat().st_size,\n                "sha256": _sha256_file(self.media_path),\n            }\n',
+              '        def action() -> tuple[list[Path], dict[str, Any]]:\n            from vid_pipeline.media import require_decodable_audio\n\n            media = require_decodable_audio(self.media_path)\n            payload = {\n                "schema_version": 2,\n                "job_id": self.job_id,\n                "input_type": media["input_type"],\n                "path": str(self.media_path),\n                "title": self.media_path.stem,\n                "size": self.media_path.stat().st_size,\n                "sha256": _sha256_file(self.media_path),\n                "media": media,\n            }\n',
+          )
+
+          replace(
+              'src/vid_pipeline/online_client.py',
+              'MEDIA_EXTENSIONS = {\n    ".avi", ".flac", ".m4a", ".m4v", ".mkv", ".mov", ".mp3",\n    ".mp4", ".ogg", ".wav", ".webm",\n}\n',
+              'MEDIA_EXTENSIONS = {\n    ".aac", ".ac3", ".aif", ".aiff", ".alac", ".amr", ".avi", ".caf",\n    ".flac", ".m4a", ".m4v", ".mkv", ".mov", ".mp3", ".mp4", ".ogg",\n    ".opus", ".wav", ".webm", ".wma",\n}\n',
+          )
+          replace(
+              'src/vid_pipeline/online_client.py',
+              '        force: bool = False,\n    ) -> ClientRecord:\n',
+              '        force: bool = False,\n        audio_profile: str = "safe",\n    ) -> ClientRecord:\n',
+          )
+          replace(
+              'src/vid_pipeline/online_client.py',
+              '                "language": language, "editorial": editorial,\n            }).json()\n',
+              '                "language": language, "editorial": editorial,\n                "audio_profile": audio_profile,\n            }).json()\n',
+          )
+          replace(
+              'src/vid_pipeline/server/api.py',
+              '            "language": payload.get("language", "fa"),\n            "review_settings":',
+              '            "language": payload.get("language", "fa"),\n            "audio_profile": payload.get("audio_profile", "safe"),\n            "review_settings":',
+          )
+          replace(
+              'src/vid_pipeline/server/worker.py',
+              '        audio = normalize_audio(media, work / "audio.wav", overwrite=True)\n',
+              '        audio = normalize_audio(\n            media, work / "audio.wav", overwrite=True,\n            profile=job.get("audio_profile", "safe"),\n        )\n',
+          )
+          PY
+      - name: Commit runtime plumbing
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm -f .github/workflows/one-time-audio-runtime-plumbing.yml
+          git add src/vid_pipeline/standalone.py src/vid_pipeline/online_client.py src/vid_pipeline/server/api.py src/vid_pipeline/server/worker.py
+          git commit -m "audio: wire preprocessing profile through runtime"
+          git push origin HEAD:agent/audio-integration-main

@@ -1,0 +1,118 @@
+name: Actions retention cleanup
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 1 * * *'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/actions-retention.yml'
+
+permissions:
+  actions: write
+  contents: read
+
+concurrency:
+  group: actions-retention-cleanup
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Prune excess completed workflow runs and report artifact storage
+        uses: actions/github-script@v7
+        env:
+          KEEP_RECENT_COMPLETED: '30'
+          MIN_AGE_HOURS: '2'
+          MAX_DELETES_PER_RUN: '300'
+          PROTECTED_RUN_IDS: '31348536690,31363114595,31365522099'
+        with:
+          retries: 3
+          script: |
+            const keepRecent = Number(process.env.KEEP_RECENT_COMPLETED || '30');
+            const minAgeMs = Number(process.env.MIN_AGE_HOURS || '2') * 60 * 60 * 1000;
+            const maxDeletes = Number(process.env.MAX_DELETES_PER_RUN || '300');
+            const protectedIds = new Set(
+              String(process.env.PROTECTED_RUN_IDS || '')
+                .split(',')
+                .map((value) => Number(value.trim()))
+                .filter((value) => Number.isSafeInteger(value) && value > 0),
+            );
+            protectedIds.add(Number(context.runId));
+
+            const runs = await github.paginate(
+              github.rest.actions.listWorkflowRunsForRepo,
+              { ...context.repo, per_page: 100 },
+            );
+            const completed = runs
+              .filter((run) => run.status === 'completed')
+              .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+            const active = runs.filter((run) => run.status !== 'completed');
+            const recentIds = new Set(completed.slice(0, keepRecent).map((run) => run.id));
+            const now = Date.now();
+
+            const candidates = completed.filter((run) => {
+              if (protectedIds.has(run.id) || recentIds.has(run.id)) return false;
+              const created = new Date(run.created_at).getTime();
+              return Number.isFinite(created) && now - created >= minAgeMs;
+            });
+            const selected = candidates.slice(0, maxDeletes);
+
+            let deleted = 0;
+            const failures = [];
+            for (const run of selected) {
+              try {
+                await github.rest.actions.deleteWorkflowRun({
+                  ...context.repo,
+                  run_id: run.id,
+                });
+                deleted += 1;
+              } catch (error) {
+                if (error.status === 404) {
+                  deleted += 1;
+                } else {
+                  failures.push({ id: run.id, status: error.status || null, message: String(error.message || error) });
+                }
+              }
+            }
+
+            const artifactsBefore = await github.paginate(
+              github.rest.actions.listArtifactsForRepo,
+              { ...context.repo, per_page: 100 },
+            );
+            const liveArtifacts = artifactsBefore.filter((artifact) => !artifact.expired);
+            const liveBytes = liveArtifacts.reduce((sum, artifact) => sum + Number(artifact.size_in_bytes || 0), 0);
+
+            const summary = {
+              visible_runs_before: runs.length,
+              active_runs_preserved: active.length,
+              completed_runs_before: completed.length,
+              protected_run_ids: [...protectedIds].sort((a, b) => a - b),
+              keep_recent_completed: keepRecent,
+              min_age_hours: Number(process.env.MIN_AGE_HOURS || '2'),
+              delete_candidates: candidates.length,
+              deleted_this_run: deleted,
+              failures,
+              live_artifact_count: liveArtifacts.length,
+              live_artifact_bytes: liveBytes,
+            };
+            core.info(`ACTIONS_RETENTION_SUMMARY=${JSON.stringify(summary)}`);
+            await core.summary
+              .addHeading('Actions retention cleanup')
+              .addTable([
+                [{ data: 'Metric', header: true }, { data: 'Value', header: true }],
+                ['Visible runs before cleanup', String(runs.length)],
+                ['Active runs preserved', String(active.length)],
+                ['Completed runs before cleanup', String(completed.length)],
+                ['Completed runs deleted', String(deleted)],
+                ['Live artifacts', String(liveArtifacts.length)],
+                ['Live artifact bytes', String(liveBytes)],
+              ])
+              .write();
+
+            if (failures.length) {
+              core.setFailed(`Failed to delete ${failures.length} workflow run(s)`);
+            }

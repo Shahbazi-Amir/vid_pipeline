@@ -1,16 +1,22 @@
 from pathlib import Path
 
 
-def test_uploaded_workflow_scopes_artifact_to_current_request():
+def test_uploaded_workflow_keeps_success_artifact_lean_and_audio_debug_separate():
     workflow = (
         Path(__file__).resolve().parents[1]
         / ".github/workflows/process-uploaded-video.yml"
     ).read_text(encoding="utf-8")
 
-    request_scoped = "outputs/${{ inputs.request_id }}-*"
-    assert "name: Verify result belongs to request" in workflow
-    assert f"{request_scoped}/result.json" in workflow
-    assert f"{request_scoped}/source.json" in workflow
-    assert f"{request_scoped}/audio/audio-quality.json" in workflow
-    assert "outputs/**/result.json" not in workflow
-    assert "outputs/**/source.json" not in workflow
+    assert "audio_profile:" in workflow
+    assert "AUDIO_PROFILE: ${{ inputs.audio_profile }}" in workflow
+    assert '--audio-profile "$AUDIO_PROFILE"' in workflow
+
+    success = workflow.split("- name: Upload transcript result", 1)[1].split("- name:", 1)[0]
+    assert "uploaded-transcript-${{ inputs.request_id }}" in success
+    assert "transcript-artifact/*" in success
+    assert "outputs/**" not in success
+    assert "audio-quality.json" not in success
+
+    debug = workflow.split("- name: Upload debug package", 1)[1].split("- name:", 1)[0]
+    assert "outputs/**" in debug
+    assert "debug-artifacts-${{ inputs.request_id }}" in debug

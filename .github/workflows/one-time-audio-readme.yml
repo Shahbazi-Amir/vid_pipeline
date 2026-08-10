@@ -1,0 +1,61 @@
+name: One-time audio README sync
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/one-time-audio-readme.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/audio-docs-sync
+          fetch-depth: 0
+      - name: Add audio overview to README
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('README.md')
+          text = path.read_text(encoding='utf-8')
+          old = '# Video Transcript Pipeline\n\nThe project supports four distinct execution modes:\n'
+          new = '''# Video and Audio Transcript Pipeline
+
+Local files, mixed media folders, direct media URLs, supported podcast pages,
+online uploads, and GitHub Actions uploads can contain either video or
+audio-only media. Every input is validated with FFprobe and normalized to mono
+16 kHz PCM WAV before ASR. Supports common audio formats decodable by the
+installed FFmpeg build.
+
+```bash
+vid-pipeline run-file ./speech.m4a --audio-profile safe --no-editorial
+vid-pipeline run-url "https://example.com/podcast.mp3" --audio-profile safe
+vid-pipeline github-submit-file ./speech.mp3 --audio-profile safe --wait --download
+```
+
+Audio preprocessing profiles are `none`, `safe` (default), and `noisy`.
+See [Audio input](docs/audio-input.md) for formats, quality reporting,
+limitations, privacy, artifacts, and review guidance.
+
+The project supports four distinct execution modes:
+'''
+          if text.count(old) != 1:
+              raise SystemExit('README top-level audio patch context did not match exactly once')
+          path.write_text(text.replace(old, new, 1), encoding='utf-8')
+          PY
+      - name: Commit README and remove helper
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm -f .github/workflows/one-time-audio-readme.yml
+          git add README.md
+          git commit -m "docs: document audio inputs in README"
+          git push origin HEAD:agent/audio-docs-sync

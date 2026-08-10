@@ -102,6 +102,10 @@ class VideoJobPaths:
         return self.job_root / "audio" / "audio-16k-mono.wav"
 
     @property
+    def audio_quality(self) -> Path:
+        return self.job_root / "audio" / "audio-quality.json"
+
+    @property
     def raw_json(self) -> Path:
         return self.job_root / "raw" / "transcript.raw.json"
 
@@ -148,12 +152,19 @@ class VideoJobPaths:
 class VideoPipeline:
     """Resume-safe pipeline that converts one video URL into final text files."""
 
-    def __init__(self, url: str, output_root: str | Path = "outputs", name: str = "") -> None:
+    def __init__(
+        self,
+        url: str,
+        output_root: str | Path = "outputs",
+        name: str = "",
+        audio_profile: str = "safe",
+    ) -> None:
         self.url = url
         self.job_id = make_job_id(url, name)
         self.paths = VideoJobPaths(Path(output_root), self.job_id)
         self.paths.ensure()
         self.state = PipelineState(self.paths.state)
+        self.audio_profile = audio_profile
         self.metadata: dict[str, Any] = {}
         if self.paths.source_metadata.exists():
             self.metadata = json.loads(self.paths.source_metadata.read_text(encoding="utf-8"))
@@ -230,13 +241,20 @@ class VideoPipeline:
     def audio(self, *, force: bool = False) -> dict[str, Any]:
         def action() -> tuple[list[Path], dict[str, Any]]:
             normalize_started = time.monotonic()
-            normalized = normalize_audio(self._downloaded_video(), self.paths.audio, overwrite=force)
+            normalized = normalize_audio(
+                self._downloaded_video(),
+                self.paths.audio,
+                overwrite=force,
+                profile=self.audio_profile,
+                quality_path=self.paths.audio_quality,
+            )
             normalize_seconds = time.monotonic() - normalize_started
             probe_started = time.monotonic()
             probe = validate_normalized_audio(normalized)
             probe_seconds = time.monotonic() - probe_started
-            return [normalized], {
+            return [normalized, self.paths.audio_quality], {
                 "probe": probe,
+                "audio_profile": self.audio_profile,
                 "normalize_seconds": round(normalize_seconds, 6),
                 "ffprobe_seconds": round(probe_seconds, 6),
             }
@@ -469,7 +487,11 @@ class LocalMediaPipeline(VideoPipeline):
     """Run the canonical pipeline for an existing local media file."""
 
     def __init__(
-        self, media_path: str | Path, output_root: str | Path = "outputs", name: str = ""
+        self,
+        media_path: str | Path,
+        output_root: str | Path = "outputs",
+        name: str = "",
+        audio_profile: str = "safe",
     ) -> None:
         self.media_path = Path(media_path).resolve()
         if not self.media_path.is_file():
@@ -479,20 +501,25 @@ class LocalMediaPipeline(VideoPipeline):
         self.paths = VideoJobPaths(Path(output_root), self.job_id)
         self.paths.ensure()
         self.state = PipelineState(self.paths.state)
+        self.audio_profile = audio_profile
         self.metadata = {}
         if self.paths.source_metadata.exists():
             self.metadata = json.loads(self.paths.source_metadata.read_text(encoding="utf-8"))
 
     def inspect(self, *, force: bool = False) -> dict[str, Any]:
         def action() -> tuple[list[Path], dict[str, Any]]:
+            from vid_pipeline.media import require_decodable_audio
+
+            media = require_decodable_audio(self.media_path)
             payload = {
                 "schema_version": 2,
                 "job_id": self.job_id,
-                "input_type": "file",
+                "input_type": media["input_type"],
                 "path": str(self.media_path),
                 "title": self.media_path.stem,
                 "size": self.media_path.stat().st_size,
                 "sha256": _sha256_file(self.media_path),
+                "media": media,
             }
             self.paths.source_metadata.write_text(
                 json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"

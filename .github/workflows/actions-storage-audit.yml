@@ -13,7 +13,7 @@ permissions:
 jobs:
   cleanup:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - name: Delete one safe chunk of completed old workflow runs
         env:
@@ -22,7 +22,7 @@ jobs:
           CURRENT_CLEANUP_RUN: ${{ github.run_id }}
           PROTECTED_PRODUCTION_RUN: "31348536690"
           OLD_CUTOFF_UTC: "2026-08-10T00:00:00Z"
-          CHUNK_SIZE: "100"
+          CHUNK_SIZE: "700"
         shell: bash
         run: |
           set -euo pipefail
@@ -42,6 +42,8 @@ jobs:
               'X-GitHub-Api-Version': '2022-11-28',
               'User-Agent': 'vid-pipeline-actions-run-history-cleanup',
           }
+          last_rate_remaining = None
+          last_rate_reset = None
 
           def http_error_info(exc):
               h = exc.headers or {}
@@ -53,9 +55,12 @@ jobs:
               }
 
           def api_json(url):
+              global last_rate_remaining, last_rate_reset
               req = urllib.request.Request(url, headers=headers)
               try:
                   with urllib.request.urlopen(req, timeout=30) as response:
+                      last_rate_remaining = response.headers.get('X-RateLimit-Remaining')
+                      last_rate_reset = response.headers.get('X-RateLimit-Reset')
                       return json.load(response)
               except urllib.error.HTTPError as exc:
                   print('API_LIST_ERROR=' + json.dumps(http_error_info(exc), separators=(',', ':')))
@@ -85,7 +90,9 @@ jobs:
               and int(row.get('id') or 0) not in {protected_run, current_cleanup_run}
           ]
           all_candidates.sort(key=dt)
-          selected = all_candidates[:chunk_size]
+          remaining_budget = int(last_rate_remaining or 0)
+          safe_delete_budget = max(0, remaining_budget - 100)
+          selected = all_candidates[:min(chunk_size, safe_delete_budget)]
           deleted = 0
           rate_limited = None
           failures = []
@@ -119,6 +126,9 @@ jobs:
           summary = {
               'visible_runs_before': len(before),
               'old_completed_candidates_before': len(all_candidates),
+              'rate_remaining_after_listing': remaining_budget,
+              'rate_reset': last_rate_reset,
+              'safe_delete_budget': safe_delete_budget,
               'chunk_selected': len(selected),
               'deleted_this_run': deleted,
               'estimated_old_completed_remaining': estimated_remaining,
@@ -134,10 +144,13 @@ jobs:
                   f"Old completed before chunk: **{len(all_candidates)}**\n\n"
                   f"Deleted this run: **{deleted}**\n\n"
                   f"Estimated remaining: **{estimated_remaining}**\n\n"
+                  f"Rate remaining after listing: **{remaining_budget}**\n\n"
                   f"Failures: **{len(failures)}**\n"
               )
           if failures:
               raise SystemExit(f'non-rate-limit delete failures: {failures[:5]}')
           if rate_limited:
               raise SystemExit('GitHub API rate limited this chunk; retry after reset')
+          if all_candidates and not selected:
+              raise SystemExit('No safe API budget available for deletes; retry after rate reset')
           PY

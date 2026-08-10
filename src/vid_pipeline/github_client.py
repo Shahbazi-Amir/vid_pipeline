@@ -374,6 +374,7 @@ class GitHubClient:
             "model": options.get("model") or "",
             "language": options.get("language", "fa"),
             "no_editorial": str(options.get("no_editorial", True)).lower(),
+            "audio_profile": options.get("audio_profile", "safe"),
             "keep_debug_artifacts": str(options.get("keep_debug_artifacts", False)).lower(),
             "diarization_enabled": str(options.get("diarize", False)).lower(),
             "diarization_required": str(options.get("diarization_required", False)).lower(),

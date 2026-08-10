@@ -4,6 +4,9 @@ on:
   push:
     paths:
       - ".github/private-asre-shirin-publish-only.trigger"
+  pull_request:
+    paths:
+      - ".github/private-asre-shirin-publish-only.trigger"
 
 permissions:
   actions: read
@@ -87,5 +90,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add outputs/asre_shirin benchmarks/private-asre-shirin-status.json
+          if git diff --cached --quiet; then
+            echo "No unpublished Asre Shirin checkpoint changes"
+            exit 0
+          fi
           git commit -m "data: publish 25 Asre Shirin base transcripts"
           git push origin HEAD:main

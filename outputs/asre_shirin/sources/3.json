@@ -1,0 +1,26 @@
+{
+  "episode": 3,
+  "url": "https://www.aparat.com/v/O51vh",
+  "title": "سواد مالی خانم‌ها؛ روی کدام پلکان؟",
+  "publisher": "fintelligence",
+  "platform": "Aparat",
+  "media": {
+    "uid": "O51vh",
+    "resolver_type": "aparat-official-video-api-v1",
+    "media_profile": "360p",
+    "media_size_bytes": 47391601,
+    "media_sha256": "c30ecaca5e05f782a262d79cc388860bc238e91e198b9a74112a26bc628c8a74",
+    "duration_seconds": 1336.293292,
+    "container": "mov,mp4,m4a,3gp,3g2,mj2",
+    "audio_codec": "aac",
+    "video_codec": "h264",
+    "reused_verified_media": true
+  },
+  "compute_handoff": "run-file",
+  "asr_model": "large-v3-turbo",
+  "profile": "balanced",
+  "device": "cpu",
+  "compute_type": "int8",
+  "diarization": "pyannote-community-1-auto-speaker-count",
+  "external_ai_review": false
+}

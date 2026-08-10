@@ -1,0 +1,93 @@
+{
+  "episode": 25,
+  "method": "conservative-opening-host-and-explicit-doctor-address-v3",
+  "user_program_structure": {
+    "host": "خانم متولیان",
+    "expert": "دکتر کمیل رودی",
+    "other_speakers": "participants",
+    "host_speaks_at_beginning": true
+  },
+  "raw_speakers": [
+    "گوینده ۱",
+    "گوینده ۲",
+    "گوینده ۳",
+    "گوینده ۴",
+    "گوینده ۵",
+    "گوینده ۶",
+    "گوینده ۷"
+  ],
+  "raw_speaker_count": 7,
+  "duration_seconds": {
+    "گوینده ۱": 99.0,
+    "گوینده ۲": 1265.0,
+    "گوینده ۳": 116.0,
+    "گوینده ۴": 8.0,
+    "گوینده ۵": 43.0,
+    "گوینده ۶": 28.0,
+    "گوینده ۷": 10.0
+  },
+  "first_start_seconds": {
+    "گوینده ۱": 1.0,
+    "گوینده ۲": 32.0,
+    "گوینده ۳": 429.0,
+    "گوینده ۴": 699.0,
+    "گوینده ۵": 702.0,
+    "گوینده ۶": 780.0,
+    "گوینده ۷": 1170.0
+  },
+  "opening_120s_seconds": {
+    "گوینده ۱": 52.0,
+    "گوینده ۲": 57.0,
+    "گوینده ۳": 0.0,
+    "گوینده ۴": 0.0,
+    "گوینده ۵": 0.0,
+    "گوینده ۶": 0.0,
+    "گوینده ۷": 0.0
+  },
+  "mapping": {
+    "گوینده ۱": "خانم متولیان",
+    "گوینده ۲": "دکتر کمیل رودی",
+    "گوینده ۳": "شرکت‌کننده 1",
+    "گوینده ۴": "شرکت‌کننده 2",
+    "گوینده ۵": "شرکت‌کننده 3",
+    "گوینده ۶": "شرکت‌کننده 4",
+    "گوینده ۷": "شرکت‌کننده 5"
+  },
+  "host_selection": {
+    "raw_label": "گوینده ۱",
+    "resolved": true,
+    "is_earliest_speaker": true,
+    "first_turn_seconds": 24.0,
+    "max_first_start_seconds": 12.0,
+    "min_first_turn_seconds": 4.0
+  },
+  "doctor_selection": {
+    "raw_label": "گوینده ۲",
+    "candidate_raw_labels": [
+      "گوینده ۲"
+    ],
+    "resolved": true,
+    "evidence": "explicit_host_address_followed_by_response",
+    "address_window_seconds": 30.0,
+    "dominance_not_used_for_identity": true
+  },
+  "unresolved_raw_labels": [],
+  "status": "mapped",
+  "warnings": [],
+  "diarization_report": {
+    "backend": "pyannote-community-1",
+    "raw_speaker_count": 7,
+    "aligned_effective_speaker_count": 7,
+    "aligned_effective_speakers": [
+      "SPEAKER_00",
+      "SPEAKER_01",
+      "SPEAKER_02",
+      "SPEAKER_03",
+      "SPEAKER_04",
+      "SPEAKER_05",
+      "SPEAKER_06"
+    ],
+    "requested_speaker_count": null,
+    "stability": null
+  }
+}

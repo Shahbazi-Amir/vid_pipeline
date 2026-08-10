@@ -1,0 +1,113 @@
+{
+  "episode": 12,
+  "method": "conservative-opening-host-and-explicit-doctor-address-v3",
+  "user_program_structure": {
+    "host": "خانم متولیان",
+    "expert": "دکتر کمیل رودی",
+    "other_speakers": "participants",
+    "host_speaks_at_beginning": true
+  },
+  "raw_speakers": [
+    "گوینده ۱",
+    "گوینده ۲",
+    "گوینده نامشخص",
+    "گوینده ۴",
+    "گوینده ۶",
+    "گوینده ۵",
+    "گوینده ۳",
+    "گوینده ۸",
+    "گوینده ۷"
+  ],
+  "raw_speaker_count": 9,
+  "duration_seconds": {
+    "گوینده ۱": 121.0,
+    "گوینده ۲": 1150.0,
+    "گوینده نامشخص": 0.0,
+    "گوینده ۴": 29.0,
+    "گوینده ۶": 24.0,
+    "گوینده ۵": 56.0,
+    "گوینده ۳": 105.0,
+    "گوینده ۸": 20.0,
+    "گوینده ۷": 40.0
+  },
+  "first_start_seconds": {
+    "گوینده ۱": 11.0,
+    "گوینده ۲": 46.0,
+    "گوینده نامشخص": 139.0,
+    "گوینده ۴": 269.0,
+    "گوینده ۶": 432.0,
+    "گوینده ۵": 503.0,
+    "گوینده ۳": 736.0,
+    "گوینده ۸": 1257.0,
+    "گوینده ۷": 1379.0
+  },
+  "opening_120s_seconds": {
+    "گوینده ۱": 56.0,
+    "گوینده ۲": 44.0,
+    "گوینده نامشخص": 0.0,
+    "گوینده ۴": 0.0,
+    "گوینده ۶": 0.0,
+    "گوینده ۵": 0.0,
+    "گوینده ۳": 0.0,
+    "گوینده ۸": 0.0,
+    "گوینده ۷": 0.0
+  },
+  "mapping": {
+    "گوینده ۱": "خانم متولیان",
+    "گوینده ۲": "گوینده نامشخص 1",
+    "گوینده نامشخص": "گوینده نامشخص",
+    "گوینده ۴": "گوینده نامشخص 2",
+    "گوینده ۶": "گوینده نامشخص 3",
+    "گوینده ۵": "گوینده نامشخص 4",
+    "گوینده ۳": "گوینده نامشخص 5",
+    "گوینده ۸": "گوینده نامشخص 6",
+    "گوینده ۷": "گوینده نامشخص 7"
+  },
+  "host_selection": {
+    "raw_label": "گوینده ۱",
+    "resolved": true,
+    "is_earliest_speaker": true,
+    "first_turn_seconds": 26.0,
+    "max_first_start_seconds": 12.0,
+    "min_first_turn_seconds": 4.0
+  },
+  "doctor_selection": {
+    "raw_label": null,
+    "candidate_raw_labels": [],
+    "resolved": false,
+    "evidence": "insufficient",
+    "address_window_seconds": 30.0,
+    "dominance_not_used_for_identity": true
+  },
+  "unresolved_raw_labels": [
+    "گوینده ۲",
+    "گوینده نامشخص",
+    "گوینده ۴",
+    "گوینده ۶",
+    "گوینده ۵",
+    "گوینده ۳",
+    "گوینده ۸",
+    "گوینده ۷"
+  ],
+  "status": "partially_unresolved",
+  "warnings": [
+    "Doctor identity unresolved: dominant non-host evidence is insufficient; identity was not invented."
+  ],
+  "diarization_report": {
+    "backend": "pyannote-community-1",
+    "raw_speaker_count": 8,
+    "aligned_effective_speaker_count": 8,
+    "aligned_effective_speakers": [
+      "SPEAKER_00",
+      "SPEAKER_01",
+      "SPEAKER_02",
+      "SPEAKER_03",
+      "SPEAKER_04",
+      "SPEAKER_05",
+      "SPEAKER_06",
+      "SPEAKER_07"
+    ],
+    "requested_speaker_count": null,
+    "stability": null
+  }
+}

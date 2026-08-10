@@ -1,0 +1,26 @@
+{
+  "episode": 23,
+  "url": "https://www.aparat.com/v/gry10g2",
+  "title": "سواد مالی در عصر شیرین | قسمت بیست‌وسوم",
+  "publisher": "fintelligence",
+  "platform": "Aparat",
+  "media": {
+    "uid": "gry10g2",
+    "resolver_type": "aparat-official-video-api-v1",
+    "media_profile": "360p",
+    "media_size_bytes": 85818570,
+    "media_sha256": "771cfe4ee3dc3bb8cca2af5bcaa6f4745b150f15f789064f7ede1d8a1f27319d",
+    "duration_seconds": 1804.88,
+    "container": "mov,mp4,m4a,3gp,3g2,mj2",
+    "audio_codec": "aac",
+    "video_codec": "h264",
+    "reused_verified_media": true
+  },
+  "compute_handoff": "run-file",
+  "asr_model": "large-v3-turbo",
+  "profile": "balanced",
+  "device": "cpu",
+  "compute_type": "int8",
+  "diarization": "pyannote-community-1-auto-speaker-count",
+  "external_ai_review": false
+}

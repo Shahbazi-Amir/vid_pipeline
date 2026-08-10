@@ -1,0 +1,110 @@
+{
+  "episode": 3,
+  "method": "conservative-opening-host-and-explicit-doctor-address-v3",
+  "user_program_structure": {
+    "host": "خانم متولیان",
+    "expert": "دکتر کمیل رودی",
+    "other_speakers": "participants",
+    "host_speaks_at_beginning": true
+  },
+  "raw_speakers": [
+    "گوینده ۱",
+    "گوینده ۲",
+    "گوینده ۳",
+    "گوینده ۴",
+    "گوینده ۵",
+    "گوینده ۶",
+    "گوینده نامشخص",
+    "گوینده ۷",
+    "گوینده ۸",
+    "گوینده ۹"
+  ],
+  "raw_speaker_count": 10,
+  "duration_seconds": {
+    "گوینده ۱": 105.0,
+    "گوینده ۲": 1009.0,
+    "گوینده ۳": 32.0,
+    "گوینده ۴": 4.0,
+    "گوینده ۵": 23.0,
+    "گوینده ۶": 20.0,
+    "گوینده نامشخص": 1.0,
+    "گوینده ۷": 2.0,
+    "گوینده ۸": 31.0,
+    "گوینده ۹": 13.0
+  },
+  "first_start_seconds": {
+    "گوینده ۱": 12.0,
+    "گوینده ۲": 55.0,
+    "گوینده ۳": 210.0,
+    "گوینده ۴": 222.0,
+    "گوینده ۵": 277.0,
+    "گوینده ۶": 387.0,
+    "گوینده نامشخص": 800.0,
+    "گوینده ۷": 801.0,
+    "گوینده ۸": 994.0,
+    "گوینده ۹": 1098.0
+  },
+  "opening_120s_seconds": {
+    "گوینده ۱": 67.0,
+    "گوینده ۲": 32.0,
+    "گوینده ۳": 0.0,
+    "گوینده ۴": 0.0,
+    "گوینده ۵": 0.0,
+    "گوینده ۶": 0.0,
+    "گوینده نامشخص": 0.0,
+    "گوینده ۷": 0.0,
+    "گوینده ۸": 0.0,
+    "گوینده ۹": 0.0
+  },
+  "mapping": {
+    "گوینده ۱": "خانم متولیان",
+    "گوینده ۲": "دکتر کمیل رودی",
+    "گوینده ۳": "شرکت‌کننده 1",
+    "گوینده ۴": "شرکت‌کننده 2",
+    "گوینده ۵": "شرکت‌کننده 3",
+    "گوینده ۶": "شرکت‌کننده 4",
+    "گوینده نامشخص": "گوینده نامشخص",
+    "گوینده ۷": "شرکت‌کننده 5",
+    "گوینده ۸": "شرکت‌کننده 6",
+    "گوینده ۹": "شرکت‌کننده 7"
+  },
+  "host_selection": {
+    "raw_label": "گوینده ۱",
+    "resolved": true,
+    "is_earliest_speaker": true,
+    "first_turn_seconds": 7.0,
+    "max_first_start_seconds": 12.0,
+    "min_first_turn_seconds": 4.0
+  },
+  "doctor_selection": {
+    "raw_label": "گوینده ۲",
+    "candidate_raw_labels": [
+      "گوینده ۲"
+    ],
+    "resolved": true,
+    "evidence": "explicit_host_address_followed_by_response",
+    "address_window_seconds": 30.0,
+    "dominance_not_used_for_identity": true
+  },
+  "unresolved_raw_labels": [
+    "گوینده نامشخص"
+  ],
+  "status": "partially_unresolved",
+  "warnings": [],
+  "diarization_report": {
+    "backend": "pyannote-community-1",
+    "raw_speaker_count": 9,
+    "aligned_effective_speaker_count": 7,
+    "aligned_effective_speakers": [
+      "SPEAKER_00",
+      "SPEAKER_01",
+      "SPEAKER_02",
+      "SPEAKER_04",
+      "SPEAKER_05",
+      "SPEAKER_07",
+      "SPEAKER_08"
+    ],
+    "requested_speaker_count": null,
+    "stability": null
+  }
+}

@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  statuses: write
 
 concurrency:
   group: publish-local-asre-review-v2
@@ -17,6 +18,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
+      - name: Publish run link
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          curl -fsS -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" -d "{\"state\":\"pending\",\"context\":\"asre-shirin/local-review-v2-publish\",\"target_url\":\"https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}\"}"
       - uses: actions/checkout@v4
         with:
           ref: main
@@ -26,7 +32,7 @@ jobs:
         run: |
           set -euo pipefail
           cat .review_payload/asre_v2.part* | base64 -d > /tmp/asre_review_v2_78.tar.gz
-          echo 'e74d9f7315ef19fb71882e220785d6f1f0c0bad709e09323e9f3af268e2f1f12  /tmp/asre_review_v2_78.tar.gz' | sha256sum -c -
+          echo '76b2e84a3f6f097b0e322b87dbb10a8cb720dbcef4dfe9888ad43c71a1c21fd6  /tmp/asre_review_v2_78.tar.gz' | sha256sum -c -
           rm -rf /tmp/asre-review
           mkdir -p /tmp/asre-review
           tar -xzf /tmp/asre_review_v2_78.tar.gz -C /tmp/asre-review
@@ -36,11 +42,15 @@ jobs:
           set -euo pipefail
           python - <<'PY'
           from pathlib import Path
+          import re
           root=Path('/tmp/asre-review')
           for kind, ext in [('timestamped','md'),('md','md'),('txt','txt')]:
               got={p.stem for p in (root/kind).glob(f'*.{ext}') if p.is_file() and p.stat().st_size>0}
               exp={str(i) for i in range(1,27)}
               assert got==exp, (kind, sorted(exp-got), sorted(got-exp))
+          for p in (root/'timestamped').glob('*.md'):
+              s=p.read_text(encoding='utf-8')
+              assert 'نامشخص' not in s and 'گویمده' not in s and 'گوینداره' not in s
           print('validated 78 exact local review files')
           PY
       - name: Replace legacy review and publish atomically
@@ -57,16 +67,9 @@ jobs:
           rm -rf .review_payload
           git rm -f .github/workflows/publish-local-asre-review-v2.yml
           git add outputs/asre_shirin/review
-          python - <<'PY'
-          from pathlib import Path
-          root=Path('outputs/asre_shirin/review')
-          assert len(list((root/'timestamped').glob('*.md')))==26
-          assert len(list((root/'md').glob('*.md')))==26
-          assert len(list((root/'txt').glob('*.txt')))==26
-          PY
           git commit -m 'review: publish 26 locally reviewed Asre Shirin transcripts v2'
           for attempt in 1 2 3 4 5; do
-            git push origin HEAD:main && exit 0
+            if git push origin HEAD:main; then exit 0; fi
             git pull --rebase origin main
             sleep $((attempt * 3))
           done

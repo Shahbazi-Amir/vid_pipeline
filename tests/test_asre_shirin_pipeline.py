@@ -143,6 +143,8 @@ def test_asre_workflow_contract() -> None:
     assert "--skip-existing-complete-base" in workflow
     assert workflow.count("git push") == 1
     assert workflow.count("  publish:") == 1
+    assert "statuses: write" in workflow
+    assert "context.runId" in workflow
     assert "sleep $((attempt * 15))" in workflow
     assert "if (( attempt < 2 ))" in workflow
 

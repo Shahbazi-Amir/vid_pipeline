@@ -3,41 +3,297 @@
   "channel": "fintelligence",
   "channel_url": "https://www.aparat.com/fintelligence/videos",
   "expected_count": 26,
-  "discovered_count": 26,
-  "complete": true,
-  "missing_numbers": [],
-  "verification": {
-    "current_source": "official Aparat channel discovery on 2026-08-09",
-    "episodes_6_26": "current official channel titles with explicit episode numbers",
-    "episodes_1_5": "current official channel topical titles mapped to the verified historical season-one ordering preserved in the repository catalog",
-    "episodes_8_9_parser_note": "current official titles explicitly say قسمت هشتم / قسمت نهم; the previous parser only missed them because of parentheses"
+  "discovered_count": 25,
+  "complete": false,
+  "missing_numbers": [
+    1
+  ],
+  "numbering_evidence": {
+    "explicit_titles": "episodes with digit/ordinal in the current official Aparat title",
+    "topical_anchors_1_5": "historical official-series ordering preserved in the prior repository catalog"
   },
   "videos": [
-    {"result_number":1,"uid":"r97b53j","url":"https://www.aparat.com/v/r97b53j","title":"سواد مالی برای خانم‌ها؛ واقعاً ضروری است؟","username":"fintelligence","episode_resolution":"verified_topical_anchor"},
-    {"result_number":2,"uid":"2ptDl","url":"https://www.aparat.com/v/2ptDl","title":"سواد مالی خانم‌ها؛ وضعیت چقدر بحرانی است؟","username":"fintelligence","episode_resolution":"verified_topical_anchor"},
-    {"result_number":3,"uid":"O51vh","url":"https://www.aparat.com/v/O51vh","title":"سواد مالی خانم‌ها؛ روی کدام پلکان؟","username":"fintelligence","episode_resolution":"verified_topical_anchor"},
-    {"result_number":4,"uid":"e15b18u","url":"https://www.aparat.com/v/e15b18u","title":"سواد مالی خانم‌ها؛ افزایش درآمد یا کاهش هزینه؟","username":"fintelligence","episode_resolution":"verified_topical_anchor"},
-    {"result_number":5,"uid":"lhE6W","url":"https://www.aparat.com/v/lhE6W","title":"سواد مالی خانم‌ها؛ پول‌ها کجا می‌روند؟","username":"fintelligence","episode_resolution":"verified_topical_anchor"},
-    {"result_number":6,"uid":"60uwC","url":"https://www.aparat.com/v/60uwC","title":"عصر شیرین قسمت ششم","duration":1542,"sdate":"08 شهریور 1400 17:24","username":"fintelligence","episode_resolution":"explicit_ordinal"},
-    {"result_number":7,"uid":"T1hZM","url":"https://www.aparat.com/v/T1hZM","title":"عصر شیرین قسمت هفتم","duration":1534,"sdate":"8 شهریور 1400","username":"fintelligence","episode_resolution":"explicit_ordinal"},
-    {"result_number":8,"uid":"xk2LT","url":"https://www.aparat.com/v/xk2LT","title":"عصر شیرین (قسمت هشتم)","username":"fintelligence","episode_resolution":"explicit_ordinal"},
-    {"result_number":9,"uid":"m92z59x","url":"https://www.aparat.com/v/m92z59x","title":"عصر شیرین (قسمت نهم)","username":"fintelligence","episode_resolution":"explicit_ordinal"},
-    {"result_number":10,"uid":"zQd39","url":"https://www.aparat.com/v/zQd39","title":"سواد مالی در عصر شیرین | قسمت دهم","duration":1713,"sdate":"24 آبان 1400","username":"fintelligence","episode_resolution":"explicit_ordinal"},
-    {"result_number":11,"uid":"p14l8s2","url":"https://www.aparat.com/v/p14l8s2","title":"سواد مالی در عصر شیرین | قسمت یازدهم","duration":1612,"sdate":"29 آبان 1400 15:20","username":"fintelligence","episode_resolution":"explicit_ordinal"},
-    {"result_number":12,"uid":"i163hxt","url":"https://www.aparat.com/v/i163hxt","title":"سواد مالی در عصر شیرین | قسمت دوازدهم","duration":1623,"sdate":"29 آبان 1400 16:52","username":"fintelligence","episode_resolution":"explicit_ordinal"},
-    {"result_number":13,"uid":"c788jm7","url":"https://www.aparat.com/v/c788jm7","title":"سواد مالی در عصر شیرین | قسمت سیزدهم","duration":1590,"sdate":"29 آبان 1400 17:23","username":"fintelligence","episode_resolution":"explicit_ordinal"},
-    {"result_number":14,"uid":"twl4gv2","url":"https://www.aparat.com/v/twl4gv2","title":"سواد مالی در عصر شیرین | قسمت چهاردهم","duration":1704,"sdate":"14 شهریور 1404 12:22","username":"fintelligence","episode_resolution":"explicit_ordinal"},
-    {"result_number":15,"uid":"fuq8mtk","url":"https://www.aparat.com/v/fuq8mtk","title":"سواد مالی در عصر شیرین | قسمت پانزدهم","duration":1653,"sdate":"14 شهریور 1404 12:28","username":"fintelligence","episode_resolution":"explicit_ordinal"},
-    {"result_number":16,"uid":"cnsv16j","url":"https://www.aparat.com/v/cnsv16j","title":"سواد مالی در عصر شیرین | قسمت شانزدهم","duration":1774,"sdate":"14 شهریور 1404 12:37","username":"fintelligence","episode_resolution":"explicit_ordinal"},
-    {"result_number":17,"uid":"xijp0j7","url":"https://www.aparat.com/v/xijp0j7","title":"سواد مالی در عصر شیرین | قسمت هفدهم","duration":1862,"sdate":"14 شهریور 1404 12:43","username":"fintelligence","episode_resolution":"explicit_ordinal"},
-    {"result_number":18,"uid":"yffxv5q","url":"https://www.aparat.com/v/yffxv5q","title":"سواد مالی در عصر شیرین | قسمت هجدهم","duration":1827,"sdate":"14 شهریور 1404 12:49","username":"fintelligence","episode_resolution":"explicit_ordinal"},
-    {"result_number":19,"uid":"ybwf9i5","url":"https://www.aparat.com/v/ybwf9i5","title":"سواد مالی در عصر شیرین | قسمت نوزدهم","duration":1805,"sdate":"14 شهریور 1404 12:54","username":"fintelligence","episode_resolution":"explicit_ordinal"},
-    {"result_number":20,"uid":"loczpiq","url":"https://www.aparat.com/v/loczpiq","title":"سواد مالی در عصر شیرین | قسمت بیستم","duration":1764,"sdate":"14 شهریور 1404 12:59","username":"fintelligence","episode_resolution":"explicit_ordinal"},
-    {"result_number":21,"uid":"hsthd57","url":"https://www.aparat.com/v/hsthd57","title":"سواد مالی در عصر شیرین | قسمت بیست‌ویکم","duration":1765,"sdate":"14 شهریور 1404","username":"fintelligence","episode_resolution":"explicit_ordinal"},
-    {"result_number":22,"uid":"ndjyr04","url":"https://www.aparat.com/v/ndjyr04","title":"سواد مالی در عصر شیرین | قسمت بیست‌ودوم","duration":1783,"sdate":"14 شهریور 1404 13:11","username":"fintelligence","episode_resolution":"explicit_ordinal"},
-    {"result_number":23,"uid":"gry10g2","url":"https://www.aparat.com/v/gry10g2","title":"سواد مالی در عصر شیرین | قسمت بیست‌وسوم","duration":1804,"sdate":"14 شهریور 1404 13:17","username":"fintelligence","episode_resolution":"explicit_ordinal"},
-    {"result_number":24,"uid":"dke1bly","url":"https://www.aparat.com/v/dke1bly","title":"سواد مالی در عصر شیرین | قسمت بیست‌وچهارم","duration":1827,"sdate":"14 شهریور 1404","username":"fintelligence","episode_resolution":"explicit_ordinal"},
-    {"result_number":25,"uid":"zgvjo3q","url":"https://www.aparat.com/v/zgvjo3q","title":"سواد مالی در عصر شیرین | قسمت بیست‌وپنجم","duration":1688,"sdate":"14 شهریور 1404 13:29","username":"fintelligence","episode_resolution":"explicit_ordinal"},
-    {"result_number":26,"uid":"kzqa0pn","url":"https://www.aparat.com/v/kzqa0pn","title":"سواد مالی در عصر شیرین | قسمت بیست‌وششم","duration":1733,"sdate":"14 شهریور 1404 13:35","username":"fintelligence","episode_resolution":"explicit_ordinal"}
+    {
+      "result_number": 2,
+      "uid": "2ptDl",
+      "url": "https://www.aparat.com/v/2ptDl",
+      "title": "سواد مالی خانم‌ها؛ وضعیت چقدر بحرانی است؟",
+      "description": "گپ&zwnj;وگفت&zwnj;هایی درباره سواد مالی زنان در &laquo;یک عصر شیرین&raquo;؛ شبکه افق",
+      "duration": 1395,
+      "sdate": "17 مرداد 1400 12:44",
+      "username": "fintelligence",
+      "episode_resolution": "verified_topical_anchor"
+    },
+    {
+      "result_number": 3,
+      "uid": "O51vh",
+      "url": "https://www.aparat.com/v/O51vh",
+      "title": "سواد مالی خانم‌ها؛ روی کدام پلکان؟",
+      "description": "گپ&zwnj;وگفت&zwnj;هایی درباره سواد مالی زنان در &laquo;یک عصر شیرین&raquo;؛ شبکه افق",
+      "duration": 1336,
+      "sdate": "17 مرداد 1400 13:24",
+      "username": "fintelligence",
+      "episode_resolution": "verified_topical_anchor"
+    },
+    {
+      "result_number": 4,
+      "uid": "e15b18u",
+      "url": "https://www.aparat.com/v/e15b18u",
+      "title": "سواد مالی خانم‌ها؛ افزایش درآمد یا کاهش هزینه؟",
+      "description": "گپ&zwnj;وگفت&zwnj;هایی درباره سواد مالی زنان در &laquo;یک عصر شیرین&raquo;؛ شبکه افق",
+      "duration": 1426,
+      "sdate": "17 مرداد 1400 13:47",
+      "username": "fintelligence",
+      "episode_resolution": "verified_topical_anchor"
+    },
+    {
+      "result_number": 5,
+      "uid": "lhE6W",
+      "url": "https://www.aparat.com/v/lhE6W",
+      "title": "سواد مالی خانم‌ها؛ پول‌ها کجا می‌روند؟",
+      "description": "گپ&zwnj;وگفت&zwnj;هایی درباره سواد مالی زنان در &laquo;یک عصر شیرین&raquo; شبکه افق",
+      "duration": 1583,
+      "sdate": "17 مرداد 1400 14:25",
+      "username": "fintelligence",
+      "episode_resolution": "verified_topical_anchor"
+    },
+    {
+      "result_number": 6,
+      "uid": "60uwC",
+      "url": "https://www.aparat.com/v/60uwC",
+      "title": "عصر شیرین قسمت ششم",
+      "description": "",
+      "duration": 1542,
+      "sdate": "08 شهریور 1400 17:24",
+      "username": "fintelligence",
+      "episode_resolution": "explicit_ordinal"
+    },
+    {
+      "result_number": 7,
+      "uid": "T1hZM",
+      "url": "https://www.aparat.com/v/T1hZM",
+      "title": "عصر شیرین قسمت هفتم",
+      "description": "",
+      "duration": 1534,
+      "sdate": "08 شهریور 1400 17:26",
+      "username": "fintelligence",
+      "episode_resolution": "explicit_ordinal"
+    },
+    {
+      "result_number": 8,
+      "uid": "xk2LT",
+      "url": "https://www.aparat.com/v/xk2LT",
+      "title": "عصر شیرین (قسمت هشتم)",
+      "description": "",
+      "duration": 1441,
+      "sdate": "08 شهریور 1400 17:28",
+      "username": "fintelligence",
+      "episode_resolution": "explicit_ordinal"
+    },
+    {
+      "result_number": 9,
+      "uid": "m92z59x",
+      "url": "https://www.aparat.com/v/m92z59x",
+      "title": "عصر شیرین (قسمت نهم)",
+      "description": "",
+      "duration": 1459,
+      "sdate": "08 شهریور 1400 17:31",
+      "username": "fintelligence",
+      "episode_resolution": "explicit_ordinal"
+    },
+    {
+      "result_number": 10,
+      "uid": "zQd39",
+      "url": "https://www.aparat.com/v/zQd39",
+      "title": "سواد مالی در عصر شیرین | قسمت دهم",
+      "description": "",
+      "duration": 1713,
+      "sdate": "24 آبان 1400 20:26",
+      "username": "fintelligence",
+      "episode_resolution": "explicit_ordinal"
+    },
+    {
+      "result_number": 11,
+      "uid": "p14l8s2",
+      "url": "https://www.aparat.com/v/p14l8s2",
+      "title": "سواد مالی در عصر شیرین | قسمت یازدهم",
+      "description": "",
+      "duration": 1612,
+      "sdate": "29 آبان 1400 15:20",
+      "username": "fintelligence",
+      "episode_resolution": "explicit_ordinal"
+    },
+    {
+      "result_number": 12,
+      "uid": "i163hxt",
+      "url": "https://www.aparat.com/v/i163hxt",
+      "title": "سواد مالی در عصر شیرین | قسمت دوازدهم",
+      "description": "",
+      "duration": 1623,
+      "sdate": "29 آبان 1400 16:52",
+      "username": "fintelligence",
+      "episode_resolution": "explicit_ordinal"
+    },
+    {
+      "result_number": 13,
+      "uid": "c788jm7",
+      "url": "https://www.aparat.com/v/c788jm7",
+      "title": "سواد مالی در عصر شیرین | قسمت سیزدهم",
+      "description": "",
+      "duration": 1590,
+      "sdate": "29 آبان 1400 17:23",
+      "username": "fintelligence",
+      "episode_resolution": "explicit_ordinal"
+    },
+    {
+      "result_number": 14,
+      "uid": "twl4gv2",
+      "url": "https://www.aparat.com/v/twl4gv2",
+      "title": "سواد مالی در عصر شیرین | قسمت چهاردهم",
+      "description": "",
+      "duration": 1704,
+      "sdate": "14 شهریور 1404 12:22",
+      "username": "fintelligence",
+      "episode_resolution": "explicit_ordinal"
+    },
+    {
+      "result_number": 15,
+      "uid": "fuq8mtk",
+      "url": "https://www.aparat.com/v/fuq8mtk",
+      "title": "سواد مالی در عصر شیرین | قسمت پانزدهم",
+      "description": "",
+      "duration": 1653,
+      "sdate": "14 شهریور 1404 12:28",
+      "username": "fintelligence",
+      "episode_resolution": "explicit_ordinal"
+    },
+    {
+      "result_number": 16,
+      "uid": "cnsv16j",
+      "url": "https://www.aparat.com/v/cnsv16j",
+      "title": "سواد مالی در عصر شیرین | قسمت شانزدهم",
+      "description": "",
+      "duration": 1774,
+      "sdate": "14 شهریور 1404 12:37",
+      "username": "fintelligence",
+      "episode_resolution": "explicit_ordinal"
+    },
+    {
+      "result_number": 17,
+      "uid": "xijp0j7",
+      "url": "https://www.aparat.com/v/xijp0j7",
+      "title": "سواد مالی در عصر شیرین | قسمت هفدهم",
+      "description": "",
+      "duration": 1862,
+      "sdate": "14 شهریور 1404 12:43",
+      "username": "fintelligence",
+      "episode_resolution": "explicit_ordinal"
+    },
+    {
+      "result_number": 18,
+      "uid": "yffxv5q",
+      "url": "https://www.aparat.com/v/yffxv5q",
+      "title": "سواد مالی در عصر شیرین | قسمت هجدهم",
+      "description": "",
+      "duration": 1827,
+      "sdate": "14 شهریور 1404 12:49",
+      "username": "fintelligence",
+      "episode_resolution": "explicit_ordinal"
+    },
+    {
+      "result_number": 19,
+      "uid": "ybwf9i5",
+      "url": "https://www.aparat.com/v/ybwf9i5",
+      "title": "سواد مالی در عصر شیرین | قسمت نوزدهم",
+      "description": "",
+      "duration": 1805,
+      "sdate": "14 شهریور 1404 12:54",
+      "username": "fintelligence",
+      "episode_resolution": "explicit_ordinal"
+    },
+    {
+      "result_number": 20,
+      "uid": "loczpiq",
+      "url": "https://www.aparat.com/v/loczpiq",
+      "title": "سواد مالی در عصر شیرین | قسمت بیستم",
+      "description": "",
+      "duration": 1764,
+      "sdate": "14 شهریور 1404 12:59",
+      "username": "fintelligence",
+      "episode_resolution": "explicit_ordinal"
+    },
+    {
+      "result_number": 21,
+      "uid": "hsthd57",
+      "url": "https://www.aparat.com/v/hsthd57",
+      "title": "سواد مالی در عصر شیرین | قسمت بیست‌ویکم",
+      "description": "",
+      "duration": 1765,
+      "sdate": "14 شهریور 1404 13:05",
+      "username": "fintelligence",
+      "episode_resolution": "explicit_ordinal"
+    },
+    {
+      "result_number": 22,
+      "uid": "ndjyr04",
+      "url": "https://www.aparat.com/v/ndjyr04",
+      "title": "سواد مالی در عصر شیرین | قسمت بیست‌ودوم",
+      "description": "",
+      "duration": 1783,
+      "sdate": "14 شهریور 1404 13:11",
+      "username": "fintelligence",
+      "episode_resolution": "explicit_ordinal"
+    },
+    {
+      "result_number": 23,
+      "uid": "gry10g2",
+      "url": "https://www.aparat.com/v/gry10g2",
+      "title": "سواد مالی در عصر شیرین | قسمت بیست‌وسوم",
+      "description": "",
+      "duration": 1804,
+      "sdate": "14 شهریور 1404 13:17",
+      "username": "fintelligence",
+      "episode_resolution": "explicit_ordinal"
+    },
+    {
+      "result_number": 24,
+      "uid": "dke1bly",
+      "url": "https://www.aparat.com/v/dke1bly",
+      "title": "سواد مالی در عصر شیرین | قسمت بیست‌وچهارم",
+      "description": "",
+      "duration": 1827,
+      "sdate": "14 شهریور 1404 13:23",
+      "username": "fintelligence",
+      "episode_resolution": "explicit_ordinal"
+    },
+    {
+      "result_number": 25,
+      "uid": "zgvjo3q",
+      "url": "https://www.aparat.com/v/zgvjo3q",
+      "title": "سواد مالی در عصر شیرین | قسمت بیست‌وپنجم",
+      "description": "",
+      "duration": 1688,
+      "sdate": "14 شهریور 1404 13:29",
+      "username": "fintelligence",
+      "episode_resolution": "explicit_ordinal"
+    },
+    {
+      "result_number": 26,
+      "uid": "kzqa0pn",
+      "url": "https://www.aparat.com/v/kzqa0pn",
+      "title": "سواد مالی در عصر شیرین | قسمت بیست‌وششم",
+      "description": "",
+      "duration": 1733,
+      "sdate": "14 شهریور 1404 13:35",
+      "username": "fintelligence",
+      "episode_resolution": "explicit_ordinal"
+    }
+  ],
+  "diagnostics": [
+    {
+      "uid": "r97b53j",
+      "title": "سواد مالی برای خانم‌ها؛ واقعاً ضروری است؟",
+      "reason": "episode_number_unresolved"
+    }
   ]
 }

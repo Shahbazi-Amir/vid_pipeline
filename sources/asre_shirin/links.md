@@ -2,10 +2,9 @@
 
 - Channel: https://www.aparat.com/fintelligence/videos
 - Expected: 26
-- Discovered: 26
-- Missing: none
+- Discovered: 25
+- Missing: 1
 
-1. [سواد مالی برای خانم‌ها؛ واقعاً ضروری است؟](https://www.aparat.com/v/r97b53j)
 2. [سواد مالی خانم‌ها؛ وضعیت چقدر بحرانی است؟](https://www.aparat.com/v/2ptDl)
 3. [سواد مالی خانم‌ها؛ روی کدام پلکان؟](https://www.aparat.com/v/O51vh)
 4. [سواد مالی خانم‌ها؛ افزایش درآمد یا کاهش هزینه؟](https://www.aparat.com/v/e15b18u)

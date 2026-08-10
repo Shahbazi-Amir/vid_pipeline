@@ -1,0 +1,62 @@
+name: Private Asre Shirin pilot observer
+
+on:
+  push:
+    paths:
+      - ".github/private-asre-shirin-observer.trigger"
+
+permissions:
+  actions: read
+  contents: read
+  statuses: write
+
+jobs:
+  observe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Load target pilot commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          target=$(tr -d '[:space:]' < .github/private-asre-shirin-observer.trigger)
+          [[ "$target" =~ ^[0-9a-f]{40}$ ]]
+          echo "TARGET_PILOT_SHA=$target" >> "$GITHUB_ENV"
+
+      - name: Expose real pilot run
+        uses: actions/github-script@v7
+        env:
+          TARGET_PILOT_SHA: ${{ env.TARGET_PILOT_SHA }}
+        with:
+          script: |
+            const response = await github.rest.actions.listWorkflowRuns({
+              ...context.repo,
+              workflow_id: "private-asre-shirin-pilot.yml",
+              branch: "agent/fix-asre-shirin-aparat-pipeline",
+              event: "push",
+              per_page: 20,
+            });
+            const run = response.data.workflow_runs.find(
+              candidate => candidate.head_sha === process.env.TARGET_PILOT_SHA,
+            );
+            if (!run) {
+              core.setFailed("Target pilot workflow run was not found");
+              return;
+            }
+            const passed = run.status === "completed" && run.conclusion === "success";
+            const failed = run.status === "completed" && !passed;
+            await github.rest.repos.createCommitStatus({
+              ...context.repo,
+              sha: context.sha,
+              state: failed ? "failure" : passed ? "success" : "pending",
+              context: "asre-shirin/pilot-v2-observer",
+              description: `Run ${run.id}: ${run.status}/${run.conclusion || "pending"}`,
+              target_url: run.html_url,
+            });
+            core.info(JSON.stringify({
+              run_id: run.id,
+              status: run.status,
+              conclusion: run.conclusion,
+              url: run.html_url,
+            }));

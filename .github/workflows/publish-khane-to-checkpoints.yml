@@ -1,0 +1,138 @@
+name: Publish Khane To checkpoints
+run-name: Publish Khane To checkpoints from run ${{ inputs.source_run_id }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_run_id:
+        description: Source Khane To transcription workflow run ID
+        required: true
+        type: string
+
+permissions:
+  actions: write
+  contents: write
+
+concurrency:
+  group: khane-to-publisher
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Snapshot successful checkpoint artifacts
+        id: artifacts
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const runId = Number('${{ inputs.source_run_id }}');
+            if (!Number.isSafeInteger(runId) || runId <= 0) {
+              core.setFailed('source_run_id must be a positive integer');
+              return;
+            }
+            const artifacts = await github.paginate(
+              github.rest.actions.listWorkflowRunArtifacts,
+              { ...context.repo, run_id: runId, per_page: 100 },
+            );
+            const successful = artifacts
+              .filter((artifact) => /^khane-to-\d+$/.test(artifact.name) && !artifact.expired)
+              .sort((a,b) => a.name.localeCompare(b.name, undefined, {numeric:true}));
+            core.setOutput('count', String(successful.length));
+            core.setOutput('ids', JSON.stringify(successful.map((artifact) => artifact.id)));
+            for (const artifact of successful) core.info(`${artifact.name} -> ${artifact.id}`);
+      - name: Download current successful checkpoints
+        if: steps.artifacts.outputs.count != '0'
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.source_run_id }}
+          pattern: khane-to-*
+          path: staging
+          merge-multiple: true
+      - name: Merge, publish, and verify checkpoints on main
+        if: steps.artifacts.outputs.count != '0'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          published=false
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git checkout --detach origin/main
+            python scripts/merge_collection_artifacts.py staging outputs/khane_to --skip-existing-complete-base
+            python - <<'PY'
+            import json
+            from datetime import UTC, datetime
+            from pathlib import Path
+            root=Path('outputs/khane_to')
+            complete=[]
+            for n in range(1,14):
+                if all(path.is_file() and path.stat().st_size > 0 for path in (
+                    root/'md'/f'{n}.md', root/'timestamped'/f'{n}.md', root/'txt'/f'{n}.txt',
+                    root/'roles'/f'{n}.json', root/'sources'/f'{n}.json', root/'timings'/f'{n}.json')):
+                    complete.append(n)
+            payload={
+                'state':'complete' if len(complete)==13 else 'running',
+                'phase':'khane_to_base_complete' if len(complete)==13 else 'khane_to_base_partial',
+                'ai_review':'disabled',
+                'target_count':13,
+                'processed':len(complete),
+                'completed_numbers':complete,
+                'remaining_numbers':[n for n in range(1,14) if n not in complete],
+                'program':'خانه تو',
+                'host':'فرهاد جم',
+                'guest':'دکتر کمیل رودی',
+                'updated_at_utc':datetime.now(UTC).isoformat(),
+            }
+            path=Path('benchmarks/private-khane-to-status.json')
+            path.parent.mkdir(parents=True,exist_ok=True)
+            path.write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+            print(json.dumps(payload,ensure_ascii=False))
+            PY
+            git add outputs/khane_to benchmarks/private-khane-to-status.json
+            if git diff --cached --quiet; then published=true; break; fi
+            git commit -m "data: publish Khane To base transcript batch"
+            if git push origin HEAD:main; then published=true; break; fi
+            sleep $((attempt*5))
+          done
+          [[ "$published" == true ]] || exit 1
+          git fetch origin main
+          git checkout --detach origin/main
+          python - <<'PY'
+          from pathlib import Path
+          staging=Path('staging'); target=Path('outputs/khane_to')
+          suffixes={'md':'.md','timestamped':'.md','txt':'.txt','roles':'.json','sources':'.json','timings':'.json'}
+          numbers=sorted(int(p.stem) for p in (staging/'md').glob('*.md') if p.stem.isdigit())
+          if not numbers: raise SystemExit('no numbered checkpoint transcripts')
+          for n in numbers:
+              for folder,suffix in suffixes.items():
+                  src=staging/folder/f'{n}{suffix}'; dst=target/folder/f'{n}{suffix}'
+                  if not src.is_file() or src.stat().st_size <= 0: raise SystemExit(f'missing staged {src}')
+                  if not dst.is_file() or dst.stat().st_size <= 0: raise SystemExit(f'missing published {dst}')
+                  if folder not in {'md','timestamped','txt'} and dst.read_bytes()!=src.read_bytes():
+                      raise SystemExit(f'published sidecar differs: {dst}')
+          print(f'Verified {numbers} on origin/main')
+          PY
+      - name: Delete verified successful checkpoint artifacts
+        if: steps.artifacts.outputs.count != '0' && success()
+        uses: actions/github-script@v7
+        env:
+          ARTIFACT_IDS: ${{ steps.artifacts.outputs.ids }}
+        with:
+          script: |
+            const ids=JSON.parse(process.env.ARTIFACT_IDS || '[]');
+            for (const artifactId of ids) {
+              await github.rest.actions.deleteArtifact({...context.repo, artifact_id: artifactId});
+              core.info(`Deleted verified checkpoint artifact ${artifactId}`);
+            }
+      - name: No publishable checkpoints yet
+        if: steps.artifacts.outputs.count == '0'
+        run: echo "No successful Khane To checkpoint artifacts remain to publish"

@@ -1,0 +1,119 @@
+name: One-time review input bundle
+run-name: Bundle Asre Shirin + Khane To bases
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/one-time-review-input-bundle.yml'
+
+permissions:
+  actions: read
+  contents: read
+  statuses: write
+
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Publish bundle run link
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.repos.createCommitStatus({
+              ...context.repo,
+              sha: context.sha,
+              state: 'pending',
+              context: 'review-input/bundle',
+              description: 'Collecting 26 Asre Shirin + 13 Khane To bases',
+              target_url: `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+            });
+
+      - name: Collect successful base artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p bundle/asre_shirin bundle/khane_to /tmp/artifacts
+
+          python - <<'PY' > /tmp/wanted.tsv
+          import json, os, subprocess
+          repo = os.environ['GITHUB_REPOSITORY']
+          runs = [(31348536690, 'asre_shirin'), (31396058327, 'asre_shirin'), (31395831268, 'khane_to')]
+          seen = set()
+          for run_id, collection in runs:
+              raw = subprocess.check_output(['gh','api',f'/repos/{repo}/actions/runs/{run_id}/artifacts?per_page=100'], text=True)
+              data = json.loads(raw)
+              for a in data.get('artifacts', []):
+                  name = a['name']
+                  if a.get('expired'):
+                      continue
+                  if collection == 'asre_shirin' and name.startswith('asre-shirin-') and name.removeprefix('asre-shirin-').isdigit():
+                      n = int(name.removeprefix('asre-shirin-'))
+                  elif collection == 'khane_to' and name.startswith('khane-to-') and name.removeprefix('khane-to-').isdigit():
+                      n = int(name.removeprefix('khane-to-'))
+                  else:
+                      continue
+                  key = (collection, n)
+                  # Later runs override earlier ones (episode 15 successful rerun).
+                  seen.add(key)
+                  print(collection, n, a['id'], sep='\t')
+          PY
+
+          # Deduplicate by collection+episode, keeping the last occurrence.
+          awk -F '\t' '{k=$1 FS $2; row[k]=$0} END {for (k in row) print row[k]}' /tmp/wanted.tsv | sort -k1,1 -k2,2n > /tmp/final.tsv
+          echo 'Selected artifacts:'
+          cat /tmp/final.tsv
+
+          asre_count=$(awk -F '\t' '$1=="asre_shirin"{c++} END{print c+0}' /tmp/final.tsv)
+          khane_count=$(awk -F '\t' '$1=="khane_to"{c++} END{print c+0}' /tmp/final.tsv)
+          test "$asre_count" -eq 26
+          test "$khane_count" -eq 13
+
+          while IFS=$'\t' read -r collection episode artifact_id; do
+            zip="/tmp/artifacts/${collection}-${episode}.zip"
+            dest="bundle/${collection}/${episode}"
+            mkdir -p "$dest"
+            gh api "/repos/${GITHUB_REPOSITORY}/actions/artifacts/${artifact_id}/zip" > "$zip"
+            unzip -q "$zip" -d "$dest"
+            test -s "$dest/timestamped/${episode}.md"
+            test -s "$dest/md/${episode}.md"
+            test -s "$dest/txt/${episode}.txt"
+            test -s "$dest/roles/${episode}.json"
+            test -s "$dest/sources/${episode}.json"
+            test -s "$dest/timings/${episode}.json"
+          done < /tmp/final.tsv
+
+          python - <<'PY'
+          from pathlib import Path
+          for collection, expected in [('asre_shirin', 26), ('khane_to', 13)]:
+              root = Path('bundle') / collection
+              nums = sorted(int(p.name) for p in root.iterdir() if p.is_dir())
+              assert nums == list(range(1, expected + 1)), (collection, nums)
+              print(f'{collection}: {len(nums)}/{expected} complete')
+          PY
+
+      - name: Upload local-review input bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: local-chatgpt-review-inputs
+          path: bundle
+          retention-days: 3
+          if-no-files-found: error
+
+      - name: Mark bundle success
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.repos.createCommitStatus({
+              ...context.repo,
+              sha: context.sha,
+              state: 'success',
+              context: 'review-input/bundle',
+              description: '39 transcript bases bundled for local ChatGPT review',
+              target_url: `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+            });

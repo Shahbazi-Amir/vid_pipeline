@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import os
+import time
 from collections.abc import Callable
 from importlib.metadata import PackageNotFoundError, version
 from pathlib import Path
@@ -82,6 +83,7 @@ class PyannoteDiarizationBackend:
                 ) from exc
             pipeline_loader = Pipeline.from_pretrained
 
+        model_load_started = time.monotonic()
         try:
             pipeline = pipeline_loader(self.model_id, token=resolved_token)
         except Exception as exc:
@@ -95,6 +97,8 @@ class PyannoteDiarizationBackend:
             raise DiarizationError("pyannote model load failed: empty pipeline")
 
         self.pipeline = pipeline
+        self.model_load_seconds = time.monotonic() - model_load_started
+        self.inference_seconds = 0.0
         self.pyannote_audio_version = _package_version("pyannote.audio")
         self.last_used_exclusive = False
         self.last_requested_speakers: int | None = None
@@ -106,12 +110,14 @@ class PyannoteDiarizationBackend:
         if num_speakers is not None:
             kwargs["num_speakers"] = num_speakers
 
+        inference_started = time.monotonic()
         try:
             output = self.pipeline(str(audio), **kwargs)
         except Exception as exc:
             raise DiarizationError(
                 f"pyannote diarization inference failed: {type(exc).__name__}"
             ) from None
+        self.inference_seconds += time.monotonic() - inference_started
 
         self.last_requested_speakers = num_speakers
 

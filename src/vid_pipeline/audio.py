@@ -67,7 +67,7 @@ def probe_media(path: str | Path) -> dict[str, Any]:
             "-v",
             "error",
             "-show_entries",
-            "format=duration:stream=codec_type,codec_name,sample_rate,channels",
+            "format=duration,format_name,size:stream=codec_type,codec_name,sample_rate,channels",
             "-of",
             "json",
             str(path),

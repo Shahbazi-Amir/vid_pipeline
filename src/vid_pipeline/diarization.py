@@ -597,6 +597,7 @@ def run_diarization(audio: Path, segments: list[dict[str, Any]], config: Diariza
             )
         raise
     raw_turns = attempts[selected_attempt]
+    alignment_started = time.monotonic()
     turns = normalize_turns(raw_turns)
     if not turns:
         raise DiarizationError("diarization returned zero speakers")
@@ -706,6 +707,8 @@ def run_diarization(audio: Path, segments: list[dict[str, Any]], config: Diariza
             if total_aligned_duration else 0.0
         ) >= config.aligned_min_fraction
     )
+    alignment_seconds = time.monotonic() - alignment_started
+    role_mapping_started = time.monotonic()
     mapping = map_roles(
         aligned,
         config.role_mode if len(aligned_effective) >= 2 else "generic",
@@ -713,6 +716,7 @@ def run_diarization(audio: Path, segments: list[dict[str, Any]], config: Diariza
         config.role_threshold,
     )
     apply_roles(aligned, mapping)
+    role_mapping_seconds = time.monotonic() - role_mapping_started
     quality_gate_passed = (
         config.num_speakers is None
         or (
@@ -782,6 +786,16 @@ def run_diarization(audio: Path, segments: list[dict[str, Any]], config: Diariza
             f"aligned_effective={len(aligned_effective)}"
         ),
         "role_mapping": mapping, "runtime_seconds": round(time.monotonic() - started, 3),
+        "timing": {
+            "pyannote_model_load_seconds": round(
+                float(getattr(backend, "model_load_seconds", 0.0)), 6
+            ),
+            "diarization_inference_seconds": round(
+                float(getattr(backend, "inference_seconds", 0.0)), 6
+            ),
+            "alignment_seconds": round(alignment_seconds, 6),
+            "internal_role_mapping_seconds": round(role_mapping_seconds, 6),
+        },
         "reproducibility": reproducibility,
         "diarization_attempts": attempt_summaries,
         "config": {

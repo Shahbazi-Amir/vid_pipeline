@@ -20,6 +20,7 @@ from vid_pipeline.pre_review import PreReviewError, build_pre_review_package
 from vid_pipeline.profiles import resolve_transcription_model
 from vid_pipeline.review import ReviewConfig, ReviewError, build_review_package
 from vid_pipeline.standalone import VideoPipeline
+from vid_pipeline.state import PipelineState
 
 _MAX_EDITORIAL_CHARS = 3500
 _MAX_OUTPUT_TOKENS = 4500
@@ -203,9 +204,15 @@ def _postprocess_with_review(pipeline: VideoPipeline, args: Namespace) -> int:
     accuracy_manifest = accuracy_judge = accuracy_rebuild = accuracy_review = None
     try:
         accuracy_config = _accuracy_config(args)
-        accuracy_manifest = build_accuracy_package(
-            pipeline.paths.job_root, config=accuracy_config, glossary_paths=glossaries
-        )
+        state = PipelineState(pipeline.paths.job_root / "state.json")
+        manifest_path = pipeline.paths.job_root / "accuracy" / "manifest.json"
+        if state.is_complete("accuracy") and manifest_path.is_file():
+            accuracy_manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            accuracy_manifest["resumed_from_checkpoint"] = True
+        else:
+            accuracy_manifest = build_accuracy_package(
+                pipeline.paths.job_root, config=accuracy_config, glossary_paths=glossaries
+            )
         accuracy_judge = advise_disagreements(
             pipeline.paths.job_root,
             model=accuracy_config.judge_model,
@@ -263,7 +270,19 @@ def _run_file_with_review(args: Namespace) -> int:
     result = _ORIGINAL_RUN_FILE(args)
     if result != 0:
         return result
-    return _postprocess_with_review(base_cli.LocalMediaPipeline(args.path, args.output_root, args.name), args)
+    pipeline = base_cli.LocalMediaPipeline(args.path, args.output_root, args.name)
+    source_path = pipeline.paths.source_metadata
+    if source_path.is_file():
+        metadata = json.loads(source_path.read_text(encoding="utf-8"))
+        if getattr(args, "title", "").strip():
+            metadata["title"] = args.title.strip()
+        if getattr(args, "source_url", "").strip():
+            metadata["source_url"] = args.source_url.strip()
+        source_path.write_text(
+            json.dumps(metadata, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
+        pipeline.metadata = metadata
+    return _postprocess_with_review(pipeline, args)
 
 
 def main() -> int:

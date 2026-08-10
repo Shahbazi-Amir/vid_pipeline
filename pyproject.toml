@@ -52,6 +52,11 @@ diarization-pyannote = [
   "pyannote.audio==4.0.4",
   "soundfile>=0.12,<1"
 ]
+asre-shirin-cpu = [
+  "faster-whisper==1.2.1",
+  "pyannote.audio==4.0.4",
+  "soundfile==0.13.1"
+]
 all = [
   "boto3>=1.34",
   "fastapi>=0.115",

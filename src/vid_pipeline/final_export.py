@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import shutil
+import time
 from pathlib import Path
 from typing import Any
 
@@ -123,6 +124,7 @@ def _render_speaker_text(segments: list[dict[str, Any]]) -> str:
 def export_final_outputs(job_root: str | Path) -> dict[str, Any]:
     """Regenerate exactly three deliverables without deleting internal state."""
 
+    export_started = time.monotonic()
     root = Path(job_root)
     final_dir = root / "final"
     delivery = root / "delivery"
@@ -175,6 +177,7 @@ def export_final_outputs(job_root: str | Path) -> dict[str, Any]:
         "final_outputs": outputs, "exported_speakers": exported_speakers,
         "exported_effective_speakers": exported_effective,
         "exported_effective_speaker_count": len(exported_effective),
+        "export_seconds": round(time.monotonic() - export_started, 6),
     }
     state = PipelineState(root / "state.json")
     state.mark_complete("export", list(outputs.values()), details)

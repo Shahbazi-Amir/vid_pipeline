@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import re
+import time
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -106,10 +107,13 @@ def transcribe_audio(
     _, WhisperModel = _load_whisper()
     device, compute_type = resolve_runtime(config.device, config.compute_type)
     try:
+        model_load_started = time.monotonic()
         provisioned_model = resolve_asr_model(config.model)
         model = WhisperModel(
             str(provisioned_model.path), device=device, compute_type=compute_type
         )
+        model_load_seconds = time.monotonic() - model_load_started
+        inference_started = time.monotonic()
         segments_iter, info = model.transcribe(
             str(source),
             language=config.language,
@@ -153,6 +157,7 @@ def transcribe_audio(
             segments.append(segment)
             if segment["text"]:
                 all_text.append(segment["text"])
+        inference_seconds = time.monotonic() - inference_started
         result = {
             "schema_version": 1,
             "language": info.language,
@@ -161,6 +166,10 @@ def transcribe_audio(
             "model": config.model,
             "device": device,
             "compute_type": compute_type,
+            "timing": {
+                "asr_model_load_seconds": round(model_load_seconds, 6),
+                "asr_inference_seconds": round(inference_seconds, 6),
+            },
             **provisioned_model.diagnostics,
             "faster_whisper_version": _faster_whisper_version(),
             "text": " ".join(all_text).strip(),

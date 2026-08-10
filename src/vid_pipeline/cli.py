@@ -158,6 +158,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     file_parser = subparsers.add_parser("run-file", help="Process one local media file.")
     file_parser.add_argument("path", type=Path)
+    file_parser.add_argument("--source-url", default="")
     file_parser.add_argument("--output-root", type=Path, default=Path("outputs"))
     file_parser.add_argument("--name", default="")
     file_parser.add_argument("--max-paragraph-words", type=int, default=90)

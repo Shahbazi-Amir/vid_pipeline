@@ -6,11 +6,14 @@ import json
 import re
 import shutil
 import subprocess
+import time
 from collections.abc import Callable, Iterable
 from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+
+from vid_pipeline.state import sha256_file
 
 
 class AccuracyError(RuntimeError):
@@ -85,6 +88,56 @@ def tokens(text: str) -> list[str]:
 
 def similarity(a: str, b: str) -> float:
     return difflib.SequenceMatcher(a=tokens(a), b=tokens(b), autojunk=False).ratio()
+
+
+def _pass_fingerprint(path: Path, spec: PassSpec, config: AccuracyConfig) -> dict[str, Any]:
+    return {
+        "input_sha256": sha256_file(path),
+        "model": spec.model,
+        "vad_filter": spec.vad_filter,
+        "beam_size": spec.beam_size,
+        "condition_on_previous_text": spec.condition_on_previous_text,
+        "targeted": spec.targeted,
+        "language": config.language,
+        "device": config.device,
+        "compute_type": config.compute_type,
+    }
+
+
+def _run_or_reuse_pass(
+    path: Path,
+    spec: PassSpec,
+    hotwords: str,
+    config: AccuracyConfig,
+    runner: PassRunner,
+    checkpoint: Path,
+) -> tuple[dict[str, Any], bool]:
+    # Some injected runners synthesize clips in memory. They remain supported,
+    # but only real files can form a durable checksum-backed checkpoint.
+    if not path.is_file():
+        return runner(path, spec, hotwords), False
+    fingerprint = _pass_fingerprint(path, spec, config)
+    if checkpoint.is_file():
+        try:
+            saved = json.loads(checkpoint.read_text(encoding="utf-8"))
+            if saved.get("fingerprint") == fingerprint and isinstance(saved.get("result"), dict):
+                return saved["result"], True
+        except (OSError, ValueError, json.JSONDecodeError):
+            pass
+    result = runner(path, spec, hotwords)
+    checkpoint.parent.mkdir(parents=True, exist_ok=True)
+    temporary = checkpoint.with_suffix(checkpoint.suffix + ".tmp")
+    temporary.write_text(
+        json.dumps(
+            {"schema_version": 1, "fingerprint": fingerprint, "result": result},
+            ensure_ascii=False,
+            indent=2,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    temporary.replace(checkpoint)
+    return result, False
 
 
 def confidence(segment: dict[str, Any]) -> float:
@@ -465,10 +518,13 @@ def build_accuracy_package(
     hotwords = "، ".join(dict.fromkeys(glossary_words))[:1000]
     warnings = []
     passes = [("primary", primary)]
+    accuracy_model_load_seconds = 0.0
+    accuracy_asr_inference_seconds = 0.0
     if pass_runner is None:
         model_cache: dict[tuple[str, str, str], Any] = {}
 
         def runner(path: Path, pass_spec: PassSpec, words: str) -> dict[str, Any]:
+            nonlocal accuracy_asr_inference_seconds, accuracy_model_load_seconds
             try:
                 from faster_whisper import WhisperModel
             except ImportError as exc:
@@ -477,26 +533,34 @@ def build_accuracy_package(
             cache_key = (pass_spec.model, device, compute)
             model = model_cache.get(cache_key)
             if model is None:
+                model_load_started = time.monotonic()
                 model = WhisperModel(
                     pass_spec.model,
                     device=device,
                     compute_type=compute,
                 )
+                accuracy_model_load_seconds += time.monotonic() - model_load_started
                 model_cache[cache_key] = model
-            return run_whisper(
+            inference_started = time.monotonic()
+            result = run_whisper(
                 path,
                 pass_spec,
                 words,
                 config,
                 model_instance=model,
             )
+            accuracy_asr_inference_seconds += time.monotonic() - inference_started
+            return result
 
     else:
         runner = pass_runner
     if config.mode != "off" and audio.exists():
         for pass_spec in specs(config, str(primary.get("model") or "")):
             try:
-                result = runner(audio, pass_spec, hotwords)
+                checkpoint = root / "accuracy" / "passes" / f"{pass_spec.name}.checkpoint.json"
+                result, reused = _run_or_reuse_pass(
+                    audio, pass_spec, hotwords, config, runner, checkpoint
+                )
                 passes.append((pass_spec.name, result))
                 directory = root / "accuracy" / "passes"
                 directory.mkdir(parents=True, exist_ok=True)
@@ -504,6 +568,8 @@ def build_accuracy_package(
                     json.dumps(result, ensure_ascii=False, indent=2) + "\n",
                     encoding="utf-8",
                 )
+                if reused:
+                    warnings.append(f"{pass_spec.name}_reused_from_checkpoint")
             except Exception as exc:
                 warnings.append(f"{pass_spec.name}_failed: {type(exc).__name__}: {exc}")
     elif config.mode != "off":
@@ -555,7 +621,12 @@ def build_accuracy_package(
                 warnings.append(f"clip_{segment_id}: {error}")
                 continue
             try:
-                result = runner(clip, target_spec, hotwords)
+                checkpoint = (
+                    root / "accuracy" / "passes" / f"targeted-{segment_id:04d}.checkpoint.json"
+                )
+                result, reused = _run_or_reuse_pass(
+                    clip, target_spec, hotwords, config, runner, checkpoint
+                )
                 text = norm(
                     " ".join(
                         str(row.get("text") or "")
@@ -575,6 +646,8 @@ def build_accuracy_package(
                             ),
                         }
                     )
+                    if reused:
+                        warnings.append(f"targeted_{segment_id}_reused_from_checkpoint")
             except Exception as exc:
                 warnings.append(
                     f"targeted_{segment_id}_failed: {type(exc).__name__}: {exc}"
@@ -638,6 +711,10 @@ def build_accuracy_package(
         "disagreement_count": len(disagreements),
         "files": files,
         "warnings": warnings,
+        "timing": {
+            "additional_asr_model_load_seconds": round(accuracy_model_load_seconds, 6),
+            "additional_asr_inference_seconds": round(accuracy_asr_inference_seconds, 6),
+        },
         "external_reference_used": False,
     }
     manifest_path = root / "accuracy" / "manifest.json"

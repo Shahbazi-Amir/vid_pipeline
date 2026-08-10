@@ -12,7 +12,7 @@ TIMESTAMP_BLOCK = re.compile(
 
 HOST_MAX_FIRST_START_SECONDS = 12.0
 HOST_MIN_FIRST_TURN_SECONDS = 4.0
-DOCTOR_MIN_DOMINANCE_RATIO = 1.20
+DOCTOR_ADDRESS_WINDOW_SECONDS = 30.0
 
 
 def seconds(h: str, m: str, s: str) -> int:
@@ -22,12 +22,21 @@ def seconds(h: str, m: str, s: str) -> int:
 def parse_timeline(path: Path) -> list[dict[str, object]]:
     text = path.read_text(encoding="utf-8")
     rows: list[dict[str, object]] = []
-    for match in TIMESTAMP_BLOCK.finditer(text):
+    matches = list(TIMESTAMP_BLOCK.finditer(text))
+    for index, match in enumerate(matches):
         start = seconds(match.group(1), match.group(2), match.group(3))
         end = seconds(match.group(4), match.group(5), match.group(6))
         label = match.group(7).strip()
+        body_end = matches[index + 1].start() if index + 1 < len(matches) else len(text)
+        body = text[match.end():body_end].strip()
         if end >= start:
-            rows.append({"start": start, "end": end, "duration": end - start, "label": label})
+            rows.append({
+                "start": start,
+                "end": end,
+                "duration": end - start,
+                "label": label,
+                "text": body,
+            })
     if not rows:
         raise SystemExit(f"No timestamped speaker blocks found: {path}")
     return rows
@@ -39,6 +48,27 @@ def replace_labels(text: str, mapping: dict[str, str]) -> str:
         text = text.replace(f"**{old}**", f"**{new}**")
         text = re.sub(rf"(?m)^{re.escape(old)}:$", f"{new}:", text)
     return text
+
+
+def _explicit_doctor_candidates(rows: list[dict[str, object]], host: str | None) -> list[str]:
+    """Resolve the doctor only from a direct host address followed by a response."""
+
+    if host is None:
+        return []
+    candidates: list[str] = []
+    address = re.compile(r"دکتر(?:\s+کمیل)?\s+رودی")
+    for index, row in enumerate(rows):
+        if str(row["label"]) != host or not address.search(str(row.get("text") or "")):
+            continue
+        address_end = float(row["end"])
+        for candidate in rows[index + 1:]:
+            if float(candidate["start"]) > address_end + DOCTOR_ADDRESS_WINDOW_SECONDS:
+                break
+            label = str(candidate["label"])
+            if label != host:
+                candidates.append(label)
+                break
+    return sorted(set(candidates))
 
 
 def main() -> None:
@@ -89,13 +119,8 @@ def main() -> None:
         else None
     )
 
-    remaining = [label for label in labels if label != host]
-    doctor_candidate = max(remaining, key=lambda value: (totals[value], -first_start[value]))
-    other_nonhost = [label for label in remaining if label != doctor_candidate]
-    next_nonhost_duration = max((totals[label] for label in other_nonhost), default=0.0)
-    doctor_ratio = totals[doctor_candidate] / max(next_nonhost_duration, 1.0)
-    doctor_resolved = len(remaining) == 1 or doctor_ratio >= DOCTOR_MIN_DOMINANCE_RATIO
-    doctor = doctor_candidate if doctor_resolved else None
+    doctor_candidates = _explicit_doctor_candidates(rows, host)
+    doctor = doctor_candidates[0] if len(doctor_candidates) == 1 else None
 
     mapping: dict[str, str] = {}
     unresolved: list[str] = []
@@ -105,19 +130,22 @@ def main() -> None:
         mapping[doctor] = "دکتر کمیل رودی"
 
     participant_index = 1
+    unresolved_index = 1
     for label in sorted(labels, key=lambda value: (first_start[value], -totals[value], value)):
         if label in mapping:
             continue
-        if label == doctor_candidate and not doctor_resolved:
-            mapping[label] = "گوینده نامشخص (کاندید دکتر کمیل رودی)"
-            unresolved.append(label)
-            continue
         if host is None and label == labels[0]:
-            mapping[label] = "گوینده نامشخص (کاندید خانم متولیان)"
+            mapping[label] = f"گوینده نامشخص {unresolved_index}"
+            unresolved_index += 1
             unresolved.append(label)
             continue
-        mapping[label] = f"شرکت‌کننده {participant_index}"
-        participant_index += 1
+        if doctor is None:
+            mapping[label] = f"گوینده نامشخص {unresolved_index}"
+            unresolved_index += 1
+            unresolved.append(label)
+        else:
+            mapping[label] = f"شرکت‌کننده {participant_index}"
+            participant_index += 1
 
     host_is_first = host is not None and first_start[host] == min(first_start.values())
     status = "mapped" if host is not None and doctor is not None else "partially_unresolved"
@@ -131,7 +159,7 @@ def main() -> None:
 
     diagnostics = {
         "episode": episode,
-        "method": "conservative-opening-host-and-dominant-nonhost-v2",
+        "method": "conservative-opening-host-and-explicit-doctor-address-v3",
         "user_program_structure": {
             "host": "خانم متولیان",
             "expert": "دکتر کمیل رودی",
@@ -154,10 +182,11 @@ def main() -> None:
         },
         "doctor_selection": {
             "raw_label": doctor,
-            "candidate_raw_label": doctor_candidate,
+            "candidate_raw_labels": doctor_candidates,
             "resolved": doctor is not None,
-            "dominant_nonhost_duration_ratio_vs_next": round(doctor_ratio, 3),
-            "required_ratio": DOCTOR_MIN_DOMINANCE_RATIO,
+            "evidence": "explicit_host_address_followed_by_response" if doctor else "insufficient",
+            "address_window_seconds": DOCTOR_ADDRESS_WINDOW_SECONDS,
+            "dominance_not_used_for_identity": True,
         },
         "unresolved_raw_labels": unresolved,
         "status": status,

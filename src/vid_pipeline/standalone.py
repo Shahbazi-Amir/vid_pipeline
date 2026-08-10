@@ -6,6 +6,7 @@ import hashlib
 import json
 import re
 import shutil
+import time
 from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
@@ -221,8 +222,17 @@ class VideoPipeline:
 
     def audio(self, *, force: bool = False) -> dict[str, Any]:
         def action() -> tuple[list[Path], dict[str, Any]]:
+            normalize_started = time.monotonic()
             normalized = normalize_audio(self._downloaded_video(), self.paths.audio, overwrite=force)
-            return [normalized], {"probe": validate_normalized_audio(normalized)}
+            normalize_seconds = time.monotonic() - normalize_started
+            probe_started = time.monotonic()
+            probe = validate_normalized_audio(normalized)
+            probe_seconds = time.monotonic() - probe_started
+            return [normalized], {
+                "probe": probe,
+                "normalize_seconds": round(normalize_seconds, 6),
+                "ffprobe_seconds": round(probe_seconds, 6),
+            }
 
         return self._run_stage("audio", action, force=force)
 
@@ -245,6 +255,7 @@ class VideoPipeline:
                 "language": result.get("language"),
                 "model": result.get("model"),
                 "device": result.get("device"),
+                "timing": result.get("timing") or {},
             }
 
         return self._run_stage("transcribe", action, force=force)

@@ -81,7 +81,17 @@ class PipelineState:
         if record.get("status") != "completed":
             return False
         paths = [Path(path) for path in record.get("output_paths", [])]
-        return bool(paths) and all(path.exists() for path in paths)
+        if not paths or not all(path.exists() for path in paths):
+            return False
+        checksums = (record.get("details") or {}).get("sha256") or {}
+        for path in paths:
+            if not path.is_file():
+                continue
+            resolved = str(path.resolve())
+            expected = checksums.get(resolved)
+            if expected and sha256_file(path) != expected:
+                return False
+        return True
 
     def mark_running(self, name: str) -> None:
         self.data["stages"][name] = {

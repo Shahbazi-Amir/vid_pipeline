@@ -151,6 +151,7 @@ def create_app(
             "file_name": upload["file_name"], "file_size": upload["file_size"],
             "profile": payload.get("profile", "balanced"), "model": payload.get("model", ""),
             "language": payload.get("language", "fa"),
+            "audio_profile": payload.get("audio_profile", "safe"),
             "review_settings": {"editorial": bool(payload.get("editorial", True))},
             "status": "queued", "progress_percent": 0, "current_stage": "queued",
             "created_at": now(), "started_at": None, "completed_at": None, "retries": 0,

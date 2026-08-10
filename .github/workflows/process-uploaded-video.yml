@@ -40,6 +40,11 @@ on:
         required: true
         default: "true"
         type: string
+      audio_profile:
+        required: true
+        default: safe
+        type: choice
+        options: [none, safe, noisy]
       keep_debug_artifacts:
         required: true
         default: "false"
@@ -85,6 +90,7 @@ jobs:
       MODEL: ${{ inputs.model }}
       LANGUAGE: ${{ inputs.language }}
       NO_EDITORIAL: ${{ inputs.no_editorial }}
+      AUDIO_PROFILE: ${{ inputs.audio_profile }}
       DIARIZATION_ENABLED: ${{ inputs.diarization_enabled }}
       DIARIZATION_REQUIRED: ${{ inputs.diarization_required }}
       NUM_SPEAKERS: ${{ inputs.num_speakers }}
@@ -255,7 +261,7 @@ jobs:
           set -euo pipefail
           args=(run-file "$INPUT_MEDIA" --name "$REQUEST_ID" --output-root outputs \
             --profile "$PROFILE" --language "$LANGUAGE" \
-            --device cpu --compute-type int8)
+            --device cpu --compute-type int8 --audio-profile "$AUDIO_PROFILE")
           [[ -n "${MODEL:-}" ]] && args+=(--model "$MODEL")
           if [[ "${NO_EDITORIAL,,}" == "true" ]]; then
             args+=(--no-editorial)

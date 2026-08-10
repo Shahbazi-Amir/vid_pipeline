@@ -26,10 +26,11 @@ def test_uploaded_workflow_uses_bounded_string_inputs():
         if line.startswith("      ") and not line.startswith("        ")
     ]
 
-    assert len(input_names) == 16
+    assert len(input_names) == 17
     assert "release_id" not in input_names
     assert "asset_name" not in input_names
     assert "dispatch_id" in input_names
+    assert "audio_profile" in input_names
     assert "editorial_model" not in input_names
 
     no_editorial_block = inputs_block.split("      no_editorial:", 1)[1]
@@ -42,6 +43,8 @@ def test_uploaded_workflow_uses_bounded_string_inputs():
     assert 'default: ""' in model_block
     assert '[[ -n "${MODEL:-}" ]] && args+=(--model "$MODEL")' in workflow
     assert '--profile "$PROFILE" --model "$MODEL"' not in workflow
+    assert "AUDIO_PROFILE: ${{ inputs.audio_profile }}" in workflow
+    assert '--audio-profile "$AUDIO_PROFILE"' in workflow
 
 
 def test_success_artifacts_are_lean_and_debug_is_separate() -> None:
@@ -94,17 +97,18 @@ def test_dispatch_payload_matches_workflow_contract(tmp_path: Path):
         status="uploaded",
     )
 
-    client.dispatch_upload(request, {"no_editorial": True})
+    client.dispatch_upload(request, {"no_editorial": True, "audio_profile": "safe"})
 
     inputs = captured["inputs"]
     assert isinstance(inputs, dict)
-    assert len(inputs) == 16
+    assert len(inputs) == 17
     assert "release_id" not in inputs
     assert "asset_name" not in inputs
     assert inputs["dispatch_id"] == request.dispatch_id
     assert request.dispatch_started_at
     assert inputs["no_editorial"] == "true"
     assert inputs["model"] == ""
+    assert inputs["audio_profile"] == "safe"
     assert request.status == "queued"
     workflow = _workflow_text()
     block = workflow.split("    inputs:", 1)[1].split("\n\npermissions:", 1)[0]

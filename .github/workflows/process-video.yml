@@ -1,11 +1,15 @@
 name: Process video URL
-run-name: Video URL ${{ inputs.request_id || github.run_id }} — ${{ inputs.url || github.event_name }}
+run-name: Video URL ${{ inputs.request_id || github.run_id }} — attempt ${{ inputs.dispatch_id || github.run_attempt }}
 
 on:
   workflow_dispatch:
     inputs:
       request_id:
         description: Optional client request identifier
+        required: false
+        type: string
+      dispatch_id:
+        description: Optional client dispatch correlation identifier
         required: false
         type: string
       url:
@@ -55,6 +59,22 @@ on:
         default: balanced
         type: choice
         options: [fast, balanced, accurate]
+      language:
+        description: ASR language
+        required: true
+        default: fa
+        type: string
+      no_editorial:
+        description: Skip the local editorial model
+        required: true
+        default: "false"
+        type: string
+      audio_profile:
+        description: Audio preprocessing profile
+        required: true
+        default: safe
+        type: choice
+        options: [none, safe, noisy]
       editorial_model:
         description: Local Ollama model
         required: true
@@ -100,6 +120,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 360
     env:
+      REQUEST_ID: ${{ inputs.request_id }}
+      DISPATCH_ID: ${{ inputs.dispatch_id }}
       VIDEO_URL: ${{ inputs.url }}
       SOURCE_URL: ${{ inputs.source_url }}
       JOB_NAME: ${{ inputs.name }}
@@ -111,6 +133,9 @@ jobs:
       EDITORIAL_CONTEXT: ${{ inputs.editorial_context }}
       PROFILE: ${{ inputs.profile || 'balanced' }}
       WHISPER_MODEL: ${{ inputs.whisper_model }}
+      LANGUAGE: ${{ inputs.language || 'fa' }}
+      NO_EDITORIAL: ${{ inputs.no_editorial || 'false' }}
+      AUDIO_PROFILE: ${{ inputs.audio_profile || 'safe' }}
       EDITORIAL_MODEL: ${{ inputs.editorial_model || 'qwen2.5:7b' }}
       VID_PIPELINE_ACCURACY_MODE: ${{ inputs.accuracy_mode || 'fast' }}
       VID_PIPELINE_MAX_TARGETED_SEGMENTS: 40
@@ -151,6 +176,9 @@ jobs:
               "EDITORIAL_CONTEXT": data.get("editorial_context") or "",
               "PROFILE": data.get("profile") or "balanced",
               "WHISPER_MODEL": data.get("whisper_model") or "",
+              "LANGUAGE": data.get("language") or "fa",
+              "NO_EDITORIAL": data.get("no_editorial") or False,
+              "AUDIO_PROFILE": data.get("audio_profile") or "safe",
               "EDITORIAL_MODEL": data.get("editorial_model") or "qwen2.5:7b",
               "VID_PIPELINE_ACCURACY_MODE": data.get("accuracy_mode") or "fast",
               "VID_PIPELINE_WHISPERX_ALIGNMENT": data.get("whisperx_alignment") or False,
@@ -183,6 +211,9 @@ jobs:
               "EDITORIAL_CONTEXT": data.get("editorial_context") or "",
               "PROFILE": data.get("profile") or "balanced",
               "WHISPER_MODEL": data.get("whisper_model") or "",
+              "LANGUAGE": data.get("language") or "fa",
+              "NO_EDITORIAL": data.get("no_editorial") or False,
+              "AUDIO_PROFILE": data.get("audio_profile") or "safe",
               "EDITORIAL_MODEL": data.get("editorial_model") or "qwen2.5:7b",
               "VID_PIPELINE_ACCURACY_MODE": data.get("accuracy_mode") or "fast",
               "VID_PIPELINE_WHISPERX_ALIGNMENT": data.get("whisperx_alignment") or False,
@@ -227,6 +258,7 @@ jobs:
           fi
 
       - name: Install and start local Ollama
+        if: env.NO_EDITORIAL != 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -248,12 +280,20 @@ jobs:
           VID_PIPELINE_PYANNOTE_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           set -euo pipefail
-          args=(run-url "$VIDEO_URL" --output-root outputs --language fa \
-            --profile "$PROFILE" --device cpu --compute-type int8 \
-            --editorial-model "$EDITORIAL_MODEL" --editorial-base-url "$OLLAMA_BASE_URL")
+          args=(run-url "$VIDEO_URL" --output-root outputs --language "$LANGUAGE" \
+            --profile "$PROFILE" --device cpu --compute-type int8 --audio-profile "$AUDIO_PROFILE")
           [[ -n "${WHISPER_MODEL:-}" ]] && args+=(--model "$WHISPER_MODEL")
+          if [[ "${NO_EDITORIAL,,}" == "true" ]]; then
+            args+=(--no-editorial)
+          else
+            args+=(--editorial-model "$EDITORIAL_MODEL" --editorial-base-url "$OLLAMA_BASE_URL")
+          fi
           [[ -n "${SOURCE_URL:-}" ]] && args+=(--source-url "$SOURCE_URL")
-          [[ -n "${JOB_NAME:-}" ]] && args+=(--name "$JOB_NAME")
+          if [[ -n "${JOB_NAME:-}" ]]; then
+            args+=(--name "$JOB_NAME")
+          elif [[ -n "${REQUEST_ID:-}" ]]; then
+            args+=(--name "$REQUEST_ID")
+          fi
           [[ -n "${VIDEO_TITLE:-}" ]] && args+=(--title "$VIDEO_TITLE")
           [[ -n "${PROGRAM_NAME:-}" ]] && args+=(--program "$PROGRAM_NAME")
           [[ -n "${NETWORK_NAME:-}" ]] && args+=(--network "$NETWORK_NAME")

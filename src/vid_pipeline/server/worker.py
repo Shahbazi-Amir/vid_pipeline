@@ -23,7 +23,10 @@ class WhisperProcessor:
         from vid_pipeline.audio import normalize_audio
         from vid_pipeline.transcribe import TranscriptionConfig, transcribe_audio
 
-        audio = normalize_audio(media, work / "audio.wav", overwrite=True)
+        audio = normalize_audio(
+            media, work / "audio.wav", overwrite=True,
+            profile=job.get("audio_profile", "safe"),
+        )
         raw_json = work / "transcript.raw.json"
         raw_md = work / "transcript.raw.md"
         result = transcribe_audio(

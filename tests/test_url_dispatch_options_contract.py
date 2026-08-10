@@ -8,10 +8,14 @@ def test_url_dispatch_option_contract():
 
     assert "language:" in workflow
     assert "no_editorial:" in workflow
+    assert "audio_profile:" in workflow
     assert "LANGUAGE: ${{ inputs.language || 'fa' }}" in workflow
     assert "NO_EDITORIAL: ${{ inputs.no_editorial || 'false' }}" in workflow
+    assert "AUDIO_PROFILE: ${{ inputs.audio_profile || 'safe' }}" in workflow
     assert "if: env.NO_EDITORIAL != 'true'" in workflow
     assert '--language "$LANGUAGE"' in workflow
+    assert '--audio-profile "$AUDIO_PROFILE"' in workflow
     assert "args+=(--no-editorial)" in workflow
     assert '"language": options.get("language", "fa")' in client
     assert '"no_editorial": str(options.get("no_editorial", True)).lower()' in client
+    assert '"audio_profile": options.get("audio_profile", "safe")' in client

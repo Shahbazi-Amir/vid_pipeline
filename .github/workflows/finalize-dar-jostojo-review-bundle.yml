@@ -1,0 +1,189 @@
+name: Finalize dar jostojo and bundle for local review
+run-name: Finalize dar jostojo #${{ github.run_number }}
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/finalize-dar-jostojo-review-bundle.yml'
+
+permissions:
+  contents: write
+  statuses: write
+
+env:
+  PRIVATE_MEDIA_REPO: ${{ secrets.PRIVATE_MEDIA_REPO }}
+  PRIVATE_MEDIA_TOKEN: ${{ secrets.PRIVATE_MEDIA_TOKEN }}
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Publish live run link
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.repos.createCommitStatus({
+              ...context.repo,
+              sha: context.sha,
+              state: 'pending',
+              context: 'dar-jostojo/finalize-review-bundle',
+              description: 'Verifying private release and 29 base transcripts',
+              target_url: `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+            });
+
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Verify private release access and discover actual media set
+        id: manifest
+        shell: bash
+        env:
+          RELEASE_SELECTOR: 'dar_jostojo'
+          NUMBERING_MODE: leading
+          EXPECTED_NUMBERS: ''
+        run: |
+          set -euo pipefail
+          if [[ -z "$PRIVATE_MEDIA_REPO" || -z "$PRIVATE_MEDIA_TOKEN" ]]; then
+            echo 'Private media access secrets are missing.' >&2
+            exit 1
+          fi
+          python scripts/private_release_manifest.py
+
+      - name: Verify every discovered media has a complete base transcript
+        id: verify
+        shell: bash
+        env:
+          MATRIX: ${{ steps.manifest.outputs.matrix }}
+          DISCOVERED_COUNT: ${{ steps.manifest.outputs.count }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          matrix = json.loads(os.environ['MATRIX'])
+          discovered = int(os.environ['DISCOVERED_COUNT'])
+          root = Path('outputs/dar_jostojo')
+          numbers = sorted(int(item['result_number']) for item in matrix.get('include', []))
+          if discovered != len(numbers):
+              raise SystemExit(f'discovered mismatch: {discovered} != {len(numbers)}')
+          if len(set(numbers)) != len(numbers):
+              raise SystemExit('duplicate result numbers in release manifest')
+
+          missing = []
+          for n in numbers:
+              required = [
+                  root / 'md' / f'{n}.md',
+                  root / 'timestamped' / f'{n}.md',
+                  root / 'txt' / f'{n}.txt',
+              ]
+              bad = [str(p) for p in required if not p.is_file() or p.stat().st_size <= 0]
+              if bad:
+                  missing.append({'result_number': n, 'missing': bad})
+          if missing:
+              print(json.dumps(missing, ensure_ascii=False, indent=2))
+              raise SystemExit(f'{len(missing)} release media items lack complete base transcripts')
+
+          processed = sum(
+              1 for n in numbers
+              if (root / 'timestamped' / f'{n}.md').is_file()
+              and (root / 'timestamped' / f'{n}.md').stat().st_size > 0
+          )
+          print(f'PRIVATE_RELEASE_ACCESS_OK media={discovered}')
+          print(f'DAR_JOSTOJO_BASE_OK processed={processed}/{discovered}')
+          with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as out:
+              out.write(f'processed={processed}\n')
+              out.write('numbers=' + ','.join(map(str, numbers)) + '\n')
+          PY
+
+      - name: Record corrected completion status
+        shell: bash
+        env:
+          DISCOVERED_COUNT: ${{ steps.manifest.outputs.count }}
+          PROCESSED_COUNT: ${{ steps.verify.outputs.processed }}
+          RESULT_NUMBERS: ${{ steps.verify.outputs.numbers }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import os
+          from datetime import UTC, datetime
+          from pathlib import Path
+
+          discovered = int(os.environ['DISCOVERED_COUNT'])
+          processed = int(os.environ['PROCESSED_COUNT'])
+          numbers = [int(x) for x in os.environ['RESULT_NUMBERS'].split(',') if x]
+          complete = discovered > 0 and processed == discovered == len(numbers)
+          payload = {
+              'state': 'complete' if complete else 'running',
+              'phase': 'dar_jostojo_base_complete' if complete else 'dar_jostojo_base_partial',
+              'ai_review': 'pending_local_chatgpt',
+              'review_execution': 'local_chatgpt_environment_not_github_llm',
+              'private_media_repository': os.environ.get('PRIVATE_MEDIA_REPO', ''),
+              'repository_visibility': 'private',
+              'release_selector': 'dar_jostojo',
+              'release_tag': 'dar_again',
+              'target_count': discovered,
+              'release_media_discovered': discovered,
+              'processed': processed,
+              'completed_numbers': numbers,
+              'updated_at_utc': datetime.now(UTC).isoformat(),
+          }
+          path = Path('benchmarks/private-dar-jostojo-status.json')
+          path.parent.mkdir(parents=True, exist_ok=True)
+          path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          if not complete:
+              raise SystemExit('Dar jostojo base collection is not complete')
+          PY
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add benchmarks/private-dar-jostojo-status.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'data: finalize dar jostojo base collection'
+            for attempt in 1 2 3 4 5; do
+              if git push origin HEAD:main; then
+                break
+              fi
+              git pull --rebase origin main
+              if (( attempt == 5 )); then exit 1; fi
+              sleep $((attempt * 3))
+            done
+          fi
+
+      - name: Stage local ChatGPT review inputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p local-review/dar_jostojo
+          cp -a outputs/dar_jostojo/md local-review/dar_jostojo/
+          cp -a outputs/dar_jostojo/timestamped local-review/dar_jostojo/
+          cp -a outputs/dar_jostojo/txt local-review/dar_jostojo/
+          cp benchmarks/private-dar-jostojo-status.json local-review/dar_jostojo/status.json
+
+      - name: Upload review bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: local-chatgpt-review-dar-jostojo
+          path: local-review/dar_jostojo
+          retention-days: 3
+          if-no-files-found: error
+
+      - name: Mark success
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.repos.createCommitStatus({
+              ...context.repo,
+              sha: context.sha,
+              state: 'success',
+              context: 'dar-jostojo/finalize-review-bundle',
+              description: 'Private release verified; base complete; review bundle ready',
+              target_url: `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+            });

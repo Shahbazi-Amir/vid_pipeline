@@ -1,0 +1,60 @@
+name: One-time audio final gaps
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/one-time-audio-final-gaps.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/audio-integration-main
+          fetch-depth: 0
+      - name: Apply fail-closed final audio gaps
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          def replace(path: str, old: str, new: str) -> None:
+              target = Path(path)
+              text = target.read_text(encoding='utf-8')
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f'{path}: expected one context, found {count}: {old[:120]!r}')
+              target.write_text(text.replace(old, new, 1), encoding='utf-8')
+              print(f'patched {path}')
+
+          replace(
+              'src/vid_pipeline/cli.py',
+              'from vid_pipeline.errors import PipelineError\nfrom vid_pipeline.profiles import DEFAULT_PROFILE, resolve_transcription_model\n',
+              'from vid_pipeline.errors import PipelineError\nfrom vid_pipeline.media import MEDIA_EXTENSIONS as _MEDIA_EXTENSIONS\nfrom vid_pipeline.profiles import DEFAULT_PROFILE, resolve_transcription_model\n',
+          )
+          replace(
+              'src/vid_pipeline/cli.py',
+              '_MEDIA_EXTENSIONS = {\n    ".mp4", ".mkv", ".mov", ".webm", ".m4v", ".avi",\n    ".mp3", ".wav", ".m4a", ".flac", ".ogg",\n}\n\n\n',
+              '',
+          )
+          replace(
+              'src/vid_pipeline/standalone.py',
+              '        def action() -> tuple[list[Path], dict[str, Any]]:\n            video, metadata = download_video(self.url, self.paths.video_dir)\n            return [video, self.paths.video_metadata], {\n                "video_path": str(video),\n                "duration": metadata.get("duration"),\n            }\n\n        return self._run_stage("download", action, force=force)\n',
+              '        def action() -> tuple[list[Path], dict[str, Any]]:\n            from vid_pipeline.media import require_decodable_audio\n\n            media_path, metadata = download_video(self.url, self.paths.video_dir)\n            media = require_decodable_audio(media_path)\n            if self.paths.source_metadata.exists():\n                source = json.loads(self.paths.source_metadata.read_text(encoding="utf-8"))\n                source["input_type"] = media["input_type"]\n                source["media"] = media\n                self.paths.source_metadata.write_text(\n                    json.dumps(source, ensure_ascii=False, indent=2) + "\\n",\n                    encoding="utf-8",\n                )\n                self.metadata = source\n            return [media_path, self.paths.video_metadata], {\n                "media_path": str(media_path),\n                "video_path": str(media_path),\n                "input_type": media["input_type"],\n                "duration": metadata.get("duration"),\n            }\n\n        return self._run_stage("download", action, force=force)\n',
+          )
+          PY
+      - name: Commit final audio gaps
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm -f .github/workflows/one-time-audio-final-gaps.yml
+          git add src/vid_pipeline/cli.py src/vid_pipeline/standalone.py
+          git commit -m "audio: finish media discovery and URL validation"
+          git push origin HEAD:agent/audio-integration-main

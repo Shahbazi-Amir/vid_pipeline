@@ -5,10 +5,18 @@ on:
       - ".github/dar-again-review-bundle.trigger"
 permissions:
   contents: read
+  statuses: write
 jobs:
   bundle:
     runs-on: ubuntu-latest
     steps:
+      - name: Publish run link
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          curl -fsS -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -d "{\"state\":\"pending\",\"context\":\"dar-again/review-input-bundle\",\"target_url\":\"https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}\"}"
       - uses: actions/checkout@v4
         with:
           ref: main
@@ -35,3 +43,11 @@ jobs:
           path: outputs/dar_jostojo_dar_again_raw/**
           retention-days: 3
           if-no-files-found: error
+      - name: Mark success
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          curl -fsS -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -d "{\"state\":\"success\",\"context\":\"dar-again/review-input-bundle\",\"target_url\":\"https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}\"}"

@@ -5,7 +5,6 @@ from __future__ import annotations
 import json
 import os
 import re
-import socket
 import time
 import urllib.error
 import urllib.request
@@ -42,7 +41,7 @@ class ReviewAPIConfig:
     chunk_chars: int = 24000
 
     @classmethod
-    def from_env(cls) -> "ReviewAPIConfig":
+    def from_env(cls) -> ReviewAPIConfig:
         values = {name: os.environ.get(name, "").strip() for name in _REVIEW_ENV}
         missing = [name for name, value in values.items() if not value]
         if missing:
@@ -220,7 +219,7 @@ def _call_review_api(text: str, config: ReviewAPIConfig) -> str:
         except urllib.error.HTTPError as exc:
             if exc.code not in retryable_statuses or attempt == config.max_attempts:
                 raise AIReviewError(f"review API HTTP error: {exc.code}") from exc
-        except (urllib.error.URLError, TimeoutError, socket.timeout, json.JSONDecodeError) as exc:
+        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as exc:
             if attempt == config.max_attempts:
                 raise AIReviewError("review API request failed after retries") from exc
         time.sleep(min(2 ** (attempt - 1), 20))

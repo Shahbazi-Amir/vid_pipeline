@@ -1,0 +1,119 @@
+name: One-time publish Asre Shirin review 25
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: one-time-asre-shirin-review-25
+  cancel-in-progress: false
+
+jobs:
+  publish-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Reconstruct, validate, and render 25 reviewed transcripts
+        shell: bash
+        run: |
+          set -euo pipefail
+          export PYTHONPATH="$GITHUB_WORKSPACE/src"
+          python - <<'PY'
+          import base64
+          import json
+          import lzma
+          from pathlib import Path
+
+          from vid_pipeline.llm_review import (
+              render_review_markdown,
+              render_review_text,
+              validate_review,
+          )
+
+          root = Path("outputs/asre_shirin")
+          review = root / "review"
+          payload_path = Path(".github/asre-shirin-review-25.lineops.xz.b64")
+          payload = json.loads(lzma.decompress(base64.b64decode(payload_path.read_bytes())).decode("utf-8"))
+
+          expected = list(range(1, 15)) + list(range(16, 27))
+          expected_names = {f"{n}.md" for n in expected}
+          if set(payload) != expected_names:
+              raise SystemExit(f"Unexpected review payload file set: {sorted(payload)}")
+          if "15.md" in payload:
+              raise SystemExit("Episode 15 must not be reviewed in this run")
+
+          (review / "timestamped").mkdir(parents=True, exist_ok=True)
+          (review / "md").mkdir(parents=True, exist_ok=True)
+          (review / "txt").mkdir(parents=True, exist_ok=True)
+
+          for n in expected:
+              name = f"{n}.md"
+              source_path = root / "timestamped" / name
+              if not source_path.is_file() or source_path.stat().st_size <= 0:
+                  raise SystemExit(f"Missing Base timestamped source: {source_path}")
+
+              source = source_path.read_text(encoding="utf-8")
+              lines = source.splitlines(keepends=True)
+              for line_index, replacement in payload[name]:
+                  if line_index < 0 or line_index >= len(lines):
+                      raise SystemExit(f"Invalid line index for episode {n}: {line_index}")
+                  lines[line_index] = replacement
+              reviewed = "".join(lines)
+
+              blocks = validate_review(source, reviewed)
+              timed_path = review / "timestamped" / name
+              timed_path.write_text(reviewed, encoding="utf-8")
+              (review / "md" / name).write_text(render_review_markdown(blocks), encoding="utf-8")
+              (review / "txt" / f"{n}.txt").write_text(render_review_text(blocks), encoding="utf-8")
+
+          for folder, suffix in (("timestamped", ".md"), ("md", ".md"), ("txt", ".txt")):
+              files = sorted((review / folder).glob(f"*{suffix}"))
+              names = {p.name for p in files if p.is_file() and p.stat().st_size > 0}
+              required = {f"{n}{suffix}" for n in expected}
+              if names != required:
+                  raise SystemExit(f"Review {folder} set mismatch: got={sorted(names)} required={sorted(required)}")
+              if (review / folder / f"15{suffix}").exists():
+                  raise SystemExit(f"Episode 15 unexpectedly exists in review/{folder}")
+
+          print("Validated and rendered exactly 25 Asre Shirin reviews; episode 15 intentionally excluded")
+          PY
+
+      - name: Publish review once and remove one-time staging files
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add outputs/asre_shirin/review
+          git rm -f .github/asre-shirin-review-25.lineops.xz.b64
+          git rm -f .github/workflows/one-time-publish-asre-review-25.yml
+          if [[ -e .github/workflows/one-time-publish-asre-25.yml ]]; then
+            git rm -f .github/workflows/one-time-publish-asre-25.yml
+          fi
+          if [[ -e .github/private-asre-shirin-publish-only.trigger ]]; then
+            git rm -f .github/private-asre-shirin-publish-only.trigger
+          fi
+
+          git commit -m "review: publish 25 ChatGPT-reviewed Asre Shirin transcripts"
+          for attempt in 1 2 3 4 5; do
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            git pull --rebase origin main
+            sleep $((attempt * 3))
+          done
+          exit 1

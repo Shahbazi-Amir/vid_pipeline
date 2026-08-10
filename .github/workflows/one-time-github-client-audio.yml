@@ -1,0 +1,43 @@
+name: One-time GitHub client audio option
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/one-time-github-client-audio.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/audio-integration-main
+          fetch-depth: 0
+      - name: Add upload audio profile input
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('src/vid_pipeline/github_client.py')
+          text = path.read_text(encoding='utf-8')
+          old = '            "no_editorial": str(options.get("no_editorial", True)).lower(),\n            "keep_debug_artifacts":'
+          new = '            "no_editorial": str(options.get("no_editorial", True)).lower(),\n            "audio_profile": options.get("audio_profile", "safe"),\n            "keep_debug_artifacts":'
+          count = text.count(old)
+          if count != 1:
+              raise SystemExit(f'expected one github_client context, found {count}')
+          path.write_text(text.replace(old, new, 1), encoding='utf-8')
+          PY
+      - name: Commit client change
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm -f .github/workflows/one-time-github-client-audio.yml
+          git add src/vid_pipeline/github_client.py
+          git commit -m "audio: add upload profile dispatch input"
+          git push origin HEAD:agent/audio-integration-main

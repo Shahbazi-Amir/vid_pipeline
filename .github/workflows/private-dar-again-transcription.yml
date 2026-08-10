@@ -1,0 +1,230 @@
+name: Private dar_again transcription
+run-name: Private dar_again transcription #${{ github.run_number }}
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/private-dar-again-transcription.trigger"
+
+permissions:
+  actions: write
+  contents: write
+  statuses: write
+
+concurrency:
+  group: private-dar-again-transcription
+  cancel-in-progress: false
+
+env:
+  PRIVATE_MEDIA_REPO: ${{ secrets.PRIVATE_MEDIA_REPO }}
+  PRIVATE_MEDIA_TOKEN: ${{ secrets.PRIVATE_MEDIA_TOKEN }}
+  AI_REVIEW_ENABLED: "false"
+  VID_PIPELINE_ASR_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/asr
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    outputs:
+      ready: ${{ steps.check.outputs.ready }}
+    steps:
+      - id: check
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "$PRIVATE_MEDIA_REPO" || -z "$PRIVATE_MEDIA_TOKEN" ]]; then
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "Private media access secrets are missing." >&2
+            exit 1
+          fi
+          echo "ready=true" >> "$GITHUB_OUTPUT"
+          echo "Private release access inputs are present."
+
+  discover:
+    needs: preflight
+    if: needs.preflight.outputs.ready == 'true'
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.manifest.outputs.matrix }}
+      total_count: ${{ steps.manifest.outputs.count }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - id: manifest
+        shell: bash
+        env:
+          RELEASE_SELECTOR: "dar_again"
+          NUMBERING_MODE: leading
+          EXPECTED_NUMBERS: ""
+        run: python scripts/private_release_manifest.py
+      - name: Record run identity
+        continue-on-error: true
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.repos.createCommitStatus({
+              ...context.repo,
+              sha: context.sha,
+              state: "pending",
+              context: "dar-again/transcription",
+              description: `Discovered ${{ steps.manifest.outputs.count }} media assets; transcription starting`,
+              target_url: `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+            });
+
+  process:
+    name: process dar_again ${{ matrix.result_number }}
+    needs: discover
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix: ${{ fromJSON(needs.discover.outputs.matrix) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 110
+    env:
+      ASSET_ID: ${{ matrix.asset_id }}
+      EXPECTED_SIZE: ${{ matrix.size }}
+      EXPECTED_DIGEST: ${{ matrix.digest }}
+      MEDIA_SUFFIX: ${{ matrix.suffix }}
+      RESULT_NUMBER: ${{ matrix.result_number }}
+      COLLECTION_ROOT: private-result
+      DIARIZATION_ENABLED: "false"
+      DIARIZATION_REQUIRED: "false"
+      NUM_SPEAKERS: "1"
+      SPEAKER_ROLE_MODE: generic
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - uses: actions/cache@v4
+        with:
+          path: ${{ env.VID_PIPELINE_ASR_CACHE }}
+          key: asr-${{ runner.os }}-faster-whisper-1.2.1-large-v3-turbo-ct2-v1
+      - name: Install worker dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install --upgrade pip
+          pip install -e '.[whisper]'
+      - name: Download verified private release asset and transcribe
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in 1 2; do
+            echo "Starting dar_again result $RESULT_NUMBER attempt $attempt"
+            set +e
+            timeout --verbose --signal=TERM --kill-after=2m 55m \
+              bash scripts/process_private_release_asset.sh
+            status=$?
+            set -e
+            if (( status == 0 )); then
+              exit 0
+            fi
+            echo "DAR_AGAIN_ASR_FAILED result=$RESULT_NUMBER attempt=$attempt status=$status" >&2
+            rm -rf outputs private-result /tmp/vid-pipeline-private
+            if (( attempt < 2 )); then sleep $((attempt * 15)); fi
+          done
+          exit 1
+      - name: Validate base checkpoint
+        shell: bash
+        run: |
+          set -euo pipefail
+          for path in \
+            "private-result/md/${RESULT_NUMBER}.md" \
+            "private-result/timestamped/${RESULT_NUMBER}.md" \
+            "private-result/txt/${RESULT_NUMBER}.txt"; do
+            test -s "$path"
+          done
+      - name: Upload successful checkpoint
+        uses: actions/upload-artifact@v4
+        with:
+          name: private-dar-again-${{ matrix.result_number }}
+          path: private-result/**
+          retention-days: 7
+          if-no-files-found: error
+      - name: Remove media
+        if: always()
+        run: rm -rf /tmp/vid-pipeline-private outputs private-result
+
+  publish:
+    name: publish dar_again raw transcripts
+    needs: [discover, process]
+    if: needs.process.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: private-dar-again-*
+          path: staging
+          merge-multiple: true
+      - name: Replace raw dar_again collection from this run only
+        shell: bash
+        env:
+          EXPECTED_COUNT: ${{ needs.discover.outputs.total_count }}
+        run: |
+          set -euo pipefail
+          python scripts/verify_collection.py staging --base-only
+          count=$(find staging/timestamped -maxdepth 1 -type f -name '*.md' | wc -l)
+          test "$count" -eq "$EXPECTED_COUNT"
+          rm -rf outputs/dar_jostojo_dar_again_raw
+          mkdir -p outputs/dar_jostojo_dar_again_raw
+          cp -a staging/. outputs/dar_jostojo_dar_again_raw/
+          python scripts/verify_collection.py outputs/dar_jostojo_dar_again_raw --base-only
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add outputs/dar_jostojo_dar_again_raw
+          git commit -m "data: publish dar_again raw transcripts"
+          for attempt in 1 2 3 4 5; do
+            git push origin HEAD:main && exit 0
+            git pull --rebase origin main
+            sleep $((attempt * 5))
+          done
+          exit 1
+
+  bundle:
+    name: bundle dar_again for local ChatGPT review
+    needs: [discover, publish]
+    if: needs.publish.result == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Validate published raw collection
+        shell: bash
+        env:
+          EXPECTED_COUNT: ${{ needs.discover.outputs.total_count }}
+        run: |
+          set -euo pipefail
+          python scripts/verify_collection.py outputs/dar_jostojo_dar_again_raw --base-only
+          count=$(find outputs/dar_jostojo_dar_again_raw/timestamped -maxdepth 1 -type f -name '*.md' | wc -l)
+          test "$count" -eq "$EXPECTED_COUNT"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: local-chatgpt-review-dar-again
+          path: outputs/dar_jostojo_dar_again_raw/**
+          retention-days: 3
+          if-no-files-found: error
+      - name: Record success status
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.repos.createCommitStatus({
+              ...context.repo,
+              sha: context.sha,
+              state: "success",
+              context: "dar-again/transcription",
+              description: `All ${{ needs.discover.outputs.total_count }} release assets transcribed and bundled`,
+              target_url: `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+            });

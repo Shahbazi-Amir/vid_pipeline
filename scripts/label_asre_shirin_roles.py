@@ -13,6 +13,7 @@ TIMESTAMP_BLOCK = re.compile(
 HOST_MAX_FIRST_START_SECONDS = 12.0
 HOST_MIN_FIRST_TURN_SECONDS = 4.0
 DOCTOR_ADDRESS_WINDOW_SECONDS = 30.0
+EARLY_IDENTITY_WINDOW_SECONDS = 180.0
 
 
 def seconds(h: str, m: str, s: str) -> int:
@@ -50,25 +51,69 @@ def replace_labels(text: str, mapping: dict[str, str]) -> str:
     return text
 
 
-def _explicit_doctor_candidates(rows: list[dict[str, object]], host: str | None) -> list[str]:
-    """Resolve the doctor only from a direct host address followed by a response."""
+def _identity_normalized(text: str) -> str:
+    """Normalize only narrow, observed ASR confusions used for identity evidence."""
 
-    if host is None:
-        return []
-    candidates: list[str] = []
-    address = re.compile(r"دکتر(?:\s+کمیل)?\s+رودی")
+    value = text.replace("ي", "ی").replace("ك", "ک")
+    # Observed in episode 1: «آقای دفتر رودی» for «آقای دکتر رودی».
+    value = re.sub(r"\bدفتر\s+رودی\b", "دکتر رودی", value)
+    # Observed spacing/colloquial variants around the honorific.
+    value = re.sub(r"\bآی\s+دکتر\b", "آقای دکتر", value)
+    return value
+
+
+def _looks_like_direct_doctor_address(row: dict[str, object]) -> bool:
+    start = float(row["start"])
+    if start > EARLY_IDENTITY_WINDOW_SECONDS:
+        return False
+    text = _identity_normalized(str(row.get("text") or ""))
+    explicit_name = re.search(r"(?:آقای\s+)?دکتر(?:\s+کمیل)?\s+رودی", text)
+    early_greeting = re.search(
+        r"(?:آقای\s+)?دکتر.{0,30}(?:خوش\s*آمد|خوش\s*اومد|سلام|در\s+خدمت)",
+        text,
+    )
+    return bool(explicit_name or early_greeting)
+
+
+def _doctor_and_host_alias_candidates(
+    rows: list[dict[str, object]], host: str | None
+) -> tuple[list[str], list[str], list[dict[str, object]]]:
+    """Infer doctor response and possible host aliases from early direct address.
+
+    The prior implementation required the direct address to come from the one
+    diarized label already selected as host and required an exact «دکتر رودی»
+    spelling. That missed clear evidence when pyannote split the host voice or
+    ASR rendered «دکتر» as «دفتر». We accept only early direct-address evidence
+    and the immediately following different speaker; we do not identify the
+    doctor by dominance alone.
+    """
+
+    doctor_candidates: list[str] = []
+    host_aliases: list[str] = []
+    evidence: list[dict[str, object]] = []
     for index, row in enumerate(rows):
-        if str(row["label"]) != host or not address.search(str(row.get("text") or "")):
+        if not _looks_like_direct_doctor_address(row):
             continue
+        address_label = str(row["label"])
         address_end = float(row["end"])
+        response_label: str | None = None
         for candidate in rows[index + 1:]:
             if float(candidate["start"]) > address_end + DOCTOR_ADDRESS_WINDOW_SECONDS:
                 break
             label = str(candidate["label"])
-            if label != host:
-                candidates.append(label)
+            if label != address_label:
+                response_label = label
+                doctor_candidates.append(label)
                 break
-    return sorted(set(candidates))
+        if host is not None and address_label != host:
+            host_aliases.append(address_label)
+        evidence.append({
+            "address_label": address_label,
+            "response_label": response_label,
+            "start": row["start"],
+            "text": str(row.get("text") or ""),
+        })
+    return sorted(set(doctor_candidates)), sorted(set(host_aliases)), evidence
 
 
 def main() -> None:
@@ -103,10 +148,6 @@ def main() -> None:
     if len(labels) < 2:
         raise SystemExit(f"Expected at least two diarized speakers; got {labels}")
 
-    # The user supplied only one structural identity cue: Ms. Motavalian opens
-    # the program. Apply that identity only when the diarization actually shows
-    # a substantial speaker beginning near time zero. Otherwise preserve an
-    # explicit unresolved label instead of inventing a name.
     substantial = [
         label
         for label in labels
@@ -119,7 +160,9 @@ def main() -> None:
         else None
     )
 
-    doctor_candidates = _explicit_doctor_candidates(rows, host)
+    doctor_candidates, host_alias_candidates, identity_evidence = (
+        _doctor_and_host_alias_candidates(rows, host)
+    )
     doctor = doctor_candidates[0] if len(doctor_candidates) == 1 else None
 
     mapping: dict[str, str] = {}
@@ -128,6 +171,13 @@ def main() -> None:
         mapping[host] = "خانم متولیان"
     if doctor is not None:
         mapping[doctor] = "دکتر کمیل رودی"
+    # Pyannote can split the same host voice into more than one raw label.
+    # Only alias an early label when that exact label directly addresses the
+    # doctor and there is a unique doctor response candidate.
+    if doctor is not None:
+        for alias in host_alias_candidates:
+            if alias != doctor:
+                mapping[alias] = "خانم متولیان"
 
     participant_index = 1
     unresolved_index = 1
@@ -162,12 +212,12 @@ def main() -> None:
         warnings.append("Host identity unresolved: no substantial diarized speaker starts near the beginning.")
     if doctor is None:
         warnings.append(
-            "Doctor identity unresolved: dominant non-host evidence is insufficient; identity was not invented."
+            "Doctor identity unresolved: early direct-address evidence is insufficient or ambiguous; identity was not invented."
         )
 
     diagnostics = {
         "episode": episode,
-        "method": "conservative-opening-host-and-explicit-doctor-address-v3",
+        "method": "conservative-opening-host-and-early-direct-doctor-response-v4",
         "user_program_structure": {
             "host": "خانم متولیان",
             "expert": "دکتر کمیل رودی",
@@ -182,6 +232,7 @@ def main() -> None:
         "mapping": mapping,
         "host_selection": {
             "raw_label": host,
+            "alias_raw_labels": host_alias_candidates if doctor is not None else [],
             "resolved": host is not None,
             "is_earliest_speaker": host_is_first,
             "first_turn_seconds": round(first_duration[host], 3) if host is not None else None,
@@ -192,9 +243,11 @@ def main() -> None:
             "raw_label": doctor,
             "candidate_raw_labels": doctor_candidates,
             "resolved": doctor is not None,
-            "evidence": "explicit_host_address_followed_by_response" if doctor else "insufficient",
+            "evidence": "early_direct_address_followed_by_response" if doctor else "insufficient_or_ambiguous",
             "address_window_seconds": DOCTOR_ADDRESS_WINDOW_SECONDS,
+            "early_identity_window_seconds": EARLY_IDENTITY_WINDOW_SECONDS,
             "dominance_not_used_for_identity": True,
+            "observations": identity_evidence,
         },
         "unresolved_raw_labels": unresolved,
         "status": status,

@@ -1,0 +1,226 @@
+name: One-time discover Khane To
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  discover:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.ref == 'agent/trigger-khane-to-discovery'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Discover exactly 13 Khane To episodes from Fintelligence
+        shell: bash
+        env:
+          TAG_URL: https://www.fintelligence.ir/BlogTag/Detail/2042/%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D8%AA%D9%84%D9%88%DB%8C%D8%B2%DB%8C%D9%88%D9%86%DB%8C-%D8%AE%D8%A7%D9%86%D9%87-%D8%AA%D9%88
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import html
+          import json
+          import os
+          import re
+          import ssl
+          import urllib.parse
+          import urllib.request
+          from pathlib import Path
+
+          TAG_URL = os.environ['TAG_URL']
+          EXPECTED = 13
+          UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/127 Safari/537.36'
+
+          def fetch(url: str) -> str:
+              req = urllib.request.Request(url, headers={
+                  'User-Agent': UA,
+                  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                  'Accept-Language': 'fa,en;q=0.8',
+                  'Referer': 'https://www.fintelligence.ir/',
+              })
+              with urllib.request.urlopen(req, timeout=30, context=ssl.create_default_context()) as r:
+                  raw = r.read()
+                  charset = r.headers.get_content_charset() or 'utf-8'
+              return raw.decode(charset, errors='replace')
+
+          def clean_text(raw: str) -> str:
+              text = re.sub(r'<script\b[^>]*>.*?</script>', ' ', raw, flags=re.I|re.S)
+              text = re.sub(r'<style\b[^>]*>.*?</style>', ' ', text, flags=re.I|re.S)
+              text = re.sub(r'<[^>]+>', ' ', text)
+              text = html.unescape(text)
+              return re.sub(r'\s+', ' ', text).strip()
+
+          def page_title(raw: str) -> str:
+              pats = [
+                  r'<meta[^>]+property=["\']og:title["\'][^>]+content=["\']([^"\']+)',
+                  r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:title["\']',
+                  r'<h1[^>]*>(.*?)</h1>',
+                  r'<title[^>]*>(.*?)</title>',
+              ]
+              for pat in pats:
+                  m = re.search(pat, raw, flags=re.I|re.S)
+                  if m:
+                      return clean_text(m.group(1))
+              return ''
+
+          def hrefs(raw: str, base: str):
+              out=[]
+              for m in re.finditer(r'(?:href|src|data-src)\s*=\s*["\']([^"\']+)["\']', raw, flags=re.I):
+                  value=html.unescape(m.group(1).strip()).replace('\\/','/')
+                  if not value or value.startswith(('#','javascript:','mailto:','tel:')):
+                      continue
+                  out.append(urllib.parse.urljoin(base, value))
+              return out
+
+          def media_urls(raw: str):
+              text=html.unescape(raw).replace('\\/','/')
+              found=[]
+              # Aparat watch/embed forms.
+              for m in re.finditer(r'https?://(?:www\.)?aparat\.com/(?:v/|video/video/embed/videohash/)([A-Za-z0-9]+)', text, flags=re.I):
+                  uid=m.group(1)
+                  found.append((f'https://www.aparat.com/v/{uid}', uid, 'Aparat'))
+              # Direct common media URLs as a conservative fallback.
+              for m in re.finditer(r'https?://[^\s"\'<>]+\.(?:mp4|m4v|webm|mp3|m4a)(?:\?[^\s"\'<>]*)?', text, flags=re.I):
+                  url=m.group(0)
+                  found.append((url, '', 'direct'))
+              dedup=[]; seen=set()
+              for row in found:
+                  key=row[0]
+                  if key not in seen:
+                      seen.add(key); dedup.append(row)
+              return dedup
+
+          def episode_number(text: str):
+              trans=str.maketrans('۰۱۲۳۴۵۶۷۸۹٠١٢٣٤٥٦٧٨٩','01234567890123456789')
+              t=text.translate(trans)
+              m=re.search(r'(?:قسمت|بخش|اپیزود)\s*[-:]*\s*(\d{1,2})', t)
+              return int(m.group(1)) if m else None
+
+          root_html=fetch(TAG_URL)
+          root_links=hrefs(root_html, TAG_URL)
+          base_host=urllib.parse.urlsplit(TAG_URL).netloc.lower().removeprefix('www.')
+          candidates=[]; seen=set()
+          for u in root_links:
+              parts=urllib.parse.urlsplit(u)
+              host=parts.netloc.lower().removeprefix('www.')
+              if host != base_host:
+                  continue
+              path=parts.path.lower()
+              if '/blog' not in path or '/blogtag/detail/2042' in path:
+                  continue
+              norm=urllib.parse.urlunsplit((parts.scheme or 'https', parts.netloc, parts.path, parts.query, ''))
+              if norm not in seen:
+                  seen.add(norm); candidates.append(norm)
+
+          diagnostics={'tag_url': TAG_URL, 'candidate_article_count': len(candidates), 'articles': []}
+          rows=[]
+          # Capture videos directly embedded in tag page first.
+          for url, uid, platform in media_urls(root_html):
+              rows.append({'article_url': TAG_URL, 'title': 'خانه تو', 'url': url, 'uid': uid, 'platform': platform, 'order': -1})
+
+          for idx,u in enumerate(candidates):
+              try:
+                  raw=fetch(u)
+              except Exception as exc:
+                  diagnostics['articles'].append({'url':u,'error':f'{type(exc).__name__}: {exc}'})
+                  continue
+              title=page_title(raw)
+              text=clean_text(raw)
+              media=media_urls(raw)
+              relevant=('خانه تو' in title or 'خانه تو' in text or 'خانه‌تو' in title or 'خانه‌تو' in text)
+              has_rudi=('رودی' in text or 'کمیل' in text)
+              diagnostics['articles'].append({'url':u,'title':title,'relevant':relevant,'has_rudi':has_rudi,'media_count':len(media)})
+              if relevant:
+                  for url,uid,platform in media:
+                      rows.append({'article_url':u,'title':title,'url':url,'uid':uid,'platform':platform,'order':idx,'has_rudi':has_rudi})
+
+          # Deduplicate by canonical media URL, retaining page order.
+          unique=[]; seen_media=set()
+          for row in sorted(rows, key=lambda r:r['order']):
+              if row['url'] in seen_media:
+                  continue
+              seen_media.add(row['url']); unique.append(row)
+
+          # Prefer entries whose containing page explicitly mentions Dr. Rudi when this yields 13.
+          rudi=[r for r in unique if r.get('has_rudi')]
+          selected=rudi if len(rudi)==EXPECTED else unique
+          diagnostics['unique_media_count']=len(unique)
+          diagnostics['rudi_media_count']=len(rudi)
+          diagnostics['selected_media_count']=len(selected)
+
+          # Assign explicit episode numbers when all 1..13 are recoverable; otherwise stable page order.
+          explicit=[]
+          for r in selected:
+              explicit.append(episode_number(r.get('title','')+' '+r.get('article_url','')))
+          if len(selected)==EXPECTED and set(x for x in explicit if x is not None)==set(range(1,EXPECTED+1)):
+              numbers=explicit
+          else:
+              numbers=list(range(1,len(selected)+1))
+
+          videos=[]
+          for number,row in sorted(zip(numbers, selected), key=lambda pair: pair[0]):
+              videos.append({
+                  'result_number': number,
+                  'uid': row.get('uid',''),
+                  'url': row['url'],
+                  'title': row.get('title') or f'خانه تو | قسمت {number}',
+                  'article_url': row.get('article_url',''),
+                  'platform': row.get('platform',''),
+              })
+
+          complete=(len(videos)==EXPECTED and [v['result_number'] for v in videos]==list(range(1,EXPECTED+1)))
+          manifest={
+              'program':'خانه تو',
+              'guest':'دکتر کمیل رودی',
+              'source_tag_url':TAG_URL,
+              'expected':EXPECTED,
+              'discovered':len(videos),
+              'complete':complete,
+              'videos':videos,
+          }
+          source_dir=Path('sources/khane_to'); source_dir.mkdir(parents=True, exist_ok=True)
+          bench=Path('benchmarks'); bench.mkdir(parents=True, exist_ok=True)
+          (source_dir/'fintelligence_manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          lines=['# خانه تو','',f'- Source: {TAG_URL}',f'- Expected: {EXPECTED}',f'- Discovered: {len(videos)}',f'- Complete: {str(complete).lower()}','']
+          for v in videos:
+              lines.append(f"{v['result_number']}. [{v['title']}]({v['url']})")
+          (source_dir/'links.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
+          diagnostics['complete']=complete
+          (bench/'private-khane-to-discovery.json').write_text(json.dumps(diagnostics,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(manifest,ensure_ascii=False))
+          PY
+      - name: Publish discovery evidence to main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add sources/khane_to benchmarks/private-khane-to-discovery.json
+          git commit -m 'data: discover Khane To episodes' || exit 0
+          for attempt in 1 2 3 4 5; do
+            git push origin HEAD:main && exit 0
+            git pull --rebase origin main
+            sleep $((attempt * 3))
+          done
+          exit 1
+      - name: Fail closed unless exactly 13 episodes were found
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data=json.loads(Path('sources/khane_to/fintelligence_manifest.json').read_text(encoding='utf-8'))
+          if data.get('complete') is not True or data.get('discovered') != 13:
+              raise SystemExit(f"Khane To discovery incomplete: {data.get('discovered')} / 13")
+          print('Khane To discovery PASS: exactly 13 episodes')
+          PY

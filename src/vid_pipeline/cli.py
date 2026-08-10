@@ -33,6 +33,7 @@ def _add_transcription_options(
     parser.add_argument("--beam-size", type=int, default=5)
     parser.add_argument("--initial-prompt", default=DEFAULT_INITIAL_PROMPT)
     parser.add_argument("--hotwords", default="")
+    parser.add_argument("--audio-profile", choices=("none", "safe", "noisy"), default="safe")
 
 
 def _add_editorial_metadata_options(parser: argparse.ArgumentParser) -> None:
@@ -99,6 +100,7 @@ def _add_online_options(parser: argparse.ArgumentParser, *, discovery: bool = Fa
     parser.add_argument("--model", default="")
     parser.add_argument("--language", default="fa")
     parser.add_argument("--no-editorial", action="store_true")
+    parser.add_argument("--audio-profile", choices=("none", "safe", "noisy"), default="safe")
 
 
 def _add_github_options(parser: argparse.ArgumentParser, *, output: bool = True) -> None:
@@ -111,6 +113,7 @@ def _add_github_options(parser: argparse.ArgumentParser, *, output: bool = True)
     parser.add_argument("--profile", choices=("fast", "balanced", "accurate"), default="balanced")
     parser.add_argument("--model", default="")
     parser.add_argument("--language", default="fa")
+    parser.add_argument("--audio-profile", choices=("none", "safe", "noisy"), default="safe")
     parser.add_argument("--keep-debug-artifacts", action="store_true")
     editorial = parser.add_mutually_exclusive_group()
     editorial.add_argument("--no-editorial", dest="no_editorial", action="store_true", default=True)
@@ -182,6 +185,7 @@ def build_parser() -> argparse.ArgumentParser:
     folder_parser.add_argument("--profile", choices=("fast", "balanced", "accurate"), default="balanced")
     folder_parser.add_argument("--model", default="")
     folder_parser.add_argument("--language", default="fa")
+    folder_parser.add_argument("--audio-profile", choices=("none", "safe", "noisy"), default="safe")
     folder_parser.add_argument("--editorial-model", default=os.getenv("VID_PIPELINE_EDITORIAL_MODEL", "qwen3:8b"))
     folder_parser.add_argument("--no-editorial", action="store_true")
     _add_diarization_options(folder_parser)
@@ -316,7 +320,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def command_run_url(args: argparse.Namespace) -> int:
-    pipeline = VideoPipeline(args.url, args.output_root, args.name)
+    pipeline = VideoPipeline(args.url, args.output_root, args.name, args.audio_profile)
     hints = [args.title, args.guest, *list(args.speaker), args.editorial_context]
     hint_text = "، ".join(item.strip() for item in hints if item and item.strip())
     initial_prompt = args.initial_prompt.strip() or "رونویسی دقیق یک سخنرانی رسمی فارسی."
@@ -383,7 +387,7 @@ def _transcription_config(args: argparse.Namespace) -> TranscriptionConfig:
 
 
 def command_run_file(args: argparse.Namespace) -> int:
-    pipeline = LocalMediaPipeline(args.path, args.output_root, args.name)
+    pipeline = LocalMediaPipeline(args.path, args.output_root, args.name, args.audio_profile)
     results = pipeline.run(
         _transcription_config(args),
         editorial_config=None if args.no_editorial else _editorial_config(args),
@@ -467,6 +471,7 @@ def _submit_kwargs(args: argparse.Namespace) -> dict[str, Any]:
         "editorial": not args.no_editorial,
         "resume": args.resume,
         "force": args.force,
+        "audio_profile": args.audio_profile,
     }
 
 
@@ -536,6 +541,7 @@ def _github_options(args: argparse.Namespace) -> dict[str, Any]:
         "model": args.model,
         "language": args.language,
         "no_editorial": args.no_editorial,
+        "audio_profile": args.audio_profile,
         "keep_debug_artifacts": getattr(args, "keep_debug_artifacts", False),
         "diarize": getattr(args, "diarize", False),
         "diarization_required": getattr(args, "diarization_required", False),

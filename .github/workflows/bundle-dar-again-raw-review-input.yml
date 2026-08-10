@@ -1,0 +1,37 @@
+name: Bundle dar_again raw review input
+on:
+  push:
+    paths:
+      - ".github/dar-again-review-bundle.trigger"
+permissions:
+  contents: read
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Verify fresh raw collection
+        shell: bash
+        run: |
+          set -euo pipefail
+          root=outputs/dar_jostojo_dar_again_raw
+          test -d "$root/timestamped"
+          python - <<'PY'
+          from pathlib import Path
+          root=Path('outputs/dar_jostojo_dar_again_raw')
+          nums=sorted(int(p.stem) for p in (root/'timestamped').glob('*.md'))
+          expected=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,22,23,24,25,26,27,28,29,30]
+          assert nums==expected,(nums,expected)
+          for n in expected:
+              assert (root/'md'/f'{n}.md').is_file()
+              assert (root/'txt'/f'{n}.txt').is_file()
+          print('verified',len(nums),'fresh dar_again transcripts')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dar-again-raw-review-input
+          path: outputs/dar_jostojo_dar_again_raw/**
+          retention-days: 3
+          if-no-files-found: error

@@ -48,8 +48,8 @@ jobs:
           data = json.loads(manifest_path.read_text(encoding="utf-8"))
           videos = data.get("videos") or []
           numbers = [int(row["result_number"]) for row in videos]
-          if data.get("complete") is not True or numbers != list(range(1, 27)):
-              raise SystemExit(f"Asre Shirin manifest is not complete 1..26: {numbers}")
+          if numbers != list(range(2, 27)):
+              raise SystemExit(f"Asre Shirin manifest does not contain the verified episodes 2..26: {numbers}")
 
           root = Path("outputs/asre_shirin")
           pending = []

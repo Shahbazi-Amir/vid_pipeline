@@ -1,0 +1,321 @@
+name: Final semantic GPT review
+run-name: Final semantic GPT review #${{ github.run_number }}
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/final-semantic-review-all.trigger'
+
+permissions:
+  actions: write
+  contents: write
+  statuses: write
+  copilot-requests: write
+
+concurrency:
+  group: final-semantic-review-all
+  cancel-in-progress: false
+
+jobs:
+  mark-running:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish live status
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.repos.createCommitStatus({
+              ...context.repo,
+              sha: context.sha,
+              state: 'pending',
+              context: 'transcripts/final-semantic-review',
+              description: '59 pending episodes are under final GPT review',
+              target_url: `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+            });
+
+  review:
+    name: Review ${{ matrix.collection }} ${{ matrix.episode }}
+    needs: mark-running
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        include:
+          # Asre Shirin 1..4 are already semantically reviewed. Episode 15 has no source.
+          - { collection: asre_shirin, episode: 5 }
+          - { collection: asre_shirin, episode: 6 }
+          - { collection: asre_shirin, episode: 7 }
+          - { collection: asre_shirin, episode: 8 }
+          - { collection: asre_shirin, episode: 9 }
+          - { collection: asre_shirin, episode: 10 }
+          - { collection: asre_shirin, episode: 11 }
+          - { collection: asre_shirin, episode: 12 }
+          - { collection: asre_shirin, episode: 13 }
+          - { collection: asre_shirin, episode: 14 }
+          - { collection: asre_shirin, episode: 16 }
+          - { collection: asre_shirin, episode: 17 }
+          - { collection: asre_shirin, episode: 18 }
+          - { collection: asre_shirin, episode: 19 }
+          - { collection: asre_shirin, episode: 20 }
+          - { collection: asre_shirin, episode: 21 }
+          - { collection: asre_shirin, episode: 22 }
+          - { collection: asre_shirin, episode: 23 }
+          - { collection: asre_shirin, episode: 24 }
+          - { collection: asre_shirin, episode: 25 }
+          - { collection: asre_shirin, episode: 26 }
+          # Khane To 1..4 are already semantically reviewed.
+          - { collection: khane_to, episode: 5 }
+          - { collection: khane_to, episode: 6 }
+          - { collection: khane_to, episode: 7 }
+          - { collection: khane_to, episode: 8 }
+          - { collection: khane_to, episode: 9 }
+          - { collection: khane_to, episode: 10 }
+          - { collection: khane_to, episode: 11 }
+          - { collection: khane_to, episode: 12 }
+          - { collection: khane_to, episode: 13 }
+          # Dar Jostojo-ye Khoshbakhti: all 29 available episodes need semantic review.
+          - { collection: dar_jostojo_dar_again_raw, episode: 1 }
+          - { collection: dar_jostojo_dar_again_raw, episode: 2 }
+          - { collection: dar_jostojo_dar_again_raw, episode: 3 }
+          - { collection: dar_jostojo_dar_again_raw, episode: 4 }
+          - { collection: dar_jostojo_dar_again_raw, episode: 5 }
+          - { collection: dar_jostojo_dar_again_raw, episode: 6 }
+          - { collection: dar_jostojo_dar_again_raw, episode: 7 }
+          - { collection: dar_jostojo_dar_again_raw, episode: 8 }
+          - { collection: dar_jostojo_dar_again_raw, episode: 9 }
+          - { collection: dar_jostojo_dar_again_raw, episode: 10 }
+          - { collection: dar_jostojo_dar_again_raw, episode: 11 }
+          - { collection: dar_jostojo_dar_again_raw, episode: 12 }
+          - { collection: dar_jostojo_dar_again_raw, episode: 13 }
+          - { collection: dar_jostojo_dar_again_raw, episode: 14 }
+          - { collection: dar_jostojo_dar_again_raw, episode: 15 }
+          - { collection: dar_jostojo_dar_again_raw, episode: 16 }
+          - { collection: dar_jostojo_dar_again_raw, episode: 17 }
+          - { collection: dar_jostojo_dar_again_raw, episode: 18 }
+          - { collection: dar_jostojo_dar_again_raw, episode: 19 }
+          - { collection: dar_jostojo_dar_again_raw, episode: 20 }
+          - { collection: dar_jostojo_dar_again_raw, episode: 22 }
+          - { collection: dar_jostojo_dar_again_raw, episode: 23 }
+          - { collection: dar_jostojo_dar_again_raw, episode: 24 }
+          - { collection: dar_jostojo_dar_again_raw, episode: 25 }
+          - { collection: dar_jostojo_dar_again_raw, episode: 26 }
+          - { collection: dar_jostojo_dar_again_raw, episode: 27 }
+          - { collection: dar_jostojo_dar_again_raw, episode: 28 }
+          - { collection: dar_jostojo_dar_again_raw, episode: 29 }
+          - { collection: dar_jostojo_dar_again_raw, episode: 30 }
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    env:
+      COLLECTION: ${{ matrix.collection }}
+      EPISODE: ${{ matrix.episode }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Prepare canonical review input
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p work
+          case "$COLLECTION" in
+            asre_shirin)
+              source="outputs/asre_shirin/timestamped/${EPISODE}.md"
+              program='سواد مالی در عصر شیرین'
+              identities='Known host: خانم متولیان. Known expert: دکتر کمیل رودی.'
+              ;;
+            khane_to)
+              source="outputs/khane_to/review/timestamped/${EPISODE}.md"
+              program='خانه تو'
+              identities='Known host: فرهاد جم. Known expert: دکتر کمیل رودی.'
+              ;;
+            dar_jostojo_dar_again_raw)
+              source="outputs/dar_jostojo_dar_again_raw/review/timestamped/${EPISODE}.md"
+              program='در جست‌وجوی خوشبختی'
+              identities='Known principal speaker/expert: دکتر کمیل رودی.'
+              ;;
+            *) exit 1 ;;
+          esac
+          test -s "$source"
+          cp "$source" work/input.md
+          printf '%s' "$program" > work/program.txt
+          printf '%s' "$identities" > work/identities.txt
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Install GitHub Copilot CLI
+        run: npm install -g @github/copilot
+
+      - name: Final semantic Persian review with GPT-5.2
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          mkdir -p work/review/timestamped
+          program="$(cat work/program.txt)"
+          identities="$(cat work/identities.txt)"
+          prompt=$(cat <<EOF
+          You are the final production editor for a Persian transcript.
+
+          Program: «${program}».
+          ${identities}
+
+          Read work/input.md completely and write the fully semantically reviewed transcript to work/review/timestamped/${EPISODE}.md.
+
+          Mandatory rules:
+          1. Correct clear Persian ASR errors using phonetic, sentence-level, semantic, financial-domain, and dialogue context. Repair obvious misspellings, broken compounds, homophones, malformed words, and proper-name errors.
+          2. Preserve intended meaning. Never summarize, shorten, paraphrase away detail, embellish, censor, or invent content.
+          3. Preserve every timestamp exactly and in the same order. Never merge, split, delete, add, or move timestamp blocks.
+          4. Preserve the block format: [HH:MM:SS → HH:MM:SS] **speaker** followed by transcript text.
+          5. Repair speaker identity only when dialogue evidence is clear. Use the known identities above. Do not invent names for audience members or uncertain speakers.
+          6. If a phrase is truly unrecoverable, use [نامفهوم] only for that phrase. Do not replace a recoverable long passage with [نامفهوم].
+          7. Keep natural spoken Persian and the speaker's colloquial register. Fix transcription, not personality.
+          8. Keep numbers, quotations, religious phrases, and financial terminology faithful unless the ASR error is contextually clear.
+          9. Read the whole episode so later context can resolve earlier ASR errors and speaker turns.
+          10. Output only the transcript file. Add no commentary, notes, confidence scores, code fences, or review summary.
+
+          The input may contain earlier mechanical cleanup. It is not an authoritative semantic review; inspect every block yourself.
+          After writing the file, reply only REVIEW_COMPLETE.
+          EOF
+          )
+          copilot --model gpt-5.2 --no-ask-user --allow-tool='read,write' --add-dir="$GITHUB_WORKSPACE" -sp "$prompt" | tee work/result.txt
+          grep -q REVIEW_COMPLETE work/result.txt
+          test -s "work/review/timestamped/${EPISODE}.md"
+
+      - name: Validate structure and render derivatives
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib, json, os, re
+          from pathlib import Path
+
+          collection = os.environ['COLLECTION']
+          n = int(os.environ['EPISODE'])
+          source = Path('work/input.md')
+          reviewed = Path('work/review/timestamped') / f'{n}.md'
+          raw = source.read_text(encoding='utf-8')
+          out = reviewed.read_text(encoding='utf-8')
+          stamp = re.compile(r'^\[(\d{2}:\d{2}:\d{2}) → (\d{2}:\d{2}:\d{2})\]\s+\*\*([^*]+)\*\*', re.M)
+          a, b = list(stamp.finditer(raw)), list(stamp.finditer(out))
+          if not a or len(a) != len(b):
+              raise SystemExit(f'block count changed: {len(a)} -> {len(b)}')
+          if [(m.group(1),m.group(2)) for m in a] != [(m.group(1),m.group(2)) for m in b]:
+              raise SystemExit('timestamps changed')
+          if '```' in out:
+              raise SystemExit('code fence in review')
+          ratio = len(out) / max(1, len(raw))
+          if not 0.72 <= ratio <= 1.35:
+              raise SystemExit(f'suspicious length ratio: {ratio:.3f}')
+          title = out[:b[0].start()].strip()
+          blocks=[]
+          for i,m in enumerate(b):
+              end=b[i+1].start() if i+1<len(b) else len(out)
+              body=out[m.end():end].strip()
+              if not body: raise SystemExit(f'empty block {i}')
+              blocks.append((m.group(3).strip(),body))
+          md=Path('work/review/md'); txt=Path('work/review/txt'); meta=Path('work/review/meta')
+          md.mkdir(parents=True,exist_ok=True); txt.mkdir(parents=True,exist_ok=True); meta.mkdir(parents=True,exist_ok=True)
+          (md/f'{n}.md').write_text(('\n\n'.join(([title] if title else [])+[f'**{s}**\n\n{x}' for s,x in blocks])).strip()+'\n',encoding='utf-8')
+          (txt/f'{n}.txt').write_text(('\n\n'.join(f'{s}:\n\n{x}' for s,x in blocks)).strip()+'\n',encoding='utf-8')
+          data={'collection':collection,'episode':n,'review_version':3,'review_engine':'GitHub Copilot CLI','model':'gpt-5.2','semantic_llm_review':True,'timestamp_blocks':len(a),'timestamps_preserved_exactly':True,'input_sha256':hashlib.sha256(raw.encode()).hexdigest(),'output_sha256':hashlib.sha256(out.encode()).hexdigest(),'length_ratio':round(ratio,6)}
+          (meta/f'{n}.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(data,ensure_ascii=False))
+          PY
+
+      - name: Upload validated checkpoint
+        uses: actions/upload-artifact@v4
+        with:
+          name: final-review-${{ matrix.collection }}-${{ matrix.episode }}
+          path: work/review
+          if-no-files-found: error
+          retention-days: 2
+
+  publish:
+    name: Publish all validated reviews
+    needs: review
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: final-review-*
+          path: staging
+      - name: Require all 59 checkpoints and install them
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, shutil
+          from datetime import UTC, datetime
+          from pathlib import Path
+          expected={
+            'asre_shirin': set(range(5,15))|set(range(16,27)),
+            'khane_to': set(range(5,14)),
+            'dar_jostojo_dar_again_raw': set(range(1,21))|set(range(22,31)),
+          }
+          for collection, numbers in expected.items():
+              found=set()
+              for n in numbers:
+                  src=Path('staging')/f'final-review-{collection}-{n}'
+                  for folder,suffix in [('timestamped','.md'),('md','.md'),('txt','.txt'),('meta','.json')]:
+                      p=src/folder/f'{n}{suffix}'
+                      if not p.is_file() or not p.stat().st_size: raise SystemExit(f'missing {p}')
+                      dst=Path('outputs')/collection/'review'/folder/f'{n}{suffix}'
+                      dst.parent.mkdir(parents=True,exist_ok=True); shutil.copy2(p,dst)
+                  found.add(n)
+              if found != numbers: raise SystemExit(f'{collection} checkpoint mismatch')
+          manifests={
+            'asre_shirin': {'reviewed_episode_numbers': list(range(1,15))+list(range(16,27)), 'source_missing_episode_numbers':[15], 'reviewed_count':25},
+            'khane_to': {'reviewed_episode_numbers': list(range(1,14)), 'reviewed_count':13},
+            'dar_jostojo_dar_again_raw': {'reviewed_episode_numbers': list(range(1,21))+list(range(22,31)), 'source_missing_episode_numbers':[21], 'reviewed_count':29},
+          }
+          for collection, extra in manifests.items():
+              payload={'state':'complete_for_available_sources','review_version':3,'semantic_llm_review':True,'timestamp_policy':'preserved_exactly','completed_at_utc':datetime.now(UTC).isoformat(),**extra}
+              p=Path('outputs')/collection/'review'/'manifest.json'
+              p.write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print('PASS: 59 new checkpoints; 67 available episodes complete')
+          PY
+      - name: Commit and push to main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add outputs/asre_shirin/review outputs/khane_to/review outputs/dar_jostojo_dar_again_raw/review
+          git commit -m 'review: complete final semantic GPT review for available transcripts'
+          for attempt in 1 2 3 4 5; do
+            git push origin HEAD:main && exit 0
+            git pull --rebase origin main
+            sleep $((attempt*3))
+          done
+          exit 1
+
+  report:
+    if: always()
+    needs: [review, publish]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish final status
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const ok = '${{ needs.review.result }}' === 'success' && '${{ needs.publish.result }}' === 'success';
+            await github.rest.repos.createCommitStatus({
+              ...context.repo,
+              sha: context.sha,
+              state: ok ? 'success' : 'failure',
+              context: 'transcripts/final-semantic-review',
+              description: ok ? '67 available episodes fully reviewed and published' : 'Final semantic review needs attention',
+              target_url: `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+            });
+            if (!ok) core.setFailed('Final semantic review did not publish completely');

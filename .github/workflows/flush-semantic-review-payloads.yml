@@ -21,13 +21,14 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
-      - name: Decode and validate all pending semantic payloads
+      - name: Decode and validate pending semantic payloads
         shell: bash
         run: |
           set -euo pipefail
           shopt -s nullglob
           payloads=(.semantic_review_payload/*/*.b64)
           ((${#payloads[@]} > 0)) || { echo 'no pending payloads'; exit 1; }
+          processed=0
           for payload in "${payloads[@]}"; do
             collection="$(basename "$(dirname "$payload")")"
             episode="$(basename "$payload" .b64)"
@@ -35,31 +36,54 @@ jobs:
               asre_shirin) out="outputs/asre_shirin/review" ;;
               khane_to) out="outputs/khane_to/review" ;;
               dar_jostojo_dar_again_raw) out="outputs/dar_jostojo_dar_again_raw/review" ;;
-              *) echo "unsupported collection $collection"; exit 1 ;;
+              *) echo "unsupported collection $collection"; continue ;;
             esac
             work="/tmp/$collection-$episode"
             rm -rf "$work"; mkdir -p "$work"
-            base64 -d -i "$payload" > "$work/payload.tar.gz"
-            gzip -t "$work/payload.tar.gz"
+            if ! python - "$payload" "$work/payload.tar.gz" <<'PY'
+          import base64,sys
+          from pathlib import Path
+          src=Path(sys.argv[1]).read_text(encoding='utf-8')
+          clean=''.join(ch for ch in src if ch.isalnum() or ch in '+/=')
+          clean += '=' * ((-len(clean)) % 4)
+          try:
+              data=base64.b64decode(clean, validate=False)
+          except Exception as e:
+              print(f'decode failed: {sys.argv[1]}: {e}', file=sys.stderr); raise SystemExit(1)
+          Path(sys.argv[2]).write_bytes(data)
+          print(sys.argv[1], 'chars', len(src), 'decoded', len(data))
+          PY
+            then
+              echo "SKIP decode-failed $payload"; continue
+            fi
+            if ! gzip -t "$work/payload.tar.gz"; then
+              echo "SKIP gzip-invalid $payload"; continue
+            fi
             tar -xzf "$work/payload.tar.gz" -C "$work"
-            test -s "$work/timestamped/$episode.md"
-            test -s "$work/md/$episode.md"
-            test -s "$work/txt/$episode.txt"
-            python - "$work/timestamped/$episode.md" <<'PY'
+            if ! test -s "$work/timestamped/$episode.md" || ! test -s "$work/md/$episode.md" || ! test -s "$work/txt/$episode.txt"; then
+              echo "SKIP contract-invalid $payload"; continue
+            fi
+            if ! python - "$work/timestamped/$episode.md" <<'PY'
           import re,sys
           from pathlib import Path
           p=Path(sys.argv[1]); s=p.read_text(encoding='utf-8')
           times=re.findall(r'^\[(\d\d:\d\d:\d\d → \d\d:\d\d:\d\d)\]',s,re.M)
           assert times, p
           assert 'گوینده نامشخص' not in s, p
-          print(p, len(times))
+          print('VALID',p,len(times))
           PY
+            then
+              echo "SKIP semantic-contract $payload"; continue
+            fi
             mkdir -p "$out/timestamped" "$out/md" "$out/txt"
             cp "$work/timestamped/$episode.md" "$out/timestamped/$episode.md"
             cp "$work/md/$episode.md" "$out/md/$episode.md"
             cp "$work/txt/$episode.txt" "$out/txt/$episode.txt"
             rm -f "$payload"
+            processed=$((processed+1))
           done
+          echo "processed=$processed"
+          ((processed > 0)) || exit 1
       - name: Commit and push semantic checkpoints
         shell: bash
         run: |

@@ -39,7 +39,8 @@ jobs:
             esac
             work="/tmp/$collection-$episode"
             rm -rf "$work"; mkdir -p "$work"
-            base64 -d "$payload" > "$work/payload.tar.gz"
+            base64 -d -i "$payload" > "$work/payload.tar.gz"
+            gzip -t "$work/payload.tar.gz"
             tar -xzf "$work/payload.tar.gz" -C "$work"
             test -s "$work/timestamped/$episode.md"
             test -s "$work/md/$episode.md"

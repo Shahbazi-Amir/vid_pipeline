@@ -78,46 +78,46 @@ jobs:
             python scripts/merge_collection_artifacts.py \
               staging outputs/asre_shirin --skip-existing-complete-base
 
-            python - <<'PY'
-            import json
-            from datetime import UTC, datetime
-            from pathlib import Path
+          python - <<'PY'
+          import json
+          from datetime import UTC, datetime
+          from pathlib import Path
 
-            root = Path("outputs/asre_shirin")
-            complete = []
-            for n in range(1, 27):
-                if all(
-                    path.is_file() and path.stat().st_size > 0
-                    for path in (
-                        root / "md" / f"{n}.md",
-                        root / "timestamped" / f"{n}.md",
-                        root / "txt" / f"{n}.txt",
-                        root / "roles" / f"{n}.json",
-                        root / "sources" / f"{n}.json",
-                        root / "timings" / f"{n}.json",
-                    )
-                ):
-                    complete.append(n)
+          root = Path("outputs/asre_shirin")
+          complete = []
+          for n in range(1, 27):
+              if all(
+                  path.is_file() and path.stat().st_size > 0
+                  for path in (
+                      root / "md" / f"{n}.md",
+                      root / "timestamped" / f"{n}.md",
+                      root / "txt" / f"{n}.txt",
+                      root / "roles" / f"{n}.json",
+                      root / "sources" / f"{n}.json",
+                      root / "timings" / f"{n}.json",
+                  )
+              ):
+                  complete.append(n)
 
-            payload = {
-                "state": "complete" if len(complete) == 26 else "running",
-                "phase": "asre_shirin_base_complete" if len(complete) == 26 else "asre_shirin_base_partial",
-                "ai_review": "disabled",
-                "target_count": 26,
-                "processed": len(complete),
-                "completed_numbers": complete,
-                "remaining_numbers": [n for n in range(1, 27) if n not in complete],
-                "speaker_roles": ["خانم متولیان", "دکتر کمیل رودی", "شرکت‌کننده‌ها", "گوینده نامشخص در موارد مبهم"],
-                "updated_at_utc": datetime.now(UTC).isoformat(),
-            }
-            status_path = Path("benchmarks/private-asre-shirin-status.json")
-            status_path.parent.mkdir(parents=True, exist_ok=True)
-            status_path.write_text(
-                json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
-                encoding="utf-8",
-            )
-            print(json.dumps(payload, ensure_ascii=False))
-            PY
+          payload = {
+              "state": "complete" if len(complete) == 26 else "running",
+              "phase": "asre_shirin_base_complete" if len(complete) == 26 else "asre_shirin_base_partial",
+              "ai_review": "disabled",
+              "target_count": 26,
+              "processed": len(complete),
+              "completed_numbers": complete,
+              "remaining_numbers": [n for n in range(1, 27) if n not in complete],
+              "speaker_roles": ["خانم متولیان", "دکتر کمیل رودی", "شرکت‌کننده‌ها", "گوینده نامشخص در موارد مبهم"],
+              "updated_at_utc": datetime.now(UTC).isoformat(),
+          }
+          status_path = Path("benchmarks/private-asre-shirin-status.json")
+          status_path.parent.mkdir(parents=True, exist_ok=True)
+          status_path.write_text(
+              json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+          print(json.dumps(payload, ensure_ascii=False))
+          PY
 
             git add outputs/asre_shirin benchmarks/private-asre-shirin-status.json
             if git diff --cached --quiet; then

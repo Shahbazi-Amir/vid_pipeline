@@ -29,6 +29,9 @@ input_videos/
 # Runtime outputs and generated files
 
 runs/results/
+outputs/*
+!outputs/.gitkeep
+!outputs/README.md
 work/
 stage/
 processing/
@@ -41,6 +44,10 @@ models/
 cache/
 tmp/
 logs/
+.semantic_review_payload/*
+!.semantic_review_payload/.gitkeep
+.semantic_review_chunks/*
+!.semantic_review_chunks/.gitkeep
 
 # Local run requests
 

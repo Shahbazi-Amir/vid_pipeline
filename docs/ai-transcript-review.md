@@ -36,13 +36,13 @@ If none are configured, review is skipped without breaking normal transcript pro
 A review can also be resumed or run independently:
 
 ```bash
-vid-review ai-collection ./outputs/uni_tehran 7
+vid-review ai-collection ./outputs/sample_collection 7
 ```
 
 Use `--force` only when the canonical reviewed timestamped file must be regenerated through the API:
 
 ```bash
-vid-review ai-collection ./outputs/uni_tehran 7 --force
+vid-review ai-collection ./outputs/sample_collection 7 --force
 ```
 
 If `review/timestamped/N.md` already exists and validates but one of the derived files is missing, the command rebuilds `review/md/N.md` and `review/txt/N.txt` without paying for another API request.

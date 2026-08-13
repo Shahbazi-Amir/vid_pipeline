@@ -28,7 +28,7 @@ def test_infer_result_number_from_tehran_filename():
 def test_materialize_collection_output_moves_three_files(tmp_path: Path):
     downloaded = tmp_path / ".vid_pipeline/github-results/request-2"
     _three_files(downloaded)
-    collection = tmp_path / "outputs/uni_tehran"
+    collection = tmp_path / "outputs/sample_collection"
 
     result = materialize_collection_output(
         downloaded, collection, Path("2.پلکان توانمندی مالی.m4v")
@@ -46,7 +46,7 @@ def test_materialize_collection_output_moves_three_files(tmp_path: Path):
 def test_materialize_refuses_different_existing_output(tmp_path: Path):
     downloaded = tmp_path / "downloads/request-2"
     _three_files(downloaded)
-    collection = tmp_path / "outputs/uni_tehran"
+    collection = tmp_path / "outputs/sample_collection"
     (collection / "md").mkdir(parents=True)
     (collection / "md/2.md").write_text("different\n", encoding="utf-8")
 
@@ -63,13 +63,13 @@ def test_cli_collection_options_hide_download_workflow():
         "--repo",
         "owner/repo",
         "--collection-output-root",
-        "outputs/uni_tehran",
+        "outputs/sample_collection",
         "--delete-result-artifact-after-save",
     ]
 
     prepared, root, number = _consume_collection_options(argv)
 
-    assert root == Path("outputs/uni_tehran")
+    assert root == Path("outputs/sample_collection")
     assert number is None
     assert "--wait" in prepared
     assert "--download" in prepared
@@ -101,12 +101,12 @@ def test_materialize_collection_result_updates_saved_state(
 
     target = _materialize_collection_result(
         source,
-        Path("outputs/uni_tehran"),
+        Path("outputs/sample_collection"),
         None,
     )
 
-    assert target == (tmp_path / "outputs/uni_tehran").resolve()
-    assert (tmp_path / "outputs/uni_tehran/md/2.md").exists()
+    assert target == (tmp_path / "outputs/sample_collection").resolve()
+    assert (tmp_path / "outputs/sample_collection/md/2.md").exists()
     assert state.load("request-2").output_path == str(target)
     assert not (tmp_path / ".vid_pipeline/github-results/request-2").exists()
     assert (tmp_path / ".vid_pipeline/github-results").is_dir()

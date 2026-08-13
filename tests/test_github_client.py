@@ -146,7 +146,7 @@ def test_uploaded_workflow_has_required_security_guards():
         Path(__file__).resolve().parents[1]
         / ".github/workflows/process-uploaded-video.yml"
     ).read_text(encoding="utf-8")
-    assert "run-name: Uploaded video ${{ inputs.request_id }}" in workflow
+    assert "run-name: Uploaded media ${{ inputs.request_id }}" in workflow
     assert "Authorization" in workflow
     assert "EXPECTED_SIZE" in workflow
     assert "EXPECTED_SHA256" in workflow

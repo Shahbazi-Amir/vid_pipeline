@@ -68,7 +68,7 @@ def test_uploaded_workflow_does_not_use_runner_context_in_job_env():
     assert "find /tmp/vid-pipeline-input" in workflow
     assert "permissions:\n  # Draft release assets require" in workflow
     assert "  contents: write" in workflow
-    assert "run-name: Uploaded video ${{ inputs.request_id }} — attempt ${{ inputs.dispatch_id }}" in workflow
+    assert "run-name: Uploaded media ${{ inputs.request_id }} — attempt ${{ inputs.dispatch_id }}" in workflow
 
 
 def test_dispatch_payload_matches_workflow_contract(tmp_path: Path):

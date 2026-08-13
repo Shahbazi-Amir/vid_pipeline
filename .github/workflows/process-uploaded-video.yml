@@ -1,5 +1,5 @@
-name: Process uploaded video
-run-name: Uploaded video ${{ inputs.request_id }} — attempt ${{ inputs.dispatch_id }}
+name: Process uploaded media
+run-name: Uploaded media ${{ inputs.request_id }} — attempt ${{ inputs.dispatch_id }}
 
 on:
   workflow_dispatch:
@@ -75,6 +75,10 @@ permissions:
   # Draft release assets require a token whose repository identity has push
   # access. Keep every other GITHUB_TOKEN permission at its implicit `none`.
   contents: write
+
+concurrency:
+  group: uploaded-media-${{ inputs.request_id }}
+  cancel-in-progress: false
 
 jobs:
   process:

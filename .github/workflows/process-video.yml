@@ -1,5 +1,5 @@
-name: Process video URL
-run-name: Video URL ${{ inputs.request_id || github.run_id }} — attempt ${{ inputs.dispatch_id || github.run_attempt }}
+name: Process media URL
+run-name: Media URL ${{ inputs.request_id || github.run_id }} — attempt ${{ inputs.dispatch_id || github.run_attempt }}
 
 on:
   workflow_dispatch:
@@ -13,7 +13,7 @@ on:
         required: false
         type: string
       url:
-        description: Video page or direct media URL
+        description: Video/audio page or direct media URL
         required: true
         type: string
       source_url:
@@ -101,12 +101,6 @@ on:
         required: true
         default: false
         type: boolean
-  push:
-    paths:
-      - 'runs/*.request.json'
-  issues:
-    types: [opened]
-
 permissions:
   contents: read
 
@@ -116,7 +110,6 @@ concurrency:
 
 jobs:
   process:
-    if: github.event_name != 'issues' || startsWith(github.event.issue.title, '[vid-pipeline]')
     runs-on: ubuntu-latest
     timeout-minutes: 360
     env:
@@ -151,78 +144,6 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 2
-
-      - name: Resolve request file
-        if: github.event_name == 'push'
-        shell: bash
-        run: |
-          set -euo pipefail
-          request_file=$(git diff-tree --no-commit-id --name-only -r "$GITHUB_SHA" \
-            | grep '^runs/.*\.request\.json$' | tail -n 1)
-          test -n "$request_file"
-          python - "$request_file" >> "$GITHUB_ENV" <<'PY'
-          import json, sys
-          from pathlib import Path
-          data = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
-          mapping = {
-              "VIDEO_URL": data.get("media_url") or data.get("url") or "",
-              "SOURCE_URL": data.get("source_url") or data.get("url") or "",
-              "JOB_NAME": data.get("name") or "",
-              "VIDEO_TITLE": data.get("title") or "",
-              "PROGRAM_NAME": data.get("program") or "",
-              "NETWORK_NAME": data.get("network") or "",
-              "VIDEO_DATE": data.get("date") or "",
-              "GUEST_NAME": data.get("guest") or "",
-              "EDITORIAL_CONTEXT": data.get("editorial_context") or "",
-              "PROFILE": data.get("profile") or "balanced",
-              "WHISPER_MODEL": data.get("whisper_model") or "",
-              "LANGUAGE": data.get("language") or "fa",
-              "NO_EDITORIAL": data.get("no_editorial") or False,
-              "AUDIO_PROFILE": data.get("audio_profile") or "safe",
-              "EDITORIAL_MODEL": data.get("editorial_model") or "qwen2.5:7b",
-              "VID_PIPELINE_ACCURACY_MODE": data.get("accuracy_mode") or "fast",
-              "VID_PIPELINE_WHISPERX_ALIGNMENT": data.get("whisperx_alignment") or False,
-              "VID_PIPELINE_DIARIZATION": data.get("diarization") or False,
-          }
-          for key, value in mapping.items():
-              text = str(value).replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
-              print(f"{key}={text}")
-          PY
-
-      - name: Resolve issue request
-        if: github.event_name == 'issues'
-        shell: bash
-        env:
-          ISSUE_BODY: ${{ github.event.issue.body }}
-        run: |
-          set -euo pipefail
-          python - >> "$GITHUB_ENV" <<'PY'
-          import json, os
-          data = json.loads(os.environ["ISSUE_BODY"])
-          mapping = {
-              "VIDEO_URL": data.get("media_url") or data.get("url") or "",
-              "SOURCE_URL": data.get("source_url") or data.get("url") or "",
-              "JOB_NAME": data.get("name") or "",
-              "VIDEO_TITLE": data.get("title") or "",
-              "PROGRAM_NAME": data.get("program") or "",
-              "NETWORK_NAME": data.get("network") or "",
-              "VIDEO_DATE": data.get("date") or "",
-              "GUEST_NAME": data.get("guest") or "",
-              "EDITORIAL_CONTEXT": data.get("editorial_context") or "",
-              "PROFILE": data.get("profile") or "balanced",
-              "WHISPER_MODEL": data.get("whisper_model") or "",
-              "LANGUAGE": data.get("language") or "fa",
-              "NO_EDITORIAL": data.get("no_editorial") or False,
-              "AUDIO_PROFILE": data.get("audio_profile") or "safe",
-              "EDITORIAL_MODEL": data.get("editorial_model") or "qwen2.5:7b",
-              "VID_PIPELINE_ACCURACY_MODE": data.get("accuracy_mode") or "fast",
-              "VID_PIPELINE_WHISPERX_ALIGNMENT": data.get("whisperx_alignment") or False,
-              "VID_PIPELINE_DIARIZATION": data.get("diarization") or False,
-          }
-          for key, value in mapping.items():
-              text = str(value).replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
-              print(f"{key}={text}")
-          PY
 
       - name: Validate request
         run: test -n "$VIDEO_URL"

@@ -198,8 +198,8 @@ def test_review_is_optional_when_no_review_environment_is_configured(
 
 
 def test_review_cli_exposes_ai_collection_command():
-    args = build_parser().parse_args(["ai-collection", "outputs/uni_tehran", "3"])
+    args = build_parser().parse_args(["ai-collection", "outputs/sample_collection", "3"])
 
     assert args.command == "ai-collection"
-    assert args.collection_root == Path("outputs/uni_tehran")
+    assert args.collection_root == Path("outputs/sample_collection")
     assert args.result_number == 3

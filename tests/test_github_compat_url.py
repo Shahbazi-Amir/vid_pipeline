@@ -120,7 +120,7 @@ def test_url_workflow_keeps_correlation_and_lean_success_artifact():
     ).read_text(encoding="utf-8")
 
     assert "dispatch_id:" in workflow
-    assert "Video URL ${{ inputs.request_id || github.run_id }} — attempt" in workflow
+    assert "Media URL ${{ inputs.request_id || github.run_id }} — attempt" in workflow
     assert "audio_profile:" in workflow
     assert "AUDIO_PROFILE: ${{ inputs.audio_profile || 'safe' }}" in workflow
     assert '--audio-profile "$AUDIO_PROFILE"' in workflow

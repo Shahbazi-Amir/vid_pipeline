@@ -18,7 +18,7 @@ PYANNOTE_BACKEND_NAME = "pyannote-community-1"
 def load_waveform(audio: Path) -> dict[str, Any]:
     """Load verified PCM audio without pyannote's optional TorchCodec decoder.
 
-    Asre Shirin always hands this backend the normalized local WAV.  Passing an
+    The shared pipeline always hands this backend the normalized local WAV. Passing an
     in-memory waveform keeps that file as the single compute input and avoids
     TorchCodec selecting a CUDA-linked decoder wheel on CPU-only runners.
     """

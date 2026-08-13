@@ -97,6 +97,10 @@ raw ASR segments, machine text, provenance, quality reports, review package, and
 `result.json`. Runtime output is ignored by Git and must be stored as an artifact
 or in external storage.
 
+Every full run also builds an API-free `review/chatgpt/` handoff with source,
+raw/machine transcripts, available quality/speaker data, a reusable preservation
+prompt, and a lossless chunk manifest. It remains outside the lean success artifact.
+
 If a reviewed transcript is imported, the canonical reviewed source is
 `review/timestamped/<id>.md`; Markdown and plain-text derivatives must be rendered
 from it. The reviewed timestamp sequence must equal the base timestamp sequence.

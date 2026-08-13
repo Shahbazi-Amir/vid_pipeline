@@ -1,10 +1,12 @@
 from __future__ import annotations
 
+import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
-from vid_pipeline.standalone import VideoJobPaths, make_file_job_id, make_job_id
+from vid_pipeline.standalone import VideoJobPaths, VideoPipeline, make_file_job_id, make_job_id
 
 
 class StandalonePipelineTests(unittest.TestCase):
@@ -48,6 +50,23 @@ class StandalonePipelineTests(unittest.TestCase):
             media.write_bytes(b"other")
             second = make_file_job_id(media)
             self.assertNotEqual(first, second)
+
+    def test_url_provenance_redacts_embedded_credentials(self) -> None:
+        url = (
+            "https://user:password@example.com/speech.mp3?language=fa"
+            "&token=private-value&X-Amz-Signature=secret-signature"
+        )
+        with tempfile.TemporaryDirectory() as directory:
+            pipeline = VideoPipeline(url, directory)
+            with patch("vid_pipeline.standalone.extract_metadata", return_value={}):
+                pipeline.inspect()
+            payload = json.loads(pipeline.paths.source_metadata.read_text(encoding="utf-8"))
+        serialized = json.dumps(payload)
+        self.assertEqual(payload["source"], "url")
+        self.assertIn("language=fa", payload["source_url"])
+        self.assertNotIn("password", serialized)
+        self.assertNotIn("private-value", serialized)
+        self.assertNotIn("secret-signature", serialized)
 
 
 if __name__ == "__main__":

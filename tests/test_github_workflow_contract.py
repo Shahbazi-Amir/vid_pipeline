@@ -86,6 +86,11 @@ def test_release_workflow_is_manual_bounded_and_has_no_automatic_semantic_review
     assert "VID_PIPELINE_RELEASE_TOKEN" in workflow
     assert "secrets.VID_PIPELINE_RELEASE_TOKEN || github.token" in workflow
     assert "retention-days: 7" in workflow
+    assert "PIPELINE_MODEL: ${{ inputs.model }}" in workflow
+    assert '[[ -n "$PIPELINE_MODEL" ]] && args+=(--model "$PIPELINE_MODEL")' in workflow
+    assert "statuses: write" not in (
+        Path(__file__).resolve().parents[1] / ".github/workflows/audio-validation.yml"
+    ).read_text(encoding="utf-8")
 
 
 def test_dispatch_payload_matches_workflow_contract(tmp_path: Path):

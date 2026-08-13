@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import shutil
 import subprocess
@@ -18,6 +19,7 @@ from vid_pipeline.media import (
     probe_media,
     require_decodable_audio,
 )
+from vid_pipeline.standalone import LocalMediaPipeline
 
 pytestmark = pytest.mark.skipif(
     not shutil.which("ffmpeg") or not shutil.which("ffprobe"),
@@ -234,11 +236,44 @@ def test_noise_probability_distinguishes_noise_from_clean_tone(tmp_path: Path) -
     assert reports["noise"]["zero_crossings_rate"] is not None
 
 
+def test_long_audio_simulation_is_bounded_and_resume_safe(tmp_path: Path) -> None:
+    source = tmp_path / "long-simulation.flac"
+    result = ffmpeg(
+        "-f", "lavfi", "-i", "sine=frequency=330:duration=30:sample_rate=48000",
+        "-c:a", "flac", str(source),
+    )
+    assert result.returncode == 0, result.stderr
+    output = tmp_path / "long-simulation.wav"
+
+    normalize_audio(source, output, overwrite=False, profile="safe")
+    first_sha = hashlib.sha256(output.read_bytes()).hexdigest()
+    resumed = normalize_audio(source, output, overwrite=False, profile="safe")
+
+    assert resumed == output
+    assert hashlib.sha256(output.read_bytes()).hexdigest() == first_sha
+    assert 29.9 <= float(probe_media(output)["duration_seconds"]) <= 30.1
+    assert output.stat().st_size < 1_100_000
+
+
 def test_registry_contains_required_extensions() -> None:
     assert {
         ".wav", ".mp3", ".m4a", ".aac", ".flac", ".ogg", ".opus", ".webm",
         ".wma", ".aiff", ".aif", ".alac", ".caf", ".ac3", ".amr",
     } <= AUDIO_EXTENSIONS
+
+
+def test_local_source_provenance_has_name_size_and_sha(tmp_path: Path) -> None:
+    source = tmp_path / "speech.wav"
+    tone(source)
+    pipeline = LocalMediaPipeline(source, tmp_path / "outputs")
+
+    pipeline.inspect()
+
+    metadata = json.loads(pipeline.paths.source_metadata.read_text(encoding="utf-8"))
+    assert metadata["source"] == "local_file"
+    assert metadata["original_name"] == "speech.wav"
+    assert metadata["size"] == source.stat().st_size
+    assert len(metadata["sha256"]) == 64
 
 
 @pytest.mark.parametrize(

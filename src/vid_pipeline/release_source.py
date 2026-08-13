@@ -134,11 +134,15 @@ def download_release_asset(
         raise PipelineError(f"Release asset exceeds the {max_bytes}-byte download limit.")
     repository_path = Path(*asset.repository.split("/"))
     target = Path(destination_root) / repository_path / str(asset.release_id) / asset.asset_name
+    cache_metadata = target.with_name(f"{target.name}.cache.json")
     target.parent.mkdir(parents=True, exist_ok=True)
     if target.is_file() and target.stat().st_size == asset.size:
-        if not asset.digest.startswith("sha256:") or _sha256(target) == asset.digest.removeprefix(
+        actual_sha256 = _sha256(target)
+        if asset.digest.startswith("sha256:") and actual_sha256 == asset.digest.removeprefix(
             "sha256:"
         ):
+            return target
+        if not asset.digest and _cache_matches(cache_metadata, asset, actual_sha256):
             return target
 
     temporary = target.with_name(f".{target.name}.{uuid.uuid4().hex}.part")
@@ -162,6 +166,7 @@ def download_release_asset(
         ):
             raise PipelineError("Downloaded release asset SHA-256 does not match GitHub metadata.")
         temporary.replace(target)
+        _write_cache_metadata(cache_metadata, asset, actual_digest)
         return target
     except urllib.error.HTTPError as exc:
         raise PipelineError(f"GitHub release asset download failed (HTTP {exc.code}).") from None
@@ -186,3 +191,37 @@ def _sha256(path: Path) -> str:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def _cache_identity(asset: ReleaseAsset) -> dict[str, Any]:
+    return {
+        "schema_version": 1,
+        "repository": asset.repository,
+        "release_id": asset.release_id,
+        "asset_id": asset.asset_id,
+        "asset_name": asset.asset_name,
+        "size": asset.size,
+        "github_digest": asset.digest,
+    }
+
+
+def _cache_matches(path: Path, asset: ReleaseAsset, actual_sha256: str) -> bool:
+    """Trust digest-less cache only when its complete identity and local hash match."""
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return False
+    expected = _cache_identity(asset)
+    return all(payload.get(key) == value for key, value in expected.items()) and payload.get(
+        "sha256"
+    ) == actual_sha256
+
+
+def _write_cache_metadata(path: Path, asset: ReleaseAsset, sha256: str) -> None:
+    temporary = path.with_name(f".{path.name}.{uuid.uuid4().hex}.tmp")
+    payload = {**_cache_identity(asset), "sha256": sha256}
+    try:
+        temporary.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+        temporary.replace(path)
+    finally:
+        temporary.unlink(missing_ok=True)

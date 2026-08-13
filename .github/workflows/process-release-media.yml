@@ -25,6 +25,11 @@ on:
         default: balanced
         type: choice
         options: [fast, balanced, accurate]
+      model:
+        description: Optional exact ASR model override
+        required: false
+        default: ""
+        type: string
       language:
         required: true
         default: fa
@@ -108,6 +113,7 @@ jobs:
           RELEASE_ASSET_NAME: ${{ inputs.asset_name }}
           RELEASE_ASSET_ID: ${{ inputs.asset_id }}
           PIPELINE_PROFILE: ${{ inputs.profile }}
+          PIPELINE_MODEL: ${{ inputs.model }}
           PIPELINE_LANGUAGE: ${{ inputs.language }}
           AUDIO_PROFILE: ${{ inputs.audio_profile }}
           DIARIZATION_ENABLED: ${{ inputs.diarization }}
@@ -126,6 +132,7 @@ jobs:
             "${selector[@]}" --download-root /tmp/release-media --output-root outputs \
             --profile "$PIPELINE_PROFILE" --language "$PIPELINE_LANGUAGE" \
             --audio-profile "$AUDIO_PROFILE" --no-editorial)
+          [[ -n "$PIPELINE_MODEL" ]] && args+=(--model "$PIPELINE_MODEL")
           [[ "$DIARIZATION_ENABLED" == "true" ]] && args+=(--diarize)
           vid-pipeline "${args[@]}" 2>&1 | tee pipeline.log
 

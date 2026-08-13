@@ -13,6 +13,7 @@ class StateEditorialTests(unittest.TestCase):
             state = PipelineState(Path(directory) / "state.json")
             self.assertEqual(state.stage("editorial")["status"], "pending")
             self.assertEqual(state.stage("finalize_machine")["status"], "pending")
+            self.assertEqual(state.stage("chatgpt_review")["status"], "pending")
 
 
 if __name__ == "__main__":

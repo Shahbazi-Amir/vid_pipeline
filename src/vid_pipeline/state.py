@@ -19,6 +19,7 @@ STAGES = (
     "editorial",
     "finalize_machine",
     "review",
+    "chatgpt_review",
     "export",
 )
 

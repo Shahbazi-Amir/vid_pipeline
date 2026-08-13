@@ -12,6 +12,7 @@ from vid_pipeline.accuracy import AccuracyConfig, AccuracyError, build_accuracy_
 from vid_pipeline.accuracy_judge import advise_disagreements
 from vid_pipeline.accuracy_rebuild import rebuild_from_accuracy
 from vid_pipeline.accuracy_review import build_accuracy_review
+from vid_pipeline.chatgpt_handoff import build_chatgpt_handoff
 from vid_pipeline.diarization import parse_role_overrides
 from vid_pipeline.editorial import EditorialConfig
 from vid_pipeline.final_export import export_final_outputs, record_export_failure
@@ -251,6 +252,14 @@ def _postprocess_with_review(pipeline: VideoPipeline, args: Namespace) -> int:
         print(f"error: review packaging failed: {exc}", file=sys.stderr)
         return 1
     try:
+        print("PIPELINE_STAGE stage=chatgpt_review status=started")
+        chatgpt_review = build_chatgpt_handoff(pipeline.paths.job_root)
+        print("PIPELINE_STAGE stage=chatgpt_review status=completed")
+    except (OSError, ValueError, json.JSONDecodeError) as exc:
+        PipelineState(pipeline.paths.job_root / "state.json").mark_failed("chatgpt_review", exc)
+        print(f"error: ChatGPT review handoff failed: {exc}", file=sys.stderr)
+        return 1
+    try:
         print("PIPELINE_STAGE stage=export status=started")
         final_export = export_final_outputs(pipeline.paths.job_root)
         print("PIPELINE_STAGE stage=export status=completed")
@@ -261,7 +270,8 @@ def _postprocess_with_review(pipeline: VideoPipeline, args: Namespace) -> int:
     print(json.dumps({
         "accuracy_stage": accuracy_manifest, "accuracy_judge": accuracy_judge,
         "accuracy_review": accuracy_review, "accuracy_rebuild": accuracy_rebuild,
-        "pre_review_stage": pre_review, "review_stage": review, "export_stage": final_export,
+        "pre_review_stage": pre_review, "review_stage": review,
+        "chatgpt_review_stage": chatgpt_review, "export_stage": final_export,
     }, ensure_ascii=False, indent=2))
     return 0
 

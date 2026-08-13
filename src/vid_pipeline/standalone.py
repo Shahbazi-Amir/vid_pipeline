@@ -11,7 +11,7 @@ from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
-from urllib.parse import urlparse
+from urllib.parse import parse_qsl, urlencode, urlparse, urlsplit, urlunsplit
 
 from vid_pipeline.audio import normalize_audio, validate_normalized_audio
 from vid_pipeline.clean import clean_transcript
@@ -28,6 +28,22 @@ from vid_pipeline.state import PipelineState
 from vid_pipeline.transcribe import TranscriptionConfig, transcribe_audio
 
 _SAFE_RE = re.compile(r"[^a-zA-Z0-9._-]+")
+_SENSITIVE_QUERY_KEYS = frozenset(
+    {
+        "access_token",
+        "auth",
+        "authorization",
+        "credential",
+        "key",
+        "sig",
+        "signature",
+        "token",
+        "x-amz-credential",
+        "x-amz-signature",
+        "x-goog-credential",
+        "x-goog-signature",
+    }
+)
 
 
 def _sha256_file(path: Path) -> str:
@@ -48,6 +64,22 @@ def make_job_id(url: str, name: str = "") -> str:
     candidate = _SAFE_RE.sub("-", candidate).strip("-._").lower() or "video"
     digest = hashlib.sha256(url.encode("utf-8")).hexdigest()[:8]
     return f"{candidate[:48]}-{digest}"
+
+
+def redact_source_url(url: str) -> str:
+    """Keep useful URL provenance while excluding embedded credentials."""
+    parsed = urlsplit(url)
+    hostname = parsed.hostname or ""
+    if parsed.port:
+        hostname = f"{hostname}:{parsed.port}"
+    query = urlencode(
+        [
+            (key, "[REDACTED]" if key.casefold() in _SENSITIVE_QUERY_KEYS else value)
+            for key, value in parse_qsl(parsed.query, keep_blank_values=True)
+        ],
+        doseq=True,
+    )
+    return urlunsplit((parsed.scheme, hostname, parsed.path, query, parsed.fragment))
 
 
 def make_file_job_id(path: str | Path, name: str = "") -> str:
@@ -197,10 +229,13 @@ class VideoPipeline:
     def inspect(self, *, force: bool = False) -> dict[str, Any]:
         def action() -> tuple[list[Path], dict[str, Any]]:
             metadata = extract_metadata(self.url)
+            source_url = redact_source_url(self.url)
             payload = {
                 "schema_version": 2,
                 "job_id": self.job_id,
-                "url": self.url,
+                "source": "url",
+                "url": source_url,
+                "source_url": source_url,
                 "title": metadata.get("title") or "",
                 "duration": metadata.get("duration"),
                 "extractor": metadata.get("extractor_key") or metadata.get("extractor"),
@@ -530,8 +565,10 @@ class LocalMediaPipeline(VideoPipeline):
             payload = {
                 "schema_version": 2,
                 "job_id": self.job_id,
+                "source": self.source_provenance.get("source", "local_file"),
                 "input_type": media["input_type"],
                 "path": str(self.media_path),
+                "original_name": self.media_path.name,
                 "title": self.media_path.stem,
                 "size": self.media_path.stat().st_size,
                 "sha256": _sha256_file(self.media_path),

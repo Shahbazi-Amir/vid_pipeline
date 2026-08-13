@@ -13,6 +13,13 @@ review, and final-output stages.
 - Online upload: `vid-pipeline submit-file speech.wav --audio-profile safe`
 - GitHub upload: `vid-pipeline github-submit-file speech.mp3 --audio-profile safe --wait --download`
 - GitHub URL: `vid-pipeline github-run-url URL --audio-profile safe --wait --download`
+- Existing GitHub Release: `vid-pipeline run-github-release owner/repo TAG --asset-name speech.flac --no-editorial`
+
+Release selection is exact and deterministic by asset name or numeric asset ID.
+Public assets need no token. Private assets read `VID_PIPELINE_RELEASE_TOKEN`
+(falling back to `GITHUB_TOKEN`/`GH_TOKEN`) from the environment. Repository,
+tag, release ID, asset ID, size, and GitHub digest are written to source
+provenance; the credential is never serialized.
 
 Folder discovery recognizes `.wav`, `.mp3`, `.m4a`, `.aac`, `.flac`, `.ogg`,
 `.opus`, `.webm`, `.wma`, `.aiff`, `.aif`, `.alac`, `.caf`, `.ac3`, and `.amr`,

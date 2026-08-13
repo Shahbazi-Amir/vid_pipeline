@@ -277,7 +277,13 @@ def _run_file_with_review(args: Namespace) -> int:
     result = _ORIGINAL_RUN_FILE(args)
     if result != 0:
         return result
-    pipeline = base_cli.LocalMediaPipeline(args.path, args.output_root, args.name)
+    pipeline = base_cli.LocalMediaPipeline(
+        args.path,
+        args.output_root,
+        args.name,
+        args.audio_profile,
+        source_provenance=getattr(args, "source_provenance", None),
+    )
     source_path = pipeline.paths.source_metadata
     if source_path.is_file():
         metadata = json.loads(source_path.read_text(encoding="utf-8"))

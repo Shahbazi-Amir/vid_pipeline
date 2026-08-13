@@ -1,0 +1,169 @@
+name: Process GitHub Release media
+run-name: Release media ${{ inputs.repository }}@${{ inputs.tag }} — ${{ inputs.asset_name || inputs.asset_id }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      repository:
+        description: Source repository in owner/name form
+        required: true
+        type: string
+      tag:
+        description: Exact Release tag
+        required: true
+        type: string
+      asset_name:
+        description: Exact media asset name; leave empty when using asset_id
+        required: false
+        type: string
+      asset_id:
+        description: Exact media asset ID; leave empty when using asset_name
+        required: false
+        type: string
+      profile:
+        required: true
+        default: balanced
+        type: choice
+        options: [fast, balanced, accurate]
+      language:
+        required: true
+        default: fa
+        type: string
+      audio_profile:
+        required: true
+        default: safe
+        type: choice
+        options: [none, safe, noisy]
+      diarization:
+        required: true
+        default: false
+        type: boolean
+      keep_debug_artifacts:
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-media-${{ inputs.repository }}-${{ inputs.tag }}-${{ inputs.asset_name || inputs.asset_id }}
+  cancel-in-progress: false
+
+jobs:
+  process:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 210
+    env:
+      # Set this repository secret only when the source is a different private repository.
+      # For this repository or public releases, github.token is sufficient.
+      VID_PIPELINE_RELEASE_TOKEN: ${{ secrets.VID_PIPELINE_RELEASE_TOKEN || github.token }}
+      VID_PIPELINE_ASR_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/asr
+      HF_HOME: ${{ github.workspace }}/.cache/huggingface
+      HF_HUB_CACHE: ${{ github.workspace }}/.cache/huggingface/hub
+      VID_PIPELINE_DIARIZATION_BACKEND: pyannote-community-1
+      VID_PIPELINE_ACCURACY_MODE: fast
+      VID_PIPELINE_MAX_TARGETED_SEGMENTS: 40
+      AI_REVIEW_ENABLED: "false"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Cache ASR model
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.VID_PIPELINE_ASR_CACHE }}
+          key: asr-${{ runner.os }}-faster-whisper-1.2.1-large-v3-turbo-ct2-v1
+
+      - name: Cache optional diarization model
+        if: inputs.diarization
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.HF_HUB_CACHE }}
+          key: pyannote-${{ runner.os }}-py311-audio-4.0.4-community-1-v1
+
+      - name: Install bounded worker dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install --upgrade pip
+          if [[ "${{ inputs.diarization }}" == "true" ]]; then
+            python -m pip install -e '.[worker,diarization-pyannote]'
+          else
+            python -m pip install -e '.[worker]'
+          fi
+
+      - name: Resolve, download, validate and transcribe one asset
+        shell: bash
+        env:
+          VID_PIPELINE_PYANNOTE_TOKEN: ${{ secrets.HF_TOKEN }}
+          SOURCE_REPOSITORY: ${{ inputs.repository }}
+          RELEASE_TAG: ${{ inputs.tag }}
+          RELEASE_ASSET_NAME: ${{ inputs.asset_name }}
+          RELEASE_ASSET_ID: ${{ inputs.asset_id }}
+          PIPELINE_PROFILE: ${{ inputs.profile }}
+          PIPELINE_LANGUAGE: ${{ inputs.language }}
+          AUDIO_PROFILE: ${{ inputs.audio_profile }}
+          DIARIZATION_ENABLED: ${{ inputs.diarization }}
+        run: |
+          set -euo pipefail
+          selector=()
+          if [[ -n "$RELEASE_ASSET_NAME" && -z "$RELEASE_ASSET_ID" ]]; then
+            selector=(--asset-name "$RELEASE_ASSET_NAME")
+          elif [[ -z "$RELEASE_ASSET_NAME" && -n "$RELEASE_ASSET_ID" ]]; then
+            selector=(--asset-id "$RELEASE_ASSET_ID")
+          else
+            echo "Exactly one of asset_name or asset_id is required."
+            exit 2
+          fi
+          args=(run-github-release "$SOURCE_REPOSITORY" "$RELEASE_TAG" \
+            "${selector[@]}" --download-root /tmp/release-media --output-root outputs \
+            --profile "$PIPELINE_PROFILE" --language "$PIPELINE_LANGUAGE" \
+            --audio-profile "$AUDIO_PROFILE" --no-editorial)
+          [[ "$DIARIZATION_ENABLED" == "true" ]] && args+=(--diarize)
+          vid-pipeline "${args[@]}" 2>&1 | tee pipeline.log
+
+      - name: Prepare canonical base delivery
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p transcript-artifact
+          find outputs -path '*/delivery/*' -type f -exec cp {} transcript-artifact/ \;
+          test "$(find transcript-artifact -maxdepth 1 -type f | wc -l)" -eq 3
+
+      - name: Upload base transcript
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-transcript-${{ github.run_id }}
+          path: transcript-artifact/*
+          retention-days: 7
+          if-no-files-found: error
+
+      - name: Upload opt-in debug and provenance package
+        if: inputs.keep_debug_artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-debug-${{ github.run_id }}
+          path: |
+            outputs/**
+            pipeline.log
+          retention-days: 3
+
+      - name: Upload bounded failure diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-failure-${{ github.run_id }}
+          path: |
+            outputs/**/state.json
+            outputs/**/result.json
+            outputs/**/source.json
+            pipeline.log
+          retention-days: 3
+          if-no-files-found: warn

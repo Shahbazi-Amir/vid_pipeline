@@ -5,6 +5,7 @@ on:
     paths:
       - 'src/vid_pipeline/audio.py'
       - 'src/vid_pipeline/media.py'
+      - 'src/vid_pipeline/release_source.py'
       - 'src/vid_pipeline/cli.py'
       - 'src/vid_pipeline/standalone.py'
       - 'src/vid_pipeline/github_client.py'
@@ -13,12 +14,14 @@ on:
       - 'src/vid_pipeline/server/api.py'
       - 'src/vid_pipeline/server/worker.py'
       - 'tests/integration/test_audio_input.py'
+      - 'tests/test_release_source.py'
       - 'tests/test_github_compat_url.py'
       - 'tests/test_github_workflow_contract.py'
       - 'tests/test_uploaded_workflow_artifact_scope.py'
       - 'tests/test_url_dispatch_options_contract.py'
       - '.github/workflows/process-uploaded-video.yml'
       - '.github/workflows/process-video.yml'
+      - '.github/workflows/process-release-media.yml'
       - '.github/workflows/audio-validation.yml'
   push:
     branches:
@@ -26,6 +29,7 @@ on:
     paths:
       - 'src/vid_pipeline/audio.py'
       - 'src/vid_pipeline/media.py'
+      - 'src/vid_pipeline/release_source.py'
       - 'src/vid_pipeline/cli.py'
       - 'src/vid_pipeline/standalone.py'
       - 'src/vid_pipeline/github_client.py'
@@ -34,12 +38,14 @@ on:
       - 'src/vid_pipeline/server/api.py'
       - 'src/vid_pipeline/server/worker.py'
       - 'tests/integration/test_audio_input.py'
+      - 'tests/test_release_source.py'
       - 'tests/test_github_compat_url.py'
       - 'tests/test_github_workflow_contract.py'
       - 'tests/test_uploaded_workflow_artifact_scope.py'
       - 'tests/test_url_dispatch_options_contract.py'
       - '.github/workflows/process-uploaded-video.yml'
       - '.github/workflows/process-video.yml'
+      - '.github/workflows/process-release-media.yml'
       - '.github/workflows/audio-validation.yml'
   workflow_dispatch:
 
@@ -80,13 +86,15 @@ jobs:
           ruff check \
             src/vid_pipeline/audio.py \
             src/vid_pipeline/media.py \
+            src/vid_pipeline/release_source.py \
             tests/integration/test_audio_input.py \
+            tests/test_release_source.py \
             tests/test_github_compat_url.py \
             tests/test_uploaded_workflow_artifact_scope.py \
             tests/test_url_dispatch_options_contract.py
 
       - name: Run audio integration tests
-        run: python -m pytest -q tests/integration/test_audio_input.py
+        run: python -m pytest -q tests/integration/test_audio_input.py tests/test_release_source.py
 
       - name: Run audio workflow contract tests
         run: |
@@ -101,6 +109,7 @@ jobs:
           python -m compileall -q \
             src/vid_pipeline/audio.py \
             src/vid_pipeline/media.py \
+            src/vid_pipeline/release_source.py \
             tests/integration/test_audio_input.py
 
       - name: Publish audio validation status

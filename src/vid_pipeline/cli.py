@@ -174,6 +174,29 @@ def build_parser() -> argparse.ArgumentParser:
     _add_editorial_options(file_parser)
     _add_diarization_options(file_parser)
 
+    release_parser = subparsers.add_parser(
+        "run-github-release", help="Resolve and process one public/private GitHub Release asset."
+    )
+    release_parser.add_argument("repository", help="Source repository in owner/name form.")
+    release_parser.add_argument("tag", help="Exact GitHub Release tag.")
+    release_asset = release_parser.add_mutually_exclusive_group(required=True)
+    release_asset.add_argument("--asset-name", default="")
+    release_asset.add_argument("--asset-id", type=int, default=0)
+    release_parser.add_argument(
+        "--download-root", type=Path, default=Path(".vid_pipeline/releases")
+    )
+    release_parser.add_argument("--max-download-bytes", type=int, default=2 * 1024**3)
+    release_parser.add_argument("--output-root", type=Path, default=Path("outputs"))
+    release_parser.add_argument("--name", default="")
+    release_parser.add_argument("--max-paragraph-words", type=int, default=90)
+    release_parser.add_argument("--force", action="store_true")
+    release_parser.add_argument(
+        "--profile", choices=("fast", "balanced", "accurate"), default="balanced"
+    )
+    _add_transcription_options(release_parser, profile_aware=True)
+    _add_editorial_options(release_parser)
+    _add_diarization_options(release_parser)
+
     folder_parser = subparsers.add_parser("run-folder", help="Process local media files as jobs.")
     folder_parser.add_argument("path", type=Path)
     folder_parser.add_argument("--recursive", action="store_true")
@@ -388,7 +411,17 @@ def _transcription_config(args: argparse.Namespace) -> TranscriptionConfig:
 
 
 def command_run_file(args: argparse.Namespace) -> int:
-    pipeline = LocalMediaPipeline(args.path, args.output_root, args.name, args.audio_profile)
+    pipeline = LocalMediaPipeline(
+        args.path,
+        args.output_root,
+        args.name,
+        args.audio_profile,
+        source_provenance=getattr(args, "source_provenance", None),
+    )
+    return _run_local_pipeline(pipeline, args)
+
+
+def _run_local_pipeline(pipeline: LocalMediaPipeline, args: argparse.Namespace) -> int:
     results = pipeline.run(
         _transcription_config(args),
         editorial_config=None if args.no_editorial else _editorial_config(args),
@@ -398,6 +431,33 @@ def command_run_file(args: argparse.Namespace) -> int:
     )
     _json_print({"job_id": pipeline.job_id, "job_root": str(pipeline.paths.job_root), "stages": results})
     return 0
+
+
+def command_run_github_release(args: argparse.Namespace) -> int:
+    from vid_pipeline.release_source import (
+        download_release_asset,
+        resolve_release_asset,
+        token_from_environment,
+    )
+
+    token = token_from_environment()
+    asset = resolve_release_asset(
+        args.repository,
+        args.tag,
+        asset_name=args.asset_name,
+        asset_id=args.asset_id,
+        token=token,
+    )
+    media = download_release_asset(
+        asset,
+        args.download_root,
+        token=token,
+        max_bytes=args.max_download_bytes,
+    )
+    args.path = media
+    args.source_provenance = asset.provenance()
+    args.source_url = asset.browser_download_url
+    return command_run_file(args)
 
 
 def command_run_folder(args: argparse.Namespace) -> int:
@@ -690,6 +750,7 @@ def dispatch(args: argparse.Namespace) -> int:
     commands = {
         "run-url": command_run_url,
         "run-file": command_run_file,
+        "run-github-release": command_run_github_release,
         "run-folder": command_run_folder,
         "submit-file": command_submit_file,
         "submit-folder": command_submit_folder,

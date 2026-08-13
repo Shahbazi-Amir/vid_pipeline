@@ -506,6 +506,7 @@ class LocalMediaPipeline(VideoPipeline):
         output_root: str | Path = "outputs",
         name: str = "",
         audio_profile: str = "safe",
+        source_provenance: dict[str, Any] | None = None,
     ) -> None:
         self.media_path = Path(media_path).resolve()
         if not self.media_path.is_file():
@@ -516,6 +517,7 @@ class LocalMediaPipeline(VideoPipeline):
         self.paths.ensure()
         self.state = PipelineState(self.paths.state)
         self.audio_profile = audio_profile
+        self.source_provenance = dict(source_provenance or {})
         self.metadata = {}
         if self.paths.source_metadata.exists():
             self.metadata = json.loads(self.paths.source_metadata.read_text(encoding="utf-8"))
@@ -535,6 +537,8 @@ class LocalMediaPipeline(VideoPipeline):
                 "sha256": _sha256_file(self.media_path),
                 "media": media,
             }
+            if self.source_provenance:
+                payload["provenance"] = self.source_provenance
             self.paths.source_metadata.write_text(
                 json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
             )

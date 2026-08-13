@@ -71,6 +71,23 @@ def test_uploaded_workflow_does_not_use_runner_context_in_job_env():
     assert "run-name: Uploaded media ${{ inputs.request_id }} — attempt ${{ inputs.dispatch_id }}" in workflow
 
 
+def test_release_workflow_is_manual_bounded_and_has_no_automatic_semantic_review():
+    workflow = (
+        Path(__file__).resolve().parents[1]
+        / ".github/workflows/process-release-media.yml"
+    ).read_text(encoding="utf-8")
+
+    assert "workflow_dispatch:" in workflow
+    assert "push:" not in workflow
+    assert "schedule:" not in workflow
+    assert "timeout-minutes: 210" in workflow
+    assert "cancel-in-progress: false" in workflow
+    assert 'AI_REVIEW_ENABLED: "false"' in workflow
+    assert "VID_PIPELINE_RELEASE_TOKEN" in workflow
+    assert "secrets.VID_PIPELINE_RELEASE_TOKEN || github.token" in workflow
+    assert "retention-days: 7" in workflow
+
+
 def test_dispatch_payload_matches_workflow_contract(tmp_path: Path):
     captured: dict[str, object] = {}
 

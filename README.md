@@ -71,6 +71,11 @@ vid-pipeline github-submit-file './speech.mp3' \
   --wait --download --delete-remote-after-success
 
 vid-pipeline github-run-url 'https://example.com/audio.ogg' --wait --download
+
+# Existing public/private Release asset (exact tag + exact asset name)
+export VID_PIPELINE_RELEASE_TOKEN='...'  # omit for public assets
+vid-pipeline run-github-release owner/media audio-v1 \
+  --asset-name speech.flac --no-editorial
 ```
 
 The token is read from the environment and never written to provenance or logs.

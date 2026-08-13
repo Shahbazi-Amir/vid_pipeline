@@ -22,6 +22,7 @@ jobs:
       VID_PIPELINE_RELEASE_TOKEN: ${{ github.token }}
       VID_PIPELINE_ACCURACY_MODE: "off"
       AI_REVIEW_ENABLED: "false"
+      VID_PIPELINE_ASR_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/asr
     steps:
       - uses: actions/checkout@v4
 
@@ -29,6 +30,12 @@ jobs:
         with:
           python-version: "3.11"
           cache: pip
+
+      - name: Cache project-controlled ASR model
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.VID_PIPELINE_ASR_CACHE }}
+          key: asr-${{ runner.os }}-faster-whisper-1.2.1-large-v3-turbo-ct2-v1
 
       - name: Install bounded E2E dependencies
         run: |
@@ -49,7 +56,7 @@ jobs:
         run: |
           set -euo pipefail
           vid-pipeline run-file "/tmp/audio-e2e/$ASSET_NAME" \
-            --output-root e2e/local --model tiny --device cpu --compute-type int8 \
+            --output-root e2e/local --model large-v3-turbo --device cpu --compute-type int8 \
             --language en --audio-profile safe --no-editorial
           test "$(find e2e/local -path '*/delivery/*' -type f | wc -l)" -eq 3
 
@@ -85,7 +92,7 @@ jobs:
           set -euo pipefail
           vid-pipeline run-github-release "$GITHUB_REPOSITORY" "$RELEASE_TAG" \
             --asset-name "$ASSET_NAME" --download-root /tmp/release-download \
-            --output-root e2e/release --model tiny --device cpu --compute-type int8 \
+            --output-root e2e/release --model large-v3-turbo --device cpu --compute-type int8 \
             --language en --audio-profile safe --no-editorial
           test "$(find e2e/release -path '*/delivery/*' -type f | wc -l)" -eq 3
           source=$(find e2e/release -name source.json -type f -print -quit)
@@ -135,9 +142,9 @@ jobs:
           if [[ -n "${RELEASE_ID:-}" ]]; then
             curl -fsS -X DELETE -H "Authorization: Bearer $GH_TOKEN" \
               -H "X-GitHub-Api-Version: 2022-11-28" "$api/releases/$RELEASE_ID"
+            encoded=$(python -c 'import os,urllib.parse; print(urllib.parse.quote(os.environ["RELEASE_TAG"], safe=""))')
+            status=$(curl -sS -o /tmp/tag-delete -w '%{http_code}' -X DELETE \
+              -H "Authorization: Bearer $GH_TOKEN" -H "X-GitHub-Api-Version: 2022-11-28" \
+              "$api/git/refs/tags/$encoded")
+            test "$status" = 204 || test "$status" = 404
           fi
-          encoded=$(python -c 'import os,urllib.parse; print(urllib.parse.quote(os.environ["RELEASE_TAG"], safe=""))')
-          status=$(curl -sS -o /tmp/tag-delete -w '%{http_code}' -X DELETE \
-            -H "Authorization: Bearer $GH_TOKEN" -H "X-GitHub-Api-Version: 2022-11-28" \
-            "$api/git/refs/tags/$encoded")
-          test "$status" = 204 || test "$status" = 404

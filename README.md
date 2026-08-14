@@ -4,6 +4,9 @@ A deployable, auditable pipeline for Persian transcription from video or audio.
 The Python core is independent of GitHub Actions and can be called from the CLI,
 the existing API/worker, or a future UI.
 
+It also provides an independent Video to Audio delivery exporter for local files
+and video URLs. Delivery audio is never routed through ASR normalization.
+
 ## Supported inputs
 
 - Video file or upload
@@ -51,6 +54,22 @@ vid-pipeline run-url 'https://example.com/video.mp4' --no-editorial
 # Audio file
 vid-pipeline run-file './speech.m4a' --audio-profile safe --no-editorial
 ```
+
+## Video to audio delivery export
+
+Export a local video or URL to `mp3`, `wav`, `m4a`, `flac`, or `opus`:
+
+```bash
+vid-pipeline extract-audio './interview.mp4' --format mp3 --bitrate 192k
+vid-pipeline extract-audio 'https://example.com/video' \
+  --format m4a --output './interview.m4a'
+```
+
+The exporter validates the video and selected audio stream with FFprobe,
+preserves stereo and normal sample rates by default, stream-copies compatible
+codecs, validates duration and decodability, and refuses to overwrite unless
+`--overwrite` is supplied. This is separate from the 16 kHz mono WAV created for
+transcription. See [Video to audio export](docs/video-to-audio.md).
 
 `run-folder` discovers mixed audio/video directories. Stable job IDs and atomic
 state writes make reruns resumable. Existing normalized media is validated before
@@ -106,6 +125,7 @@ Copilot, or other paid LLM is invoked automatically.
 See:
 
 - [Audio input and normalization](docs/audio-input.md)
+- [Video to audio export](docs/video-to-audio.md)
 - [Deployment](docs/deployment.md)
 - [Online API and worker](docs/online-execution.md)
 - [Human review](docs/human-review.md)

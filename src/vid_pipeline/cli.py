@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Any
 
 from vid_pipeline import __version__
+from vid_pipeline.audio_export import MP3_BITRATES, SUPPORTED_AUDIO_FORMATS, extract_audio
 from vid_pipeline.clean import clean_transcript
 from vid_pipeline.download import extract_metadata
 from vid_pipeline.editorial import EditorialConfig, EditorialMetadata, edit_transcript
@@ -173,6 +174,23 @@ def build_parser() -> argparse.ArgumentParser:
     _add_transcription_options(file_parser, profile_aware=True)
     _add_editorial_options(file_parser)
     _add_diarization_options(file_parser)
+
+    extract_audio_parser = subparsers.add_parser(
+        "extract-audio",
+        help="Export delivery audio from a local video file or video URL.",
+    )
+    extract_audio_parser.add_argument("input", help="Local video path or HTTP(S) video URL.")
+    extract_audio_parser.add_argument(
+        "--format", required=True, choices=SUPPORTED_AUDIO_FORMATS
+    )
+    extract_audio_parser.add_argument("--output", type=Path)
+    extract_audio_parser.add_argument("--bitrate", choices=MP3_BITRATES)
+    extract_audio_parser.add_argument(
+        "--audio-stream",
+        type=int,
+        help="Zero-based audio-stream ordinal; defaults to the marked default or first stream.",
+    )
+    extract_audio_parser.add_argument("--overwrite", action="store_true")
 
     folder_parser = subparsers.add_parser("run-folder", help="Process local media files as jobs.")
     folder_parser.add_argument("path", type=Path)
@@ -397,6 +415,19 @@ def command_run_file(args: argparse.Namespace) -> int:
         force=args.force,
     )
     _json_print({"job_id": pipeline.job_id, "job_root": str(pipeline.paths.job_root), "stages": results})
+    return 0
+
+
+def command_extract_audio(args: argparse.Namespace) -> int:
+    result = extract_audio(
+        args.input,
+        format_name=args.format,
+        output=args.output,
+        bitrate=args.bitrate,
+        audio_stream=args.audio_stream,
+        overwrite=args.overwrite,
+    )
+    _json_print(result.to_dict())
     return 0
 
 
@@ -690,6 +721,7 @@ def dispatch(args: argparse.Namespace) -> int:
     commands = {
         "run-url": command_run_url,
         "run-file": command_run_file,
+        "extract-audio": command_extract_audio,
         "run-folder": command_run_folder,
         "submit-file": command_submit_file,
         "submit-folder": command_submit_folder,

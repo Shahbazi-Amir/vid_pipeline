@@ -1,0 +1,38 @@
+name: One-shot Clear Actions Cache
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/one-shot-clear-actions-cache.yml"
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  clear-cache:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Delete all repository Actions caches
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          echo "Before:"
+          gh api "/repos/$REPO/actions/cache/usage"
+          ids="$(gh api --paginate "/repos/$REPO/actions/caches?per_page=100" --jq '.actions_caches[].id')"
+          if [[ -z "$ids" ]]; then
+            echo "No caches found."
+          else
+            while IFS= read -r id; do
+              [[ -z "$id" ]] && continue
+              echo "Deleting cache $id"
+              gh api --method DELETE "/repos/$REPO/actions/caches/$id"
+            done <<< "$ids"
+          fi
+          echo "After:"
+          gh api "/repos/$REPO/actions/cache/usage"

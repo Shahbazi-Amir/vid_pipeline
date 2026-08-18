@@ -1,0 +1,186 @@
+name: Build Chehelstoun audio release
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/build-chehelstoun-release.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      RELEASE_TAG: chehelstoun-archive-v1
+      PODCAST_ID: '1528888061'
+      IRANSEDA_URL: 'http://radio.iranseda.ir/Program/?VALID=TRUE&ch=57&m=090513'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Discover feed and download public episodes
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist logs
+          python3 - <<'PY'
+          import csv, email.utils, json, os, re, sys, urllib.request, xml.etree.ElementTree as ET
+          from pathlib import Path
+
+          UA = {'User-Agent': 'Mozilla/5.0 ChehelstounArchive/1.0'}
+          pid = os.environ['PODCAST_ID']
+          lookup = f'https://itunes.apple.com/lookup?id={pid}'
+          req = urllib.request.Request(lookup, headers=UA)
+          with urllib.request.urlopen(req, timeout=30) as r:
+              data = json.load(r)
+          if not data.get('results'):
+              raise SystemExit('Apple lookup returned no results')
+          meta = data['results'][0]
+          feed_url = meta.get('feedUrl')
+          if not feed_url:
+              raise SystemExit('Apple lookup did not expose feedUrl')
+          Path('logs/feed_url.txt').write_text(feed_url + '\n', encoding='utf-8')
+
+          req = urllib.request.Request(feed_url, headers=UA)
+          with urllib.request.urlopen(req, timeout=60) as r:
+              xml_bytes = r.read()
+          Path('logs/feed.xml').write_bytes(xml_bytes)
+          root = ET.fromstring(xml_bytes)
+          items = root.findall('.//item')
+          episodes = []
+          for item in items:
+              title = (item.findtext('title') or '').strip()
+              pub = (item.findtext('pubDate') or '').strip()
+              enc = item.find('enclosure')
+              url = enc.attrib.get('url','').strip() if enc is not None else ''
+              if not url:
+                  continue
+              try:
+                  dt = email.utils.parsedate_to_datetime(pub)
+                  ts = dt.timestamp()
+              except Exception:
+                  ts = 0
+              episodes.append((ts, title, pub, url))
+          episodes.sort(key=lambda x: x[0])
+          if len(episodes) < 38:
+              raise SystemExit(f'Expected at least 38 feed episodes, found {len(episodes)}')
+
+          def clean(s):
+              s = re.sub(r'[\\/:*?"<>|]+', '-', s)
+              s = re.sub(r'\s+', ' ', s).strip(' .')
+              return s[:120] or 'episode'
+
+          rows = []
+          for i, (_, title, pub, url) in enumerate(episodes, 1):
+              filename = f'{i:02d} - {clean(title)}.mp3'
+              out = Path('dist') / filename
+              print(f'[{i:02d}/{len(episodes):02d}] {title}', flush=True)
+              req = urllib.request.Request(url, headers=UA)
+              with urllib.request.urlopen(req, timeout=180) as r, out.open('wb') as f:
+                  while True:
+                      chunk = r.read(1024 * 1024)
+                      if not chunk:
+                          break
+                      f.write(chunk)
+              if out.stat().st_size < 100_000:
+                  raise SystemExit(f'Download suspiciously small: {out}')
+              rows.append([i, title, pub, url, filename, out.stat().st_size])
+
+          with open('dist/manifest.csv', 'w', newline='', encoding='utf-8-sig') as f:
+              w = csv.writer(f)
+              w.writerow(['episode','title','pubDate','source_url','filename','bytes'])
+              w.writerows(rows)
+          Path('dist/README.txt').write_text(
+              'Chehelstoun (چهلستون) — Radio Goftogoo / Financial Intelligence Academy\n'
+              f'Podcast feed episodes downloaded: {len(rows)}\n'
+              f'Apple Podcast ID: {pid}\n'
+              f'Feed URL: {feed_url}\n'
+              'Dr. Komeil Roudi served as the program expert; guests vary by episode.\n',
+              encoding='utf-8')
+          print(f'Downloaded {len(rows)} feed episodes')
+          PY
+
+      - name: Probe IranSeda archive for additional audio links
+        shell: bash
+        continue-on-error: true
+        run: |
+          set -u
+          python3 - <<'PY'
+          import os, re, urllib.parse, urllib.request
+          from pathlib import Path
+          url = os.environ['IRANSEDA_URL']
+          headers={'User-Agent':'Mozilla/5.0 ChehelstounArchive/1.0'}
+          candidates=[]
+          for candidate in [url, url.replace('http://','https://')]:
+              try:
+                  req=urllib.request.Request(candidate, headers=headers)
+                  with urllib.request.urlopen(req, timeout=30) as r:
+                      body=r.read()
+                  Path('logs/iranseda_page.html').write_bytes(body)
+                  text=body.decode('utf-8','ignore')
+                  found=re.findall(r'''(?:href|src)=["']([^"']+)["']''', text, re.I)
+                  for x in found:
+                      full=urllib.parse.urljoin(candidate,x)
+                      if re.search(r'\.(?:mp3|m4a|wav)(?:\?|$)', full, re.I) or 'audio' in full.lower():
+                          candidates.append(full)
+                  break
+              except Exception as e:
+                  Path('logs/iranseda_error.txt').write_text(repr(e), encoding='utf-8')
+          uniq=[]
+          for x in candidates:
+              if x not in uniq: uniq.append(x)
+          Path('logs/iranseda_audio_candidates.txt').write_text('\n'.join(uniq)+'\n', encoding='utf-8')
+          print('IranSeda audio candidates:', len(uniq))
+          for x in uniq[:100]: print(x)
+          PY
+
+      - name: Validate, checksum and make split bundles
+        shell: bash
+        run: |
+          set -euo pipefail
+          count=$(find dist -maxdepth 1 -type f -name '*.mp3' | wc -l)
+          echo "MP3 count: $count"
+          test "$count" -ge 38
+          (cd dist && sha256sum -- *.mp3 > SHA256SUMS.txt)
+          mkdir -p bundles
+          python3 - <<'PY'
+          import zipfile
+          from pathlib import Path
+          files=sorted(Path('dist').glob('*.mp3'))
+          for start in range(0,len(files),10):
+              group=files[start:start+10]
+              a=start+1; b=start+len(group)
+              z=Path('bundles')/f'Chehelstoun_{a:02d}-{b:02d}.zip'
+              with zipfile.ZipFile(z,'w',compression=zipfile.ZIP_STORED,allowZip64=True) as out:
+                  for p in group: out.write(p, arcname=p.name)
+          PY
+          cp dist/manifest.csv dist/README.txt dist/SHA256SUMS.txt bundles/
+          ls -lh bundles dist/*.mp3 | tee logs/files.txt
+
+      - name: Create or update GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            echo "Release exists: $RELEASE_TAG"
+          else
+            gh release create "$RELEASE_TAG" \
+              --target "${GITHUB_SHA}" \
+              --title "Chehelstoun (چهلستون) — Radio Goftogoo archive" \
+              --notes "Archive build of the public Chehelstoun audio feed. The official project description states the radio series consisted of 40 conversations. This release initially includes every episode exposed by the public podcast feed; see manifest.csv and README.txt for provenance."
+          fi
+          gh release upload "$RELEASE_TAG" bundles/* --clobber
+          gh release upload "$RELEASE_TAG" dist/*.mp3 --clobber
+
+      - name: Upload discovery logs as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: chehelstoun-discovery-logs
+          path: logs/
+          retention-days: 7

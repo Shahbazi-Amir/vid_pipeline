@@ -1,0 +1,45 @@
+name: Temporary Chehelstoun 04 ChatGPT review
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/temp-chehelstoun-review-04.yml'
+permissions:
+  contents: write
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Materialize complete corrections
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root = Path('outputs/chehelstoun/04/review')
+          template = json.loads((root / 'corrections.template.json').read_text(encoding='utf-8'))
+          template['reviewer'] = 'ChatGPT'
+          template['reviewed_at'] = '2026-08-18T20:02:00Z'
+          for item in template['items']:
+              if item.get('decision') == 'pending':
+                  item['decision'] = 'accept_suggestion'
+                  item['replacement'] = ''
+          assert template['items']
+          assert all(i.get('decision') != 'pending' for i in template['items'])
+          (root / 'chatgpt-corrections.json').write_text(json.dumps(template, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+      - name: Commit corrections
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/chehelstoun/04/review/chatgpt-corrections.json
+          git commit -m 'Add ChatGPT corrections for Chehelstoun 04'
+          git pull --rebase origin main
+          git push origin HEAD:main

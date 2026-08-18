@@ -40,3 +40,5 @@ jobs:
           gh issue create \
             --title "Chehelstoun batch dispatch ${GITHUB_RUN_ID}" \
             --body "Bootstrap dispatch outcome: ${state}\n\nRun: https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+
+# merge-trigger: chehelstoun-transcription

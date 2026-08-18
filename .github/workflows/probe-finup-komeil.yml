@@ -156,3 +156,5 @@ jobs:
           gh issue create --repo "$GITHUB_REPOSITORY" \
             --title "Finup Komeil official archive — ${GITHUB_RUN_ID}" \
             --body "$body"
+
+# retry-trigger: 2026-08-18T12:13+03:30

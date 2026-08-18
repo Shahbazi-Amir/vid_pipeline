@@ -14,13 +14,13 @@ permissions:
 jobs:
   archive:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 30
     env:
       RELEASE_TAG: ketab-baz-s05e68-komeil-roudi
       OUTPUT_BASENAME: KetabBaz_S05E68_Komeil_Roudi
+      RSS_URL: https://rss.castbox.fm/everest/db2dc0b37407484e86691781e9f82d03.xml
       YOUTUBE_URL: https://youtu.be/yohZIIrjSwE
       APARAT_URL: https://www.aparat.com/v/7oEKI/
-      APARAT_HASH: 7oEKI
     steps:
       - uses: actions/checkout@v4
 
@@ -31,90 +31,76 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y ffmpeg curl
 
-      - name: Download full episode from Aparat API
+      - name: Resolve and download episode from podcast RSS
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p dist logs
+          curl -fL --retry 5 --retry-all-errors \
+            -A 'Mozilla/5.0' "$RSS_URL" -o logs/feed.xml
+
           python3 - <<'PY'
-          import json, os, re, urllib.request
+          import html
+          import re
+          import xml.etree.ElementTree as ET
           from pathlib import Path
 
-          video_hash = os.environ['APARAT_HASH']
-          page = os.environ['APARAT_URL']
-          api = f'https://www.aparat.com/api/fa/v1/video/video/show/videohash/{video_hash}?pr=1&mf=1&referer=direct'
-          headers = {
-              'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/127 Safari/537.36',
-              'Referer': page,
-              'Accept': 'application/json,text/plain,*/*',
-          }
-          req = urllib.request.Request(api, headers=headers)
-          with urllib.request.urlopen(req, timeout=60) as response:
-              payload = json.load(response)
-          Path('logs/aparat-api.json').write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding='utf-8')
+          root = ET.parse('logs/feed.xml').getroot()
+          target = None
+          for item in root.findall('.//item'):
+              title = (item.findtext('title') or '').strip()
+              if 'کمیل رودی' in title:
+                  target = item
+                  Path('logs/matched_title.txt').write_text(title + '\n', encoding='utf-8')
+                  break
+          if target is None:
+              raise SystemExit('Komeil Roudi episode not found in RSS')
 
-          data = payload.get('data') or {}
-          attrs = data.get('attributes') if isinstance(data, dict) else None
-          if not isinstance(attrs, dict):
-              attrs = data if isinstance(data, dict) else {}
-          groups = attrs.get('file_link_all') or data.get('file_link_all') or []
           candidates = []
-          if isinstance(groups, list):
-              for group in groups:
-                  if not isinstance(group, dict):
-                      continue
-                  label = str(group.get('profile') or group.get('label') or group.get('title') or group.get('quality') or '')
-                  match = re.search(r'(\d{3,4})', label)
-                  score = int(match.group(1)) if match else 0
-                  urls = group.get('urls') or group.get('url') or []
-                  if isinstance(urls, str):
-                      urls = [urls]
-                  if isinstance(urls, list):
-                      for url in urls:
-                          if isinstance(url, str) and url.startswith('http') and '.m3u8' not in url:
-                              candidates.append((score, url))
+          for elem in target.iter():
+              for key, value in elem.attrib.items():
+                  if key.lower().endswith('url') and isinstance(value, str) and value.startswith('http'):
+                      candidates.append(html.unescape(value))
+              text = (elem.text or '').strip()
+              if text.startswith('http'):
+                  candidates.append(html.unescape(text))
 
-          if not candidates:
-              def walk(value):
-                  if isinstance(value, dict):
-                      for item in value.values():
-                          yield from walk(item)
-                  elif isinstance(value, list):
-                      for item in value:
-                          yield from walk(item)
-                  elif isinstance(value, str):
-                      yield value
-              for url in walk(payload):
-                  if url.startswith('http') and 'asset.aparat.com' in url and '.m3u8' not in url:
-                      match = re.search(r'(\d{3,4})p', url)
-                      candidates.append((int(match.group(1)) if match else 0, url))
+          def score(url):
+              s = 0
+              low = url.lower()
+              if '.mp3' in low: s += 100
+              if '.m4a' in low or '.aac' in low: s += 80
+              if 'castbox' in low: s += 40
+              if 'audio' in low: s += 20
+              if re.search(r'\.(jpg|jpeg|png|webp)(\?|$)', low): s -= 200
+              return s
 
-          if not candidates:
-              raise SystemExit('Aparat API returned no downloadable media URL')
-          candidates.sort(key=lambda item: item[0])
-          score, direct = candidates[-1]
-          Path('logs/direct_url.txt').write_text(direct + '\n', encoding='utf-8')
-          Path('logs/selected_quality.txt').write_text(str(score) + '\n', encoding='utf-8')
-          print(f'Selected Aparat candidate quality score: {score}')
+          candidates = sorted(set(candidates), key=score, reverse=True)
+          if not candidates or score(candidates[0]) <= 0:
+              Path('logs/candidate_urls.txt').write_text('\n'.join(candidates), encoding='utf-8')
+              raise SystemExit('No audio enclosure URL found in matched RSS item')
+          Path('logs/candidate_urls.txt').write_text('\n'.join(candidates), encoding='utf-8')
+          Path('logs/direct_url.txt').write_text(candidates[0] + '\n', encoding='utf-8')
+          print('Matched:', Path('logs/matched_title.txt').read_text(encoding='utf-8').strip())
+          print('Audio URL resolved from RSS enclosure')
           PY
 
           direct=$(cat logs/direct_url.txt)
           curl -fL --retry 5 --retry-all-errors \
-            -A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/127 Safari/537.36' \
-            -e "$APARAT_URL" \
-            "$direct" -o "dist/${OUTPUT_BASENAME}.mp4"
+            -A 'Mozilla/5.0' "$direct" -o "dist/${OUTPUT_BASENAME}.mp3"
 
-          test $(stat -c%s "dist/${OUTPUT_BASENAME}.mp4") -gt 1000000
-          ffprobe -v error "dist/${OUTPUT_BASENAME}.mp4" >/dev/null
-          printf '%s\n' "$APARAT_URL" > dist/source_url.txt
-          ffprobe -v error -show_entries format=duration,size -of json "dist/${OUTPUT_BASENAME}.mp4" > dist/media_info.json
-          (cd dist && sha256sum "${OUTPUT_BASENAME}.mp4" > SHA256SUMS.txt)
+          test $(stat -c%s "dist/${OUTPUT_BASENAME}.mp3") -gt 1000000
+          ffprobe -v error "dist/${OUTPUT_BASENAME}.mp3" >/dev/null
+          printf '%s\n' "$RSS_URL" > dist/source_url.txt
+          ffprobe -v error -show_entries format=duration,size,format_name -of json \
+            "dist/${OUTPUT_BASENAME}.mp3" > dist/media_info.json
+          (cd dist && sha256sum "${OUTPUT_BASENAME}.mp3" > SHA256SUMS.txt)
           cat > dist/README.txt <<EOF
           Ketab Baz (کتاب‌باز), season 5 episode 68 — guest: Dr. Komeil Roudi
-          Topic: financial literacy / سواد مالی
-          Public references: ${YOUTUBE_URL} and ${APARAT_URL}
-          Archived media source: ${APARAT_URL}
-          Download method: Aparat public video API, matching the public page video hash.
+          Full audio episode / گفت‌وگوی کامل صوتی
+          Archived from the public podcast RSS feed.
+          Public video references: ${YOUTUBE_URL} and ${APARAT_URL}
+          Note: the old Aparat video currently returns HTTP 410 and YouTube blocks GitHub-hosted runners with bot verification, so this archive uses the surviving podcast enclosure.
           EOF
           ls -lh dist/
 
@@ -128,7 +114,7 @@ jobs:
             gh release create "$RELEASE_TAG" \
               --target "$GITHUB_SHA" \
               --title "Ketab Baz — Dr. Komeil Roudi (S05E68)" \
-              --notes "Full public episode of Ketab Baz with Dr. Komeil Roudi discussing financial literacy. Source provenance and checksum are attached."
+              --notes "Full archived audio of the Ketab Baz conversation with Dr. Komeil Roudi. Source provenance, media info and checksum are attached."
           fi
           gh release upload "$RELEASE_TAG" dist/* --clobber
 

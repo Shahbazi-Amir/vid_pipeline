@@ -1,4 +1,4 @@
-name: Archive Finup Komeil Roudi presentation
+name: Archive Finup Komeil Roudi audio
 
 on:
   push:
@@ -13,150 +13,135 @@ permissions:
 
 env:
   VIDEO_ID: bpelPbGcBMc
-  VIDEO_URL: https://www.youtube.com/watch?v=bpelPbGcBMc
+  VIDEO_URL: https://youtu.be/bpelPbGcBMc
   RELEASE_TAG: finup21-komeil-roudi-financial-literacy
   OUTPUT_BASENAME: Finup21_Komeil_Roudi_Financial_Literacy
 
 jobs:
-  archive:
+  archive-audio:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install media tools
+      - name: Install audio tools
         shell: bash
         run: |
           set -euo pipefail
-          sudo apt-get update
-          sudo apt-get install -y ffmpeg curl
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg jq curl
           python3 -m pip install --upgrade 'yt-dlp[default,curl-cffi]'
           yt-dlp --version
 
-      - name: Download official Finup video or audio fallback
-        id: download
+      - name: Download audio from official Finup YouTube source
         shell: bash
         run: |
           set -u
-          mkdir -p dist logs work
+          mkdir -p dist work logs
+          : > logs/audio-download.log
           success=0
           method=''
 
-          attempt_video() {
-            label="$1"; shift
-            echo "=== VIDEO ATTEMPT: $label ===" | tee -a logs/download.log
-            rm -f work/video.*
-            if yt-dlp "$@" \
-              --no-playlist \
-              --retries 3 --fragment-retries 3 \
-              --merge-output-format mp4 \
-              -f 'bv*+ba/b' \
-              -o 'work/video.%(ext)s' \
-              "$VIDEO_URL" 2>&1 | tee -a logs/download.log; then
-              file=$(find work -maxdepth 1 -type f -name 'video.*' ! -name '*.part' -print -quit)
-              if [[ -n "$file" ]] && ffprobe -v error "$file" >/dev/null 2>&1 && [[ $(stat -c%s "$file") -gt 1000000 ]]; then
-                mv "$file" "dist/${OUTPUT_BASENAME}.mp4"
-                success=1
-                method="$label-video"
-                return 0
+          validate_and_convert() {
+            input="$1"
+            label="$2"
+            if [[ -s "$input" ]] && [[ $(stat -c%s "$input") -gt 500000 ]] && ffprobe -v error "$input" >/dev/null 2>&1; then
+              duration=$(ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 "$input" 2>/dev/null || echo 0)
+              echo "candidate=${label} bytes=$(stat -c%s "$input") duration=${duration}" | tee -a logs/audio-download.log
+              if awk "BEGIN {exit !(${duration:-0} > 60)}"; then
+                ffmpeg -y -v error -i "$input" -vn -codec:a libmp3lame -q:a 2 "dist/${OUTPUT_BASENAME}.mp3"
+                if [[ -s "dist/${OUTPUT_BASENAME}.mp3" ]] && [[ $(stat -c%s "dist/${OUTPUT_BASENAME}.mp3") -gt 500000 ]]; then
+                  success=1
+                  method="$label"
+                  return 0
+                fi
               fi
             fi
             return 1
           }
 
-          attempt_audio() {
-            label="$1"; shift
-            echo "=== AUDIO ATTEMPT: $label ===" | tee -a logs/download.log
-            rm -f work/audio.*
-            if yt-dlp "$@" \
+          echo '=== DIRECT YT-DLP AUDIO ===' | tee -a logs/audio-download.log
+          for client in android_vr web_embedded web_safari tv_simply; do
+            rm -f work/direct.*
+            if yt-dlp \
               --no-playlist \
-              --retries 3 --fragment-retries 3 \
-              -f 'ba/b' -x --audio-format mp3 --audio-quality 0 \
-              -o 'work/audio.%(ext)s' \
-              "$VIDEO_URL" 2>&1 | tee -a logs/download.log; then
-              file=$(find work -maxdepth 1 -type f -name 'audio.*' ! -name '*.part' -print -quit)
-              if [[ -n "$file" ]] && ffprobe -v error "$file" >/dev/null 2>&1 && [[ $(stat -c%s "$file") -gt 500000 ]]; then
-                mv "$file" "dist/${OUTPUT_BASENAME}.mp3"
-                success=1
-                method="$label-audio"
-                return 0
+              --retries 1 --fragment-retries 1 \
+              --js-runtimes node \
+              --remote-components ejs:github \
+              --extractor-args "youtube:player_client=${client}" \
+              -f 'ba/b' \
+              -o 'work/direct.%(ext)s' \
+              "$VIDEO_URL" 2>&1 | tee -a logs/audio-download.log; then
+              f=$(find work -maxdepth 1 -type f -name 'direct.*' ! -name '*.part' -print -quit)
+              if [[ -n "$f" ]] && validate_and_convert "$f" "yt-dlp-${client}"; then
+                break
               fi
             fi
-            return 1
-          }
-
-          attempt_video default || \
-          attempt_video web-embedded --extractor-args 'youtube:player_client=web_embedded' || \
-          attempt_video android-vr --extractor-args 'youtube:player_client=android_vr' || \
-          attempt_video safari --extractor-args 'youtube:player_client=web_safari' --impersonate safari || \
-          attempt_video chrome --impersonate chrome || true
+          done
 
           if [[ "$success" -ne 1 ]]; then
-            attempt_audio default || \
-            attempt_audio web-embedded --extractor-args 'youtube:player_client=web_embedded' || \
-            attempt_audio android-vr --extractor-args 'youtube:player_client=android_vr' || \
-            attempt_audio chrome --impersonate chrome || true
-          fi
-
-          # Current public Invidious instances use rotating/proxied playback to avoid
-          # the datacenter-IP bot wall that GitHub-hosted runners hit on YouTube.
-          if [[ "$success" -ne 1 ]]; then
-            for host in \
-              'https://inv.nadeko.net' \
-              'https://invidious.nerdvpn.de' \
-              'https://yt.chocolatemoo53.com' \
-              'https://invidious.tiekoetter.com'; do
-              for itag in 18 22; do
-                echo "=== INVIDIOUS VIDEO: ${host} itag=${itag} ===" | tee -a logs/download.log
-                rm -f work/invidious-video.bin
-                if curl -fL --retry 2 --retry-all-errors --connect-timeout 15 --max-time 240 \
-                  -A 'Mozilla/5.0' \
-                  "${host}/latest_version?id=${VIDEO_ID}&itag=${itag}&local=true" \
-                  -o work/invidious-video.bin 2>>logs/download.log; then
-                  if [[ -s work/invidious-video.bin ]] && [[ $(stat -c%s work/invidious-video.bin) -gt 1000000 ]] \
-                    && ffprobe -v error work/invidious-video.bin >/dev/null 2>&1; then
-                    ffmpeg -y -v error -i work/invidious-video.bin -c copy "dist/${OUTPUT_BASENAME}.mp4" \
-                      || ffmpeg -y -v error -i work/invidious-video.bin -c:v libx264 -c:a aac "dist/${OUTPUT_BASENAME}.mp4"
-                    success=1
-                    method="invidious-${host#https://}-itag${itag}-video"
-                    break 2
+            echo '=== PIPED API AUDIO ===' | tee -a logs/audio-download.log
+            for base in \
+              'https://pipedapi.kavin.rocks' \
+              'https://pipedapi.tokhmi.xyz' \
+              'https://pipedapi.moomoo.me' \
+              'https://pipedapi.syncpundit.io' \
+              'https://api-piped.mha.fi' \
+              'https://piped-api.garudalinux.org' \
+              'https://pipedapi.rivo.lol' \
+              'https://pipedapi.leptons.xyz'; do
+              echo "PIPED ${base}" | tee -a logs/audio-download.log
+              rm -f work/piped.json work/piped-audio.bin
+              if curl -fsSL --retry 1 --connect-timeout 10 --max-time 45 \
+                "${base}/streams/${VIDEO_ID}" -o work/piped.json 2>>logs/audio-download.log; then
+                title=$(jq -r '.title // empty' work/piped.json 2>/dev/null || true)
+                echo "title=${title}" | tee -a logs/audio-download.log
+                stream=$(jq -r '[.audioStreams[]? | select(.url != null)] | sort_by(.bitrate // 0) | reverse | .[0].url // empty' work/piped.json 2>/dev/null || true)
+                if [[ -n "$stream" ]]; then
+                  if curl -fL --retry 2 --retry-all-errors --connect-timeout 15 --max-time 600 \
+                    -A 'Mozilla/5.0' "$stream" -o work/piped-audio.bin 2>>logs/audio-download.log; then
+                    if validate_and_convert work/piped-audio.bin "piped-${base#https://}"; then
+                      break
+                    fi
                   fi
                 fi
-              done
+              fi
             done
           fi
 
           if [[ "$success" -ne 1 ]]; then
-            for host in \
+            echo '=== INVIDIOUS API AUDIO ===' | tee -a logs/audio-download.log
+            for base in \
               'https://inv.nadeko.net' \
               'https://invidious.nerdvpn.de' \
               'https://yt.chocolatemoo53.com' \
               'https://invidious.tiekoetter.com'; do
-              for itag in 140 251; do
-                echo "=== INVIDIOUS AUDIO: ${host} itag=${itag} ===" | tee -a logs/download.log
-                rm -f work/invidious-audio.bin
-                if curl -fL --retry 2 --retry-all-errors --connect-timeout 15 --max-time 240 \
-                  -A 'Mozilla/5.0' \
-                  "${host}/latest_version?id=${VIDEO_ID}&itag=${itag}&local=true" \
-                  -o work/invidious-audio.bin 2>>logs/download.log; then
-                  if [[ -s work/invidious-audio.bin ]] && [[ $(stat -c%s work/invidious-audio.bin) -gt 500000 ]] \
-                    && ffprobe -v error work/invidious-audio.bin >/dev/null 2>&1; then
-                    ffmpeg -y -v error -i work/invidious-audio.bin -vn -codec:a libmp3lame -q:a 0 "dist/${OUTPUT_BASENAME}.mp3"
-                    success=1
-                    method="invidious-${host#https://}-itag${itag}-audio"
-                    break 2
+              echo "INVIDIOUS ${base}" | tee -a logs/audio-download.log
+              rm -f work/inv.json work/inv-audio.bin
+              if curl -fsSL --retry 1 --connect-timeout 10 --max-time 45 \
+                "${base}/api/v1/videos/${VIDEO_ID}?local=true" -o work/inv.json 2>>logs/audio-download.log; then
+                title=$(jq -r '.title // empty' work/inv.json 2>/dev/null || true)
+                echo "title=${title}" | tee -a logs/audio-download.log
+                stream=$(jq -r '[.adaptiveFormats[]? | select((.type // "") | startswith("audio/")) | select(.url != null)] | sort_by((.bitrate // "0")|tonumber) | reverse | .[0].url // empty' work/inv.json 2>/dev/null || true)
+                if [[ -n "$stream" ]]; then
+                  if [[ "$stream" == /* ]]; then stream="${base}${stream}"; fi
+                  if curl -fL --retry 2 --retry-all-errors --connect-timeout 15 --max-time 600 \
+                    -A 'Mozilla/5.0' "$stream" -o work/inv-audio.bin 2>>logs/audio-download.log; then
+                    if validate_and_convert work/inv-audio.bin "invidious-${base#https://}"; then
+                      break
+                    fi
                   fi
                 fi
-              done
+              fi
             done
           fi
 
           if [[ "$success" -ne 1 ]]; then
-            echo 'All direct and Invidious download strategies failed.' | tee -a logs/download.log
+            echo 'No valid audio stream could be downloaded.' | tee -a logs/audio-download.log
             exit 1
           fi
 
-          media=$(find dist -maxdepth 1 -type f \( -name '*.mp4' -o -name '*.mp3' \) -print -quit)
+          media="dist/${OUTPUT_BASENAME}.mp3"
           ffprobe -v error -show_entries format=duration,size,format_name -of json "$media" > dist/media_info.json
           sha256sum "$media" > dist/SHA256SUMS.txt
           printf '%s\n' "$VIDEO_URL" > dist/source_url.txt
@@ -165,14 +150,13 @@ jobs:
             echo 'Finup Event 21 — Money Matters'
             echo 'Speaker: Dr. Komeil Roudi / دکتر کمیل رودی'
             echo "Presentation: What Financial Literacy Is and What It Isn't / سواد مالی چه هست و چه نیست"
-            echo 'Official source: Finup Event YouTube channel'
-            echo "Video ID: ${VIDEO_ID}"
-            echo "Archive method: ${method}"
-            echo 'This workflow only archives the media; it does not start transcription.'
+            echo "Official YouTube video ID: ${VIDEO_ID}"
+            echo "Audio acquisition method: ${method}"
+            echo 'Audio archive only; transcription is NOT started.'
           } > dist/README.txt
           ls -lh dist/
 
-      - name: Create or update GitHub Release
+      - name: Upload MP3 to GitHub Release
         if: success()
         env:
           GH_TOKEN: ${{ github.token }}
@@ -183,7 +167,7 @@ jobs:
             gh release create "$RELEASE_TAG" \
               --target "$GITHUB_SHA" \
               --title "Finup 21 — Komeil Roudi — Financial Literacy" \
-              --notes "Official Finup Event presentation by Dr. Komeil Roudi: What Financial Literacy Is and What It Isn't. Media plus provenance, metadata and checksum attached. No transcription is started by this workflow."
+              --notes "Official Finup Event presentation by Dr. Komeil Roudi. Audio archive plus provenance and checksum. Transcription is not started."
           fi
           gh release upload "$RELEASE_TAG" dist/* --clobber
 
@@ -191,12 +175,12 @@ jobs:
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: finup-komeil-download-logs
+          name: finup-komeil-audio-download-logs
           path: logs/
           retention-days: 7
           if-no-files-found: warn
 
-      - name: Report archive result
+      - name: Report audio archive result
         if: always()
         env:
           GH_TOKEN: ${{ github.token }}
@@ -208,11 +192,10 @@ jobs:
           media='not available'
           info='not available'
           [[ -f dist/download_method.txt ]] && method=$(cat dist/download_method.txt)
-          found=$(find dist -maxdepth 1 -type f \( -name '*.mp4' -o -name '*.mp3' \) -printf '%f\n' 2>/dev/null | head -1 || true)
-          [[ -n "$found" ]] && media="$found"
+          [[ -f "dist/${OUTPUT_BASENAME}.mp3" ]] && media="${OUTPUT_BASENAME}.mp3"
           [[ -f dist/media_info.json ]] && info=$(tr -d '\n' < dist/media_info.json)
           body=$(printf '%s\n' \
-            'Finup Komeil archive workflow finished.' \
+            'Finup Komeil audio archive workflow finished.' \
             '' \
             "- status: ${JOB_STATUS}" \
             "- source: ${VIDEO_URL}" \
@@ -223,5 +206,5 @@ jobs:
             "- run: https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" \
             "- release: https://github.com/${GITHUB_REPOSITORY}/releases/tag/${RELEASE_TAG}")
           gh issue create --repo "$GITHUB_REPOSITORY" \
-            --title "Finup Komeil archive report — ${GITHUB_RUN_ID}" \
+            --title "Finup Komeil audio archive — ${GITHUB_RUN_ID}" \
             --body "$body"

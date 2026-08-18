@@ -1,0 +1,249 @@
+name: Post-Chehelstoun media queue v2
+run-name: Post-Chehelstoun media queue v2 ${{ github.run_id }}
+
+on:
+  workflow_run:
+    workflows: ["Chehelstoun parallel transcription"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  actions: read
+
+env:
+  PROFILE: balanced
+  LANGUAGE: fa
+  AUDIO_PROFILE: safe
+  VID_PIPELINE_ACCURACY_MODE: balanced
+  CHEHELSTOUN_RELEASE_TAG: chehelstoun-archive-v1
+  VOICE_ASSET_NAME: Voice.260817_165035.m4a
+
+concurrency:
+  group: post-chehelstoun-heavy-asr-v2
+  cancel-in-progress: false
+
+jobs:
+  process-queue:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 720
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Cache ASR model
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/.cache/vid-pipeline/asr
+          key: asr-${{ runner.os }}-py311-faster-whisper-1.2.1-large-v3-turbo-v1
+
+      - name: Install worker dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg curl rsync
+          python -m pip install --upgrade pip
+          pip install -e '.[worker]'
+
+      - name: Discover Mizan Voice and Ketab Baz assets
+        id: discover
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh api "repos/${GITHUB_REPOSITORY}/releases?per_page=100" > /tmp/releases.json
+          python - <<'PY'
+          import json
+          import os
+          import re
+          from pathlib import Path
+
+          releases = json.loads(Path('/tmp/releases.json').read_text(encoding='utf-8'))
+          media_exts = {'.mp3', '.m4a', '.wav', '.flac', '.aac', '.ogg', '.opus', '.mp4', '.mkv', '.mov', '.webm'}
+
+          def media_assets(release):
+              return [a for a in release.get('assets', []) if Path(a.get('name', '')).suffix.lower() in media_exts]
+
+          cheh_tag = os.environ['CHEHELSTOUN_RELEASE_TAG']
+          voice_name = os.environ['VOICE_ASSET_NAME']
+          cheh = next((r for r in releases if r.get('tag_name') == cheh_tag), None)
+          if cheh is None:
+              raise SystemExit(f'Chehelstoun release not found: {cheh_tag}')
+
+          extras = [a for a in media_assets(cheh) if not re.match(r'^\d{2}(?:\D|$)', a.get('name', ''))]
+          voice = next((a for a in extras if a.get('name') == voice_name), None)
+          if voice is None:
+              raise SystemExit(f'Voice asset not found: {voice_name}')
+
+          mizan_pool = [a for a in extras if a.get('name') != voice_name]
+          named_mizan = [a for a in mizan_pool if 'mizan' in a.get('name', '').lower() or 'میزان' in a.get('name', '')]
+          if named_mizan:
+              mizan = sorted(named_mizan, key=lambda a: a.get('created_at', ''))[-1]
+          elif len(mizan_pool) == 1:
+              mizan = mizan_pool[0]
+          else:
+              names = [a.get('name') for a in mizan_pool]
+              raise SystemExit(f'Ambiguous Mizan asset candidates after excluding Voice: {names}')
+
+          def book_score(release):
+              parts = [release.get('tag_name', ''), release.get('name', '')]
+              parts += [a.get('name', '') for a in release.get('assets', [])]
+              text = ' '.join(parts)
+              low = text.lower()
+              score = 0
+              if 'کتاب' in text: score += 5
+              if any(x in low for x in ('bookbaz', 'book-baz', 'book_baz')): score += 5
+              if any(x in low for x in ('ketabbaz', 'ketab-baz', 'ketab_baz')): score += 5
+              if 'ketab' in low: score += 2
+              if 'book' in low: score += 1
+              return score
+
+          book_releases = [r for r in releases if r.get('tag_name') != cheh_tag and media_assets(r) and book_score(r) > 0]
+          if not book_releases:
+              raise SystemExit('No separate Ketab Baz release with a media asset was found.')
+          book_release = sorted(book_releases, key=lambda r: (book_score(r), r.get('published_at') or ''), reverse=True)[0]
+          book = sorted(media_assets(book_release), key=lambda a: a.get('created_at', ''))[-1]
+
+          queue = [
+              {
+                  'slug': 'mizan', 'display': 'میزان', 'output_root': 'outputs/mizan/01',
+                  'asset_name': mizan['name'], 'asset_url': mizan['browser_download_url'], 'asset_size': mizan['size'],
+                  'release_tag': cheh_tag, 'hotwords': 'میزان، کمیل رودی، دکتر کمیل رودی، سواد مالی'
+              },
+              {
+                  'slug': 'voice-260817-165035', 'display': 'Voice 260817 165035', 'output_root': 'outputs/voice-260817-165035/01',
+                  'asset_name': voice['name'], 'asset_url': voice['browser_download_url'], 'asset_size': voice['size'],
+                  'release_tag': cheh_tag, 'hotwords': 'کمیل رودی، دکتر کمیل رودی، سواد مالی'
+              },
+              {
+                  'slug': 'ketab-baz', 'display': 'کتاب‌باز', 'output_root': 'outputs/ketab-baz/01',
+                  'asset_name': book['name'], 'asset_url': book['browser_download_url'], 'asset_size': book['size'],
+                  'release_tag': book_release.get('tag_name', ''), 'hotwords': 'کتاب باز، کتاب‌باز، کمیل رودی، دکتر کمیل رودی، سروش صحت'
+              },
+          ]
+          Path('/tmp/media-queue.json').write_text(json.dumps(queue, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          for i, item in enumerate(queue, 1):
+              print(f"{i}. queued {item['display']}: {item['asset_name']}")
+          PY
+          echo "queue<<EOF" >> "$GITHUB_OUTPUT"
+          cat /tmp/media-queue.json >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
+      - name: Process queue sequentially
+        env:
+          QUEUE_JSON: ${{ steps.discover.outputs.queue }}
+          VID_PIPELINE_ASR_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/asr
+          HF_HOME: ${{ github.workspace }}/.cache/huggingface
+          HF_HUB_CACHE: ${{ github.workspace }}/.cache/huggingface/hub
+        shell: bash
+        run: |
+          set -euo pipefail
+          printf '%s\n' "$QUEUE_JSON" > /tmp/media-queue.json
+          count=$(jq 'length' /tmp/media-queue.json)
+
+          for idx in $(seq 0 $((count - 1))); do
+            item=$(jq -c ".[$idx]" /tmp/media-queue.json)
+            slug=$(jq -r '.slug' <<<"$item")
+            display=$(jq -r '.display' <<<"$item")
+            dest=$(jq -r '.output_root' <<<"$item")
+            asset_name=$(jq -r '.asset_name' <<<"$item")
+            asset_url=$(jq -r '.asset_url' <<<"$item")
+            asset_size=$(jq -r '.asset_size' <<<"$item")
+            hotwords=$(jq -r '.hotwords' <<<"$item")
+
+            git pull --rebase origin main
+            if [[ -s "$dest/review/assistant-review-package.json" && -s "$dest/pre_review/transcript.pre-review.json" && -s "$dest/accuracy/transcript.consensus.json" && -s "$dest/delivery/transcript.txt" ]]; then
+              echo "$display already complete and review-ready; skip."
+              continue
+            fi
+
+            rm -rf "/tmp/${slug}-input" "/tmp/${slug}-runtime"
+            mkdir -p "/tmp/${slug}-input" "/tmp/${slug}-runtime"
+            input="/tmp/${slug}-input/${asset_name}"
+            curl -fL --retry 5 --retry-all-errors --connect-timeout 30 --max-time 1200 "$asset_url" -o "$input"
+            test "$(stat -c %s "$input")" -eq "$asset_size"
+            ffprobe -v error -select_streams a:0 -show_entries stream=codec_name -of default=nw=1:nk=1 "$input" | grep -q .
+
+            title="${asset_name%.*}"
+            vid-pipeline run-file "$input" \
+              --name "$slug" \
+              --output-root "/tmp/${slug}-runtime" \
+              --profile "$PROFILE" \
+              --language "$LANGUAGE" \
+              --device cpu \
+              --compute-type int8 \
+              --audio-profile "$AUDIO_PROFILE" \
+              --hotwords "$hotwords" \
+              --title "$title" \
+              --program "$display" \
+              --speaker "دکتر کمیل رودی" \
+              --source-url "$asset_url" \
+              --no-editorial
+
+            job_dir=$(find "/tmp/${slug}-runtime" -mindepth 1 -maxdepth 1 -type d -name "${slug}-*" -print -quit)
+            test -n "$job_dir"
+            test -s "$job_dir/delivery/transcript.txt"
+            test -s "$job_dir/pre_review/transcript.pre-review.json"
+            test -s "$job_dir/accuracy/transcript.consensus.json"
+            test -s "$job_dir/review/assistant-review-package.json"
+
+            rm -rf "$dest"
+            mkdir -p "$dest"
+            for d in delivery pre_review accuracy review raw machine final; do
+              if [[ -d "$job_dir/$d" ]]; then
+                mkdir -p "$dest/$d"
+                rsync -a --exclude 'clips/' --exclude '*.mp3' --exclude '*.m4a' --exclude '*.wav' --exclude '*.flac' --exclude '*.aac' --exclude '*.ogg' --exclude '*.opus' --exclude '*.mp4' --exclude '*.mkv' --exclude '*.mov' --exclude '*.webm' "$job_dir/$d/" "$dest/$d/"
+              fi
+            done
+            [[ -f "$job_dir/result.json" ]] && cp "$job_dir/result.json" "$dest/result.json"
+            [[ -f "$job_dir/source.json" ]] && cp "$job_dir/source.json" "$dest/source.json"
+
+            ITEM="$item" python - "$dest/metadata.json" <<'PY'
+          import json, os, sys
+          from pathlib import Path
+          item = json.loads(os.environ['ITEM'])
+          payload = {
+              'collection': item['display'], 'asset_name': item['asset_name'], 'source_release_tag': item['release_tag'],
+              'source_url': item['asset_url'], 'profile': os.environ['PROFILE'], 'asr_model': 'large-v3-turbo',
+              'language': os.environ['LANGUAGE'], 'audio_profile': os.environ['AUDIO_PROFILE'],
+              'accuracy_mode': os.environ['VID_PIPELINE_ACCURACY_MODE'], 'editorial': False,
+              'chatgpt_review_ready': True, 'review_clips_committed': False, 'pipeline_run_id': os.environ['GITHUB_RUN_ID'],
+          }
+          Path(sys.argv[1]).write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -f "$dest"
+            if ! git diff --cached --quiet; then
+              git commit -m "Add ${display} transcript and review package"
+              for attempt in 1 2 3 4 5; do
+                git pull --rebase origin main
+                if git push origin HEAD:main; then break; fi
+                [[ "$attempt" -lt 5 ]] || exit 1
+                sleep $((attempt * 4))
+              done
+            fi
+            rm -rf "/tmp/${slug}-input" "/tmp/${slug}-runtime"
+          done
+
+      - name: Create queue completion report
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh issue create --title "Post-Chehelstoun media queue v2 ${GITHUB_RUN_ID}" --body "Queue order:\n1. Mizan\n2. Voice.260817_165035.m4a\n3. Ketab Baz\n\nEach item is committed independently and media is removed from runner storage after processing.\n\nRun: https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"

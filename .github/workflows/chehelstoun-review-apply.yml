@@ -6,9 +6,10 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/chehelstoun-review-apply.yml'
+      - '.github/review-apply-trigger.txt'
       - 'outputs/chehelstoun/*/review/chatgpt-corrections.json'
   schedule:
-    - cron: '7,22,37,52 * * * *'
+    - cron: '*/10 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -43,8 +44,10 @@ jobs:
             root="${COLLECTION_ROOT}/${ep}"
             [[ -s "$root/review/chatgpt-corrections.json" ]] || continue
             [[ -s "$root/review/assistant-review-package.json" ]] || continue
+            [[ -s "$root/review/uncertain-spans.json" ]] || continue
             [[ -s "$root/raw/transcript.raw.json" ]] || continue
             [[ ! -s "$root/human/verification.json" ]] || continue
+            python -m json.tool "$root/review/chatgpt-corrections.json" >/dev/null
             chosen="$ep"
             echo "episode=$ep" >> "$GITHUB_OUTPUT"
             break
@@ -83,6 +86,8 @@ jobs:
             --reviewer "ChatGPT" \
             --promote
           test -s "$root/human/verification.json"
+          test -s "$root/human/transcript.human.txt"
+          test -s "$root/human/transcript.human.md"
           test -s "$root/delivery/transcript.txt"
           python - "$root/review/status.json" <<'PY'
           import json, os, sys

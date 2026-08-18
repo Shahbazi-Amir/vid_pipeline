@@ -1,9 +1,13 @@
 name: Actions retention cleanup
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/actions-retention.yml'
   workflow_dispatch:
   schedule:
-    - cron: '17 1 * * *'
+    - cron: '17 */6 * * *'
 
 permissions:
   actions: write
@@ -15,23 +19,42 @@ concurrency:
 jobs:
   cleanup:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
-      - name: Prune excess completed workflow runs
+      - name: Prune completed runs, old artifacts, and stale caches
         uses: actions/github-script@v7
         env:
           KEEP_RECENT_COMPLETED: '30'
-          MIN_AGE_HOURS: '2'
-          MAX_DELETES_PER_RUN: '300'
+          RUN_MIN_AGE_HOURS: '2'
+          MAX_RUN_DELETES: '300'
+          KEEP_RECENT_ARTIFACTS: '10'
+          ARTIFACT_MIN_AGE_HOURS: '6'
+          MAX_ARTIFACT_DELETES: '300'
+          KEEP_RECENT_CACHES: '8'
+          CACHE_MIN_IDLE_DAYS: '7'
+          MAX_CACHE_DELETES: '50'
         with:
           retries: 3
           script: |
-            const keepRecent = Number(process.env.KEEP_RECENT_COMPLETED || '30');
-            const minAgeMs = Number(process.env.MIN_AGE_HOURS || '2') * 60 * 60 * 1000;
-            const maxDeletes = Number(process.env.MAX_DELETES_PER_RUN || '300');
-            const protectedIds = new Set();
-            protectedIds.add(Number(context.runId));
+            const toMs = (hours) => Number(hours) * 60 * 60 * 1000;
+            const now = Date.now();
+            const cleanupRunId = Number(context.runId);
 
+            const keepRecentCompleted = Number(process.env.KEEP_RECENT_COMPLETED || '30');
+            const runMinAgeMs = toMs(process.env.RUN_MIN_AGE_HOURS || '2');
+            const maxRunDeletes = Number(process.env.MAX_RUN_DELETES || '300');
+
+            const keepRecentArtifacts = Number(process.env.KEEP_RECENT_ARTIFACTS || '10');
+            const artifactMinAgeMs = toMs(process.env.ARTIFACT_MIN_AGE_HOURS || '6');
+            const maxArtifactDeletes = Number(process.env.MAX_ARTIFACT_DELETES || '300');
+
+            const keepRecentCaches = Number(process.env.KEEP_RECENT_CACHES || '8');
+            const cacheMinIdleMs = Number(process.env.CACHE_MIN_IDLE_DAYS || '7') * 24 * 60 * 60 * 1000;
+            const maxCacheDeletes = Number(process.env.MAX_CACHE_DELETES || '50');
+
+            const failures = [];
+
+            // 1) Workflow-run history/log cleanup. Never touch active runs or the cleanup run itself.
             const runsBefore = await github.paginate(
               github.rest.actions.listWorkflowRunsForRepo,
               { ...context.repo, per_page: 100 },
@@ -40,32 +63,127 @@ jobs:
               .filter((run) => run.status === 'completed')
               .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
             const active = runsBefore.filter((run) => run.status !== 'completed');
-            const recentIds = new Set(completed.slice(0, keepRecent).map((run) => run.id));
-            const now = Date.now();
-            const candidates = completed.filter((run) => {
-              if (protectedIds.has(run.id) || recentIds.has(run.id)) return false;
+            const activeRunIds = new Set(active.map((run) => Number(run.id)));
+            activeRunIds.add(cleanupRunId);
+            const recentCompletedIds = new Set(
+              completed.slice(0, keepRecentCompleted).map((run) => Number(run.id)),
+            );
+
+            const runCandidates = completed.filter((run) => {
+              if (Number(run.id) === cleanupRunId || recentCompletedIds.has(Number(run.id))) return false;
               const created = new Date(run.created_at).getTime();
-              return Number.isFinite(created) && now - created >= minAgeMs;
+              return Number.isFinite(created) && now - created >= runMinAgeMs;
             });
 
-            let deleted = 0;
-            const failures = [];
-            for (const run of candidates.slice(0, maxDeletes)) {
+            let runsDeleted = 0;
+            for (const run of runCandidates.slice(0, maxRunDeletes)) {
               try {
                 await github.rest.actions.deleteWorkflowRun({ ...context.repo, run_id: run.id });
-                deleted += 1;
+                runsDeleted += 1;
               } catch (error) {
-                if (error.status === 404) deleted += 1;
-                else failures.push({ id: run.id, status: error.status || null, message: String(error.message || error) });
+                if (error.status === 404) runsDeleted += 1;
+                else failures.push({ type: 'run', id: run.id, status: error.status || null, message: String(error.message || error) });
               }
             }
 
-            const artifacts = await github.paginate(
+            // 2) Artifact cleanup independent of run-history retention. Release assets are not Actions artifacts
+            // and are therefore intentionally outside this cleanup.
+            const artifactsBefore = await github.paginate(
               github.rest.actions.listArtifactsForRepo,
               { ...context.repo, per_page: 100 },
             );
-            const liveArtifacts = artifacts.filter((artifact) => !artifact.expired);
-            const liveBytes = liveArtifacts.reduce((sum, artifact) => sum + Number(artifact.size_in_bytes || 0), 0);
+            const liveArtifactsBefore = artifactsBefore
+              .filter((artifact) => !artifact.expired)
+              .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+            const recentArtifactIds = new Set(
+              liveArtifactsBefore.slice(0, keepRecentArtifacts).map((artifact) => Number(artifact.id)),
+            );
+            const artifactCandidates = liveArtifactsBefore.filter((artifact) => {
+              if (recentArtifactIds.has(Number(artifact.id))) return false;
+              const runId = Number(artifact.workflow_run?.id || 0);
+              if (runId && activeRunIds.has(runId)) return false;
+              const created = new Date(artifact.created_at).getTime();
+              return Number.isFinite(created) && now - created >= artifactMinAgeMs;
+            });
+
+            let artifactsDeleted = 0;
+            let artifactBytesFreed = 0;
+            for (const artifact of artifactCandidates.slice(0, maxArtifactDeletes)) {
+              try {
+                await github.rest.actions.deleteArtifact({ ...context.repo, artifact_id: artifact.id });
+                artifactsDeleted += 1;
+                artifactBytesFreed += Number(artifact.size_in_bytes || 0);
+              } catch (error) {
+                if (error.status === 404) artifactsDeleted += 1;
+                else failures.push({ type: 'artifact', id: artifact.id, status: error.status || null, message: String(error.message || error) });
+              }
+            }
+
+            // 3) Cache cleanup. Keep recently-accessed ASR/dependency caches; only prune stale entries.
+            let cachesBefore = [];
+            try {
+              cachesBefore = await github.paginate(
+                'GET /repos/{owner}/{repo}/actions/caches',
+                { ...context.repo, per_page: 100 },
+              );
+            } catch (error) {
+              failures.push({ type: 'cache-list', id: null, status: error.status || null, message: String(error.message || error) });
+            }
+
+            const cachesSorted = [...cachesBefore].sort((a, b) => {
+              const aTime = new Date(a.last_accessed_at || a.created_at || 0).getTime();
+              const bTime = new Date(b.last_accessed_at || b.created_at || 0).getTime();
+              return bTime - aTime;
+            });
+            const recentCacheIds = new Set(
+              cachesSorted.slice(0, keepRecentCaches).map((cache) => Number(cache.id)),
+            );
+            const cacheCandidates = cachesSorted.filter((cache) => {
+              if (recentCacheIds.has(Number(cache.id))) return false;
+              const touched = new Date(cache.last_accessed_at || cache.created_at || 0).getTime();
+              return Number.isFinite(touched) && now - touched >= cacheMinIdleMs;
+            });
+
+            let cachesDeleted = 0;
+            let cacheBytesFreed = 0;
+            for (const cache of cacheCandidates.slice(0, maxCacheDeletes)) {
+              try {
+                await github.request(
+                  'DELETE /repos/{owner}/{repo}/actions/caches/{cache_id}',
+                  { ...context.repo, cache_id: cache.id },
+                );
+                cachesDeleted += 1;
+                cacheBytesFreed += Number(cache.size_in_bytes || 0);
+              } catch (error) {
+                if (error.status === 404) cachesDeleted += 1;
+                else failures.push({ type: 'cache', id: cache.id, status: error.status || null, message: String(error.message || error) });
+              }
+            }
+
+            const artifactsAfter = await github.paginate(
+              github.rest.actions.listArtifactsForRepo,
+              { ...context.repo, per_page: 100 },
+            );
+            const liveArtifactsAfter = artifactsAfter.filter((artifact) => !artifact.expired);
+            const liveArtifactBytesAfter = liveArtifactsAfter.reduce(
+              (sum, artifact) => sum + Number(artifact.size_in_bytes || 0),
+              0,
+            );
+
+            let cachesAfter = [];
+            try {
+              cachesAfter = await github.paginate(
+                'GET /repos/{owner}/{repo}/actions/caches',
+                { ...context.repo, per_page: 100 },
+              );
+            } catch (error) {
+              failures.push({ type: 'cache-list-after', id: null, status: error.status || null, message: String(error.message || error) });
+            }
+            const cacheBytesAfter = cachesAfter.reduce(
+              (sum, cache) => sum + Number(cache.size_in_bytes || 0),
+              0,
+            );
+
             const runsAfter = await github.paginate(
               github.rest.actions.listWorkflowRunsForRepo,
               { ...context.repo, per_page: 100 },
@@ -73,29 +191,41 @@ jobs:
 
             const status = {
               updated_at_utc: new Date().toISOString(),
-              cleanup_run_id: Number(context.runId),
+              cleanup_run_id: cleanupRunId,
+              active_runs_preserved: active.length,
               visible_runs_before: runsBefore.length,
               visible_runs_after: runsAfter.length,
-              active_runs_preserved: active.length,
-              completed_runs_deleted: deleted,
+              completed_runs_deleted: runsDeleted,
+              live_artifacts_before: liveArtifactsBefore.length,
+              live_artifacts_after: liveArtifactsAfter.length,
+              artifacts_deleted: artifactsDeleted,
+              artifact_bytes_freed: artifactBytesFreed,
+              live_artifact_bytes_after: liveArtifactBytesAfter,
+              caches_before: cachesBefore.length,
+              caches_after: cachesAfter.length,
+              caches_deleted: cachesDeleted,
+              cache_bytes_freed: cacheBytesFreed,
+              cache_bytes_after: cacheBytesAfter,
               failures,
-              keep_recent_completed: keepRecent,
-              min_age_hours: Number(process.env.MIN_AGE_HOURS || '2'),
-              live_artifact_count: liveArtifacts.length,
-              live_artifact_bytes: liveBytes,
             };
 
             core.info(`ACTIONS_RETENTION_STATUS=${JSON.stringify(status)}`);
             await core.summary
-              .addHeading('Actions retention cleanup')
+              .addHeading('Actions storage cleanup')
               .addTable([
                 [{ data: 'Metric', header: true }, { data: 'Value', header: true }],
-                ['Runs before', String(status.visible_runs_before)],
-                ['Runs after', String(status.visible_runs_after)],
+                ['Active runs preserved', String(status.active_runs_preserved)],
                 ['Runs deleted', String(status.completed_runs_deleted)],
-                ['Live artifacts', String(status.live_artifact_count)],
-                ['Live artifact bytes', String(status.live_artifact_bytes)],
+                ['Artifacts deleted', String(status.artifacts_deleted)],
+                ['Artifact bytes freed', String(status.artifact_bytes_freed)],
+                ['Live artifact bytes after', String(status.live_artifact_bytes_after)],
+                ['Caches deleted', String(status.caches_deleted)],
+                ['Cache bytes freed', String(status.cache_bytes_freed)],
+                ['Cache bytes after', String(status.cache_bytes_after)],
+                ['Failures', String(status.failures.length)],
               ])
               .write();
 
-            if (failures.length) core.setFailed(`Failed to delete ${failures.length} workflow run(s)`);
+            if (failures.length) {
+              core.setFailed(`Cleanup completed with ${failures.length} failure(s)`);
+            }

@@ -1,0 +1,83 @@
+name: Bundle Chehelstoun complete archive
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/bundle-chehelstoun-complete.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      RELEASE_TAG: chehelstoun-archive-v1
+      BUNDLE: Chehelstoun_01-38_COMPLETE.zip
+    steps:
+      - name: Download MP3 release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --pattern '*.mp3' --dir dist
+          count=$(find dist -maxdepth 1 -type f -name '*.mp3' | wc -l)
+          echo "Downloaded MP3 count: $count"
+          test "$count" -eq 38
+
+      - name: Create one complete ZIP
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import zipfile
+          from pathlib import Path
+          files=sorted(Path('dist').glob('*.mp3'))
+          out=Path('Chehelstoun_01-38_COMPLETE.zip')
+          with zipfile.ZipFile(out,'w',compression=zipfile.ZIP_STORED,allowZip64=True) as z:
+              for p in files:
+                  z.write(p, arcname=p.name)
+          print(out, out.stat().st_size)
+          if out.stat().st_size >= 2 * 1024**3:
+              raise SystemExit('Bundle is >= 2 GiB and cannot be a single GitHub release asset')
+          PY
+          ls -lh "$BUNDLE"
+
+      - name: Upload complete ZIP to release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh release upload "$RELEASE_TAG" "$BUNDLE" --repo "$GITHUB_REPOSITORY" --clobber
+
+      - name: Report result
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          JOB_STATUS: ${{ job.status }}
+        shell: bash
+        run: |
+          set -u
+          title="Chehelstoun complete ZIP report"
+          body=$(cat <<EOF
+          Complete Chehelstoun ZIP build finished.
+
+          - status: ${JOB_STATUS}
+          - run_id: ${GITHUB_RUN_ID}
+          - file: ${BUNDLE}
+          - release: https://github.com/${GITHUB_REPOSITORY}/releases/tag/${RELEASE_TAG}
+          EOF
+          )
+          issue=$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --search "$title in:title" --json number,title --jq '.[] | select(.title == "Chehelstoun complete ZIP report") | .number' | head -n1)
+          if [ -n "$issue" ]; then
+            gh issue comment "$issue" --repo "$GITHUB_REPOSITORY" --body "$body"
+          else
+            gh issue create --repo "$GITHUB_REPOSITORY" --title "$title" --body "$body"
+          fi

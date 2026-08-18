@@ -1,0 +1,77 @@
+name: Probe Finup Komeil Roudi media
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/probe-finup-komeil.yml'
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install yt-dlp
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m pip install --upgrade yt-dlp
+
+      - name: Probe official Finup channel and searches
+        shell: bash
+        run: |
+          set -u
+          mkdir -p probe
+          : > probe/results.txt
+
+          echo '=== OFFICIAL CHANNEL: @finupevent/videos ===' | tee -a probe/results.txt
+          yt-dlp --flat-playlist --playlist-end 200 \
+            --print '%(id)s\t%(title)s\t%(uploader)s\t%(channel)s\t%(webpage_url)s' \
+            'https://www.youtube.com/@finupevent/videos' \
+            2>&1 | tee -a probe/results.txt || true
+
+          for q in \
+            'کمیل رودی فیناپ' \
+            'کمیل رودی Money Matters Finup' \
+            'سواد مالی چه هست و چه نیست' \
+            'Finup 21 Komeil Roudi'; do
+            echo "=== SEARCH: $q ===" | tee -a probe/results.txt
+            yt-dlp --flat-playlist --playlist-end 30 \
+              --print '%(id)s\t%(title)s\t%(uploader)s\t%(channel)s\t%(webpage_url)s' \
+              "ytsearch30:${q}" 2>&1 | tee -a probe/results.txt || true
+          done
+
+          echo '=== FILTERED ===' | tee -a probe/results.txt
+          grep -Ei 'کمیل|رودی|Komeil|Roudi|سواد مالی|Money Matters' probe/results.txt \
+            | tail -n 200 | tee probe/filtered.txt || true
+
+      - name: Report probe results
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          body_file=probe/body.md
+          {
+            echo 'Finup/Komeil source probe finished.'
+            echo
+            echo '```text'
+            if [[ -s probe/filtered.txt ]]; then
+              tail -n 120 probe/filtered.txt
+            else
+              tail -n 120 probe/results.txt
+            fi
+            echo '```'
+            echo
+            echo "Run: https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          } > "$body_file"
+          gh issue create --repo "$GITHUB_REPOSITORY" \
+            --title "Finup Komeil source probe — ${GITHUB_RUN_ID}" \
+            --body-file "$body_file"

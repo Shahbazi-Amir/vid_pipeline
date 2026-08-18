@@ -1,0 +1,97 @@
+name: Archive Komeil Roudi Ketab Baz episode
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/archive-ketab-baz-komeil-roudi.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      RELEASE_TAG: ketab-baz-s05e68-komeil-roudi
+      OUTPUT_BASENAME: KetabBaz_S05E68_Komeil_Roudi
+      YOUTUBE_URL: https://youtu.be/yohZIIrjSwE
+      APARAT_URL: https://www.aparat.com/v/7oEKI/
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install downloader
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python3 -m pip install --upgrade yt-dlp
+
+      - name: Download full episode with fallback
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist logs
+          : > logs/download-attempts.txt
+          success=0
+          for url in "$YOUTUBE_URL" "$APARAT_URL"; do
+            echo "Trying: $url" | tee -a logs/download-attempts.txt
+            rm -f dist/${OUTPUT_BASENAME}.*
+            if yt-dlp \
+              --no-playlist \
+              --retries 10 \
+              --fragment-retries 10 \
+              --merge-output-format mp4 \
+              -f 'bv*[height<=1080]+ba/b[height<=1080]/best' \
+              -o "dist/${OUTPUT_BASENAME}.%(ext)s" \
+              "$url" 2>&1 | tee -a logs/download-attempts.txt; then
+              media=$(find dist -maxdepth 1 -type f -name "${OUTPUT_BASENAME}.*" ! -name '*.part' | head -n1 || true)
+              if [[ -n "$media" ]] && [[ $(stat -c%s "$media") -gt 1000000 ]] && ffprobe -v error "$media" >/dev/null 2>&1; then
+                printf '%s\n' "$url" > dist/source_url.txt
+                success=1
+                break
+              fi
+            fi
+          done
+          [[ "$success" -eq 1 ]] || { echo 'Both source downloads failed'; exit 1; }
+
+          media=$(find dist -maxdepth 1 -type f -name "${OUTPUT_BASENAME}.*" ! -name '*.part' | head -n1)
+          if [[ "$media" != "dist/${OUTPUT_BASENAME}.mp4" ]]; then
+            ffmpeg -y -i "$media" -map 0 -c copy "dist/${OUTPUT_BASENAME}.mp4"
+            rm -f "$media"
+          fi
+          ffprobe -v error -show_entries format=duration,size -of json "dist/${OUTPUT_BASENAME}.mp4" > dist/media_info.json
+          (cd dist && sha256sum "${OUTPUT_BASENAME}.mp4" > SHA256SUMS.txt)
+          cat > dist/README.txt <<EOF
+          Ketab Baz (کتاب‌باز), season 5 episode 68 — guest: Dr. Komeil Roudi
+          Topic: financial literacy / سواد مالی
+          Primary source: ${YOUTUBE_URL}
+          Fallback source: ${APARAT_URL}
+          The exact source used for this archive is recorded in source_url.txt.
+          EOF
+          ls -lh dist/
+
+      - name: Create or update GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            gh release create "$RELEASE_TAG" \
+              --target "$GITHUB_SHA" \
+              --title "Ketab Baz — Dr. Komeil Roudi (S05E68)" \
+              --notes "Full public episode of Ketab Baz with Dr. Komeil Roudi discussing financial literacy. Source provenance and checksum are attached."
+          fi
+          gh release upload "$RELEASE_TAG" dist/* --clobber
+
+      - name: Upload logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ketab-baz-download-logs
+          path: logs/
+          retention-days: 7

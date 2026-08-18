@@ -1,0 +1,186 @@
+name: Source provenance backfill
+run-name: Source provenance backfill ${{ github.run_id }}
+
+on:
+  workflow_run:
+    workflows:
+      - "Chehelstoun review materialization"
+      - "Post-Chehelstoun media queue"
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: source-provenance-backfill
+  cancel-in-progress: false
+
+env:
+  CHEHELSTOUN_RELEASE_TAG: chehelstoun-archive-v1
+  KETAB_BAZ_RSS_URL: https://rss.castbox.fm/everest/db2dc0b37407484e86691781e9f82d03.xml
+
+jobs:
+  backfill:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Download Chehelstoun source manifest
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/chehelstoun-manifest
+          gh release download "$CHEHELSTOUN_RELEASE_TAG" \
+            --pattern manifest.csv \
+            --dir /tmp/chehelstoun-manifest
+          test -s /tmp/chehelstoun-manifest/manifest.csv
+
+      - name: Record original source URLs in all transcripts
+        shell: bash
+        run: |
+          set -euo pipefail
+          PYTHONPATH=src python - <<'PY'
+          import csv
+          import html
+          import json
+          import os
+          import re
+          import urllib.request
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+
+          from vid_pipeline.provenance import record_and_annotate
+
+          def archive_url(root: Path) -> str:
+              path = root / 'source.json'
+              if not path.is_file():
+                  return ''
+              data = json.loads(path.read_text(encoding='utf-8'))
+              prov = data.get('provenance') or {}
+              return str(prov.get('archive_url') or data.get('archive_url') or data.get('source_url') or '')
+
+          manifest = Path('/tmp/chehelstoun-manifest/manifest.csv')
+          rows = {}
+          with manifest.open('r', encoding='utf-8-sig', newline='') as handle:
+              for row in csv.DictReader(handle):
+                  rows[int(row['episode'])] = row
+
+          changed = 0
+          for episode in range(1, 39):
+              root = Path(f'outputs/chehelstoun/{episode:02d}')
+              if not (root / 'delivery/transcript.txt').is_file():
+                  continue
+              row = rows.get(episode)
+              if not row or not row.get('source_url'):
+                  raise SystemExit(f'Missing original URL in manifest for Chehelstoun {episode:02d}')
+              record_and_annotate(
+                  root,
+                  original_download_url=row['source_url'],
+                  archive_url=archive_url(root),
+              )
+              changed += 1
+
+          ketab_root = Path('outputs/ketab-baz/01')
+          if (ketab_root / 'delivery/transcript.txt').is_file():
+              rss_url = os.environ['KETAB_BAZ_RSS_URL']
+              req = urllib.request.Request(rss_url, headers={'User-Agent': 'Mozilla/5.0'})
+              with urllib.request.urlopen(req, timeout=60) as response:
+                  feed = response.read()
+              xml_root = ET.fromstring(feed)
+              target = None
+              for item in xml_root.findall('.//item'):
+                  if 'کمیل رودی' in (item.findtext('title') or ''):
+                      target = item
+                      break
+              if target is None:
+                  raise SystemExit('Ketab Baz Komeil Roudi item not found in RSS')
+              candidates = []
+              for elem in target.iter():
+                  for key, value in elem.attrib.items():
+                      if key.lower().endswith('url') and isinstance(value, str) and value.startswith('http'):
+                          candidates.append(html.unescape(value))
+                  text = (elem.text or '').strip()
+                  if text.startswith('http'):
+                      candidates.append(html.unescape(text))
+
+              def score(url: str) -> int:
+                  low = url.lower()
+                  value = 0
+                  if '.mp3' in low:
+                      value += 100
+                  if '.m4a' in low or '.aac' in low:
+                      value += 80
+                  if 'castbox' in low:
+                      value += 40
+                  if 'audio' in low:
+                      value += 20
+                  if re.search(r'\.(jpg|jpeg|png|webp)(\?|$)', low):
+                      value -= 200
+                  return value
+
+              candidates = sorted(set(candidates), key=score, reverse=True)
+              if not candidates or score(candidates[0]) <= 0:
+                  raise SystemExit('Ketab Baz original audio enclosure could not be resolved')
+              record_and_annotate(
+                  ketab_root,
+                  original_download_url=candidates[0],
+                  source_page_url=rss_url,
+                  archive_url=archive_url(ketab_root),
+              )
+              changed += 1
+
+          mizan_root = Path('outputs/mizan/01')
+          if (mizan_root / 'delivery/transcript.txt').is_file():
+              source_path = mizan_root / 'source.json'
+              existing = json.loads(source_path.read_text(encoding='utf-8')) if source_path.is_file() else {}
+              prov = existing.get('provenance') or {}
+              original = str(prov.get('original_download_url') or existing.get('original_download_url') or '')
+              record_and_annotate(
+                  mizan_root,
+                  original_download_url=original,
+                  archive_url=archive_url(mizan_root),
+              )
+              changed += 1
+
+          print(f'Provenance applied to {changed} transcript jobs')
+          PY
+
+      - name: Commit provenance updates
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f outputs/chehelstoun outputs/mizan outputs/ketab-baz 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No provenance changes to commit."
+            exit 0
+          fi
+          git commit -m "Add original media source links to transcripts"
+          for attempt in 1 2 3; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep $((attempt * 4))
+          done
+          exit 1
+
+      - name: Report provenance result
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          gh issue create \
+            --title "Transcript source provenance ${GITHUB_RUN_ID}" \
+            --body "Source provenance workflow finished. Original direct-download URLs are persisted in source.json and exposed in delivery transcripts whenever recoverable. Run: https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"

@@ -108,15 +108,15 @@ jobs:
           sha256sum "$media" > dist/SHA256SUMS.txt
           printf '%s\n' "$VIDEO_URL" > dist/source_url.txt
           printf '%s\n' "$method" > dist/download_method.txt
-          cat > dist/README.txt <<EOF
-Finup Event 21 — Money Matters
-Speaker: Dr. Komeil Roudi / دکتر کمیل رودی
-Presentation: What Financial Literacy Is and What It Isn't / سواد مالی چه هست و چه نیست
-Official source: Finup Event YouTube channel
-Video ID: ${VIDEO_ID}
-Archive method: ${method}
-This workflow only archives the media; it does not start transcription.
-EOF
+          {
+            echo 'Finup Event 21 — Money Matters'
+            echo 'Speaker: Dr. Komeil Roudi / دکتر کمیل رودی'
+            echo "Presentation: What Financial Literacy Is and What It Isn't / سواد مالی چه هست و چه نیست"
+            echo 'Official source: Finup Event YouTube channel'
+            echo "Video ID: ${VIDEO_ID}"
+            echo "Archive method: ${method}"
+            echo 'This workflow only archives the media; it does not start transcription.'
+          } > dist/README.txt
           ls -lh dist/
 
       - name: Create or update GitHub Release
@@ -158,19 +158,17 @@ EOF
           found=$(find dist -maxdepth 1 -type f \( -name '*.mp4' -o -name '*.mp3' \) -printf '%f\n' 2>/dev/null | head -1 || true)
           [[ -n "$found" ]] && media="$found"
           [[ -f dist/media_info.json ]] && info=$(tr -d '\n' < dist/media_info.json)
-          body=$(cat <<EOF
-Finup Komeil archive workflow finished.
-
-- status: ${JOB_STATUS}
-- source: ${VIDEO_URL}
-- video_id: ${VIDEO_ID}
-- media: ${media}
-- method: ${method}
-- media_info: ${info}
-- run: https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}
-- release: https://github.com/${GITHUB_REPOSITORY}/releases/tag/${RELEASE_TAG}
-EOF
-          )
+          body=$(printf '%s\n' \
+            'Finup Komeil archive workflow finished.' \
+            '' \
+            "- status: ${JOB_STATUS}" \
+            "- source: ${VIDEO_URL}" \
+            "- video_id: ${VIDEO_ID}" \
+            "- media: ${media}" \
+            "- method: ${method}" \
+            "- media_info: ${info}" \
+            "- run: https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" \
+            "- release: https://github.com/${GITHUB_REPOSITORY}/releases/tag/${RELEASE_TAG}")
           gh issue create --repo "$GITHUB_REPOSITORY" \
             --title "Finup Komeil archive report — ${GITHUB_RUN_ID}" \
             --body "$body"

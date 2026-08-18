@@ -107,13 +107,13 @@ jobs:
           if command -v ffprobe >/dev/null 2>&1; then
             ffprobe -v error -show_entries format=duration,size,format_name -of json "$media" > dist/media_info.json || true
           fi
-          cat > dist/README.txt <<EOF
-Finup Event 21 — Money Matters
-Speaker: Dr. Komeil Roudi / دکتر کمیل رودی
-Presentation: What Financial Literacy Is and What It Isn't / سواد مالی چه هست و چه نیست
-Official Finup Event YouTube video ID: ${VIDEO_ID}
-This workflow archives the source media only. It does NOT start transcription.
-EOF
+          {
+            echo 'Finup Event 21 — Money Matters'
+            echo 'Speaker: Dr. Komeil Roudi / دکتر کمیل رودی'
+            echo "Presentation: What Financial Literacy Is and What It Isn't / سواد مالی چه هست و چه نیست"
+            echo "Official Finup Event YouTube video ID: ${VIDEO_ID}"
+            echo 'This workflow archives the source media only. It does NOT start transcription.'
+          } > dist/README.txt
           ls -lh dist/
 
       - name: Upload archive to GitHub Release
@@ -143,18 +143,16 @@ EOF
           [[ -n "$media" ]] || media='not available'
           method='not available'
           [[ -f dist/download_method.txt ]] && method=$(cat dist/download_method.txt)
-          body=$(cat <<EOF
-Finup Komeil official media archive finished.
-
-- status: ${JOB_STATUS}
-- official_video_id: ${VIDEO_ID}
-- media: ${media}
-- method: ${method}
-- source: ${VIDEO_URL}
-- run: https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}
-- release: https://github.com/${GITHUB_REPOSITORY}/releases/tag/${RELEASE_TAG}
-EOF
-          )
+          body=$(printf '%s\n' \
+            'Finup Komeil official media archive finished.' \
+            '' \
+            "- status: ${JOB_STATUS}" \
+            "- official_video_id: ${VIDEO_ID}" \
+            "- media: ${media}" \
+            "- method: ${method}" \
+            "- source: ${VIDEO_URL}" \
+            "- run: https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" \
+            "- release: https://github.com/${GITHUB_REPOSITORY}/releases/tag/${RELEASE_TAG}")
           gh issue create --repo "$GITHUB_REPOSITORY" \
             --title "Finup Komeil official archive — ${GITHUB_RUN_ID}" \
             --body "$body"

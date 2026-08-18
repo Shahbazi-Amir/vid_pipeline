@@ -8,6 +8,7 @@ import time
 from pathlib import Path
 from typing import Any
 
+from vid_pipeline.provenance import annotate_delivery
 from vid_pipeline.state import PipelineState
 
 OUTPUT_NAMES = ("transcript.md", "transcript.txt", "transcript.timestamped.md")
@@ -74,9 +75,6 @@ def select_timestamp_source(job_root: str | Path) -> tuple[Path, list[dict[str, 
         timeline_path, timeline_segments = max(available, key=resolution)
         if resolution((text_path, text_segments)) >= resolution((timeline_path, timeline_segments)):
             return text_path, text_segments
-        # Without word timings, splitting a reviewed coarse segment across a
-        # finer speaker timeline would duplicate or invent text. Preserve the
-        # already aligned timeline and its text rather than collapsing speakers.
         return timeline_path, timeline_segments
     raise ValueError("No transcript source contains valid, real segment timestamps.")
 
@@ -168,6 +166,7 @@ def export_final_outputs(job_root: str | Path) -> dict[str, Any]:
     if delivery.exists():
         shutil.rmtree(delivery)
     temporary.replace(delivery)
+    provenance = annotate_delivery(root)
 
     outputs = {name: str((delivery / filename).resolve()) for name, filename in zip(
         ("markdown", "text", "timestamped_markdown"), OUTPUT_NAMES, strict=True
@@ -177,6 +176,7 @@ def export_final_outputs(job_root: str | Path) -> dict[str, Any]:
         "final_outputs": outputs, "exported_speakers": exported_speakers,
         "exported_effective_speakers": exported_effective,
         "exported_effective_speaker_count": len(exported_effective),
+        "source_provenance": provenance,
         "export_seconds": round(time.monotonic() - export_started, 6),
     }
     state = PipelineState(root / "state.json")
@@ -189,6 +189,7 @@ def export_final_outputs(job_root: str | Path) -> dict[str, Any]:
         "exported_speakers": exported_speakers,
         "exported_effective_speakers": exported_effective,
         "exported_effective_speaker_count": len(exported_effective),
+        "source_provenance": provenance,
     })
     result_path.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return details

@@ -85,14 +85,14 @@ jobs:
           fi
           sha256sum "$dest" > dist/SHA256SUMS.txt
           printf '%s\n' "$VIDEO_URL" > dist/source_url.txt
-          cat > dist/README.txt <<EOF
-Finup Event 21 — Money Matters
-Speaker: Dr. Komeil Roudi / دکتر کمیل رودی
-Presentation: What Financial Literacy Is and What It Isn't / سواد مالی چه هست و چه نیست
-Official Finup Event YouTube video ID: ${VIDEO_ID}
-Download method: yt-dlp mweb client + bgutil proof-of-origin token provider.
-This workflow only archives media and does NOT start transcription.
-EOF
+          {
+            echo 'Finup Event 21 — Money Matters'
+            echo 'Speaker: Dr. Komeil Roudi / دکتر کمیل رودی'
+            echo "Presentation: What Financial Literacy Is and What It Isn't / سواد مالی چه هست و چه نیست"
+            echo "Official Finup Event YouTube video ID: ${VIDEO_ID}"
+            echo 'Download method: yt-dlp mweb client + bgutil proof-of-origin token provider.'
+            echo 'This workflow only archives media and does NOT start transcription.'
+          } > dist/README.txt
           ls -lh dist/
 
       - name: Upload to release
@@ -120,17 +120,15 @@ EOF
           set -u
           media=$(find dist -maxdepth 1 -type f -name "${OUTPUT_BASENAME}.*" -printf '%f' 2>/dev/null | head -1 || true)
           [[ -n "$media" ]] || media='not available'
-          body=$(cat <<EOF
-Finup Komeil PO-token archive finished.
-
-- status: ${JOB_STATUS}
-- official_video_id: ${VIDEO_ID}
-- media: ${media}
-- source: ${VIDEO_URL}
-- run: https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}
-- release: https://github.com/${GITHUB_REPOSITORY}/releases/tag/${RELEASE_TAG}
-EOF
-          )
+          body=$(printf '%s\n' \
+            'Finup Komeil PO-token archive finished.' \
+            '' \
+            "- status: ${JOB_STATUS}" \
+            "- official_video_id: ${VIDEO_ID}" \
+            "- media: ${media}" \
+            "- source: ${VIDEO_URL}" \
+            "- run: https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" \
+            "- release: https://github.com/${GITHUB_REPOSITORY}/releases/tag/${RELEASE_TAG}")
           gh issue create --repo "$GITHUB_REPOSITORY" \
             --title "Finup Komeil PO archive report — ${GITHUB_RUN_ID}" \
             --body "$body"

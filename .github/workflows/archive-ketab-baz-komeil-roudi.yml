@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   archive:
@@ -95,3 +96,26 @@ jobs:
           name: ketab-baz-download-logs
           path: logs/
           retention-days: 7
+
+      - name: Report archive result
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          JOB_STATUS: ${{ job.status }}
+        shell: bash
+        run: |
+          set -u
+          source_used='not available'
+          [[ -f dist/source_url.txt ]] && source_used=$(cat dist/source_url.txt)
+          body=$(cat <<EOF
+          Ketab Baz archive workflow finished.
+
+          - status: ${JOB_STATUS}
+          - run_id: ${GITHUB_RUN_ID}
+          - commit: ${GITHUB_SHA}
+          - source_used: ${source_used}
+          - run: https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}
+          - release: https://github.com/${GITHUB_REPOSITORY}/releases/tag/${RELEASE_TAG}
+          EOF
+          )
+          gh issue create --repo "$GITHUB_REPOSITORY" --title "Ketab Baz Komeil Roudi archive report — ${GITHUB_RUN_ID}" --body "$body"

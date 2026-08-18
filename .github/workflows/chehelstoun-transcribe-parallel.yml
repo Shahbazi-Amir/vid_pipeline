@@ -1,0 +1,253 @@
+name: Chehelstoun parallel transcription
+run-name: Chehelstoun parallel transcription ${{ github.run_id }}
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/chehelstoun-transcribe-parallel.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+  issues: write
+
+env:
+  RELEASE_TAG: chehelstoun-archive-v1
+  COLLECTION_ROOT: outputs/chehelstoun
+  PROFILE: balanced
+  LANGUAGE: fa
+  AUDIO_PROFILE: safe
+  LEGACY_RUN_ID: '32104002659'
+
+concurrency:
+  group: chehelstoun-parallel-transcription
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.assets.outputs.matrix }}
+      count: ${{ steps.assets.outputs.count }}
+    steps:
+      - name: Stop legacy serial run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          status=$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${LEGACY_RUN_ID}" --jq '.status' 2>/dev/null || echo unknown)
+          echo "legacy run ${LEGACY_RUN_ID}: ${status}"
+          if [[ "$status" == "in_progress" || "$status" == "queued" || "$status" == "pending" || "$status" == "waiting" ]]; then
+            gh api -X POST "repos/${GITHUB_REPOSITORY}/actions/runs/${LEGACY_RUN_ID}/cancel" || true
+            sleep 8
+          fi
+
+      - name: Discover only numbered Chehelstoun episodes
+        id: assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          release_json=$(gh api "repos/${GITHUB_REPOSITORY}/releases/tags/${RELEASE_TAG}")
+          matrix=$(jq -c '
+            [.assets[]
+              | select(.name | test("^[0-9]{2}.*\\.mp3$"))
+              | {
+                  episode: .name[0:2],
+                  name: .name,
+                  url: .browser_download_url,
+                  size: .size
+                }
+            ]
+            | sort_by(.episode)
+            | {include: .}
+          ' <<<"$release_json")
+          count=$(jq -r '.include | length' <<<"$matrix")
+          echo "numbered episode count: $count"
+          test "$count" -eq 38
+          echo "matrix=$matrix" >> "$GITHUB_OUTPUT"
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+
+  transcribe:
+    needs: prepare
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
+    env:
+      EPISODE: ${{ matrix.episode }}
+      ASSET_NAME: ${{ matrix.name }}
+      ASSET_URL: ${{ matrix.url }}
+      ASSET_SIZE: ${{ matrix.size }}
+      VID_PIPELINE_ASR_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/asr
+      HF_HOME: ${{ github.workspace }}/.cache/huggingface
+      HF_HUB_CACHE: ${{ github.workspace }}/.cache/huggingface/hub
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Detect existing transcript
+        id: existing
+        shell: bash
+        run: |
+          set -euo pipefail
+          git pull --ff-only origin main
+          if [[ -s "${COLLECTION_ROOT}/${EPISODE}/delivery/transcript.txt" ]]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "Episode ${EPISODE} already exists; skip."
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-python@v5
+        if: steps.existing.outputs.skip != 'true'
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Cache ASR model
+        if: steps.existing.outputs.skip != 'true'
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.VID_PIPELINE_ASR_CACHE }}
+          key: asr-${{ runner.os }}-py311-faster-whisper-1.2.1-large-v3-turbo-v1
+
+      - name: Install worker
+        if: steps.existing.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg curl
+          python -m pip install --upgrade pip
+          pip install -e '.[worker]'
+
+      - name: Download and validate audio
+        if: steps.existing.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/chehelstoun-input
+          input="/tmp/chehelstoun-input/${EPISODE}.mp3"
+          curl -fL --retry 5 --retry-all-errors --connect-timeout 30 --max-time 600 "$ASSET_URL" -o "$input"
+          test "$(stat -c %s "$input")" -eq "$ASSET_SIZE"
+          ffprobe -v error -select_streams a:0 -show_entries stream=codec_name -of default=nw=1:nk=1 "$input" | grep -q .
+
+      - name: Run Persian ASR pipeline
+        if: steps.existing.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          input="/tmp/chehelstoun-input/${EPISODE}.mp3"
+          title="${ASSET_NAME%.mp3}"
+          title="${title#?? - }"
+          rm -rf /tmp/chehelstoun-runtime
+          mkdir -p /tmp/chehelstoun-runtime
+          vid-pipeline run-file "$input" \
+            --name "chehelstoun-${EPISODE}" \
+            --output-root /tmp/chehelstoun-runtime \
+            --profile "$PROFILE" \
+            --language "$LANGUAGE" \
+            --device cpu \
+            --compute-type int8 \
+            --audio-profile "$AUDIO_PROFILE" \
+            --hotwords "چهلستون، کمیل رودی، دکتر کمیل رودی، سواد مالی، رادیو گفت‌وگو" \
+            --title "$title" \
+            --program "چهلستون" \
+            --network "رادیو گفت‌وگو" \
+            --speaker "دکتر کمیل رودی" \
+            --source-url "$ASSET_URL" \
+            --no-editorial
+
+      - name: Build stable output folder
+        if: steps.existing.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          job_dir=$(find /tmp/chehelstoun-runtime -mindepth 1 -maxdepth 1 -type d -name "chehelstoun-${EPISODE}-*" -print -quit)
+          test -n "$job_dir"
+          test -s "$job_dir/delivery/transcript.md"
+          test -s "$job_dir/delivery/transcript.txt"
+          test -s "$job_dir/delivery/transcript.timestamped.md"
+
+          dest="${COLLECTION_ROOT}/${EPISODE}"
+          rm -rf "$dest"
+          mkdir -p "$dest/delivery"
+          cp "$job_dir/delivery/transcript.md" "$dest/delivery/"
+          cp "$job_dir/delivery/transcript.txt" "$dest/delivery/"
+          cp "$job_dir/delivery/transcript.timestamped.md" "$dest/delivery/"
+          [[ -f "$job_dir/result.json" ]] && cp "$job_dir/result.json" "$dest/result.json"
+          [[ -f "$job_dir/source.json" ]] && cp "$job_dir/source.json" "$dest/source.json"
+
+          python - "$dest/metadata.json" <<'PY'
+          import json, os, sys
+          from pathlib import Path
+          payload = {
+              'collection': 'چهلستون',
+              'episode': os.environ['EPISODE'],
+              'asset_name': os.environ['ASSET_NAME'],
+              'source_release_tag': os.environ['RELEASE_TAG'],
+              'source_url': os.environ['ASSET_URL'],
+              'profile': os.environ['PROFILE'],
+              'asr_model': 'large-v3-turbo',
+              'language': os.environ['LANGUAGE'],
+              'audio_profile': os.environ['AUDIO_PROFILE'],
+              'editorial': False,
+              'pipeline_run_id': os.environ['GITHUB_RUN_ID'],
+              'parallel_workers': 6,
+          }
+          Path(sys.argv[1]).write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+
+      - name: Commit transcript to main with contention retry
+        if: steps.existing.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f "${COLLECTION_ROOT}/${EPISODE}"
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "Add Chehelstoun transcript ${EPISODE}"
+          for attempt in 1 2 3 4 5 6; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep $((attempt * 3))
+          done
+          exit 1
+
+      - name: Cleanup temporary media
+        if: always()
+        shell: bash
+        run: |
+          rm -rf /tmp/chehelstoun-input /tmp/chehelstoun-runtime
+
+  report:
+    if: always()
+    needs: [prepare, transcribe]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create completion report
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          jobs=$(gh api --paginate "repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/jobs?per_page=100")
+          total=$(jq '[.jobs[] | select(.name | startswith("transcribe ("))] | length' <<<"$jobs")
+          ok=$(jq '[.jobs[] | select((.name | startswith("transcribe (")) and .conclusion == "success")] | length' <<<"$jobs")
+          failed=$(jq '[.jobs[] | select((.name | startswith("transcribe (")) and .conclusion == "failure")] | length' <<<"$jobs")
+          gh issue create --title "Chehelstoun parallel transcription report ${GITHUB_RUN_ID}" --body "Parallel run finished.\n\n- workers: up to 6\n- matrix jobs: ${total}\n- success/skip: ${ok}\n- failed: ${failed}\n- output: https://github.com/${GITHUB_REPOSITORY}/tree/main/${COLLECTION_ROOT}\n- run: https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"

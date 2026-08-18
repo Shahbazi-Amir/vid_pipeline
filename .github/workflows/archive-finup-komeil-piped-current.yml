@@ -1,0 +1,178 @@
+name: Archive Finup Komeil audio via current Piped instances
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/archive-finup-komeil-piped-current.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+env:
+  VIDEO_ID: bpelPbGcBMc
+  VIDEO_URL: https://youtu.be/bpelPbGcBMc
+  RELEASE_TAG: finup21-komeil-roudi-financial-literacy
+  OUTPUT_BASENAME: Finup21_Komeil_Roudi_Financial_Literacy
+
+jobs:
+  archive-audio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install tools
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg jq curl
+
+      - name: Fetch audio through current Piped instances
+        shell: bash
+        run: |
+          set -u
+          mkdir -p dist work logs
+          : > logs/piped-current.log
+          success=0
+          method=''
+
+          validate_and_convert() {
+            input="$1"
+            label="$2"
+            if [[ -s "$input" ]] && [[ $(stat -c%s "$input") -gt 500000 ]] && ffprobe -v error "$input" >/dev/null 2>&1; then
+              duration=$(ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 "$input" 2>/dev/null || echo 0)
+              echo "candidate=${label} bytes=$(stat -c%s "$input") duration=${duration}" | tee -a logs/piped-current.log
+              if awk "BEGIN {exit !(${duration:-0} > 60)}"; then
+                ffmpeg -y -v error -i "$input" -vn -codec:a libmp3lame -q:a 2 "dist/${OUTPUT_BASENAME}.mp3"
+                if [[ -s "dist/${OUTPUT_BASENAME}.mp3" ]] && [[ $(stat -c%s "dist/${OUTPUT_BASENAME}.mp3") -gt 500000 ]]; then
+                  success=1
+                  method="$label"
+                  return 0
+                fi
+              fi
+            fi
+            return 1
+          }
+
+          for base in \
+            'https://pipedapi.kavin.rocks' \
+            'https://pipedapi.leptons.xyz' \
+            'https://pipedapi.nosebs.ru' \
+            'https://pipedapi-libre.kavin.rocks' \
+            'https://piped-api.privacy.com.de' \
+            'https://pipedapi.adminforge.de' \
+            'https://api.piped.yt' \
+            'https://pipedapi.drgns.space' \
+            'https://pipedapi.owo.si' \
+            'https://pipedapi.ducks.party' \
+            'https://piped-api.codespace.cz' \
+            'https://pipedapi.reallyaweso.me' \
+            'https://api.piped.private.coffee' \
+            'https://pipedapi.darkness.services' \
+            'https://pipedapi.orangenet.cc'; do
+            echo "=== ${base} ===" | tee -a logs/piped-current.log
+            rm -f work/api.json work/audio.bin
+            code=$(curl -sS -L \
+              -A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/140 Safari/537.36' \
+              -H 'Accept: application/json' \
+              --connect-timeout 8 --max-time 30 \
+              -w '%{http_code}' -o work/api.json \
+              "${base}/streams/${VIDEO_ID}" 2>>logs/piped-current.log || echo curl_error)
+            echo "api_http=${code}" | tee -a logs/piped-current.log
+            if [[ "$code" != "200" ]]; then
+              continue
+            fi
+            title=$(jq -r '.title // empty' work/api.json 2>/dev/null || true)
+            echo "title=${title}" | tee -a logs/piped-current.log
+            stream=$(jq -r '[.audioStreams[]? | select(.url != null)] | sort_by(.bitrate // 0) | reverse | .[0].url // empty' work/api.json 2>/dev/null || true)
+            if [[ -z "$stream" ]]; then
+              echo 'no_audio_stream_url' | tee -a logs/piped-current.log
+              continue
+            fi
+            code2=$(curl -sS -L \
+              -A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/140 Safari/537.36' \
+              -H 'Accept: */*' \
+              --retry 2 --retry-all-errors --connect-timeout 10 --max-time 600 \
+              -w '%{http_code}' -o work/audio.bin \
+              "$stream" 2>>logs/piped-current.log || echo curl_error)
+            echo "audio_http=${code2} bytes=$(stat -c%s work/audio.bin 2>/dev/null || echo 0)" | tee -a logs/piped-current.log
+            if [[ "$code2" == "200" || "$code2" == "206" ]]; then
+              if validate_and_convert work/audio.bin "piped-${base#https://}"; then
+                break
+              fi
+            fi
+          done
+
+          if [[ "$success" -ne 1 ]]; then
+            echo 'No current Piped instance yielded valid audio.' | tee -a logs/piped-current.log
+            exit 1
+          fi
+
+          media="dist/${OUTPUT_BASENAME}.mp3"
+          ffprobe -v error -show_entries format=duration,size,format_name -of json "$media" > dist/media_info.json
+          sha256sum "$media" > dist/SHA256SUMS.txt
+          printf '%s\n' "$VIDEO_URL" > dist/source_url.txt
+          printf '%s\n' "$method" > dist/download_method.txt
+          {
+            echo 'Finup Event 21 — Money Matters'
+            echo 'Speaker: Dr. Komeil Roudi / دکتر کمیل رودی'
+            echo "Presentation: What Financial Literacy Is and What It Isn't / سواد مالی چه هست و چه نیست"
+            echo "Official YouTube video ID: ${VIDEO_ID}"
+            echo "Audio acquisition method: ${method}"
+            echo 'Audio archive only; transcription is NOT started.'
+          } > dist/README.txt
+
+      - name: Upload MP3 to Release
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            gh release create "$RELEASE_TAG" \
+              --target "$GITHUB_SHA" \
+              --title "Finup 21 — Komeil Roudi — Financial Literacy" \
+              --notes "Official Finup Event presentation by Dr. Komeil Roudi. Audio archive only; transcription not started."
+          fi
+          gh release upload "$RELEASE_TAG" dist/* --clobber
+
+      - name: Upload diagnostic log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: finup-piped-current-log
+          path: logs/piped-current.log
+          retention-days: 7
+
+      - name: Report result
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          JOB_STATUS: ${{ job.status }}
+        shell: bash
+        run: |
+          set -u
+          method='not available'
+          media='not available'
+          info='not available'
+          [[ -f dist/download_method.txt ]] && method=$(cat dist/download_method.txt)
+          [[ -f "dist/${OUTPUT_BASENAME}.mp3" ]] && media="${OUTPUT_BASENAME}.mp3"
+          [[ -f dist/media_info.json ]] && info=$(tr -d '\n' < dist/media_info.json)
+          body=$(printf '%s\n' \
+            'Finup Komeil current-Piped audio attempt finished.' \
+            '' \
+            "- status: ${JOB_STATUS}" \
+            "- source: ${VIDEO_URL}" \
+            "- media: ${media}" \
+            "- method: ${method}" \
+            "- media_info: ${info}" \
+            "- run: https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" \
+            "- release: https://github.com/${GITHUB_REPOSITORY}/releases/tag/${RELEASE_TAG}")
+          gh issue create --repo "$GITHUB_REPOSITORY" \
+            --title "Finup current-Piped audio — ${GITHUB_RUN_ID}" \
+            --body "$body"

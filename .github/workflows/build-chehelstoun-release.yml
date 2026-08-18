@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   build-release:
@@ -28,19 +29,17 @@ jobs:
           set -euo pipefail
           mkdir -p dist logs
           python3 - <<'PY'
-          import csv, email.utils, json, os, re, sys, urllib.request, xml.etree.ElementTree as ET
+          import csv, email.utils, json, os, re, urllib.request, xml.etree.ElementTree as ET
           from pathlib import Path
 
           UA = {'User-Agent': 'Mozilla/5.0 ChehelstounArchive/1.0'}
           pid = os.environ['PODCAST_ID']
-          lookup = f'https://itunes.apple.com/lookup?id={pid}'
-          req = urllib.request.Request(lookup, headers=UA)
+          req = urllib.request.Request(f'https://itunes.apple.com/lookup?id={pid}', headers=UA)
           with urllib.request.urlopen(req, timeout=30) as r:
               data = json.load(r)
           if not data.get('results'):
               raise SystemExit('Apple lookup returned no results')
-          meta = data['results'][0]
-          feed_url = meta.get('feedUrl')
+          feed_url = data['results'][0].get('feedUrl')
           if not feed_url:
               raise SystemExit('Apple lookup did not expose feedUrl')
           Path('logs/feed_url.txt').write_text(feed_url + '\n', encoding='utf-8')
@@ -50,9 +49,8 @@ jobs:
               xml_bytes = r.read()
           Path('logs/feed.xml').write_bytes(xml_bytes)
           root = ET.fromstring(xml_bytes)
-          items = root.findall('.//item')
           episodes = []
-          for item in items:
+          for item in root.findall('.//item'):
               title = (item.findtext('title') or '').strip()
               pub = (item.findtext('pubDate') or '').strip()
               enc = item.find('enclosure')
@@ -60,8 +58,7 @@ jobs:
               if not url:
                   continue
               try:
-                  dt = email.utils.parsedate_to_datetime(pub)
-                  ts = dt.timestamp()
+                  ts = email.utils.parsedate_to_datetime(pub).timestamp()
               except Exception:
                   ts = 0
               episodes.append((ts, title, pub, url))
@@ -173,14 +170,41 @@ jobs:
             gh release create "$RELEASE_TAG" \
               --target "${GITHUB_SHA}" \
               --title "Chehelstoun (چهلستون) — Radio Goftogoo archive" \
-              --notes "Archive build of the public Chehelstoun audio feed. The official project description states the radio series consisted of 40 conversations. This release initially includes every episode exposed by the public podcast feed; see manifest.csv and README.txt for provenance."
+              --notes "Archive build of the public Chehelstoun audio feed. The official project description states the radio series consisted of 40 conversations. This release includes every episode currently exposed by the public podcast feed; see manifest.csv and README.txt for provenance."
           fi
           gh release upload "$RELEASE_TAG" bundles/* --clobber
           gh release upload "$RELEASE_TAG" dist/*.mp3 --clobber
 
       - name: Upload discovery logs as workflow artifact
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: chehelstoun-discovery-logs
           path: logs/
           retention-days: 7
+
+      - name: Report build result
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          JOB_STATUS: ${{ job.status }}
+        shell: bash
+        run: |
+          set -u
+          title="Chehelstoun archive build report"
+          body=$(cat <<EOF
+          Automated Chehelstoun archive build finished.
+
+          - status: ${JOB_STATUS}
+          - run_id: ${GITHUB_RUN_ID}
+          - commit: ${GITHUB_SHA}
+          - run: https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}
+          - release: https://github.com/${GITHUB_REPOSITORY}/releases/tag/${RELEASE_TAG}
+          EOF
+          )
+          issue=$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --search "$title in:title" --json number,title --jq '.[] | select(.title == "Chehelstoun archive build report") | .number' | head -n1)
+          if [ -n "$issue" ]; then
+            gh issue comment "$issue" --repo "$GITHUB_REPOSITORY" --body "$body"
+          else
+            gh issue create --repo "$GITHUB_REPOSITORY" --title "$title" --body "$body"
+          fi

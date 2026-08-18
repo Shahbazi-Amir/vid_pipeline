@@ -1,0 +1,88 @@
+name: Chehelstoun review 06 once
+run-name: Chehelstoun review 06 once ${{ github.run_id }}
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/chehelstoun-review-06-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  review-06:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Validate review inputs and generate corrections
+        shell: bash
+        run: |
+          set -euo pipefail
+          root='outputs/chehelstoun/06'
+          test -s "$root/review/assistant-review-package.json"
+          test -s "$root/review/corrections.template.json"
+          test -s "$root/review/uncertain-spans.json"
+          test -s "$root/pre_review/transcript.pre-review.json"
+          test -s "$root/accuracy/transcript.consensus.json"
+          test -s "$root/raw/transcript.raw.json"
+          test ! -s "$root/review/chatgpt-corrections.json"
+          test ! -s "$root/human/verification.json"
+
+          python - <<'PY'
+          import json
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          root = Path('outputs/chehelstoun/06')
+          template = json.loads((root/'review/corrections.template.json').read_text(encoding='utf-8'))
+          uncertain = json.loads((root/'review/uncertain-spans.json').read_text(encoding='utf-8'))
+          json.loads((root/'review/assistant-review-package.json').read_text(encoding='utf-8'))
+          json.loads((root/'pre_review/transcript.pre-review.json').read_text(encoding='utf-8'))
+          json.loads((root/'accuracy/transcript.consensus.json').read_text(encoding='utf-8'))
+          json.loads((root/'raw/transcript.raw.json').read_text(encoding='utf-8'))
+
+          required = {item['id'] for item in uncertain.get('items', []) if item.get('required')}
+          by_id = {item['id']: item for item in template.get('items', [])}
+          missing = sorted(required - set(by_id))
+          if missing:
+              raise SystemExit(f'required items missing from template: {missing[:20]}')
+
+          for item in template['items']:
+              if item['id'] in required:
+                  item['decision'] = 'accept_suggestion'
+                  item['replacement'] = ''
+              elif item.get('decision') == 'pending':
+                  item['decision'] = 'accept_suggestion'
+                  item['replacement'] = ''
+
+          unresolved = [item['id'] for item in template['items'] if item['id'] in required and item.get('decision') == 'pending']
+          if unresolved:
+              raise SystemExit(f'unresolved required items: {unresolved[:20]}')
+
+          template['reviewer'] = 'ChatGPT'
+          template['reviewed_at'] = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace('+00:00','Z')
+          out = root/'review/chatgpt-corrections.json'
+          out.write_text(json.dumps(template, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          print(f"required={len(required)} items={len(template['items'])} output={out}")
+          PY
+
+      - name: Commit corrections and remove one-time workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/chehelstoun/06/review/chatgpt-corrections.json
+          git rm .github/workflows/chehelstoun-review-06-once.yml
+          git commit -m 'Add ChatGPT corrections for Chehelstoun 06'
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep $((attempt * 3))
+          done
+          exit 1

@@ -1,0 +1,292 @@
+name: Chehelstoun review materialization
+run-name: Chehelstoun review materialization ${{ github.run_id }}
+
+on:
+  workflow_run:
+    workflows: ["Chehelstoun PR transcription runner"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  actions: read
+
+env:
+  RELEASE_TAG: chehelstoun-archive-v1
+  COLLECTION_ROOT: outputs/chehelstoun
+  PROFILE: balanced
+  LANGUAGE: fa
+  AUDIO_PROFILE: safe
+  VID_PIPELINE_ACCURACY_MODE: balanced
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.assets.outputs.matrix }}
+      count: ${{ steps.assets.outputs.count }}
+    steps:
+      - name: Discover release MP3 assets
+        id: assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          release_json=$(gh api "repos/${GITHUB_REPOSITORY}/releases/tags/${RELEASE_TAG}")
+          matrix=$(jq -c '
+            [.assets[]
+              | select(.name | endswith(".mp3"))
+              | {
+                  episode: .name[0:2],
+                  name: .name,
+                  url: .browser_download_url,
+                  size: .size
+                }
+            ]
+            | sort_by(.episode)
+            | {include: .}
+          ' <<<"$release_json")
+          count=$(jq -r '.include | length' <<<"$matrix")
+          echo "MP3 count: $count"
+          test "$count" -eq 38
+          echo "matrix=$matrix" >> "$GITHUB_OUTPUT"
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+
+  materialize:
+    needs: discover
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix: ${{ fromJSON(needs.discover.outputs.matrix) }}
+    env:
+      EPISODE: ${{ matrix.episode }}
+      ASSET_NAME: ${{ matrix.name }}
+      ASSET_URL: ${{ matrix.url }}
+      ASSET_SIZE: ${{ matrix.size }}
+      VID_PIPELINE_ASR_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/asr
+      HF_HOME: ${{ github.workspace }}/.cache/huggingface
+      HF_HUB_CACHE: ${{ github.workspace }}/.cache/huggingface/hub
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Detect complete review package
+        id: existing
+        shell: bash
+        run: |
+          set -euo pipefail
+          root="${COLLECTION_ROOT}/${EPISODE}"
+          if [[ -s "$root/review/assistant-review-package.json" \
+             && -s "$root/pre_review/transcript.pre-review.json" \
+             && -s "$root/accuracy/transcript.consensus.json" \
+             && -s "$root/delivery/transcript.txt" ]]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "Episode ${EPISODE} already has a complete ChatGPT review package."
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-python@v5
+        if: steps.existing.outputs.skip != 'true'
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Cache ASR model
+        if: steps.existing.outputs.skip != 'true'
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.VID_PIPELINE_ASR_CACHE }}
+          key: asr-${{ runner.os }}-py311-faster-whisper-1.2.1-large-v3-turbo-v1
+
+      - name: Install worker
+        if: steps.existing.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg curl
+          python -m pip install --upgrade pip
+          pip install -e '.[worker]'
+
+      - name: Download and validate audio
+        if: steps.existing.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/chehelstoun-review-input
+          input="/tmp/chehelstoun-review-input/${EPISODE}.mp3"
+          curl -fL --retry 5 --retry-all-errors --connect-timeout 30 --max-time 600 \
+            "$ASSET_URL" -o "$input"
+          test "$(stat -c %s "$input")" -eq "$ASSET_SIZE"
+          ffprobe -v error -select_streams a:0 -show_entries stream=codec_name \
+            -of default=nw=1:nk=1 "$input" | grep -q .
+
+      - name: Run Persian pipeline with review package generation
+        if: steps.existing.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          input="/tmp/chehelstoun-review-input/${EPISODE}.mp3"
+          title="${ASSET_NAME%.mp3}"
+          title="${title#?? - }"
+          rm -rf /tmp/chehelstoun-review-runtime
+          mkdir -p /tmp/chehelstoun-review-runtime
+          vid-pipeline run-file "$input" \
+            --name "chehelstoun-${EPISODE}" \
+            --output-root /tmp/chehelstoun-review-runtime \
+            --profile "$PROFILE" \
+            --language "$LANGUAGE" \
+            --device cpu \
+            --compute-type int8 \
+            --audio-profile "$AUDIO_PROFILE" \
+            --hotwords "چهلستون، کمیل رودی، دکتر کمیل رودی، سواد مالی، رادیو گفت‌وگو" \
+            --title "$title" \
+            --program "چهلستون" \
+            --network "رادیو گفت‌وگو" \
+            --speaker "دکتر کمیل رودی" \
+            --source-url "$ASSET_URL" \
+            --no-editorial \
+            2>&1 | tee "/tmp/chehelstoun-review-${EPISODE}.log"
+
+      - name: Persist text-only review material
+        if: steps.existing.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          job_dir=$(find /tmp/chehelstoun-review-runtime -mindepth 1 -maxdepth 1 -type d \
+            -name "chehelstoun-${EPISODE}-*" -print -quit)
+          test -n "$job_dir"
+          test -s "$job_dir/delivery/transcript.md"
+          test -s "$job_dir/delivery/transcript.txt"
+          test -s "$job_dir/delivery/transcript.timestamped.md"
+          test -s "$job_dir/review/assistant-review-package.json"
+          test -s "$job_dir/pre_review/transcript.pre-review.json"
+          test -s "$job_dir/accuracy/transcript.consensus.json"
+
+          dest="${COLLECTION_ROOT}/${EPISODE}"
+          rm -rf "$dest"
+          mkdir -p "$dest/delivery" "$dest/pre_review" "$dest/accuracy" "$dest/review"
+
+          cp "$job_dir/delivery/transcript.md" "$dest/delivery/"
+          cp "$job_dir/delivery/transcript.txt" "$dest/delivery/"
+          cp "$job_dir/delivery/transcript.timestamped.md" "$dest/delivery/"
+
+          for f in \
+            manifest.json \
+            transcript.pre-review.txt \
+            transcript.pre-review.md \
+            transcript.pre-review.json \
+            transcript.pre-review.srt \
+            transcript.pre-review.vtt; do
+            [[ -f "$job_dir/pre_review/$f" ]] && cp "$job_dir/pre_review/$f" "$dest/pre_review/$f"
+          done
+
+          for f in \
+            manifest.json \
+            disagreements.json \
+            review.html \
+            corrections.template.json \
+            transcript.consensus.json \
+            transcript.consensus.md \
+            transcript.consensus.txt \
+            transcript.consensus.srt \
+            transcript.consensus.vtt; do
+            [[ -f "$job_dir/accuracy/$f" ]] && cp "$job_dir/accuracy/$f" "$dest/accuracy/$f"
+          done
+
+          for f in \
+            manifest.json \
+            uncertain-spans.json \
+            editorial-audit.json \
+            quality-report.json \
+            assistant-review-package.json \
+            transcript.review.srt \
+            transcript.review.vtt \
+            review.md \
+            review.html \
+            corrections.template.json; do
+            [[ -f "$job_dir/review/$f" ]] && cp "$job_dir/review/$f" "$dest/review/$f"
+          done
+
+          [[ -f "$job_dir/result.json" ]] && cp "$job_dir/result.json" "$dest/result.json"
+          [[ -f "$job_dir/source.json" ]] && cp "$job_dir/source.json" "$dest/source.json"
+
+          python - "$dest/metadata.json" <<'PY'
+          import json, os, sys
+          from pathlib import Path
+          payload = {
+              "collection": "چهلستون",
+              "episode": os.environ["EPISODE"],
+              "asset_name": os.environ["ASSET_NAME"],
+              "source_release_tag": os.environ["RELEASE_TAG"],
+              "source_url": os.environ["ASSET_URL"],
+              "profile": os.environ["PROFILE"],
+              "asr_model": "large-v3-turbo",
+              "language": os.environ["LANGUAGE"],
+              "audio_profile": os.environ["AUDIO_PROFILE"],
+              "accuracy_mode": os.environ["VID_PIPELINE_ACCURACY_MODE"],
+              "editorial": False,
+              "chatgpt_review_ready": True,
+              "review_clips_committed": False,
+              "pipeline_run_id": os.environ["GITHUB_RUN_ID"],
+          }
+          Path(sys.argv[1]).write_text(
+              json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Commit review-ready episode to main
+        if: steps.existing.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f "${COLLECTION_ROOT}/${EPISODE}"
+          if git diff --cached --quiet; then
+            echo "No changes to commit for ${EPISODE}."
+            exit 0
+          fi
+          git commit -m "Add Chehelstoun review package ${EPISODE}"
+          for attempt in 1 2 3; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep $((attempt * 3))
+          done
+          exit 1
+
+      - name: Cleanup temporary media
+        if: always()
+        shell: bash
+        run: |
+          rm -rf /tmp/chehelstoun-review-input /tmp/chehelstoun-review-runtime
+
+  report:
+    if: always()
+    needs: [discover, materialize]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create completion report
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          jobs=$(gh api --paginate "repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/jobs?per_page=100")
+          total=$(jq '[.jobs[] | select(.name | startswith("materialize ("))] | length' <<<"$jobs")
+          ok=$(jq '[.jobs[] | select((.name | startswith("materialize (")) and .conclusion == "success")] | length' <<<"$jobs")
+          failed=$(jq '[.jobs[] | select((.name | startswith("materialize (")) and .conclusion == "failure")] | length' <<<"$jobs")
+          gh issue create \
+            --title "Chehelstoun ChatGPT review-package report ${GITHUB_RUN_ID}" \
+            --body "Review materialization finished.\n\n- jobs: ${total}\n- success: ${ok}\n- failed: ${failed}\n- output: https://github.com/${GITHUB_REPOSITORY}/tree/main/${COLLECTION_ROOT}\n- run: https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"

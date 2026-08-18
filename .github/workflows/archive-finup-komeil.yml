@@ -48,7 +48,7 @@ jobs:
             rm -f work/video.*
             if yt-dlp "$@" \
               --no-playlist \
-              --retries 10 --fragment-retries 10 \
+              --retries 3 --fragment-retries 3 \
               --merge-output-format mp4 \
               -f 'bv*+ba/b' \
               -o 'work/video.%(ext)s' \
@@ -70,7 +70,7 @@ jobs:
             rm -f work/audio.*
             if yt-dlp "$@" \
               --no-playlist \
-              --retries 10 --fragment-retries 10 \
+              --retries 3 --fragment-retries 3 \
               -f 'ba/b' -x --audio-format mp3 --audio-quality 0 \
               -o 'work/audio.%(ext)s' \
               "$VIDEO_URL" 2>&1 | tee -a logs/download.log; then
@@ -98,8 +98,61 @@ jobs:
             attempt_audio chrome --impersonate chrome || true
           fi
 
+          # Current public Invidious instances use rotating/proxied playback to avoid
+          # the datacenter-IP bot wall that GitHub-hosted runners hit on YouTube.
           if [[ "$success" -ne 1 ]]; then
-            echo 'All download strategies failed.' | tee -a logs/download.log
+            for host in \
+              'https://inv.nadeko.net' \
+              'https://invidious.nerdvpn.de' \
+              'https://yt.chocolatemoo53.com' \
+              'https://invidious.tiekoetter.com'; do
+              for itag in 18 22; do
+                echo "=== INVIDIOUS VIDEO: ${host} itag=${itag} ===" | tee -a logs/download.log
+                rm -f work/invidious-video.bin
+                if curl -fL --retry 2 --retry-all-errors --connect-timeout 15 --max-time 240 \
+                  -A 'Mozilla/5.0' \
+                  "${host}/latest_version?id=${VIDEO_ID}&itag=${itag}&local=true" \
+                  -o work/invidious-video.bin 2>>logs/download.log; then
+                  if [[ -s work/invidious-video.bin ]] && [[ $(stat -c%s work/invidious-video.bin) -gt 1000000 ]] \
+                    && ffprobe -v error work/invidious-video.bin >/dev/null 2>&1; then
+                    ffmpeg -y -v error -i work/invidious-video.bin -c copy "dist/${OUTPUT_BASENAME}.mp4" \
+                      || ffmpeg -y -v error -i work/invidious-video.bin -c:v libx264 -c:a aac "dist/${OUTPUT_BASENAME}.mp4"
+                    success=1
+                    method="invidious-${host#https://}-itag${itag}-video"
+                    break 2
+                  fi
+                fi
+              done
+            done
+          fi
+
+          if [[ "$success" -ne 1 ]]; then
+            for host in \
+              'https://inv.nadeko.net' \
+              'https://invidious.nerdvpn.de' \
+              'https://yt.chocolatemoo53.com' \
+              'https://invidious.tiekoetter.com'; do
+              for itag in 140 251; do
+                echo "=== INVIDIOUS AUDIO: ${host} itag=${itag} ===" | tee -a logs/download.log
+                rm -f work/invidious-audio.bin
+                if curl -fL --retry 2 --retry-all-errors --connect-timeout 15 --max-time 240 \
+                  -A 'Mozilla/5.0' \
+                  "${host}/latest_version?id=${VIDEO_ID}&itag=${itag}&local=true" \
+                  -o work/invidious-audio.bin 2>>logs/download.log; then
+                  if [[ -s work/invidious-audio.bin ]] && [[ $(stat -c%s work/invidious-audio.bin) -gt 500000 ]] \
+                    && ffprobe -v error work/invidious-audio.bin >/dev/null 2>&1; then
+                    ffmpeg -y -v error -i work/invidious-audio.bin -vn -codec:a libmp3lame -q:a 0 "dist/${OUTPUT_BASENAME}.mp3"
+                    success=1
+                    method="invidious-${host#https://}-itag${itag}-audio"
+                    break 2
+                  fi
+                fi
+              done
+            done
+          fi
+
+          if [[ "$success" -ne 1 ]]; then
+            echo 'All direct and Invidious download strategies failed.' | tee -a logs/download.log
             exit 1
           fi
 

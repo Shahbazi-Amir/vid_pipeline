@@ -8,6 +8,10 @@ on:
       - '.github/workflows/chehelstoun-review-apply.yml'
       - '.github/review-apply-trigger.txt'
       - 'outputs/chehelstoun/*/review/chatgpt-corrections.json'
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/review-apply-trigger.txt'
   schedule:
     - cron: '*/10 * * * *'
   workflow_dispatch:

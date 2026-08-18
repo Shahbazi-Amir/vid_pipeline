@@ -1,0 +1,124 @@
+name: Chehelstoun per-episode review apply
+run-name: Apply next ChatGPT review ${{ github.run_id }}
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/chehelstoun-review-apply.yml'
+      - 'outputs/chehelstoun/*/review/chatgpt-corrections.json'
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: chehelstoun-review-apply-serial
+  cancel-in-progress: false
+
+env:
+  COLLECTION_ROOT: outputs/chehelstoun
+
+jobs:
+  apply-one:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Select exactly one reviewed episode
+        id: select
+        shell: bash
+        run: |
+          set -euo pipefail
+          chosen=''
+          for n in $(seq 1 38); do
+            ep=$(printf '%02d' "$n")
+            root="${COLLECTION_ROOT}/${ep}"
+            [[ -s "$root/review/chatgpt-corrections.json" ]] || continue
+            [[ -s "$root/review/assistant-review-package.json" ]] || continue
+            [[ -s "$root/raw/transcript.raw.json" ]] || continue
+            [[ ! -s "$root/human/verification.json" ]] || continue
+            chosen="$ep"
+            echo "episode=$ep" >> "$GITHUB_OUTPUT"
+            break
+          done
+          if [[ -z "$chosen" ]]; then
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo 'No reviewed episode is waiting for apply.'
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+            echo "Selected episode ${chosen}; only this episode will be applied."
+          fi
+
+      - uses: actions/setup-python@v5
+        if: steps.select.outputs.ready == 'true'
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install pipeline
+        if: steps.select.outputs.ready == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          pip install -e .
+
+      - name: Apply ChatGPT corrections and promote
+        if: steps.select.outputs.ready == 'true'
+        env:
+          EPISODE: ${{ steps.select.outputs.episode }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          root="${COLLECTION_ROOT}/${EPISODE}"
+          vid-review apply "$root" "$root/review/chatgpt-corrections.json" \
+            --reviewer "ChatGPT" \
+            --promote
+          test -s "$root/human/verification.json"
+          test -s "$root/delivery/transcript.txt"
+          python - "$root/review/status.json" <<'PY'
+          import json, os, sys
+          from pathlib import Path
+          path = Path(sys.argv[1])
+          payload = json.loads(path.read_text(encoding='utf-8')) if path.exists() else {}
+          payload.update({
+              'schema_version': 1,
+              'episode': os.environ['EPISODE'],
+              'status': 'chatgpt_review_applied',
+              'assistant_review_committed': True,
+              'apply_run_id': os.environ['GITHUB_RUN_ID'],
+          })
+          path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+
+      - name: Commit this reviewed episode before moving on
+        if: steps.select.outputs.ready == 'true'
+        env:
+          EPISODE: ${{ steps.select.outputs.episode }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f "${COLLECTION_ROOT}/${EPISODE}"
+          if git diff --cached --quiet; then
+            echo "No review changes to commit for ${EPISODE}."
+            exit 0
+          fi
+          git commit -m "Apply ChatGPT review to Chehelstoun ${EPISODE}"
+          for attempt in 1 2 3 4; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep $((attempt * 3))
+          done
+          exit 1

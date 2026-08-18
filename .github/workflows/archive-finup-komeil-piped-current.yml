@@ -20,7 +20,7 @@ env:
 jobs:
   archive-audio:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
 
@@ -79,7 +79,7 @@ jobs:
             code=$(curl -sS -L \
               -A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/140 Safari/537.36' \
               -H 'Accept: application/json' \
-              --connect-timeout 8 --max-time 30 \
+              --connect-timeout 4 --max-time 10 \
               -w '%{http_code}' -o work/api.json \
               "${base}/streams/${VIDEO_ID}" 2>>logs/piped-current.log || echo curl_error)
             echo "api_http=${code}" | tee -a logs/piped-current.log
@@ -96,7 +96,7 @@ jobs:
             code2=$(curl -sS -L \
               -A 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/140 Safari/537.36' \
               -H 'Accept: */*' \
-              --retry 2 --retry-all-errors --connect-timeout 10 --max-time 600 \
+              --retry 1 --retry-all-errors --connect-timeout 6 --max-time 180 \
               -w '%{http_code}' -o work/audio.bin \
               "$stream" 2>>logs/piped-current.log || echo curl_error)
             echo "audio_http=${code2} bytes=$(stat -c%s work/audio.bin 2>/dev/null || echo 0)" | tee -a logs/piped-current.log

@@ -3,7 +3,9 @@ run-name: Source provenance backfill ${{ github.run_id }}
 
 on:
   workflow_run:
-    workflows: ["Post-Chehelstoun media queue"]
+    workflows:
+      - "Chehelstoun review materialization"
+      - "Post-Chehelstoun media queue"
     types: [completed]
   workflow_dispatch:
 
@@ -87,7 +89,6 @@ jobs:
               )
               changed += 1
 
-          # Resolve the exact audio enclosure that the Ketab Baz archive workflow used.
           ketab_root = Path('outputs/ketab-baz/01')
           if (ketab_root / 'delivery/transcript.txt').is_file():
               rss_url = os.environ['KETAB_BAZ_RSS_URL']
@@ -110,15 +111,22 @@ jobs:
                   text = (elem.text or '').strip()
                   if text.startswith('http'):
                       candidates.append(html.unescape(text))
+
               def score(url: str) -> int:
                   low = url.lower()
                   value = 0
-                  if '.mp3' in low: value += 100
-                  if '.m4a' in low or '.aac' in low: value += 80
-                  if 'castbox' in low: value += 40
-                  if 'audio' in low: value += 20
-                  if re.search(r'\.(jpg|jpeg|png|webp)(\?|$)', low): value -= 200
+                  if '.mp3' in low:
+                      value += 100
+                  if '.m4a' in low or '.aac' in low:
+                      value += 80
+                  if 'castbox' in low:
+                      value += 40
+                  if 'audio' in low:
+                      value += 20
+                  if re.search(r'\.(jpg|jpeg|png|webp)(\?|$)', low):
+                      value -= 200
                   return value
+
               candidates = sorted(set(candidates), key=score, reverse=True)
               if not candidates or score(candidates[0]) <= 0:
                   raise SystemExit('Ketab Baz original audio enclosure could not be resolved')
@@ -130,8 +138,6 @@ jobs:
               )
               changed += 1
 
-          # Mizan may have been manually uploaded. Preserve its archive URL now;
-          # if an original URL is later recorded, rerunning this workflow promotes it automatically.
           mizan_root = Path('outputs/mizan/01')
           if (mizan_root / 'delivery/transcript.txt').is_file():
               source_path = mizan_root / 'source.json'

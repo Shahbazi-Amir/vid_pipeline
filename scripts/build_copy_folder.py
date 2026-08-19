@@ -29,6 +29,7 @@ FINUP_PROGRAM_PAGE = "https://youtu.be/bpelPbGcBMc"
 FINUP_ARCHIVE_PAGE = "https://github.com/Shahbazi-Amir/vid_pipeline/releases/tag/finup21-komeil-roudi-financial-literacy"
 MIZAN_ARCHIVE_PAGE = CHEHELSTOUN_ARCHIVE_PAGE
 BANK_ARCHIVE_PAGE = "https://github.com/Shahbazi-Amir/vid_pipeline/releases/tag/bankmellatt"
+SHERAKAT_AUDIO_ARCHIVE_PAGE = CHEHELSTOUN_ARCHIVE_PAGE
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -106,7 +107,6 @@ def markdown_link(label: str, url: str) -> str:
 
 
 def strip_existing_frontmatter(text: str) -> str:
-    # Keep the transcript intact except for accidental leading blank space.
     return text.lstrip("\ufeff\n\r")
 
 
@@ -187,7 +187,6 @@ def build(manifest_path: Path | None) -> dict[str, Any]:
     created: list[str] = []
     missing: list[str] = []
 
-    # Chehelstoun 1..38 — complete series requested by the user.
     for ep in range(1, 39):
         root = OUTPUTS / "chehelstoun" / f"{ep:02d}"
         row = manifest.get(ep, {})
@@ -211,7 +210,6 @@ def build(manifest_path: Path | None) -> dict[str, Any]:
         else:
             missing.append(name)
 
-    # Ketab Baz — Komeil Roudi episode.
     root = OUTPUTS / "ketab-baz" / "01"
     name = "کتاب باز.md"
     if write_copy(
@@ -228,7 +226,6 @@ def build(manifest_path: Path | None) -> dict[str, Any]:
     else:
         missing.append(name)
 
-    # Mizan.
     root = OUTPUTS / "mizan" / "01"
     name = "میزان.md"
     if write_copy(
@@ -245,7 +242,6 @@ def build(manifest_path: Path | None) -> dict[str, Any]:
     else:
         missing.append(name)
 
-    # Finup (user-facing name requested: فناپ).
     finup_root = first_completed_child(OUTPUTS / "finup")
     name = "فناپ.md"
     if finup_root and write_copy(
@@ -262,34 +258,25 @@ def build(manifest_path: Path | None) -> dict[str, Any]:
     else:
         missing.append(name)
 
-    # Sherakat: support several historical/likely directory spellings without
-    # inventing content when it has not yet reached outputs.
-    sherakat_root = None
-    for dirname in ("sherakat", "sharakat", "sharekat", "partnership"):
-        candidate = OUTPUTS / dirname
-        if transcript_for(candidate)[0] is not None:
-            sherakat_root = candidate
-            break
-        child = first_completed_child(candidate)
-        if child:
-            sherakat_root = child
-            break
+    # The user's Sherakat source is the uploaded Voice.260817_165035.m4a asset.
+    # It already has a canonical transcript under outputs/voice-260817-165035/01;
+    # do not require or invent an outputs/sherakat directory.
+    sherakat_root = OUTPUTS / "voice-260817-165035" / "01"
     name = "شراکت.md"
-    if sherakat_root and write_copy(
+    if write_copy(
         filename=name,
         program="شراکت",
         episode="1",
         root=sherakat_root,
         title="شراکت",
-        description="فایل برنامه شراکتِ آرشیوشده و پردازش‌شده در پروژه.",
-        program_page="",
+        description="متن فایل صوتی شراکت که با نام Voice.260817_165035.m4a به آرشیو پروژه اضافه و پردازش شده است.",
+        program_page=SHERAKAT_AUDIO_ARCHIVE_PAGE,
+        archive_page=SHERAKAT_AUDIO_ARCHIVE_PAGE,
     ):
         created.append(name)
     else:
         missing.append(name)
 
-    # Bank Mellat: accept 1..11 as they become available. At present only
-    # genuinely generated outputs are copied; no placeholder transcript is made.
     for ep in range(1, 12):
         root = OUTPUTS / "bankmellatt" / str(ep)
         name = f"بانک ملت {ep}.md"

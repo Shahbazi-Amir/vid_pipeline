@@ -1,0 +1,37 @@
+name: Chehelstoun review package dispatcher
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/review-package-kick.txt'
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Dispatch parallel package workflow
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh workflow run chehelstoun-review-package-parallel.yml --ref main
+          sleep 8
+          run_id=$(gh run list --workflow chehelstoun-review-package-parallel.yml --limit 1 --json databaseId --jq '.[0].databaseId')
+          test -n "$run_id"
+          echo "$run_id" > .github/chehelstoun-review-package-live-run.txt
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .github/chehelstoun-review-package-live-run.txt
+          git commit -m "Record Chehelstoun review package run ${run_id}" || exit 0
+          git pull --rebase origin main
+          git push origin HEAD:main

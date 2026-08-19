@@ -1,13 +1,5 @@
 #!/usr/bin/env python3
-"""Build a Markdown-only presentation copy from repository outputs.
-
-Rules:
-- one readable .md file per requested item;
-- prefer reviewed/finalized transcript when available;
-- never expose repository/release URLs as source links;
-- show only a real external internet source page when one is known;
-- keep provenance/audit JSON in internal output trees, not in copy/.
-"""
+"""Build the readable Markdown-only copy/ directory from repository outputs."""
 from __future__ import annotations
 
 import json
@@ -20,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUTS = ROOT / "outputs"
 COPY = ROOT / "copy"
 
-# Public internet pages only. Empty means: no reliable original/public page verified yet.
+# External public pages only. Empty means no reliable public/original page is known.
 CHEHELSTOUN_SOURCE_PAGE = "https://radio.iranseda.ir/Program/?VALID=TRUE&ch=57&m=090513"
 KETAB_BAZ_SOURCE_PAGE = "https://taaghche.com/audiobook/255204"
 FINUP_SOURCE_PAGE = "https://youtu.be/bpelPbGcBMc"
@@ -57,7 +49,7 @@ def transcript_for(root: Path) -> tuple[Path | None, str]:
     if canonical_final is not None:
         candidates.append((canonical_final, "نهایی بازبینی‌شده"))
     candidates.extend([
-        (root / "final" / "transcript.final.md", "نهایی بازبینی‌شده"),
+        (root / "final" / "transcript.final.md", "نسخه تحویلی خط پردازش"),
         (root / "delivery" / "transcript.md", "نسخه تحویلی خط پردازش"),
     ])
     for path, label in candidates:
@@ -94,22 +86,13 @@ def format_duration(seconds: float | None) -> str:
     return f"{h:02d}:{m:02d}:{s:02d} ({total / 60:.1f} دقیقه)"
 
 
-def markdown_link(url: str) -> str:
-    return f"[مشاهده منبع اصلی]({url})" if url else "ثبت نشده"
-
-
 def clean_body(text: str) -> str:
-    """Remove internal GitHub/release provenance from the readable copy body."""
     kept: list[str] = []
     for line in text.lstrip("\ufeff\n\r").splitlines():
         lowered = line.lower()
         if "github.com/shahbazi-amir/vid_pipeline" in lowered:
             continue
-        if line.strip() in {"## منبع فایل", "---"} and not kept:
-            continue
-        if line.strip().startswith("- نسخه آرشیوی:"):
-            continue
-        if line.strip().startswith("**منبع:**"):
+        if line.strip().startswith("- نسخه آرشیوی:") or line.strip().startswith("**منبع:**"):
             continue
         kept.append(line)
     body = "\n".join(kept).strip()
@@ -147,11 +130,10 @@ def write_copy(*, filename: str, program: str, episode: str, root: Path,
         f"- **توضیحات:** {description}",
         f"- **مدت‌زمان کل:** {format_duration(duration_seconds(root))}",
         f"- **وضعیت متن:** {version}",
-        f"- **لینک منبع اصلی:** {markdown_link(source_page)}",
-        "",
-        "---",
-        "",
     ]
+    if source_page:
+        header.append(f"- **منبع اصلی:** {source_page}")
+    header += ["", "---", ""]
     (COPY / filename).write_text("\n".join(header) + body, encoding="utf-8")
     return True
 
@@ -166,12 +148,10 @@ def first_completed_child(parent: Path) -> Path | None:
 
 
 def build() -> dict[str, Any]:
-    # Preserve currently known human-friendly titles before replacing copy/.
     prior_titles = {f"چهلستون {ep}.md": old_copy_title(f"چهلستون {ep}.md") for ep in range(1, 39)}
     if COPY.exists():
         shutil.rmtree(COPY)
     COPY.mkdir(parents=True, exist_ok=True)
-
     created: list[str] = []
     missing: list[str] = []
 
@@ -179,91 +159,53 @@ def build() -> dict[str, Any]:
         root = OUTPUTS / "chehelstoun" / f"{ep:02d}"
         name = f"چهلستون {ep}.md"
         title = prior_titles.get(name) or f"چهلستون - قسمت {ep}"
-        if write_copy(
-            filename=name, program="چهلستون", episode=str(ep), root=root,
-            title=title,
-            description=f"قسمت {ep} از مجموعه رادیویی چهلستون درباره سواد مالی و اقتصاد خانواده.",
-            source_page=CHEHELSTOUN_SOURCE_PAGE,
-        ):
-            created.append(name)
-        else:
-            missing.append(name)
+        ok = write_copy(filename=name, program="چهلستون", episode=str(ep), root=root,
+                        title=title, description=f"قسمت {ep} از مجموعه رادیویی چهلستون درباره سواد مالی و اقتصاد خانواده.",
+                        source_page=CHEHELSTOUN_SOURCE_PAGE)
+        (created if ok else missing).append(name)
 
-    root = OUTPUTS / "ketab-baz" / "01"
-    name = "کتاب باز.md"
-    if write_copy(
-        filename=name, program="کتاب باز", episode="فصل ۵ - قسمت ۶۸", root=root,
-        title="کتاب باز - دکتر کمیل رودی",
-        description="گفت‌وگوی سروش صحت با دکتر کمیل رودی درباره سواد مالی در برنامه کتاب باز.",
-        source_page=KETAB_BAZ_SOURCE_PAGE,
-    ):
-        created.append(name)
-    else:
-        missing.append(name)
+    cases = [
+        ("کتاب باز.md", "کتاب باز", "فصل ۵ - قسمت ۶۸", OUTPUTS/"ketab-baz"/"01",
+         "کتاب باز - دکتر کمیل رودی", "گفت‌وگوی سروش صحت با دکتر کمیل رودی درباره سواد مالی در برنامه کتاب باز.", KETAB_BAZ_SOURCE_PAGE),
+        ("میزان.md", "میزان", "1", OUTPUTS/"mizan"/"01",
+         "میزان", "متن برنامه میزانِ پردازش‌شده در پروژه.", MIZAN_SOURCE_PAGE),
+        ("شراکت.md", "شراکت", "1", OUTPUTS/"voice-260817-165035"/"01",
+         "شراکت", "متن فایل صوتی شراکتِ اضافه‌شده به مجموعه داده پروژه.", SHERAKAT_SOURCE_PAGE),
+    ]
+    for name,program,episode,root,title,description,source_page in cases:
+        ok=write_copy(filename=name,program=program,episode=episode,root=root,title=title,description=description,source_page=source_page)
+        (created if ok else missing).append(name)
 
-    root = OUTPUTS / "mizan" / "01"
-    name = "میزان.md"
-    if write_copy(
-        filename=name, program="میزان", episode="1", root=root,
-        title="میزان",
-        description="متن برنامه میزانِ پردازش‌شده در پروژه.",
-        source_page=MIZAN_SOURCE_PAGE,
-    ):
-        created.append(name)
-    else:
-        missing.append(name)
-
-    finup_root = first_completed_child(OUTPUTS / "finup")
-    name = "فناپ.md"
-    if finup_root and write_copy(
-        filename=name, program="فیناپ", episode="رویداد ۲۱", root=finup_root,
+    finup_root=first_completed_child(OUTPUTS/"finup")
+    name="فناپ.md"
+    ok=bool(finup_root) and write_copy(filename=name,program="فیناپ",episode="رویداد ۲۱",root=finup_root,
         title="سواد مالی چه هست و چه نیست؟ - کمیل رودی",
         description="ارائه دکتر کمیل رودی در بیست‌ویکمین رویداد فیناپ درباره تعریف و مرزهای سواد مالی.",
-        source_page=FINUP_SOURCE_PAGE,
-    ):
-        created.append(name)
-    else:
-        missing.append(name)
+        source_page=FINUP_SOURCE_PAGE)
+    (created if ok else missing).append(name)
 
-    sherakat_root = OUTPUTS / "voice-260817-165035" / "01"
-    name = "شراکت.md"
-    if write_copy(
-        filename=name, program="شراکت", episode="1", root=sherakat_root,
-        title="شراکت",
-        description="متن فایل صوتی شراکتِ اضافه‌شده به مجموعه داده پروژه.",
-        source_page=SHERAKAT_SOURCE_PAGE,
-    ):
-        created.append(name)
-    else:
-        missing.append(name)
+    for ep in range(1,12):
+        root=OUTPUTS/"bankmellatt"/str(ep); name=f"بانک ملت {ep}.md"
+        ok=write_copy(filename=name,program="بانک ملت",episode=str(ep),root=root,title=f"بانک ملت - قسمت {ep}",
+                      description=f"قسمت {ep} از مجموعه آموزشی بانک ملت؛ متن پردازش‌شده فایل موجود.",source_page=BANK_MELLAT_SOURCE_PAGE)
+        if ok: created.append(name)
+        elif ep<=8: missing.append(name)
 
-    for ep in range(1, 12):
-        root = OUTPUTS / "bankmellatt" / str(ep)
-        name = f"بانک ملت {ep}.md"
-        if write_copy(
-            filename=name, program="بانک ملت", episode=str(ep), root=root,
-            title=f"بانک ملت - قسمت {ep}",
-            description=f"قسمت {ep} از مجموعه آموزشی بانک ملت؛ متن پردازش‌شده فایل موجود.",
-            source_page=BANK_MELLAT_SOURCE_PAGE,
-        ):
-            created.append(name)
-        elif ep <= 8:
-            missing.append(name)
-
-    files = [p for p in COPY.iterdir() if p.is_file()]
-    non_md = [p.name for p in files if p.suffix.lower() != ".md"]
-    if non_md:
-        raise SystemExit(f"copy/ contains non-Markdown files: {non_md}")
+    files=[p for p in COPY.iterdir() if p.is_file()]
+    non_md=[p.name for p in files if p.suffix.lower()!=".md"]
+    if non_md: raise SystemExit(f"copy/ contains non-Markdown files: {non_md}")
     for path in files:
-        text = path.read_text(encoding="utf-8")
+        text=path.read_text(encoding="utf-8")
         if "github.com/Shahbazi-Amir/vid_pipeline" in text:
             raise SystemExit(f"internal GitHub source leaked into {path}")
-        for required in ("**توضیحات:**", "**مدت‌زمان کل:**", "**لینک منبع اصلی:**"):
-            if required not in text:
-                raise SystemExit(f"missing {required} in {path}")
+        for required in ("**توضیحات:**","**مدت‌زمان کل:**"):
+            if required not in text: raise SystemExit(f"missing {required} in {path}")
+        if "**منبع اصلی:**" in text:
+            source_line=next(line for line in text.splitlines() if "**منبع اصلی:**" in line)
+            if "http" not in source_line: raise SystemExit(f"non-URL source in {path}")
 
-    summary = {"created_count": len(created), "created": created, "missing_requested": missing}
-    print(json.dumps(summary, ensure_ascii=False, indent=2))
+    summary={"created_count":len(created),"created":created,"missing_requested":missing}
+    print(json.dumps(summary,ensure_ascii=False,indent=2))
     return summary
 
 

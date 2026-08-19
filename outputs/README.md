@@ -1,15 +1,9 @@
-# Runtime outputs
+# Canonical outputs
 
-Pipeline runs write one directory per stable job ID here. Generated transcripts,
-normalized media, diagnostics, and review payloads are runtime artifacts and are
-not tracked by Git.
+برای استفاده روزمره فقط این دو مسیر را نگاه کنید:
 
-The canonical base deliverables are:
+- `outputs/finalized/` — فقط خروجی‌هایی که Review واقعی شده‌اند و Final transcript دارند.
+- `outputs/review-ready/` — پردازش و Review Package کامل است، ولی Review نهایی هنوز انجام نشده.
 
-- `delivery/transcript.md`
-- `delivery/transcript.txt`
-- `delivery/transcript.timestamped.md`
-
-Internal `raw/`, `machine/`, `audio/`, `review/`, and `final/` files remain under
-the job directory for audit and resume. A semantic review is explicit; it is
-never inferred from deterministic cleanup.
+مسیرهای قدیمی هر Collection برای Audit/Resume نگه داشته شده‌اند و حذف نشده‌اند.
+مرجع وضعیت ماشینی: `outputs/canonical-status.json`.

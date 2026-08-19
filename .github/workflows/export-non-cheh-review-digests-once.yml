@@ -93,6 +93,8 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -f ops/non-cheh-review-digests
-          git commit -m 'Export non-Chehelstoun review digests' || exit 0
+          git commit -m 'Generate non-Chehelstoun review digests' || exit 0
           for attempt in 1 2 3 4 5; do git pull --rebase origin main && git push origin HEAD:main && exit 0; sleep $((attempt*3)); done
           exit 1
+
+# kick 2026-08-19

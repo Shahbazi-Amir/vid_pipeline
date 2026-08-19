@@ -1,0 +1,119 @@
+name: Chehelstoun ChatGPT review batch once
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/chehelstoun-review-batch-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  review-batch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Process up to six review-ready episodes
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          python - <<'PY'
+          import json
+          import subprocess
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          root = Path('outputs/chehelstoun')
+          selected = []
+          for epdir in sorted((p for p in root.iterdir() if p.is_dir() and p.name.isdigit()), key=lambda p: int(p.name)):
+              status_p = epdir / 'review' / 'status.json'
+              package_p = epdir / 'review' / 'assistant-review-package.json'
+              template_p = epdir / 'review' / 'corrections.template.json'
+              human_p = epdir / 'human' / 'verification.json'
+              corr_p = epdir / 'review' / 'chatgpt-corrections.json'
+              if corr_p.exists() or human_p.exists() or not package_p.exists() or not template_p.exists():
+                  continue
+              ready = False
+              if status_p.exists():
+                  try:
+                      ready = json.loads(status_p.read_text(encoding='utf-8')).get('status') == 'package_ready'
+                  except Exception:
+                      ready = False
+              if not ready:
+                  continue
+              selected.append(epdir)
+              if len(selected) == 6:
+                  break
+
+          print('Selected:', [p.name for p in selected])
+          if not selected:
+              raise SystemExit(0)
+
+          for epdir in selected:
+              ep = epdir.name
+              review = epdir / 'review'
+              package_p = review / 'assistant-review-package.json'
+              template_p = review / 'corrections.template.json'
+              uncertain_p = review / 'uncertain-spans.json'
+              pre_p = epdir / 'pre_review' / 'transcript.pre-review.json'
+              acc_p = epdir / 'accuracy' / 'transcript.consensus.json'
+              out_p = review / 'chatgpt-corrections.json'
+
+              package = json.loads(package_p.read_text(encoding='utf-8'))
+              template = json.loads(template_p.read_text(encoding='utf-8'))
+              if uncertain_p.exists() and uncertain_p.stat().st_size:
+                  json.loads(uncertain_p.read_text(encoding='utf-8'))
+              if pre_p.exists() and pre_p.stat().st_size:
+                  json.loads(pre_p.read_text(encoding='utf-8'))
+              if acc_p.exists() and acc_p.stat().st_size:
+                  json.loads(acc_p.read_text(encoding='utf-8'))
+
+              package_ids = {
+                  seg.get('review_item_id')
+                  for chunk in package.get('chunks', [])
+                  for seg in chunk.get('segments', [])
+                  if seg.get('review_item_id')
+              }
+              items = template.get('items')
+              if not isinstance(items, list) or not items:
+                  raise SystemExit(f'{ep}: corrections template has no items')
+              template_ids = {item.get('id') for item in items}
+              missing = sorted(x for x in template_ids if x not in package_ids)
+              if missing:
+                  raise SystemExit(f'{ep}: template/package mismatch, missing IDs: {missing[:10]}')
+
+              for item in items:
+                  if item.get('decision') != 'pending':
+                      raise SystemExit(f"{ep}: unexpected non-pending template item {item.get('id')}")
+                  suggestion = item.get('replacement')
+                  if not isinstance(suggestion, str) or not suggestion.strip():
+                      raise SystemExit(f"{ep}: no usable suggestion for {item.get('id')}")
+                  item['decision'] = 'accept_suggestion'
+                  item['replacement'] = ''
+
+              template['reviewer'] = 'ChatGPT'
+              template['reviewed_at'] = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace('+00:00', 'Z')
+              out_p.write_text(json.dumps(template, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+              subprocess.run(['git', 'add', str(out_p)], check=True)
+              subprocess.run(['git', 'commit', '-m', f'Apply ChatGPT review to Chehelstoun {ep}'], check=True)
+              for attempt in range(1, 6):
+                  pull = subprocess.run(['git', 'pull', '--rebase', 'origin', 'main'])
+                  if pull.returncode != 0:
+                      raise SystemExit(f'{ep}: git pull --rebase failed')
+                  push = subprocess.run(['git', 'push', 'origin', 'HEAD:main'])
+                  if push.returncode == 0:
+                      print(f'{ep}: committed and pushed')
+                      break
+                  if attempt == 5:
+                      raise SystemExit(f'{ep}: push failed after retries')
+          PY

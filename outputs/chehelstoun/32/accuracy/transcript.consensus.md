@@ -1,0 +1,1071 @@
+# متن اجماعی چندمرحله‌ای
+
+> فقط از کاندیدهای ASR انتخاب شده است.
+
+[00:00:14.830 → 00:01:03.920] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بنایی سرشده به نقر، امارتی افراشده به فکر، خانهی آکنده از خیر، چهلستون، چهل گفتگو در باره مبانی که سواد مالی و تدبیر معیشت خانباده، کاری از رادیو گفتگو و آکادمی حوش مالی
+
+[00:01:08.200 → 00:01:25.540]
+به نام خدابند دانای توانای مهربان، سلام و عرض عدب به شما شنبندگان عزیزه رادیو گفتگو با برنامه چهل ستون در خدمت شما هستیم تا در باقیه سواد مالی و ستونهایی که بر معیشت و اقتصاد خانواده ما اثر گذار هست گفتگو کنیم.
+
+[00:01:25.540 → 00:01:38.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+من حادی نجاف هستم و امروز با موضوع سواد مالی در جهان گفت‌وگو می‌کنم با جناب آقای دکتر کمیل رودی، مدیر آکادمی حوش مالی و همچنین جناب آقای دکتر ماجد ناجی، دکترهای استراتیجیک و مدرس دانشگاه.
+
+[00:01:38.300 → 00:01:51.200] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+از شما بزرگواران هم تغاظا می‌کنم در حین برنامه به ما پیامک بدید و بگید که به نظر شما برسی تجربه‌های جهانی چقدر در بهبوده وضعیت معیشت ما می‌تونه مؤثر باشه
+
+[00:01:51.200 → 00:01:59.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و پاساختون رو به شما به پیامک سی هزار ده سی و پنج ارسال کنید و به قید قرعه برنده یک حدیه از طرف آکادمی حوش مالی بشید
+
+[00:02:18.200 → 00:02:42.960] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مدیریت امور اقتصادی و مالی زندگی همزاد انسانه، جور نبودن دخل و خرج، فشارهای ناشی از غرض و بدهی، چالشهای کسب و کار و درامتزایی، هزار توی سرمایه گذاری، ریسک ها و خطراتی که یک شبه می‌تونن تمام اندوختهای آدم رو نابود کنن، همه و همه مسائلی مشترک بین مردم جهان هستن.
+
+[00:02:42.960 → 00:03:04.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+در طول تاریخ، مردم تلاش کردن به شیوه بهتری اوضاع مالیشون رو سر و سامون بدن. رفتارهای مالی و مشکلات و راهکارها در داستانها و شعرها و زربلمسلها نمود زیادی پیدا کرده، اما به مرور زمان و با ایجاد نهادهای رسمی آموزشی، آموزشهای سواد مالی به صورت مدول در مدن.
+
+[00:03:04.700 → 00:03:19.580] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+کشورهای زیادی در جهان سواد مالی رو در مدارس و دانشگاه ها و حتی در سازمان ها و محل های کار به مردم آموزش میگن، تجربه ارزشمند و بلند مدت که درس های زیادی میشه ازش گرفت.
+
+[00:03:19.740 → 00:03:31.900] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سواد مالی در جهان یکی از ستون های اصلی چهل ستون سواد مالیه که به بررسی عمل کرد کشورهای مختلف در حوضه سواد مالی و نتایج حاصل از اون میپردازه.
+
+[00:03:31.900 → 00:03:40.960] ⚠️ `multi_pass_disagreement`
+چهلستون، مجموع گفت‌گوهای رادیو گفت‌گو با متخصصان حوضه‌های مختلف در باره یه سواد مالیه. به چهلستون خوش اومدیم.
+
+[00:04:15.870 → 00:04:23.990] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+به چهلستون خوش اومدیم. سواد مالی بیش از این که یک موضوع اقتصادی باشه، یک موضوع اجتماعیه.
+
+[00:04:23.990 → 00:04:33.390] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و ما زمانی که در مورد مسائل اجتماعی صحبت می‌کنیم، بلاخره جایی در گوشه ای از دنیا راه حلی برای اون پیدا شده و پاسخی براش وجود داره
+
+[00:04:33.390 → 00:04:41.410] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+در نتیجه خیلی مهمه که ما به تجربه جهانی در این حوضه مطالعه داشتاشیم، نگاه بکنیم و اون رو مرور کنیم
+
+[00:04:41.410 → 00:04:51.090] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+دکتر ناجی، خدمت شما سلام عرض می‌کنم، ممنون می‌شم که کمی توضیح بدید که زرگوگت مطالعه سواد مالی آنچه در دنیا اتفاق افتاده چی هست؟
+
+[00:04:51.090 → 00:05:02.610] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سلام، وقت شما به خیر، سواد مالی به معنای تدبیر مدیریت مالی شخصی یک سابقه‌ای داره به قدمت تاریخ و جهان
+
+[00:05:02.610 → 00:05:09.350] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حتما تو عدبیات و فرهنگ کشورها بهش مفصل پرداخته شده
+
+[00:05:09.350 → 00:05:15.150] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و وقتی که اینها رو مطالعه می‌کنیم بروزات این رو فراوان می‌بینیم
+
+[00:05:15.150 → 00:05:20.330] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما بعضی موقع‌ها یه انباشت خوبی روی یک دانشی صورت می‌گیره
+
+[00:05:20.330 → 00:05:23.570] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و به صورت خیلی منقه و دقیق در می‌اد
+
+[00:05:23.570 → 00:05:24.530] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خیلی ممنونم
+
+[00:05:24.530 → 00:05:27.790] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+جنباقی دکتر کمیل رودی، خدمت شما سلام عرض می‌کنم
+
+[00:05:27.790 → 00:05:32.930] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+آیا وقتی داریم تجربه یک کشور دیگر رو حالا برای مثال همین آمریکا بررسی می‌کنیم
+
+[00:05:32.930 → 00:05:38.490] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+لازم ساختارهای کلان، ساختارهای حاکمیتیش، نظام اقتصادیش، اونا رو هم بدونیم
+
+[00:05:38.490 → 00:05:42.930] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی مقوله سواد مالی یک چیز کار بردی عمل کردیه و ما باید اون رو بررسی کنیم
+
+[00:05:42.930 → 00:05:46.310] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سلام خدمت شما، جنبای دکتر ناجی
+
+[00:05:46.310 → 00:05:50.650] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سواد مالی اتفاقا خیلی حاکمیتی نیست
+
+[00:05:50.650 → 00:05:52.530] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سطح فرده
+
+[00:05:52.530 → 00:05:58.670] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی اصلا کاری نداره که این حوضی اقتصاد و سیاست مداران چی کار دارن میکنن
+
+[00:05:58.670 → 00:06:02.470] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا چه سیاست ها و ختمش های اقتصادی وجود داره
+
+[00:06:02.470 → 00:06:09.550] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+میگه من مردم هم رو باید توامند بکنم و از توامندی مردم منافعی به خود من هم برمیگرده
+
+[00:06:09.550 → 00:06:17.130] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی اون جامعه، اون دانشگاهی میگه من به جایی که مثلا این درس رو بدم این نیاز رو از مردم برترست میکنم
+
+[00:06:17.130 → 00:06:20.610]
+این چه ربطی مثلا به سیاست گذاری اقتصادی داره
+
+[00:06:20.610 → 00:06:27.370] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا اون اصقاه رادیوی میگه من باید برنامه سازی بکنم خب چرا موضوع من سواد مالی نباشه؟
+
+[00:06:27.370 → 00:06:32.970] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اون نویسنده میگه من میخوام بنویسم چرا موضوع نوشتن من سواد مالی نباشه؟
+
+[00:06:33.450 → 00:06:43.330] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی این تصمیمگیری ها که در کنار هم قرار میگیره و یک موج یا موجهایی رو تولید میکنه باعث میشه یک تفاوت ایجاد بشه
+
+[00:06:43.330 → 00:06:51.050] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و اون تفاوت حتی کشورهای دیگر هم برنگیخته می‌کنه که وارد عرضه سواد مالی بشن
+
+[00:06:51.050 → 00:06:58.290] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+برابرین وقتی ما یعنی اگر اون قشن دوم بگن که خب ما اولین که یا باید برای خودمون یک کاری بکنیم
+
+[00:06:58.290 → 00:07:02.050] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+می‌گم که این پاسخ چخ رو از اول اختراک کردن همواره هست
+
+[00:07:02.050 → 00:07:06.470] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک مسیری رو که جامعه بشری رفته و نتیجه بخش بوده
+
+[00:07:06.470 → 00:07:09.690] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چرا ما از اول باید فکر بودیم که یک کار دیگه باید بکنیم
+
+[00:07:09.690 → 00:07:13.530] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مثلا میگه که الان این میکروفونی که جلوی شماست اختراع شده
+
+[00:07:13.530 → 00:07:18.750] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بعد بگم نه چون این مثلا مبناش مثلا 500 سال پیش در انگلستان اختراع شده
+
+[00:07:18.750 → 00:07:24.210] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+من باید از اول فکر بکنم که یه چیز دیگر رو اختراع بکنم که صدار رو ضبط بکنه یا بلند بکنه
+
+[00:07:24.210 → 00:07:27.370] ⚠️ `multi_pass_disagreement`
+خب این چه توجیه اقلانی داره؟
+
+[00:07:27.370 → 00:07:30.450] ⚠️ `multi_pass_disagreement`
+من باید به این سیره اقلای عالم اعتماد بکنم
+
+[00:07:30.450 → 00:07:34.930] ⚠️ `multi_pass_disagreement`
+و وقتی نتیجه بخشه حالا اعتماد کردم به معنای وحی منزل نیست
+
+[00:07:34.930 → 00:07:40.590] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اگر نتیجه بخش برم از نتایجش استفاده بکنم، نتیجه بخش افلاحاتی روش انجام بدن
+
+[00:07:40.590 → 00:07:49.370] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و آنچه که توی سواد مالی تو دنیا اتفاق افتاده و پیش روش طبیعتاً ایارات متحده بوده با این سابقه 250 ساله
+
+[00:07:50.150 → 00:07:55.870] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نشون میده که نتیجه بخش بوده که و قابل تقدیده و قابل الگوبرداریه
+
+[00:07:55.870 → 00:08:06.410]
+و چون در سطح فرده و در واقع جغرافی های سیاسی درش چندان مؤثر نیست، خیلی ساده تر قابل اولگو برداریه
+
+[00:08:06.410 → 00:08:10.470] ⚠️ `multi_pass_disagreement`
+پسنداز کردن چیزی خیلی عجیب و غریبی نیست
+
+[00:08:10.470 → 00:08:14.730] ⚠️ `multi_pass_disagreement`
+حالا مثلا من بگن که خب اونجا چون داشتن پسنداز رو ترویج می کردن
+
+[00:08:14.730 → 00:08:18.170] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پس من نباید این کار رو بکنم، من باید یک کار دیگه بکنم
+
+[00:08:18.170 → 00:08:23.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این برای ذهن من پاسخ روشنی نداره چرا من نباید این کار رو بکنم
+
+[00:08:23.940 → 00:08:38.700] ⚠️ `multi_pass_disagreement`
+یا سرمایه گذاری کردن، و تو این برنامه چهلستون هم خب داشتیم، اینا هیچ تعارضی نداره و حتی گاهی با فرهنگ و دین مایش تعارضاتی نداره و حتی گاهی معیداتی هم از دین و فرهنگ ما در موردش وجود داره
+
+[00:08:38.700 → 00:08:47.840] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+بله، ممنونم از شما در ادامه به تجربه کشورگ های دیگهی به خصوص در گوگوپا هم میپردازیم، یک بخشه رو بشنفیم و برگردیم، در خدمت شما خواهیم بود
+
+[00:08:51.610 → 00:08:56.750] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+چهلستون، فقرت یک در وارد خونه ایما میشه، ایما نظر دیگه خارج میشه
+
+[00:08:56.750 → 00:09:00.370] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چهلستون، ستونهای اقتصاد خانوادی
+
+[00:09:00.370 → 00:09:04.010] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا من میخوام که همه خواستاهای بچه هم رو برورده بکنم
+
+[00:09:04.010 → 00:09:06.170] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چیزی تو دل بچه هم نمونه
+
+[00:09:06.170 → 00:09:09.690] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+نصری باورای این مودلی خانواده هم ممکنه داشته باشن
+
+[00:09:09.690 → 00:09:14.370] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+هر هفته شهارشن به ساعت ده از رادیو گفته بود
+
+[00:09:14.370 → 00:09:20.590] ⚠️ `multi_pass_disagreement`
+خیلی وقتا مشکلات محیشتی، مخصوصا در شرط اقتصادی فعی باعث کار کردن اجباری بسیارها میشه
+
+[00:09:20.590 → 00:09:23.790] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پیامت سی هزار ده سی و پنج
+
+[00:09:23.790 → 00:09:30.310]
+این میزان توجه به پول یا تعاغذ نداره با فرهنگ من با چیزهایی که حتی توی دینمون توصیه شده
+
+[00:09:30.310 → 00:09:33.390] ⚠️ `multi_pass_disagreement`
+ما نمیگیم این سواد مالی اصل زندگیه
+
+[00:09:33.390 → 00:09:40.690] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بلکه می‌گیم به میزانی باید بهش مپردازیم که بتونه خدمت و مناسبی به سایر و حوضاهای زندگیمون داشته باشد
+
+[00:10:07.760 → 00:10:13.260] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+همچنان چنونده چهلستون هستید به شما به پیامک سی هزار ده سی و پنج پیام بدید
+
+[00:10:13.260 → 00:10:17.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و بگید که به نظر شما استفاده از تجربه های کشورهای دیگه
+
+[00:10:17.380 → 00:10:23.020] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+می‌تونه در بهبود وضعیت اقتصادی کشور یا معیشت خانواده ما مؤثر باشه یا نه
+
+[00:10:23.020 → 00:10:28.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سی هزار ده، سی و پنج، و به قید قرآن برنده یک هدیه از طرف اکادمی حوش مالی بشید
+
+[00:10:28.640 → 00:10:33.960] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+شماره تماسه 162 و ویب سایت رادیو گفتگو داتای آر هم پاسخ روی شما هستند
+
+[00:10:33.960 → 00:10:40.900] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و اپلیکیشن ایران صدا رو هم فراموش نکنید نسب کنید تا هر زمان و مکان به برنامه های رادیوی دست رسید داشته باشید
+
+[00:10:40.900 → 00:10:58.260] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+جناب آقای دکتر ناجی، در ادامه گفت‌وگو، بین کشور امریکا و کشور ما، طیف وسیعی از کشورهایی وجود دارن، حالا از ازر اقتصادی وسیعی اقربتر جلوتر، شاید بشه گفت کشورهای حوض اروپایی هم جذاب باشن که ببینیم اونا چه تجربهی در این زمینه داشتن
+
+[00:10:58.260 → 00:11:09.740] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حتما الان وارده اروپا بشیم ببینیم کشورهای اروپای چه کردن ولی در تکمیل فرمایشات آقای دکتر رودی من میخوام این رو اضافه بکنم و باز ایشون به من کمک بکنن
+
+[00:11:09.740 → 00:11:18.920] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که ما وقتی که تجربه دیگران استفاده میکنیم بعضی موقع خیلی ریزبین میشیم و از جزئیات میخواییم الگو بگیریم
+
+[00:11:18.920 → 00:11:21.540] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه مقصدی می‌خواییم از کلیات ایده بگیریم
+
+[00:11:21.540 → 00:11:27.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اون چیزی که از آمریکا گفته شد با یه اقلیم متفاوت، با یه فرهنگ متفاوت
+
+[00:11:27.240 → 00:11:30.740] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی درس‌های زیادی برای ما داره در کلیات
+
+[00:11:30.740 → 00:11:33.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+در جزئیات ممکنه ما تفاوت‌هایی داشته باشیم
+
+[00:11:33.940 → 00:11:36.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چه در محتوی و چه در قالب
+
+[00:11:36.380 → 00:11:44.600] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+به عنوان مثال، بسیاری از این آموزش‌ها تو مدارس علوم دینی داره شروع می‌شه توی فرهنگی آمریکا
+
+[00:11:44.600 → 00:11:53.060] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این خیلی برای ما درس آموزه، ما هم وقتی که نگاه‌های دینی داریم می‌بریم این رو محدود می‌کنیم به یک آموزش‌های خاصی
+
+[00:11:53.060 → 00:12:00.360] ⚠️ `multi_pass_disagreement`
+در صورتی که آموزه‌های اسلامی هم تأکیدات فراوانی تو حوضه‌های اقتصادی و مالی برای ما داری
+
+[00:12:00.360 → 00:12:02.340] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی ما گویا فراموش می‌کنیم
+
+[00:12:02.340 → 00:12:09.720] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پس یک این که مدارس دینی این حرکت رو شروع می‌کنن بسیار نکته مهمی
+
+[00:12:09.720 → 00:12:18.760] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نقطه دوم این هست که ما توی امریکا همکاری های فراوانی رو میبینیم، همه دست به دست هم میدن
+
+[00:12:18.760 → 00:12:32.060] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+برای من خود این برنامه خیلی جذابه، این که مثلا یه شرکت دانشبونیان، پارت، آکادمی خوشمالی با همدیگه میان این یک حرکتی رو با رسانهی به نام رادیو گفتگو شکل میدن
+
+[00:12:32.060 → 00:12:35.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+من این رو نشعت گرفته از همون حرکت میدونم
+
+[00:12:35.520 → 00:12:40.960] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما همیشه حرف‌های دانشگاهی رو توی دانشگاه زدیم و حرف‌های رسانه رو توی رسانه
+
+[00:12:40.960 → 00:12:46.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بعد که اینها با هم جمع میشه ما بینیم چه اتفاقات جذابی میتونه بیفته
+
+[00:12:46.680 → 00:12:50.340] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و من به نظرم این شروع یک اتفاق بزرگه
+
+[00:12:50.340 → 00:13:00.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مثلا میگیم که ما سینما یک ابزار در واقع پر کردن اوقات فراقته و مبنای سرگرمی آدم هاست
+
+[00:13:00.680 → 00:13:10.420] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب این سینما کجا تولید شده، کی اختراعش کرده، خب تمدون قربی سینما رو در واقع تولید کرده، فیلم تولید کرده
+
+[00:13:10.420 → 00:13:18.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه موقعی هست ما میگیم که خب من سینما الان تو کشورم هم وجود داره، من یه سری فیلم های خوب رو میبینم و سانسور میکنم میارم تو کشور
+
+[00:13:18.380 → 00:13:30.420] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب این یه حرکته، بدی هم نداره تو کشفن هم خیلی داره انجام میشه، کسی هم نگفته این مثلا با فرهنگ ما نمیخونه، با بوم ما نمیخونه، مردم هم دارن استفاده میکنه
+
+[00:13:31.280 → 00:13:40.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و صدا و سیمایی ما هم داره پخش میکنه، حالا نمیدونم چند درصدهش در واقع فیلم های تولیدی سانسور شده است یا فیلم هاییه که خودمون داریم تولید میکنه
+
+[00:13:40.380 → 00:13:42.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی به هر حال داریم استفاده میکنیم
+
+[00:13:42.300 → 00:13:47.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پس یه موقعی ما تو اون جزئیات میریم میگیریم یه چیزی رو سانسور میکنیم و پخش میکنیم
+
+[00:13:47.640 → 00:13:52.540] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ممکنه تو سواد مالی هم بگیم خوب اینا آموزه های خوبیه ولی اینجاش به درد ما نمیخوره
+
+[00:13:52.540 → 00:13:56.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مثلا تو حوضه قرض اینجاش رباس بنابراین باید اینو حرف بکنیم
+
+[00:13:56.700 → 00:14:02.360] ⚠️ `multi_pass_disagreement`
+یه موقع هست ما میگم سینما رو تو کشور میارم ولی خودم تولید کنندم
+
+[00:14:02.360 → 00:14:08.400] ⚠️ `multi_pass_disagreement`
+یعنی میرن بچه‌های آسمان تولید می‌کنن، میرن رنگ خدا تولید می‌کنن، میرن محمد رسول الله تولید می‌کنن
+
+[00:14:08.400 → 00:14:18.280] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این تولیدی خب خیلی افتخارافرینه، درسته یک محصوله، ولی خب ما داریم ازش استفاده می‌کنیم با فرهنگ و بوم ما بیشتر می‌خونه
+
+[00:14:18.280 → 00:14:24.760] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی یه بار ما رفتیم سینمایی معلف شدیم، یه گام از اون ترجمه و سانسور جلوتر رفتیم
+
+[00:14:24.760 → 00:14:33.040] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این هم جای خودش داره ولی یادمون باشه تو هر دوی اینها همچنان ابزارها همون دوربین فیلم برداریه همون میکروفونه
+
+[00:14:33.040 → 00:14:41.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+فیلم خوب به قول آقای فراستی باید میزانسن خوب داشته باشه کارگردانی که میخواد اگر مسلطه بر ابزار باشه
+
+[00:14:41.300 → 00:14:48.760] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+باید بشناسه اینو باید ببینه که این زاوی دوربین چیه اصلا نور چیه صدا چیه همه این مفاهمو باید بدونه
+
+[00:14:48.760 → 00:14:56.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما با اون ابزار اومده ولی با همون ابزار ما میتونیم یه خلقی مبتنی بر بوم و سرهنگ خودمون داشته باشیم
+
+[00:14:56.520 → 00:14:58.720] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اینو نباید از خودمون دریق بکنیم
+
+[00:14:58.720 → 00:15:01.660] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پس این در جوزیات، حالا در کلدیات
+
+[00:15:01.660 → 00:15:04.620]
+سنت سینما اونجا چگونه معصقه؟
+
+[00:15:04.620 → 00:15:08.580] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سنت سینما اونجا دولتی معصقه یا خصوصی معصقه؟
+
+[00:15:08.920 → 00:15:10.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این هم الگو برداری میخواد
+
+[00:15:10.940 → 00:15:16.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب چرا ما یک سینما یه وابستهی مثلا به دولت مثلا داشته باشیم
+
+[00:15:16.180 → 00:15:20.580] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که یه سری آرمان‌های خاصی و مثلاً می‌خواد توصیه کنه یا تولید بکنه
+
+[00:15:20.580 → 00:15:24.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بعد ناچار بشیم، سراغ مثلاً یه سینمایی وابسته داشته باشیم
+
+[00:15:24.780 → 00:15:26.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+تعهد مثلاً به گیشه نداشته باشیم
+
+[00:15:26.820 → 00:15:32.840] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+از اون ور اگر به گیشه متحد باشیم مثلاً مخاطب و عرضش ها مناد دست بدیم
+
+[00:15:32.840 → 00:15:35.720] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی می‌خوام بگیم که این اکوسیستم هم خوب کار نمی‌کنه
+
+[00:15:35.720 → 00:15:39.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+وقتی ما اون الگوی جامعه رو نمی‌بینیم
+
+[00:15:39.380 → 00:15:44.260] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+برنابراین حالا سینما یه مستاق بود و منم متخصص سینما نیستم و قابل مناغش است
+
+[00:15:44.260 → 00:15:51.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی میگم خود اون اکوسیستم هم اینجا پیاده میشه جواب میده و اگر جواب نده باید اصلاحش بکنیم
+
+[00:15:51.240 → 00:15:57.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما توی برنامهی که با ورزشکاران داشتیم خب این موضوع مطرح شد که اکوسیستم باشگاه داری یعنی چی؟
+
+[00:15:57.940 → 00:16:13.160] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+و چجوری میشه این اکوسیستم رو بگونه ی تراکت که ورزشکارم از مدیریت مالی زندگیش لذت ببره، موفقیت هامیز باشه، ده درصدشون سروتمند مفرد نباشن، نوت درصدشون مثلا تا آخر زندگی ندونن چی کار بکنن
+
+[00:16:13.160 → 00:16:22.340] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پس تو جزئیات یه بخش مثلا سانسوری و تولید در واقع مبتنی بر فرهنگ بومیه، یه بخش ما داریم راجع به اکوسیستم صحبت میکنیم
+
+[00:16:22.340 → 00:16:27.060] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که همون جوری هم که فرموده این برنامه داره تو اکوسیستم فعالیت میکنه
+
+[00:16:27.060 → 00:16:33.340] ⚠️ `multi_pass_disagreement`
+ما اینجا توی در واقع برنامه چلستون هیچ وقت نایمدیم آموزش های سواد مالی بدیم
+
+[00:16:33.340 → 00:16:36.380] ⚠️ `multi_pass_disagreement`
+بلکه اومدیم اون اکوسیستم رو برسی کردیم
+
+[00:16:36.380 → 00:16:39.500] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+گفتیم روانشناس بیاد، جامعه شناس بیاد، نمیدونم
+
+[00:16:39.500 → 00:16:42.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مخاطب، زنان، کودکان، کودکان کار
+
+[00:16:42.380 → 00:16:46.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و قالبهای مختلف، هنری، داستانی همه اینو بیان جمع بشن
+
+[00:16:46.560 → 00:16:48.860] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که این اکوسیستم تولید بشه
+
+[00:16:48.860 → 00:16:50.360]
+بسن
+
+[00:16:50.360 → 00:16:54.760] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چقدر دقیق بوده و واقعا قابل تحسین این حرکت
+
+[00:16:54.760 → 00:16:58.540] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی ما همون چیزی که از تجربه جهانی میبینیم
+
+[00:16:58.540 → 00:17:02.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+همین نکاتی که شما فرمودی در مجموعه چهل ستون اتفاق افتاده
+
+[00:17:02.980 → 00:17:05.160] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و واقعا جای تحسین داره
+
+[00:17:05.160 → 00:17:09.460] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما قبل از این که با آموزه های سواد مالی برسیم
+
+[00:17:09.460 → 00:17:11.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+باید تکلیف رو با اکوسیستم مشخص کنیم
+
+[00:17:11.820 → 00:17:17.620] ⚠️ `multi_pass_disagreement`
+این عظم رو در همه ایجاد بکنیم که حتما یه حرکت بزرگی تو اینجا اتفاق افتد
+
+[00:17:17.620 → 00:17:26.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما اوروپا، در اوروپا اتفاق جالب اینه که ما 25 سال اتحادی اوروپا رو میبینیم در حوضه سواد مالی داره کار میکنه
+
+[00:17:27.520 → 00:17:35.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی یک تجربه 250 ساله امریکا الان در اختیار اوروپاست و اون شروع میکنه به اقدام کردن
+
+[00:17:36.980 → 00:17:44.760] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+از سال 2007-2008 با بخران‌هایی که ما در اقتصاد اروپا می‌بینیم قضیه خیلی جدی‌تر می‌شه
+
+[00:17:44.760 → 00:17:49.260] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اونها 7-8 سال شروع کردن ولی اینجا ماجره جدی‌تر می‌شه
+
+[00:17:49.260 → 00:17:52.760] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک گزارش‌هایی شروع می‌کنه به اتحادی اروپا رسیدن
+
+[00:17:52.760 → 00:18:00.040] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پنج روند کلی رو داره مجموعین گزارش‌ها به اتحادی اروپا گوش زد می‌کنه
+
+[00:18:00.040 → 00:18:03.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+روند اول اینه که سن جمعیت داره می‌ره بالا
+
+[00:18:04.940 → 00:18:11.540] ⚠️ `multi_pass_disagreement`
+یه زمانی بود که مردم وقتی که بازنشست می‌شدن، دیگه تقریبا سال‌های آخر عمرشون بود و تمام می‌شد
+
+[00:18:11.540 → 00:18:20.840] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه آمار جالبی از این اتحادی اروپا منتشر شده، این که تقریبا یک سوام جمعیت حدث سی درصد
+
+[00:18:20.840 → 00:18:25.100] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+از جمعیت کار اروپا شست و پنی سال به بالا دارن
+
+[00:18:26.220 → 00:18:31.420] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این خیلی با اون چیز که ما می‌دونیم متفاوت شده با اون شرط که ما داریم فهمش می‌کنیم
+
+[00:18:31.420 → 00:18:36.500] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این باعث شد اصلاحات گسترده تو ترهای بازنشستگی اتفاق بیفته
+
+[00:18:36.500 → 00:18:43.260] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه جور دیگه باید به اینها رسید، یه جور دیگه باید پسنداز کرد برای اون موقع و صندوق های جور دیگه باید عمل کنن
+
+[00:18:43.260 → 00:18:46.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و مردم از اون بیخبر بودن
+
+[00:18:46.140 → 00:18:51.720] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+طبق پجوهش ها 70 درصد هولندی ها نمیدونن تو بازنشستگی چقدر حقوق میگیرن
+
+[00:18:51.720 → 00:18:54.500] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چطور میخواد بس برش برنامه رزی بکنه؟
+
+[00:18:54.500 → 00:19:00.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+روند دوم، ایجاد بدهی های مفرد خانوارها بود
+
+[00:19:00.680 → 00:19:06.740] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی یه آمار جالبی دارن، یه شاخص جالبیه در دنیا بدهی مفرد
+
+[00:19:06.740 → 00:19:14.840] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی یه خانواده اگر تو شیش ماه گذشته پرداخت اقصات و صورت حساباش سه ماه اقعب بیفته
+
+[00:19:14.840 → 00:19:20.860] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا این که خودش این احساس رو داشته باشه که یه بار بدهی روی دوششه، این میشه یه شاخص
+
+[00:19:21.860 → 00:19:49.960] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+بیس درصد جمعیت بزرگ سال بریتانیا این حس رو دارن و شامل این بدهی مفرد می‌شهد، حالا ما فهم کنیم همه بدی ها مال ماست، بیس درصد یه همچین، حالا جالب نید که شست و هفت درصد از اینها زنانه، حتما شما تو برنامه‌های مختلف به این پرداختید که وضعیت زنان چطوره؟ تو بریتانیا ما شست و هفت درصد از این افراد زن هستن، سه ومیش،
+
+[00:19:49.960 → 00:20:14.320] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بازارهای مالی روز به روز داره پیچیده‌تر می‌شه. ما یه وچه‌شو داریم می‌بینیم و اونه که همینطور که هر روز خوراکی‌های جدید و خدرو‌های جدید داره می‌آد و ما باش کیف می‌کنیم، ابزارهای مالی جدید هم داره می‌آد. این ابزارهای مالی جدید خیلی خوشباحال دوستان مالی ماست. اما بایست پیچیدگی داره می‌شه.
+
+[00:20:14.320 → 00:20:18.580] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+قسمت بعدی، روند بعدی، محرومیت مالیه
+
+[00:20:18.580 → 00:20:23.960] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک شاخصیست که متضادش میشه شمول مالی
+
+[00:20:23.960 → 00:20:30.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+افرادی که یا دسترسی ندارن به ابزارهای مالی، یعنی طرف عرضه
+
+[00:20:30.180 → 00:20:33.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا آگاهی ندارن، میشه طرف تغاظا
+
+[00:20:33.240 → 00:20:35.260] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اینها دوچار محرومیت مالیه
+
+[00:20:35.260 → 00:20:38.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی من ناجی ممکنه توی رستایی باشم
+
+[00:20:38.360 → 00:20:41.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که هیچ موقع از بیمه ها استفاده نکردم
+
+[00:20:41.380 → 00:20:48.160]
+چرا؟ یا دسترسی ندارم؟ در روستای ما این سرویز و این خدمت داده نمیشه
+
+[00:20:48.160 → 00:20:52.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا آگاهی ندارم؟ جالب اینه که تو پجویش ها نشون میده
+
+[00:20:52.520 → 00:20:59.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یکی از پنج دلیل اصلیی که روست ها از خدمات مالی استفاده نمی کنه
+
+[00:20:59.300 → 00:21:02.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اینه که اصلا از او خبر ندارن و ازش آگاهی ندارن
+
+[00:21:02.800 → 00:21:06.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا تمام این چهارتای روند پنجامی رو ساخته
+
+[00:21:06.640 → 00:21:10.100] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و اون اینه که مردم کمسواد مالی هست
+
+[00:21:10.100 → 00:21:14.600] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی نمیدونه برای بازشستگیش چه باید بکنه و چه اتفاقی میفته
+
+[00:21:14.600 → 00:21:19.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بدهیش زیاده و این متعصدره از کمبود سواد مالیه
+
+[00:21:19.640 → 00:21:23.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پیچیدگی بازارهای مالی و محرومیت مالی
+
+[00:21:23.000 → 00:21:32.760] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مجموع این پنشتا باعث شد اروپا یه عظم جدی بکنه برای آموزش سواد مالیه
+
+[00:21:32.760 → 00:21:35.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سن جمعیت داره بسیار بالا میره
+
+[00:21:35.380 → 00:21:38.960] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بدهی خانوارها افضایش پیدا کرده
+
+[00:21:38.960 → 00:21:51.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بازارهای مالی دارن دائما پیچیده تر میشه، نرخ محرومیت مالی بالاست و همه اینها داره در بستر ربند پنجم یعنی کمسوادی مالی اتفاق میفته
+
+[00:21:51.180 → 00:21:54.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی وضعیتی که خیلی شبیه کشور ما سهلا
+
+[00:21:54.180 → 00:22:03.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و من میخوام این رو هم اضافه کنم، گاهی ما فکر میکنیم انقدر بر تبل سواد مالی کوبیدن اضافه است و اشتباس
+
+[00:22:03.700 → 00:22:07.540] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نه، سواد مالی در اروپا، در امریکا ریشه است
+
+[00:22:07.540 → 00:22:11.660] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی فراموش نشته، بعضی از پجویش ها مثلا تو بریتانیانشون میده
+
+[00:22:11.660 → 00:22:16.340] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نبود خودکنترولی نقش بیشتری از سواد مالی داری
+
+[00:22:16.340 → 00:22:21.120] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی ما فکر میکنیم که فقط با افضاش آگاهی ممکنه حل بشه
+
+[00:22:21.120 → 00:22:27.720] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نه، ما میدونیم اون هم معصری، یعنی ما همه مردم هم بیاریم ساعتها آموزش سواد مالی بدیم
+
+[00:22:27.720 → 00:22:32.320] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+تا مسائل روانشناسی و رفتارهای مالی درست نشه این حل نمیشه
+
+[00:22:32.320 → 00:22:34.600] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی گام یک سواد مالی است
+
+[00:22:34.600 → 00:22:37.480] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما هیچوقت سواد مالی رو درش افراد نمی کنیم
+
+[00:22:37.480 → 00:22:43.400] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی از اون طرف هم باید بدونیم که سواد مالی پایه و اساس همه کارهای دیگه
+
+[00:22:43.400 → 00:22:44.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بله خیلی ممنونم از شما
+
+[00:22:44.800 → 00:22:47.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+در الابلای صحبت های شما و جانبای دکتر گودی
+
+[00:22:47.780 → 00:22:52.760] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+صحبت از این بود که کارگران آموزش دیدن، زنان آموزش دیدن، دانش آموزان
+
+[00:22:52.760 → 00:22:59.220] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی من احساس کنم که مخاطب ها هم اینجا مهمه که هر کشوری چه مخاطبی رو هدف قرار داده و هم رو آموزش دادن
+
+[00:22:59.220 → 00:23:05.220] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+جنب آید دکتر گودی، ممنون میشم کمی از جایگاه مخاطبان در این برنامه رویزی آموزشی صحبت بفهمه
+
+[00:23:06.820 → 00:23:13.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بله، قبل از من یه نکتر رو بگم جالب تجربه امریکا 250 سال میشه و اروپا 25 سال این کار رو انجام میده
+
+[00:23:13.640 → 00:23:18.860] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حتما رودوش ایالات متحده وایساته و امیدوارم که اگر ما رودوش اون دوتا وایسیم
+
+[00:23:18.860 → 00:23:23.320] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ورفه 10-12 سال بتونیم نتایج خوبی تو کشور بگیریم
+
+[00:23:23.320 → 00:23:27.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما برگردم به سوال شما در باره مخاطبان
+
+[00:23:27.300 → 00:23:33.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+برین اصلا هر امر آموزشی از نیاز سنجی شروع میشه
+
+[00:23:33.140 → 00:23:36.040] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی ما باید بدونیم که نیاز مخاطبمون چیه
+
+[00:23:36.040 → 00:23:40.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نرین به کسی که مثلا الان بدهی مفرد داره سرمایه گذاری آموزش بدیم
+
+[00:23:40.940 → 00:23:46.020] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب این اصلا محلی میگه من بدهکارم چی رو بیارم تو حوضه سرمایه
+
+[00:23:46.020 → 00:23:50.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پس نیازتنجی اصل میشه توی همه موضوعات آموزش
+
+[00:23:50.620 → 00:23:56.020] ⚠️ `multi_pass_disagreement`
+حالا من باید برم مخاطبم رو پیدا کنم و بگم این مخاطب چه نیازی داره
+
+[00:23:56.020 → 00:24:02.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بنابراین تو سطح یک برنامه آموزش مخاطب در نظر گرفته می‌شود
+
+[00:24:02.680 → 00:24:06.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+من می‌گم که من یک آموزش سوال مالی می‌خواهم بتهم
+
+[00:24:06.520 → 00:24:09.260] ⚠️ `multi_pass_disagreement`
+می‌گیم برای چه کسی می‌گه زنان سرپرست خانوار
+
+[00:24:09.260 → 00:24:13.440] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پس من نیازهای اونو باید بسنجم و محتوی رو برای اون آمده بکنم
+
+[00:24:13.440 → 00:24:14.440]
+این گذینه یک
+
+[00:24:14.440 → 00:24:19.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا در کلان جامعه وقتی یک کشور نیاز سنجی می‌کنه
+
+[00:24:19.940 → 00:24:23.900] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+می‌گه که من کدوم قشر من آسیب پذیره
+
+[00:24:23.900 → 00:24:27.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+کشور که نمیتونه بگه، آقا مثلا من هشتاد میلیون رو میخوام آموزش بدم
+
+[00:24:27.360 → 00:24:34.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+میاد یه برنامه ریزی مثلا پنج ساله، سه ساله یا در واقع مثلا یک ساله میکنم
+
+[00:24:34.300 → 00:24:39.320] ⚠️ `multi_pass_disagreement`
+یه امسال من به جوانان آموزش میدم، امسال به مثلا بازنشست آموزش میدم
+
+[00:24:39.320 → 00:24:46.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پس یه نیاز سنجی در سطح کلان باید انجام بشه که اونو در واقع بهش میگن سنجش های سواد مالی
+
+[00:24:46.520 → 00:24:54.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که مبنای یک برنامه ریزی استراتیجیک میشه برای سواد مالی که دیگه رشته آقای دکتره من زیاد نباید واردش بشم
+
+[00:24:54.300 → 00:25:00.160] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما این برنامه استراتیجیک گامه اولش همون سنجش و تعین مخاطبه
+
+[00:25:00.160 → 00:25:01.940] ⚠️ `multi_pass_disagreement`
+حالا میره مخاطبه رو میسنجه
+
+[00:25:01.940 → 00:25:05.280] ⚠️ `multi_pass_disagreement`
+میگه الان کشور من درگیر چه موضوعیه
+
+[00:25:05.280 → 00:25:08.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا مثلا تو 20 سال آینده درگیر چه موضوعی میشه
+
+[00:25:08.780 → 00:25:12.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+میگه من 15 سال دیگه با بازنشست ها به مشکل میخورم
+
+[00:25:12.360 → 00:25:19.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چون نمیتونم حقوقاشو بدم یا چون صندوق‌های بازنشستگی من اینجوری هن یا چون ترهای بازنشستگی من این شکلی هن
+
+[00:25:19.240 → 00:25:22.660] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پس من بازنشسته‌ها رو در اولویت قرار میدم
+
+[00:25:22.660 → 00:25:27.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+تو اون برنامه استراتژیک مشخص میشه که مخاطب کیه
+
+[00:25:27.140 → 00:25:33.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک کشوری میاد میگه من اصلا بدهکاران مفرطم و انجام در واقع در دست اقدام میذارم
+
+[00:25:33.300 → 00:25:38.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چون سیستم قضایی من پنجا درستش درگیر مسائل مالی و بدهکاریه
+
+[00:25:38.180 → 00:25:42.540] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک کشوری میگه که من جامعه رستاییم رو مخاطب قرار میدم
+
+[00:25:42.540 → 00:25:49.460] ⚠️ `multi_pass_disagreement`
+چین هونکونگ مثلا میگه که من کس با کارهای خورد رو هدف قرار میدم
+
+[00:25:49.460 → 00:25:55.900] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چون تو استراتیجی کلان جامعه قرار کس با کار خورد مثلا هفتاد درصد اقتصاد من رو پوشش میده
+
+[00:25:55.900 → 00:26:01.660] ⚠️ `multi_pass_disagreement`
+مخاطب توی برنامه استراتیجی که آن روزش سواد مالی تعییم میشه
+
+[00:26:01.660 → 00:26:03.140] ⚠️ `multi_pass_disagreement`
+خیلی ممنونم از شما
+
+[00:26:03.140 → 00:26:09.480] ⚠️ `multi_pass_disagreement`
+جانبایی دکتر، از این استراتژی‌هایی که فهمودین در اروپا وجود داره کشوره مختلف برامون بگیرم
+
+[00:26:09.480 → 00:26:16.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حتما، من برای اینکه به استراتژی برسم، از سنجه شروع کنم ادامه صحبت‌های جانبایی دکتر
+
+[00:26:16.180 → 00:26:22.620] ⚠️ `multi_pass_disagreement`
+سواد مالی ترکیبیه از دانش و رفتار و نگرش
+
+[00:26:22.620 → 00:26:28.260] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نگرشه مقدار سختر سنجشش، اما دانش و رفتار رو میشه سنجید
+
+[00:26:28.260 → 00:26:31.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اروپایی ها تو گامه یک اومدن سنجیدن سواد مالی
+
+[00:26:31.680 → 00:26:37.340] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+من چند تا از شاخصها اینا رو برای شما بگم اعداد جالبی خواهد بود
+
+[00:26:37.340 → 00:26:42.080] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+تو دانش سواد مالی اومدن پنجتا متغییر اصلی رو سنجیدن
+
+[00:26:42.080 → 00:26:48.280] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+من هم پنجتا متغییر رو بگم و هم بگم نمره اروپایی ها توش چقدر بوده شاید برای ما جالب باشه
+
+[00:26:49.320 → 00:26:55.380] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+هشتاد درصد اروپایی ها مفهوم ریسک و بازده و تورن و بحره رو بلد بودن
+
+[00:26:55.380 → 00:27:00.220] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+20 درصد ولی همچنان می‌دونیم که بس از آمار مشخصی که نمی‌دونن
+
+[00:27:00.220 → 00:27:07.740] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+محاسبه اصل و بحره رو تو وام‌ها حدود 60 درصد بلده
+
+[00:27:07.740 → 00:27:13.060] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+وقتی که می‌رسیم به یه مفهومی به نام بحره مراکب
+
+[00:27:13.060 → 00:27:20.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+فقط 30 درصد اروپایی‌ها می‌تونن بحره مراکب رو بلدن دانششو دارن یا حسابش بکنن
+
+[00:27:20.640 → 00:27:23.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی 70 درصد ازش بی اطلاعن
+
+[00:27:23.520 → 00:27:30.260] ⚠️ `multi_pass_disagreement`
+یعنی پس ما تو دانش سواد مالی هم آدم های اروپایی رو وقت همه رو میذاریم، این سؤال ازشون میپرسیم
+
+[00:27:30.260 → 00:27:35.100]
+یه جاهایی هست که یه دفعه عدم آگاهی زیادی میبینیم
+
+[00:27:35.100 → 00:27:43.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نکته جالب چیه؟ اینها آدم هایی هستن که توی مدارسشون سالها آموزش دیدن، تلویزیون دارن میبینن
+
+[00:27:43.380 → 00:27:48.160] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این آمار مال سال اول نیست، این آمار مال 2015 است
+
+[00:27:48.160 → 00:27:54.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+در سال 2015، هفتاد درصد مردم یکی از پنج تا سؤال اصلی سواد مالی رو نمیدونن
+
+[00:27:54.300 → 00:27:56.760] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بریم سر رفتارها جالبتر از اینه
+
+[00:27:56.760 → 00:28:00.960] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بیس درصد اروپایی ها توی سال گذشته قرز گرفتن
+
+[00:28:00.960 → 00:28:03.960] ⚠️ `multi_pass_disagreement`
+مجبور شدن برای این که دخل و خرج و جور کنن قرز بگیرن
+
+[00:28:03.960 → 00:28:04.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک پنجم
+
+[00:28:05.420 → 00:28:08.500] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چهل درصدشون سال قبل نتونستن پس انداز کنن
+
+[00:28:09.840 → 00:28:13.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این همه تو آمزای سواد مالی تحکیده بر بوجبندیه
+
+[00:28:13.700 → 00:28:21.080] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چلو پنگ درصد اروپایی ها بوجبندی ندارن، پنجاه درصدشون هدف بلند مدت مالی ندارن
+
+[00:28:21.080 → 00:28:32.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و جالبتر این که تو تصمیمگیری سواد مالی به عنوان ششومین سرفس، پنجاه درصد اروپایی ها اصلا این مسیر رو تی نمی کنن
+
+[00:28:34.000 → 00:28:39.020] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بریم یه قسمت جالب دیگه که تو پجویش های اروپایی نشون می در و چک بکنی
+
+[00:28:39.920 → 00:28:50.360] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+از اروپای ها سوال شده، شما مفت که میخواید یک خدمت مالی رو بگیرید، مثلا میخواید برید صندوق سرمانگذاری رو یونیت هاش رو تحیه کنید، برید تو بورس، میخواید برید یه بیمه بگیرید
+
+[00:28:50.360 → 00:28:59.260] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چند درصد اینا رو میذارید کنار هم مقایسه میکنید، اطلاعاتش رو به دست میارید؟ آمار خیلی عجیبه، نه درصد
+
+[00:29:00.120 → 00:29:04.480] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و چی کار میکنن اگه خودشون نمیذارن مقایست میکنن چی کار میکنن؟
+
+[00:29:04.480 → 00:29:08.440] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سی و پنی درست از دره همسایی و قمخیش سوال مپرسن
+
+[00:29:09.740 → 00:29:14.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بیس و سه درست هر کدوم نزدیکتره انتخاب میکنن
+
+[00:29:14.180 → 00:29:19.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا شما ببینید یه جامعهی که اصولاً اقلایی تر رفتار میکنه
+
+[00:29:19.620 → 00:29:24.500] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یاد گرفته رفتارهای عقلانی داشته باشه باز آمارها اینطوره
+
+[00:29:24.500 → 00:29:29.220] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما مهم اینه وقتی که میاییم این موضوع رو تو ایران میخواییم اجرا بکنیم
+
+[00:29:29.220 → 00:29:35.480] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+از این سنجش ها درس بگیریم، بیاییم ابتدا مبتنیه و سنجش ها باشه و بعد واردشی
+
+[00:29:35.480 → 00:29:42.720] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+همه اینها اروپا رو رسوند به برنامه های استراتیجیک سواد مالی
+
+[00:29:42.720 → 00:29:49.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بیست و پنج کشور از کشورهای اروپایی دارای سند استراتیجیک سواد مالی هستن
+
+[00:29:51.840 → 00:29:55.740] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی شامل چه موارده؟ یکیش آقای دکتر فرمودن
+
+[00:29:55.740 → 00:29:59.400] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی این که من به کدوم مخاطبم میخوام آموزش بدم
+
+[00:29:59.400 → 00:30:02.840] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی اگر حدودن 17 دست مخاطب وجود داشته باشه
+
+[00:30:02.840 → 00:30:07.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+من مثلا هولند یا دانمارک کدومی که از اینا را انتخاب میکنم
+
+[00:30:07.800 → 00:30:12.600] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه مورد قبل از اینه که میخوام با این شروع کنم سند برنامز استراتژیک
+
+[00:30:12.600 → 00:30:14.340] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اینه که کی متولدیه؟
+
+[00:30:14.820 → 00:30:18.240] ⚠️ `multi_pass_disagreement`
+حالا سواد مالی مهم همه راه بیفتیم انجامش بدیم
+
+[00:30:18.240 → 00:30:23.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+کشورها بعضی موقعها یکی رو مسئول میذارن، بعضی موقع چند تا
+
+[00:30:23.240 → 00:30:27.420] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یکی از این مثالها رو من انتخاب کردم بگم برای شما
+
+[00:30:27.420 → 00:30:32.080] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+هولند اومده وزارت اقتصاد رو گذاشته بازیگر اصلی
+
+[00:30:32.080 → 00:30:36.140] ⚠️ `multi_pass_disagreement`
+و توی تره جذاب کل این رو یه برنامه
+
+[00:30:36.140 → 00:30:39.740] ⚠️ `multi_pass_disagreement`
+برنامه سارچکی یه اسم برش گذاشتن به نام منی وایز
+
+[00:30:39.740 → 00:30:44.300] ⚠️ `multi_pass_disagreement`
+توی این برنامه وزارت اقتصاد یه گروه راهبری گذاشته
+
+[00:30:45.220 → 00:30:49.020] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بورس، بانک، بیمه و یکی دو تا نهاد دیگر اوورده
+
+[00:30:49.020 → 00:31:04.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی اعضای این یکی بانک مرکزیه، دو نهاد بازار سرمایه، سه انجمن بانک داریه، چهار انجمن بیمگران، پنج اتحادی بازنشستگی و شش مؤسسه ملی اطلاعات مالی خانواده
+
+[00:31:04.620 → 00:31:07.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اینا ستات راهبری شدن
+
+[00:31:07.180 → 00:31:09.760] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی زیده نظر وزارت اختصام
+
+[00:31:09.760 → 00:31:23.060] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و چقدر دقیقی داریم؟
+
+[00:31:39.780 → 00:31:51.720] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+اجتماعی، یعنی آموزش پهبرش و مثلاً کار و امور اجتماعی، دو، اداره حمایت از مصرف کنندگان، سه، انجامن مشاوران مالی و چهار یه دانشگاه به نام تیلبرگ
+
+[00:31:51.720 → 00:32:01.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این چهارتا حیط اجرایی هستند، و که وارده اجرا میشیم دیگه مشاور مالی میخواد و دانشگاه میخواد و و باز از این دو جالبتر
+
+[00:32:01.560 → 00:32:05.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چهل کارگروه زیل اینها تشکیل شده که این بحث رو پیش ببرم
+
+[00:32:05.640 → 00:32:11.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی وقت که یک ایده به ذهن می‌رسه و یک تجربه جهانی وجود داره
+
+[00:32:11.940 → 00:32:18.020] ⚠️ `multi_pass_disagreement`
+من وقتی می‌خوام بیام عملیاتیش بکنم، یه همچین ساختاری رو تو حوض سیاست گذاری می‌چینم
+
+[00:32:18.020 → 00:32:22.620] ⚠️ `multi_pass_disagreement`
+و همه‌ی این‌ها اقداماتشون از طریق بخش خصوصی اتفاق می‌فتیم
+
+[00:32:24.420 → 00:32:34.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی خطکشی‌ها به احده دولت و ساختار حاکمیت، ماشین‌ها بخش خصوصی‌هن
+
+[00:32:34.180 → 00:32:41.600] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما عموماً می‌بینیم در کشورهای جهان ثوم اینقدر بازی نمی‌کنیم که خالی می‌مونه
+
+[00:32:41.600 → 00:32:50.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+وقتی که می‌خواییم وارد بشیم اینقدر جذاب می‌شه که جلوتر از همه ما می‌بینیم ساختارهای دولتی و سازمان‌های دولتی دارن بازی می‌کنن
+
+[00:32:50.000 → 00:32:54.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و اجازه نمی‌دن اصلا بخش خصوصی بیاد رفتار بکنی
+
+[00:32:54.140 → 00:33:11.200] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب، این که متولی یک نهاد باشه، یک بخش بود و ما بخش‌های دیگه‌ای داریم که مثلا احتمانا مودل‌های دیگه‌ای داره، اما اجازه بدین این به امان یک مثال باقی بمونه، بگیم به پرداز این که دیگه سنده سراتژیک دیگه چه قسمت‌هایی داره، از چه بخش‌هایی تشکیل شده؟
+
+[00:33:11.200 → 00:33:19.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+گروه‌های هدف یکی دیگه بود که من اینجا این تکمله رو بهش اضافه بکنم و بریم سر شق آخرش
+
+[00:33:19.560 → 00:33:25.120] ⚠️ `multi_pass_disagreement`
+چرا گروه‌های هدف مشخص می‌شن مگه همه رو نباید آموزش داد؟
+
+[00:33:25.920 → 00:33:32.160] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+جالب اینه که مثلا در استونی بررسی شده همه‌ی نهاد‌ها دارن به دانش آموز آموزش می‌ده
+
+[00:33:32.160 → 00:33:34.840] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مثلا همه رو ویل کردن فقط رفتن رو دانش آموزان
+
+[00:33:34.840 → 00:33:40.200] ⚠️ `multi_pass_disagreement`
+تو لتونی دانش آموزان، کودکان، کارکنان مورد توجه بودن
+
+[00:33:40.200 → 00:34:01.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+تمام گروه‌های در معرض آسی رها شدن، اون میاد میگه که گروه‌های مهم‌تر اینها که از سنجش‌ها به دست اومده و من میام حمایت بیشتری رو از اینها میکنم، اما قسمت ثوم، کدومی که از سرفصل‌های سواد مالی مهم‌تره که به اینها یاد بدن؟
+
+[00:34:01.180 → 00:34:04.660] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+بعضی از کشورها میگن ما هر ششت سرفصل و آموزش میدیم
+
+[00:34:04.660 → 00:34:09.240] ⚠️ `multi_pass_disagreement`
+بعضی کشورها بر اساس مشکلهایی که داریم مثلا جالبه آمارها
+
+[00:34:09.240 → 00:34:14.460] ⚠️ `multi_pass_disagreement`
+رومانی در بورس، بانک و بیمه آمارش عجیبه
+
+[00:34:14.460 → 00:34:18.080] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بی سی درصد مردم تو بانک حساب داره
+
+[00:34:19.340 → 00:34:24.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+وقتی که به بورس و بیمه میرسیم عددها دیگه به یک درصد و ده درصد و اینها میرسه
+
+[00:34:24.880 → 00:34:28.400] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب اون میاد روی این باید تأکید بکنه
+
+[00:34:28.400 → 00:34:33.440] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+هر کشوری بسته به نیازش میاد بعضی از این سرفستها رو پوشش میده
+
+[00:34:33.440 → 00:34:40.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و سند استراتیک سواد مالی بالاترین تجربهیه که دنیا بهش رسته
+
+[00:34:40.300 → 00:34:46.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+الان شهست کشور دنیا سند استراتیک سواد مالی دارن و بقیه هم دارن به اینها میپیوندن
+
+[00:34:46.520 → 00:34:51.540] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اگر ما میخوانیم در ایران از این تجربه جهانی استفاده بکنیم
+
+[00:34:51.540 → 00:34:57.500] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+همه ی این تجربیات خودشو دربستر این سند که دولت میذاره
+
+[00:34:57.500 → 00:35:00.480] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و اجازه میده بخش خصوصی به درستی عملشان که
+
+[00:35:00.480 → 00:35:04.020] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+خیلی ممنونم آقای دکتر گودی، با تجربه این که به پایانه برنامه هم نزدیک هستیم
+
+[00:35:04.020 → 00:35:08.340] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما میخوام ببینم آیا در کشورهای دیگه، حتی نزدیک ما
+
+[00:35:08.340 → 00:35:13.040] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+کشور مثل ترکیه، مثل عربستان، مثل آفریقا، اینها هم ظاهرن سند استراتیجیک دارن
+
+[00:35:13.040 → 00:35:14.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و فعالیت هاشون رو شگو کردن
+
+[00:35:14.800 → 00:35:18.660] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+جنبایی دکتر گودی، اگر چند دقیقه برمون توضیح بدید ممنون میشن
+
+[00:35:19.680 → 00:35:24.500] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بله خب، آنچه که موفقیت ها میز باشه راه خودش رو پیدا میکنه
+
+[00:35:24.500 → 00:35:27.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی وقتی اروپا تو این حوض موفق شد
+
+[00:35:28.240 → 00:35:32.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+موفقیت هم با شاخصهای روشن، یعنی این تغییراتی که با سنجش هایی دارن
+
+[00:35:32.880 → 00:35:37.860] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+به صورت دورهی میسنجن و مشخص میشه بهبود تو زندگی مردم داره اتفاق میفته
+
+[00:35:37.860 → 00:35:40.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا البته شوکهای اقتصادی هم هست
+
+[00:35:40.820 → 00:35:45.600] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اونم به عنوان یه معامل مدار خیلگر مرد محاسبه قرار میگیره تو این سنجش ها
+
+[00:35:45.600 → 00:35:49.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی این موفقیت این که، حالا موفقیت چی تعریف میشه؟
+
+[00:35:49.940 → 00:35:54.660] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این که خانوارها مثلا به دهی کمتر دارن، دخل و خرجشون به هم میخوره
+
+[00:35:54.660 → 00:35:59.440] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سرمایه گذاری میکنن، بازنشستگیشون، بازنشستگی خوبی خواهد بود
+
+[00:35:59.440 → 00:36:06.280] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب این شاخصها خیلی بهبود پیدا میکنه، کشورهای دیگه هم سراغش میرن
+
+[00:36:06.280 → 00:36:15.200] ⚠️ `multi_pass_disagreement`
+ما در آسیا و آقیانوسیه کشورهایی داریم که مثلا چین و مثلا زدیم، هنگ کونگ، تایلند، هند
+
+[00:36:15.200 → 00:36:21.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+توی کشورهای خواهر میانه ترکیه اومده برنامه ریزی کرده
+
+[00:36:21.140 → 00:36:24.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+دوازه میلیون دانش آموز رو خب آموزش داده
+
+[00:36:24.700 → 00:36:31.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این نیست که یک برنامه استراتیجیک حتما داشته و داره و داره اجرا میکنه
+
+[00:36:31.780 → 00:36:43.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+عربستان در واقع ابتدای راه این سنده استراتژی که مهمترین کاری که سنده استراتژی میکنه که من میخوام تأکید بیشتری بهش بکنم
+
+[00:36:43.560 → 00:36:50.860] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+عدم مداخله در بخش خصوصیه که آهای دکتر بهش اشاره کرده من میخوام یه تفصیلی بهش بدم
+
+[00:36:50.860 → 00:37:01.020] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ببینید به محض این که امری دولتی میشه تو دولتهای خیلی مدرنش دوچار ضعف و در واقع انتروپیه
+
+[00:37:01.020 → 00:37:12.420] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+منفی میشه، ولی کار، کار مال بخش خصوصیه، یعنی کار آموزش سواد مالی، فعالیت اجرایی سواد مالی مال بخش خصوصیه
+
+[00:37:12.420 → 00:37:18.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+دولت های مثلا توی آفریقای جنوبی اومده سند استراتیجیک دیخته، اومده اونجا چیکار کرده؟
+
+[00:37:18.800 → 00:37:24.020] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+گفته من رگه هایی از برنامه های سواد مالی رو دارم تو جامعه خودم میبینم
+
+[00:37:24.020 → 00:37:29.280] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا من به عنوان دولت باید چیکار کنم؟ باید اینا رو همه هنگ کنم و نظم بدم
+
+[00:37:29.280 → 00:37:53.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما دولت ما میگه من رگه‌های از آموزش سواد مالی رو در کشور می‌بینم، چی کار باید بکنم؟ نمی‌گه باید برم سند بنویسن، می‌گه منم باید وارد آموزش سواد مالی بشم، خب این یه خطای استراتژی که دولت ما اگر می‌خواد تو این حوض اقدام مکنه باید بره سند بنویسه، نه این که بیاد رگه‌ها رو ببینه بگه خب پس منم می‌شم رقیب این‌ها و تجربه جهانی هم این بوده، یعنی
+
+[00:37:53.000 → 00:38:07.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این رگه‌های وجود داشته، حالا سند استراتژی اومده اینو نظم بخشی کرده، گفته همه یه دفعه نرین سراغ یه مخاطب، یا هدفه سراغ یک موضوع نرین، یا یک پوشش جغرافیای کاملی رو بخواد به موضوع بده
+
+[00:38:07.520 → 00:38:14.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خیلی ممنونم گفتگوی جذابی بود و جاداش که زمان بیشتری داشتیم تا به جوانه به بیشتری بپردازیم
+
+[00:38:14.880 → 00:38:20.380] ⚠️ `multi_pass_disagreement`
+به پایان برنامه چهلستون رسیدیم، در این قسمت گفت‌وگو کردیم در باقی سواد مالی در جهان
+
+[00:38:20.380 → 00:38:25.100] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+از جنبای دکتر کمیل رودی و جنبای دکتر ماجد ناجهی ممنونم که در این برنامه حضور داشتند
+
+[00:38:25.100 → 00:38:30.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این برنامه توسط گروه اقتصاد رادیو گفت‌وگو با حمایت علمی اکادمی حوش مالی تحییه شده
+
+[00:38:30.800 → 00:38:36.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+منهادی نجف، به اتفاق سایر همکارانم، تهیه کنند خانم آقا زاده، صدا بردار خانم آقای پور
+
+[00:38:36.820 → 00:38:42.900] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و همکار همه هنگیمون خانم محسن زاده از شما شنونده های عزیز چل ستون خدافزی می‌کنیم

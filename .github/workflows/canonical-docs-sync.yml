@@ -65,7 +65,6 @@ jobs:
           final_items = []
           ready_items = []
 
-          # Finalized: explicit review was applied and promoted final transcript exists.
           for final_md in sorted(outputs.glob('**/final/transcript.final.md')):
               if 'finalized' in final_md.parts or 'review-ready' in final_md.parts:
                   continue
@@ -85,7 +84,6 @@ jobs:
               copy(base / 'review/review.md', dest / 'review.md')
               final_items.append(str(rel))
 
-          # Review-ready: readable transcript + readable review package exist, but final review has not been promoted.
           for review_md in sorted(outputs.glob('**/review/review.md')):
               if 'finalized' in review_md.parts or 'review-ready' in review_md.parts:
                   continue
@@ -137,3 +135,5 @@ jobs:
             sleep $((attempt * 3))
           done
           exit 1
+
+# canonical-readable-v1

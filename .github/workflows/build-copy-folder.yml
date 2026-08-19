@@ -8,6 +8,7 @@ on:
       - '.github/workflows/build-copy-folder.yml'
       - 'scripts/build_copy_folder.py'
       - 'outputs/chehelstoun/**'
+      - 'outputs/finalized/**'
       - 'outputs/ketab-baz/**'
       - 'outputs/mizan/**'
       - 'outputs/finup/**'
@@ -33,33 +34,11 @@ jobs:
           ref: main
           fetch-depth: 0
 
-      - name: Download Chehelstoun source manifest
-        env:
-          GH_TOKEN: ${{ github.token }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          rm -rf /tmp/chehelstoun-copy-manifest
-          mkdir -p /tmp/chehelstoun-copy-manifest
-          if gh release download chehelstoun-archive-v1 \
-            --pattern manifest.csv \
-            --dir /tmp/chehelstoun-copy-manifest \
-            --clobber; then
-            echo 'Chehelstoun manifest downloaded.'
-          else
-            echo 'Manifest unavailable; builder will use repository metadata fallback.'
-          fi
-
       - name: Build Markdown-only copy
         shell: bash
         run: |
           set -euo pipefail
-          manifest=/tmp/chehelstoun-copy-manifest/manifest.csv
-          if [[ -s "$manifest" ]]; then
-            python scripts/build_copy_folder.py --chehelstoun-manifest "$manifest" | tee /tmp/copy-summary.json
-          else
-            python scripts/build_copy_folder.py | tee /tmp/copy-summary.json
-          fi
+          python scripts/build_copy_folder.py | tee /tmp/copy-summary.json
 
       - name: Validate copy contract
         shell: bash
@@ -68,7 +47,6 @@ jobs:
           test -d copy
           if find copy -type f ! -name '*.md' -print -quit | grep -q .; then
             echo 'copy/ must contain Markdown files only.' >&2
-            find copy -type f ! -name '*.md' -print >&2
             exit 1
           fi
           cheh_count=$(find copy -maxdepth 1 -type f -name 'چهلستون *.md' | wc -l)
@@ -79,8 +57,12 @@ jobs:
           test -s 'copy/شراکت.md'
           for f in copy/*.md; do
             grep -q '^\- \*\*مدت‌زمان کل:\*\*' "$f"
-            grep -q '^\- \*\*صفحه/فید منبع:\*\*' "$f"
+            grep -q '^\- \*\*لینک منبع اصلی:\*\*' "$f"
             grep -q '^\- \*\*توضیحات:\*\*' "$f"
+            if grep -q 'github.com/Shahbazi-Amir/vid_pipeline' "$f"; then
+              echo "Internal GitHub link leaked into $f" >&2
+              exit 1
+            fi
           done
           echo "Validated $(find copy -maxdepth 1 -type f -name '*.md' | wc -l) Markdown files."
 

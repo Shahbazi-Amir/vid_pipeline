@@ -2,6 +2,10 @@ name: Post-Chehelstoun media queue v2
 run-name: Post-Chehelstoun media queue v2 ${{ github.run_id }}
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/post-chehelstoun-media-queue-v2.yml'
   workflow_run:
     workflows: ["Chehelstoun parallel transcription"]
     types: [completed]
@@ -26,7 +30,6 @@ concurrency:
 
 jobs:
   process-queue:
-    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 720
     steps:
@@ -35,6 +38,22 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
+
+      - name: Verify all 38 Chehelstoun transcripts are committed
+        shell: bash
+        run: |
+          set -euo pipefail
+          git pull --ff-only origin main
+          missing=0
+          for n in $(seq 1 38); do
+            ep=$(printf '%02d' "$n")
+            if [[ ! -s "outputs/chehelstoun/${ep}/delivery/transcript.txt" ]]; then
+              echo "missing Chehelstoun transcript: ${ep}" >&2
+              missing=$((missing + 1))
+            fi
+          done
+          test "$missing" -eq 0
+          echo 'All 38 Chehelstoun transcripts are present on main.'
 
       - uses: actions/setup-python@v5
         with:

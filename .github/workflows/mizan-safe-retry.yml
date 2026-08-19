@@ -1,0 +1,140 @@
+name: Mizan safe retry
+run-name: Mizan safe retry ${{ github.run_id }}
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/mizan-safe-retry.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  PROFILE: balanced
+  LANGUAGE: fa
+  AUDIO_PROFILE: safe
+  VID_PIPELINE_ACCURACY_MODE: balanced
+  ASSET_NAME: -3178952013450502399_40155051444622.mp3
+  ASSET_URL: https://github.com/Shahbazi-Amir/vid_pipeline/releases/download/chehelstoun-archive-v1/-3178952013450502399_40155051444622.mp3
+  ASSET_SIZE: '64315445'
+  DEST: outputs/mizan/01
+
+concurrency:
+  group: mizan-safe-retry
+  cancel-in-progress: false
+
+jobs:
+  mizan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Detect existing complete output
+        id: existing
+        shell: bash
+        run: |
+          set -euo pipefail
+          git pull --ff-only origin main
+          if [[ -s "$DEST/review/assistant-review-package.json" && -s "$DEST/pre_review/transcript.pre-review.json" && -s "$DEST/accuracy/transcript.consensus.json" && -s "$DEST/delivery/transcript.txt" ]]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-python@v5
+        if: steps.existing.outputs.skip != 'true'
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Cache ASR model
+        if: steps.existing.outputs.skip != 'true'
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/.cache/vid-pipeline/asr
+          key: asr-${{ runner.os }}-py311-faster-whisper-1.2.1-large-v3-turbo-v1
+
+      - name: Install worker
+        if: steps.existing.outputs.skip != 'true'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg curl rsync
+          python -m pip install --upgrade pip
+          pip install -e '.[worker]'
+
+      - name: Download and validate Mizan
+        if: steps.existing.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/mizan-input /tmp/mizan-runtime
+          curl -fL --retry 5 --retry-all-errors --connect-timeout 30 --max-time 1200 "$ASSET_URL" -o "/tmp/mizan-input/$ASSET_NAME"
+          test "$(stat -c %s "/tmp/mizan-input/$ASSET_NAME")" -eq "$ASSET_SIZE"
+          ffprobe -v error -select_streams a:0 -show_entries stream=codec_name -of default=nw=1:nk=1 "/tmp/mizan-input/$ASSET_NAME" | grep -q .
+
+      - name: Run Persian ASR pipeline
+        if: steps.existing.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          vid-pipeline run-file "/tmp/mizan-input/$ASSET_NAME" \
+            --name mizan \
+            --output-root /tmp/mizan-runtime \
+            --profile "$PROFILE" \
+            --language "$LANGUAGE" \
+            --device cpu \
+            --compute-type int8 \
+            --audio-profile "$AUDIO_PROFILE" \
+            --hotwords "میزان، کمیل رودی، دکتر کمیل رودی، سواد مالی" \
+            --title "میزان" \
+            --program "میزان" \
+            --speaker "دکتر کمیل رودی" \
+            --source-url "$ASSET_URL" \
+            --no-editorial
+
+      - name: Build review-ready output
+        if: steps.existing.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          job_dir=$(find /tmp/mizan-runtime -mindepth 1 -maxdepth 1 -type d -name 'mizan-*' -print -quit)
+          test -n "$job_dir"
+          test -s "$job_dir/delivery/transcript.txt"
+          test -s "$job_dir/pre_review/transcript.pre-review.json"
+          test -s "$job_dir/accuracy/transcript.consensus.json"
+          test -s "$job_dir/review/assistant-review-package.json"
+          rm -rf "$DEST"; mkdir -p "$DEST"
+          for d in delivery pre_review accuracy review raw machine final; do
+            if [[ -d "$job_dir/$d" ]]; then
+              mkdir -p "$DEST/$d"
+              rsync -a --exclude 'clips/' --exclude '*.mp3' --exclude '*.m4a' --exclude '*.wav' "$job_dir/$d/" "$DEST/$d/"
+            fi
+          done
+          [[ -f "$job_dir/result.json" ]] && cp "$job_dir/result.json" "$DEST/result.json"
+          [[ -f "$job_dir/source.json" ]] && cp "$job_dir/source.json" "$DEST/source.json"
+
+      - name: Commit Mizan independently
+        if: steps.existing.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f "$DEST"
+          git commit -m "Add Mizan transcript and review package"
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep $((attempt * 4))
+          done
+          exit 1
+
+      - name: Cleanup
+        if: always()
+        run: rm -rf /tmp/mizan-input /tmp/mizan-runtime

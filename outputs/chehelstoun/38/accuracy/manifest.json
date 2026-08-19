@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "status": "accuracy_review_required",
+  "generated_at": "2026-08-19T13:36:30.204040+00:00",
+  "mode": "balanced",
+  "config": {
+    "mode": "balanced",
+    "model": "large-v3-turbo",
+    "device": "cpu",
+    "compute_type": "int8",
+    "language": "fa",
+    "beam_size": 5,
+    "targeted_beam_size": 10,
+    "clip_context_seconds": 2.5,
+    "max_targeted_segments": 40,
+    "vote_similarity": 0.88,
+    "minimum_score": 0.72,
+    "low_confidence": 0.68,
+    "minimum_word_confidence": 0.45,
+    "maximum_no_speech": 0.6,
+    "minimum_avg_logprob": -1.0,
+    "maximum_compression_ratio": 2.4,
+    "judge_model": "",
+    "judge_base_url": "http://127.0.0.1:11434",
+    "whisperx_alignment": false,
+    "whisperx_model": "",
+    "diarization": false,
+    "diarization_required": false,
+    "num_speakers": 2,
+    "diarization_cache_dir": null,
+    "speaker_role_mode": "generic",
+    "speaker_role_overrides": {}
+  },
+  "primary_segment_count": 437,
+  "pass_count": 2,
+  "targeted_segment_count": 40,
+  "disagreement_count": 426,
+  "files": {
+    "json": "/tmp/review-38-runtime/chehelstoun-38-6749a7bd/accuracy/transcript.consensus.json",
+    "markdown": "/tmp/review-38-runtime/chehelstoun-38-6749a7bd/accuracy/transcript.consensus.md",
+    "text": "/tmp/review-38-runtime/chehelstoun-38-6749a7bd/accuracy/transcript.consensus.txt",
+    "srt": "/tmp/review-38-runtime/chehelstoun-38-6749a7bd/accuracy/transcript.consensus.srt",
+    "vtt": "/tmp/review-38-runtime/chehelstoun-38-6749a7bd/accuracy/transcript.consensus.vtt",
+    "disagreements": "/tmp/review-38-runtime/chehelstoun-38-6749a7bd/accuracy/disagreements.json"
+  },
+  "warnings": [],
+  "timing": {
+    "additional_asr_model_load_seconds": 15.145869,
+    "additional_asr_inference_seconds": 1395.001558
+  },
+  "external_reference_used": false
+}

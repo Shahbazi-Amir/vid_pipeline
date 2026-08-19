@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "bf236bc437523d76ed8288a400f65784cb0b537b97b6f710c205ec12e7af349d",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.44,
+    "segments": [
+      {
+        "id": 1,
+        "start": 1.7399999999999998,
+        "end": 7.12,
+        "text": "سلام، در باره این صحبت کردیم که رفتن به باشگاه",
+        "avg_logprob": -0.08425347367301583,
+        "compression_ratio": 1.1066666666666667,
+        "no_speech_prob": 3.303832207812718e-10,
+        "words": [
+          {
+            "start": 1.7399999999999998,
+            "end": 2.68,
+            "word": " سلام،",
+            "probability": 0.5905238638321558
+          },
+          {
+            "start": 2.68,
+            "end": 3.08,
+            "word": " در",
+            "probability": 0.9285084903240204
+          },
+          {
+            "start": 3.08,
+            "end": 3.34,
+            "word": " باره",
+            "probability": 0.9793340762456259
+          },
+          {
+            "start": 3.34,
+            "end": 3.5,
+            "word": " این",
+            "probability": 0.9948970973491669
+          },
+          {
+            "start": 3.5,
+            "end": 3.98,
+            "word": " صحبت",
+            "probability": 0.9935918301343918
+          },
+          {
+            "start": 3.98,
+            "end": 4.44,
+            "word": " کردیم",
+            "probability": 0.9992073327302933
+          },
+          {
+            "start": 4.44,
+            "end": 5.26,
+            "word": " که",
+            "probability": 0.9992882311344147
+          },
+          {
+            "start": 5.26,
+            "end": 6.0,
+            "word": " رفتن",
+            "probability": 0.9967404901981354
+          },
+          {
+            "start": 6.0,
+            "end": 6.14,
+            "word": " به",
+            "probability": 0.9994232654571533
+          },
+          {
+            "start": 6.14,
+            "end": 7.12,
+            "word": " باشگاه",
+            "probability": 0.9928411394357681
+          }
+        ]
+      }
+    ]
+  }
+}

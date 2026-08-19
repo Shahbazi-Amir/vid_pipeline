@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "313c8d3bd4e873cdc10f6935bb646bedb5e8c678d714b9732ae6a7c327c39806",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.22,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.08,
+        "text": "قرش‌های زیبایی به ما در مورد پول می‌ده و یک محارت‌ها خوبی در ما ایجاد می‌کنه که بتونیم پول رو مدیریت بکنیم.",
+        "avg_logprob": -0.21304919649945928,
+        "compression_ratio": 1.624203821656051,
+        "no_speech_prob": 2.3807317228730085e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.5,
+            "word": " قرش‌های",
+            "probability": 0.6599537519117197
+          },
+          {
+            "start": 0.5,
+            "end": 1.12,
+            "word": " زیبایی",
+            "probability": 0.9562853773434957
+          },
+          {
+            "start": 1.12,
+            "end": 1.22,
+            "word": " به",
+            "probability": 0.9494351744651794
+          },
+          {
+            "start": 1.22,
+            "end": 1.4,
+            "word": " ما",
+            "probability": 0.9184178113937378
+          },
+          {
+            "start": 1.4,
+            "end": 1.6,
+            "word": " در",
+            "probability": 0.990635871887207
+          },
+          {
+            "start": 1.6,
+            "end": 1.88,
+            "word": " مورد",
+            "probability": 0.9775187174479166
+          },
+          {
+            "start": 1.88,
+            "end": 2.18,
+            "word": " پول",
+            "probability": 0.9841741323471069
+          },
+          {
+            "start": 2.18,
+            "end": 2.46,
+            "word": " می‌ده",
+            "probability": 0.8611924797296524
+          },
+          {
+            "start": 2.46,
+            "end": 3.14,
+            "word": " و",
+            "probability": 0.2657579183578491
+          },
+          {
+            "start": 3.14,
+            "end": 3.42,
+            "word": " یک",
+            "probability": 0.9860324263572693
+          },
+          {
+            "start": 3.42,
+            "end": 4.34,
+            "word": " محارت‌ها",
+            "probability": 0.8621682475010554
+          },
+          {
+            "start": 4.34,
+            "end": 4.92,
+            "word": " خوبی",
+            "probability": 0.6308528118145963
+          },
+          {
+            "start": 4.92,
+            "end": 5.16,
+            "word": " در",
+            "probability": 0.9823690056800842
+          },
+          {
+            "start": 5.16,
+            "end": 5.28,
+            "word": " ما",
+            "probability": 0.9825863838195801
+          },
+          {
+            "start": 5.28,
+            "end": 5.7,
+            "word": " ایجاد",
+            "probability": 0.9876531213521957
+          },
+          {
+            "start": 5.7,
+            "end": 6.08,
+            "word": " می‌کنه",
+            "probability": 0.9608949780464172
+          },
+          {
+            "start": 6.08,
+            "end": 6.2,
+            "word": " که",
+            "probability": 0.9859153926372528
+          },
+          {
+            "start": 6.2,
+            "end": 6.54,
+            "word": " بتونیم",
+            "probability": 0.9067075103521347
+          },
+          {
+            "start": 6.54,
+            "end": 6.86,
+            "word": " پول",
+            "probability": 0.988813728094101
+          },
+          {
+            "start": 6.86,
+            "end": 7.06,
+            "word": " رو",
+            "probability": 0.8516846597194672
+          },
+          {
+            "start": 7.06,
+            "end": 7.62,
+            "word": " مدیریت",
+            "probability": 0.9703291058540344
+          },
+          {
+            "start": 7.62,
+            "end": 8.08,
+            "word": " بکنیم.",
+            "probability": 0.8879236936569214
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 8.88,
+        "end": 11.2,
+        "text": "ببینیم ما دل طول زندگیمون مثلا...",
+        "avg_logprob": -0.21304919649945928,
+        "compression_ratio": 1.624203821656051,
+        "no_speech_prob": 2.3807317228730085e-10,
+        "words": [
+          {
+            "start": 8.88,
+            "end": 9.2,
+            "word": " ببینیم",
+            "probability": 0.897957694530487
+          },
+          {
+            "start": 9.2,
+            "end": 9.34,
+            "word": " ما",
+            "probability": 0.9054545164108276
+          },
+          {
+            "start": 9.34,
+            "end": 9.48,
+            "word": " دل",
+            "probability": 0.49391479657788295
+          },
+          {
+            "start": 9.48,
+            "end": 9.68,
+            "word": " طول",
+            "probability": 0.6708745211362839
+          },
+          {
+            "start": 9.68,
+            "end": 10.4,
+            "word": " زندگیمون",
+            "probability": 0.8998842835426331
+          },
+          {
+            "start": 10.4,
+            "end": 11.2,
+            "word": " مثلا...",
+            "probability": 0.4655587325493495
+          }
+        ]
+      }
+    ]
+  }
+}

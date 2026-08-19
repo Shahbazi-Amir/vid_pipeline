@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "a7a12376d0bc0add8d2ae640e534b0c78d27c737a9f8f02c3e51564106b0a00c",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.0,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.98,
+        "text": "قواعد داره، بازی پول بیقاعده نیست. اگر قواعد بازه پول رو یاد نگیریم، فل می‌کنیم، داور به ما اختار می‌تونیم.",
+        "avg_logprob": -0.23616285811007862,
+        "compression_ratio": 1.4885496183206106,
+        "no_speech_prob": 3.0147834229055093e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.48,
+            "word": " قواعد",
+            "probability": 0.7536691327889761
+          },
+          {
+            "start": 0.48,
+            "end": 0.84,
+            "word": " داره،",
+            "probability": 0.7467111330479383
+          },
+          {
+            "start": 0.84,
+            "end": 1.28,
+            "word": " بازی",
+            "probability": 0.9973971446355184
+          },
+          {
+            "start": 1.28,
+            "end": 1.58,
+            "word": " پول",
+            "probability": 0.9927321672439575
+          },
+          {
+            "start": 1.58,
+            "end": 2.26,
+            "word": " بیقاعده",
+            "probability": 0.9475024938583374
+          },
+          {
+            "start": 2.26,
+            "end": 2.5,
+            "word": " نیست.",
+            "probability": 0.9989641507466634
+          },
+          {
+            "start": 2.66,
+            "end": 3.32,
+            "word": " اگر",
+            "probability": 0.9988600015640259
+          },
+          {
+            "start": 3.32,
+            "end": 4.4,
+            "word": " قواعد",
+            "probability": 0.5917844076939218
+          },
+          {
+            "start": 4.4,
+            "end": 4.78,
+            "word": " بازه",
+            "probability": 0.6664640417026627
+          },
+          {
+            "start": 4.78,
+            "end": 5.08,
+            "word": " پول",
+            "probability": 0.9733203649520874
+          },
+          {
+            "start": 5.08,
+            "end": 5.28,
+            "word": " رو",
+            "probability": 0.9349023699760437
+          },
+          {
+            "start": 5.28,
+            "end": 5.68,
+            "word": " یاد",
+            "probability": 0.9958189427852631
+          },
+          {
+            "start": 5.68,
+            "end": 6.66,
+            "word": " نگیریم،",
+            "probability": 0.9484744866689047
+          },
+          {
+            "start": 6.66,
+            "end": 7.16,
+            "word": " فل",
+            "probability": 0.563390851020813
+          },
+          {
+            "start": 7.16,
+            "end": 7.86,
+            "word": " می‌کنیم،",
+            "probability": 0.7655062645540706
+          },
+          {
+            "start": 7.86,
+            "end": 8.14,
+            "word": " داور",
+            "probability": 0.9854735136032104
+          },
+          {
+            "start": 8.14,
+            "end": 8.28,
+            "word": " به",
+            "probability": 0.9321867823600769
+          },
+          {
+            "start": 8.28,
+            "end": 8.42,
+            "word": " ما",
+            "probability": 0.9905785918235779
+          },
+          {
+            "start": 8.42,
+            "end": 8.88,
+            "word": " اختار",
+            "probability": 0.9401558438936869
+          },
+          {
+            "start": 8.88,
+            "end": 8.98,
+            "word": " می‌تونیم.",
+            "probability": 0.6134128884101907
+          }
+        ]
+      }
+    ]
+  }
+}

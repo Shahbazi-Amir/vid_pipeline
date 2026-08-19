@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "9617f5d4fbd4346655b7d42a94401865d1327b1bdaf575cccbd48798c0df20ca",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.32,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.84,
+        "text": "قسم کنیم که بلاخره یک پول مناسبی در بریم، ولی اینکه با این پول باید چیکار بکنید و آموزش نمیدیم. ثواد مالی به ما میگه که",
+        "avg_logprob": -0.2504113133996725,
+        "compression_ratio": 1.593984962406015,
+        "no_speech_prob": 2.6194091340414616e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.12,
+            "word": " قسم",
+            "probability": 0.44483719184063375
+          },
+          {
+            "start": 0.12,
+            "end": 0.36,
+            "word": " کنیم",
+            "probability": 0.9513579308986664
+          },
+          {
+            "start": 0.36,
+            "end": 0.52,
+            "word": " که",
+            "probability": 0.9939597547054291
+          },
+          {
+            "start": 0.52,
+            "end": 0.98,
+            "word": " بلاخره",
+            "probability": 0.8401966094970703
+          },
+          {
+            "start": 0.98,
+            "end": 1.16,
+            "word": " یک",
+            "probability": 0.978847086429596
+          },
+          {
+            "start": 1.16,
+            "end": 1.38,
+            "word": " پول",
+            "probability": 0.9967533051967621
+          },
+          {
+            "start": 1.38,
+            "end": 1.98,
+            "word": " مناسبی",
+            "probability": 0.9192574471235275
+          },
+          {
+            "start": 1.98,
+            "end": 2.2,
+            "word": " در",
+            "probability": 0.9020239114761353
+          },
+          {
+            "start": 2.2,
+            "end": 2.58,
+            "word": " بریم،",
+            "probability": 0.7184251008438878
+          },
+          {
+            "start": 2.58,
+            "end": 2.98,
+            "word": " ولی",
+            "probability": 0.977516770362854
+          },
+          {
+            "start": 2.98,
+            "end": 3.26,
+            "word": " اینکه",
+            "probability": 0.8389110267162323
+          },
+          {
+            "start": 3.26,
+            "end": 3.8,
+            "word": " با",
+            "probability": 0.9922756552696228
+          },
+          {
+            "start": 3.8,
+            "end": 3.88,
+            "word": " این",
+            "probability": 0.9912577569484711
+          },
+          {
+            "start": 3.88,
+            "end": 4.12,
+            "word": " پول",
+            "probability": 0.9959230124950409
+          },
+          {
+            "start": 4.12,
+            "end": 4.36,
+            "word": " باید",
+            "probability": 0.8243019729852676
+          },
+          {
+            "start": 4.36,
+            "end": 4.58,
+            "word": " چیکار",
+            "probability": 0.7366141478220621
+          },
+          {
+            "start": 4.58,
+            "end": 4.92,
+            "word": " بکنید",
+            "probability": 0.7884372797561809
+          },
+          {
+            "start": 4.92,
+            "end": 4.98,
+            "word": " و",
+            "probability": 0.4543469548225403
+          },
+          {
+            "start": 4.98,
+            "end": 5.42,
+            "word": " آموزش",
+            "probability": 0.9925413131713867
+          },
+          {
+            "start": 5.42,
+            "end": 5.84,
+            "word": " نمیدیم.",
+            "probability": 0.96821395556132
+          },
+          {
+            "start": 5.94,
+            "end": 6.42,
+            "word": " ثواد",
+            "probability": 0.8402518431345621
+          },
+          {
+            "start": 6.42,
+            "end": 6.92,
+            "word": " مالی",
+            "probability": 0.9929016828536987
+          },
+          {
+            "start": 6.92,
+            "end": 7.08,
+            "word": " به",
+            "probability": 0.9712600708007812
+          },
+          {
+            "start": 7.08,
+            "end": 7.26,
+            "word": " ما",
+            "probability": 0.9856692552566528
+          },
+          {
+            "start": 7.26,
+            "end": 7.58,
+            "word": " میگه",
+            "probability": 0.9474212924639384
+          },
+          {
+            "start": 7.58,
+            "end": 7.84,
+            "word": " که",
+            "probability": 0.7925911545753479
+          }
+        ]
+      }
+    ]
+  }
+}

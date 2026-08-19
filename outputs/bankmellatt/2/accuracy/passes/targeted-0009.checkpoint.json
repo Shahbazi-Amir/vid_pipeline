@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "5eab5c0ff816d89833c014362391b6847884274f5a5d2e80a12dab13b9763134",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.54,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.38,
+        "text": "یا خودمون رو با یکی مقایسه بکنیم بعد بگیم که نه وضع مالی من خوب نیست. یا نه، وضوع مالین خیلی هم خوبه.",
+        "avg_logprob": -0.1480657811675753,
+        "compression_ratio": 1.495798319327731,
+        "no_speech_prob": 2.0827509161769342e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.4,
+            "word": " یا",
+            "probability": 0.9699011743068695
+          },
+          {
+            "start": 0.4,
+            "end": 0.96,
+            "word": " خودمون",
+            "probability": 0.9709707051515579
+          },
+          {
+            "start": 0.96,
+            "end": 1.14,
+            "word": " رو",
+            "probability": 0.8103291690349579
+          },
+          {
+            "start": 1.14,
+            "end": 1.28,
+            "word": " با",
+            "probability": 0.9894377887248993
+          },
+          {
+            "start": 1.28,
+            "end": 1.54,
+            "word": " یکی",
+            "probability": 0.9943318963050842
+          },
+          {
+            "start": 1.54,
+            "end": 2.08,
+            "word": " مقایسه",
+            "probability": 0.9361600379149119
+          },
+          {
+            "start": 2.08,
+            "end": 2.5,
+            "word": " بکنیم",
+            "probability": 0.9566192269325257
+          },
+          {
+            "start": 2.5,
+            "end": 2.66,
+            "word": " بعد",
+            "probability": 0.6262537837028503
+          },
+          {
+            "start": 2.66,
+            "end": 2.98,
+            "word": " بگیم",
+            "probability": 0.9971791058778763
+          },
+          {
+            "start": 2.98,
+            "end": 3.22,
+            "word": " که",
+            "probability": 0.9727684259414673
+          },
+          {
+            "start": 3.22,
+            "end": 3.6,
+            "word": " نه",
+            "probability": 0.9845063090324402
+          },
+          {
+            "start": 3.6,
+            "end": 3.92,
+            "word": " وضع",
+            "probability": 0.9466521143913269
+          },
+          {
+            "start": 3.92,
+            "end": 4.18,
+            "word": " مالی",
+            "probability": 0.9972448547681173
+          },
+          {
+            "start": 4.18,
+            "end": 4.3,
+            "word": " من",
+            "probability": 0.9834924340248108
+          },
+          {
+            "start": 4.3,
+            "end": 4.64,
+            "word": " خوب",
+            "probability": 0.998580813407898
+          },
+          {
+            "start": 4.64,
+            "end": 5.06,
+            "word": " نیست.",
+            "probability": 0.9991698463757833
+          },
+          {
+            "start": 5.24,
+            "end": 5.78,
+            "word": " یا",
+            "probability": 0.9970037341117859
+          },
+          {
+            "start": 5.78,
+            "end": 6.12,
+            "word": " نه،",
+            "probability": 0.6690184511244297
+          },
+          {
+            "start": 6.12,
+            "end": 6.34,
+            "word": " وضوع",
+            "probability": 0.6651672976634776
+          },
+          {
+            "start": 6.34,
+            "end": 6.6,
+            "word": " مالین",
+            "probability": 0.6653856712703904
+          },
+          {
+            "start": 6.6,
+            "end": 6.9,
+            "word": " خیلی",
+            "probability": 0.995072990655899
+          },
+          {
+            "start": 6.9,
+            "end": 7.02,
+            "word": " هم",
+            "probability": 0.9705546498298645
+          },
+          {
+            "start": 7.02,
+            "end": 7.38,
+            "word": " خوبه.",
+            "probability": 0.9975397785504659
+          }
+        ]
+      }
+    ]
+  }
+}

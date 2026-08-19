@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "0dc3fc1c10e773ed419bc2a6f6a12db1c2698a506284a376975f86686f7dfe02",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 14.3,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 14.28,
+        "text": "چیه؟ سواد مالی، مجموعی از دانش‌ها، نگرش‌ ها، محارت‌ها و رفتار‌هایی که به ما کمک می‌کنه به امنیت و آزادی مال‌ی برسید.",
+        "avg_logprob": -0.14041297464835933,
+        "compression_ratio": 1.5211267605633803,
+        "no_speech_prob": 2.8001381768838485e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.76,
+            "word": " چیه؟",
+            "probability": 0.9237646162509918
+          },
+          {
+            "start": 0.76,
+            "end": 1.9,
+            "word": " سواد",
+            "probability": 0.936560869216919
+          },
+          {
+            "start": 1.9,
+            "end": 2.8,
+            "word": " مالی،",
+            "probability": 0.8352978974580765
+          },
+          {
+            "start": 2.8,
+            "end": 3.66,
+            "word": " مجموعی",
+            "probability": 0.9913527131080627
+          },
+          {
+            "start": 3.66,
+            "end": 3.82,
+            "word": " از",
+            "probability": 0.9994068145751953
+          },
+          {
+            "start": 3.82,
+            "end": 4.98,
+            "word": " دانش‌ها،",
+            "probability": 0.8269535702420399
+          },
+          {
+            "start": 4.98,
+            "end": 5.88,
+            "word": " نگرش‌",
+            "probability": 0.9905656337738037
+          },
+          {
+            "start": 5.88,
+            "end": 6.6,
+            "word": " ها،",
+            "probability": 0.6579083588245945
+          },
+          {
+            "start": 6.6,
+            "end": 7.84,
+            "word": " محارت‌ها",
+            "probability": 0.8148414815465609
+          },
+          {
+            "start": 7.84,
+            "end": 9.16,
+            "word": " و",
+            "probability": 0.9490575790405273
+          },
+          {
+            "start": 9.16,
+            "end": 10.34,
+            "word": " رفتار‌هایی",
+            "probability": 0.9272332191467285
+          },
+          {
+            "start": 10.34,
+            "end": 10.62,
+            "word": " که",
+            "probability": 0.9386263191699982
+          },
+          {
+            "start": 10.62,
+            "end": 10.78,
+            "word": " به",
+            "probability": 0.9847732782363892
+          },
+          {
+            "start": 10.78,
+            "end": 10.92,
+            "word": " ما",
+            "probability": 0.9888113737106323
+          },
+          {
+            "start": 10.92,
+            "end": 11.38,
+            "word": " کمک",
+            "probability": 0.9975358645121256
+          },
+          {
+            "start": 11.38,
+            "end": 11.8,
+            "word": " می‌کنه",
+            "probability": 0.9419625639915467
+          },
+          {
+            "start": 11.8,
+            "end": 11.94,
+            "word": " به",
+            "probability": 0.9360466003417969
+          },
+          {
+            "start": 11.94,
+            "end": 12.74,
+            "word": " امنیت",
+            "probability": 0.9820330291986465
+          },
+          {
+            "start": 12.74,
+            "end": 12.92,
+            "word": " و",
+            "probability": 0.9907671809196472
+          },
+          {
+            "start": 12.92,
+            "end": 13.48,
+            "word": " آزادی",
+            "probability": 0.9953360706567764
+          },
+          {
+            "start": 13.48,
+            "end": 13.86,
+            "word": " مال‌ی",
+            "probability": 0.7406353854457848
+          },
+          {
+            "start": 13.86,
+            "end": 14.28,
+            "word": " برسید.",
+            "probability": 0.8248157232999802
+          }
+        ]
+      }
+    ]
+  }
+}

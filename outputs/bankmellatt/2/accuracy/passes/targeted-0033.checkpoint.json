@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "90fe48247f447bc18d6c45ee340f145b863360efb3d7abba0720b948c145e5f8",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.74,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.72,
+        "text": "دیریتش کرد. پول هم قواعد داره، بازی پول بیقاعده نیست. اگر قواد بازي پول",
+        "avg_logprob": -0.20527839101850986,
+        "compression_ratio": 1.3368421052631578,
+        "no_speech_prob": 2.630876905218571e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.6,
+            "word": " دیریتش",
+            "probability": 0.7641356140375137
+          },
+          {
+            "start": 0.6,
+            "end": 0.86,
+            "word": " کرد.",
+            "probability": 0.9643495678901672
+          },
+          {
+            "start": 0.96,
+            "end": 1.42,
+            "word": " پول",
+            "probability": 0.9989005029201508
+          },
+          {
+            "start": 1.42,
+            "end": 1.64,
+            "word": " هم",
+            "probability": 0.9997898936271667
+          },
+          {
+            "start": 1.64,
+            "end": 2.22,
+            "word": " قواعد",
+            "probability": 0.9474742611249288
+          },
+          {
+            "start": 2.22,
+            "end": 2.56,
+            "word": " داره،",
+            "probability": 0.7487542926101014
+          },
+          {
+            "start": 2.56,
+            "end": 3.02,
+            "word": " بازی",
+            "probability": 0.9983660777409872
+          },
+          {
+            "start": 3.02,
+            "end": 3.32,
+            "word": " پول",
+            "probability": 0.9991816282272339
+          },
+          {
+            "start": 3.32,
+            "end": 4.0,
+            "word": " بیقاعده",
+            "probability": 0.9727992216746012
+          },
+          {
+            "start": 4.0,
+            "end": 4.24,
+            "word": " نیست.",
+            "probability": 0.9989177783330282
+          },
+          {
+            "start": 4.42,
+            "end": 5.06,
+            "word": " اگر",
+            "probability": 0.9985693097114563
+          },
+          {
+            "start": 5.06,
+            "end": 6.1,
+            "word": " قواد",
+            "probability": 0.6662800606500241
+          },
+          {
+            "start": 6.1,
+            "end": 6.52,
+            "word": " بازي",
+            "probability": 0.6663800296691988
+          },
+          {
+            "start": 6.52,
+            "end": 6.72,
+            "word": " پول",
+            "probability": 0.999309629201889
+          }
+        ]
+      }
+    ]
+  }
+}

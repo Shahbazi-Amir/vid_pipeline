@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "18e9761f94a40c943268879ae6ee0ce4dbe54dda233a741be7cb0efc0c11c69b",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.84,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.38,
+        "text": "دوش داره بگه که it's not your business. این به تو ربطی نداره. اما واقعاً نمیشه گفت.",
+        "avg_logprob": -0.23062853423916563,
+        "compression_ratio": 1.0940170940170941,
+        "no_speech_prob": 2.8743307733947177e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.06,
+            "word": " دوش",
+            "probability": 0.28539910664161044
+          },
+          {
+            "start": 0.06,
+            "end": 0.32,
+            "word": " داره",
+            "probability": 0.979077418645223
+          },
+          {
+            "start": 0.32,
+            "end": 0.58,
+            "word": " بگه",
+            "probability": 0.9608284036318461
+          },
+          {
+            "start": 0.58,
+            "end": 0.86,
+            "word": " که",
+            "probability": 0.9765503406524658
+          },
+          {
+            "start": 0.86,
+            "end": 1.24,
+            "word": " it's",
+            "probability": 0.6763329207897186
+          },
+          {
+            "start": 1.24,
+            "end": 1.4,
+            "word": " not",
+            "probability": 0.9998495578765869
+          },
+          {
+            "start": 1.4,
+            "end": 1.74,
+            "word": " your",
+            "probability": 0.9981071949005127
+          },
+          {
+            "start": 1.74,
+            "end": 2.26,
+            "word": " business.",
+            "probability": 0.99801105260849
+          },
+          {
+            "start": 2.64,
+            "end": 3.32,
+            "word": " این",
+            "probability": 0.9984604716300964
+          },
+          {
+            "start": 3.32,
+            "end": 3.46,
+            "word": " به",
+            "probability": 0.9991483688354492
+          },
+          {
+            "start": 3.46,
+            "end": 3.56,
+            "word": " تو",
+            "probability": 0.9860565662384033
+          },
+          {
+            "start": 3.56,
+            "end": 3.92,
+            "word": " ربطی",
+            "probability": 0.9484275877475739
+          },
+          {
+            "start": 3.92,
+            "end": 4.34,
+            "word": " نداره.",
+            "probability": 0.9962292313575745
+          },
+          {
+            "start": 4.5,
+            "end": 4.92,
+            "word": " اما",
+            "probability": 0.9977385699748993
+          },
+          {
+            "start": 4.92,
+            "end": 5.56,
+            "word": " واقعاً",
+            "probability": 0.8320116847753525
+          },
+          {
+            "start": 5.56,
+            "end": 5.94,
+            "word": " نمیشه",
+            "probability": 0.9906576752662659
+          },
+          {
+            "start": 5.94,
+            "end": 6.38,
+            "word": " گفت.",
+            "probability": 0.993689755598704
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,229 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "a142b546331db811878dfe2bf2b10d0ca9ce80e5cc9bd2334e38b1ca598b142e",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 13.36,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.96,
+        "text": "نمی‌دونم، دوازده سال، درس می‌خونیم تا بعدن یک شغل مناسبی پیدا بکنیم و یک پولی در بیاریم",
+        "avg_logprob": -0.2485436553046817,
+        "compression_ratio": 1.6768292682926829,
+        "no_speech_prob": 3.4557537387236437e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 1.34,
+            "word": " نمی‌دونم،",
+            "probability": 0.677071631536819
+          },
+          {
+            "start": 1.34,
+            "end": 2.02,
+            "word": " دوازده",
+            "probability": 0.9397895574569702
+          },
+          {
+            "start": 2.02,
+            "end": 2.62,
+            "word": " سال،",
+            "probability": 0.7342681884765625
+          },
+          {
+            "start": 2.62,
+            "end": 3.7,
+            "word": " درس",
+            "probability": 0.7440934181213379
+          },
+          {
+            "start": 3.7,
+            "end": 4.32,
+            "word": " می‌خونیم",
+            "probability": 0.9782552023728689
+          },
+          {
+            "start": 4.32,
+            "end": 4.98,
+            "word": " تا",
+            "probability": 0.909534364938736
+          },
+          {
+            "start": 4.98,
+            "end": 5.4,
+            "word": " بعدن",
+            "probability": 0.545035645365715
+          },
+          {
+            "start": 5.4,
+            "end": 5.52,
+            "word": " یک",
+            "probability": 0.6248561292886734
+          },
+          {
+            "start": 5.52,
+            "end": 5.78,
+            "word": " شغل",
+            "probability": 0.9788252711296082
+          },
+          {
+            "start": 5.78,
+            "end": 6.34,
+            "word": " مناسبی",
+            "probability": 0.9832094460725784
+          },
+          {
+            "start": 6.34,
+            "end": 6.66,
+            "word": " پیدا",
+            "probability": 0.9948078195254008
+          },
+          {
+            "start": 6.66,
+            "end": 7.32,
+            "word": " بکنیم",
+            "probability": 0.9707851767539978
+          },
+          {
+            "start": 7.32,
+            "end": 7.5,
+            "word": " و",
+            "probability": 0.9688073396682739
+          },
+          {
+            "start": 7.5,
+            "end": 7.7,
+            "word": " یک",
+            "probability": 0.9959130883216858
+          },
+          {
+            "start": 7.7,
+            "end": 8.06,
+            "word": " پولی",
+            "probability": 0.9887502988179525
+          },
+          {
+            "start": 8.06,
+            "end": 8.34,
+            "word": " در",
+            "probability": 0.943486750125885
+          },
+          {
+            "start": 8.34,
+            "end": 8.96,
+            "word": " بیاریم",
+            "probability": 0.9868277668952942
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 8.96,
+        "end": 13.34,
+        "text": "و بتونید زندگیمون رو به چرخونم. خب تو این دوزده، سال تو ای نیجده",
+        "avg_logprob": -0.2485436553046817,
+        "compression_ratio": 1.6768292682926829,
+        "no_speech_prob": 3.4557537387236437e-10,
+        "words": [
+          {
+            "start": 8.96,
+            "end": 9.1,
+            "word": " و",
+            "probability": 0.9727659225463867
+          },
+          {
+            "start": 9.1,
+            "end": 9.52,
+            "word": " بتونید",
+            "probability": 0.7079344349040184
+          },
+          {
+            "start": 9.52,
+            "end": 10.08,
+            "word": " زندگیمون",
+            "probability": 0.9115060865879059
+          },
+          {
+            "start": 10.08,
+            "end": 10.16,
+            "word": " رو",
+            "probability": 0.750832200050354
+          },
+          {
+            "start": 10.16,
+            "end": 10.24,
+            "word": " به",
+            "probability": 0.429794043302536
+          },
+          {
+            "start": 10.24,
+            "end": 10.82,
+            "word": " چرخونم.",
+            "probability": 0.6436499211937189
+          },
+          {
+            "start": 11.04,
+            "end": 11.52,
+            "word": " خب",
+            "probability": 0.8362237811088562
+          },
+          {
+            "start": 11.52,
+            "end": 11.62,
+            "word": " تو",
+            "probability": 0.7494844198226929
+          },
+          {
+            "start": 11.62,
+            "end": 11.76,
+            "word": " این",
+            "probability": 0.8578198552131653
+          },
+          {
+            "start": 11.76,
+            "end": 12.56,
+            "word": " دوزده،",
+            "probability": 0.6504424486823458
+          },
+          {
+            "start": 12.56,
+            "end": 12.7,
+            "word": " سال",
+            "probability": 0.7428974360227585
+          },
+          {
+            "start": 12.7,
+            "end": 12.82,
+            "word": " تو",
+            "probability": 0.43403860926628113
+          },
+          {
+            "start": 12.82,
+            "end": 12.92,
+            "word": " ای",
+            "probability": 0.4343802242074162
+          },
+          {
+            "start": 12.92,
+            "end": 13.34,
+            "word": " نیجده",
+            "probability": 0.829122519493103
+          }
+        ]
+      }
+    ]
+  }
+}

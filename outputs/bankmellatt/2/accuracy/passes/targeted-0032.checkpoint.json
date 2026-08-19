@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "208a598bdfda3fd7d132dde3beabf9048f9e49f2818cba99b629c2cbfcb90b36",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.64,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 5.88,
+        "text": "پول باید چی کار کرد؟ چجوری مدیریتش کرد? پول هم قواعد داره، بازی پول به قاعده نیست.",
+        "avg_logprob": -0.15606706009970772,
+        "compression_ratio": 1.3272727272727274,
+        "no_speech_prob": 2.752558736496269e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.04,
+            "word": " پول",
+            "probability": 0.883081465959549
+          },
+          {
+            "start": 0.04,
+            "end": 0.26,
+            "word": " باید",
+            "probability": 0.9918335229158401
+          },
+          {
+            "start": 0.26,
+            "end": 0.46,
+            "word": " چی",
+            "probability": 0.8356317281723022
+          },
+          {
+            "start": 0.46,
+            "end": 0.66,
+            "word": " کار",
+            "probability": 0.9954478740692139
+          },
+          {
+            "start": 0.66,
+            "end": 1.08,
+            "word": " کرد؟",
+            "probability": 0.9539005359013876
+          },
+          {
+            "start": 1.08,
+            "end": 1.48,
+            "word": " چجوری",
+            "probability": 0.886918306350708
+          },
+          {
+            "start": 1.48,
+            "end": 2.22,
+            "word": " مدیریتش",
+            "probability": 0.9985182086626688
+          },
+          {
+            "start": 2.22,
+            "end": 2.5,
+            "word": " کرد?",
+            "probability": 0.9965929687023163
+          },
+          {
+            "start": 2.6,
+            "end": 3.06,
+            "word": " پول",
+            "probability": 0.9992709457874298
+          },
+          {
+            "start": 3.06,
+            "end": 3.28,
+            "word": " هم",
+            "probability": 0.9996360540390015
+          },
+          {
+            "start": 3.28,
+            "end": 3.86,
+            "word": " قواعد",
+            "probability": 0.9595683813095093
+          },
+          {
+            "start": 3.86,
+            "end": 4.2,
+            "word": " داره،",
+            "probability": 0.7546817371621728
+          },
+          {
+            "start": 4.2,
+            "end": 4.66,
+            "word": " بازی",
+            "probability": 0.998021682103475
+          },
+          {
+            "start": 4.66,
+            "end": 4.96,
+            "word": " پول",
+            "probability": 0.9984316527843475
+          },
+          {
+            "start": 4.96,
+            "end": 5.1,
+            "word": " به",
+            "probability": 0.000599103223066777
+          },
+          {
+            "start": 5.1,
+            "end": 5.64,
+            "word": " قاعده",
+            "probability": 0.9493179470300674
+          },
+          {
+            "start": 5.64,
+            "end": 5.88,
+            "word": " نیست.",
+            "probability": 0.9982280135154724
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "2ac2df3aa1d62c7557e08a85de6f8399f5d6928ea1c69ae86161ee94993aeb85",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.48,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.46,
+        "text": "حالی به ما می‌گه که با این پول باید چی کار کرد، چجوری مدیریتش کرد؟ پول هم قواعد داره، بازی پول",
+        "avg_logprob": -0.18528020655115446,
+        "compression_ratio": 1.3852459016393444,
+        "no_speech_prob": 3.222775657452104e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.18,
+            "word": " حالی",
+            "probability": 0.6703159920871258
+          },
+          {
+            "start": 0.18,
+            "end": 0.34,
+            "word": " به",
+            "probability": 0.9527008533477783
+          },
+          {
+            "start": 0.34,
+            "end": 0.52,
+            "word": " ما",
+            "probability": 0.990692675113678
+          },
+          {
+            "start": 0.52,
+            "end": 0.84,
+            "word": " می‌گه",
+            "probability": 0.7231142348609865
+          },
+          {
+            "start": 0.84,
+            "end": 1.1,
+            "word": " که",
+            "probability": 0.6887878924608231
+          },
+          {
+            "start": 1.1,
+            "end": 1.28,
+            "word": " با",
+            "probability": 0.9852281212806702
+          },
+          {
+            "start": 1.28,
+            "end": 1.38,
+            "word": " این",
+            "probability": 0.95627760887146
+          },
+          {
+            "start": 1.38,
+            "end": 1.54,
+            "word": " پول",
+            "probability": 0.9877050220966339
+          },
+          {
+            "start": 1.54,
+            "end": 1.74,
+            "word": " باید",
+            "probability": 0.9610131084918976
+          },
+          {
+            "start": 1.74,
+            "end": 1.94,
+            "word": " چی",
+            "probability": 0.8685573041439056
+          },
+          {
+            "start": 1.94,
+            "end": 2.14,
+            "word": " کار",
+            "probability": 0.9848839640617371
+          },
+          {
+            "start": 2.14,
+            "end": 2.56,
+            "word": " کرد،",
+            "probability": 0.707401230931282
+          },
+          {
+            "start": 2.56,
+            "end": 2.96,
+            "word": " چجوری",
+            "probability": 0.8866798132658005
+          },
+          {
+            "start": 2.96,
+            "end": 3.72,
+            "word": " مدیریتش",
+            "probability": 0.9894148906071981
+          },
+          {
+            "start": 3.72,
+            "end": 4.08,
+            "word": " کرد؟",
+            "probability": 0.7515630026658376
+          },
+          {
+            "start": 4.08,
+            "end": 4.54,
+            "word": " پول",
+            "probability": 0.9854085445404053
+          },
+          {
+            "start": 4.54,
+            "end": 4.76,
+            "word": " هم",
+            "probability": 0.9936166405677795
+          },
+          {
+            "start": 4.76,
+            "end": 5.34,
+            "word": " قواعد",
+            "probability": 0.9052954912185669
+          },
+          {
+            "start": 5.34,
+            "end": 5.68,
+            "word": " داره،",
+            "probability": 0.7856190726161003
+          },
+          {
+            "start": 5.68,
+            "end": 6.14,
+            "word": " بازی",
+            "probability": 0.9926825761795044
+          },
+          {
+            "start": 6.14,
+            "end": 6.46,
+            "word": " پول",
+            "probability": 0.9901207387447357
+          }
+        ]
+      }
+    ]
+  }
+}

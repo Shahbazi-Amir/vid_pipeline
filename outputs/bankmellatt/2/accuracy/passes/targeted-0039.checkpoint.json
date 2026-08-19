@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "575d1734c2b7008c45f7a27c190a92bc892df203a76988139e26ad06e59dfeb6",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.4,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 5.92,
+        "text": "یا حتی خوب نتونیم بازی بکنیم، باید قواعد این باز رو بلد باشیم.",
+        "avg_logprob": -0.1533260186513265,
+        "compression_ratio": 1.2906976744186047,
+        "no_speech_prob": 3.27366328489731e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.74,
+            "word": " یا",
+            "probability": 0.9596771001815796
+          },
+          {
+            "start": 0.74,
+            "end": 0.96,
+            "word": " حتی",
+            "probability": 0.9946743051211039
+          },
+          {
+            "start": 0.96,
+            "end": 1.26,
+            "word": " خوب",
+            "probability": 0.9991162717342377
+          },
+          {
+            "start": 1.26,
+            "end": 1.74,
+            "word": " نتونیم",
+            "probability": 0.997107183933258
+          },
+          {
+            "start": 1.74,
+            "end": 2.08,
+            "word": " بازی",
+            "probability": 0.9988509019215902
+          },
+          {
+            "start": 2.08,
+            "end": 2.56,
+            "word": " بکنیم،",
+            "probability": 0.8290030718781054
+          },
+          {
+            "start": 2.56,
+            "end": 2.68,
+            "word": " باید",
+            "probability": 0.9871184974908829
+          },
+          {
+            "start": 2.68,
+            "end": 3.26,
+            "word": " قواعد",
+            "probability": 0.844924529393514
+          },
+          {
+            "start": 3.26,
+            "end": 3.46,
+            "word": " این",
+            "probability": 0.9991017580032349
+          },
+          {
+            "start": 3.46,
+            "end": 3.78,
+            "word": " باز",
+            "probability": 0.9998137056827545
+          },
+          {
+            "start": 3.78,
+            "end": 4.08,
+            "word": " رو",
+            "probability": 0.46284878711230704
+          },
+          {
+            "start": 4.08,
+            "end": 5.44,
+            "word": " بلد",
+            "probability": 0.9918099443117777
+          },
+          {
+            "start": 5.44,
+            "end": 5.92,
+            "word": " باشیم.",
+            "probability": 0.9949173182249069
+          }
+        ]
+      }
+    ]
+  }
+}

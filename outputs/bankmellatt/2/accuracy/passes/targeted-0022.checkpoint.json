@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "3072edb4e0f3555c7ceb0dbd53f0b80a65d78f78d5ca7b807936e61a4aecd8b0",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.92,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.9,
+        "text": "درستی به ما میده در باره پول، یک نگرش‌های زیبایی به مورد پول میدوه و یک محارت‌ها خوبی در مورند.",
+        "avg_logprob": -0.27789142775157144,
+        "compression_ratio": 1.5087719298245614,
+        "no_speech_prob": 3.3984837166656234e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.44,
+            "word": " درستی",
+            "probability": 0.8909161984920502
+          },
+          {
+            "start": 0.44,
+            "end": 0.58,
+            "word": " به",
+            "probability": 0.9943034648895264
+          },
+          {
+            "start": 0.58,
+            "end": 0.76,
+            "word": " ما",
+            "probability": 0.992998480796814
+          },
+          {
+            "start": 0.76,
+            "end": 1.16,
+            "word": " میده",
+            "probability": 0.9449543555577596
+          },
+          {
+            "start": 1.16,
+            "end": 1.7,
+            "word": " در",
+            "probability": 0.8152284622192383
+          },
+          {
+            "start": 1.7,
+            "end": 1.98,
+            "word": " باره",
+            "probability": 0.9927670955657959
+          },
+          {
+            "start": 1.98,
+            "end": 2.74,
+            "word": " پول،",
+            "probability": 0.6426003674666086
+          },
+          {
+            "start": 2.74,
+            "end": 3.44,
+            "word": " یک",
+            "probability": 0.9904609620571136
+          },
+          {
+            "start": 3.44,
+            "end": 4.42,
+            "word": " نگرش‌های",
+            "probability": 0.8508744846497264
+          },
+          {
+            "start": 4.42,
+            "end": 5.04,
+            "word": " زیبایی",
+            "probability": 0.9683797558148702
+          },
+          {
+            "start": 5.04,
+            "end": 5.14,
+            "word": " به",
+            "probability": 0.9916348457336426
+          },
+          {
+            "start": 5.14,
+            "end": 5.8,
+            "word": " مورد",
+            "probability": 0.5736598372459412
+          },
+          {
+            "start": 5.8,
+            "end": 6.1,
+            "word": " پول",
+            "probability": 0.9862985610961914
+          },
+          {
+            "start": 6.1,
+            "end": 6.82,
+            "word": " میدوه",
+            "probability": 0.6881144690705696
+          },
+          {
+            "start": 6.82,
+            "end": 7.08,
+            "word": " و",
+            "probability": 0.809685468673706
+          },
+          {
+            "start": 7.08,
+            "end": 7.36,
+            "word": " یک",
+            "probability": 0.9657641053199768
+          },
+          {
+            "start": 7.36,
+            "end": 8.26,
+            "word": " محارت‌ها",
+            "probability": 0.872020959854126
+          },
+          {
+            "start": 8.26,
+            "end": 8.86,
+            "word": " خوبی",
+            "probability": 0.6459464073802034
+          },
+          {
+            "start": 8.86,
+            "end": 8.9,
+            "word": " در",
+            "probability": 0.6081964671611786
+          },
+          {
+            "start": 8.9,
+            "end": 8.9,
+            "word": " مورند.",
+            "probability": 0.2838636735298981
+          }
+        ]
+      }
+    ]
+  }
+}

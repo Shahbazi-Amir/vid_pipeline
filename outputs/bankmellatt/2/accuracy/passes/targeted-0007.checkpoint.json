@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "6027b53ded471975f039c0efc9b11c2884efabb72bec7d2ff69edd874dd73933",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.5,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.98,
+        "text": "اما واقعاً نمی‌شه گفت. شاید بخوان ما رو با دیگران مقایثه بکنن یا خودمون رو",
+        "avg_logprob": -0.2336366160275185,
+        "compression_ratio": 1.3821138211382114,
+        "no_speech_prob": 2.6216551152202783e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 1.06,
+            "word": " اما",
+            "probability": 0.5888700187206268
+          },
+          {
+            "start": 1.06,
+            "end": 1.7,
+            "word": " واقعاً",
+            "probability": 0.8308434456586837
+          },
+          {
+            "start": 1.7,
+            "end": 2.08,
+            "word": " نمی‌شه",
+            "probability": 0.8143132158244649
+          },
+          {
+            "start": 2.08,
+            "end": 2.48,
+            "word": " گفت.",
+            "probability": 0.9780421455701193
+          },
+          {
+            "start": 2.66,
+            "end": 3.42,
+            "word": " شاید",
+            "probability": 0.9668540358543396
+          },
+          {
+            "start": 3.42,
+            "end": 4.2,
+            "word": " بخوان",
+            "probability": 0.9200720191001892
+          },
+          {
+            "start": 4.2,
+            "end": 4.32,
+            "word": " ما",
+            "probability": 0.851181149482727
+          },
+          {
+            "start": 4.32,
+            "end": 4.46,
+            "word": " رو",
+            "probability": 0.9162529110908508
+          },
+          {
+            "start": 4.46,
+            "end": 4.58,
+            "word": " با",
+            "probability": 0.9965399503707886
+          },
+          {
+            "start": 4.58,
+            "end": 5.02,
+            "word": " دیگران",
+            "probability": 0.9815930366516114
+          },
+          {
+            "start": 5.02,
+            "end": 5.62,
+            "word": " مقایثه",
+            "probability": 0.8774990489085516
+          },
+          {
+            "start": 5.62,
+            "end": 5.98,
+            "word": " بکنن",
+            "probability": 0.9028815180063248
+          },
+          {
+            "start": 5.98,
+            "end": 6.24,
+            "word": " یا",
+            "probability": 0.8400774896144867
+          },
+          {
+            "start": 6.24,
+            "end": 6.8,
+            "word": " خودمون",
+            "probability": 0.9755604863166809
+          },
+          {
+            "start": 6.8,
+            "end": 6.98,
+            "word": " رو",
+            "probability": 0.9794009029865265
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 6.98,
+        "end": 8.4,
+        "text": "با یکی مقاعثه کنیم؟",
+        "avg_logprob": -0.2336366160275185,
+        "compression_ratio": 1.3821138211382114,
+        "no_speech_prob": 2.6216551152202783e-10,
+        "words": [
+          {
+            "start": 6.98,
+            "end": 7.12,
+            "word": " با",
+            "probability": 0.9949097037315369
+          },
+          {
+            "start": 7.12,
+            "end": 7.38,
+            "word": " یکی",
+            "probability": 0.991478701432546
+          },
+          {
+            "start": 7.38,
+            "end": 7.92,
+            "word": " مقاعثه",
+            "probability": 0.7946908555692062
+          },
+          {
+            "start": 7.92,
+            "end": 8.4,
+            "word": " کنیم؟",
+            "probability": 0.5680404752492905
+          }
+        ]
+      }
+    ]
+  }
+}

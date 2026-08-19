@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "6af97532058060a4981258576cbd1156588188b6296a8a9528bee195202ae203",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.88,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.98,
+        "text": "دار می‌ده ممکن از زمین اخراجمون بکنه یا حتی خوب نتونیم بازی بکند. باید قواعد این باز رو",
+        "avg_logprob": -0.2137750493267835,
+        "compression_ratio": 1.4144144144144144,
+        "no_speech_prob": 2.5865834474281257e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.2,
+            "word": " دار",
+            "probability": 0.6327654272317886
+          },
+          {
+            "start": 0.2,
+            "end": 0.46,
+            "word": " می‌ده",
+            "probability": 0.737322015222162
+          },
+          {
+            "start": 0.46,
+            "end": 0.8,
+            "word": " ممکن",
+            "probability": 0.8409052044153214
+          },
+          {
+            "start": 0.8,
+            "end": 1.02,
+            "word": " از",
+            "probability": 0.5260520298033953
+          },
+          {
+            "start": 1.02,
+            "end": 1.28,
+            "word": " زمین",
+            "probability": 0.9934970736503601
+          },
+          {
+            "start": 1.28,
+            "end": 1.96,
+            "word": " اخراجمون",
+            "probability": 0.9367984294891357
+          },
+          {
+            "start": 1.96,
+            "end": 2.48,
+            "word": " بکنه",
+            "probability": 0.9572906941175461
+          },
+          {
+            "start": 2.48,
+            "end": 3.62,
+            "word": " یا",
+            "probability": 0.7626441717147827
+          },
+          {
+            "start": 3.62,
+            "end": 3.84,
+            "word": " حتی",
+            "probability": 0.9808879892031351
+          },
+          {
+            "start": 3.84,
+            "end": 4.14,
+            "word": " خوب",
+            "probability": 0.9946962893009186
+          },
+          {
+            "start": 4.14,
+            "end": 4.62,
+            "word": " نتونیم",
+            "probability": 0.9826027989387512
+          },
+          {
+            "start": 4.62,
+            "end": 4.96,
+            "word": " بازی",
+            "probability": 0.9915841221809387
+          },
+          {
+            "start": 4.96,
+            "end": 5.3,
+            "word": " بکند.",
+            "probability": 0.6271127066041421
+          },
+          {
+            "start": 5.4,
+            "end": 5.56,
+            "word": " باید",
+            "probability": 0.869525745511055
+          },
+          {
+            "start": 5.56,
+            "end": 6.14,
+            "word": " قواعد",
+            "probability": 0.9160869121551514
+          },
+          {
+            "start": 6.14,
+            "end": 6.34,
+            "word": " این",
+            "probability": 0.9852098226547241
+          },
+          {
+            "start": 6.34,
+            "end": 6.64,
+            "word": " باز",
+            "probability": 0.9961386024951935
+          },
+          {
+            "start": 6.64,
+            "end": 6.98,
+            "word": " رو",
+            "probability": 0.4136183287773747
+          }
+        ]
+      }
+    ]
+  }
+}

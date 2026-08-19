@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "89961c10b32242e6b8c90e5051e20e8d9757b4ea795357069518be2edbbe2859",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.44,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 12.32,
+        "text": "حالا از من بپرسن، نمی‌دونم واقعاً چی بگم. و واقراً به کسی چه ربطی داره که من وضع مالیم خوبه یا بده، یا چقدر حقو می‌گیرم؟ واقاً شاید دادم بعضی وقتا",
+        "avg_logprob": -0.2382101841492228,
+        "compression_ratio": 1.5380116959064327,
+        "no_speech_prob": 2.6658025786829853e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.14,
+            "word": " حالا",
+            "probability": 0.6346042081713676
+          },
+          {
+            "start": 0.14,
+            "end": 0.26,
+            "word": " از",
+            "probability": 0.949137806892395
+          },
+          {
+            "start": 0.26,
+            "end": 0.36,
+            "word": " من",
+            "probability": 0.9682609438896179
+          },
+          {
+            "start": 0.36,
+            "end": 0.98,
+            "word": " بپرسن،",
+            "probability": 0.808486300210158
+          },
+          {
+            "start": 0.98,
+            "end": 1.5,
+            "word": " نمی‌دونم",
+            "probability": 0.8594668656587601
+          },
+          {
+            "start": 1.5,
+            "end": 1.94,
+            "word": " واقعاً",
+            "probability": 0.8479364812374115
+          },
+          {
+            "start": 1.94,
+            "end": 2.12,
+            "word": " چی",
+            "probability": 0.9830009341239929
+          },
+          {
+            "start": 2.12,
+            "end": 2.5,
+            "word": " بگم.",
+            "probability": 0.9834219813346863
+          },
+          {
+            "start": 2.8,
+            "end": 3.16,
+            "word": " و",
+            "probability": 0.8672001361846924
+          },
+          {
+            "start": 3.16,
+            "end": 4.22,
+            "word": " واقراً",
+            "probability": 0.72326871144287
+          },
+          {
+            "start": 4.22,
+            "end": 4.38,
+            "word": " به",
+            "probability": 0.8296719193458557
+          },
+          {
+            "start": 4.38,
+            "end": 4.88,
+            "word": " کسی",
+            "probability": 0.9892687598864237
+          },
+          {
+            "start": 4.88,
+            "end": 5.2,
+            "word": " چه",
+            "probability": 0.9838241636753082
+          },
+          {
+            "start": 5.2,
+            "end": 5.54,
+            "word": " ربطی",
+            "probability": 0.9652236253023148
+          },
+          {
+            "start": 5.54,
+            "end": 5.82,
+            "word": " داره",
+            "probability": 0.9830154379208883
+          },
+          {
+            "start": 5.82,
+            "end": 6.0,
+            "word": " که",
+            "probability": 0.9923149943351746
+          },
+          {
+            "start": 6.0,
+            "end": 6.18,
+            "word": " من",
+            "probability": 0.887974202632904
+          },
+          {
+            "start": 6.18,
+            "end": 6.6,
+            "word": " وضع",
+            "probability": 0.9688112934430441
+          },
+          {
+            "start": 6.6,
+            "end": 7.14,
+            "word": " مالیم",
+            "probability": 0.9521291553974152
+          },
+          {
+            "start": 7.14,
+            "end": 7.74,
+            "word": " خوبه",
+            "probability": 0.9314355055491129
+          },
+          {
+            "start": 7.74,
+            "end": 8.26,
+            "word": " یا",
+            "probability": 0.9114815592765808
+          },
+          {
+            "start": 8.26,
+            "end": 8.66,
+            "word": " بده،",
+            "probability": 0.7169034878412882
+          },
+          {
+            "start": 8.66,
+            "end": 8.82,
+            "word": " یا",
+            "probability": 0.9734809100627899
+          },
+          {
+            "start": 8.82,
+            "end": 9.26,
+            "word": " چقدر",
+            "probability": 0.9894948999087015
+          },
+          {
+            "start": 9.26,
+            "end": 9.52,
+            "word": " حقو",
+            "probability": 0.7058368027210236
+          },
+          {
+            "start": 9.52,
+            "end": 10.24,
+            "word": " می‌گیرم؟",
+            "probability": 0.8646525144577026
+          },
+          {
+            "start": 10.24,
+            "end": 11.1,
+            "word": " واقاً",
+            "probability": 0.7056765070010442
+          },
+          {
+            "start": 11.1,
+            "end": 11.32,
+            "word": " شاید",
+            "probability": 0.9637894481420517
+          },
+          {
+            "start": 11.32,
+            "end": 11.54,
+            "word": " دادم",
+            "probability": 0.8867107828458151
+          },
+          {
+            "start": 11.54,
+            "end": 11.88,
+            "word": " بعضی",
+            "probability": 0.9722024997075399
+          },
+          {
+            "start": 11.88,
+            "end": 12.32,
+            "word": " وقتا",
+            "probability": 0.8970911304155985
+          }
+        ]
+      }
+    ]
+  }
+}

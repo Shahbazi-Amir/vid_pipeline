@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "8a3fbbd9482c107a7b47bc0d694f1dc8f5da8c1ee9bcfbb5af525501c33e9d5b",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.42,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.4,
+        "text": "بگیم که نه وضع مالی من خوب نیست یا نه، وضو مالین خیلی هم خوبه. به نظر شما چی کار باید؟",
+        "avg_logprob": -0.2410178401712644,
+        "compression_ratio": 1.411214953271028,
+        "no_speech_prob": 2.6140015152442686e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.44,
+            "word": " بگیم",
+            "probability": 0.6494330298155546
+          },
+          {
+            "start": 0.44,
+            "end": 0.68,
+            "word": " که",
+            "probability": 0.8693512976169586
+          },
+          {
+            "start": 0.68,
+            "end": 1.06,
+            "word": " نه",
+            "probability": 0.9620200395584106
+          },
+          {
+            "start": 1.06,
+            "end": 1.38,
+            "word": " وضع",
+            "probability": 0.9493707617123922
+          },
+          {
+            "start": 1.38,
+            "end": 1.64,
+            "word": " مالی",
+            "probability": 0.9932026068369547
+          },
+          {
+            "start": 1.64,
+            "end": 1.76,
+            "word": " من",
+            "probability": 0.9758630990982056
+          },
+          {
+            "start": 1.76,
+            "end": 2.1,
+            "word": " خوب",
+            "probability": 0.9974131286144257
+          },
+          {
+            "start": 2.1,
+            "end": 2.5,
+            "word": " نیست",
+            "probability": 0.9982471466064453
+          },
+          {
+            "start": 2.5,
+            "end": 3.24,
+            "word": " یا",
+            "probability": 0.8959859311580658
+          },
+          {
+            "start": 3.24,
+            "end": 3.56,
+            "word": " نه،",
+            "probability": 0.6680918394898375
+          },
+          {
+            "start": 3.56,
+            "end": 3.78,
+            "word": " وضو",
+            "probability": 0.6642497835370401
+          },
+          {
+            "start": 3.78,
+            "end": 4.06,
+            "word": " مالین",
+            "probability": 0.6169623103147993
+          },
+          {
+            "start": 4.06,
+            "end": 4.36,
+            "word": " خیلی",
+            "probability": 0.9930174648761749
+          },
+          {
+            "start": 4.36,
+            "end": 4.48,
+            "word": " هم",
+            "probability": 0.9606681764125824
+          },
+          {
+            "start": 4.48,
+            "end": 5.0,
+            "word": " خوبه.",
+            "probability": 0.9925401210784912
+          },
+          {
+            "start": 5.24,
+            "end": 5.88,
+            "word": " به",
+            "probability": 0.8797418475151062
+          },
+          {
+            "start": 5.88,
+            "end": 6.2,
+            "word": " نظر",
+            "probability": 0.9978551069895426
+          },
+          {
+            "start": 6.2,
+            "end": 6.6,
+            "word": " شما",
+            "probability": 0.993407279253006
+          },
+          {
+            "start": 6.6,
+            "end": 6.96,
+            "word": " چی",
+            "probability": 0.768724650144577
+          },
+          {
+            "start": 6.96,
+            "end": 7.12,
+            "word": " کار",
+            "probability": 0.9921048581600189
+          },
+          {
+            "start": 7.12,
+            "end": 7.4,
+            "word": " باید؟",
+            "probability": 0.6600347995758057
+          }
+        ]
+      }
+    ]
+  }
+}

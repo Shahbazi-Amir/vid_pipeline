@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "a770fe8ec31a098e28331c3536f285879fa078080356cef6a17689798bd55537",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.4,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.04,
+        "text": "هم اون پول رو چجوری باید مدیریت بکنیم؟ یعنی ما کل زندگیمون رو درست می‌خونیم، کل دوره یه حالا جوانی و نجوانم درس می‌کنم که بلاخره یک پول مناسبی در بیریم.",
+        "avg_logprob": -0.2364984432856242,
+        "compression_ratio": 1.6467065868263473,
+        "no_speech_prob": 2.7568253235799034e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.08,
+            "word": " هم",
+            "probability": 0.5203191339969635
+          },
+          {
+            "start": 0.08,
+            "end": 0.26,
+            "word": " اون",
+            "probability": 0.9531582295894623
+          },
+          {
+            "start": 0.26,
+            "end": 0.6,
+            "word": " پول",
+            "probability": 0.9023432731628418
+          },
+          {
+            "start": 0.6,
+            "end": 0.82,
+            "word": " رو",
+            "probability": 0.921202152967453
+          },
+          {
+            "start": 0.82,
+            "end": 1.16,
+            "word": " چجوری",
+            "probability": 0.9810149371623993
+          },
+          {
+            "start": 1.16,
+            "end": 1.38,
+            "word": " باید",
+            "probability": 0.9920749366283417
+          },
+          {
+            "start": 1.38,
+            "end": 1.92,
+            "word": " مدیریت",
+            "probability": 0.9987002849578858
+          },
+          {
+            "start": 1.92,
+            "end": 2.64,
+            "word": " بکنیم؟",
+            "probability": 0.8756579458713531
+          },
+          {
+            "start": 2.64,
+            "end": 3.22,
+            "word": " یعنی",
+            "probability": 0.9971996247768402
+          },
+          {
+            "start": 3.22,
+            "end": 3.48,
+            "word": " ما",
+            "probability": 0.9990133047103882
+          },
+          {
+            "start": 3.48,
+            "end": 4.38,
+            "word": " کل",
+            "probability": 0.9946960508823395
+          },
+          {
+            "start": 4.38,
+            "end": 5.26,
+            "word": " زندگیمون",
+            "probability": 0.9469731648763021
+          },
+          {
+            "start": 5.26,
+            "end": 5.34,
+            "word": " رو",
+            "probability": 0.9209229946136475
+          },
+          {
+            "start": 5.34,
+            "end": 5.74,
+            "word": " درست",
+            "probability": 0.8687406778335571
+          },
+          {
+            "start": 5.74,
+            "end": 6.34,
+            "word": " می‌خونیم،",
+            "probability": 0.7361373404440071
+          },
+          {
+            "start": 6.34,
+            "end": 6.5,
+            "word": " کل",
+            "probability": 0.9861117601394653
+          },
+          {
+            "start": 6.5,
+            "end": 6.92,
+            "word": " دوره",
+            "probability": 0.9641848802566528
+          },
+          {
+            "start": 6.92,
+            "end": 7.04,
+            "word": " یه",
+            "probability": 0.5571329444646835
+          },
+          {
+            "start": 7.04,
+            "end": 7.16,
+            "word": " حالا",
+            "probability": 0.8593489726384481
+          },
+          {
+            "start": 7.16,
+            "end": 7.74,
+            "word": " جوانی",
+            "probability": 0.9870734214782715
+          },
+          {
+            "start": 7.74,
+            "end": 7.82,
+            "word": " و",
+            "probability": 0.7824759483337402
+          },
+          {
+            "start": 7.82,
+            "end": 8.26,
+            "word": " نجوانم",
+            "probability": 0.7624553683213889
+          },
+          {
+            "start": 8.26,
+            "end": 8.58,
+            "word": " درس",
+            "probability": 0.6304035633802414
+          },
+          {
+            "start": 8.58,
+            "end": 8.88,
+            "word": " می‌کنم",
+            "probability": 0.530020724888891
+          },
+          {
+            "start": 8.88,
+            "end": 9.08,
+            "word": " که",
+            "probability": 0.960990309715271
+          },
+          {
+            "start": 9.08,
+            "end": 9.52,
+            "word": " بلاخره",
+            "probability": 0.8571974217891694
+          },
+          {
+            "start": 9.52,
+            "end": 9.7,
+            "word": " یک",
+            "probability": 0.9834286570549011
+          },
+          {
+            "start": 9.7,
+            "end": 9.94,
+            "word": " پول",
+            "probability": 0.9936738908290863
+          },
+          {
+            "start": 9.94,
+            "end": 10.52,
+            "word": " مناسبی",
+            "probability": 0.969671294093132
+          },
+          {
+            "start": 10.52,
+            "end": 10.74,
+            "word": " در",
+            "probability": 0.836805522441864
+          },
+          {
+            "start": 10.74,
+            "end": 11.04,
+            "word": " بیریم.",
+            "probability": 0.7218694984912872
+          }
+        ]
+      }
+    ]
+  }
+}

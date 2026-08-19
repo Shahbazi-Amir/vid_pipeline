@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "65336c22f16f23343bd8b4c561f06d459c6e52580526589996fa483030780327",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.82,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.38,
+        "text": "چوبه یا بده، یا چقدر حقوق می‌گیرن؟ واقعا شاید دادم بعضی وقتها دوست داره بگه که",
+        "avg_logprob": -0.2483749605955616,
+        "compression_ratio": 1.1448275862068966,
+        "no_speech_prob": 2.7239677180546096e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.3,
+            "word": " چوبه",
+            "probability": 0.5143857672810555
+          },
+          {
+            "start": 0.3,
+            "end": 0.82,
+            "word": " یا",
+            "probability": 0.9626699388027191
+          },
+          {
+            "start": 0.82,
+            "end": 1.26,
+            "word": " بده،",
+            "probability": 0.6679056083473066
+          },
+          {
+            "start": 1.26,
+            "end": 1.38,
+            "word": " یا",
+            "probability": 0.9300150573253632
+          },
+          {
+            "start": 1.38,
+            "end": 1.82,
+            "word": " چقدر",
+            "probability": 0.9941293795903524
+          },
+          {
+            "start": 1.82,
+            "end": 2.1,
+            "word": " حقوق",
+            "probability": 0.6855597520867983
+          },
+          {
+            "start": 2.1,
+            "end": 2.68,
+            "word": " می‌گیرن؟",
+            "probability": 0.7259503642895392
+          },
+          {
+            "start": 2.68,
+            "end": 3.6,
+            "word": " واقعا",
+            "probability": 0.9936809539794922
+          },
+          {
+            "start": 3.6,
+            "end": 3.9,
+            "word": " شاید",
+            "probability": 0.9423568099737167
+          },
+          {
+            "start": 3.9,
+            "end": 4.1,
+            "word": " دادم",
+            "probability": 0.7603093385696411
+          },
+          {
+            "start": 4.1,
+            "end": 4.42,
+            "word": " بعضی",
+            "probability": 0.986263116200765
+          },
+          {
+            "start": 4.42,
+            "end": 4.92,
+            "word": " وقتها",
+            "probability": 0.7821777760982513
+          },
+          {
+            "start": 4.92,
+            "end": 5.64,
+            "word": " دوست",
+            "probability": 0.9834296305974325
+          },
+          {
+            "start": 5.64,
+            "end": 5.86,
+            "word": " داره",
+            "probability": 0.9898196856180826
+          },
+          {
+            "start": 5.86,
+            "end": 6.12,
+            "word": " بگه",
+            "probability": 0.802971621354421
+          },
+          {
+            "start": 6.12,
+            "end": 6.38,
+            "word": " که",
+            "probability": 0.9048931300640106
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 6.38,
+        "end": 7.78,
+        "text": "It's not your business.",
+        "avg_logprob": -0.2483749605955616,
+        "compression_ratio": 1.1448275862068966,
+        "no_speech_prob": 2.7239677180546096e-10,
+        "words": [
+          {
+            "start": 6.38,
+            "end": 6.8,
+            "word": " It's",
+            "probability": 0.5628620684146881
+          },
+          {
+            "start": 6.8,
+            "end": 6.94,
+            "word": " not",
+            "probability": 0.9025537371635437
+          },
+          {
+            "start": 6.94,
+            "end": 7.26,
+            "word": " your",
+            "probability": 0.9770914912223816
+          },
+          {
+            "start": 7.26,
+            "end": 7.78,
+            "word": " business.",
+            "probability": 0.9866913557052612
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "8584a184f3f8af52c96528ddfd1b10cff00c3e797c8c6303338b392b3be53b7c",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.1,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 3.6,
+        "text": "وضع مالی چطوره؟ چقدر حقوق می‌گیری؟",
+        "avg_logprob": -0.20791919758686653,
+        "compression_ratio": 0.9014084507042254,
+        "no_speech_prob": 3.575800211486069e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.66,
+            "word": " وضع",
+            "probability": 0.7195579459269842
+          },
+          {
+            "start": 0.66,
+            "end": 0.98,
+            "word": " مالی",
+            "probability": 0.9582393765449524
+          },
+          {
+            "start": 0.98,
+            "end": 1.9,
+            "word": " چطوره؟",
+            "probability": 0.8639837145805359
+          },
+          {
+            "start": 1.9,
+            "end": 2.7,
+            "word": " چقدر",
+            "probability": 0.99412602186203
+          },
+          {
+            "start": 2.7,
+            "end": 3.04,
+            "word": " حقوق",
+            "probability": 0.9734861453374227
+          },
+          {
+            "start": 3.04,
+            "end": 3.6,
+            "word": " می‌گیری؟",
+            "probability": 0.8349246506889662
+          }
+        ]
+      }
+    ]
+  }
+}

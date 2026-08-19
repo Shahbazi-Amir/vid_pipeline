@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "063611721c198d1f2eff648881e83288e295b36a6a959cc7cf77b37f971a2c2b",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.14,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.12,
+        "text": "در باره این صحبت کردیم که رفتن به باشگاه برای آموزش ثواد.",
+        "avg_logprob": -0.106080116295233,
+        "compression_ratio": 1.2,
+        "no_speech_prob": 2.004347798845174e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.64,
+            "word": " در",
+            "probability": 0.9008687138557434
+          },
+          {
+            "start": 0.64,
+            "end": 0.9,
+            "word": " باره",
+            "probability": 0.9870312412579855
+          },
+          {
+            "start": 0.9,
+            "end": 1.06,
+            "word": " این",
+            "probability": 0.9976780414581299
+          },
+          {
+            "start": 1.06,
+            "end": 1.54,
+            "word": " صحبت",
+            "probability": 0.9938067346811295
+          },
+          {
+            "start": 1.54,
+            "end": 2.0,
+            "word": " کردیم",
+            "probability": 0.9994456022977829
+          },
+          {
+            "start": 2.0,
+            "end": 2.86,
+            "word": " که",
+            "probability": 0.9994692206382751
+          },
+          {
+            "start": 2.86,
+            "end": 3.56,
+            "word": " رفتن",
+            "probability": 0.9984000623226166
+          },
+          {
+            "start": 3.56,
+            "end": 3.72,
+            "word": " به",
+            "probability": 0.9996008276939392
+          },
+          {
+            "start": 3.72,
+            "end": 4.7,
+            "word": " باشگاه",
+            "probability": 0.9909445941448212
+          },
+          {
+            "start": 4.7,
+            "end": 6.02,
+            "word": " برای",
+            "probability": 0.9993244210879008
+          },
+          {
+            "start": 6.02,
+            "end": 6.68,
+            "word": " آموزش",
+            "probability": 0.9875527381896972
+          },
+          {
+            "start": 6.68,
+            "end": 7.12,
+            "word": " ثواد.",
+            "probability": 0.9315040906270345
+          }
+        ]
+      }
+    ]
+  }
+}

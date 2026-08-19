@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "292211368dd78de3163b1f806ab4ecc7601e694d6ee170b48655fb203e188013",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.64,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.16,
+        "text": "ما باید تمرینات مالی خوبی داشته باشیم. خب، سواد مالي چیه؟ سوادم مال...",
+        "avg_logprob": -0.1802759180250375,
+        "compression_ratio": 1.3333333333333333,
+        "no_speech_prob": 2.549517263972234e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.08,
+            "word": " ما",
+            "probability": 0.6763798594474792
+          },
+          {
+            "start": 0.08,
+            "end": 0.26,
+            "word": " باید",
+            "probability": 0.9967247247695923
+          },
+          {
+            "start": 0.26,
+            "end": 1.08,
+            "word": " تمرینات",
+            "probability": 0.9871661424636841
+          },
+          {
+            "start": 1.08,
+            "end": 1.5,
+            "word": " مالی",
+            "probability": 0.9996763070424398
+          },
+          {
+            "start": 1.5,
+            "end": 1.86,
+            "word": " خوبی",
+            "probability": 0.9923927982648214
+          },
+          {
+            "start": 1.86,
+            "end": 2.14,
+            "word": " داشته",
+            "probability": 0.9941834807395935
+          },
+          {
+            "start": 2.14,
+            "end": 2.52,
+            "word": " باشیم.",
+            "probability": 0.9732320308685303
+          },
+          {
+            "start": 2.94,
+            "end": 3.74,
+            "word": " خب،",
+            "probability": 0.6620394786198934
+          },
+          {
+            "start": 3.74,
+            "end": 4.2,
+            "word": " سواد",
+            "probability": 0.9390797019004822
+          },
+          {
+            "start": 4.2,
+            "end": 4.52,
+            "word": " مالي",
+            "probability": 0.6583683984023688
+          },
+          {
+            "start": 4.52,
+            "end": 5.44,
+            "word": " چیه؟",
+            "probability": 0.9968247562646866
+          },
+          {
+            "start": 5.44,
+            "end": 6.52,
+            "word": " سوادم",
+            "probability": 0.6628900799514668
+          },
+          {
+            "start": 6.52,
+            "end": 7.16,
+            "word": " مال...",
+            "probability": 0.6453232066026734
+          }
+        ]
+      }
+    ]
+  }
+}

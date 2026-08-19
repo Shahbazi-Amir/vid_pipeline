@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "e212285c50a96f2295e73c47c9f8f726a27fbd659a12263bba4dd0cc83a4dfb5",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.14,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.12,
+        "text": "امنیت و آزادی مالی برسیم، یعنی یک دانش‌های درستی به ما میده درباره پول، یک نگرش‌ های زیبایی",
+        "avg_logprob": -0.16014052170973558,
+        "compression_ratio": 1.4152542372881356,
+        "no_speech_prob": 2.1277998807356369e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.84,
+            "word": " امنیت",
+            "probability": 0.8734632283449173
+          },
+          {
+            "start": 0.84,
+            "end": 1.02,
+            "word": " و",
+            "probability": 0.999526858329773
+          },
+          {
+            "start": 1.02,
+            "end": 1.58,
+            "word": " آزادی",
+            "probability": 0.9987600296735764
+          },
+          {
+            "start": 1.58,
+            "end": 1.98,
+            "word": " مالی",
+            "probability": 0.9988838235537211
+          },
+          {
+            "start": 1.98,
+            "end": 2.62,
+            "word": " برسیم،",
+            "probability": 0.7797911658223408
+          },
+          {
+            "start": 2.62,
+            "end": 3.06,
+            "word": " یعنی",
+            "probability": 0.9969109296798706
+          },
+          {
+            "start": 3.06,
+            "end": 3.26,
+            "word": " یک",
+            "probability": 0.9637291431427002
+          },
+          {
+            "start": 3.26,
+            "end": 3.96,
+            "word": " دانش‌های",
+            "probability": 0.8401575665920973
+          },
+          {
+            "start": 3.96,
+            "end": 4.58,
+            "word": " درستی",
+            "probability": 0.9799294918775558
+          },
+          {
+            "start": 4.58,
+            "end": 4.7,
+            "word": " به",
+            "probability": 0.9776161313056946
+          },
+          {
+            "start": 4.7,
+            "end": 4.88,
+            "word": " ما",
+            "probability": 0.954206645488739
+          },
+          {
+            "start": 4.88,
+            "end": 5.3,
+            "word": " میده",
+            "probability": 0.8211667339007059
+          },
+          {
+            "start": 5.3,
+            "end": 6.12,
+            "word": " درباره",
+            "probability": 0.8347407281398773
+          },
+          {
+            "start": 6.12,
+            "end": 6.96,
+            "word": " پول،",
+            "probability": 0.6409173806508383
+          },
+          {
+            "start": 6.96,
+            "end": 7.58,
+            "word": " یک",
+            "probability": 0.9948334395885468
+          },
+          {
+            "start": 7.58,
+            "end": 8.3,
+            "word": " نگرش‌",
+            "probability": 0.9740235209465027
+          },
+          {
+            "start": 8.3,
+            "end": 8.56,
+            "word": " های",
+            "probability": 0.6582447974554574
+          },
+          {
+            "start": 8.56,
+            "end": 9.12,
+            "word": " زیبایی",
+            "probability": 0.9179930289586385
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "7f736cd95b8816e0756005aafe36431b700272c1a262d4eee1bf3a06dbc979b0",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.02,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.0,
+        "text": "بیزنس، این به تو ربطی نداره، اما واقعاً نمیشه گفت شاید بخوان ما رو با دیگران",
+        "avg_logprob": -0.12134104371070861,
+        "compression_ratio": 1.3047619047619048,
+        "no_speech_prob": 3.0661589933700384e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.84,
+            "word": " بیزنس،",
+            "probability": 0.7368488932649294
+          },
+          {
+            "start": 0.84,
+            "end": 1.48,
+            "word": " این",
+            "probability": 0.998308002948761
+          },
+          {
+            "start": 1.48,
+            "end": 1.6,
+            "word": " به",
+            "probability": 0.9989365935325623
+          },
+          {
+            "start": 1.6,
+            "end": 1.72,
+            "word": " تو",
+            "probability": 0.9923250675201416
+          },
+          {
+            "start": 1.72,
+            "end": 2.08,
+            "word": " ربطی",
+            "probability": 0.9725435674190521
+          },
+          {
+            "start": 2.08,
+            "end": 2.62,
+            "word": " نداره،",
+            "probability": 0.8072678327560425
+          },
+          {
+            "start": 2.62,
+            "end": 3.1,
+            "word": " اما",
+            "probability": 0.9948816001415253
+          },
+          {
+            "start": 3.1,
+            "end": 3.72,
+            "word": " واقعاً",
+            "probability": 0.8674826204776764
+          },
+          {
+            "start": 3.72,
+            "end": 4.12,
+            "word": " نمیشه",
+            "probability": 0.9774078011512757
+          },
+          {
+            "start": 4.12,
+            "end": 4.5,
+            "word": " گفت",
+            "probability": 0.9826635320981344
+          },
+          {
+            "start": 4.5,
+            "end": 5.44,
+            "word": " شاید",
+            "probability": 0.8624541386961937
+          },
+          {
+            "start": 5.44,
+            "end": 6.22,
+            "word": " بخوان",
+            "probability": 0.8926147520542145
+          },
+          {
+            "start": 6.22,
+            "end": 6.38,
+            "word": " ما",
+            "probability": 0.969786524772644
+          },
+          {
+            "start": 6.38,
+            "end": 6.46,
+            "word": " رو",
+            "probability": 0.9672944843769073
+          },
+          {
+            "start": 6.46,
+            "end": 6.56,
+            "word": " با",
+            "probability": 0.9980452656745911
+          },
+          {
+            "start": 6.56,
+            "end": 7.0,
+            "word": " دیگران",
+            "probability": 0.9835829615592957
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "daff833a6f5fa3f3a8c12d3b592e48ac56560731bccb8f7a566fe65213537d6e",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.4,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 5.78,
+        "text": "رو یاد نگیریم، فول می‌کنیم، داور به ما اختار می‌ده، ممکنه از زمین اخراجمون بکن.",
+        "avg_logprob": -0.2134822416636679,
+        "compression_ratio": 1.355140186915888,
+        "no_speech_prob": 2.498299345177202e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.04,
+            "word": " رو",
+            "probability": 0.4106618713703938
+          },
+          {
+            "start": 0.04,
+            "end": 0.42,
+            "word": " یاد",
+            "probability": 0.9737506806850433
+          },
+          {
+            "start": 0.42,
+            "end": 1.4,
+            "word": " نگیریم،",
+            "probability": 0.8553410495320956
+          },
+          {
+            "start": 1.4,
+            "end": 1.9,
+            "word": " فول",
+            "probability": 0.8972701132297516
+          },
+          {
+            "start": 1.9,
+            "end": 2.6,
+            "word": " می‌کنیم،",
+            "probability": 0.7261312127645526
+          },
+          {
+            "start": 2.6,
+            "end": 2.88,
+            "word": " داور",
+            "probability": 0.9806515971819559
+          },
+          {
+            "start": 2.88,
+            "end": 3.02,
+            "word": " به",
+            "probability": 0.9124422669410706
+          },
+          {
+            "start": 3.02,
+            "end": 3.16,
+            "word": " ما",
+            "probability": 0.9787619113922119
+          },
+          {
+            "start": 3.16,
+            "end": 3.64,
+            "word": " اختار",
+            "probability": 0.9574286142985026
+          },
+          {
+            "start": 3.64,
+            "end": 3.94,
+            "word": " می‌ده،",
+            "probability": 0.8287633091211319
+          },
+          {
+            "start": 3.94,
+            "end": 4.34,
+            "word": " ممکنه",
+            "probability": 0.9329385638237
+          },
+          {
+            "start": 4.34,
+            "end": 4.46,
+            "word": " از",
+            "probability": 0.9200455546379089
+          },
+          {
+            "start": 4.46,
+            "end": 4.72,
+            "word": " زمین",
+            "probability": 0.9901154637336731
+          },
+          {
+            "start": 4.72,
+            "end": 5.4,
+            "word": " اخراجمون",
+            "probability": 0.9316884279251099
+          },
+          {
+            "start": 5.4,
+            "end": 5.78,
+            "word": " بکن.",
+            "probability": 0.8841364979743958
+          }
+        ]
+      }
+    ]
+  }
+}

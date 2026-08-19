@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "51c13ddc3eab3872806d672bdc8304df7538c77446e5ff8483088b732d3e5bd2",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.08,
+    "segments": [
+      {
+        "id": 1,
+        "start": 2.959999999999998,
+        "end": 5.94,
+        "text": "سلام، در باره این صحبت کردیم که",
+        "avg_logprob": -0.1128817310799723,
+        "compression_ratio": 0.9333333333333333,
+        "no_speech_prob": 4.1162201425137823e-10,
+        "words": [
+          {
+            "start": 2.959999999999998,
+            "end": 3.8,
+            "word": " سلام،",
+            "probability": 0.668485606710116
+          },
+          {
+            "start": 3.8,
+            "end": 4.16,
+            "word": " در",
+            "probability": 0.9054310321807861
+          },
+          {
+            "start": 4.16,
+            "end": 4.44,
+            "word": " باره",
+            "probability": 0.9584756294886271
+          },
+          {
+            "start": 4.44,
+            "end": 4.58,
+            "word": " این",
+            "probability": 0.9955699443817139
+          },
+          {
+            "start": 4.58,
+            "end": 5.06,
+            "word": " صحبت",
+            "probability": 0.9947029203176498
+          },
+          {
+            "start": 5.06,
+            "end": 5.52,
+            "word": " کردیم",
+            "probability": 0.999064713716507
+          },
+          {
+            "start": 5.52,
+            "end": 5.94,
+            "word": " که",
+            "probability": 0.998805969953537
+          }
+        ]
+      }
+    ]
+  }
+}

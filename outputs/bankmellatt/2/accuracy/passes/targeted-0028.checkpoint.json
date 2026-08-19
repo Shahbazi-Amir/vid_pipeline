@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "ba2c9fce0e9971511fa2f10ee2acd8e93e2f2c038bb36fa73e6b1a05a41f53b8",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.14,
+    "segments": [
+      {
+        "id": 1,
+        "start": 1.6799999999999997,
+        "end": 7.08,
+        "text": "درست می‌خونیم که بلاخره یک پول مناسبی در بریم ولی اینکه با این پول باید چیکار بکنیم",
+        "avg_logprob": -0.2819969691336155,
+        "compression_ratio": 1.4519230769230769,
+        "no_speech_prob": 4.425391997298078e-10,
+        "words": [
+          {
+            "start": 1.6799999999999997,
+            "end": 2.16,
+            "word": " درست",
+            "probability": 0.6336014072100321
+          },
+          {
+            "start": 2.16,
+            "end": 2.5,
+            "word": " می‌خونیم",
+            "probability": 0.6655057997753223
+          },
+          {
+            "start": 2.5,
+            "end": 2.66,
+            "word": " که",
+            "probability": 0.9719111323356628
+          },
+          {
+            "start": 2.66,
+            "end": 3.12,
+            "word": " بلاخره",
+            "probability": 0.8488951683044433
+          },
+          {
+            "start": 3.12,
+            "end": 3.3,
+            "word": " یک",
+            "probability": 0.9471709132194519
+          },
+          {
+            "start": 3.3,
+            "end": 3.52,
+            "word": " پول",
+            "probability": 0.9803721010684967
+          },
+          {
+            "start": 3.52,
+            "end": 4.12,
+            "word": " مناسبی",
+            "probability": 0.9616744518280029
+          },
+          {
+            "start": 4.12,
+            "end": 4.34,
+            "word": " در",
+            "probability": 0.6761538535356522
+          },
+          {
+            "start": 4.34,
+            "end": 4.6,
+            "word": " بریم",
+            "probability": 0.7271832625071207
+          },
+          {
+            "start": 4.6,
+            "end": 5.16,
+            "word": " ولی",
+            "probability": 0.9437284767627716
+          },
+          {
+            "start": 5.16,
+            "end": 5.38,
+            "word": " اینکه",
+            "probability": 0.8335576206445694
+          },
+          {
+            "start": 5.38,
+            "end": 5.94,
+            "word": " با",
+            "probability": 0.9808267652988434
+          },
+          {
+            "start": 5.94,
+            "end": 6.02,
+            "word": " این",
+            "probability": 0.982688307762146
+          },
+          {
+            "start": 6.02,
+            "end": 6.26,
+            "word": " پول",
+            "probability": 0.9948218166828156
+          },
+          {
+            "start": 6.26,
+            "end": 6.5,
+            "word": " باید",
+            "probability": 0.5789824426174164
+          },
+          {
+            "start": 6.5,
+            "end": 6.72,
+            "word": " چیکار",
+            "probability": 0.7808835605780283
+          },
+          {
+            "start": 6.72,
+            "end": 7.08,
+            "word": " بکنیم",
+            "probability": 0.9802387952804565
+          }
+        ]
+      }
+    ]
+  }
+}

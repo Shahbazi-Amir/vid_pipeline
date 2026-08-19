@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "8f8c0a2f7b081efb6e07d17e8dd04a410964d3d3e0b993a85594a52516f414b5",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.26,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.24,
+        "text": "حوائد بازی پور را یاد نگیریم، فل می‌کنیم، داور به ما اختار می‌ده، ممکنه از زمین اخرام می‌بینیم.",
+        "avg_logprob": -0.36573983123525977,
+        "compression_ratio": 1.4583333333333333,
+        "no_speech_prob": 3.6034333850132327e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.4,
+            "word": " حوائد",
+            "probability": 0.6167101860046387
+          },
+          {
+            "start": 0.4,
+            "end": 0.78,
+            "word": " بازی",
+            "probability": 0.9958290259043375
+          },
+          {
+            "start": 0.78,
+            "end": 1.08,
+            "word": " پور",
+            "probability": 0.8197281062602997
+          },
+          {
+            "start": 1.08,
+            "end": 1.28,
+            "word": " را",
+            "probability": 0.5341513231396675
+          },
+          {
+            "start": 1.28,
+            "end": 1.66,
+            "word": " یاد",
+            "probability": 0.9913118183612823
+          },
+          {
+            "start": 1.66,
+            "end": 2.64,
+            "word": " نگیریم،",
+            "probability": 0.86893859008948
+          },
+          {
+            "start": 2.64,
+            "end": 3.16,
+            "word": " فل",
+            "probability": 0.6136244311928749
+          },
+          {
+            "start": 3.16,
+            "end": 3.84,
+            "word": " می‌کنیم،",
+            "probability": 0.7597167185906853
+          },
+          {
+            "start": 3.84,
+            "end": 4.14,
+            "word": " داور",
+            "probability": 0.9838708837827047
+          },
+          {
+            "start": 4.14,
+            "end": 4.28,
+            "word": " به",
+            "probability": 0.8778630495071411
+          },
+          {
+            "start": 4.28,
+            "end": 4.4,
+            "word": " ما",
+            "probability": 0.9860092997550964
+          },
+          {
+            "start": 4.4,
+            "end": 4.9,
+            "word": " اختار",
+            "probability": 0.9328862428665161
+          },
+          {
+            "start": 4.9,
+            "end": 5.2,
+            "word": " می‌ده،",
+            "probability": 0.7853454291820526
+          },
+          {
+            "start": 5.2,
+            "end": 5.6,
+            "word": " ممکنه",
+            "probability": 0.9114482283592225
+          },
+          {
+            "start": 5.6,
+            "end": 5.72,
+            "word": " از",
+            "probability": 0.8260999321937561
+          },
+          {
+            "start": 5.72,
+            "end": 5.98,
+            "word": " زمین",
+            "probability": 0.9920038382212321
+          },
+          {
+            "start": 5.98,
+            "end": 6.24,
+            "word": " اخرام",
+            "probability": 0.6792684644460678
+          },
+          {
+            "start": 6.24,
+            "end": 6.24,
+            "word": " می‌بینیم.",
+            "probability": 0.5469123938431343
+          }
+        ]
+      }
+    ]
+  }
+}

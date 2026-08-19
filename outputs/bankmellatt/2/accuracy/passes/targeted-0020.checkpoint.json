@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "c3051ba8cab55d458d6eb14fbe57bfd55d0d7cdb0231e9aed5173bf3190e0538",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.6,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.58,
+        "text": "که رفتارهایی که به ما کمک می‌کنه به امنیت و آزادی مالی برسیم، یعنی یک دانش‌های درستی به ما می‌بینید.",
+        "avg_logprob": -0.2466997710220954,
+        "compression_ratio": 1.464,
+        "no_speech_prob": 2.438630963830235e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.1,
+            "word": " که",
+            "probability": 0.4602253120392561
+          },
+          {
+            "start": 0.1,
+            "end": 1.06,
+            "word": " رفتارهایی",
+            "probability": 0.9370289019175938
+          },
+          {
+            "start": 1.06,
+            "end": 1.36,
+            "word": " که",
+            "probability": 0.9120216369628906
+          },
+          {
+            "start": 1.36,
+            "end": 1.48,
+            "word": " به",
+            "probability": 0.9766205549240112
+          },
+          {
+            "start": 1.48,
+            "end": 1.62,
+            "word": " ما",
+            "probability": 0.9959339499473572
+          },
+          {
+            "start": 1.62,
+            "end": 2.08,
+            "word": " کمک",
+            "probability": 0.9993089040120443
+          },
+          {
+            "start": 2.08,
+            "end": 2.5,
+            "word": " می‌کنه",
+            "probability": 0.64181067943573
+          },
+          {
+            "start": 2.5,
+            "end": 2.64,
+            "word": " به",
+            "probability": 0.93096923828125
+          },
+          {
+            "start": 2.64,
+            "end": 3.46,
+            "word": " امنیت",
+            "probability": 0.9912133067846298
+          },
+          {
+            "start": 3.46,
+            "end": 3.62,
+            "word": " و",
+            "probability": 0.9952540397644043
+          },
+          {
+            "start": 3.62,
+            "end": 4.18,
+            "word": " آزادی",
+            "probability": 0.9974757879972458
+          },
+          {
+            "start": 4.18,
+            "end": 4.56,
+            "word": " مالی",
+            "probability": 0.9953255852063497
+          },
+          {
+            "start": 4.56,
+            "end": 5.46,
+            "word": " برسیم،",
+            "probability": 0.8035645027024051
+          },
+          {
+            "start": 5.46,
+            "end": 5.66,
+            "word": " یعنی",
+            "probability": 0.9963440597057343
+          },
+          {
+            "start": 5.66,
+            "end": 5.86,
+            "word": " یک",
+            "probability": 0.9122532904148102
+          },
+          {
+            "start": 5.86,
+            "end": 6.56,
+            "word": " دانش‌های",
+            "probability": 0.8848244895537695
+          },
+          {
+            "start": 6.56,
+            "end": 7.18,
+            "word": " درستی",
+            "probability": 0.9899892061948776
+          },
+          {
+            "start": 7.18,
+            "end": 7.32,
+            "word": " به",
+            "probability": 0.9706485867500305
+          },
+          {
+            "start": 7.32,
+            "end": 7.52,
+            "word": " ما",
+            "probability": 0.9688732028007507
+          },
+          {
+            "start": 7.52,
+            "end": 7.58,
+            "word": " می‌بینید.",
+            "probability": 0.6041778999691209
+          }
+        ]
+      }
+    ]
+  }
+}

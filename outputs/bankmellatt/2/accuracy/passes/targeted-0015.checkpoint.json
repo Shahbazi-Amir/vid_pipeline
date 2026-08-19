@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "cdf9215f9e38beb91658d77ab81e002e08eaacea1cd0b187036dae4fb619cdac",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.44,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.34,
+        "text": "که رفتن به باشگاه برای آموزش ثواد مالی مهمه. ما باید تمرینات مالي خوبی داشتم.",
+        "avg_logprob": -0.1854912996865236,
+        "compression_ratio": 1.3269230769230769,
+        "no_speech_prob": 2.365546647453698e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.84,
+            "word": " که",
+            "probability": 0.5165971145033836
+          },
+          {
+            "start": 0.84,
+            "end": 1.42,
+            "word": " رفتن",
+            "probability": 0.9958835691213608
+          },
+          {
+            "start": 1.42,
+            "end": 1.58,
+            "word": " به",
+            "probability": 0.9990060925483704
+          },
+          {
+            "start": 1.58,
+            "end": 2.54,
+            "word": " باشگاه",
+            "probability": 0.9896134287118912
+          },
+          {
+            "start": 2.54,
+            "end": 3.86,
+            "word": " برای",
+            "probability": 0.9980285962422689
+          },
+          {
+            "start": 3.86,
+            "end": 4.52,
+            "word": " آموزش",
+            "probability": 0.9933924913406372
+          },
+          {
+            "start": 4.52,
+            "end": 5.02,
+            "word": " ثواد",
+            "probability": 0.9281821052233378
+          },
+          {
+            "start": 5.02,
+            "end": 5.32,
+            "word": " مالی",
+            "probability": 0.9615586201349894
+          },
+          {
+            "start": 5.32,
+            "end": 5.9,
+            "word": " مهمه.",
+            "probability": 0.9903564055760702
+          },
+          {
+            "start": 6.04,
+            "end": 6.24,
+            "word": " ما",
+            "probability": 0.9915424585342407
+          },
+          {
+            "start": 6.24,
+            "end": 6.5,
+            "word": " باید",
+            "probability": 0.9738702028989792
+          },
+          {
+            "start": 6.5,
+            "end": 7.3,
+            "word": " تمرینات",
+            "probability": 0.992431378364563
+          },
+          {
+            "start": 7.3,
+            "end": 7.72,
+            "word": " مالي",
+            "probability": 0.6665972808241349
+          },
+          {
+            "start": 7.72,
+            "end": 8.08,
+            "word": " خوبی",
+            "probability": 0.9898261825243632
+          },
+          {
+            "start": 8.08,
+            "end": 8.34,
+            "word": " داشتم.",
+            "probability": 0.6978697578112284
+          }
+        ]
+      }
+    ]
+  }
+}

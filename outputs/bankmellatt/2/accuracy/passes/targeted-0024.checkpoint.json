@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "53ef0fbbcf86f704557c1d972348436895bff07a9919b44ad7519ef890e933e3",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.44,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 12.42,
+        "text": "بهتونیم پول رو مدیریت بکنیم. ببینیم ما در طول زندگیمون، مثلاً در تول نظام آموزشیمان، هیچ ده سال، نمی‌دونم، دوازده ساال، درس می‌خونییم تا",
+        "avg_logprob": -0.29497237255175907,
+        "compression_ratio": 1.6129032258064515,
+        "no_speech_prob": 2.172050733717512e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.34,
+            "word": " بهتونیم",
+            "probability": 0.7197876811027527
+          },
+          {
+            "start": 0.34,
+            "end": 0.64,
+            "word": " پول",
+            "probability": 0.9942158162593842
+          },
+          {
+            "start": 0.64,
+            "end": 0.84,
+            "word": " رو",
+            "probability": 0.9731463193893433
+          },
+          {
+            "start": 0.84,
+            "end": 1.4,
+            "word": " مدیریت",
+            "probability": 0.9337056159973145
+          },
+          {
+            "start": 1.4,
+            "end": 2.3,
+            "word": " بکنیم.",
+            "probability": 0.987877368927002
+          },
+          {
+            "start": 2.3,
+            "end": 2.98,
+            "word": " ببینیم",
+            "probability": 0.9043951034545898
+          },
+          {
+            "start": 2.98,
+            "end": 3.1,
+            "word": " ما",
+            "probability": 0.9892075657844543
+          },
+          {
+            "start": 3.1,
+            "end": 3.28,
+            "word": " در",
+            "probability": 0.9998652338981628
+          },
+          {
+            "start": 3.28,
+            "end": 3.46,
+            "word": " طول",
+            "probability": 0.995929479598999
+          },
+          {
+            "start": 3.46,
+            "end": 4.34,
+            "word": " زندگیمون،",
+            "probability": 0.848257711689387
+          },
+          {
+            "start": 4.34,
+            "end": 5.18,
+            "word": " مثلاً",
+            "probability": 0.674141259243091
+          },
+          {
+            "start": 5.18,
+            "end": 5.34,
+            "word": " در",
+            "probability": 0.999470055103302
+          },
+          {
+            "start": 5.34,
+            "end": 5.5,
+            "word": " تول",
+            "probability": 0.4995317001303192
+          },
+          {
+            "start": 5.5,
+            "end": 5.96,
+            "word": " نظام",
+            "probability": 0.9978652397791544
+          },
+          {
+            "start": 5.96,
+            "end": 6.74,
+            "word": " آموزشیمان،",
+            "probability": 0.8125830150286978
+          },
+          {
+            "start": 6.74,
+            "end": 6.96,
+            "word": " هیچ",
+            "probability": 0.5783830732107162
+          },
+          {
+            "start": 6.96,
+            "end": 7.24,
+            "word": " ده",
+            "probability": 0.9285251796245575
+          },
+          {
+            "start": 7.24,
+            "end": 7.72,
+            "word": " سال،",
+            "probability": 0.7717990577220917
+          },
+          {
+            "start": 7.72,
+            "end": 8.78,
+            "word": " نمی‌دونم،",
+            "probability": 0.8187534066673834
+          },
+          {
+            "start": 8.78,
+            "end": 9.46,
+            "word": " دوازده",
+            "probability": 0.9714565992355346
+          },
+          {
+            "start": 9.46,
+            "end": 10.1,
+            "word": " ساال،",
+            "probability": 0.556075435089042
+          },
+          {
+            "start": 10.1,
+            "end": 11.14,
+            "word": " درس",
+            "probability": 0.8193875650564829
+          },
+          {
+            "start": 11.14,
+            "end": 11.86,
+            "word": " می‌خونییم",
+            "probability": 0.8465986740151753
+          },
+          {
+            "start": 11.86,
+            "end": 12.42,
+            "word": " تا",
+            "probability": 0.8687019348144531
+          }
+        ]
+      }
+    ]
+  }
+}

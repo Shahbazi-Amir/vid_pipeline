@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "5c99ac23861d52bd89e7cdb1b24c55e1ec367852fc6481aebdefcec93d662fbe",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.36,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.34,
+        "text": "قواد و بلد باشیم و بازی بکنیم چه اتفاقی می‌افته؟ مگه خوب بازیکردن چیه؟ من پنج وضعیت ما",
+        "avg_logprob": -0.17091016788951685,
+        "compression_ratio": 1.3448275862068966,
+        "no_speech_prob": 2.681140864879694e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.84,
+            "word": " قواد",
+            "probability": 0.8133941193421682
+          },
+          {
+            "start": 0.84,
+            "end": 0.92,
+            "word": " و",
+            "probability": 0.9779980182647705
+          },
+          {
+            "start": 0.92,
+            "end": 1.22,
+            "word": " بلد",
+            "probability": 0.9921562274297079
+          },
+          {
+            "start": 1.22,
+            "end": 1.62,
+            "word": " باشیم",
+            "probability": 0.9866203516721725
+          },
+          {
+            "start": 1.62,
+            "end": 1.7,
+            "word": " و",
+            "probability": 0.9646583199501038
+          },
+          {
+            "start": 1.7,
+            "end": 2.1,
+            "word": " بازی",
+            "probability": 0.9971488912900289
+          },
+          {
+            "start": 2.1,
+            "end": 2.52,
+            "word": " بکنیم",
+            "probability": 0.993802523612976
+          },
+          {
+            "start": 2.52,
+            "end": 2.72,
+            "word": " چه",
+            "probability": 0.9814220070838928
+          },
+          {
+            "start": 2.72,
+            "end": 3.22,
+            "word": " اتفاقی",
+            "probability": 0.9970649282137553
+          },
+          {
+            "start": 3.22,
+            "end": 3.8,
+            "word": " می‌افته؟",
+            "probability": 0.6151568275177851
+          },
+          {
+            "start": 3.8,
+            "end": 4.06,
+            "word": " مگه",
+            "probability": 0.9892629782358805
+          },
+          {
+            "start": 4.06,
+            "end": 4.36,
+            "word": " خوب",
+            "probability": 0.9957018196582794
+          },
+          {
+            "start": 4.36,
+            "end": 5.12,
+            "word": " بازیکردن",
+            "probability": 0.8246249467483722
+          },
+          {
+            "start": 5.12,
+            "end": 5.92,
+            "word": " چیه؟",
+            "probability": 0.9910352975130081
+          },
+          {
+            "start": 5.92,
+            "end": 6.82,
+            "word": " من",
+            "probability": 0.9728209972381592
+          },
+          {
+            "start": 6.82,
+            "end": 7.32,
+            "word": " پنج",
+            "probability": 0.9776561260223389
+          },
+          {
+            "start": 7.32,
+            "end": 8.06,
+            "word": " وضعیت",
+            "probability": 0.9455308794975281
+          },
+          {
+            "start": 8.06,
+            "end": 8.34,
+            "word": " ما",
+            "probability": 0.8107832074165344
+          }
+        ]
+      }
+    ]
+  }
+}

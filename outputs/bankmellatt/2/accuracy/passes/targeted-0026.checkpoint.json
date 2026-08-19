@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "79b9c478a9315b07266f605e255c2409876f3018feb6bc0cda6e89e64e81c3eb",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.3,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 4.98,
+        "text": "بیاریم و بتونیم زندگیمون رو به چرخونی. خب تو این دوازده سال، تو ای نیجده",
+        "avg_logprob": -0.19737072089283736,
+        "compression_ratio": 1.6451612903225807,
+        "no_speech_prob": 2.2149143630301182e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.6,
+            "word": " بیاریم",
+            "probability": 0.9895734667778016
+          },
+          {
+            "start": 0.6,
+            "end": 0.74,
+            "word": " و",
+            "probability": 0.9986724853515625
+          },
+          {
+            "start": 0.74,
+            "end": 1.18,
+            "word": " بتونیم",
+            "probability": 0.9947158545255661
+          },
+          {
+            "start": 1.18,
+            "end": 1.72,
+            "word": " زندگیمون",
+            "probability": 0.9781509041786194
+          },
+          {
+            "start": 1.72,
+            "end": 1.8,
+            "word": " رو",
+            "probability": 0.7587966620922089
+          },
+          {
+            "start": 1.8,
+            "end": 1.88,
+            "word": " به",
+            "probability": 0.5818254947662354
+          },
+          {
+            "start": 1.88,
+            "end": 2.4,
+            "word": " چرخونی.",
+            "probability": 0.8823469638824463
+          },
+          {
+            "start": 2.52,
+            "end": 3.16,
+            "word": " خب",
+            "probability": 0.9454097747802734
+          },
+          {
+            "start": 3.16,
+            "end": 3.26,
+            "word": " تو",
+            "probability": 0.9760021567344666
+          },
+          {
+            "start": 3.26,
+            "end": 3.4,
+            "word": " این",
+            "probability": 0.8795369267463684
+          },
+          {
+            "start": 3.4,
+            "end": 4.06,
+            "word": " دوازده",
+            "probability": 0.9297760605812073
+          },
+          {
+            "start": 4.06,
+            "end": 4.4,
+            "word": " سال،",
+            "probability": 0.6670350659017762
+          },
+          {
+            "start": 4.4,
+            "end": 4.46,
+            "word": " تو",
+            "probability": 0.9988595247268677
+          },
+          {
+            "start": 4.46,
+            "end": 4.56,
+            "word": " ای",
+            "probability": 0.4864266412332654
+          },
+          {
+            "start": 4.56,
+            "end": 4.98,
+            "word": " نیجده",
+            "probability": 0.8284733176231385
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 4.98,
+        "end": 11.28,
+        "text": "سال به ما نمی‌گم اون پور رو چجوری باید مدیریت بکنیم. یعنی ما کل زنده...",
+        "avg_logprob": -0.19737072089283736,
+        "compression_ratio": 1.6451612903225807,
+        "no_speech_prob": 2.2149143630301182e-10,
+        "words": [
+          {
+            "start": 4.98,
+            "end": 5.32,
+            "word": " سال",
+            "probability": 0.9996589720249176
+          },
+          {
+            "start": 5.32,
+            "end": 5.72,
+            "word": " به",
+            "probability": 0.9605320692062378
+          },
+          {
+            "start": 5.72,
+            "end": 5.86,
+            "word": " ما",
+            "probability": 0.9979706406593323
+          },
+          {
+            "start": 5.86,
+            "end": 6.36,
+            "word": " نمی‌گم",
+            "probability": 0.8186918480302362
+          },
+          {
+            "start": 6.36,
+            "end": 6.54,
+            "word": " اون",
+            "probability": 0.99054354429245
+          },
+          {
+            "start": 6.54,
+            "end": 6.9,
+            "word": " پور",
+            "probability": 0.7407523095607758
+          },
+          {
+            "start": 6.9,
+            "end": 7.12,
+            "word": " رو",
+            "probability": 0.9562180638313293
+          },
+          {
+            "start": 7.12,
+            "end": 7.46,
+            "word": " چجوری",
+            "probability": 0.9849978238344193
+          },
+          {
+            "start": 7.46,
+            "end": 7.68,
+            "word": " باید",
+            "probability": 0.9948514252901077
+          },
+          {
+            "start": 7.68,
+            "end": 8.22,
+            "word": " مدیریت",
+            "probability": 0.9975213766098022
+          },
+          {
+            "start": 8.22,
+            "end": 8.82,
+            "word": " بکنیم.",
+            "probability": 0.9712101697921753
+          },
+          {
+            "start": 9.26,
+            "end": 9.52,
+            "word": " یعنی",
+            "probability": 0.9962092936038971
+          },
+          {
+            "start": 9.52,
+            "end": 9.78,
+            "word": " ما",
+            "probability": 0.9979680180549622
+          },
+          {
+            "start": 9.78,
+            "end": 10.7,
+            "word": " کل",
+            "probability": 0.9429788589477539
+          },
+          {
+            "start": 10.7,
+            "end": 11.28,
+            "word": " زنده...",
+            "probability": 0.5164792106952518
+          }
+        ]
+      }
+    ]
+  }
+}

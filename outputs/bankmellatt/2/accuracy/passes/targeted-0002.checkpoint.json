@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "e1e38b0f761f91946b55f8a53b1f629826ac8b95fa2e78c9ef0bdba80e22477f",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.44,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.42,
+        "text": "حقوق می‌گیری؟ اگر توی مهمونی این سآله از من بپرسن، نمی‌دونم واقعاً چی بگم و واققاً به کسی چه",
+        "avg_logprob": -0.26981603182279146,
+        "compression_ratio": 1.3548387096774193,
+        "no_speech_prob": 2.6969257382880585e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.4,
+            "word": " حقوق",
+            "probability": 0.946378747622172
+          },
+          {
+            "start": 0.4,
+            "end": 0.96,
+            "word": " می‌گیری؟",
+            "probability": 0.7769931117072701
+          },
+          {
+            "start": 0.96,
+            "end": 3.4,
+            "word": " اگر",
+            "probability": 0.9804713726043701
+          },
+          {
+            "start": 3.4,
+            "end": 3.6,
+            "word": " توی",
+            "probability": 0.9673280417919159
+          },
+          {
+            "start": 3.6,
+            "end": 4.16,
+            "word": " مهمونی",
+            "probability": 0.9231843203306198
+          },
+          {
+            "start": 4.16,
+            "end": 4.22,
+            "word": " این",
+            "probability": 0.9737229645252228
+          },
+          {
+            "start": 4.22,
+            "end": 4.54,
+            "word": " سآله",
+            "probability": 0.5783921778202057
+          },
+          {
+            "start": 4.54,
+            "end": 4.7,
+            "word": " از",
+            "probability": 0.9859623312950134
+          },
+          {
+            "start": 4.7,
+            "end": 4.82,
+            "word": " من",
+            "probability": 0.9832717776298523
+          },
+          {
+            "start": 4.82,
+            "end": 5.4,
+            "word": " بپرسن،",
+            "probability": 0.8039604996641477
+          },
+          {
+            "start": 5.4,
+            "end": 5.94,
+            "word": " نمی‌دونم",
+            "probability": 0.9850960118430001
+          },
+          {
+            "start": 5.94,
+            "end": 6.38,
+            "word": " واقعاً",
+            "probability": 0.8939693689346313
+          },
+          {
+            "start": 6.38,
+            "end": 6.56,
+            "word": " چی",
+            "probability": 0.9850556552410126
+          },
+          {
+            "start": 6.56,
+            "end": 6.96,
+            "word": " بگم",
+            "probability": 0.9853162964185079
+          },
+          {
+            "start": 6.96,
+            "end": 7.6,
+            "word": " و",
+            "probability": 0.5766110420227051
+          },
+          {
+            "start": 7.6,
+            "end": 8.64,
+            "word": " واققاً",
+            "probability": 0.7542973862466169
+          },
+          {
+            "start": 8.64,
+            "end": 8.84,
+            "word": " به",
+            "probability": 0.9173080921173096
+          },
+          {
+            "start": 8.84,
+            "end": 9.32,
+            "word": " کسی",
+            "probability": 0.9939896464347839
+          },
+          {
+            "start": 9.32,
+            "end": 9.42,
+            "word": " چه",
+            "probability": 0.5210561230778694
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "f668c8b2a7e42eb0fd25314920a27d89e4dad06cf5a952194e1cfde5e6d3f557",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.96,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 5.74,
+        "text": "یا نه، وضع مالیم خیلی هم خوبه. به نظر شما چی کار باید بکنیم؟",
+        "avg_logprob": -0.21574588219324747,
+        "compression_ratio": 1.2045454545454546,
+        "no_speech_prob": 2.7796140389391155e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.82,
+            "word": " یا",
+            "probability": 0.9854497015476227
+          },
+          {
+            "start": 0.82,
+            "end": 1.14,
+            "word": " نه،",
+            "probability": 0.6743935619791349
+          },
+          {
+            "start": 1.14,
+            "end": 1.36,
+            "word": " وضع",
+            "probability": 0.9145484765370687
+          },
+          {
+            "start": 1.36,
+            "end": 1.66,
+            "word": " مالیم",
+            "probability": 0.957775354385376
+          },
+          {
+            "start": 1.66,
+            "end": 1.94,
+            "word": " خیلی",
+            "probability": 0.995774656534195
+          },
+          {
+            "start": 1.94,
+            "end": 2.06,
+            "word": " هم",
+            "probability": 0.9583995938301086
+          },
+          {
+            "start": 2.06,
+            "end": 2.48,
+            "word": " خوبه.",
+            "probability": 0.9976923068364462
+          },
+          {
+            "start": 2.82,
+            "end": 3.46,
+            "word": " به",
+            "probability": 0.971825361251831
+          },
+          {
+            "start": 3.46,
+            "end": 3.78,
+            "word": " نظر",
+            "probability": 0.9992091059684753
+          },
+          {
+            "start": 3.78,
+            "end": 4.16,
+            "word": " شما",
+            "probability": 0.9980709552764893
+          },
+          {
+            "start": 4.16,
+            "end": 4.54,
+            "word": " چی",
+            "probability": 0.8871918618679047
+          },
+          {
+            "start": 4.54,
+            "end": 4.7,
+            "word": " کار",
+            "probability": 0.9978275001049042
+          },
+          {
+            "start": 4.7,
+            "end": 4.96,
+            "word": " باید",
+            "probability": 0.8220255821943283
+          },
+          {
+            "start": 4.96,
+            "end": 5.74,
+            "word": " بکنیم؟",
+            "probability": 0.8489792346954346
+          }
+        ]
+      }
+    ]
+  }
+}

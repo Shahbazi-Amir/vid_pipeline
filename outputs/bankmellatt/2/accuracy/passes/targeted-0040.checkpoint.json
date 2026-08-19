@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "bc8dc5fe2d5ef517a47ca65303b6c90423e5168fbd1761e3342005d76c9671d6",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.94,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.92,
+        "text": "این بازی رو بلد باشیم. خب، احتمالا ما توی زندگی مون می‌گیم خب اگه این قواد و بلت باشم و بازری بکنیم چه اتفاقی می‌افته؟ مگه خوب بازیکرده؟",
+        "avg_logprob": -0.21258954327185076,
+        "compression_ratio": 1.5974025974025974,
+        "no_speech_prob": 2.6604715652744915e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.1,
+            "word": " این",
+            "probability": 0.4473410025238991
+          },
+          {
+            "start": 0.1,
+            "end": 0.44,
+            "word": " بازی",
+            "probability": 0.9864132603009542
+          },
+          {
+            "start": 0.44,
+            "end": 1.38,
+            "word": " رو",
+            "probability": 0.9748778641223907
+          },
+          {
+            "start": 1.38,
+            "end": 2.04,
+            "word": " بلد",
+            "probability": 0.9863948424657186
+          },
+          {
+            "start": 2.04,
+            "end": 2.58,
+            "word": " باشیم.",
+            "probability": 0.9908691197633743
+          },
+          {
+            "start": 2.68,
+            "end": 3.44,
+            "word": " خب،",
+            "probability": 0.6209452770029505
+          },
+          {
+            "start": 3.44,
+            "end": 4.16,
+            "word": " احتمالا",
+            "probability": 0.9952598452568054
+          },
+          {
+            "start": 4.16,
+            "end": 5.06,
+            "word": " ما",
+            "probability": 0.6300358176231384
+          },
+          {
+            "start": 5.06,
+            "end": 5.46,
+            "word": " توی",
+            "probability": 0.9887637495994568
+          },
+          {
+            "start": 5.46,
+            "end": 6.1,
+            "word": " زندگی",
+            "probability": 0.9977366328239441
+          },
+          {
+            "start": 6.1,
+            "end": 6.32,
+            "word": " مون",
+            "probability": 0.6163569688796997
+          },
+          {
+            "start": 6.32,
+            "end": 6.56,
+            "word": " می‌گیم",
+            "probability": 0.7679080745205283
+          },
+          {
+            "start": 6.56,
+            "end": 6.74,
+            "word": " خب",
+            "probability": 0.8015370666980743
+          },
+          {
+            "start": 6.74,
+            "end": 6.96,
+            "word": " اگه",
+            "probability": 0.9562651912371317
+          },
+          {
+            "start": 6.96,
+            "end": 7.16,
+            "word": " این",
+            "probability": 0.9829767346382141
+          },
+          {
+            "start": 7.16,
+            "end": 7.78,
+            "word": " قواد",
+            "probability": 0.9895318945248922
+          },
+          {
+            "start": 7.78,
+            "end": 7.84,
+            "word": " و",
+            "probability": 0.16659027338027954
+          },
+          {
+            "start": 7.84,
+            "end": 8.16,
+            "word": " بلت",
+            "probability": 0.6654698094935156
+          },
+          {
+            "start": 8.16,
+            "end": 8.54,
+            "word": " باشم",
+            "probability": 0.6648914836890375
+          },
+          {
+            "start": 8.54,
+            "end": 8.64,
+            "word": " و",
+            "probability": 0.7876041531562805
+          },
+          {
+            "start": 8.64,
+            "end": 9.04,
+            "word": " بازری",
+            "probability": 0.6646190035971813
+          },
+          {
+            "start": 9.04,
+            "end": 9.46,
+            "word": " بکنیم",
+            "probability": 0.9773019194602967
+          },
+          {
+            "start": 9.46,
+            "end": 9.66,
+            "word": " چه",
+            "probability": 0.9000047147274017
+          },
+          {
+            "start": 9.66,
+            "end": 10.12,
+            "word": " اتفاقی",
+            "probability": 0.993625541528066
+          },
+          {
+            "start": 10.12,
+            "end": 10.74,
+            "word": " می‌افته؟",
+            "probability": 0.7635612189769745
+          },
+          {
+            "start": 10.74,
+            "end": 11.02,
+            "word": " مگه",
+            "probability": 0.9857823053995768
+          },
+          {
+            "start": 11.02,
+            "end": 11.28,
+            "word": " خوب",
+            "probability": 0.98743936419487
+          },
+          {
+            "start": 11.28,
+            "end": 11.92,
+            "word": " بازیکرده؟",
+            "probability": 0.7622654854120421
+          }
+        ]
+      }
+    ]
+  }
+}

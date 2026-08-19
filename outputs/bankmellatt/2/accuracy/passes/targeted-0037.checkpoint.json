@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "c0a398082ede49e6caef5c46624538ce9f533270b403284ac64ff5ab68e34622",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.04,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.02,
+        "text": "فل می‌کنیم، داور به ما اختار می‌ده، ممکنه از زمین اخراجمون بکن. یا حتی خوب نتونیم بازی.",
+        "avg_logprob": -0.18034779280424118,
+        "compression_ratio": 1.3859649122807018,
+        "no_speech_prob": 2.8840571597577025e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.5,
+            "word": " فل",
+            "probability": 0.6266500800848007
+          },
+          {
+            "start": 0.5,
+            "end": 1.2,
+            "word": " می‌کنیم،",
+            "probability": 0.7526760601571628
+          },
+          {
+            "start": 1.2,
+            "end": 1.5,
+            "word": " داور",
+            "probability": 0.9804887175559998
+          },
+          {
+            "start": 1.5,
+            "end": 1.62,
+            "word": " به",
+            "probability": 0.8823450803756714
+          },
+          {
+            "start": 1.62,
+            "end": 1.76,
+            "word": " ما",
+            "probability": 0.9638358950614929
+          },
+          {
+            "start": 1.76,
+            "end": 2.24,
+            "word": " اختار",
+            "probability": 0.9762945969899496
+          },
+          {
+            "start": 2.24,
+            "end": 2.56,
+            "word": " می‌ده،",
+            "probability": 0.8074394732713699
+          },
+          {
+            "start": 2.56,
+            "end": 2.92,
+            "word": " ممکنه",
+            "probability": 0.9509893178939819
+          },
+          {
+            "start": 2.92,
+            "end": 3.06,
+            "word": " از",
+            "probability": 0.9620052576065063
+          },
+          {
+            "start": 3.06,
+            "end": 3.32,
+            "word": " زمین",
+            "probability": 0.9959474007288615
+          },
+          {
+            "start": 3.32,
+            "end": 4.0,
+            "word": " اخراجمون",
+            "probability": 0.929897153377533
+          },
+          {
+            "start": 4.0,
+            "end": 4.38,
+            "word": " بکن.",
+            "probability": 0.9021079341570536
+          },
+          {
+            "start": 4.98,
+            "end": 5.66,
+            "word": " یا",
+            "probability": 0.8504241704940796
+          },
+          {
+            "start": 5.66,
+            "end": 5.9,
+            "word": " حتی",
+            "probability": 0.9841809272766113
+          },
+          {
+            "start": 5.9,
+            "end": 6.18,
+            "word": " خوب",
+            "probability": 0.9944039881229401
+          },
+          {
+            "start": 6.18,
+            "end": 6.66,
+            "word": " نتونیم",
+            "probability": 0.9821959257125854
+          },
+          {
+            "start": 6.66,
+            "end": 7.02,
+            "word": " بازی.",
+            "probability": 0.9896852771441141
+          }
+        ]
+      }
+    ]
+  }
+}

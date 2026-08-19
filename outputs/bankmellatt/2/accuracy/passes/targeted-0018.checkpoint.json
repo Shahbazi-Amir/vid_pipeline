@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "0a4cf79fd4d5fa5a42507909291c0a36b47b1d874c879f616e1613ed6e4d3fa6",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.02,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 5.6,
+        "text": "سواد مالی چیه؟ سوادم مالي مجموعی از دانش‌ها",
+        "avg_logprob": -0.2395628248491595,
+        "compression_ratio": 1.095890410958904,
+        "no_speech_prob": 3.3120858833335376e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.66,
+            "word": " سواد",
+            "probability": 0.9403022329012553
+          },
+          {
+            "start": 0.66,
+            "end": 1.0,
+            "word": " مالی",
+            "probability": 0.9740345279375712
+          },
+          {
+            "start": 1.0,
+            "end": 1.7,
+            "word": " چیه؟",
+            "probability": 0.981106236577034
+          },
+          {
+            "start": 1.7,
+            "end": 2.96,
+            "word": " سوادم",
+            "probability": 0.6635236168986012
+          },
+          {
+            "start": 2.96,
+            "end": 3.56,
+            "word": " مالي",
+            "probability": 0.5992331177512824
+          },
+          {
+            "start": 3.56,
+            "end": 4.68,
+            "word": " مجموعی",
+            "probability": 0.9477823734283447
+          },
+          {
+            "start": 4.68,
+            "end": 4.84,
+            "word": " از",
+            "probability": 0.9976381659507751
+          },
+          {
+            "start": 4.84,
+            "end": 5.6,
+            "word": " دانش‌ها",
+            "probability": 0.7990165861323476
+          }
+        ]
+      }
+    ]
+  }
+}

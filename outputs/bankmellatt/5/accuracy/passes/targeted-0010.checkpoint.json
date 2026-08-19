@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "b4192401d51364e6381eb12ca0c79c29af44d486587ad66628b21d56710eb651",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.7,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.68,
+        "text": "از اینه که ما خودمونو به کار انداختیم، کار کردیم محارت‌ها منو به‌کار گرفتید و درامت کسب کردیک. حالا وقتی این است که پولمونم به‌كار بندازیم.",
+        "avg_logprob": -0.26036453281724176,
+        "compression_ratio": 1.7162162162162162,
+        "no_speech_prob": 2.2532846422063102e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.22,
+            "word": " از",
+            "probability": 0.9895083904266357
+          },
+          {
+            "start": 0.22,
+            "end": 0.48,
+            "word": " اینه",
+            "probability": 0.9989644686381022
+          },
+          {
+            "start": 0.48,
+            "end": 0.8,
+            "word": " که",
+            "probability": 0.9996095299720764
+          },
+          {
+            "start": 0.8,
+            "end": 0.94,
+            "word": " ما",
+            "probability": 0.9979206919670105
+          },
+          {
+            "start": 0.94,
+            "end": 1.5,
+            "word": " خودمونو",
+            "probability": 0.9794933915138244
+          },
+          {
+            "start": 1.5,
+            "end": 1.64,
+            "word": " به",
+            "probability": 0.9978107810020447
+          },
+          {
+            "start": 1.64,
+            "end": 1.88,
+            "word": " کار",
+            "probability": 0.9995706379413605
+          },
+          {
+            "start": 1.88,
+            "end": 2.72,
+            "word": " انداختیم،",
+            "probability": 0.8565748791609492
+          },
+          {
+            "start": 2.72,
+            "end": 3.16,
+            "word": " کار",
+            "probability": 0.9994823634624481
+          },
+          {
+            "start": 3.16,
+            "end": 3.68,
+            "word": " کردیم",
+            "probability": 0.9997446089982986
+          },
+          {
+            "start": 3.68,
+            "end": 4.3,
+            "word": " محارت‌ها",
+            "probability": 0.6206383247238895
+          },
+          {
+            "start": 4.3,
+            "end": 4.52,
+            "word": " منو",
+            "probability": 0.670527771115303
+          },
+          {
+            "start": 4.52,
+            "end": 4.9,
+            "word": " به‌کار",
+            "probability": 0.7307455866830423
+          },
+          {
+            "start": 4.9,
+            "end": 5.54,
+            "word": " گرفتید",
+            "probability": 0.7966314390534535
+          },
+          {
+            "start": 5.54,
+            "end": 5.96,
+            "word": " و",
+            "probability": 0.9679945707321167
+          },
+          {
+            "start": 5.96,
+            "end": 6.48,
+            "word": " درامت",
+            "probability": 0.9722715467214584
+          },
+          {
+            "start": 6.48,
+            "end": 6.8,
+            "word": " کسب",
+            "probability": 0.4129457622766495
+          },
+          {
+            "start": 6.8,
+            "end": 7.14,
+            "word": " کردیک.",
+            "probability": 0.6107196854063659
+          },
+          {
+            "start": 7.42,
+            "end": 7.72,
+            "word": " حالا",
+            "probability": 0.983067254225413
+          },
+          {
+            "start": 7.72,
+            "end": 8.04,
+            "word": " وقتی",
+            "probability": 0.9578689535458883
+          },
+          {
+            "start": 8.04,
+            "end": 8.14,
+            "word": " این",
+            "probability": 0.9899646639823914
+          },
+          {
+            "start": 8.14,
+            "end": 8.2,
+            "word": " است",
+            "probability": 0.0015078268479555845
+          },
+          {
+            "start": 8.2,
+            "end": 8.34,
+            "word": " که",
+            "probability": 0.9562651813030243
+          },
+          {
+            "start": 8.34,
+            "end": 8.84,
+            "word": " پولمونم",
+            "probability": 0.8708487153053284
+          },
+          {
+            "start": 8.84,
+            "end": 9.18,
+            "word": " به‌كار",
+            "probability": 0.5643032100051641
+          },
+          {
+            "start": 9.18,
+            "end": 9.68,
+            "word": " بندازیم.",
+            "probability": 0.8819199919700622
+          }
+        ]
+      }
+    ]
+  }
+}

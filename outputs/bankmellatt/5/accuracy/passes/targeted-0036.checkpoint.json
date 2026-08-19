@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "59d5fcc0c6288478a55437de4e14a80e78c7637ea1ae19784039606a48afba1f",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 13.02,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 12.56,
+        "text": "به ما می‌دن که کفاف زندگیمونو نمی‌ده. تو دورانی که بعضی از پجوشها نشون داده که هزین‌های زندقی تا چهار برابر افضایش پیدا می‌کنه، خانواده گسترده‌تر می‌شه.",
+        "avg_logprob": -0.20695069971538727,
+        "compression_ratio": 1.6588235294117648,
+        "no_speech_prob": 3.197619946604391e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.2,
+            "word": " به",
+            "probability": 0.1494748443365097
+          },
+          {
+            "start": 0.2,
+            "end": 0.36,
+            "word": " ما",
+            "probability": 0.516143262386322
+          },
+          {
+            "start": 0.36,
+            "end": 0.64,
+            "word": " می‌دن",
+            "probability": 0.6810106243938208
+          },
+          {
+            "start": 0.64,
+            "end": 0.82,
+            "word": " که",
+            "probability": 0.9787952601909637
+          },
+          {
+            "start": 0.82,
+            "end": 1.22,
+            "word": " کفاف",
+            "probability": 0.9898180166880289
+          },
+          {
+            "start": 1.22,
+            "end": 1.94,
+            "word": " زندگیمونو",
+            "probability": 0.8586873199258532
+          },
+          {
+            "start": 1.94,
+            "end": 2.52,
+            "word": " نمی‌ده.",
+            "probability": 0.9753398597240448
+          },
+          {
+            "start": 2.88,
+            "end": 3.68,
+            "word": " تو",
+            "probability": 0.9301676154136658
+          },
+          {
+            "start": 3.68,
+            "end": 4.4,
+            "word": " دورانی",
+            "probability": 0.9724282771348953
+          },
+          {
+            "start": 4.4,
+            "end": 5.18,
+            "word": " که",
+            "probability": 0.9765818417072296
+          },
+          {
+            "start": 5.18,
+            "end": 5.58,
+            "word": " بعضی",
+            "probability": 0.9363776842753092
+          },
+          {
+            "start": 5.58,
+            "end": 5.7,
+            "word": " از",
+            "probability": 0.9593478143215179
+          },
+          {
+            "start": 5.7,
+            "end": 6.24,
+            "word": " پجوشها",
+            "probability": 0.5598929673433304
+          },
+          {
+            "start": 6.24,
+            "end": 6.56,
+            "word": " نشون",
+            "probability": 0.9750726024309794
+          },
+          {
+            "start": 6.56,
+            "end": 6.84,
+            "word": " داده",
+            "probability": 0.9756478071212769
+          },
+          {
+            "start": 6.84,
+            "end": 7.46,
+            "word": " که",
+            "probability": 0.9294622540473938
+          },
+          {
+            "start": 7.46,
+            "end": 8.0,
+            "word": " هزین‌های",
+            "probability": 0.8225368311007818
+          },
+          {
+            "start": 8.0,
+            "end": 8.36,
+            "word": " زندقی",
+            "probability": 0.7442579674357148
+          },
+          {
+            "start": 8.36,
+            "end": 8.52,
+            "word": " تا",
+            "probability": 0.9369610548019409
+          },
+          {
+            "start": 8.52,
+            "end": 8.88,
+            "word": " چهار",
+            "probability": 0.9219260017077128
+          },
+          {
+            "start": 8.88,
+            "end": 9.28,
+            "word": " برابر",
+            "probability": 0.9830986708402634
+          },
+          {
+            "start": 9.28,
+            "end": 9.74,
+            "word": " افضایش",
+            "probability": 0.9486225545406342
+          },
+          {
+            "start": 9.74,
+            "end": 10.04,
+            "word": " پیدا",
+            "probability": 0.9444816708564758
+          },
+          {
+            "start": 10.04,
+            "end": 10.58,
+            "word": " می‌کنه،",
+            "probability": 0.7872112145026525
+          },
+          {
+            "start": 10.58,
+            "end": 11.22,
+            "word": " خانواده",
+            "probability": 0.9892878293991089
+          },
+          {
+            "start": 11.22,
+            "end": 12.1,
+            "word": " گسترده‌تر",
+            "probability": 0.9292000904679298
+          },
+          {
+            "start": 12.1,
+            "end": 12.56,
+            "word": " می‌شه.",
+            "probability": 0.9853804856538773
+          }
+        ]
+      }
+    ]
+  }
+}

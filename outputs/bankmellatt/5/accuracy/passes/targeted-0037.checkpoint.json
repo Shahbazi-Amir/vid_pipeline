@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "21d49844d964b13064e429091f1eec912520011ca4a4a1dffafc12a0ecc55289",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.86,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.84,
+        "text": "زندگی تا چهار برابر افضایش پیدا می‌کنه، خانواده گسترده‌تر می‌شه، حزینه‌های درمانی اضافه می‌اشه، توقعات در واقع اجتماعی...",
+        "avg_logprob": -0.15278317380783168,
+        "compression_ratio": 1.5337837837837838,
+        "no_speech_prob": 1.9958558417076944e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.34,
+            "word": " زندگی",
+            "probability": 0.9955524802207947
+          },
+          {
+            "start": 0.34,
+            "end": 0.5,
+            "word": " تا",
+            "probability": 0.5698266848921776
+          },
+          {
+            "start": 0.5,
+            "end": 0.84,
+            "word": " چهار",
+            "probability": 0.8983696897824606
+          },
+          {
+            "start": 0.84,
+            "end": 1.26,
+            "word": " برابر",
+            "probability": 0.9964569658041
+          },
+          {
+            "start": 1.26,
+            "end": 1.72,
+            "word": " افضایش",
+            "probability": 0.9626613557338715
+          },
+          {
+            "start": 1.72,
+            "end": 2.02,
+            "word": " پیدا",
+            "probability": 0.9144922892252604
+          },
+          {
+            "start": 2.02,
+            "end": 2.58,
+            "word": " می‌کنه،",
+            "probability": 0.5749181401915848
+          },
+          {
+            "start": 2.58,
+            "end": 3.2,
+            "word": " خانواده",
+            "probability": 0.9943401098251343
+          },
+          {
+            "start": 3.2,
+            "end": 4.08,
+            "word": " گسترده‌تر",
+            "probability": 0.950814425945282
+          },
+          {
+            "start": 4.08,
+            "end": 5.42,
+            "word": " می‌شه،",
+            "probability": 0.9338575959205627
+          },
+          {
+            "start": 5.42,
+            "end": 5.98,
+            "word": " حزینه‌های",
+            "probability": 0.8958588327680316
+          },
+          {
+            "start": 5.98,
+            "end": 6.64,
+            "word": " درمانی",
+            "probability": 0.9941003561019898
+          },
+          {
+            "start": 6.64,
+            "end": 7.14,
+            "word": " اضافه",
+            "probability": 0.9918524026870728
+          },
+          {
+            "start": 7.14,
+            "end": 7.48,
+            "word": " می‌اشه،",
+            "probability": 0.7577752743382007
+          },
+          {
+            "start": 7.48,
+            "end": 8.54,
+            "word": " توقعات",
+            "probability": 0.9871443063020706
+          },
+          {
+            "start": 8.54,
+            "end": 9.12,
+            "word": " در",
+            "probability": 0.9325858354568481
+          },
+          {
+            "start": 9.12,
+            "end": 9.42,
+            "word": " واقع",
+            "probability": 0.9882119099299113
+          },
+          {
+            "start": 9.42,
+            "end": 9.84,
+            "word": " اجتماعی...",
+            "probability": 0.7601918375917843
+          }
+        ]
+      }
+    ]
+  }
+}

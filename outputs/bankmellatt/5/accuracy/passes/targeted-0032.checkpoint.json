@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "4acab9ed49b463db3d01d8be09b6c1b735ba230748e4994953a75f89eaa32261",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.36,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.34,
+        "text": "ما به یه زمانی می‌رسیم که بازنشسته می‌شیم و ظرفیت درامدزاییمون هم کاهش پیدا می‌کنه. یعنی دیگه اون حقوق رو به ما نمی‌دهیم.",
+        "avg_logprob": -0.24248357602330142,
+        "compression_ratio": 1.5,
+        "no_speech_prob": 1.9062253164836562e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.08,
+            "word": " ما",
+            "probability": 0.4398677945137024
+          },
+          {
+            "start": 0.08,
+            "end": 0.14,
+            "word": " به",
+            "probability": 0.991594135761261
+          },
+          {
+            "start": 0.14,
+            "end": 0.32,
+            "word": " یه",
+            "probability": 0.9953667521476746
+          },
+          {
+            "start": 0.32,
+            "end": 0.8,
+            "word": " زمانی",
+            "probability": 0.9897404909133911
+          },
+          {
+            "start": 0.8,
+            "end": 1.26,
+            "word": " می‌رسیم",
+            "probability": 0.8296984670838962
+          },
+          {
+            "start": 1.26,
+            "end": 1.38,
+            "word": " که",
+            "probability": 0.991790235042572
+          },
+          {
+            "start": 1.38,
+            "end": 2.1,
+            "word": " بازنشسته",
+            "probability": 0.8932670454184214
+          },
+          {
+            "start": 2.1,
+            "end": 2.5,
+            "word": " می‌شیم",
+            "probability": 0.9678317308425903
+          },
+          {
+            "start": 2.5,
+            "end": 3.08,
+            "word": " و",
+            "probability": 0.8502122163772583
+          },
+          {
+            "start": 3.08,
+            "end": 3.58,
+            "word": " ظرفیت",
+            "probability": 0.9321802496910095
+          },
+          {
+            "start": 3.58,
+            "end": 4.56,
+            "word": " درامدزاییمون",
+            "probability": 0.7780922442674637
+          },
+          {
+            "start": 4.56,
+            "end": 4.66,
+            "word": " هم",
+            "probability": 0.6538674682378769
+          },
+          {
+            "start": 4.66,
+            "end": 4.98,
+            "word": " کاهش",
+            "probability": 0.8316005071004232
+          },
+          {
+            "start": 4.98,
+            "end": 5.28,
+            "word": " پیدا",
+            "probability": 0.9759878118832906
+          },
+          {
+            "start": 5.28,
+            "end": 5.9,
+            "word": " می‌کنه.",
+            "probability": 0.9673640131950378
+          },
+          {
+            "start": 5.96,
+            "end": 6.42,
+            "word": " یعنی",
+            "probability": 0.9833927154541016
+          },
+          {
+            "start": 6.42,
+            "end": 6.64,
+            "word": " دیگه",
+            "probability": 0.9353943020105362
+          },
+          {
+            "start": 6.64,
+            "end": 6.74,
+            "word": " اون",
+            "probability": 0.9599146842956543
+          },
+          {
+            "start": 6.74,
+            "end": 7.2,
+            "word": " حقوق",
+            "probability": 0.9923082192738851
+          },
+          {
+            "start": 7.2,
+            "end": 7.76,
+            "word": " رو",
+            "probability": 0.8151547908782959
+          },
+          {
+            "start": 7.76,
+            "end": 7.92,
+            "word": " به",
+            "probability": 0.9762974977493286
+          },
+          {
+            "start": 7.92,
+            "end": 8.08,
+            "word": " ما",
+            "probability": 0.9749104380607605
+          },
+          {
+            "start": 8.08,
+            "end": 8.34,
+            "word": " نمی‌دهیم.",
+            "probability": 0.7222923077642918
+          }
+        ]
+      }
+    ]
+  }
+}

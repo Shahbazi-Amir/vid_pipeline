@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "6a056689cfae9f099022181489b6c05ccb5c4abd1093ffa7fdde558fd7a6cb6d",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 14.22,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 14.2,
+        "text": "این رو به شما برمی‌گردونه. یکی دیگه از آسیب‌های درامد ناشیست شغل اینه که بالاخره یه روزی همه‌ی ما به یه زمانی می‌رسیم که بازنشست نمیشیم و ظرفیت درآمد‌زاییمون هم کاهش می‌شید.",
+        "avg_logprob": -0.24243710803985596,
+        "compression_ratio": 1.687830687830688,
+        "no_speech_prob": 2.3758336964441185e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.02,
+            "word": " این",
+            "probability": 0.4568455219268799
+          },
+          {
+            "start": 0.02,
+            "end": 0.2,
+            "word": " رو",
+            "probability": 0.8248995542526245
+          },
+          {
+            "start": 0.2,
+            "end": 0.28,
+            "word": " به",
+            "probability": 0.9966301321983337
+          },
+          {
+            "start": 0.28,
+            "end": 0.62,
+            "word": " شما",
+            "probability": 0.9994239807128906
+          },
+          {
+            "start": 0.62,
+            "end": 2.54,
+            "word": " برمی‌گردونه.",
+            "probability": 0.7962799322442151
+          },
+          {
+            "start": 2.64,
+            "end": 3.28,
+            "word": " یکی",
+            "probability": 0.9827563365300497
+          },
+          {
+            "start": 3.28,
+            "end": 3.74,
+            "word": " دیگه",
+            "probability": 0.9746765643358231
+          },
+          {
+            "start": 3.74,
+            "end": 4.34,
+            "word": " از",
+            "probability": 0.9635237753391266
+          },
+          {
+            "start": 4.34,
+            "end": 5.04,
+            "word": " آسیب‌های",
+            "probability": 0.9384149823869977
+          },
+          {
+            "start": 5.04,
+            "end": 5.56,
+            "word": " درامد",
+            "probability": 0.92916439473629
+          },
+          {
+            "start": 5.56,
+            "end": 6.08,
+            "word": " ناشیست",
+            "probability": 0.6587599143385887
+          },
+          {
+            "start": 6.08,
+            "end": 6.62,
+            "word": " شغل",
+            "probability": 0.7694712281227112
+          },
+          {
+            "start": 6.62,
+            "end": 7.1,
+            "word": " اینه",
+            "probability": 0.8910992542902628
+          },
+          {
+            "start": 7.1,
+            "end": 7.3,
+            "word": " که",
+            "probability": 0.9782114624977112
+          },
+          {
+            "start": 7.3,
+            "end": 7.94,
+            "word": " بالاخره",
+            "probability": 0.8212449923157692
+          },
+          {
+            "start": 7.94,
+            "end": 8.2,
+            "word": " یه",
+            "probability": 0.963781476020813
+          },
+          {
+            "start": 8.2,
+            "end": 8.7,
+            "word": " روزی",
+            "probability": 0.9873749315738678
+          },
+          {
+            "start": 8.7,
+            "end": 9.12,
+            "word": " همه‌ی",
+            "probability": 0.920274019241333
+          },
+          {
+            "start": 9.12,
+            "end": 9.24,
+            "word": " ما",
+            "probability": 0.9599722623825073
+          },
+          {
+            "start": 9.24,
+            "end": 9.36,
+            "word": " به",
+            "probability": 0.9758177995681763
+          },
+          {
+            "start": 9.36,
+            "end": 9.52,
+            "word": " یه",
+            "probability": 0.9379989802837372
+          },
+          {
+            "start": 9.52,
+            "end": 10.02,
+            "word": " زمانی",
+            "probability": 0.9562321156263351
+          },
+          {
+            "start": 10.02,
+            "end": 10.5,
+            "word": " می‌رسیم",
+            "probability": 0.9813275535901388
+          },
+          {
+            "start": 10.5,
+            "end": 10.6,
+            "word": " که",
+            "probability": 0.984187513589859
+          },
+          {
+            "start": 10.6,
+            "end": 11.22,
+            "word": " بازنشست",
+            "probability": 0.9768101811408997
+          },
+          {
+            "start": 11.22,
+            "end": 11.74,
+            "word": " نمیشیم",
+            "probability": 0.7329273698851466
+          },
+          {
+            "start": 11.74,
+            "end": 12.3,
+            "word": " و",
+            "probability": 0.7264166474342346
+          },
+          {
+            "start": 12.3,
+            "end": 12.8,
+            "word": " ظرفیت",
+            "probability": 0.9071483850479126
+          },
+          {
+            "start": 12.8,
+            "end": 13.78,
+            "word": " درآمد‌زاییمون",
+            "probability": 0.7207278534053609
+          },
+          {
+            "start": 13.78,
+            "end": 13.88,
+            "word": " هم",
+            "probability": 0.7797676026821136
+          },
+          {
+            "start": 13.88,
+            "end": 14.2,
+            "word": " کاهش",
+            "probability": 0.6724340617656708
+          },
+          {
+            "start": 14.2,
+            "end": 14.2,
+            "word": " می‌شید.",
+            "probability": 0.5180008232593536
+          }
+        ]
+      }
+    ]
+  }
+}

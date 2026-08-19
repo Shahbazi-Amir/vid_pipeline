@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "430dc792c54c72f46c423297691538f231463aab8c07c85d584a3d13cfa368e8",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.8,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.78,
+        "text": "و کاهش عرضش پول همان. چی کار رو باید بکنیم؟ گفتیم این پول رو به کار بندویم. ما معمولا در آمدمون ناشیم",
+        "avg_logprob": -0.19545751231819836,
+        "compression_ratio": 1.4435483870967742,
+        "no_speech_prob": 2.7347121789311757e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.32,
+            "word": " و",
+            "probability": 0.8686342835426331
+          },
+          {
+            "start": 0.32,
+            "end": 0.94,
+            "word": " کاهش",
+            "probability": 0.9702829718589783
+          },
+          {
+            "start": 0.94,
+            "end": 1.46,
+            "word": " عرضش",
+            "probability": 0.8378842870394388
+          },
+          {
+            "start": 1.46,
+            "end": 1.96,
+            "word": " پول",
+            "probability": 0.9979819655418396
+          },
+          {
+            "start": 1.96,
+            "end": 2.5,
+            "word": " همان.",
+            "probability": 0.9896227518717448
+          },
+          {
+            "start": 2.6,
+            "end": 2.78,
+            "word": " چی",
+            "probability": 0.729180783033371
+          },
+          {
+            "start": 2.78,
+            "end": 2.92,
+            "word": " کار",
+            "probability": 0.9980734586715698
+          },
+          {
+            "start": 2.92,
+            "end": 3.04,
+            "word": " رو",
+            "probability": 0.5786585509777069
+          },
+          {
+            "start": 3.04,
+            "end": 3.16,
+            "word": " باید",
+            "probability": 0.9960654377937317
+          },
+          {
+            "start": 3.16,
+            "end": 3.8,
+            "word": " بکنیم؟",
+            "probability": 0.985203226407369
+          },
+          {
+            "start": 3.8,
+            "end": 4.38,
+            "word": " گفتیم",
+            "probability": 0.965710461139679
+          },
+          {
+            "start": 4.38,
+            "end": 4.44,
+            "word": " این",
+            "probability": 0.9475052654743195
+          },
+          {
+            "start": 4.44,
+            "end": 4.84,
+            "word": " پول",
+            "probability": 0.9986045658588409
+          },
+          {
+            "start": 4.84,
+            "end": 5.06,
+            "word": " رو",
+            "probability": 0.9944696426391602
+          },
+          {
+            "start": 5.06,
+            "end": 5.2,
+            "word": " به",
+            "probability": 0.0064330268651247025
+          },
+          {
+            "start": 5.2,
+            "end": 5.72,
+            "word": " کار",
+            "probability": 0.9975368678569794
+          },
+          {
+            "start": 5.72,
+            "end": 6.32,
+            "word": " بندویم.",
+            "probability": 0.890399432182312
+          },
+          {
+            "start": 6.46,
+            "end": 6.92,
+            "word": " ما",
+            "probability": 0.9889205098152161
+          },
+          {
+            "start": 6.92,
+            "end": 7.56,
+            "word": " معمولا",
+            "probability": 0.9909183233976364
+          },
+          {
+            "start": 7.56,
+            "end": 7.86,
+            "word": " در",
+            "probability": 0.9654611051082611
+          },
+          {
+            "start": 7.86,
+            "end": 8.44,
+            "word": " آمدمون",
+            "probability": 0.6111677251756191
+          },
+          {
+            "start": 8.44,
+            "end": 8.78,
+            "word": " ناشیم",
+            "probability": 0.9277608543634415
+          }
+        ]
+      }
+    ]
+  }
+}

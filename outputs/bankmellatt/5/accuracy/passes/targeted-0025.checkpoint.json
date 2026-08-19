@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "a356e4d78b5aef0815856e034a0e9abcf1bc61c6edb40e77aaf0c3deb5ef4732",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.94,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.56,
+        "text": "کسی به درامد ناشی از شغل اینه که بلاخره یه ثقفی داره، یه محدودیتی دره. مثلا زمانیشو بگم شما",
+        "avg_logprob": -0.2611250337213278,
+        "compression_ratio": 1.4051724137931034,
+        "no_speech_prob": 2.6250956963735916e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.16,
+            "word": " کسی",
+            "probability": 0.44939340899388
+          },
+          {
+            "start": 0.16,
+            "end": 0.26,
+            "word": " به",
+            "probability": 0.9860608577728271
+          },
+          {
+            "start": 0.26,
+            "end": 0.7,
+            "word": " درامد",
+            "probability": 0.8455376625061035
+          },
+          {
+            "start": 0.7,
+            "end": 1.1,
+            "word": " ناشی",
+            "probability": 0.8387683431307474
+          },
+          {
+            "start": 1.1,
+            "end": 1.18,
+            "word": " از",
+            "probability": 0.5937783345580101
+          },
+          {
+            "start": 1.18,
+            "end": 1.58,
+            "word": " شغل",
+            "probability": 0.9669834772745768
+          },
+          {
+            "start": 1.58,
+            "end": 1.8,
+            "word": " اینه",
+            "probability": 0.9755301475524902
+          },
+          {
+            "start": 1.8,
+            "end": 2.58,
+            "word": " که",
+            "probability": 0.9917945265769958
+          },
+          {
+            "start": 2.58,
+            "end": 3.02,
+            "word": " بلاخره",
+            "probability": 0.8197596788406372
+          },
+          {
+            "start": 3.02,
+            "end": 3.16,
+            "word": " یه",
+            "probability": 0.9340274930000305
+          },
+          {
+            "start": 3.16,
+            "end": 3.62,
+            "word": " ثقفی",
+            "probability": 0.8882429599761963
+          },
+          {
+            "start": 3.62,
+            "end": 4.08,
+            "word": " داره،",
+            "probability": 0.7814243622124195
+          },
+          {
+            "start": 4.08,
+            "end": 4.22,
+            "word": " یه",
+            "probability": 0.9707994163036346
+          },
+          {
+            "start": 4.22,
+            "end": 5.06,
+            "word": " محدودیتی",
+            "probability": 0.9836663703123728
+          },
+          {
+            "start": 5.06,
+            "end": 5.46,
+            "word": " دره.",
+            "probability": 0.6528808061072292
+          },
+          {
+            "start": 5.54,
+            "end": 6.08,
+            "word": " مثلا",
+            "probability": 0.9848658740520477
+          },
+          {
+            "start": 6.08,
+            "end": 6.72,
+            "word": " زمانیشو",
+            "probability": 0.8650514086087545
+          },
+          {
+            "start": 6.72,
+            "end": 7.1,
+            "word": " بگم",
+            "probability": 0.9796173373858134
+          },
+          {
+            "start": 7.1,
+            "end": 7.56,
+            "word": " شما",
+            "probability": 0.714723140001297
+          }
+        ]
+      }
+    ]
+  }
+}

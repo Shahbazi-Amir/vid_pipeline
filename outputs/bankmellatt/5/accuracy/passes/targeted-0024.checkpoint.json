@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "65e87c118982791678abb8cac7ace9a61d7f9b3d351acf22bd95f45df5c5621f",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.58,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.0,
+        "text": "هداری می‌کنی، اون پول برای شما کار میکنه. دومین آسیب درامد ناشی از شغل اینه که بلاخره یه ثقفی داره، یه محدودیت.",
+        "avg_logprob": -0.24246928331099057,
+        "compression_ratio": 1.4184397163120568,
+        "no_speech_prob": 2.9753891017669787e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.36,
+            "word": " هداری",
+            "probability": 0.82076695561409
+          },
+          {
+            "start": 0.36,
+            "end": 0.88,
+            "word": " می‌کنی،",
+            "probability": 0.5796757601201534
+          },
+          {
+            "start": 0.88,
+            "end": 0.96,
+            "word": " اون",
+            "probability": 0.9612648785114288
+          },
+          {
+            "start": 0.96,
+            "end": 1.2,
+            "word": " پول",
+            "probability": 0.9805819690227509
+          },
+          {
+            "start": 1.2,
+            "end": 1.52,
+            "word": " برای",
+            "probability": 0.9851634899775187
+          },
+          {
+            "start": 1.52,
+            "end": 1.74,
+            "word": " شما",
+            "probability": 0.9929898679256439
+          },
+          {
+            "start": 1.74,
+            "end": 2.02,
+            "word": " کار",
+            "probability": 0.9934998452663422
+          },
+          {
+            "start": 2.02,
+            "end": 2.44,
+            "word": " میکنه.",
+            "probability": 0.7339243441820145
+          },
+          {
+            "start": 2.7,
+            "end": 3.42,
+            "word": " دومین",
+            "probability": 0.7481963932514191
+          },
+          {
+            "start": 3.42,
+            "end": 3.78,
+            "word": " آسیب",
+            "probability": 0.9355355948209763
+          },
+          {
+            "start": 3.78,
+            "end": 4.28,
+            "word": " درامد",
+            "probability": 0.8353913128376007
+          },
+          {
+            "start": 4.28,
+            "end": 4.68,
+            "word": " ناشی",
+            "probability": 0.8907649715741476
+          },
+          {
+            "start": 4.68,
+            "end": 4.78,
+            "word": " از",
+            "probability": 0.5637385696172714
+          },
+          {
+            "start": 4.78,
+            "end": 5.16,
+            "word": " شغل",
+            "probability": 0.9726649125417074
+          },
+          {
+            "start": 5.16,
+            "end": 5.36,
+            "word": " اینه",
+            "probability": 0.9798075159390768
+          },
+          {
+            "start": 5.36,
+            "end": 6.12,
+            "word": " که",
+            "probability": 0.9917368590831757
+          },
+          {
+            "start": 6.12,
+            "end": 6.6,
+            "word": " بلاخره",
+            "probability": 0.8301033437252044
+          },
+          {
+            "start": 6.6,
+            "end": 6.74,
+            "word": " یه",
+            "probability": 0.9389869570732117
+          },
+          {
+            "start": 6.74,
+            "end": 7.2,
+            "word": " ثقفی",
+            "probability": 0.9136212915182114
+          },
+          {
+            "start": 7.2,
+            "end": 7.62,
+            "word": " داره،",
+            "probability": 0.7957054972648621
+          },
+          {
+            "start": 7.62,
+            "end": 7.82,
+            "word": " یه",
+            "probability": 0.9879075288772583
+          },
+          {
+            "start": 7.82,
+            "end": 8.18,
+            "word": " محدودیت.",
+            "probability": 0.9938429355621338
+          }
+        ]
+      }
+    ]
+  }
+}

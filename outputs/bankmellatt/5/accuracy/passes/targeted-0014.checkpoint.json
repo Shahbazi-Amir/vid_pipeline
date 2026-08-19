@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "3a6e42c626a7b050785ab78337a20e585983da08f8b1048a531b3da7336c618e",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.12,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.72,
+        "text": "از اینکه کار نکنیم دیگه کسی به من پول نمیده. خب واضحه، وقتی یک دکتری مطابش رو ببنده، دیغه حق ویزیت هم نمگیره. یک کارمندی که استفاه بده و...",
+        "avg_logprob": -0.24073748073230186,
+        "compression_ratio": 1.5217391304347827,
+        "no_speech_prob": 3.5933531150611486e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.02,
+            "word": " از",
+            "probability": 0.4982957988977432
+          },
+          {
+            "start": 0.02,
+            "end": 0.3,
+            "word": " اینکه",
+            "probability": 0.9091715961694717
+          },
+          {
+            "start": 0.3,
+            "end": 0.54,
+            "word": " کار",
+            "probability": 0.9928381443023682
+          },
+          {
+            "start": 0.54,
+            "end": 1.0,
+            "word": " نکنیم",
+            "probability": 0.9913421869277954
+          },
+          {
+            "start": 1.0,
+            "end": 1.16,
+            "word": " دیگه",
+            "probability": 0.9507581144571304
+          },
+          {
+            "start": 1.16,
+            "end": 1.42,
+            "word": " کسی",
+            "probability": 0.9930997292200724
+          },
+          {
+            "start": 1.42,
+            "end": 1.56,
+            "word": " به",
+            "probability": 0.9691369533538818
+          },
+          {
+            "start": 1.56,
+            "end": 1.72,
+            "word": " من",
+            "probability": 0.35452139377593994
+          },
+          {
+            "start": 1.72,
+            "end": 2.0,
+            "word": " پول",
+            "probability": 0.8789703845977783
+          },
+          {
+            "start": 2.0,
+            "end": 2.54,
+            "word": " نمیده.",
+            "probability": 0.9523531675338746
+          },
+          {
+            "start": 2.68,
+            "end": 3.24,
+            "word": " خب",
+            "probability": 0.9089638888835907
+          },
+          {
+            "start": 3.24,
+            "end": 3.88,
+            "word": " واضحه،",
+            "probability": 0.7738337770104409
+          },
+          {
+            "start": 3.88,
+            "end": 4.12,
+            "word": " وقتی",
+            "probability": 0.9505102833112081
+          },
+          {
+            "start": 4.12,
+            "end": 4.2,
+            "word": " یک",
+            "probability": 0.9352340400218964
+          },
+          {
+            "start": 4.2,
+            "end": 4.56,
+            "word": " دکتری",
+            "probability": 0.8724673539400101
+          },
+          {
+            "start": 4.56,
+            "end": 5.06,
+            "word": " مطابش",
+            "probability": 0.5388988591730595
+          },
+          {
+            "start": 5.06,
+            "end": 5.16,
+            "word": " رو",
+            "probability": 0.6213669180870056
+          },
+          {
+            "start": 5.16,
+            "end": 5.98,
+            "word": " ببنده،",
+            "probability": 0.8715679824352265
+          },
+          {
+            "start": 5.98,
+            "end": 6.28,
+            "word": " دیغه",
+            "probability": 0.6909721600768535
+          },
+          {
+            "start": 6.28,
+            "end": 6.58,
+            "word": " حق",
+            "probability": 0.9662623405456543
+          },
+          {
+            "start": 6.58,
+            "end": 7.02,
+            "word": " ویزیت",
+            "probability": 0.9456000208854676
+          },
+          {
+            "start": 7.02,
+            "end": 7.14,
+            "word": " هم",
+            "probability": 0.9754926264286041
+          },
+          {
+            "start": 7.14,
+            "end": 7.62,
+            "word": " نمگیره.",
+            "probability": 0.8093594445769364
+          },
+          {
+            "start": 7.68,
+            "end": 7.8,
+            "word": " یک",
+            "probability": 0.9800296723842621
+          },
+          {
+            "start": 7.8,
+            "end": 8.32,
+            "word": " کارمندی",
+            "probability": 0.980970025062561
+          },
+          {
+            "start": 8.32,
+            "end": 8.48,
+            "word": " که",
+            "probability": 0.9899079501628876
+          },
+          {
+            "start": 8.48,
+            "end": 9.02,
+            "word": " استفاه",
+            "probability": 0.6910013755162557
+          },
+          {
+            "start": 9.02,
+            "end": 9.42,
+            "word": " بده",
+            "probability": 0.9823051393032074
+          },
+          {
+            "start": 9.42,
+            "end": 9.72,
+            "word": " و...",
+            "probability": 0.6356615275144577
+          }
+        ]
+      }
+    ]
+  }
+}

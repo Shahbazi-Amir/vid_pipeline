@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "e52f981d2e2845cb473fb78fca8713f3f63a122d3f27ea7cf0b7fbec458f3e8c",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.9,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.6600000000000021,
+        "end": 9.08,
+        "text": "از تا شب‌هایی که خوابی، حتی زمان‌ها که رفتی مسافرات و تفریح داری می‌کنی، اون پول برای شما کار میکنه.",
+        "avg_logprob": -0.21283027398235657,
+        "compression_ratio": 1.4523809523809523,
+        "no_speech_prob": 3.4041167107368153e-10,
+        "words": [
+          {
+            "start": 0.6600000000000021,
+            "end": 1.26,
+            "word": " از",
+            "probability": 0.22780350595712662
+          },
+          {
+            "start": 1.26,
+            "end": 1.42,
+            "word": " تا",
+            "probability": 0.8432146608829498
+          },
+          {
+            "start": 1.42,
+            "end": 2.0,
+            "word": " شب‌هایی",
+            "probability": 0.797685450874269
+          },
+          {
+            "start": 2.0,
+            "end": 2.12,
+            "word": " که",
+            "probability": 0.9436428546905518
+          },
+          {
+            "start": 2.12,
+            "end": 2.58,
+            "word": " خوابی،",
+            "probability": 0.8975467801094055
+          },
+          {
+            "start": 2.58,
+            "end": 2.8,
+            "word": " حتی",
+            "probability": 0.9372242093086243
+          },
+          {
+            "start": 2.8,
+            "end": 3.26,
+            "word": " زمان‌ها",
+            "probability": 0.9823293924331665
+          },
+          {
+            "start": 3.26,
+            "end": 4.02,
+            "word": " که",
+            "probability": 0.4951011705561541
+          },
+          {
+            "start": 4.02,
+            "end": 4.44,
+            "word": " رفتی",
+            "probability": 0.979220524430275
+          },
+          {
+            "start": 4.44,
+            "end": 5.08,
+            "word": " مسافرات",
+            "probability": 0.8157703727483749
+          },
+          {
+            "start": 5.08,
+            "end": 5.16,
+            "word": " و",
+            "probability": 0.9434239864349365
+          },
+          {
+            "start": 5.16,
+            "end": 6.72,
+            "word": " تفریح",
+            "probability": 0.97632996737957
+          },
+          {
+            "start": 6.72,
+            "end": 6.96,
+            "word": " داری",
+            "probability": 0.7553486824035645
+          },
+          {
+            "start": 6.96,
+            "end": 7.5,
+            "word": " می‌کنی،",
+            "probability": 0.8539067705472311
+          },
+          {
+            "start": 7.5,
+            "end": 7.58,
+            "word": " اون",
+            "probability": 0.955686092376709
+          },
+          {
+            "start": 7.58,
+            "end": 7.82,
+            "word": " پول",
+            "probability": 0.9768016338348389
+          },
+          {
+            "start": 7.82,
+            "end": 8.12,
+            "word": " برای",
+            "probability": 0.9838568568229675
+          },
+          {
+            "start": 8.12,
+            "end": 8.36,
+            "word": " شما",
+            "probability": 0.9948605895042419
+          },
+          {
+            "start": 8.36,
+            "end": 8.64,
+            "word": " کار",
+            "probability": 0.9896239936351776
+          },
+          {
+            "start": 8.64,
+            "end": 9.08,
+            "word": " میکنه.",
+            "probability": 0.7555449306964874
+          }
+        ]
+      }
+    ]
+  }
+}

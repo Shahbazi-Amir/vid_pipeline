@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "c188bc88910fb9647434a9bf10ba4c8aa7d19efc4cb5c7b825d163c2cbdb9d82",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.52,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.36,
+        "text": "در ایته‌ی فعالیت شوق لیمون، بلاخره یه سقفی داره و این سقص محدودیت ایجاد می‌کنه. اما وقتی پول به کار بیافته،",
+        "avg_logprob": -0.24278338688115278,
+        "compression_ratio": 1.4233576642335766,
+        "no_speech_prob": 2.1562247820572367e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.4,
+            "word": " در",
+            "probability": 0.6829033344984055
+          },
+          {
+            "start": 0.4,
+            "end": 0.98,
+            "word": " ایته‌ی",
+            "probability": 0.6924853371689096
+          },
+          {
+            "start": 0.98,
+            "end": 1.66,
+            "word": " فعالیت",
+            "probability": 0.9898776173591614
+          },
+          {
+            "start": 1.66,
+            "end": 2.04,
+            "word": " شوق",
+            "probability": 0.6286860108375549
+          },
+          {
+            "start": 2.04,
+            "end": 2.62,
+            "word": " لیمون،",
+            "probability": 0.7581372439861298
+          },
+          {
+            "start": 2.62,
+            "end": 2.96,
+            "word": " بلاخره",
+            "probability": 0.8882419228553772
+          },
+          {
+            "start": 2.96,
+            "end": 3.14,
+            "word": " یه",
+            "probability": 0.9004931449890137
+          },
+          {
+            "start": 3.14,
+            "end": 3.62,
+            "word": " سقفی",
+            "probability": 0.9344782382249832
+          },
+          {
+            "start": 3.62,
+            "end": 4.1,
+            "word": " داره",
+            "probability": 0.9802406231562296
+          },
+          {
+            "start": 4.1,
+            "end": 4.7,
+            "word": " و",
+            "probability": 0.8725850582122803
+          },
+          {
+            "start": 4.7,
+            "end": 4.84,
+            "word": " این",
+            "probability": 0.995194137096405
+          },
+          {
+            "start": 4.84,
+            "end": 5.26,
+            "word": " سقص",
+            "probability": 0.6543852013419382
+          },
+          {
+            "start": 5.26,
+            "end": 6.1,
+            "word": " محدودیت",
+            "probability": 0.9660881042480469
+          },
+          {
+            "start": 6.1,
+            "end": 6.52,
+            "word": " ایجاد",
+            "probability": 0.9944801777601242
+          },
+          {
+            "start": 6.52,
+            "end": 7.04,
+            "word": " می‌کنه.",
+            "probability": 0.8286220729351044
+          },
+          {
+            "start": 7.12,
+            "end": 7.52,
+            "word": " اما",
+            "probability": 0.9527547061443329
+          },
+          {
+            "start": 7.52,
+            "end": 7.88,
+            "word": " وقتی",
+            "probability": 0.9933761358261108
+          },
+          {
+            "start": 7.88,
+            "end": 8.28,
+            "word": " پول",
+            "probability": 0.9911920428276062
+          },
+          {
+            "start": 8.28,
+            "end": 8.44,
+            "word": " به",
+            "probability": 0.9943759441375732
+          },
+          {
+            "start": 8.44,
+            "end": 8.7,
+            "word": " کار",
+            "probability": 0.9876192510128021
+          },
+          {
+            "start": 8.7,
+            "end": 9.36,
+            "word": " بیافته،",
+            "probability": 0.6766368955373764
+          }
+        ]
+      }
+    ]
+  }
+}

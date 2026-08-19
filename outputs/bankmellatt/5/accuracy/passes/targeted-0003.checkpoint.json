@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "8412baaa655bd27f7c8c818e661510fb4adaa18c70f8b89576b3730783bcf107",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.5,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.48,
+        "text": "آموزه‌های سواد مالی رو جلو میریم. تا اینجا پیش رفتیم که حضینه‌هامون رو به مدت سه ماه ثبت می‌کنیم، اصناد و مداره‌ای که پشتیبان داریم و یه جاهایی هم کاهش حضی نداشتی.",
+        "avg_logprob": -0.19861610991687612,
+        "compression_ratio": 1.697142857142857,
+        "no_speech_prob": 2.3091072109959754e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.98,
+            "word": " آموزه‌های",
+            "probability": 0.7559425376821309
+          },
+          {
+            "start": 0.98,
+            "end": 1.36,
+            "word": " سواد",
+            "probability": 0.7945922215779623
+          },
+          {
+            "start": 1.36,
+            "end": 1.68,
+            "word": " مالی",
+            "probability": 0.9766293366750082
+          },
+          {
+            "start": 1.68,
+            "end": 1.84,
+            "word": " رو",
+            "probability": 0.8516634404659271
+          },
+          {
+            "start": 1.84,
+            "end": 2.2,
+            "word": " جلو",
+            "probability": 0.9212108055750529
+          },
+          {
+            "start": 2.2,
+            "end": 2.58,
+            "word": " میریم.",
+            "probability": 0.7048092186450958
+          },
+          {
+            "start": 2.58,
+            "end": 3.1,
+            "word": " تا",
+            "probability": 0.9780194759368896
+          },
+          {
+            "start": 3.1,
+            "end": 3.26,
+            "word": " اینجا",
+            "probability": 0.97956682741642
+          },
+          {
+            "start": 3.26,
+            "end": 3.48,
+            "word": " پیش",
+            "probability": 0.9962513446807861
+          },
+          {
+            "start": 3.48,
+            "end": 4.04,
+            "word": " رفتیم",
+            "probability": 0.9759491324424744
+          },
+          {
+            "start": 4.04,
+            "end": 4.48,
+            "word": " که",
+            "probability": 0.9735658764839172
+          },
+          {
+            "start": 4.48,
+            "end": 5.16,
+            "word": " حضینه‌هامون",
+            "probability": 0.6684728665277362
+          },
+          {
+            "start": 5.16,
+            "end": 5.22,
+            "word": " رو",
+            "probability": 0.7047632038593292
+          },
+          {
+            "start": 5.22,
+            "end": 5.3,
+            "word": " به",
+            "probability": 0.9481290578842163
+          },
+          {
+            "start": 5.3,
+            "end": 5.64,
+            "word": " مدت",
+            "probability": 0.984453558921814
+          },
+          {
+            "start": 5.64,
+            "end": 5.94,
+            "word": " سه",
+            "probability": 0.7519727647304535
+          },
+          {
+            "start": 5.94,
+            "end": 6.1,
+            "word": " ماه",
+            "probability": 0.9786327183246613
+          },
+          {
+            "start": 6.1,
+            "end": 6.46,
+            "word": " ثبت",
+            "probability": 0.698687732219696
+          },
+          {
+            "start": 6.46,
+            "end": 7.06,
+            "word": " می‌کنیم،",
+            "probability": 0.848216467670032
+          },
+          {
+            "start": 7.06,
+            "end": 7.36,
+            "word": " اصناد",
+            "probability": 0.9549072980880737
+          },
+          {
+            "start": 7.36,
+            "end": 7.44,
+            "word": " و",
+            "probability": 0.766090452671051
+          },
+          {
+            "start": 7.44,
+            "end": 7.78,
+            "word": " مداره‌ای",
+            "probability": 0.8360848895141056
+          },
+          {
+            "start": 7.78,
+            "end": 7.9,
+            "word": " که",
+            "probability": 0.9427038431167603
+          },
+          {
+            "start": 7.9,
+            "end": 8.54,
+            "word": " پشتیبان",
+            "probability": 0.90989089012146
+          },
+          {
+            "start": 8.54,
+            "end": 9.04,
+            "word": " داریم",
+            "probability": 0.9825265556573868
+          },
+          {
+            "start": 9.04,
+            "end": 9.5,
+            "word": " و",
+            "probability": 0.8133098483085632
+          },
+          {
+            "start": 9.5,
+            "end": 9.7,
+            "word": " یه",
+            "probability": 0.9652075469493866
+          },
+          {
+            "start": 9.7,
+            "end": 10.12,
+            "word": " جاهایی",
+            "probability": 0.9410139918327332
+          },
+          {
+            "start": 10.12,
+            "end": 10.2,
+            "word": " هم",
+            "probability": 0.8665283620357513
+          },
+          {
+            "start": 10.2,
+            "end": 10.64,
+            "word": " کاهش",
+            "probability": 0.9515700340270996
+          },
+          {
+            "start": 10.64,
+            "end": 11.0,
+            "word": " حضی",
+            "probability": 0.6270932555198669
+          },
+          {
+            "start": 11.0,
+            "end": 11.48,
+            "word": " نداشتی.",
+            "probability": 0.766393032670021
+          }
+        ]
+      }
+    ]
+  }
+}

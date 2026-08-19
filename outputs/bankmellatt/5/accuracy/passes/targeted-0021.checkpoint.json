@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "b7ece45cd7fc54d537de00b20fa4696bd217038684e488abe1a243d52fd32209",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.88,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.86,
+        "text": "پول خودش برای شما کار می‌کنه. حتی شبهایی که خوابی، حت تا زمان‌های ک رفتی مسافره",
+        "avg_logprob": -0.22885498296130788,
+        "compression_ratio": 1.3211009174311927,
+        "no_speech_prob": 2.469236759505833e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.7,
+            "word": " پول",
+            "probability": 0.5858646407723427
+          },
+          {
+            "start": 0.7,
+            "end": 1.06,
+            "word": " خودش",
+            "probability": 0.9979817668596903
+          },
+          {
+            "start": 1.06,
+            "end": 1.36,
+            "word": " برای",
+            "probability": 0.9972164432207743
+          },
+          {
+            "start": 1.36,
+            "end": 1.62,
+            "word": " شما",
+            "probability": 0.9991880059242249
+          },
+          {
+            "start": 1.62,
+            "end": 1.96,
+            "word": " کار",
+            "probability": 0.9990673661231995
+          },
+          {
+            "start": 1.96,
+            "end": 2.54,
+            "word": " می‌کنه.",
+            "probability": 0.6343934137374163
+          },
+          {
+            "start": 2.56,
+            "end": 3.28,
+            "word": " حتی",
+            "probability": 0.896704375743866
+          },
+          {
+            "start": 3.28,
+            "end": 3.9,
+            "word": " شبهایی",
+            "probability": 0.7912611842155457
+          },
+          {
+            "start": 3.9,
+            "end": 4.0,
+            "word": " که",
+            "probability": 0.9594696462154388
+          },
+          {
+            "start": 4.0,
+            "end": 4.5,
+            "word": " خوابی،",
+            "probability": 0.8919127345085144
+          },
+          {
+            "start": 4.5,
+            "end": 4.62,
+            "word": " حت",
+            "probability": 0.97665736079216
+          },
+          {
+            "start": 4.62,
+            "end": 4.7,
+            "word": " تا",
+            "probability": 0.24268895632121712
+          },
+          {
+            "start": 4.7,
+            "end": 5.22,
+            "word": " زمان‌های",
+            "probability": 0.9385898609956106
+          },
+          {
+            "start": 5.22,
+            "end": 5.36,
+            "word": " ک",
+            "probability": 0.04489387944340706
+          },
+          {
+            "start": 5.36,
+            "end": 6.32,
+            "word": " رفتی",
+            "probability": 0.7455783625628101
+          },
+          {
+            "start": 6.32,
+            "end": 6.86,
+            "word": " مسافره",
+            "probability": 0.8592807054519653
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "f349940def865d9f06f837e11b0fe1856e7e9908db85d92b7a291b3747961626",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.34,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.18,
+        "text": "حالا وقتی اینه که پولمونم به کار بندازیم، اینکه ما درامدمون ناشی از کارو باشه چند تا آسیب داره. یکی ایکی به محض این که کار نکنیم دیگه",
+        "avg_logprob": -0.1765845222182052,
+        "compression_ratio": 1.6527777777777777,
+        "no_speech_prob": 2.1401738714565965e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.46,
+            "word": " حالا",
+            "probability": 0.9914620717366537
+          },
+          {
+            "start": 0.46,
+            "end": 0.76,
+            "word": " وقتی",
+            "probability": 0.9891512393951416
+          },
+          {
+            "start": 0.76,
+            "end": 0.94,
+            "word": " اینه",
+            "probability": 0.9977744619051615
+          },
+          {
+            "start": 0.94,
+            "end": 1.08,
+            "word": " که",
+            "probability": 0.9990942180156708
+          },
+          {
+            "start": 1.08,
+            "end": 1.58,
+            "word": " پولمونم",
+            "probability": 0.9568788051605225
+          },
+          {
+            "start": 1.58,
+            "end": 1.72,
+            "word": " به",
+            "probability": 0.9921227097511292
+          },
+          {
+            "start": 1.72,
+            "end": 1.94,
+            "word": " کار",
+            "probability": 0.9995875358581543
+          },
+          {
+            "start": 1.94,
+            "end": 2.56,
+            "word": " بندازیم،",
+            "probability": 0.7812396974380439
+          },
+          {
+            "start": 2.56,
+            "end": 3.28,
+            "word": " اینکه",
+            "probability": 0.8502633944153786
+          },
+          {
+            "start": 3.28,
+            "end": 3.5,
+            "word": " ما",
+            "probability": 0.974984884262085
+          },
+          {
+            "start": 3.5,
+            "end": 4.46,
+            "word": " درامدمون",
+            "probability": 0.7805919945240021
+          },
+          {
+            "start": 4.46,
+            "end": 4.92,
+            "word": " ناشی",
+            "probability": 0.9931259353955587
+          },
+          {
+            "start": 4.92,
+            "end": 5.12,
+            "word": " از",
+            "probability": 0.9914174973964691
+          },
+          {
+            "start": 5.12,
+            "end": 5.76,
+            "word": " کارو",
+            "probability": 0.6719310854872068
+          },
+          {
+            "start": 5.76,
+            "end": 6.22,
+            "word": " باشه",
+            "probability": 0.9905225237210592
+          },
+          {
+            "start": 6.22,
+            "end": 6.64,
+            "word": " چند",
+            "probability": 0.8995759785175323
+          },
+          {
+            "start": 6.64,
+            "end": 6.76,
+            "word": " تا",
+            "probability": 0.866547554731369
+          },
+          {
+            "start": 6.76,
+            "end": 7.22,
+            "word": " آسیب",
+            "probability": 0.9710797369480133
+          },
+          {
+            "start": 7.22,
+            "end": 7.84,
+            "word": " داره.",
+            "probability": 0.9851900935173035
+          },
+          {
+            "start": 7.84,
+            "end": 8.46,
+            "word": " یکی",
+            "probability": 0.9300590356191
+          },
+          {
+            "start": 8.46,
+            "end": 8.58,
+            "word": " ایکی",
+            "probability": 0.5347009261992449
+          },
+          {
+            "start": 8.58,
+            "end": 8.72,
+            "word": " به",
+            "probability": 0.8887717127799988
+          },
+          {
+            "start": 8.72,
+            "end": 9.06,
+            "word": " محض",
+            "probability": 0.9181392192840576
+          },
+          {
+            "start": 9.06,
+            "end": 9.2,
+            "word": " این",
+            "probability": 0.7178648561239243
+          },
+          {
+            "start": 9.2,
+            "end": 9.3,
+            "word": " که",
+            "probability": 0.5222782269120216
+          },
+          {
+            "start": 9.3,
+            "end": 9.54,
+            "word": " کار",
+            "probability": 0.9961422979831696
+          },
+          {
+            "start": 9.54,
+            "end": 10.0,
+            "word": " نکنیم",
+            "probability": 0.9964231729507447
+          },
+          {
+            "start": 10.0,
+            "end": 10.18,
+            "word": " دیگه",
+            "probability": 0.8688915371894836
+          }
+        ]
+      }
+    ]
+  }
+}

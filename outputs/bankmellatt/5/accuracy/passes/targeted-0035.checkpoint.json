@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "b9acb0e4486c532f4bacc08c5ac4dbdeca97867cd9c9e1659b1d4e705afc2e1e",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.66,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.5,
+        "text": "خوهران‌هایی که صندوق‌ها بازنشستگی داره، یه حقوقی به ما می‌دن که کفاف زندگیمون رو نمی‌ده. تو دورانی ک...",
+        "avg_logprob": -0.22808299980301788,
+        "compression_ratio": 1.4427480916030535,
+        "no_speech_prob": 2.4315213731362917e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.52,
+            "word": " خوهران‌هایی",
+            "probability": 0.7481480894817246
+          },
+          {
+            "start": 0.52,
+            "end": 0.6,
+            "word": " که",
+            "probability": 0.9874562919139862
+          },
+          {
+            "start": 0.6,
+            "end": 1.06,
+            "word": " صندوق‌ها",
+            "probability": 0.9809523820877075
+          },
+          {
+            "start": 1.06,
+            "end": 1.98,
+            "word": " بازنشستگی",
+            "probability": 0.8352541720295059
+          },
+          {
+            "start": 1.98,
+            "end": 2.66,
+            "word": " داره،",
+            "probability": 0.7363169603049755
+          },
+          {
+            "start": 2.66,
+            "end": 3.32,
+            "word": " یه",
+            "probability": 0.8862824440002441
+          },
+          {
+            "start": 3.32,
+            "end": 3.76,
+            "word": " حقوقی",
+            "probability": 0.932514950633049
+          },
+          {
+            "start": 3.76,
+            "end": 3.86,
+            "word": " به",
+            "probability": 0.9730062484741211
+          },
+          {
+            "start": 3.86,
+            "end": 4.02,
+            "word": " ما",
+            "probability": 0.8813502788543701
+          },
+          {
+            "start": 4.02,
+            "end": 4.3,
+            "word": " می‌دن",
+            "probability": 0.8836481124162674
+          },
+          {
+            "start": 4.3,
+            "end": 4.48,
+            "word": " که",
+            "probability": 0.980149656534195
+          },
+          {
+            "start": 4.48,
+            "end": 4.88,
+            "word": " کفاف",
+            "probability": 0.9894124666849772
+          },
+          {
+            "start": 4.88,
+            "end": 5.54,
+            "word": " زندگیمون",
+            "probability": 0.8732268214225769
+          },
+          {
+            "start": 5.54,
+            "end": 5.64,
+            "word": " رو",
+            "probability": 0.622780054807663
+          },
+          {
+            "start": 5.64,
+            "end": 6.2,
+            "word": " نمی‌ده.",
+            "probability": 0.9604855179786682
+          },
+          {
+            "start": 6.68,
+            "end": 7.36,
+            "word": " تو",
+            "probability": 0.9668443202972412
+          },
+          {
+            "start": 7.36,
+            "end": 8.08,
+            "word": " دورانی",
+            "probability": 0.9165240228176117
+          },
+          {
+            "start": 8.08,
+            "end": 8.5,
+            "word": " ک...",
+            "probability": 0.4587918445613468
+          }
+        ]
+      }
+    ]
+  }
+}

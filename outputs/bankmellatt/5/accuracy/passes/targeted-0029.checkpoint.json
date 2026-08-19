@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "35d107e8dd9de8b82a295825a40ab081a3aa01c9966266654776fc7c608c14b5",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.3,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.74,
+        "text": "و این سخف محدودیت ایجاد می‌کنه. اما وقتی پول به کار بیفته، وارد عرض سرمایه گذاری بشه، هیچ محددیتی نداره.",
+        "avg_logprob": -0.2069994072679063,
+        "compression_ratio": 1.3925925925925926,
+        "no_speech_prob": 3.6049210838662304e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.18,
+            "word": " و",
+            "probability": 0.9682766795158386
+          },
+          {
+            "start": 0.18,
+            "end": 0.32,
+            "word": " این",
+            "probability": 0.9946577250957489
+          },
+          {
+            "start": 0.32,
+            "end": 0.78,
+            "word": " سخف",
+            "probability": 0.7710117300351461
+          },
+          {
+            "start": 0.78,
+            "end": 1.58,
+            "word": " محدودیت",
+            "probability": 0.9948350310325622
+          },
+          {
+            "start": 1.58,
+            "end": 2.0,
+            "word": " ایجاد",
+            "probability": 0.9960735887289047
+          },
+          {
+            "start": 2.0,
+            "end": 2.5,
+            "word": " می‌کنه.",
+            "probability": 0.6405011519789696
+          },
+          {
+            "start": 2.58,
+            "end": 3.02,
+            "word": " اما",
+            "probability": 0.9702853262424469
+          },
+          {
+            "start": 3.02,
+            "end": 3.36,
+            "word": " وقتی",
+            "probability": 0.9930176734924316
+          },
+          {
+            "start": 3.36,
+            "end": 3.74,
+            "word": " پول",
+            "probability": 0.9922337234020233
+          },
+          {
+            "start": 3.74,
+            "end": 3.9,
+            "word": " به",
+            "probability": 0.9936095476150513
+          },
+          {
+            "start": 3.9,
+            "end": 4.18,
+            "word": " کار",
+            "probability": 0.9948495328426361
+          },
+          {
+            "start": 4.18,
+            "end": 4.82,
+            "word": " بیفته،",
+            "probability": 0.7477786168456078
+          },
+          {
+            "start": 4.82,
+            "end": 5.18,
+            "word": " وارد",
+            "probability": 0.9711782733599345
+          },
+          {
+            "start": 5.18,
+            "end": 5.46,
+            "word": " عرض",
+            "probability": 0.23347299546003342
+          },
+          {
+            "start": 5.46,
+            "end": 6.1,
+            "word": " سرمایه",
+            "probability": 0.8345325231552124
+          },
+          {
+            "start": 6.1,
+            "end": 6.42,
+            "word": " گذاری",
+            "probability": 0.8814084976911545
+          },
+          {
+            "start": 6.42,
+            "end": 7.0,
+            "word": " بشه،",
+            "probability": 0.8615828305482864
+          },
+          {
+            "start": 7.0,
+            "end": 7.44,
+            "word": " هیچ",
+            "probability": 0.9687027931213379
+          },
+          {
+            "start": 7.44,
+            "end": 8.34,
+            "word": " محددیتی",
+            "probability": 0.8110161748433408
+          },
+          {
+            "start": 8.34,
+            "end": 8.74,
+            "word": " نداره.",
+            "probability": 0.9860946089029312
+          }
+        ]
+      }
+    ]
+  }
+}

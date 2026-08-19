@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "dffedf74157a20d801c97b7487775e1e2cc83f5c38236967134bb26bdb076408",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 13.0,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.0,
+        "text": "یفته، وارد عرصه‌ی سرمایه گذاری بشه، هیچ محدودیتی نداره. هرچقدر این پول به چرخه و سوداور بشد، پول رو به شما برمیگردونه.",
+        "avg_logprob": -0.22349884309390983,
+        "compression_ratio": 1.5240963855421688,
+        "no_speech_prob": 2.4130003550837387e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.56,
+            "word": " یفته،",
+            "probability": 0.631361648440361
+          },
+          {
+            "start": 0.56,
+            "end": 0.9,
+            "word": " وارد",
+            "probability": 0.9896419048309326
+          },
+          {
+            "start": 0.9,
+            "end": 1.3,
+            "word": " عرصه‌ی",
+            "probability": 0.64715781272389
+          },
+          {
+            "start": 1.3,
+            "end": 1.8,
+            "word": " سرمایه",
+            "probability": 0.9419275999069214
+          },
+          {
+            "start": 1.8,
+            "end": 2.12,
+            "word": " گذاری",
+            "probability": 0.8475163877010345
+          },
+          {
+            "start": 2.12,
+            "end": 2.68,
+            "word": " بشه،",
+            "probability": 0.8152369186282158
+          },
+          {
+            "start": 2.68,
+            "end": 3.14,
+            "word": " هیچ",
+            "probability": 0.9664439161618551
+          },
+          {
+            "start": 3.14,
+            "end": 4.04,
+            "word": " محدودیتی",
+            "probability": 0.9720797936121622
+          },
+          {
+            "start": 4.04,
+            "end": 4.44,
+            "word": " نداره.",
+            "probability": 0.9895606487989426
+          },
+          {
+            "start": 4.5,
+            "end": 5.06,
+            "word": " هرچقدر",
+            "probability": 0.9014475107192993
+          },
+          {
+            "start": 5.06,
+            "end": 5.12,
+            "word": " این",
+            "probability": 0.9593099355697632
+          },
+          {
+            "start": 5.12,
+            "end": 5.42,
+            "word": " پول",
+            "probability": 0.9903246462345123
+          },
+          {
+            "start": 5.42,
+            "end": 5.56,
+            "word": " به",
+            "probability": 0.8292067050933838
+          },
+          {
+            "start": 5.56,
+            "end": 6.06,
+            "word": " چرخه",
+            "probability": 0.9590439647436142
+          },
+          {
+            "start": 6.06,
+            "end": 6.16,
+            "word": " و",
+            "probability": 0.9533018469810486
+          },
+          {
+            "start": 6.16,
+            "end": 6.9,
+            "word": " سوداور",
+            "probability": 0.8677335977554321
+          },
+          {
+            "start": 6.9,
+            "end": 7.6,
+            "word": " بشد،",
+            "probability": 0.636971477753832
+          },
+          {
+            "start": 7.6,
+            "end": 8.04,
+            "word": " پول",
+            "probability": 0.9747196435928345
+          },
+          {
+            "start": 8.04,
+            "end": 8.18,
+            "word": " رو",
+            "probability": 0.8895686864852905
+          },
+          {
+            "start": 8.18,
+            "end": 8.28,
+            "word": " به",
+            "probability": 0.9930712580680847
+          },
+          {
+            "start": 8.28,
+            "end": 8.64,
+            "word": " شما",
+            "probability": 0.9966960251331329
+          },
+          {
+            "start": 8.64,
+            "end": 10.0,
+            "word": " برمیگردونه.",
+            "probability": 0.7973087529341379
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 10.72,
+        "end": 12.98,
+        "text": "یکی دیگه از آسیب‌های",
+        "avg_logprob": -0.22349884309390983,
+        "compression_ratio": 1.5240963855421688,
+        "no_speech_prob": 2.4130003550837387e-10,
+        "words": [
+          {
+            "start": 10.72,
+            "end": 11.28,
+            "word": " یکی",
+            "probability": 0.9782577157020569
+          },
+          {
+            "start": 11.28,
+            "end": 11.7,
+            "word": " دیگه",
+            "probability": 0.976723313331604
+          },
+          {
+            "start": 11.7,
+            "end": 12.32,
+            "word": " از",
+            "probability": 0.92396280169487
+          },
+          {
+            "start": 12.32,
+            "end": 12.98,
+            "word": " آسیب‌های",
+            "probability": 0.965823062828609
+          }
+        ]
+      }
+    ]
+  }
+}

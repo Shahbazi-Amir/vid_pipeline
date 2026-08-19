@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "0fa0d5ddead9e106cb1c49277b73956466d18a00e34ca1d694b2631edd5a40b1",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.84,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.82,
+        "text": "یه سقفی داره، یه محدودیتی دره. مثلا زمانیشو بگم شما یا من بیشتر از یک در ساعت که نمی‌تونیم کار بکنیم. هر چقدر هم تلاش بکنایم در",
+        "avg_logprob": -0.2276084409819709,
+        "compression_ratio": 1.523489932885906,
+        "no_speech_prob": 2.7834320959208014e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.22,
+            "word": " یه",
+            "probability": 0.5746254026889801
+          },
+          {
+            "start": 0.22,
+            "end": 0.68,
+            "word": " سقفی",
+            "probability": 0.9149152636528015
+          },
+          {
+            "start": 0.68,
+            "end": 1.06,
+            "word": " داره،",
+            "probability": 0.7932742312550545
+          },
+          {
+            "start": 1.06,
+            "end": 1.3,
+            "word": " یه",
+            "probability": 0.9881343245506287
+          },
+          {
+            "start": 1.3,
+            "end": 2.12,
+            "word": " محدودیتی",
+            "probability": 0.9855762422084808
+          },
+          {
+            "start": 2.12,
+            "end": 2.52,
+            "word": " دره.",
+            "probability": 0.6197409596449385
+          },
+          {
+            "start": 2.64,
+            "end": 3.14,
+            "word": " مثلا",
+            "probability": 0.9905434846878052
+          },
+          {
+            "start": 3.14,
+            "end": 3.8,
+            "word": " زمانیشو",
+            "probability": 0.8861039380232493
+          },
+          {
+            "start": 3.8,
+            "end": 4.16,
+            "word": " بگم",
+            "probability": 0.9770239194234213
+          },
+          {
+            "start": 4.16,
+            "end": 4.64,
+            "word": " شما",
+            "probability": 0.7764104902744293
+          },
+          {
+            "start": 4.64,
+            "end": 5.5,
+            "word": " یا",
+            "probability": 0.9835474193096161
+          },
+          {
+            "start": 5.5,
+            "end": 5.76,
+            "word": " من",
+            "probability": 0.9901027679443359
+          },
+          {
+            "start": 5.76,
+            "end": 6.34,
+            "word": " بیشتر",
+            "probability": 0.9696779727935791
+          },
+          {
+            "start": 6.34,
+            "end": 6.46,
+            "word": " از",
+            "probability": 0.9913586676120758
+          },
+          {
+            "start": 6.46,
+            "end": 6.62,
+            "word": " یک",
+            "probability": 0.518325537443161
+          },
+          {
+            "start": 6.62,
+            "end": 6.82,
+            "word": " در",
+            "probability": 0.8295706510543823
+          },
+          {
+            "start": 6.82,
+            "end": 7.06,
+            "word": " ساعت",
+            "probability": 0.7624695499738058
+          },
+          {
+            "start": 7.06,
+            "end": 7.18,
+            "word": " که",
+            "probability": 0.96486896276474
+          },
+          {
+            "start": 7.18,
+            "end": 7.64,
+            "word": " نمی‌تونیم",
+            "probability": 0.8668204740388319
+          },
+          {
+            "start": 7.64,
+            "end": 7.88,
+            "word": " کار",
+            "probability": 0.9929135143756866
+          },
+          {
+            "start": 7.88,
+            "end": 8.46,
+            "word": " بکنیم.",
+            "probability": 0.9826123356819153
+          },
+          {
+            "start": 8.46,
+            "end": 9.04,
+            "word": " هر",
+            "probability": 0.9861879944801331
+          },
+          {
+            "start": 9.04,
+            "end": 9.52,
+            "word": " چقدر",
+            "probability": 0.869705339272817
+          },
+          {
+            "start": 9.52,
+            "end": 9.7,
+            "word": " هم",
+            "probability": 0.9379786550998688
+          },
+          {
+            "start": 9.7,
+            "end": 10.14,
+            "word": " تلاش",
+            "probability": 0.9858998457590739
+          },
+          {
+            "start": 10.14,
+            "end": 10.7,
+            "word": " بکنایم",
+            "probability": 0.6949530106823658
+          },
+          {
+            "start": 10.7,
+            "end": 10.82,
+            "word": " در",
+            "probability": 0.80803582072258
+          }
+        ]
+      }
+    ]
+  }
+}

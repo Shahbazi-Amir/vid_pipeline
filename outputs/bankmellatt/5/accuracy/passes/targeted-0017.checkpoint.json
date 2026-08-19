@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "4e35a4beeaad2cd9213788c74205901bd3e9e80f6d451a78776eb7b424ce116a",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.74,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.48,
+        "text": "که وقتی کار نکنی پول نمی‌گیری، با توقف کار و فعالیت شغلی جریان درامدی هم منتوقف می‌شه. اما سرمایه‌گذاری اینجوری نیست.",
+        "avg_logprob": -0.1669380399915907,
+        "compression_ratio": 1.4930555555555556,
+        "no_speech_prob": 2.4209967364186014e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.3,
+            "word": " که",
+            "probability": 0.8079194724559784
+          },
+          {
+            "start": 0.3,
+            "end": 0.78,
+            "word": " وقتی",
+            "probability": 0.9986711144447327
+          },
+          {
+            "start": 0.78,
+            "end": 1.2,
+            "word": " کار",
+            "probability": 0.9994213879108429
+          },
+          {
+            "start": 1.2,
+            "end": 1.72,
+            "word": " نکنی",
+            "probability": 0.9994948506355286
+          },
+          {
+            "start": 1.72,
+            "end": 2.04,
+            "word": " پول",
+            "probability": 0.9922741949558258
+          },
+          {
+            "start": 2.04,
+            "end": 2.6,
+            "word": " نمی‌گیری،",
+            "probability": 0.756958244703128
+          },
+          {
+            "start": 2.6,
+            "end": 2.74,
+            "word": " با",
+            "probability": 0.9942043721675873
+          },
+          {
+            "start": 2.74,
+            "end": 3.46,
+            "word": " توقف",
+            "probability": 0.9782009919484457
+          },
+          {
+            "start": 3.46,
+            "end": 4.04,
+            "word": " کار",
+            "probability": 0.9887209236621857
+          },
+          {
+            "start": 4.04,
+            "end": 4.32,
+            "word": " و",
+            "probability": 0.9864213466644287
+          },
+          {
+            "start": 4.32,
+            "end": 4.96,
+            "word": " فعالیت",
+            "probability": 0.9881281614303589
+          },
+          {
+            "start": 4.96,
+            "end": 5.48,
+            "word": " شغلی",
+            "probability": 0.9876228421926498
+          },
+          {
+            "start": 5.48,
+            "end": 6.62,
+            "word": " جریان",
+            "probability": 0.9356919924418131
+          },
+          {
+            "start": 6.62,
+            "end": 7.16,
+            "word": " درامدی",
+            "probability": 0.948900020122528
+          },
+          {
+            "start": 7.16,
+            "end": 7.28,
+            "word": " هم",
+            "probability": 0.8025599420070648
+          },
+          {
+            "start": 7.28,
+            "end": 7.9,
+            "word": " منتوقف",
+            "probability": 0.9598104357719421
+          },
+          {
+            "start": 7.9,
+            "end": 8.24,
+            "word": " می‌شه.",
+            "probability": 0.9641042798757553
+          },
+          {
+            "start": 8.46,
+            "end": 8.96,
+            "word": " اما",
+            "probability": 0.985029548406601
+          },
+          {
+            "start": 8.96,
+            "end": 9.8,
+            "word": " سرمایه‌گذاری",
+            "probability": 0.9577901899814606
+          },
+          {
+            "start": 9.8,
+            "end": 10.16,
+            "word": " اینجوری",
+            "probability": 0.9063824653625489
+          },
+          {
+            "start": 10.16,
+            "end": 10.48,
+            "word": " نیست.",
+            "probability": 0.9762129783630371
+          }
+        ]
+      }
+    ]
+  }
+}

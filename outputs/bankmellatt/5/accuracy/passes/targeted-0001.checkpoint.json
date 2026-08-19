@@ -1,0 +1,323 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "8f5f160a347394367662ffa0eed6b5002d76cecfd8f3c133cb13b7249793b01d",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 21.6,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.6,
+        "text": "شنیدی پول پول میاره؟ و حتماً هم دیدین که پولپول میره. اما چجوری؟",
+        "avg_logprob": -0.2671638124932845,
+        "compression_ratio": 1.8373205741626795,
+        "no_speech_prob": 2.69813227316007e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.72,
+            "word": " شنیدی",
+            "probability": 0.9919119238853454
+          },
+          {
+            "start": 0.72,
+            "end": 1.14,
+            "word": " پول",
+            "probability": 0.8312597274780273
+          },
+          {
+            "start": 1.14,
+            "end": 1.4,
+            "word": " پول",
+            "probability": 0.9943409264087677
+          },
+          {
+            "start": 1.4,
+            "end": 2.12,
+            "word": " میاره؟",
+            "probability": 0.8599181324243546
+          },
+          {
+            "start": 2.12,
+            "end": 2.94,
+            "word": " و",
+            "probability": 0.9923492670059204
+          },
+          {
+            "start": 2.94,
+            "end": 3.42,
+            "word": " حتماً",
+            "probability": 0.8362061977386475
+          },
+          {
+            "start": 3.42,
+            "end": 3.52,
+            "word": " هم",
+            "probability": 0.9053342640399933
+          },
+          {
+            "start": 3.52,
+            "end": 3.96,
+            "word": " دیدین",
+            "probability": 0.7607734948396683
+          },
+          {
+            "start": 3.96,
+            "end": 4.18,
+            "word": " که",
+            "probability": 0.9974900186061859
+          },
+          {
+            "start": 4.18,
+            "end": 4.66,
+            "word": " پولپول",
+            "probability": 0.7455446781023056
+          },
+          {
+            "start": 4.66,
+            "end": 5.1,
+            "word": " میره.",
+            "probability": 0.6666913367807865
+          },
+          {
+            "start": 5.2,
+            "end": 5.62,
+            "word": " اما",
+            "probability": 0.9943844079971313
+          },
+          {
+            "start": 5.62,
+            "end": 6.6,
+            "word": " چجوری؟",
+            "probability": 0.98558269739151
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 6.6,
+        "end": 10.48,
+        "text": "چرا یه عده‌ای که، پول دارن، همیشه پل دارتر میشه؟",
+        "avg_logprob": -0.2671638124932845,
+        "compression_ratio": 1.8373205741626795,
+        "no_speech_prob": 2.69813227316007e-10,
+        "words": [
+          {
+            "start": 6.6,
+            "end": 7.4,
+            "word": " چرا",
+            "probability": 0.9959802031517029
+          },
+          {
+            "start": 7.4,
+            "end": 7.66,
+            "word": " یه",
+            "probability": 0.9588437676429749
+          },
+          {
+            "start": 7.66,
+            "end": 7.92,
+            "word": " عده‌ای",
+            "probability": 0.6688962156573931
+          },
+          {
+            "start": 7.92,
+            "end": 8.2,
+            "word": " که،",
+            "probability": 0.6286245810697437
+          },
+          {
+            "start": 8.2,
+            "end": 8.32,
+            "word": " پول",
+            "probability": 0.9869351983070374
+          },
+          {
+            "start": 8.32,
+            "end": 8.78,
+            "word": " دارن،",
+            "probability": 0.8791625052690506
+          },
+          {
+            "start": 8.78,
+            "end": 9.16,
+            "word": " همیشه",
+            "probability": 0.9950546264648438
+          },
+          {
+            "start": 9.16,
+            "end": 9.4,
+            "word": " پل",
+            "probability": 0.47862432175315917
+          },
+          {
+            "start": 9.4,
+            "end": 9.9,
+            "word": " دارتر",
+            "probability": 0.943148747086525
+          },
+          {
+            "start": 9.9,
+            "end": 10.48,
+            "word": " میشه؟",
+            "probability": 0.7314536422491074
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "start": 10.48,
+        "end": 15.0,
+        "text": "و اونهایی ک پولی دربساط ندارن هی عرضاش پولشون هم کم میشود؟",
+        "avg_logprob": -0.2671638124932845,
+        "compression_ratio": 1.8373205741626795,
+        "no_speech_prob": 2.69813227316007e-10,
+        "words": [
+          {
+            "start": 10.48,
+            "end": 10.9,
+            "word": " و",
+            "probability": 0.9610111713409424
+          },
+          {
+            "start": 10.9,
+            "end": 11.54,
+            "word": " اونهایی",
+            "probability": 0.7779855728149414
+          },
+          {
+            "start": 11.54,
+            "end": 11.6,
+            "word": " ک",
+            "probability": 0.9612268805503845
+          },
+          {
+            "start": 11.6,
+            "end": 12.02,
+            "word": " پولی",
+            "probability": 0.6612597255734727
+          },
+          {
+            "start": 12.02,
+            "end": 12.6,
+            "word": " دربساط",
+            "probability": 0.7585797980427742
+          },
+          {
+            "start": 12.6,
+            "end": 13.12,
+            "word": " ندارن",
+            "probability": 0.9889941364526749
+          },
+          {
+            "start": 13.12,
+            "end": 13.4,
+            "word": " هی",
+            "probability": 0.41341533698141575
+          },
+          {
+            "start": 13.4,
+            "end": 13.76,
+            "word": " عرضاش",
+            "probability": 0.5308762838443121
+          },
+          {
+            "start": 13.76,
+            "end": 14.22,
+            "word": " پولشون",
+            "probability": 0.9575259834527969
+          },
+          {
+            "start": 14.22,
+            "end": 14.36,
+            "word": " هم",
+            "probability": 0.7847465872764587
+          },
+          {
+            "start": 14.36,
+            "end": 14.64,
+            "word": " کم",
+            "probability": 0.9946865737438202
+          },
+          {
+            "start": 14.64,
+            "end": 15.06,
+            "word": " میشود؟",
+            "probability": 0.6716292049532058
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "start": 15.78,
+        "end": 19.12,
+        "text": "مسئله اینجاست که… پول رو به کار میندردن.",
+        "avg_logprob": -0.2671638124932845,
+        "compression_ratio": 1.8373205741626795,
+        "no_speech_prob": 2.69813227316007e-10,
+        "words": [
+          {
+            "start": 15.78,
+            "end": 16.34,
+            "word": " مسئله",
+            "probability": 0.9827495813369751
+          },
+          {
+            "start": 16.34,
+            "end": 16.82,
+            "word": " اینجاست",
+            "probability": 0.9336341142654419
+          },
+          {
+            "start": 16.82,
+            "end": 17.16,
+            "word": " که…",
+            "probability": 0.6573726984400613
+          },
+          {
+            "start": 17.16,
+            "end": 17.4,
+            "word": " پول",
+            "probability": 0.9717308282852173
+          },
+          {
+            "start": 17.4,
+            "end": 17.7,
+            "word": " رو",
+            "probability": 0.8635643422603607
+          },
+          {
+            "start": 17.7,
+            "end": 18.04,
+            "word": " به",
+            "probability": 0.9175717830657959
+          },
+          {
+            "start": 18.04,
+            "end": 18.42,
+            "word": " کار",
+            "probability": 0.9862595796585083
+          },
+          {
+            "start": 18.42,
+            "end": 19.12,
+            "word": " میندردن.",
+            "probability": 0.6862721145153046
+          }
+        ]
+      }
+    ]
+  }
+}

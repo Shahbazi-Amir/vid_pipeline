@@ -1,0 +1,64 @@
+{
+  "schema_version": 5,
+  "status": "human_review_required",
+  "review_status": "human_review_required",
+  "job_id": "bankmellatt-ba5cb4bd",
+  "source_url": "",
+  "final_markdown": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/final/transcript.final.md",
+  "final_text": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/final/transcript.final.txt",
+  "content_preservation": {
+    "accepted": true,
+    "source_tokens": 2385,
+    "candidate_tokens": 2385,
+    "length_ratio": 1.0,
+    "token_recall": 1.0,
+    "sequence_similarity": 1.0,
+    "reasons": []
+  },
+  "warning": "Editorial stage was disabled; this is not a reviewed transcript.",
+  "accuracy_status": "completed",
+  "accuracy_manifest": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/accuracy/manifest.json",
+  "accuracy_files": {
+    "json": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/accuracy/transcript.consensus.json",
+    "markdown": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/accuracy/transcript.consensus.md",
+    "text": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/accuracy/transcript.consensus.txt",
+    "srt": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/accuracy/transcript.consensus.srt",
+    "vtt": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/accuracy/transcript.consensus.vtt",
+    "disagreements": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/accuracy/disagreements.json",
+    "manifest": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/accuracy/manifest.json"
+  },
+  "accuracy_human_verification": false,
+  "accuracy_kind": "reference_free_quality",
+  "accuracy_consensus_json": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/accuracy/transcript.consensus.json",
+  "machine_markdown": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/machine/transcript.machine.md",
+  "machine_text": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/machine/transcript.machine.txt",
+  "editorial_report": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/final/editorial-report.json",
+  "human_audio_verification": false,
+  "pre_review_status": "completed",
+  "pre_review_manifest": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/pre_review/manifest.json",
+  "pre_review_files": {
+    "text": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/pre_review/transcript.pre-review.txt",
+    "markdown": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/pre_review/transcript.pre-review.md",
+    "json": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/pre_review/transcript.pre-review.json",
+    "srt": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/pre_review/transcript.pre-review.srt",
+    "vtt": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/pre_review/transcript.pre-review.vtt",
+    "manifest": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/pre_review/manifest.json"
+  },
+  "pre_human_review_status": "accuracy_consensus_completed",
+  "review_package": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/review/manifest.json",
+  "export_status": "completed",
+  "final_outputs": {
+    "markdown": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/delivery/transcript.md",
+    "text": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/delivery/transcript.txt",
+    "timestamped_markdown": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/delivery/transcript.timestamped.md"
+  },
+  "timestamp_source": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/accuracy/transcript.consensus.json",
+  "exported_speakers": [],
+  "exported_effective_speakers": [],
+  "exported_effective_speaker_count": 0,
+  "source_provenance": {
+    "original_download_url": "",
+    "source_page_url": "",
+    "archive_url": "https://github.com/Shahbazi-Amir/vid_pipeline/releases/download/bankmellatt/5.mp4"
+  }
+}

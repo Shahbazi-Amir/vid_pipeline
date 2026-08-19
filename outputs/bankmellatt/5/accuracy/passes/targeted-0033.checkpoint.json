@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "5a40987d9eecf3717241976b5aa782172bb28f1b09305221a712d0418c40e432",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.84,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.72,
+        "text": "قفیت درامدله‌هایمون هم کاهش پیدا می‌کنه، یعنی دیگه اون حقوق رو به ما نمی‌دن و حتی کم‌تر از اون ببیجه بابا",
+        "avg_logprob": -0.23844258507092794,
+        "compression_ratio": 1.4264705882352942,
+        "no_speech_prob": 2.1561839813610817e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.22,
+            "word": " قفیت",
+            "probability": 0.6553338654339314
+          },
+          {
+            "start": 0.22,
+            "end": 1.2,
+            "word": " درامدله‌هایمون",
+            "probability": 0.6984649458900094
+          },
+          {
+            "start": 1.2,
+            "end": 1.32,
+            "word": " هم",
+            "probability": 0.6887615770101547
+          },
+          {
+            "start": 1.32,
+            "end": 1.62,
+            "word": " کاهش",
+            "probability": 0.8391716877619425
+          },
+          {
+            "start": 1.62,
+            "end": 1.92,
+            "word": " پیدا",
+            "probability": 0.9717293183008829
+          },
+          {
+            "start": 1.92,
+            "end": 2.58,
+            "word": " می‌کنه،",
+            "probability": 0.7802100957681736
+          },
+          {
+            "start": 2.58,
+            "end": 3.04,
+            "word": " یعنی",
+            "probability": 0.9772900342941284
+          },
+          {
+            "start": 3.04,
+            "end": 3.3,
+            "word": " دیگه",
+            "probability": 0.8562146127223969
+          },
+          {
+            "start": 3.3,
+            "end": 3.38,
+            "word": " اون",
+            "probability": 0.9536343812942505
+          },
+          {
+            "start": 3.38,
+            "end": 3.84,
+            "word": " حقوق",
+            "probability": 0.9871966242790222
+          },
+          {
+            "start": 3.84,
+            "end": 4.42,
+            "word": " رو",
+            "probability": 0.7986132204532623
+          },
+          {
+            "start": 4.42,
+            "end": 4.54,
+            "word": " به",
+            "probability": 0.9686184525489807
+          },
+          {
+            "start": 4.54,
+            "end": 4.68,
+            "word": " ما",
+            "probability": 0.9718121886253357
+          },
+          {
+            "start": 4.68,
+            "end": 5.36,
+            "word": " نمی‌دن",
+            "probability": 0.9094630479812622
+          },
+          {
+            "start": 5.36,
+            "end": 5.92,
+            "word": " و",
+            "probability": 0.7858567833900452
+          },
+          {
+            "start": 5.92,
+            "end": 6.22,
+            "word": " حتی",
+            "probability": 0.9657401045163473
+          },
+          {
+            "start": 6.22,
+            "end": 6.74,
+            "word": " کم‌تر",
+            "probability": 0.9802591562271118
+          },
+          {
+            "start": 6.74,
+            "end": 6.94,
+            "word": " از",
+            "probability": 0.9758377373218536
+          },
+          {
+            "start": 6.94,
+            "end": 7.08,
+            "word": " اون",
+            "probability": 0.9658980071544647
+          },
+          {
+            "start": 7.08,
+            "end": 7.54,
+            "word": " ببیجه",
+            "probability": 0.6419050335884094
+          },
+          {
+            "start": 7.54,
+            "end": 7.72,
+            "word": " بابا",
+            "probability": 0.7754081686337789
+          }
+        ]
+      }
+    ]
+  }
+}

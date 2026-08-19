@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "4d980ee3c92ce92a567cee85706d35746801bdf1830b5fa79422cccf81581cc2",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.12,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.1,
+        "text": "حزینه‌های درمانی اضافه می‌شه، توقعات در واقع اجتماعی مثل بزرگ فامیل بودن ایجاد می‌اشه که کمک کردن به دیگران جدی‌تر می‌سهد.",
+        "avg_logprob": -0.16005168300728465,
+        "compression_ratio": 1.5302013422818792,
+        "no_speech_prob": 2.924376574231502e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 1.12,
+            "word": " حزینه‌های",
+            "probability": 0.725875038520566
+          },
+          {
+            "start": 1.12,
+            "end": 1.8,
+            "word": " درمانی",
+            "probability": 0.9960632681846618
+          },
+          {
+            "start": 1.8,
+            "end": 2.28,
+            "word": " اضافه",
+            "probability": 0.9947105348110199
+          },
+          {
+            "start": 2.28,
+            "end": 2.6,
+            "word": " می‌شه،",
+            "probability": 0.7414982497692109
+          },
+          {
+            "start": 2.6,
+            "end": 3.66,
+            "word": " توقعات",
+            "probability": 0.9870905727148056
+          },
+          {
+            "start": 3.66,
+            "end": 4.26,
+            "word": " در",
+            "probability": 0.8701033592224121
+          },
+          {
+            "start": 4.26,
+            "end": 4.56,
+            "word": " واقع",
+            "probability": 0.9848954280217489
+          },
+          {
+            "start": 4.56,
+            "end": 5.36,
+            "word": " اجتماعی",
+            "probability": 0.9951319992542267
+          },
+          {
+            "start": 5.36,
+            "end": 5.72,
+            "word": " مثل",
+            "probability": 0.9469969868659973
+          },
+          {
+            "start": 5.72,
+            "end": 6.08,
+            "word": " بزرگ",
+            "probability": 0.983440488576889
+          },
+          {
+            "start": 6.08,
+            "end": 6.6,
+            "word": " فامیل",
+            "probability": 0.9827659130096436
+          },
+          {
+            "start": 6.6,
+            "end": 6.96,
+            "word": " بودن",
+            "probability": 0.9719633062680563
+          },
+          {
+            "start": 6.96,
+            "end": 7.34,
+            "word": " ایجاد",
+            "probability": 0.9886065572500229
+          },
+          {
+            "start": 7.34,
+            "end": 7.62,
+            "word": " می‌اشه",
+            "probability": 0.7336723998596426
+          },
+          {
+            "start": 7.62,
+            "end": 7.78,
+            "word": " که",
+            "probability": 0.9250363707542419
+          },
+          {
+            "start": 7.78,
+            "end": 8.3,
+            "word": " کمک",
+            "probability": 0.9961051543553671
+          },
+          {
+            "start": 8.3,
+            "end": 8.8,
+            "word": " کردن",
+            "probability": 0.9714850584665934
+          },
+          {
+            "start": 8.8,
+            "end": 8.92,
+            "word": " به",
+            "probability": 0.9942209720611572
+          },
+          {
+            "start": 8.92,
+            "end": 9.4,
+            "word": " دیگران",
+            "probability": 0.9908093333244323
+          },
+          {
+            "start": 9.4,
+            "end": 10.02,
+            "word": " جدی‌تر",
+            "probability": 0.9678069651126862
+          },
+          {
+            "start": 10.02,
+            "end": 10.1,
+            "word": " می‌سهد.",
+            "probability": 0.4784050138667226
+          }
+        ]
+      }
+    ]
+  }
+}

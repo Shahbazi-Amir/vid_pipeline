@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "68d5e46e0e5349e96f114af6753ea62c68fc60d7621997136006e1f20a095c94",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.94,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.92,
+        "text": "یعنی دیگه اون حقوق رو به ما نمی‌دن و حتی کم‌تر از اون ببیجه با بحران‌هایی که صندوق‌ها بازنشستگی داره، یه حققی به ما می‌دهن که کفافه...",
+        "avg_logprob": -0.20276492785500444,
+        "compression_ratio": 1.5741935483870968,
+        "no_speech_prob": 2.437142432309969e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.2,
+            "word": " یعنی",
+            "probability": 0.9954783469438553
+          },
+          {
+            "start": 0.2,
+            "end": 0.42,
+            "word": " دیگه",
+            "probability": 0.8423897475004196
+          },
+          {
+            "start": 0.42,
+            "end": 0.56,
+            "word": " اون",
+            "probability": 0.9900524616241455
+          },
+          {
+            "start": 0.56,
+            "end": 0.98,
+            "word": " حقوق",
+            "probability": 0.9964327216148376
+          },
+          {
+            "start": 0.98,
+            "end": 1.56,
+            "word": " رو",
+            "probability": 0.8455618023872375
+          },
+          {
+            "start": 1.56,
+            "end": 1.7,
+            "word": " به",
+            "probability": 0.9943126440048218
+          },
+          {
+            "start": 1.7,
+            "end": 1.84,
+            "word": " ما",
+            "probability": 0.9977720379829407
+          },
+          {
+            "start": 1.84,
+            "end": 2.52,
+            "word": " نمی‌دن",
+            "probability": 0.7989065748794625
+          },
+          {
+            "start": 2.52,
+            "end": 3.08,
+            "word": " و",
+            "probability": 0.8371297121047974
+          },
+          {
+            "start": 3.08,
+            "end": 3.4,
+            "word": " حتی",
+            "probability": 0.983230193456014
+          },
+          {
+            "start": 3.4,
+            "end": 3.9,
+            "word": " کم‌تر",
+            "probability": 0.9779110312461853
+          },
+          {
+            "start": 3.9,
+            "end": 4.1,
+            "word": " از",
+            "probability": 0.9802884757518768
+          },
+          {
+            "start": 4.1,
+            "end": 4.24,
+            "word": " اون",
+            "probability": 0.9302094876766205
+          },
+          {
+            "start": 4.24,
+            "end": 4.68,
+            "word": " ببیجه",
+            "probability": 0.6233244419097901
+          },
+          {
+            "start": 4.68,
+            "end": 4.86,
+            "word": " با",
+            "probability": 0.9427073001861572
+          },
+          {
+            "start": 4.86,
+            "end": 5.44,
+            "word": " بحران‌هایی",
+            "probability": 0.9564501941204071
+          },
+          {
+            "start": 5.44,
+            "end": 5.54,
+            "word": " که",
+            "probability": 0.9904153347015381
+          },
+          {
+            "start": 5.54,
+            "end": 6.0,
+            "word": " صندوق‌ها",
+            "probability": 0.9851166009902954
+          },
+          {
+            "start": 6.0,
+            "end": 6.92,
+            "word": " بازنشستگی",
+            "probability": 0.801136021568839
+          },
+          {
+            "start": 6.92,
+            "end": 8.02,
+            "word": " داره،",
+            "probability": 0.6943972222507
+          },
+          {
+            "start": 8.02,
+            "end": 8.26,
+            "word": " یه",
+            "probability": 0.8631164133548737
+          },
+          {
+            "start": 8.26,
+            "end": 8.7,
+            "word": " حققی",
+            "probability": 0.7281630115612643
+          },
+          {
+            "start": 8.7,
+            "end": 8.8,
+            "word": " به",
+            "probability": 0.9772122502326965
+          },
+          {
+            "start": 8.8,
+            "end": 8.98,
+            "word": " ما",
+            "probability": 0.9606408476829529
+          },
+          {
+            "start": 8.98,
+            "end": 9.26,
+            "word": " می‌دهن",
+            "probability": 0.7105906695127487
+          },
+          {
+            "start": 9.26,
+            "end": 9.4,
+            "word": " که",
+            "probability": 0.9808849394321442
+          },
+          {
+            "start": 9.4,
+            "end": 9.92,
+            "word": " کفافه...",
+            "probability": 0.7071226976811886
+          }
+        ]
+      }
+    ]
+  }
+}

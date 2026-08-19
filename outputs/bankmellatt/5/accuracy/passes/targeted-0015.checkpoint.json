@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "5fc9c169aed80992464c6b018f5ed05ac0b139df3e159fbd6e0d6a29bc421de5",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.44,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.94,
+        "text": "ببنده، دیگه حق ویزیت هم نمی‌گیره، یک کارمندی که استفا بده و در واقع ترک کال بکنه، کسی بهش حقوق نمί‌ده.",
+        "avg_logprob": -0.2666553632418315,
+        "compression_ratio": 1.3805970149253732,
+        "no_speech_prob": 4.011133369896669e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.9,
+            "word": " ببنده،",
+            "probability": 0.6486285842955113
+          },
+          {
+            "start": 0.9,
+            "end": 1.18,
+            "word": " دیگه",
+            "probability": 0.9379687309265137
+          },
+          {
+            "start": 1.18,
+            "end": 1.46,
+            "word": " حق",
+            "probability": 0.9714693427085876
+          },
+          {
+            "start": 1.46,
+            "end": 1.9,
+            "word": " ویزیت",
+            "probability": 0.9225514769554138
+          },
+          {
+            "start": 1.9,
+            "end": 2.02,
+            "word": " هم",
+            "probability": 0.9922441840171814
+          },
+          {
+            "start": 2.02,
+            "end": 2.54,
+            "word": " نمی‌گیره،",
+            "probability": 0.7950220695800252
+          },
+          {
+            "start": 2.54,
+            "end": 2.7,
+            "word": " یک",
+            "probability": 0.8975475132465363
+          },
+          {
+            "start": 2.7,
+            "end": 3.2,
+            "word": " کارمندی",
+            "probability": 0.9536978363990783
+          },
+          {
+            "start": 3.2,
+            "end": 3.34,
+            "word": " که",
+            "probability": 0.9860426187515259
+          },
+          {
+            "start": 3.34,
+            "end": 3.88,
+            "word": " استفا",
+            "probability": 0.7949195901552836
+          },
+          {
+            "start": 3.88,
+            "end": 4.3,
+            "word": " بده",
+            "probability": 0.6710943877696991
+          },
+          {
+            "start": 4.3,
+            "end": 4.42,
+            "word": " و",
+            "probability": 0.9160670042037964
+          },
+          {
+            "start": 4.42,
+            "end": 5.32,
+            "word": " در",
+            "probability": 0.8110301792621613
+          },
+          {
+            "start": 5.32,
+            "end": 5.46,
+            "word": " واقع",
+            "probability": 0.8912485043207804
+          },
+          {
+            "start": 5.46,
+            "end": 5.8,
+            "word": " ترک",
+            "probability": 0.9813556472460429
+          },
+          {
+            "start": 5.8,
+            "end": 6.12,
+            "word": " کال",
+            "probability": 0.4926491299411282
+          },
+          {
+            "start": 6.12,
+            "end": 7.0,
+            "word": " بکنه،",
+            "probability": 0.831419724225998
+          },
+          {
+            "start": 7.0,
+            "end": 7.8,
+            "word": " کسی",
+            "probability": 0.6794280521571636
+          },
+          {
+            "start": 7.8,
+            "end": 8.1,
+            "word": " بهش",
+            "probability": 0.9769402146339417
+          },
+          {
+            "start": 8.1,
+            "end": 8.44,
+            "word": " حقوق",
+            "probability": 0.9422238071759542
+          },
+          {
+            "start": 8.44,
+            "end": 8.94,
+            "word": " نمί‌ده.",
+            "probability": 0.7832655117563263
+          }
+        ]
+      }
+    ]
+  }
+}

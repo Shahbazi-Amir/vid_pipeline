@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "8a7ec97955651de401cf56a23fb863eb67f561b00d93da90cbec8cb7347b5537",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.16,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.14,
+        "text": "شما لازم نیست از این کار بکنی، پول خودش برای شما کار می‌کنه. حتی شب‌هایی که خوابی، حت تا زمان‌ها،",
+        "avg_logprob": -0.27425939612316363,
+        "compression_ratio": 1.4508196721311475,
+        "no_speech_prob": 2.9616464836124123e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.9,
+            "word": " شما",
+            "probability": 0.8406577408313751
+          },
+          {
+            "start": 0.9,
+            "end": 1.38,
+            "word": " لازم",
+            "probability": 0.9963995218276978
+          },
+          {
+            "start": 1.38,
+            "end": 1.6,
+            "word": " نیست",
+            "probability": 0.9939117232958475
+          },
+          {
+            "start": 1.6,
+            "end": 1.76,
+            "word": " از",
+            "probability": 0.5398168563842773
+          },
+          {
+            "start": 1.76,
+            "end": 1.84,
+            "word": " این",
+            "probability": 0.7758318781852722
+          },
+          {
+            "start": 1.84,
+            "end": 2.12,
+            "word": " کار",
+            "probability": 0.9771007001399994
+          },
+          {
+            "start": 2.12,
+            "end": 2.58,
+            "word": " بکنی،",
+            "probability": 0.7941248044371605
+          },
+          {
+            "start": 2.58,
+            "end": 2.86,
+            "word": " پول",
+            "probability": 0.9965292811393738
+          },
+          {
+            "start": 2.86,
+            "end": 3.22,
+            "word": " خودش",
+            "probability": 0.9971441427866617
+          },
+          {
+            "start": 3.22,
+            "end": 3.52,
+            "word": " برای",
+            "probability": 0.9960440595944723
+          },
+          {
+            "start": 3.52,
+            "end": 3.78,
+            "word": " شما",
+            "probability": 0.998742550611496
+          },
+          {
+            "start": 3.78,
+            "end": 4.12,
+            "word": " کار",
+            "probability": 0.9985935389995575
+          },
+          {
+            "start": 4.12,
+            "end": 4.68,
+            "word": " می‌کنه.",
+            "probability": 0.6497259937226773
+          },
+          {
+            "start": 4.9,
+            "end": 5.46,
+            "word": " حتی",
+            "probability": 0.9196299314498901
+          },
+          {
+            "start": 5.46,
+            "end": 6.04,
+            "word": " شب‌هایی",
+            "probability": 0.9309128324190775
+          },
+          {
+            "start": 6.04,
+            "end": 6.18,
+            "word": " که",
+            "probability": 0.9591923356056213
+          },
+          {
+            "start": 6.18,
+            "end": 6.62,
+            "word": " خوابی،",
+            "probability": 0.9063171982765198
+          },
+          {
+            "start": 6.62,
+            "end": 6.76,
+            "word": " حت",
+            "probability": 0.983661413192749
+          },
+          {
+            "start": 6.76,
+            "end": 6.86,
+            "word": " تا",
+            "probability": 0.20691288716625422
+          },
+          {
+            "start": 6.86,
+            "end": 7.14,
+            "word": " زمان‌ها،",
+            "probability": 0.5578686172763506
+          }
+        ]
+      }
+    ]
+  }
+}

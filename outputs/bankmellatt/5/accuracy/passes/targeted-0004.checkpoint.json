@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "c673b0a42f505fc1956202599b95d934ac75870c2c795b942dd8f9707c206593",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.48,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.46,
+        "text": "میکنیم، اصناد و مداره که پشتیبان داریم و یه جاهایی هم کاهش حزینه داشتیم به تناسب زندگیمون و اونجوری که دوست داشتهیم نه به معنی اینکه به خودمون ریا...",
+        "avg_logprob": -0.13913215370848775,
+        "compression_ratio": 1.679245283018868,
+        "no_speech_prob": 2.0462771754825582e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.56,
+            "word": " میکنیم،",
+            "probability": 0.7438786588609219
+          },
+          {
+            "start": 0.56,
+            "end": 0.86,
+            "word": " اصناد",
+            "probability": 0.9657090455293655
+          },
+          {
+            "start": 0.86,
+            "end": 0.94,
+            "word": " و",
+            "probability": 0.7454387545585632
+          },
+          {
+            "start": 0.94,
+            "end": 1.22,
+            "word": " مداره",
+            "probability": 0.9628837555646896
+          },
+          {
+            "start": 1.22,
+            "end": 1.38,
+            "word": " که",
+            "probability": 0.9805189371109009
+          },
+          {
+            "start": 1.38,
+            "end": 2.04,
+            "word": " پشتیبان",
+            "probability": 0.9846484661102295
+          },
+          {
+            "start": 2.04,
+            "end": 2.54,
+            "word": " داریم",
+            "probability": 0.9990148842334747
+          },
+          {
+            "start": 2.54,
+            "end": 3.0,
+            "word": " و",
+            "probability": 0.9857697486877441
+          },
+          {
+            "start": 3.0,
+            "end": 3.2,
+            "word": " یه",
+            "probability": 0.9950352311134338
+          },
+          {
+            "start": 3.2,
+            "end": 3.6,
+            "word": " جاهایی",
+            "probability": 0.9924480795860291
+          },
+          {
+            "start": 3.6,
+            "end": 3.7,
+            "word": " هم",
+            "probability": 0.9444766938686371
+          },
+          {
+            "start": 3.7,
+            "end": 4.14,
+            "word": " کاهش",
+            "probability": 0.9485708673795065
+          },
+          {
+            "start": 4.14,
+            "end": 4.66,
+            "word": " حزینه",
+            "probability": 0.7044535055756569
+          },
+          {
+            "start": 4.66,
+            "end": 5.12,
+            "word": " داشتیم",
+            "probability": 0.9993793129920959
+          },
+          {
+            "start": 5.12,
+            "end": 5.28,
+            "word": " به",
+            "probability": 0.9829651713371277
+          },
+          {
+            "start": 5.28,
+            "end": 5.72,
+            "word": " تناسب",
+            "probability": 0.7132038474082947
+          },
+          {
+            "start": 5.72,
+            "end": 6.6,
+            "word": " زندگیمون",
+            "probability": 0.9794387519359589
+          },
+          {
+            "start": 6.6,
+            "end": 6.7,
+            "word": " و",
+            "probability": 0.9985629916191101
+          },
+          {
+            "start": 6.7,
+            "end": 7.04,
+            "word": " اونجوری",
+            "probability": 0.9653935194015503
+          },
+          {
+            "start": 7.04,
+            "end": 7.18,
+            "word": " که",
+            "probability": 0.999712198972702
+          },
+          {
+            "start": 7.18,
+            "end": 7.46,
+            "word": " دوست",
+            "probability": 0.9995695153872172
+          },
+          {
+            "start": 7.46,
+            "end": 8.02,
+            "word": " داشتهیم",
+            "probability": 0.7897716790634149
+          },
+          {
+            "start": 8.02,
+            "end": 8.5,
+            "word": " نه",
+            "probability": 0.9536815583705902
+          },
+          {
+            "start": 8.5,
+            "end": 8.58,
+            "word": " به",
+            "probability": 0.9990094900131226
+          },
+          {
+            "start": 8.58,
+            "end": 9.06,
+            "word": " معنی",
+            "probability": 0.8820059696833292
+          },
+          {
+            "start": 9.06,
+            "end": 9.3,
+            "word": " اینکه",
+            "probability": 0.7685439363121986
+          },
+          {
+            "start": 9.3,
+            "end": 9.38,
+            "word": " به",
+            "probability": 0.9939457774162292
+          },
+          {
+            "start": 9.38,
+            "end": 9.86,
+            "word": " خودمون",
+            "probability": 0.9987193793058395
+          },
+          {
+            "start": 9.86,
+            "end": 10.46,
+            "word": " ریا...",
+            "probability": 0.4560790496567885
+          }
+        ]
+      }
+    ]
+  }
+}

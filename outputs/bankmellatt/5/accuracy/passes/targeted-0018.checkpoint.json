@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "7a118643834a6b36e3d066e8405b6b79844b759312782a3c8baebd35baa28b78",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.24,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.22,
+        "text": "جریان درامدی هم منتوقف می‌شه، اما سرمایه‌گذاری اینجوری نیست، شما لازم نیسند کار بکنی، پول خود",
+        "avg_logprob": -0.1775288080412244,
+        "compression_ratio": 1.4416666666666667,
+        "no_speech_prob": 2.150505190590124e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.88,
+            "word": " جریان",
+            "probability": 0.9915280938148499
+          },
+          {
+            "start": 0.88,
+            "end": 1.42,
+            "word": " درامدی",
+            "probability": 0.9887872338294983
+          },
+          {
+            "start": 1.42,
+            "end": 1.54,
+            "word": " هم",
+            "probability": 0.8152036666870117
+          },
+          {
+            "start": 1.54,
+            "end": 2.12,
+            "word": " منتوقف",
+            "probability": 0.960110068321228
+          },
+          {
+            "start": 2.12,
+            "end": 2.7,
+            "word": " می‌شه،",
+            "probability": 0.5772989735007286
+          },
+          {
+            "start": 2.7,
+            "end": 3.22,
+            "word": " اما",
+            "probability": 0.9917273819446564
+          },
+          {
+            "start": 3.22,
+            "end": 4.04,
+            "word": " سرمایه‌گذاری",
+            "probability": 0.9547943770885468
+          },
+          {
+            "start": 4.04,
+            "end": 4.42,
+            "word": " اینجوری",
+            "probability": 0.8886219143867493
+          },
+          {
+            "start": 4.42,
+            "end": 4.86,
+            "word": " نیست،",
+            "probability": 0.8000303693115711
+          },
+          {
+            "start": 4.86,
+            "end": 5.14,
+            "word": " شما",
+            "probability": 0.9909721314907074
+          },
+          {
+            "start": 5.14,
+            "end": 5.6,
+            "word": " لازم",
+            "probability": 0.9947781761487325
+          },
+          {
+            "start": 5.6,
+            "end": 5.98,
+            "word": " نیسند",
+            "probability": 0.5172925991937518
+          },
+          {
+            "start": 5.98,
+            "end": 6.34,
+            "word": " کار",
+            "probability": 0.9873131215572357
+          },
+          {
+            "start": 6.34,
+            "end": 6.8,
+            "word": " بکنی،",
+            "probability": 0.8069473147392273
+          },
+          {
+            "start": 6.8,
+            "end": 7.08,
+            "word": " پول",
+            "probability": 0.9704859554767609
+          },
+          {
+            "start": 7.08,
+            "end": 7.22,
+            "word": " خود",
+            "probability": 0.9173379242420197
+          }
+        ]
+      }
+    ]
+  }
+}

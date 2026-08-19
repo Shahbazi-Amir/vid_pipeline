@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "8b56c75d74844c421cab4e80f7f4a05562974ea97de9161d6d01675cee1117cc",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.72,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.7,
+        "text": "تو تفریح داری می‌کنی، اون پول برای شما کار میکنه. دوومین آسیب درامد ناشت شغل،",
+        "avg_logprob": -0.3353093828146274,
+        "compression_ratio": 1.238938053097345,
+        "no_speech_prob": 2.1898316493462744e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.24,
+            "word": " تو",
+            "probability": 0.14898908138275146
+          },
+          {
+            "start": 0.24,
+            "end": 0.9,
+            "word": " تفریح",
+            "probability": 0.983713299036026
+          },
+          {
+            "start": 0.9,
+            "end": 2.08,
+            "word": " داری",
+            "probability": 0.8629533052444458
+          },
+          {
+            "start": 2.08,
+            "end": 2.6,
+            "word": " می‌کنی،",
+            "probability": 0.5566960753252109
+          },
+          {
+            "start": 2.6,
+            "end": 2.68,
+            "word": " اون",
+            "probability": 0.9602952003479004
+          },
+          {
+            "start": 2.68,
+            "end": 2.92,
+            "word": " پول",
+            "probability": 0.9816400408744812
+          },
+          {
+            "start": 2.92,
+            "end": 3.24,
+            "word": " برای",
+            "probability": 0.9895541667938232
+          },
+          {
+            "start": 3.24,
+            "end": 3.46,
+            "word": " شما",
+            "probability": 0.9938652813434601
+          },
+          {
+            "start": 3.46,
+            "end": 3.74,
+            "word": " کار",
+            "probability": 0.9941399097442627
+          },
+          {
+            "start": 3.74,
+            "end": 4.22,
+            "word": " میکنه.",
+            "probability": 0.697140209376812
+          },
+          {
+            "start": 4.46,
+            "end": 5.14,
+            "word": " دوومین",
+            "probability": 0.6375468820333481
+          },
+          {
+            "start": 5.14,
+            "end": 5.5,
+            "word": " آسیب",
+            "probability": 0.9305825382471085
+          },
+          {
+            "start": 5.5,
+            "end": 6.0,
+            "word": " درامد",
+            "probability": 0.738862469792366
+          },
+          {
+            "start": 6.0,
+            "end": 6.46,
+            "word": " ناشت",
+            "probability": 0.7475732465585073
+          },
+          {
+            "start": 6.46,
+            "end": 6.7,
+            "word": " شغل،",
+            "probability": 0.4042484536767006
+          }
+        ]
+      }
+    ]
+  }
+}

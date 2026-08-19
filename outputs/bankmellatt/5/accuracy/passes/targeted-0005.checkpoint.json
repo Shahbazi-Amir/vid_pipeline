@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "f2271fff0c7e690d649d0da258e698dd692530775b0ac5451e4c26ee8e691644",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.0,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.86,
+        "text": "ناسو به زندگیمون و اونجوری که دوست داشتیم، نه به معنی اینکه به خودمون ریاضت داده باشیم یا خصاصت به خرج داد باشین.",
+        "avg_logprob": -0.2142362419901223,
+        "compression_ratio": 1.7132867132867133,
+        "no_speech_prob": 2.0304688486127986e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.26,
+            "word": " ناسو",
+            "probability": 0.21761437195042768
+          },
+          {
+            "start": 0.26,
+            "end": 0.36,
+            "word": " به",
+            "probability": 0.953463613986969
+          },
+          {
+            "start": 0.36,
+            "end": 1.12,
+            "word": " زندگیمون",
+            "probability": 0.9674543042977651
+          },
+          {
+            "start": 1.12,
+            "end": 1.22,
+            "word": " و",
+            "probability": 0.988707423210144
+          },
+          {
+            "start": 1.22,
+            "end": 1.56,
+            "word": " اونجوری",
+            "probability": 0.97869793176651
+          },
+          {
+            "start": 1.56,
+            "end": 1.68,
+            "word": " که",
+            "probability": 0.9997311234474182
+          },
+          {
+            "start": 1.68,
+            "end": 1.98,
+            "word": " دوست",
+            "probability": 0.9996799230575562
+          },
+          {
+            "start": 1.98,
+            "end": 2.64,
+            "word": " داشتیم،",
+            "probability": 0.8330114594427869
+          },
+          {
+            "start": 2.64,
+            "end": 3.02,
+            "word": " نه",
+            "probability": 0.972493588924408
+          },
+          {
+            "start": 3.02,
+            "end": 3.1,
+            "word": " به",
+            "probability": 0.9989237189292908
+          },
+          {
+            "start": 3.1,
+            "end": 3.58,
+            "word": " معنی",
+            "probability": 0.8384125431378683
+          },
+          {
+            "start": 3.58,
+            "end": 3.8,
+            "word": " اینکه",
+            "probability": 0.8206419795751572
+          },
+          {
+            "start": 3.8,
+            "end": 3.9,
+            "word": " به",
+            "probability": 0.9959057569503784
+          },
+          {
+            "start": 3.9,
+            "end": 4.38,
+            "word": " خودمون",
+            "probability": 0.9980026930570602
+          },
+          {
+            "start": 4.38,
+            "end": 5.3,
+            "word": " ریاضت",
+            "probability": 0.9793520569801331
+          },
+          {
+            "start": 5.3,
+            "end": 5.58,
+            "word": " داده",
+            "probability": 0.9987315734227499
+          },
+          {
+            "start": 5.58,
+            "end": 6.12,
+            "word": " باشیم",
+            "probability": 0.9989948123693466
+          },
+          {
+            "start": 6.12,
+            "end": 6.36,
+            "word": " یا",
+            "probability": 0.9783189594745636
+          },
+          {
+            "start": 6.36,
+            "end": 6.94,
+            "word": " خصاصت",
+            "probability": 0.8140842393040657
+          },
+          {
+            "start": 6.94,
+            "end": 7.04,
+            "word": " به",
+            "probability": 0.8768911957740784
+          },
+          {
+            "start": 7.04,
+            "end": 7.3,
+            "word": " خرج",
+            "probability": 0.8856404721736908
+          },
+          {
+            "start": 7.3,
+            "end": 7.5,
+            "word": " داد",
+            "probability": 0.9954380691051483
+          },
+          {
+            "start": 7.5,
+            "end": 7.86,
+            "word": " باشین.",
+            "probability": 0.3330040490448785
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 8.34,
+        "end": 10.8,
+        "text": "بعد وارده این شدیم که...",
+        "avg_logprob": -0.2142362419901223,
+        "compression_ratio": 1.7132867132867133,
+        "no_speech_prob": 2.0304688486127986e-10,
+        "words": [
+          {
+            "start": 8.34,
+            "end": 8.94,
+            "word": " بعد",
+            "probability": 0.9826232194900513
+          },
+          {
+            "start": 8.94,
+            "end": 9.42,
+            "word": " وارده",
+            "probability": 0.8474920988082886
+          },
+          {
+            "start": 9.42,
+            "end": 9.58,
+            "word": " این",
+            "probability": 0.999419093132019
+          },
+          {
+            "start": 9.58,
+            "end": 10.0,
+            "word": " شدیم",
+            "probability": 0.9993473589420319
+          },
+          {
+            "start": 10.0,
+            "end": 10.8,
+            "word": " که...",
+            "probability": 0.7598886688550314
+          }
+        ]
+      }
+    ]
+  }
+}

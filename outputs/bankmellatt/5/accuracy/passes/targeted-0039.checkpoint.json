@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "2a54ddb33cebdfa486f99c65fd10a08ce4fb50d7ad76fa5511a2ffb75ff77bb9",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.8,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.78,
+        "text": "آنهای مثل بزرگ فامیل بودن ایجاد می‌شه که کمک کردن به دیگران جدی‌تر می‌اشه، حدایی‌هایی که می‌بری جدّی‌‌تَر میشه. برابراین تا چار برّابر حتی مومن.",
+        "avg_logprob": -0.3212879789937841,
+        "compression_ratio": 1.670807453416149,
+        "no_speech_prob": 2.40045011645762e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.18,
+            "word": " آنهای",
+            "probability": 0.6345560124609619
+          },
+          {
+            "start": 0.18,
+            "end": 0.6,
+            "word": " مثل",
+            "probability": 0.5944097489118576
+          },
+          {
+            "start": 0.6,
+            "end": 0.96,
+            "word": " بزرگ",
+            "probability": 0.9841925948858261
+          },
+          {
+            "start": 0.96,
+            "end": 1.48,
+            "word": " فامیل",
+            "probability": 0.9865114241838455
+          },
+          {
+            "start": 1.48,
+            "end": 1.84,
+            "word": " بودن",
+            "probability": 0.985687792301178
+          },
+          {
+            "start": 1.84,
+            "end": 2.22,
+            "word": " ایجاد",
+            "probability": 0.9934561252593994
+          },
+          {
+            "start": 2.22,
+            "end": 2.5,
+            "word": " می‌شه",
+            "probability": 0.7071493112016469
+          },
+          {
+            "start": 2.5,
+            "end": 2.68,
+            "word": " که",
+            "probability": 0.9792715609073639
+          },
+          {
+            "start": 2.68,
+            "end": 3.18,
+            "word": " کمک",
+            "probability": 0.997359017531077
+          },
+          {
+            "start": 3.18,
+            "end": 3.68,
+            "word": " کردن",
+            "probability": 0.9813923637072245
+          },
+          {
+            "start": 3.68,
+            "end": 3.8,
+            "word": " به",
+            "probability": 0.9931824803352356
+          },
+          {
+            "start": 3.8,
+            "end": 4.28,
+            "word": " دیگران",
+            "probability": 0.9906398177146911
+          },
+          {
+            "start": 4.28,
+            "end": 4.92,
+            "word": " جدی‌تر",
+            "probability": 0.8965951850016912
+          },
+          {
+            "start": 4.92,
+            "end": 5.4,
+            "word": " می‌اشه،",
+            "probability": 0.5553661735961214
+          },
+          {
+            "start": 5.4,
+            "end": 5.98,
+            "word": " حدایی‌هایی",
+            "probability": 0.6840969063341618
+          },
+          {
+            "start": 5.98,
+            "end": 6.06,
+            "word": " که",
+            "probability": 0.9716913402080536
+          },
+          {
+            "start": 6.06,
+            "end": 6.36,
+            "word": " می‌بری",
+            "probability": 0.9226463586091995
+          },
+          {
+            "start": 6.36,
+            "end": 6.94,
+            "word": " جدّی‌‌تَر",
+            "probability": 0.6303421856460368
+          },
+          {
+            "start": 6.94,
+            "end": 7.36,
+            "word": " میشه.",
+            "probability": 0.6886979391177496
+          },
+          {
+            "start": 7.56,
+            "end": 8.32,
+            "word": " برابراین",
+            "probability": 0.7874095499515533
+          },
+          {
+            "start": 8.32,
+            "end": 8.46,
+            "word": " تا",
+            "probability": 0.6933619379997253
+          },
+          {
+            "start": 8.46,
+            "end": 8.82,
+            "word": " چار",
+            "probability": 0.6186878383159637
+          },
+          {
+            "start": 8.82,
+            "end": 9.26,
+            "word": " برّابر",
+            "probability": 0.7444085681578144
+          },
+          {
+            "start": 9.26,
+            "end": 9.58,
+            "word": " حتی",
+            "probability": 0.9148363073666891
+          },
+          {
+            "start": 9.58,
+            "end": 9.78,
+            "word": " مومن.",
+            "probability": 0.32303448021411896
+          }
+        ]
+      }
+    ]
+  }
+}

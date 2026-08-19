@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "865948ac5450c776730c28eadf293a505135c781396a69507666ba24cba7af7d",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 13.08,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 13.06,
+        "text": "دیگه کسی بهش حقوق نمیده. خب، پس آسیب در آمده ناشه از کار اینه که وقتی کار نکنی پول نمگیری با توقف کار و فعالیتی",
+        "avg_logprob": -0.20455768761726525,
+        "compression_ratio": 1.437956204379562,
+        "no_speech_prob": 3.173101503772813e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 1.0,
+            "word": " دیگه",
+            "probability": 0.6749979257583618
+          },
+          {
+            "start": 1.0,
+            "end": 1.36,
+            "word": " کسی",
+            "probability": 0.9777257442474365
+          },
+          {
+            "start": 1.36,
+            "end": 1.66,
+            "word": " بهش",
+            "probability": 0.9856661260128021
+          },
+          {
+            "start": 1.66,
+            "end": 2.0,
+            "word": " حقوق",
+            "probability": 0.9759087562561035
+          },
+          {
+            "start": 2.0,
+            "end": 2.52,
+            "word": " نمیده.",
+            "probability": 0.9594321846961975
+          },
+          {
+            "start": 3.12,
+            "end": 4.04,
+            "word": " خب،",
+            "probability": 0.6049110442399979
+          },
+          {
+            "start": 4.04,
+            "end": 4.64,
+            "word": " پس",
+            "probability": 0.9899017512798309
+          },
+          {
+            "start": 4.64,
+            "end": 5.4,
+            "word": " آسیب",
+            "probability": 0.9892225563526154
+          },
+          {
+            "start": 5.4,
+            "end": 5.98,
+            "word": " در",
+            "probability": 0.9816102683544159
+          },
+          {
+            "start": 5.98,
+            "end": 6.32,
+            "word": " آمده",
+            "probability": 0.8690243810415268
+          },
+          {
+            "start": 6.32,
+            "end": 6.7,
+            "word": " ناشه",
+            "probability": 0.9442651470502218
+          },
+          {
+            "start": 6.7,
+            "end": 6.9,
+            "word": " از",
+            "probability": 0.9985831677913666
+          },
+          {
+            "start": 6.9,
+            "end": 7.5,
+            "word": " کار",
+            "probability": 0.9993287324905396
+          },
+          {
+            "start": 7.5,
+            "end": 8.2,
+            "word": " اینه",
+            "probability": 0.8731963038444519
+          },
+          {
+            "start": 8.2,
+            "end": 8.38,
+            "word": " که",
+            "probability": 0.9775454998016357
+          },
+          {
+            "start": 8.38,
+            "end": 8.84,
+            "word": " وقتی",
+            "probability": 0.9980861941973368
+          },
+          {
+            "start": 8.84,
+            "end": 9.28,
+            "word": " کار",
+            "probability": 0.9990286827087402
+          },
+          {
+            "start": 9.28,
+            "end": 9.8,
+            "word": " نکنی",
+            "probability": 0.9989272952079773
+          },
+          {
+            "start": 9.8,
+            "end": 10.12,
+            "word": " پول",
+            "probability": 0.9828854203224182
+          },
+          {
+            "start": 10.12,
+            "end": 10.58,
+            "word": " نمگیری",
+            "probability": 0.7987212360603735
+          },
+          {
+            "start": 10.58,
+            "end": 10.82,
+            "word": " با",
+            "probability": 0.7268775999546051
+          },
+          {
+            "start": 10.82,
+            "end": 11.54,
+            "word": " توقف",
+            "probability": 0.9934355020523071
+          },
+          {
+            "start": 11.54,
+            "end": 12.12,
+            "word": " کار",
+            "probability": 0.9947612583637238
+          },
+          {
+            "start": 12.12,
+            "end": 12.4,
+            "word": " و",
+            "probability": 0.9878041744232178
+          },
+          {
+            "start": 12.4,
+            "end": 13.06,
+            "word": " فعالیتی",
+            "probability": 0.9602527916431427
+          }
+        ]
+      }
+    ]
+  }
+}

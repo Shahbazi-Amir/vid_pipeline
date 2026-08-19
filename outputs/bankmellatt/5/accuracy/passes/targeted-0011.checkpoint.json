@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "b6bc852492528be79bef50b41f63b4c267046eef1ad50991ebc1c59dec0a2b34",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.56,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.54,
+        "text": "کار گرفتیم و درامت گذب کردیم. حالا وقتی اینه که پولمون هم به کار بندازیم، این که ما در آمدمون ناشید",
+        "avg_logprob": -0.23072911379858851,
+        "compression_ratio": 1.4508196721311475,
+        "no_speech_prob": 2.1938807714949604e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.22,
+            "word": " کار",
+            "probability": 0.6100756600499153
+          },
+          {
+            "start": 0.22,
+            "end": 0.82,
+            "word": " گرفتیم",
+            "probability": 0.9887869954109192
+          },
+          {
+            "start": 0.82,
+            "end": 1.26,
+            "word": " و",
+            "probability": 0.9922419786453247
+          },
+          {
+            "start": 1.26,
+            "end": 1.78,
+            "word": " درامت",
+            "probability": 0.9795414507389069
+          },
+          {
+            "start": 1.78,
+            "end": 2.12,
+            "word": " گذب",
+            "probability": 0.5208504299322764
+          },
+          {
+            "start": 2.12,
+            "end": 2.52,
+            "word": " کردیم.",
+            "probability": 0.8953725248575211
+          },
+          {
+            "start": 2.62,
+            "end": 3.02,
+            "word": " حالا",
+            "probability": 0.9934241970380148
+          },
+          {
+            "start": 3.02,
+            "end": 3.34,
+            "word": " وقتی",
+            "probability": 0.9830188751220703
+          },
+          {
+            "start": 3.34,
+            "end": 3.5,
+            "word": " اینه",
+            "probability": 0.9985443751017252
+          },
+          {
+            "start": 3.5,
+            "end": 3.64,
+            "word": " که",
+            "probability": 0.9994114637374878
+          },
+          {
+            "start": 3.64,
+            "end": 4.04,
+            "word": " پولمون",
+            "probability": 0.9839612990617752
+          },
+          {
+            "start": 4.04,
+            "end": 4.16,
+            "word": " هم",
+            "probability": 0.5763226449489594
+          },
+          {
+            "start": 4.16,
+            "end": 4.28,
+            "word": " به",
+            "probability": 0.992972731590271
+          },
+          {
+            "start": 4.28,
+            "end": 4.5,
+            "word": " کار",
+            "probability": 0.9997909963130951
+          },
+          {
+            "start": 4.5,
+            "end": 5.2,
+            "word": " بندازیم،",
+            "probability": 0.7850604516570456
+          },
+          {
+            "start": 5.2,
+            "end": 5.64,
+            "word": " این",
+            "probability": 0.9993630647659302
+          },
+          {
+            "start": 5.64,
+            "end": 5.86,
+            "word": " که",
+            "probability": 0.9659081697463989
+          },
+          {
+            "start": 5.86,
+            "end": 6.06,
+            "word": " ما",
+            "probability": 0.9963902831077576
+          },
+          {
+            "start": 6.06,
+            "end": 6.44,
+            "word": " در",
+            "probability": 0.9989972114562988
+          },
+          {
+            "start": 6.44,
+            "end": 7.02,
+            "word": " آمدمون",
+            "probability": 0.580446612497326
+          },
+          {
+            "start": 7.02,
+            "end": 7.54,
+            "word": " ناشید",
+            "probability": 0.832272931933403
+          }
+        ]
+      }
+    ]
+  }
+}

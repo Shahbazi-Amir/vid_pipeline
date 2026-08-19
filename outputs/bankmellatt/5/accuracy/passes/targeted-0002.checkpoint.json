@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "0404d260690e4b5ef9eeba7b548ccc272834c1ace49580bdf1c01225a08ab897",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.58,
+    "segments": [
+      {
+        "id": 1,
+        "start": 2.4600000000000013,
+        "end": 9.24,
+        "text": "سلام، خیلی خوبه که تا الان همراه من بودید و داریم گام به گام آموزه‌های ثبت مالی رو جولو میریم.",
+        "avg_logprob": -0.17216234013091686,
+        "compression_ratio": 1.5266666666666666,
+        "no_speech_prob": 2.9732005746296863e-10,
+        "words": [
+          {
+            "start": 2.4600000000000013,
+            "end": 3.18,
+            "word": " سلام،",
+            "probability": 0.534296573450168
+          },
+          {
+            "start": 3.18,
+            "end": 3.8,
+            "word": " خیلی",
+            "probability": 0.9992010146379471
+          },
+          {
+            "start": 3.8,
+            "end": 4.02,
+            "word": " خوبه",
+            "probability": 0.9975963632265726
+          },
+          {
+            "start": 4.02,
+            "end": 4.18,
+            "word": " که",
+            "probability": 0.9973168671131134
+          },
+          {
+            "start": 4.18,
+            "end": 4.32,
+            "word": " تا",
+            "probability": 0.998733639717102
+          },
+          {
+            "start": 4.32,
+            "end": 4.48,
+            "word": " الان",
+            "probability": 0.9753766059875488
+          },
+          {
+            "start": 4.48,
+            "end": 4.86,
+            "word": " همراه",
+            "probability": 0.996518686413765
+          },
+          {
+            "start": 4.86,
+            "end": 5.04,
+            "word": " من",
+            "probability": 0.9964478015899658
+          },
+          {
+            "start": 5.04,
+            "end": 5.6,
+            "word": " بودید",
+            "probability": 0.999522790312767
+          },
+          {
+            "start": 5.6,
+            "end": 5.8,
+            "word": " و",
+            "probability": 0.9962174296379089
+          },
+          {
+            "start": 5.8,
+            "end": 6.2,
+            "word": " داریم",
+            "probability": 0.9985262602567673
+          },
+          {
+            "start": 6.2,
+            "end": 6.46,
+            "word": " گام",
+            "probability": 0.9886744618415833
+          },
+          {
+            "start": 6.46,
+            "end": 6.62,
+            "word": " به",
+            "probability": 0.960567057132721
+          },
+          {
+            "start": 6.62,
+            "end": 6.98,
+            "word": " گام",
+            "probability": 0.9989266991615295
+          },
+          {
+            "start": 6.98,
+            "end": 7.56,
+            "word": " آموزه‌های",
+            "probability": 0.8445950711029582
+          },
+          {
+            "start": 7.56,
+            "end": 7.9,
+            "word": " ثبت",
+            "probability": 0.30924194554487866
+          },
+          {
+            "start": 7.9,
+            "end": 8.26,
+            "word": " مالی",
+            "probability": 0.9827483097712199
+          },
+          {
+            "start": 8.26,
+            "end": 8.42,
+            "word": " رو",
+            "probability": 0.9152796268463135
+          },
+          {
+            "start": 8.42,
+            "end": 8.8,
+            "word": " جولو",
+            "probability": 0.7400155266125997
+          },
+          {
+            "start": 8.8,
+            "end": 9.24,
+            "word": " میریم.",
+            "probability": 0.8302148381868998
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 9.24,
+        "end": 11.56,
+        "text": "تا اینجا پیش رفتیم که حضین آمود...",
+        "avg_logprob": -0.17216234013091686,
+        "compression_ratio": 1.5266666666666666,
+        "no_speech_prob": 2.9732005746296863e-10,
+        "words": [
+          {
+            "start": 9.24,
+            "end": 9.66,
+            "word": " تا",
+            "probability": 0.9856082797050476
+          },
+          {
+            "start": 9.66,
+            "end": 9.82,
+            "word": " اینجا",
+            "probability": 0.9940469563007355
+          },
+          {
+            "start": 9.82,
+            "end": 10.06,
+            "word": " پیش",
+            "probability": 0.9978757301966349
+          },
+          {
+            "start": 10.06,
+            "end": 10.64,
+            "word": " رفتیم",
+            "probability": 0.9475340723991394
+          },
+          {
+            "start": 10.64,
+            "end": 11.08,
+            "word": " که",
+            "probability": 0.967608243227005
+          },
+          {
+            "start": 11.08,
+            "end": 11.48,
+            "word": " حضین",
+            "probability": 0.5927517712116241
+          },
+          {
+            "start": 11.48,
+            "end": 11.56,
+            "word": " آمود...",
+            "probability": 0.36621742229908705
+          }
+        ]
+      }
+    ]
+  }
+}

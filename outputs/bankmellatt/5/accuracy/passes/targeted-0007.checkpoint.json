@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "269f36a5b5e73d48488abd2ae5c259e66338f469beb57228da952eb1fef4ea07",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.97,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.94,
+        "text": "سندوق پول کنار می‌ذاریم. خب و نکته این بود که پولکنار گذاشتن همانا و کاهش عرضش پول همآن چی کار باید بکنیم؟ گفتیم این پول رو",
+        "avg_logprob": -0.189690611893084,
+        "compression_ratio": 1.5034013605442176,
+        "no_speech_prob": 2.4979138202319007e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.44,
+            "word": " سندوق",
+            "probability": 0.7206164797147115
+          },
+          {
+            "start": 0.44,
+            "end": 0.76,
+            "word": " پول",
+            "probability": 0.9956260919570923
+          },
+          {
+            "start": 0.76,
+            "end": 1.16,
+            "word": " کنار",
+            "probability": 0.9963780641555786
+          },
+          {
+            "start": 1.16,
+            "end": 1.88,
+            "word": " می‌ذاریم.",
+            "probability": 0.8237578003900126
+          },
+          {
+            "start": 2.1,
+            "end": 2.9,
+            "word": " خب",
+            "probability": 0.8831759095191956
+          },
+          {
+            "start": 2.9,
+            "end": 3.0,
+            "word": " و",
+            "probability": 0.8450524806976318
+          },
+          {
+            "start": 3.0,
+            "end": 3.28,
+            "word": " نکته",
+            "probability": 0.8451019922892252
+          },
+          {
+            "start": 3.28,
+            "end": 3.44,
+            "word": " این",
+            "probability": 0.7743289172649384
+          },
+          {
+            "start": 3.44,
+            "end": 3.62,
+            "word": " بود",
+            "probability": 0.9746024012565613
+          },
+          {
+            "start": 3.62,
+            "end": 3.78,
+            "word": " که",
+            "probability": 0.9957018792629242
+          },
+          {
+            "start": 3.78,
+            "end": 4.36,
+            "word": " پولکنار",
+            "probability": 0.7890885366126895
+          },
+          {
+            "start": 4.36,
+            "end": 4.94,
+            "word": " گذاشتن",
+            "probability": 0.9769729733467102
+          },
+          {
+            "start": 4.94,
+            "end": 5.58,
+            "word": " همانا",
+            "probability": 0.8680694401264191
+          },
+          {
+            "start": 5.58,
+            "end": 6.28,
+            "word": " و",
+            "probability": 0.9780172109603882
+          },
+          {
+            "start": 6.28,
+            "end": 6.92,
+            "word": " کاهش",
+            "probability": 0.9735454519589742
+          },
+          {
+            "start": 6.92,
+            "end": 7.42,
+            "word": " عرضش",
+            "probability": 0.9054105480511984
+          },
+          {
+            "start": 7.42,
+            "end": 7.94,
+            "word": " پول",
+            "probability": 0.9967137575149536
+          },
+          {
+            "start": 7.94,
+            "end": 8.48,
+            "word": " همآن",
+            "probability": 0.7153152758764918
+          },
+          {
+            "start": 8.48,
+            "end": 8.74,
+            "word": " چی",
+            "probability": 0.7431877553462982
+          },
+          {
+            "start": 8.74,
+            "end": 8.9,
+            "word": " کار",
+            "probability": 0.9964423179626465
+          },
+          {
+            "start": 8.9,
+            "end": 9.14,
+            "word": " باید",
+            "probability": 0.9131848216056824
+          },
+          {
+            "start": 9.14,
+            "end": 9.76,
+            "word": " بکنیم؟",
+            "probability": 0.925631582736969
+          },
+          {
+            "start": 9.76,
+            "end": 10.34,
+            "word": " گفتیم",
+            "probability": 0.9796219348907471
+          },
+          {
+            "start": 10.34,
+            "end": 10.4,
+            "word": " این",
+            "probability": 0.9744170308113098
+          },
+          {
+            "start": 10.4,
+            "end": 10.8,
+            "word": " پول",
+            "probability": 0.9900858998298645
+          },
+          {
+            "start": 10.8,
+            "end": 10.94,
+            "word": " رو",
+            "probability": 0.9111614227294922
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "fcd4dea62f5907da49ad2dd3b9b57f61597a2678a3f01cf69406cd5e86367d99",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.18,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.08,
+        "text": "هدایه‌ای که میبری، جدی‌تر میشه. برابر این تو چهار برامر حتی ممکنه هدین‌ها افضایش پیدا بکنند. این درحالیه که با توجه به اینکه دیگه",
+        "avg_logprob": -0.33545598223969175,
+        "compression_ratio": 1.6054421768707483,
+        "no_speech_prob": 3.145221860734182e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 1.1,
+            "word": " هدایه‌ای",
+            "probability": 0.5325531150613513
+          },
+          {
+            "start": 1.1,
+            "end": 1.24,
+            "word": " که",
+            "probability": 0.9047983288764954
+          },
+          {
+            "start": 1.24,
+            "end": 1.64,
+            "word": " میبری،",
+            "probability": 0.5649998364970088
+          },
+          {
+            "start": 1.64,
+            "end": 2.14,
+            "word": " جدی‌تر",
+            "probability": 0.8925182322661082
+          },
+          {
+            "start": 2.14,
+            "end": 2.5,
+            "word": " میشه.",
+            "probability": 0.8709437449773153
+          },
+          {
+            "start": 2.72,
+            "end": 3.44,
+            "word": " برابر",
+            "probability": 0.8508624285459518
+          },
+          {
+            "start": 3.44,
+            "end": 3.54,
+            "word": " این",
+            "probability": 0.7713014185428619
+          },
+          {
+            "start": 3.54,
+            "end": 3.64,
+            "word": " تو",
+            "probability": 0.5153974294662476
+          },
+          {
+            "start": 3.64,
+            "end": 4.04,
+            "word": " چهار",
+            "probability": 0.8512704372406006
+          },
+          {
+            "start": 4.04,
+            "end": 4.48,
+            "word": " برامر",
+            "probability": 0.6553263844034518
+          },
+          {
+            "start": 4.48,
+            "end": 4.78,
+            "word": " حتی",
+            "probability": 0.9369021455446879
+          },
+          {
+            "start": 4.78,
+            "end": 5.2,
+            "word": " ممکنه",
+            "probability": 0.8924016714096069
+          },
+          {
+            "start": 5.2,
+            "end": 5.56,
+            "word": " هدین‌ها",
+            "probability": 0.7110760092735291
+          },
+          {
+            "start": 5.56,
+            "end": 5.96,
+            "word": " افضایش",
+            "probability": 0.8889494637648264
+          },
+          {
+            "start": 5.96,
+            "end": 6.24,
+            "word": " پیدا",
+            "probability": 0.8014163474241892
+          },
+          {
+            "start": 6.24,
+            "end": 6.7,
+            "word": " بکنند.",
+            "probability": 0.704748701537028
+          },
+          {
+            "start": 6.74,
+            "end": 6.82,
+            "word": " این",
+            "probability": 0.908706784248352
+          },
+          {
+            "start": 6.82,
+            "end": 7.32,
+            "word": " درحالیه",
+            "probability": 0.7148066113392512
+          },
+          {
+            "start": 7.32,
+            "end": 7.96,
+            "word": " که",
+            "probability": 0.6899819672107697
+          },
+          {
+            "start": 7.96,
+            "end": 8.18,
+            "word": " با",
+            "probability": 0.9434402287006378
+          },
+          {
+            "start": 8.18,
+            "end": 8.56,
+            "word": " توجه",
+            "probability": 0.988143523534139
+          },
+          {
+            "start": 8.56,
+            "end": 8.66,
+            "word": " به",
+            "probability": 0.9014426469802856
+          },
+          {
+            "start": 8.66,
+            "end": 8.88,
+            "word": " اینکه",
+            "probability": 0.8772479295730591
+          },
+          {
+            "start": 8.88,
+            "end": 9.08,
+            "word": " دیگه",
+            "probability": 0.9366692751646042
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,247 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "16c52b7ec0497098c8c576f1b435b7b03d3cb2e31704ce8daf13e58ce7879fcb",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.24,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.9,
+        "text": "یا خصاصت به خرج داده باشیم. بعد وارد این شدیم که به محض اینکه در آمده بون رو کست می‌کنیم، برای سه صندوق پول کنار می‌ذاریم",
+        "avg_logprob": -0.18813182432440262,
+        "compression_ratio": 1.5034482758620689,
+        "no_speech_prob": 3.164563611157689e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.36,
+            "word": " یا",
+            "probability": 0.5903655737638474
+          },
+          {
+            "start": 0.36,
+            "end": 0.94,
+            "word": " خصاصت",
+            "probability": 0.8916427791118622
+          },
+          {
+            "start": 0.94,
+            "end": 1.04,
+            "word": " به",
+            "probability": 0.9043353796005249
+          },
+          {
+            "start": 1.04,
+            "end": 1.3,
+            "word": " خرج",
+            "probability": 0.7309063225984573
+          },
+          {
+            "start": 1.3,
+            "end": 1.54,
+            "word": " داده",
+            "probability": 0.9809467593828837
+          },
+          {
+            "start": 1.54,
+            "end": 2.1,
+            "word": " باشیم.",
+            "probability": 0.991706520318985
+          },
+          {
+            "start": 2.26,
+            "end": 2.94,
+            "word": " بعد",
+            "probability": 0.9900698065757751
+          },
+          {
+            "start": 2.94,
+            "end": 3.36,
+            "word": " وارد",
+            "probability": 0.99794073899587
+          },
+          {
+            "start": 3.36,
+            "end": 3.58,
+            "word": " این",
+            "probability": 0.7088132351636887
+          },
+          {
+            "start": 3.58,
+            "end": 4.0,
+            "word": " شدیم",
+            "probability": 0.9982057213783264
+          },
+          {
+            "start": 4.0,
+            "end": 4.66,
+            "word": " که",
+            "probability": 0.9903213083744049
+          },
+          {
+            "start": 4.66,
+            "end": 4.8,
+            "word": " به",
+            "probability": 0.9697921276092529
+          },
+          {
+            "start": 4.8,
+            "end": 5.12,
+            "word": " محض",
+            "probability": 0.8755115667978922
+          },
+          {
+            "start": 5.12,
+            "end": 5.32,
+            "word": " اینکه",
+            "probability": 0.8641344606876373
+          },
+          {
+            "start": 5.32,
+            "end": 5.56,
+            "word": " در",
+            "probability": 0.9984374046325684
+          },
+          {
+            "start": 5.56,
+            "end": 5.9,
+            "word": " آمده",
+            "probability": 0.8545614555478096
+          },
+          {
+            "start": 5.9,
+            "end": 6.04,
+            "word": " بون",
+            "probability": 0.8159072995185852
+          },
+          {
+            "start": 6.04,
+            "end": 6.16,
+            "word": " رو",
+            "probability": 0.5958717912435532
+          },
+          {
+            "start": 6.16,
+            "end": 6.5,
+            "word": " کست",
+            "probability": 0.9036241769790649
+          },
+          {
+            "start": 6.5,
+            "end": 7.32,
+            "word": " می‌کنیم،",
+            "probability": 0.6323035306164196
+          },
+          {
+            "start": 7.32,
+            "end": 7.8,
+            "word": " برای",
+            "probability": 0.9972272515296936
+          },
+          {
+            "start": 7.8,
+            "end": 8.12,
+            "word": " سه",
+            "probability": 0.8367076516151428
+          },
+          {
+            "start": 8.12,
+            "end": 8.54,
+            "word": " صندوق",
+            "probability": 0.9695698221524557
+          },
+          {
+            "start": 8.54,
+            "end": 8.86,
+            "word": " پول",
+            "probability": 0.9571325480937958
+          },
+          {
+            "start": 8.86,
+            "end": 9.26,
+            "word": " کنار",
+            "probability": 0.9930965503056844
+          },
+          {
+            "start": 9.26,
+            "end": 9.9,
+            "word": " می‌ذاریم",
+            "probability": 0.9734373092651367
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 10.64,
+        "end": 12.22,
+        "text": "خب و نکتش این بود که پول کردیم",
+        "avg_logprob": -0.38034951957789337,
+        "compression_ratio": 0.8688524590163934,
+        "no_speech_prob": 2.903614848559499e-10,
+        "words": [
+          {
+            "start": 10.64,
+            "end": 10.96,
+            "word": " خب",
+            "probability": 0.7964893281459808
+          },
+          {
+            "start": 10.96,
+            "end": 11.08,
+            "word": " و",
+            "probability": 0.9517471194267273
+          },
+          {
+            "start": 11.08,
+            "end": 11.44,
+            "word": " نکتش",
+            "probability": 0.7820301502943039
+          },
+          {
+            "start": 11.44,
+            "end": 11.54,
+            "word": " این",
+            "probability": 0.9887121915817261
+          },
+          {
+            "start": 11.54,
+            "end": 11.72,
+            "word": " بود",
+            "probability": 0.9979439675807953
+          },
+          {
+            "start": 11.72,
+            "end": 11.86,
+            "word": " که",
+            "probability": 0.9986914098262787
+          },
+          {
+            "start": 11.86,
+            "end": 12.14,
+            "word": " پول",
+            "probability": 0.9962261617183685
+          },
+          {
+            "start": 12.14,
+            "end": 12.22,
+            "word": " کردیم",
+            "probability": 0.7047173529863358
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "5f7947a58dbacfbdf528c02c49d4f072b7e8b844832f5b85449292f379ad69b5",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.08,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.64,
+        "text": "گفتیم این پول رو باید به کار بنده دیم، ما معمولاً در آمدمون ناشی از اینه که ما خودمونو به کال انداختییم.",
+        "avg_logprob": -0.2604742740159449,
+        "compression_ratio": 1.7,
+        "no_speech_prob": 2.7160931836966995e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.58,
+            "word": " گفتیم",
+            "probability": 0.9384921669960022
+          },
+          {
+            "start": 0.58,
+            "end": 0.68,
+            "word": " این",
+            "probability": 0.9947268068790436
+          },
+          {
+            "start": 0.68,
+            "end": 1.04,
+            "word": " پول",
+            "probability": 0.9819223284721375
+          },
+          {
+            "start": 1.04,
+            "end": 1.26,
+            "word": " رو",
+            "probability": 0.951189249753952
+          },
+          {
+            "start": 1.26,
+            "end": 1.5,
+            "word": " باید",
+            "probability": 0.9937503635883331
+          },
+          {
+            "start": 1.5,
+            "end": 1.66,
+            "word": " به",
+            "probability": 0.9976351261138916
+          },
+          {
+            "start": 1.66,
+            "end": 1.92,
+            "word": " کار",
+            "probability": 0.9994581043720245
+          },
+          {
+            "start": 1.92,
+            "end": 2.3,
+            "word": " بنده",
+            "probability": 0.7904539604981741
+          },
+          {
+            "start": 2.3,
+            "end": 2.7,
+            "word": " دیم،",
+            "probability": 0.5737308789393865
+          },
+          {
+            "start": 2.7,
+            "end": 3.1,
+            "word": " ما",
+            "probability": 0.9938498139381409
+          },
+          {
+            "start": 3.1,
+            "end": 3.82,
+            "word": " معمولاً",
+            "probability": 0.8075077563524247
+          },
+          {
+            "start": 3.82,
+            "end": 4.06,
+            "word": " در",
+            "probability": 0.9979597330093384
+          },
+          {
+            "start": 4.06,
+            "end": 4.62,
+            "word": " آمدمون",
+            "probability": 0.6363325752317905
+          },
+          {
+            "start": 4.62,
+            "end": 5.02,
+            "word": " ناشی",
+            "probability": 0.9968335827191671
+          },
+          {
+            "start": 5.02,
+            "end": 5.3,
+            "word": " از",
+            "probability": 0.9637652039527893
+          },
+          {
+            "start": 5.3,
+            "end": 5.54,
+            "word": " اینه",
+            "probability": 0.9948233763376871
+          },
+          {
+            "start": 5.54,
+            "end": 5.86,
+            "word": " که",
+            "probability": 0.9980666935443878
+          },
+          {
+            "start": 5.86,
+            "end": 6.02,
+            "word": " ما",
+            "probability": 0.9834047555923462
+          },
+          {
+            "start": 6.02,
+            "end": 6.58,
+            "word": " خودمونو",
+            "probability": 0.9548061490058899
+          },
+          {
+            "start": 6.58,
+            "end": 6.72,
+            "word": " به",
+            "probability": 0.9963722229003906
+          },
+          {
+            "start": 6.72,
+            "end": 6.96,
+            "word": " کال",
+            "probability": 0.4998023160723619
+          },
+          {
+            "start": 6.96,
+            "end": 7.64,
+            "word": " انداختییم.",
+            "probability": 0.8479422511798995
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 7.8,
+        "end": 10.06,
+        "text": "کار کردیم محارت‌ها منو به‌کار گیریم.",
+        "avg_logprob": -0.2604742740159449,
+        "compression_ratio": 1.7,
+        "no_speech_prob": 2.7160931836966995e-10,
+        "words": [
+          {
+            "start": 7.8,
+            "end": 8.24,
+            "word": " کار",
+            "probability": 0.9758196771144867
+          },
+          {
+            "start": 8.24,
+            "end": 8.76,
+            "word": " کردیم",
+            "probability": 0.9973282665014267
+          },
+          {
+            "start": 8.76,
+            "end": 9.38,
+            "word": " محارت‌ها",
+            "probability": 0.511347628509005
+          },
+          {
+            "start": 9.38,
+            "end": 9.62,
+            "word": " منو",
+            "probability": 0.6360779404640198
+          },
+          {
+            "start": 9.62,
+            "end": 10.0,
+            "word": " به‌کار",
+            "probability": 0.7236814564093947
+          },
+          {
+            "start": 10.0,
+            "end": 10.06,
+            "word": " گیریم.",
+            "probability": 0.4953981377184391
+          }
+        ]
+      }
+    ]
+  }
+}

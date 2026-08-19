@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "de253376343e078ffb0856829e2bb3a0d94403eb9ceaa2a15fc4330df53e365f",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.32,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.3,
+        "text": "من اگر سوالی درباره من دارید بپرسید، پرسش هم اینجوری هر بار که اسلایت تموم شد، شما می‌تونید سوائل بپرید چیش اشکالی هم نداره؟ منطقا هر اسلایک چون یه موضوع...",
+        "avg_logprob": -0.25782247413607207,
+        "compression_ratio": 1.6242774566473988,
+        "no_speech_prob": 4.3338693744843226e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.16,
+            "word": " من",
+            "probability": 0.58997642993927
+          },
+          {
+            "start": 0.16,
+            "end": 0.44,
+            "word": " اگر",
+            "probability": 0.9866088032722473
+          },
+          {
+            "start": 0.44,
+            "end": 0.84,
+            "word": " سوالی",
+            "probability": 0.9251541644334793
+          },
+          {
+            "start": 0.84,
+            "end": 1.26,
+            "word": " درباره",
+            "probability": 0.8781324774026871
+          },
+          {
+            "start": 1.26,
+            "end": 1.4,
+            "word": " من",
+            "probability": 0.8870431184768677
+          },
+          {
+            "start": 1.4,
+            "end": 1.72,
+            "word": " دارید",
+            "probability": 0.9817665964365005
+          },
+          {
+            "start": 1.72,
+            "end": 2.58,
+            "word": " بپرسید،",
+            "probability": 0.8460547477006912
+          },
+          {
+            "start": 2.58,
+            "end": 3.44,
+            "word": " پرسش",
+            "probability": 0.885742723941803
+          },
+          {
+            "start": 3.44,
+            "end": 3.58,
+            "word": " هم",
+            "probability": 0.8934938907623291
+          },
+          {
+            "start": 3.58,
+            "end": 3.88,
+            "word": " اینجوری",
+            "probability": 0.8869208931922913
+          },
+          {
+            "start": 3.88,
+            "end": 4.2,
+            "word": " هر",
+            "probability": 0.915284126996994
+          },
+          {
+            "start": 4.2,
+            "end": 4.38,
+            "word": " بار",
+            "probability": 0.9758216440677643
+          },
+          {
+            "start": 4.38,
+            "end": 4.58,
+            "word": " که",
+            "probability": 0.9718804061412811
+          },
+          {
+            "start": 4.58,
+            "end": 4.96,
+            "word": " اسلایت",
+            "probability": 0.7800075262784958
+          },
+          {
+            "start": 4.96,
+            "end": 5.26,
+            "word": " تموم",
+            "probability": 0.9806763231754303
+          },
+          {
+            "start": 5.26,
+            "end": 5.48,
+            "word": " شد،",
+            "probability": 0.7080912788709005
+          },
+          {
+            "start": 5.48,
+            "end": 5.64,
+            "word": " شما",
+            "probability": 0.6022074073553085
+          },
+          {
+            "start": 5.64,
+            "end": 5.96,
+            "word": " می‌تونید",
+            "probability": 0.7902758965889612
+          },
+          {
+            "start": 5.96,
+            "end": 6.28,
+            "word": " سوائل",
+            "probability": 0.7406825722137
+          },
+          {
+            "start": 6.28,
+            "end": 6.76,
+            "word": " بپرید",
+            "probability": 0.6840205486078048
+          },
+          {
+            "start": 6.76,
+            "end": 6.98,
+            "word": " چیش",
+            "probability": 0.7458159327507019
+          },
+          {
+            "start": 6.98,
+            "end": 7.38,
+            "word": " اشکالی",
+            "probability": 0.9792200803756714
+          },
+          {
+            "start": 7.38,
+            "end": 7.52,
+            "word": " هم",
+            "probability": 0.9620427787303925
+          },
+          {
+            "start": 7.52,
+            "end": 8.2,
+            "word": " نداره؟",
+            "probability": 0.8542614340782165
+          },
+          {
+            "start": 8.2,
+            "end": 8.74,
+            "word": " منطقا",
+            "probability": 0.5327826533466578
+          },
+          {
+            "start": 8.74,
+            "end": 8.94,
+            "word": " هر",
+            "probability": 0.969594419002533
+          },
+          {
+            "start": 8.94,
+            "end": 9.4,
+            "word": " اسلایک",
+            "probability": 0.6606135298692001
+          },
+          {
+            "start": 9.4,
+            "end": 9.64,
+            "word": " چون",
+            "probability": 0.9016667008399963
+          },
+          {
+            "start": 9.64,
+            "end": 9.82,
+            "word": " یه",
+            "probability": 0.8844349086284637
+          },
+          {
+            "start": 9.82,
+            "end": 10.3,
+            "word": " موضوع...",
+            "probability": 0.8203920215368271
+          }
+        ]
+      }
+    ]
+  }
+}

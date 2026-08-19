@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "4f5ff671a43ec998c88bc1b1a7cb0dec1b490f9eedce689810a47e83b264420b",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.68,
+    "segments": [
+      {
+        "id": 1,
+        "start": 2.18,
+        "end": 6.6,
+        "text": "خیلی ممنون، سوالینی",
+        "avg_logprob": -0.4950433038175106,
+        "compression_ratio": 0.8571428571428571,
+        "no_speech_prob": 8.584947863710113e-09,
+        "words": [
+          {
+            "start": 2.18,
+            "end": 3.58,
+            "word": " خیلی",
+            "probability": 0.9515719264745712
+          },
+          {
+            "start": 3.58,
+            "end": 4.34,
+            "word": " ممنون،",
+            "probability": 0.7273317212238908
+          },
+          {
+            "start": 4.34,
+            "end": 6.6,
+            "word": " سوالینی",
+            "probability": 0.5398707270622254
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "350f2835454d56d634e19fd2e9ec238a38827f0f2542831d2397b03921a57d53",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.34,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 2.56,
+        "text": "همین که ما کده می‌داشتم از دویگر، مخواد می‌کنی؟",
+        "avg_logprob": -0.5113965749740601,
+        "compression_ratio": 1.4428571428571428,
+        "no_speech_prob": 4.0265565881547616e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.2,
+            "word": " همین",
+            "probability": 0.4259083643555641
+          },
+          {
+            "start": 0.2,
+            "end": 0.38,
+            "word": " که",
+            "probability": 0.8157305419445038
+          },
+          {
+            "start": 0.38,
+            "end": 0.48,
+            "word": " ما",
+            "probability": 0.1365164816379547
+          },
+          {
+            "start": 0.48,
+            "end": 0.72,
+            "word": " کده",
+            "probability": 0.5752550065517426
+          },
+          {
+            "start": 0.72,
+            "end": 1.16,
+            "word": " می‌داشتم",
+            "probability": 0.7011260777711869
+          },
+          {
+            "start": 1.16,
+            "end": 1.38,
+            "word": " از",
+            "probability": 0.4363138973712921
+          },
+          {
+            "start": 1.38,
+            "end": 1.7,
+            "word": " دویگر،",
+            "probability": 0.2950134091079235
+          },
+          {
+            "start": 1.7,
+            "end": 2.04,
+            "word": " مخواد",
+            "probability": 0.33542774617671967
+          },
+          {
+            "start": 2.04,
+            "end": 2.56,
+            "word": " می‌کنی؟",
+            "probability": 0.6446570654710134
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 2.56,
+        "end": 8.32,
+        "text": "نه بوسیدم، تقدیم یکی دیگه کردم دیژه آره. ولی محتوایی که آماده...",
+        "avg_logprob": -0.5113965749740601,
+        "compression_ratio": 1.4428571428571428,
+        "no_speech_prob": 4.0265565881547616e-10,
+        "words": [
+          {
+            "start": 2.56,
+            "end": 3.08,
+            "word": " نه",
+            "probability": 0.9539585411548615
+          },
+          {
+            "start": 3.08,
+            "end": 3.74,
+            "word": " بوسیدم،",
+            "probability": 0.7174820065498352
+          },
+          {
+            "start": 3.74,
+            "end": 4.14,
+            "word": " تقدیم",
+            "probability": 0.9663577228784561
+          },
+          {
+            "start": 4.14,
+            "end": 4.46,
+            "word": " یکی",
+            "probability": 0.9880168040593466
+          },
+          {
+            "start": 4.46,
+            "end": 4.7,
+            "word": " دیگه",
+            "probability": 0.9754849225282669
+          },
+          {
+            "start": 4.7,
+            "end": 5.18,
+            "word": " کردم",
+            "probability": 0.9899570643901825
+          },
+          {
+            "start": 5.18,
+            "end": 5.52,
+            "word": " دیژه",
+            "probability": 0.7156029388366733
+          },
+          {
+            "start": 5.52,
+            "end": 5.92,
+            "word": " آره.",
+            "probability": 0.8093675176302592
+          },
+          {
+            "start": 6.76,
+            "end": 7.42,
+            "word": " ولی",
+            "probability": 0.9907396137714386
+          },
+          {
+            "start": 7.42,
+            "end": 8.06,
+            "word": " محتوایی",
+            "probability": 0.8472223877906799
+          },
+          {
+            "start": 8.06,
+            "end": 8.1,
+            "word": " که",
+            "probability": 0.9755993783473969
+          },
+          {
+            "start": 8.1,
+            "end": 8.32,
+            "word": " آماده...",
+            "probability": 0.7147838950157166
+          }
+        ]
+      }
+    ]
+  }
+}

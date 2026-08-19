@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "894c0f53752bcc06026fd69fc6e25d04cb4d265444c03b6cdd1bc45f87f69d88",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.42,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.32,
+        "text": "خیلی، خوشحالم که خدمتون هستم و ممنونم که من رو دعوت کردید مجدد در میزان باشم. یه معرفی بکنم اسمم کومیله",
+        "avg_logprob": -0.1410919986665249,
+        "compression_ratio": 1.434108527131783,
+        "no_speech_prob": 4.4510317653845277e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.62,
+            "word": " خیلی،",
+            "probability": 0.764447771012783
+          },
+          {
+            "start": 0.62,
+            "end": 1.18,
+            "word": " خوشحالم",
+            "probability": 0.9899659633636475
+          },
+          {
+            "start": 1.18,
+            "end": 1.36,
+            "word": " که",
+            "probability": 0.9816057980060577
+          },
+          {
+            "start": 1.36,
+            "end": 1.86,
+            "word": " خدمتون",
+            "probability": 0.9024884849786758
+          },
+          {
+            "start": 1.86,
+            "end": 2.48,
+            "word": " هستم",
+            "probability": 0.9964191913604736
+          },
+          {
+            "start": 2.48,
+            "end": 2.78,
+            "word": " و",
+            "probability": 0.9766525030136108
+          },
+          {
+            "start": 2.78,
+            "end": 3.92,
+            "word": " ممنونم",
+            "probability": 0.9846312254667282
+          },
+          {
+            "start": 3.92,
+            "end": 4.2,
+            "word": " که",
+            "probability": 0.9974561333656311
+          },
+          {
+            "start": 4.2,
+            "end": 4.38,
+            "word": " من",
+            "probability": 0.9921169877052307
+          },
+          {
+            "start": 4.38,
+            "end": 4.5,
+            "word": " رو",
+            "probability": 0.6510175317525864
+          },
+          {
+            "start": 4.5,
+            "end": 4.88,
+            "word": " دعوت",
+            "probability": 0.8889527320861816
+          },
+          {
+            "start": 4.88,
+            "end": 5.32,
+            "word": " کردید",
+            "probability": 0.9779906719923019
+          },
+          {
+            "start": 5.32,
+            "end": 5.82,
+            "word": " مجدد",
+            "probability": 0.9639340192079544
+          },
+          {
+            "start": 5.82,
+            "end": 6.42,
+            "word": " در",
+            "probability": 0.9606137573719025
+          },
+          {
+            "start": 6.42,
+            "end": 8.34,
+            "word": " میزان",
+            "probability": 0.9762858152389526
+          },
+          {
+            "start": 8.34,
+            "end": 8.92,
+            "word": " باشم.",
+            "probability": 0.9990407824516296
+          },
+          {
+            "start": 9.12,
+            "end": 9.54,
+            "word": " یه",
+            "probability": 0.9467186033725739
+          },
+          {
+            "start": 9.54,
+            "end": 10.02,
+            "word": " معرفی",
+            "probability": 0.9983603755633036
+          },
+          {
+            "start": 10.02,
+            "end": 10.46,
+            "word": " بکنم",
+            "probability": 0.9956741780042648
+          },
+          {
+            "start": 10.46,
+            "end": 10.8,
+            "word": " اسمم",
+            "probability": 0.7404272357622782
+          },
+          {
+            "start": 10.8,
+            "end": 11.32,
+            "word": " کومیله",
+            "probability": 0.9038412868976593
+          }
+        ]
+      }
+    ]
+  }
+}

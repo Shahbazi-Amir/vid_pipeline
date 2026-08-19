@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "b4a4a71e95a4e19e66d35c7ef91f2518cd0cfb4544689e4c876be3968d05b7b8",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.46,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.96,
+        "text": "ولی محتوایی که آماده کردیم اونجا هست، اگر اکادمی حوش مالی و در واقع جسد و جور بکنید، گوگل کنی، همه‌ی مهتوای کها آمادا کردین اون‌جا",
+        "avg_logprob": -0.2985993398560418,
+        "compression_ratio": 1.5906040268456376,
+        "no_speech_prob": 3.038373719288501e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.74,
+            "word": " ولی",
+            "probability": 0.9745906591415405
+          },
+          {
+            "start": 0.74,
+            "end": 1.38,
+            "word": " محتوایی",
+            "probability": 0.7478027731180191
+          },
+          {
+            "start": 1.38,
+            "end": 1.42,
+            "word": " که",
+            "probability": 0.9847695231437683
+          },
+          {
+            "start": 1.42,
+            "end": 1.76,
+            "word": " آماده",
+            "probability": 0.9699057191610336
+          },
+          {
+            "start": 1.76,
+            "end": 2.08,
+            "word": " کردیم",
+            "probability": 0.9922557473182678
+          },
+          {
+            "start": 2.08,
+            "end": 2.3,
+            "word": " اونجا",
+            "probability": 0.9853221029043198
+          },
+          {
+            "start": 2.3,
+            "end": 2.54,
+            "word": " هست،",
+            "probability": 0.6695534512400627
+          },
+          {
+            "start": 2.54,
+            "end": 2.78,
+            "word": " اگر",
+            "probability": 0.994150698184967
+          },
+          {
+            "start": 2.78,
+            "end": 3.26,
+            "word": " اکادمی",
+            "probability": 0.892595624923706
+          },
+          {
+            "start": 3.26,
+            "end": 3.64,
+            "word": " حوش",
+            "probability": 0.6449429243803024
+          },
+          {
+            "start": 3.64,
+            "end": 4.0,
+            "word": " مالی",
+            "probability": 0.917961577574412
+          },
+          {
+            "start": 4.0,
+            "end": 4.12,
+            "word": " و",
+            "probability": 0.20279623568058014
+          },
+          {
+            "start": 4.12,
+            "end": 4.78,
+            "word": " در",
+            "probability": 0.7765739262104034
+          },
+          {
+            "start": 4.78,
+            "end": 4.9,
+            "word": " واقع",
+            "probability": 0.9389782945315043
+          },
+          {
+            "start": 4.9,
+            "end": 5.28,
+            "word": " جسد",
+            "probability": 0.5440690219402313
+          },
+          {
+            "start": 5.28,
+            "end": 5.34,
+            "word": " و",
+            "probability": 0.6774486303329468
+          },
+          {
+            "start": 5.34,
+            "end": 5.52,
+            "word": " جور",
+            "probability": 0.6289405226707458
+          },
+          {
+            "start": 5.52,
+            "end": 6.02,
+            "word": " بکنید،",
+            "probability": 0.8484174559513727
+          },
+          {
+            "start": 6.02,
+            "end": 6.36,
+            "word": " گوگل",
+            "probability": 0.9702109098434448
+          },
+          {
+            "start": 6.36,
+            "end": 6.96,
+            "word": " کنی،",
+            "probability": 0.7457769671527785
+          },
+          {
+            "start": 6.96,
+            "end": 7.44,
+            "word": " همه‌ی",
+            "probability": 0.7216072872281074
+          },
+          {
+            "start": 7.44,
+            "end": 7.98,
+            "word": " مهتوای",
+            "probability": 0.4337994416244328
+          },
+          {
+            "start": 7.98,
+            "end": 8.14,
+            "word": " کها",
+            "probability": 0.013820330928865587
+          },
+          {
+            "start": 8.14,
+            "end": 8.34,
+            "word": " آمادا",
+            "probability": 0.5293907504916812
+          },
+          {
+            "start": 8.34,
+            "end": 8.72,
+            "word": " کردین",
+            "probability": 0.5452340651924411
+          },
+          {
+            "start": 8.72,
+            "end": 8.96,
+            "word": " اون‌جا",
+            "probability": 0.7267938505858182
+          }
+        ]
+      }
+    ]
+  }
+}

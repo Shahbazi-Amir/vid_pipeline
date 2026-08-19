@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "d94cf8717298728447abe17dd9e3ce47d39b20090e21688d24a54553714b598e",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 5.92,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 3.34,
+        "text": "خیلی ممنون، سؤال اینی.",
+        "avg_logprob": -0.44913964304659104,
+        "compression_ratio": 0.851063829787234,
+        "no_speech_prob": 2.4384094743368223e-09,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.3,
+            "word": " خیلی",
+            "probability": 0.9570488929748535
+          },
+          {
+            "start": 0.3,
+            "end": 1.02,
+            "word": " ممنون،",
+            "probability": 0.7262967526912689
+          },
+          {
+            "start": 1.02,
+            "end": 3.06,
+            "word": " سؤال",
+            "probability": 0.7353822986284891
+          },
+          {
+            "start": 3.06,
+            "end": 3.34,
+            "word": " اینی.",
+            "probability": 0.6685261925061544
+          }
+        ]
+      }
+    ]
+  }
+}

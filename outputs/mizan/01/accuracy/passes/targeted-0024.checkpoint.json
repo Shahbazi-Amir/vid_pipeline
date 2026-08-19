@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "729a855dd5095131ecbc8806a46386ebaaffcd87bf8f24ebd1e6c527df56a95f",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.56,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 12.54,
+        "text": "شما می‌تونید سوال بپرسید چیش اشکالی هم نداره؟ منطقا هر اسلاید، چون یه موضوعه، بین اسلااید خب اجازه می‌خواهم که مسئله هم رو ادامه بدن، بعد اینکه اسلاعید تموم شد می‌گنم اگه حرفی هست، ببینید.",
+        "avg_logprob": -0.3217633626153392,
+        "compression_ratio": 1.72,
+        "no_speech_prob": 4.14470513465659e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.06,
+            "word": " شما",
+            "probability": 0.6529605388641357
+          },
+          {
+            "start": 0.06,
+            "end": 0.38,
+            "word": " می‌تونید",
+            "probability": 0.78316048036019
+          },
+          {
+            "start": 0.38,
+            "end": 0.68,
+            "word": " سوال",
+            "probability": 0.8470596273740133
+          },
+          {
+            "start": 0.68,
+            "end": 1.2,
+            "word": " بپرسید",
+            "probability": 0.9556533892949423
+          },
+          {
+            "start": 1.2,
+            "end": 1.38,
+            "word": " چیش",
+            "probability": 0.6906006534894308
+          },
+          {
+            "start": 1.38,
+            "end": 1.8,
+            "word": " اشکالی",
+            "probability": 0.974995231628418
+          },
+          {
+            "start": 1.8,
+            "end": 1.94,
+            "word": " هم",
+            "probability": 0.9702623188495636
+          },
+          {
+            "start": 1.94,
+            "end": 2.6,
+            "word": " نداره؟",
+            "probability": 0.9302988529205323
+          },
+          {
+            "start": 2.6,
+            "end": 3.16,
+            "word": " منطقا",
+            "probability": 0.666683241724968
+          },
+          {
+            "start": 3.16,
+            "end": 3.36,
+            "word": " هر",
+            "probability": 0.9737886786460876
+          },
+          {
+            "start": 3.36,
+            "end": 3.92,
+            "word": " اسلاید،",
+            "probability": 0.579734631627798
+          },
+          {
+            "start": 3.92,
+            "end": 4.06,
+            "word": " چون",
+            "probability": 0.9789936244487762
+          },
+          {
+            "start": 4.06,
+            "end": 4.24,
+            "word": " یه",
+            "probability": 0.8284793794155121
+          },
+          {
+            "start": 4.24,
+            "end": 4.96,
+            "word": " موضوعه،",
+            "probability": 0.8900133172671
+          },
+          {
+            "start": 4.96,
+            "end": 5.22,
+            "word": " بین",
+            "probability": 0.9543059468269348
+          },
+          {
+            "start": 5.22,
+            "end": 5.72,
+            "word": " اسلااید",
+            "probability": 0.7920666306192288
+          },
+          {
+            "start": 5.72,
+            "end": 6.46,
+            "word": " خب",
+            "probability": 0.6890086829662323
+          },
+          {
+            "start": 6.46,
+            "end": 7.96,
+            "word": " اجازه",
+            "probability": 0.9609012007713318
+          },
+          {
+            "start": 7.96,
+            "end": 8.32,
+            "word": " می‌خواهم",
+            "probability": 0.7583384037017822
+          },
+          {
+            "start": 8.32,
+            "end": 8.72,
+            "word": " که",
+            "probability": 0.9784393012523651
+          },
+          {
+            "start": 8.72,
+            "end": 9.1,
+            "word": " مسئله",
+            "probability": 0.5946619063615799
+          },
+          {
+            "start": 9.1,
+            "end": 9.26,
+            "word": " هم",
+            "probability": 0.5452300645411015
+          },
+          {
+            "start": 9.26,
+            "end": 9.38,
+            "word": " رو",
+            "probability": 0.5757562816143036
+          },
+          {
+            "start": 9.38,
+            "end": 9.76,
+            "word": " ادامه",
+            "probability": 0.9929127991199493
+          },
+          {
+            "start": 9.76,
+            "end": 10.14,
+            "word": " بدن،",
+            "probability": 0.5809208850065867
+          },
+          {
+            "start": 10.14,
+            "end": 10.34,
+            "word": " بعد",
+            "probability": 0.9800574779510498
+          },
+          {
+            "start": 10.34,
+            "end": 10.58,
+            "word": " اینکه",
+            "probability": 0.9263062179088593
+          },
+          {
+            "start": 10.58,
+            "end": 10.9,
+            "word": " اسلاعید",
+            "probability": 0.6258307043462992
+          },
+          {
+            "start": 10.9,
+            "end": 11.12,
+            "word": " تموم",
+            "probability": 0.8421914279460907
+          },
+          {
+            "start": 11.12,
+            "end": 11.22,
+            "word": " شد",
+            "probability": 0.9523912668228149
+          },
+          {
+            "start": 11.22,
+            "end": 11.42,
+            "word": " می‌گنم",
+            "probability": 0.7288242876529694
+          },
+          {
+            "start": 11.42,
+            "end": 11.58,
+            "word": " اگه",
+            "probability": 0.8517625331878662
+          },
+          {
+            "start": 11.58,
+            "end": 12.04,
+            "word": " حرفی",
+            "probability": 0.9383925000826517
+          },
+          {
+            "start": 12.04,
+            "end": 12.5,
+            "word": " هست،",
+            "probability": 0.7374047736326853
+          },
+          {
+            "start": 12.5,
+            "end": 12.54,
+            "word": " ببینید.",
+            "probability": 0.38665509819984434
+          }
+        ]
+      }
+    ]
+  }
+}

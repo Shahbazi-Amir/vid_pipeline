@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "436f39043e22dea8607ce8361056ec97e17efaf8394e089ff0020339c363d451",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.34,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.92,
+        "text": "مجلات و رسانه‌ها و اینها داشتم و سی و چار عنوان ترجمه همزمان مقال تاهاروارد.",
+        "avg_logprob": -0.21627498646171725,
+        "compression_ratio": 1.3142857142857143,
+        "no_speech_prob": 3.5790551078385135e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.76,
+            "word": " مجلات",
+            "probability": 0.9502134621143341
+          },
+          {
+            "start": 0.76,
+            "end": 0.88,
+            "word": " و",
+            "probability": 0.9942131638526917
+          },
+          {
+            "start": 0.88,
+            "end": 1.46,
+            "word": " رسانه‌ها",
+            "probability": 0.8309712666086853
+          },
+          {
+            "start": 1.46,
+            "end": 1.62,
+            "word": " و",
+            "probability": 0.8730092644691467
+          },
+          {
+            "start": 1.62,
+            "end": 1.92,
+            "word": " اینها",
+            "probability": 0.7022361159324646
+          },
+          {
+            "start": 1.92,
+            "end": 2.5,
+            "word": " داشتم",
+            "probability": 0.9739150007565817
+          },
+          {
+            "start": 2.5,
+            "end": 2.76,
+            "word": " و",
+            "probability": 0.9518770575523376
+          },
+          {
+            "start": 2.76,
+            "end": 3.22,
+            "word": " سی",
+            "probability": 0.6815668642520905
+          },
+          {
+            "start": 3.22,
+            "end": 3.32,
+            "word": " و",
+            "probability": 0.8916645646095276
+          },
+          {
+            "start": 3.32,
+            "end": 3.52,
+            "word": " چار",
+            "probability": 0.8347447216510773
+          },
+          {
+            "start": 3.52,
+            "end": 3.94,
+            "word": " عنوان",
+            "probability": 0.9375684062639872
+          },
+          {
+            "start": 3.94,
+            "end": 4.88,
+            "word": " ترجمه",
+            "probability": 0.9816251546144485
+          },
+          {
+            "start": 4.88,
+            "end": 5.6,
+            "word": " همزمان",
+            "probability": 0.8618939578533172
+          },
+          {
+            "start": 5.6,
+            "end": 5.96,
+            "word": " مقال",
+            "probability": 0.9849307735761007
+          },
+          {
+            "start": 5.96,
+            "end": 6.92,
+            "word": " تاهاروارد.",
+            "probability": 0.7572703411181768
+          }
+        ]
+      }
+    ]
+  }
+}

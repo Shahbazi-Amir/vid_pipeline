@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "f594ac5bced4810d2f6f4535ac90c5c4c0c040cbb64a472d5592d02172a636c8",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 16.6,
+    "segments": [
+      {
+        "id": 1,
+        "start": 6.120000000000001,
+        "end": 16.52,
+        "text": "بریم؟ خدمت رو عرض بکنم که ما یه بیماری داریم به نام فقر و نداری. که این بی ماری یه جور...",
+        "avg_logprob": -0.2501470410618289,
+        "compression_ratio": 1.4528301886792452,
+        "no_speech_prob": 3.4760028189140257e-10,
+        "words": [
+          {
+            "start": 6.120000000000001,
+            "end": 6.98,
+            "word": " بریم؟",
+            "probability": 0.6777877956628799
+          },
+          {
+            "start": 6.98,
+            "end": 7.84,
+            "word": " خدمت",
+            "probability": 0.8227462569872538
+          },
+          {
+            "start": 7.84,
+            "end": 7.94,
+            "word": " رو",
+            "probability": 0.6040491908788681
+          },
+          {
+            "start": 7.94,
+            "end": 8.18,
+            "word": " عرض",
+            "probability": 0.7888849675655365
+          },
+          {
+            "start": 8.18,
+            "end": 8.66,
+            "word": " بکنم",
+            "probability": 0.9870390444993973
+          },
+          {
+            "start": 8.66,
+            "end": 8.86,
+            "word": " که",
+            "probability": 0.9922928810119629
+          },
+          {
+            "start": 8.86,
+            "end": 8.96,
+            "word": " ما",
+            "probability": 0.9972242116928101
+          },
+          {
+            "start": 8.96,
+            "end": 9.12,
+            "word": " یه",
+            "probability": 0.9753977954387665
+          },
+          {
+            "start": 9.12,
+            "end": 9.8,
+            "word": " بیماری",
+            "probability": 0.9985937714576721
+          },
+          {
+            "start": 9.8,
+            "end": 10.46,
+            "word": " داریم",
+            "probability": 0.9839372038841248
+          },
+          {
+            "start": 10.46,
+            "end": 11.36,
+            "word": " به",
+            "probability": 0.986219584941864
+          },
+          {
+            "start": 11.36,
+            "end": 11.64,
+            "word": " نام",
+            "probability": 0.9991167485713959
+          },
+          {
+            "start": 11.64,
+            "end": 12.26,
+            "word": " فقر",
+            "probability": 0.9898915489514669
+          },
+          {
+            "start": 12.26,
+            "end": 13.46,
+            "word": " و",
+            "probability": 0.9883098602294922
+          },
+          {
+            "start": 13.46,
+            "end": 14.16,
+            "word": " نداری.",
+            "probability": 0.998492419719696
+          },
+          {
+            "start": 14.38,
+            "end": 15.16,
+            "word": " که",
+            "probability": 0.979284018278122
+          },
+          {
+            "start": 15.16,
+            "end": 15.24,
+            "word": " این",
+            "probability": 0.9836241900920868
+          },
+          {
+            "start": 15.24,
+            "end": 15.46,
+            "word": " بی",
+            "probability": 0.999157190322876
+          },
+          {
+            "start": 15.46,
+            "end": 15.86,
+            "word": " ماری",
+            "probability": 0.6658630796518992
+          },
+          {
+            "start": 15.86,
+            "end": 16.06,
+            "word": " یه",
+            "probability": 0.9166331589221954
+          },
+          {
+            "start": 16.06,
+            "end": 16.52,
+            "word": " جور...",
+            "probability": 0.7200445582469305
+          }
+        ]
+      }
+    ]
+  }
+}

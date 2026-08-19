@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "6154bc6ef9effd0f0f231eb553cf8edc58c18cc1689361048e6b9d61e3da1557",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.66,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.64,
+        "text": "سال ۹۶ دکترام رو دفاع کردم و از ۱۶ تا الانم در علم آمودی کم نزد باشتم، ثه تا مدرک هرفه یه دیگه هم مربی‌گری",
+        "avg_logprob": -0.2572547073488112,
+        "compression_ratio": 1.4104477611940298,
+        "no_speech_prob": 3.933739445294293e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.18,
+            "word": " سال",
+            "probability": 0.5766545981168747
+          },
+          {
+            "start": 0.18,
+            "end": 1.1,
+            "word": " ۹۶",
+            "probability": 0.808108639717102
+          },
+          {
+            "start": 1.1,
+            "end": 1.64,
+            "word": " دکترام",
+            "probability": 0.746113908290863
+          },
+          {
+            "start": 1.64,
+            "end": 1.76,
+            "word": " رو",
+            "probability": 0.6578118205070496
+          },
+          {
+            "start": 1.76,
+            "end": 2.06,
+            "word": " دفاع",
+            "probability": 0.9634731213251749
+          },
+          {
+            "start": 2.06,
+            "end": 2.5,
+            "word": " کردم",
+            "probability": 0.9554075002670288
+          },
+          {
+            "start": 2.5,
+            "end": 2.64,
+            "word": " و",
+            "probability": 0.8892920017242432
+          },
+          {
+            "start": 2.64,
+            "end": 2.76,
+            "word": " از",
+            "probability": 0.9669418334960938
+          },
+          {
+            "start": 2.76,
+            "end": 3.26,
+            "word": " ۱۶",
+            "probability": 0.7614992529153823
+          },
+          {
+            "start": 3.26,
+            "end": 3.48,
+            "word": " تا",
+            "probability": 0.9284102916717529
+          },
+          {
+            "start": 3.48,
+            "end": 3.92,
+            "word": " الانم",
+            "probability": 0.7683401306470236
+          },
+          {
+            "start": 3.92,
+            "end": 4.5,
+            "word": " در",
+            "probability": 0.9727350771427155
+          },
+          {
+            "start": 4.5,
+            "end": 4.88,
+            "word": " علم",
+            "probability": 0.9432535767555237
+          },
+          {
+            "start": 4.88,
+            "end": 5.44,
+            "word": " آمودی",
+            "probability": 0.9144116342067719
+          },
+          {
+            "start": 5.44,
+            "end": 6.5,
+            "word": " کم",
+            "probability": 0.9715286195278168
+          },
+          {
+            "start": 6.5,
+            "end": 6.8,
+            "word": " نزد",
+            "probability": 0.7387544711430868
+          },
+          {
+            "start": 6.8,
+            "end": 7.28,
+            "word": " باشتم،",
+            "probability": 0.6556057073175907
+          },
+          {
+            "start": 7.28,
+            "end": 7.56,
+            "word": " ثه",
+            "probability": 0.6333199739456177
+          },
+          {
+            "start": 7.56,
+            "end": 7.64,
+            "word": " تا",
+            "probability": 0.933759868144989
+          },
+          {
+            "start": 7.64,
+            "end": 8.04,
+            "word": " مدرک",
+            "probability": 0.9850654006004333
+          },
+          {
+            "start": 8.04,
+            "end": 8.52,
+            "word": " هرفه",
+            "probability": 0.7345906694730123
+          },
+          {
+            "start": 8.52,
+            "end": 8.7,
+            "word": " یه",
+            "probability": 0.5341456159949303
+          },
+          {
+            "start": 8.7,
+            "end": 8.94,
+            "word": " دیگه",
+            "probability": 0.9103135764598846
+          },
+          {
+            "start": 8.94,
+            "end": 9.02,
+            "word": " هم",
+            "probability": 0.8101469874382019
+          },
+          {
+            "start": 9.02,
+            "end": 9.64,
+            "word": " مربی‌گری",
+            "probability": 0.748195756226778
+          }
+        ]
+      }
+    ]
+  }
+}

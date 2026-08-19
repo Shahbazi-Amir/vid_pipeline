@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "0c0c5bbaf03a1d79fdf7ef800a9baf4969e00ce99eef8b90265701120cc01440",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.88,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.86,
+        "text": "که همه رو عادلانه ببینم، اینجا معرفیه من، اگر سؤالی درباره‌ی من دارید بپرسید، پرسشم این‌جوری هر بار که اصلاع کن.",
+        "avg_logprob": -0.2849129649657237,
+        "compression_ratio": 1.474820143884892,
+        "no_speech_prob": 3.740210918756759e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.7,
+            "word": " که",
+            "probability": 0.5295983143150806
+          },
+          {
+            "start": 0.7,
+            "end": 0.96,
+            "word": " همه",
+            "probability": 0.7864964008331299
+          },
+          {
+            "start": 0.96,
+            "end": 1.18,
+            "word": " رو",
+            "probability": 0.897478848695755
+          },
+          {
+            "start": 1.18,
+            "end": 1.84,
+            "word": " عادلانه",
+            "probability": 0.8682262897491455
+          },
+          {
+            "start": 1.84,
+            "end": 2.66,
+            "word": " ببینم،",
+            "probability": 0.8027407571673393
+          },
+          {
+            "start": 2.66,
+            "end": 3.18,
+            "word": " اینجا",
+            "probability": 0.9874192178249359
+          },
+          {
+            "start": 3.18,
+            "end": 3.82,
+            "word": " معرفیه",
+            "probability": 0.8531314432621002
+          },
+          {
+            "start": 3.82,
+            "end": 4.12,
+            "word": " من،",
+            "probability": 0.6910079121589661
+          },
+          {
+            "start": 4.12,
+            "end": 4.32,
+            "word": " اگر",
+            "probability": 0.9959271947542826
+          },
+          {
+            "start": 4.32,
+            "end": 4.72,
+            "word": " سؤالی",
+            "probability": 0.7713740579783916
+          },
+          {
+            "start": 4.72,
+            "end": 5.2,
+            "word": " درباره‌ی",
+            "probability": 0.7159986092398564
+          },
+          {
+            "start": 5.2,
+            "end": 5.28,
+            "word": " من",
+            "probability": 0.9474899768829346
+          },
+          {
+            "start": 5.28,
+            "end": 5.6,
+            "word": " دارید",
+            "probability": 0.9830213785171509
+          },
+          {
+            "start": 5.6,
+            "end": 6.48,
+            "word": " بپرسید،",
+            "probability": 0.8673813385622842
+          },
+          {
+            "start": 6.48,
+            "end": 7.46,
+            "word": " پرسشم",
+            "probability": 0.8142134547233582
+          },
+          {
+            "start": 7.46,
+            "end": 7.76,
+            "word": " این‌جوری",
+            "probability": 0.7999117436508337
+          },
+          {
+            "start": 7.76,
+            "end": 8.08,
+            "word": " هر",
+            "probability": 0.8984924554824829
+          },
+          {
+            "start": 8.08,
+            "end": 8.26,
+            "word": " بار",
+            "probability": 0.9538468718528748
+          },
+          {
+            "start": 8.26,
+            "end": 8.44,
+            "word": " که",
+            "probability": 0.9486312568187714
+          },
+          {
+            "start": 8.44,
+            "end": 8.82,
+            "word": " اصلاع",
+            "probability": 0.7407282739877701
+          },
+          {
+            "start": 8.82,
+            "end": 8.86,
+            "word": " کن.",
+            "probability": 0.27438993006944656
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "d1f3e3bde1f7bd229b4e5629cc68cee4c00407ae92467ed21af4e4a1be0f31bc",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.82,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.8,
+        "text": "و مدیریت، خوضه‌ای تصمیم‌گیری و من به تصویم گیری فردی علاقه داشتم در نتیجه وارد توصیح فردای شدم و...",
+        "avg_logprob": -0.2702286205121449,
+        "compression_ratio": 1.4206349206349207,
+        "no_speech_prob": 3.32327110275088e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.1,
+            "word": " و",
+            "probability": 0.6810016632080078
+          },
+          {
+            "start": 0.1,
+            "end": 0.94,
+            "word": " مدیریت،",
+            "probability": 0.8325223196297884
+          },
+          {
+            "start": 0.94,
+            "end": 3.0,
+            "word": " خوضه‌ای",
+            "probability": 0.6049320580703872
+          },
+          {
+            "start": 3.0,
+            "end": 3.88,
+            "word": " تصمیم‌گیری",
+            "probability": 0.9632475309901767
+          },
+          {
+            "start": 3.88,
+            "end": 4.28,
+            "word": " و",
+            "probability": 0.8462250828742981
+          },
+          {
+            "start": 4.28,
+            "end": 4.42,
+            "word": " من",
+            "probability": 0.9819984436035156
+          },
+          {
+            "start": 4.42,
+            "end": 4.54,
+            "word": " به",
+            "probability": 0.983758807182312
+          },
+          {
+            "start": 4.54,
+            "end": 4.96,
+            "word": " تصویم",
+            "probability": 0.7540623976121423
+          },
+          {
+            "start": 4.96,
+            "end": 5.12,
+            "word": " گیری",
+            "probability": 0.6490590966617068
+          },
+          {
+            "start": 5.12,
+            "end": 5.62,
+            "word": " فردی",
+            "probability": 0.9896477609872818
+          },
+          {
+            "start": 5.62,
+            "end": 5.98,
+            "word": " علاقه",
+            "probability": 0.9855249673128128
+          },
+          {
+            "start": 5.98,
+            "end": 6.32,
+            "word": " داشتم",
+            "probability": 0.9913968245188395
+          },
+          {
+            "start": 6.32,
+            "end": 6.54,
+            "word": " در",
+            "probability": 0.9190358221530914
+          },
+          {
+            "start": 6.54,
+            "end": 6.92,
+            "word": " نتیجه",
+            "probability": 0.9909451246261597
+          },
+          {
+            "start": 6.92,
+            "end": 7.18,
+            "word": " وارد",
+            "probability": 0.8479649225870768
+          },
+          {
+            "start": 7.18,
+            "end": 7.66,
+            "word": " توصیح",
+            "probability": 0.733358234167099
+          },
+          {
+            "start": 7.66,
+            "end": 8.06,
+            "word": " فردای",
+            "probability": 0.677365504525369
+          },
+          {
+            "start": 8.06,
+            "end": 8.42,
+            "word": " شدم",
+            "probability": 0.9056065678596497
+          },
+          {
+            "start": 8.42,
+            "end": 8.8,
+            "word": " و...",
+            "probability": 0.4475941136479378
+          }
+        ]
+      }
+    ]
+  }
+}

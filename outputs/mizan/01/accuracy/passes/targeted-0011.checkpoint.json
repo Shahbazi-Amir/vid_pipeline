@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "a17e4d8e6279011cb3e6d79adfb480cd713687eb1402076c05c40d34b6bad148",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 13.22,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 5.42,
+        "text": "شمالی و مربی‌گری زندگی هم به عنوان مدارک حرفه‌ای دارم.",
+        "avg_logprob": -0.29122169812520343,
+        "compression_ratio": 1.5483870967741935,
+        "no_speech_prob": 4.1943964967927627e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.54,
+            "word": " شمالی",
+            "probability": 0.6825834573246539
+          },
+          {
+            "start": 0.54,
+            "end": 0.86,
+            "word": " و",
+            "probability": 0.9877234697341919
+          },
+          {
+            "start": 0.86,
+            "end": 1.64,
+            "word": " مربی‌گری",
+            "probability": 0.7879588025001188
+          },
+          {
+            "start": 1.64,
+            "end": 2.26,
+            "word": " زندگی",
+            "probability": 0.99323371052742
+          },
+          {
+            "start": 2.26,
+            "end": 2.52,
+            "word": " هم",
+            "probability": 0.9672254920005798
+          },
+          {
+            "start": 2.52,
+            "end": 2.66,
+            "word": " به",
+            "probability": 0.9060136079788208
+          },
+          {
+            "start": 2.66,
+            "end": 2.92,
+            "word": " عنوان",
+            "probability": 0.9725884199142456
+          },
+          {
+            "start": 2.92,
+            "end": 3.44,
+            "word": " مدارک",
+            "probability": 0.7309479974210262
+          },
+          {
+            "start": 3.44,
+            "end": 4.0,
+            "word": " حرفه‌ای",
+            "probability": 0.6961406767368317
+          },
+          {
+            "start": 4.0,
+            "end": 5.42,
+            "word": " دارم.",
+            "probability": 0.9645710587501526
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 5.48,
+        "end": 12.44,
+        "text": "بیستو یک عنوام کتاب و مقاله نوشتم و آخرین کتبم به زبان انگلیسی بوده مانین می،",
+        "avg_logprob": -0.29122169812520343,
+        "compression_ratio": 1.5483870967741935,
+        "no_speech_prob": 4.1943964967927627e-10,
+        "words": [
+          {
+            "start": 5.48,
+            "end": 5.78,
+            "word": " بیستو",
+            "probability": 0.6105882823467255
+          },
+          {
+            "start": 5.78,
+            "end": 6.02,
+            "word": " یک",
+            "probability": 0.818532258272171
+          },
+          {
+            "start": 6.02,
+            "end": 6.62,
+            "word": " عنوام",
+            "probability": 0.5901708275196142
+          },
+          {
+            "start": 6.62,
+            "end": 7.2,
+            "word": " کتاب",
+            "probability": 0.9785905480384827
+          },
+          {
+            "start": 7.2,
+            "end": 7.28,
+            "word": " و",
+            "probability": 0.9649797081947327
+          },
+          {
+            "start": 7.28,
+            "end": 7.72,
+            "word": " مقاله",
+            "probability": 0.9896969348192215
+          },
+          {
+            "start": 7.72,
+            "end": 8.24,
+            "word": " نوشتم",
+            "probability": 0.9889477640390396
+          },
+          {
+            "start": 8.24,
+            "end": 8.4,
+            "word": " و",
+            "probability": 0.9256445169448853
+          },
+          {
+            "start": 8.4,
+            "end": 8.72,
+            "word": " آخرین",
+            "probability": 0.9531191190083822
+          },
+          {
+            "start": 8.72,
+            "end": 9.14,
+            "word": " کتبم",
+            "probability": 0.7127556182676926
+          },
+          {
+            "start": 9.14,
+            "end": 9.26,
+            "word": " به",
+            "probability": 0.9750699996948242
+          },
+          {
+            "start": 9.26,
+            "end": 9.62,
+            "word": " زبان",
+            "probability": 0.9645596146583557
+          },
+          {
+            "start": 9.62,
+            "end": 10.2,
+            "word": " انگلیسی",
+            "probability": 0.9828101992607117
+          },
+          {
+            "start": 10.2,
+            "end": 10.7,
+            "word": " بوده",
+            "probability": 0.9468534191449484
+          },
+          {
+            "start": 10.7,
+            "end": 11.6,
+            "word": " مانین",
+            "probability": 0.5830303827921549
+          },
+          {
+            "start": 11.6,
+            "end": 12.44,
+            "word": " می،",
+            "probability": 0.3113801181316376
+          }
+        ]
+      }
+    ]
+  }
+}

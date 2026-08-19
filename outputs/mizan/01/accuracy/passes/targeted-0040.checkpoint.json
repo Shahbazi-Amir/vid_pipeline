@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "743e6183361454814125faa458aebc854df00bd612c1ed30f433020fbd30f3ca",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.78,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.76,
+        "text": "که این بیماری یه جور سرطانه، یعنی اصلا اینجوری نیست که بگی که مثلا من الان دوتا گرس می‌خورم، دوتو ک...",
+        "avg_logprob": -0.19501994279297916,
+        "compression_ratio": 1.4444444444444444,
+        "no_speech_prob": 3.080100896557525e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.44,
+            "word": " که",
+            "probability": 0.845784604549408
+          },
+          {
+            "start": 0.44,
+            "end": 0.54,
+            "word": " این",
+            "probability": 0.9978421926498413
+          },
+          {
+            "start": 0.54,
+            "end": 1.1,
+            "word": " بیماری",
+            "probability": 0.9991464614868164
+          },
+          {
+            "start": 1.1,
+            "end": 1.34,
+            "word": " یه",
+            "probability": 0.9403406381607056
+          },
+          {
+            "start": 1.34,
+            "end": 1.54,
+            "word": " جور",
+            "probability": 0.995525062084198
+          },
+          {
+            "start": 1.54,
+            "end": 2.72,
+            "word": " سرطانه،",
+            "probability": 0.8046146097282568
+          },
+          {
+            "start": 2.72,
+            "end": 3.34,
+            "word": " یعنی",
+            "probability": 0.9982235729694366
+          },
+          {
+            "start": 3.34,
+            "end": 3.62,
+            "word": " اصلا",
+            "probability": 0.9540471831957499
+          },
+          {
+            "start": 3.62,
+            "end": 3.98,
+            "word": " اینجوری",
+            "probability": 0.9785572767257691
+          },
+          {
+            "start": 3.98,
+            "end": 4.2,
+            "word": " نیست",
+            "probability": 0.9987327257792155
+          },
+          {
+            "start": 4.2,
+            "end": 4.36,
+            "word": " که",
+            "probability": 0.9980134963989258
+          },
+          {
+            "start": 4.36,
+            "end": 4.64,
+            "word": " بگی",
+            "probability": 0.9978264371554056
+          },
+          {
+            "start": 4.64,
+            "end": 5.34,
+            "word": " که",
+            "probability": 0.9872809946537018
+          },
+          {
+            "start": 5.34,
+            "end": 5.76,
+            "word": " مثلا",
+            "probability": 0.938601553440094
+          },
+          {
+            "start": 5.76,
+            "end": 5.98,
+            "word": " من",
+            "probability": 0.910255491733551
+          },
+          {
+            "start": 5.98,
+            "end": 6.32,
+            "word": " الان",
+            "probability": 0.9836795330047607
+          },
+          {
+            "start": 6.32,
+            "end": 6.66,
+            "word": " دوتا",
+            "probability": 0.8915891647338867
+          },
+          {
+            "start": 6.66,
+            "end": 7.0,
+            "word": " گرس",
+            "probability": 0.7825296223163605
+          },
+          {
+            "start": 7.0,
+            "end": 7.46,
+            "word": " می‌خورم،",
+            "probability": 0.6891625405599674
+          },
+          {
+            "start": 7.46,
+            "end": 7.62,
+            "word": " دوتو",
+            "probability": 0.6617233601864427
+          },
+          {
+            "start": 7.62,
+            "end": 7.76,
+            "word": " ک...",
+            "probability": 0.4113763216882944
+          }
+        ]
+      }
+    ]
+  }
+}

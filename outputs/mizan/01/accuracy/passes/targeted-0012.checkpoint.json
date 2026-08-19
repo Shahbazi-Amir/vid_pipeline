@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "f1f77fccb6f56c2b3a1ab7c6ddf39a15abe89664695c25fee38fe1d5a356ad00",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 17.34,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 17.32,
+        "text": "و آخرین کتابم به زبان انگلیسی بوده Money and Me, Personal Journey to Financial Literacy، رابطه‌ی من و پول و سفری به ثواد مالی، که در آمازون منتشر شده، چلو دوتا عنوان شد.",
+        "avg_logprob": -0.24423072575813248,
+        "compression_ratio": 1.305,
+        "no_speech_prob": 4.79652206841763e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.16,
+            "word": " و",
+            "probability": 0.7411754131317139
+          },
+          {
+            "start": 0.16,
+            "end": 0.5,
+            "word": " آخرین",
+            "probability": 0.9778115153312683
+          },
+          {
+            "start": 0.5,
+            "end": 0.94,
+            "word": " کتابم",
+            "probability": 0.9833279997110367
+          },
+          {
+            "start": 0.94,
+            "end": 1.04,
+            "word": " به",
+            "probability": 0.9879248142242432
+          },
+          {
+            "start": 1.04,
+            "end": 1.4,
+            "word": " زبان",
+            "probability": 0.974419116973877
+          },
+          {
+            "start": 1.4,
+            "end": 1.98,
+            "word": " انگلیسی",
+            "probability": 0.9862396717071533
+          },
+          {
+            "start": 1.98,
+            "end": 2.48,
+            "word": " بوده",
+            "probability": 0.9636662602424622
+          },
+          {
+            "start": 2.48,
+            "end": 3.22,
+            "word": " Money",
+            "probability": 0.4010217487812042
+          },
+          {
+            "start": 3.22,
+            "end": 3.52,
+            "word": " and",
+            "probability": 0.7407408952713013
+          },
+          {
+            "start": 3.52,
+            "end": 3.96,
+            "word": " Me,",
+            "probability": 0.7931506633758545
+          },
+          {
+            "start": 4.24,
+            "end": 5.54,
+            "word": " Personal",
+            "probability": 0.9571514129638672
+          },
+          {
+            "start": 5.54,
+            "end": 6.26,
+            "word": " Journey",
+            "probability": 0.9856762886047363
+          },
+          {
+            "start": 6.26,
+            "end": 6.84,
+            "word": " to",
+            "probability": 0.9879520535469055
+          },
+          {
+            "start": 6.84,
+            "end": 7.32,
+            "word": " Financial",
+            "probability": 0.9930790066719055
+          },
+          {
+            "start": 7.32,
+            "end": 8.3,
+            "word": " Literacy،",
+            "probability": 0.681280717253685
+          },
+          {
+            "start": 8.3,
+            "end": 8.92,
+            "word": " رابطه‌ی",
+            "probability": 0.801918612793088
+          },
+          {
+            "start": 8.92,
+            "end": 9.1,
+            "word": " من",
+            "probability": 0.9829484820365906
+          },
+          {
+            "start": 9.1,
+            "end": 9.26,
+            "word": " و",
+            "probability": 0.9234986901283264
+          },
+          {
+            "start": 9.26,
+            "end": 9.6,
+            "word": " پول",
+            "probability": 0.9805373251438141
+          },
+          {
+            "start": 9.6,
+            "end": 9.74,
+            "word": " و",
+            "probability": 0.9522241353988647
+          },
+          {
+            "start": 9.74,
+            "end": 10.22,
+            "word": " سفری",
+            "probability": 0.9919631282488505
+          },
+          {
+            "start": 10.22,
+            "end": 10.42,
+            "word": " به",
+            "probability": 0.9950568675994873
+          },
+          {
+            "start": 10.42,
+            "end": 11.36,
+            "word": " ثواد",
+            "probability": 0.8782277305920919
+          },
+          {
+            "start": 11.36,
+            "end": 11.88,
+            "word": " مالی،",
+            "probability": 0.7457171455025673
+          },
+          {
+            "start": 11.88,
+            "end": 12.5,
+            "word": " که",
+            "probability": 0.9878475964069366
+          },
+          {
+            "start": 12.5,
+            "end": 12.66,
+            "word": " در",
+            "probability": 0.9975792169570923
+          },
+          {
+            "start": 12.66,
+            "end": 13.42,
+            "word": " آمازون",
+            "probability": 0.980081245303154
+          },
+          {
+            "start": 13.42,
+            "end": 14.18,
+            "word": " منتشر",
+            "probability": 0.9844589034716288
+          },
+          {
+            "start": 14.18,
+            "end": 16.04,
+            "word": " شده،",
+            "probability": 0.785401988774538
+          },
+          {
+            "start": 16.04,
+            "end": 16.78,
+            "word": " چلو",
+            "probability": 0.854232132434845
+          },
+          {
+            "start": 16.78,
+            "end": 17.02,
+            "word": " دوتا",
+            "probability": 0.87369171778361
+          },
+          {
+            "start": 17.02,
+            "end": 17.32,
+            "word": " عنوان",
+            "probability": 0.8736953139305115
+          },
+          {
+            "start": 17.32,
+            "end": 17.32,
+            "word": " شد.",
+            "probability": 0.5445696786046028
+          }
+        ]
+      }
+    ]
+  }
+}

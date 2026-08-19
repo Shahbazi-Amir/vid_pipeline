@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "844c7550923b907ceb98651e46d60d34ccda857a6b98b3758283070e976495c0",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.58,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 1.74,
+        "text": "موسیقی",
+        "avg_logprob": -0.6952981789906819,
+        "compression_ratio": 0.8928571428571429,
+        "no_speech_prob": 3.744754728529642e-09,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 1.74,
+            "word": " موسیقی",
+            "probability": 0.6512996301054954
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 10.0,
+        "end": 10.06,
+        "text": "موسيقی",
+        "avg_logprob": -0.6952981789906819,
+        "compression_ratio": 0.8928571428571429,
+        "no_speech_prob": 3.744754728529642e-09,
+        "words": [
+          {
+            "start": 9.360000000000001,
+            "end": 10.06,
+            "word": " موسيقی",
+            "probability": 0.5905509559495841
+          }
+        ]
+      }
+    ]
+  }
+}

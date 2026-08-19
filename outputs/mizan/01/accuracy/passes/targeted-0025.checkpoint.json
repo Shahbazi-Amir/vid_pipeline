@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "7dba52dc683ddc7ad3a6f47b4c29301459074b5888be55a835cf364e88d5b888",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.96,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 5.44,
+        "text": "اجازه می‌خوام که مثل هم رو ادامه بدن، بعد اینکه افلاق تموم شود می‌گنم اگه حرفی هست، بفرمون.",
+        "avg_logprob": -0.34780032287041346,
+        "compression_ratio": 1.360655737704918,
+        "no_speech_prob": 2.941553112201234e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.42,
+            "word": " اجازه",
+            "probability": 0.9754758477210999
+          },
+          {
+            "start": 0.42,
+            "end": 0.74,
+            "word": " می‌خوام",
+            "probability": 0.7512460500001907
+          },
+          {
+            "start": 0.74,
+            "end": 1.16,
+            "word": " که",
+            "probability": 0.9690772593021393
+          },
+          {
+            "start": 1.16,
+            "end": 1.52,
+            "word": " مثل",
+            "probability": 0.29200681298971176
+          },
+          {
+            "start": 1.52,
+            "end": 1.66,
+            "word": " هم",
+            "probability": 0.4766785725951195
+          },
+          {
+            "start": 1.66,
+            "end": 1.8,
+            "word": " رو",
+            "probability": 0.5878662765026093
+          },
+          {
+            "start": 1.8,
+            "end": 2.2,
+            "word": " ادامه",
+            "probability": 0.9894220381975174
+          },
+          {
+            "start": 2.2,
+            "end": 2.58,
+            "word": " بدن،",
+            "probability": 0.5038707802693049
+          },
+          {
+            "start": 2.58,
+            "end": 2.78,
+            "word": " بعد",
+            "probability": 0.9539653062820435
+          },
+          {
+            "start": 2.78,
+            "end": 3.02,
+            "word": " اینکه",
+            "probability": 0.9026275277137756
+          },
+          {
+            "start": 3.02,
+            "end": 3.34,
+            "word": " افلاق",
+            "probability": 0.5537989027798176
+          },
+          {
+            "start": 3.34,
+            "end": 3.56,
+            "word": " تموم",
+            "probability": 0.8737635314464569
+          },
+          {
+            "start": 3.56,
+            "end": 3.66,
+            "word": " شود",
+            "probability": 0.6363182812929153
+          },
+          {
+            "start": 3.66,
+            "end": 3.88,
+            "word": " می‌گنم",
+            "probability": 0.7340637624263764
+          },
+          {
+            "start": 3.88,
+            "end": 4.06,
+            "word": " اگه",
+            "probability": 0.8339291016260783
+          },
+          {
+            "start": 4.06,
+            "end": 4.48,
+            "word": " حرفی",
+            "probability": 0.9710002144177755
+          },
+          {
+            "start": 4.48,
+            "end": 4.9,
+            "word": " هست،",
+            "probability": 0.8732567230860392
+          },
+          {
+            "start": 4.9,
+            "end": 5.44,
+            "word": " بفرمون.",
+            "probability": 0.733974227309227
+          }
+        ]
+      }
+    ]
+  }
+}

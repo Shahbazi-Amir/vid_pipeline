@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "049a94922ecd1821b371ea6eba7f547c6b880fea4ad42e240a2982c1fa451379",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.94,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 12.76,
+        "text": "با سروش صحت، خانه تو، با فرهاد جمع، اثر شیرین با خانوم متولیان، برنامه ازگاهی، برای صبح گاهی و غیانوس آرام براین نوجوان هم بودم.",
+        "avg_logprob": -0.2865356494013856,
+        "compression_ratio": 1.582191780821918,
+        "no_speech_prob": 4.82088369224698e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.18,
+            "word": " با",
+            "probability": 0.882457047700882
+          },
+          {
+            "start": 0.18,
+            "end": 0.54,
+            "word": " سروش",
+            "probability": 0.8972456653912863
+          },
+          {
+            "start": 0.54,
+            "end": 1.04,
+            "word": " صحت،",
+            "probability": 0.6318319936593374
+          },
+          {
+            "start": 1.04,
+            "end": 1.34,
+            "word": " خانه",
+            "probability": 0.9873006145159403
+          },
+          {
+            "start": 1.34,
+            "end": 1.6,
+            "word": " تو،",
+            "probability": 0.6249458193778992
+          },
+          {
+            "start": 1.6,
+            "end": 1.7,
+            "word": " با",
+            "probability": 0.9649449586868286
+          },
+          {
+            "start": 1.7,
+            "end": 2.14,
+            "word": " فرهاد",
+            "probability": 0.9868677109479904
+          },
+          {
+            "start": 2.14,
+            "end": 2.54,
+            "word": " جمع،",
+            "probability": 0.9162260442972183
+          },
+          {
+            "start": 2.54,
+            "end": 2.82,
+            "word": " اثر",
+            "probability": 0.4767857491970062
+          },
+          {
+            "start": 2.82,
+            "end": 3.8,
+            "word": " شیرین",
+            "probability": 0.9539414644241333
+          },
+          {
+            "start": 3.8,
+            "end": 3.98,
+            "word": " با",
+            "probability": 0.7296017855405807
+          },
+          {
+            "start": 3.98,
+            "end": 4.24,
+            "word": " خانوم",
+            "probability": 0.9453192949295044
+          },
+          {
+            "start": 4.24,
+            "end": 5.18,
+            "word": " متولیان،",
+            "probability": 0.8609168648719787
+          },
+          {
+            "start": 5.18,
+            "end": 5.54,
+            "word": " برنامه",
+            "probability": 0.9843003869056701
+          },
+          {
+            "start": 5.54,
+            "end": 6.2,
+            "word": " ازگاهی،",
+            "probability": 0.7518679896990458
+          },
+          {
+            "start": 6.2,
+            "end": 6.48,
+            "word": " برای",
+            "probability": 0.5897728264608304
+          },
+          {
+            "start": 6.48,
+            "end": 6.78,
+            "word": " صبح",
+            "probability": 0.7223653495311737
+          },
+          {
+            "start": 6.78,
+            "end": 7.04,
+            "word": " گاهی",
+            "probability": 0.8177229762077332
+          },
+          {
+            "start": 7.04,
+            "end": 7.14,
+            "word": " و",
+            "probability": 0.3076847493648529
+          },
+          {
+            "start": 7.14,
+            "end": 7.64,
+            "word": " غیانوس",
+            "probability": 0.7655086927115917
+          },
+          {
+            "start": 7.64,
+            "end": 11.22,
+            "word": " آرام",
+            "probability": 0.6518970479567846
+          },
+          {
+            "start": 11.22,
+            "end": 11.5,
+            "word": " براین",
+            "probability": 0.5825908547655368
+          },
+          {
+            "start": 11.5,
+            "end": 12.14,
+            "word": " نوجوان",
+            "probability": 0.9568092972040176
+          },
+          {
+            "start": 12.14,
+            "end": 12.26,
+            "word": " هم",
+            "probability": 0.64842589199543
+          },
+          {
+            "start": 12.26,
+            "end": 12.76,
+            "word": " بودم.",
+            "probability": 0.9749289949735006
+          }
+        ]
+      }
+    ]
+  }
+}

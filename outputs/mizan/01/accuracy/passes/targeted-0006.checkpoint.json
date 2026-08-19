@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "b494223948c273d9677058fea137cea8d9f119b9fbcdae537bcc79e4d5378af1",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.5,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 5.44,
+        "text": "توصیه فردی شدم و تقریبا می‌توانم بگم 20 سال الان تو این حوضه داریم کار میکنیم و...",
+        "avg_logprob": -0.2044966198363394,
+        "compression_ratio": 1.263157894736842,
+        "no_speech_prob": 3.8247383038481075e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.48,
+            "word": " توصیه",
+            "probability": 0.7476046085357666
+          },
+          {
+            "start": 0.48,
+            "end": 0.94,
+            "word": " فردی",
+            "probability": 0.9956009089946747
+          },
+          {
+            "start": 0.94,
+            "end": 1.28,
+            "word": " شدم",
+            "probability": 0.9828773438930511
+          },
+          {
+            "start": 1.28,
+            "end": 1.54,
+            "word": " و",
+            "probability": 0.8741291165351868
+          },
+          {
+            "start": 1.54,
+            "end": 1.98,
+            "word": " تقریبا",
+            "probability": 0.9233604788780212
+          },
+          {
+            "start": 1.98,
+            "end": 2.3,
+            "word": " می‌توانم",
+            "probability": 0.6854866550614437
+          },
+          {
+            "start": 2.3,
+            "end": 2.5,
+            "word": " بگم",
+            "probability": 0.9583225647608439
+          },
+          {
+            "start": 2.5,
+            "end": 2.66,
+            "word": " 20",
+            "probability": 0.28912922739982605
+          },
+          {
+            "start": 2.66,
+            "end": 3.04,
+            "word": " سال",
+            "probability": 0.9904912114143372
+          },
+          {
+            "start": 3.04,
+            "end": 3.36,
+            "word": " الان",
+            "probability": 0.7649262547492981
+          },
+          {
+            "start": 3.36,
+            "end": 3.5,
+            "word": " تو",
+            "probability": 0.9204895496368408
+          },
+          {
+            "start": 3.5,
+            "end": 3.66,
+            "word": " این",
+            "probability": 0.926264077425003
+          },
+          {
+            "start": 3.66,
+            "end": 3.96,
+            "word": " حوضه",
+            "probability": 0.9501491338014603
+          },
+          {
+            "start": 3.96,
+            "end": 4.24,
+            "word": " داریم",
+            "probability": 0.9854163825511932
+          },
+          {
+            "start": 4.24,
+            "end": 4.52,
+            "word": " کار",
+            "probability": 0.9869722723960876
+          },
+          {
+            "start": 4.52,
+            "end": 5.02,
+            "word": " میکنیم",
+            "probability": 0.8621111512184143
+          },
+          {
+            "start": 5.02,
+            "end": 5.44,
+            "word": " و...",
+            "probability": 0.6176530122756958
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "a3d778c9419b948ab32d4f08f53a2a06356561611df76f0ea6bdcf747cedd315",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.96,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.94,
+        "text": "منتشر شده، چلو دوتا عنوان یاد داشت و در واقع توی مجلات و رسانه‌ها و این‌ها داشتم و سی و چار عنوام ترجمه‌ی",
+        "avg_logprob": -0.20200937421935977,
+        "compression_ratio": 1.5158730158730158,
+        "no_speech_prob": 5.482175824411684e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.62,
+            "word": " منتشر",
+            "probability": 0.8791021108627319
+          },
+          {
+            "start": 0.62,
+            "end": 1.34,
+            "word": " شده،",
+            "probability": 0.7376431222073734
+          },
+          {
+            "start": 1.34,
+            "end": 3.22,
+            "word": " چلو",
+            "probability": 0.8366626501083374
+          },
+          {
+            "start": 3.22,
+            "end": 3.48,
+            "word": " دوتا",
+            "probability": 0.8978041211764017
+          },
+          {
+            "start": 3.48,
+            "end": 3.82,
+            "word": " عنوان",
+            "probability": 0.9406095544497172
+          },
+          {
+            "start": 3.82,
+            "end": 4.12,
+            "word": " یاد",
+            "probability": 0.9656544029712677
+          },
+          {
+            "start": 4.12,
+            "end": 4.46,
+            "word": " داشت",
+            "probability": 0.9184928933779398
+          },
+          {
+            "start": 4.46,
+            "end": 4.64,
+            "word": " و",
+            "probability": 0.7734505534172058
+          },
+          {
+            "start": 4.64,
+            "end": 5.6,
+            "word": " در",
+            "probability": 0.8725614547729492
+          },
+          {
+            "start": 5.6,
+            "end": 5.96,
+            "word": " واقع",
+            "probability": 0.8947004675865173
+          },
+          {
+            "start": 5.96,
+            "end": 6.96,
+            "word": " توی",
+            "probability": 0.9706790149211884
+          },
+          {
+            "start": 6.96,
+            "end": 7.68,
+            "word": " مجلات",
+            "probability": 0.968656450510025
+          },
+          {
+            "start": 7.68,
+            "end": 7.84,
+            "word": " و",
+            "probability": 0.9841629266738892
+          },
+          {
+            "start": 7.84,
+            "end": 8.42,
+            "word": " رسانه‌ها",
+            "probability": 0.8324472854534785
+          },
+          {
+            "start": 8.42,
+            "end": 8.58,
+            "word": " و",
+            "probability": 0.9395413994789124
+          },
+          {
+            "start": 8.58,
+            "end": 8.88,
+            "word": " این‌ها",
+            "probability": 0.9039375185966492
+          },
+          {
+            "start": 8.88,
+            "end": 9.46,
+            "word": " داشتم",
+            "probability": 0.983405868212382
+          },
+          {
+            "start": 9.46,
+            "end": 9.72,
+            "word": " و",
+            "probability": 0.9488447904586792
+          },
+          {
+            "start": 9.72,
+            "end": 10.2,
+            "word": " سی",
+            "probability": 0.8713845014572144
+          },
+          {
+            "start": 10.2,
+            "end": 10.28,
+            "word": " و",
+            "probability": 0.7973746657371521
+          },
+          {
+            "start": 10.28,
+            "end": 10.46,
+            "word": " چار",
+            "probability": 0.7357800006866455
+          },
+          {
+            "start": 10.46,
+            "end": 10.88,
+            "word": " عنوام",
+            "probability": 0.637810801587572
+          },
+          {
+            "start": 10.88,
+            "end": 11.94,
+            "word": " ترجمه‌ی",
+            "probability": 0.9064825276533762
+          }
+        ]
+      }
+    ]
+  }
+}

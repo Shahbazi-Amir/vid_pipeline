@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "a4c01c237ab12b89ba2437128c747a0abb844697e56c7d5690f1c100c66e1c5d",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.12,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.06,
+        "text": "نام فقر و نداری که این بیماری یه جور سرطانه، یعنی اصلا اینجوری نیست که بگی ک...",
+        "avg_logprob": -0.18822701302943406,
+        "compression_ratio": 1.3627450980392157,
+        "no_speech_prob": 3.7133907060393767e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.06,
+            "word": " نام",
+            "probability": 0.06484733056277037
+          },
+          {
+            "start": 0.06,
+            "end": 0.64,
+            "word": " فقر",
+            "probability": 0.9636711676915487
+          },
+          {
+            "start": 0.64,
+            "end": 1.88,
+            "word": " و",
+            "probability": 0.8523081541061401
+          },
+          {
+            "start": 1.88,
+            "end": 2.54,
+            "word": " نداری",
+            "probability": 0.9920878559350967
+          },
+          {
+            "start": 2.54,
+            "end": 3.56,
+            "word": " که",
+            "probability": 0.9154117107391357
+          },
+          {
+            "start": 3.56,
+            "end": 3.66,
+            "word": " این",
+            "probability": 0.9900227189064026
+          },
+          {
+            "start": 3.66,
+            "end": 4.22,
+            "word": " بیماری",
+            "probability": 0.9943708181381226
+          },
+          {
+            "start": 4.22,
+            "end": 4.44,
+            "word": " یه",
+            "probability": 0.7913694381713867
+          },
+          {
+            "start": 4.44,
+            "end": 4.66,
+            "word": " جور",
+            "probability": 0.9516846239566803
+          },
+          {
+            "start": 4.66,
+            "end": 5.78,
+            "word": " سرطانه،",
+            "probability": 0.7812638375908136
+          },
+          {
+            "start": 5.78,
+            "end": 6.46,
+            "word": " یعنی",
+            "probability": 0.9928073436021805
+          },
+          {
+            "start": 6.46,
+            "end": 6.74,
+            "word": " اصلا",
+            "probability": 0.9704545537630717
+          },
+          {
+            "start": 6.74,
+            "end": 7.1,
+            "word": " اینجوری",
+            "probability": 0.9682244181632995
+          },
+          {
+            "start": 7.1,
+            "end": 7.32,
+            "word": " نیست",
+            "probability": 0.9959880113601685
+          },
+          {
+            "start": 7.32,
+            "end": 7.46,
+            "word": " که",
+            "probability": 0.9947367608547211
+          },
+          {
+            "start": 7.46,
+            "end": 7.76,
+            "word": " بگی",
+            "probability": 0.9947103063265482
+          },
+          {
+            "start": 7.76,
+            "end": 8.06,
+            "word": " ک...",
+            "probability": 0.4857113567995839
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "6f3f102138a62b9357d83a12dd4eaa0c1bf351914767973e8bea2325dddca49a",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.42,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.4,
+        "text": "یکی دیگه کردم، دیژه آره. ولی محتوایی که آماده کردیم اونجا هست اگر آکادمی حوش مالی و مدواج...",
+        "avg_logprob": -0.28337648831881007,
+        "compression_ratio": 1.393162393162393,
+        "no_speech_prob": 3.417662819416023e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.2,
+            "word": " یکی",
+            "probability": 0.7830057442188263
+          },
+          {
+            "start": 0.2,
+            "end": 0.46,
+            "word": " دیگه",
+            "probability": 0.9933019727468491
+          },
+          {
+            "start": 0.46,
+            "end": 1.06,
+            "word": " کردم،",
+            "probability": 0.6817499796549479
+          },
+          {
+            "start": 1.06,
+            "end": 1.26,
+            "word": " دیژه",
+            "probability": 0.7433725072725792
+          },
+          {
+            "start": 1.26,
+            "end": 1.62,
+            "word": " آره.",
+            "probability": 0.9498311479886373
+          },
+          {
+            "start": 2.52,
+            "end": 3.16,
+            "word": " ولی",
+            "probability": 0.9853360056877136
+          },
+          {
+            "start": 3.16,
+            "end": 3.78,
+            "word": " محتوایی",
+            "probability": 0.8371969938278199
+          },
+          {
+            "start": 3.78,
+            "end": 3.84,
+            "word": " که",
+            "probability": 0.9858107268810272
+          },
+          {
+            "start": 3.84,
+            "end": 4.16,
+            "word": " آماده",
+            "probability": 0.9662124961614609
+          },
+          {
+            "start": 4.16,
+            "end": 4.48,
+            "word": " کردیم",
+            "probability": 0.9810286164283752
+          },
+          {
+            "start": 4.48,
+            "end": 4.72,
+            "word": " اونجا",
+            "probability": 0.9476166814565659
+          },
+          {
+            "start": 4.72,
+            "end": 4.94,
+            "word": " هست",
+            "probability": 0.9762521684169769
+          },
+          {
+            "start": 4.94,
+            "end": 5.18,
+            "word": " اگر",
+            "probability": 0.9422756234804789
+          },
+          {
+            "start": 5.18,
+            "end": 5.68,
+            "word": " آکادمی",
+            "probability": 0.8691406548023224
+          },
+          {
+            "start": 5.68,
+            "end": 6.06,
+            "word": " حوش",
+            "probability": 0.581084743142128
+          },
+          {
+            "start": 6.06,
+            "end": 6.42,
+            "word": " مالی",
+            "probability": 0.894998292128245
+          },
+          {
+            "start": 6.42,
+            "end": 6.56,
+            "word": " و",
+            "probability": 0.8733917474746704
+          },
+          {
+            "start": 6.56,
+            "end": 7.4,
+            "word": " مدواج...",
+            "probability": 0.5392937570810318
+          }
+        ]
+      }
+    ]
+  }
+}

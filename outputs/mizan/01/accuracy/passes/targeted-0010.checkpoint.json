@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "4b860bd6063c8b3e411bcae679f43e37df6d8f2d11d6b0bb483fce16ab087112",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.94,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.92,
+        "text": "کهرفهی دیگر مربی‌گری کسپ و کار، مربگری آموزش مالی و مرب گری زندگی هم به عنوان مدار کهرفهی.",
+        "avg_logprob": -0.31265259846564264,
+        "compression_ratio": 1.4051724137931034,
+        "no_speech_prob": 4.3404202454411234e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.6,
+            "word": " کهرفهی",
+            "probability": 0.6865052044391632
+          },
+          {
+            "start": 0.6,
+            "end": 0.98,
+            "word": " دیگر",
+            "probability": 0.7737825438380241
+          },
+          {
+            "start": 0.98,
+            "end": 1.7,
+            "word": " مربی‌گری",
+            "probability": 0.7095753008810183
+          },
+          {
+            "start": 1.7,
+            "end": 2.2,
+            "word": " کسپ",
+            "probability": 0.6624126036961874
+          },
+          {
+            "start": 2.2,
+            "end": 2.3,
+            "word": " و",
+            "probability": 0.6220425963401794
+          },
+          {
+            "start": 2.3,
+            "end": 2.7,
+            "word": " کار،",
+            "probability": 0.6741154678165913
+          },
+          {
+            "start": 2.7,
+            "end": 3.4,
+            "word": " مربگری",
+            "probability": 0.534317793964874
+          },
+          {
+            "start": 3.4,
+            "end": 3.94,
+            "word": " آموزش",
+            "probability": 0.9677203178405762
+          },
+          {
+            "start": 3.94,
+            "end": 4.5,
+            "word": " مالی",
+            "probability": 0.9902978936831156
+          },
+          {
+            "start": 4.5,
+            "end": 4.78,
+            "word": " و",
+            "probability": 0.8956215381622314
+          },
+          {
+            "start": 4.78,
+            "end": 5.22,
+            "word": " مرب",
+            "probability": 0.960687667131424
+          },
+          {
+            "start": 5.22,
+            "end": 5.6,
+            "word": " گری",
+            "probability": 0.48448913055472076
+          },
+          {
+            "start": 5.6,
+            "end": 6.2,
+            "word": " زندگی",
+            "probability": 0.9923787415027618
+          },
+          {
+            "start": 6.2,
+            "end": 6.46,
+            "word": " هم",
+            "probability": 0.961640477180481
+          },
+          {
+            "start": 6.46,
+            "end": 6.6,
+            "word": " به",
+            "probability": 0.896293044090271
+          },
+          {
+            "start": 6.6,
+            "end": 6.86,
+            "word": " عنوان",
+            "probability": 0.9945927063624064
+          },
+          {
+            "start": 6.86,
+            "end": 7.22,
+            "word": " مدار",
+            "probability": 0.967373251914978
+          },
+          {
+            "start": 7.22,
+            "end": 7.92,
+            "word": " کهرفهی.",
+            "probability": 0.7428828037712568
+          }
+        ]
+      }
+    ]
+  }
+}

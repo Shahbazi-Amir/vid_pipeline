@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "5268c1a6bff997d4c82b7f2f74e15d5b955ccb4762097f588e38015942e276fc",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 13.22,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 13.2,
+        "text": "شاملیم رودی و دکترهای مدیریت از دانشگاه تهران دارم، گرایش رفتار سازمانی، گراش رفتهر سازماینیم یعنی کاربورد روانشناسی در ساظمان ها و مدریت، بوضه‌ی تصمیم",
+        "avg_logprob": -0.257730988698585,
+        "compression_ratio": 1.7329192546583851,
+        "no_speech_prob": 4.346922544140597e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.22,
+            "word": " شاملیم",
+            "probability": 0.5328141719102859
+          },
+          {
+            "start": 0.22,
+            "end": 0.6,
+            "word": " رودی",
+            "probability": 0.9704960982004801
+          },
+          {
+            "start": 0.6,
+            "end": 0.88,
+            "word": " و",
+            "probability": 0.9801924824714661
+          },
+          {
+            "start": 0.88,
+            "end": 1.56,
+            "word": " دکترهای",
+            "probability": 0.8831751545270284
+          },
+          {
+            "start": 1.56,
+            "end": 2.5,
+            "word": " مدیریت",
+            "probability": 0.994649338722229
+          },
+          {
+            "start": 2.5,
+            "end": 3.42,
+            "word": " از",
+            "probability": 0.9457363486289978
+          },
+          {
+            "start": 3.42,
+            "end": 3.84,
+            "word": " دانشگاه",
+            "probability": 0.9228584408760071
+          },
+          {
+            "start": 3.84,
+            "end": 4.34,
+            "word": " تهران",
+            "probability": 0.9933762103319168
+          },
+          {
+            "start": 4.34,
+            "end": 4.72,
+            "word": " دارم،",
+            "probability": 0.75722645688802
+          },
+          {
+            "start": 4.72,
+            "end": 5.1,
+            "word": " گرایش",
+            "probability": 0.9774355590343475
+          },
+          {
+            "start": 5.1,
+            "end": 5.56,
+            "word": " رفتار",
+            "probability": 0.95720075070858
+          },
+          {
+            "start": 5.56,
+            "end": 6.24,
+            "word": " سازمانی،",
+            "probability": 0.9044387638568878
+          },
+          {
+            "start": 6.24,
+            "end": 6.46,
+            "word": " گراش",
+            "probability": 0.4061102333168189
+          },
+          {
+            "start": 6.46,
+            "end": 6.94,
+            "word": " رفتهر",
+            "probability": 0.5152454794806545
+          },
+          {
+            "start": 6.94,
+            "end": 7.5,
+            "word": " سازماینیم",
+            "probability": 0.6860416285974983
+          },
+          {
+            "start": 7.5,
+            "end": 7.62,
+            "word": " یعنی",
+            "probability": 0.9075240790843964
+          },
+          {
+            "start": 7.62,
+            "end": 8.16,
+            "word": " کاربورد",
+            "probability": 0.9704825758934021
+          },
+          {
+            "start": 8.16,
+            "end": 8.94,
+            "word": " روانشناسی",
+            "probability": 0.9676727482250759
+          },
+          {
+            "start": 8.94,
+            "end": 9.14,
+            "word": " در",
+            "probability": 0.9932864904403687
+          },
+          {
+            "start": 9.14,
+            "end": 9.66,
+            "word": " ساظمان",
+            "probability": 0.5868836333167564
+          },
+          {
+            "start": 9.66,
+            "end": 9.78,
+            "word": " ها",
+            "probability": 0.7727381587028503
+          },
+          {
+            "start": 9.78,
+            "end": 9.88,
+            "word": " و",
+            "probability": 0.9937841892242432
+          },
+          {
+            "start": 9.88,
+            "end": 10.82,
+            "word": " مدریت،",
+            "probability": 0.6281305275326303
+          },
+          {
+            "start": 10.82,
+            "end": 12.8,
+            "word": " بوضه‌ی",
+            "probability": 0.6681247924764951
+          },
+          {
+            "start": 12.8,
+            "end": 13.2,
+            "word": " تصمیم",
+            "probability": 0.9724074363708496
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "d4fe3e7be37336ee36637eca261fbf885a54e3efd881da8c58924b0a8725bf2f",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.3,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.08,
+        "text": "علم آموزی کم نزداشتم، سه تا مدرک هرفهی دیگر مربی‌گری کسک و کار و مربگری آمودش مالی و",
+        "avg_logprob": -0.3465892248234506,
+        "compression_ratio": 1.4074074074074074,
+        "no_speech_prob": 4.5822323713196056e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.2,
+            "word": " علم",
+            "probability": 0.5123384185135365
+          },
+          {
+            "start": 0.2,
+            "end": 0.76,
+            "word": " آموزی",
+            "probability": 0.9472502589225769
+          },
+          {
+            "start": 0.76,
+            "end": 1.82,
+            "word": " کم",
+            "probability": 0.9605852961540222
+          },
+          {
+            "start": 1.82,
+            "end": 2.62,
+            "word": " نزداشتم،",
+            "probability": 0.7330071690181891
+          },
+          {
+            "start": 2.62,
+            "end": 2.9,
+            "word": " سه",
+            "probability": 0.7874426543712616
+          },
+          {
+            "start": 2.9,
+            "end": 2.98,
+            "word": " تا",
+            "probability": 0.8555354177951813
+          },
+          {
+            "start": 2.98,
+            "end": 3.38,
+            "word": " مدرک",
+            "probability": 0.9875748753547668
+          },
+          {
+            "start": 3.38,
+            "end": 3.9,
+            "word": " هرفهی",
+            "probability": 0.6998899057507515
+          },
+          {
+            "start": 3.9,
+            "end": 4.28,
+            "word": " دیگر",
+            "probability": 0.8230593204498291
+          },
+          {
+            "start": 4.28,
+            "end": 5.0,
+            "word": " مربی‌گری",
+            "probability": 0.7312418116877476
+          },
+          {
+            "start": 5.0,
+            "end": 5.52,
+            "word": " کسک",
+            "probability": 0.8664231499036154
+          },
+          {
+            "start": 5.52,
+            "end": 5.62,
+            "word": " و",
+            "probability": 0.23912827670574188
+          },
+          {
+            "start": 5.62,
+            "end": 5.82,
+            "word": " کار",
+            "probability": 0.9513325989246368
+          },
+          {
+            "start": 5.82,
+            "end": 5.96,
+            "word": " و",
+            "probability": 0.6244593858718872
+          },
+          {
+            "start": 5.96,
+            "end": 6.7,
+            "word": " مربگری",
+            "probability": 0.4926756802597083
+          },
+          {
+            "start": 6.7,
+            "end": 7.24,
+            "word": " آمودش",
+            "probability": 0.7303064946318045
+          },
+          {
+            "start": 7.24,
+            "end": 7.8,
+            "word": " مالی",
+            "probability": 0.9935129086176554
+          },
+          {
+            "start": 7.8,
+            "end": 8.08,
+            "word": " و",
+            "probability": 0.9137444496154785
+          }
+        ]
+      }
+    ]
+  }
+}

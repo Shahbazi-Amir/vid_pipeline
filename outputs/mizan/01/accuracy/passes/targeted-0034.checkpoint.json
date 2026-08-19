@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "fb187e2dfcb4798a1d457e221d7c7a75d12f6110d90e4569e63dccc0eca2d39c",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 13.02,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 2.5,
+        "text": "سازمانی حوضه اچار از ما رفت زواد مالی است.",
+        "avg_logprob": -0.4363019083753044,
+        "compression_ratio": 1.5571428571428572,
+        "no_speech_prob": 4.265994502095083e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.18,
+            "word": " سازمانی",
+            "probability": 0.6996561259031295
+          },
+          {
+            "start": 0.18,
+            "end": 0.54,
+            "word": " حوضه",
+            "probability": 0.7250222712755203
+          },
+          {
+            "start": 0.54,
+            "end": 0.92,
+            "word": " اچار",
+            "probability": 0.7605344653129578
+          },
+          {
+            "start": 0.92,
+            "end": 1.08,
+            "word": " از",
+            "probability": 0.5176891386508942
+          },
+          {
+            "start": 1.08,
+            "end": 1.16,
+            "word": " ما",
+            "probability": 0.6233879327774048
+          },
+          {
+            "start": 1.16,
+            "end": 1.5,
+            "word": " رفت",
+            "probability": 0.9005416035652161
+          },
+          {
+            "start": 1.5,
+            "end": 1.96,
+            "word": " زواد",
+            "probability": 0.8598331411679586
+          },
+          {
+            "start": 1.96,
+            "end": 2.36,
+            "word": " مالی",
+            "probability": 0.4064628953735034
+          },
+          {
+            "start": 2.36,
+            "end": 2.5,
+            "word": " است.",
+            "probability": 0.22387512028217316
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 2.72,
+        "end": 10.52,
+        "text": "آها، به عضای رستار سازماعی در سازمن های ما اچعاره، درست میگیم.",
+        "avg_logprob": -0.4363019083753044,
+        "compression_ratio": 1.5571428571428572,
+        "no_speech_prob": 4.265994502095083e-10,
+        "words": [
+          {
+            "start": 2.72,
+            "end": 3.46,
+            "word": " آها،",
+            "probability": 0.5755088875691096
+          },
+          {
+            "start": 3.46,
+            "end": 4.52,
+            "word": " به",
+            "probability": 0.30571842193603516
+          },
+          {
+            "start": 4.52,
+            "end": 5.36,
+            "word": " عضای",
+            "probability": 0.6882775835692883
+          },
+          {
+            "start": 5.36,
+            "end": 6.16,
+            "word": " رستار",
+            "probability": 0.6435899163285891
+          },
+          {
+            "start": 6.16,
+            "end": 6.68,
+            "word": " سازماعی",
+            "probability": 0.658455578412395
+          },
+          {
+            "start": 6.68,
+            "end": 7.84,
+            "word": " در",
+            "probability": 0.9306033551692963
+          },
+          {
+            "start": 7.84,
+            "end": 8.98,
+            "word": " سازمن",
+            "probability": 0.6287818205504058
+          },
+          {
+            "start": 8.98,
+            "end": 9.16,
+            "word": " های",
+            "probability": 0.7478522956371307
+          },
+          {
+            "start": 9.16,
+            "end": 9.28,
+            "word": " ما",
+            "probability": 0.5079142451286316
+          },
+          {
+            "start": 9.28,
+            "end": 9.86,
+            "word": " اچعاره،",
+            "probability": 0.660183485597372
+          },
+          {
+            "start": 9.86,
+            "end": 10.18,
+            "word": " درست",
+            "probability": 0.9948693712552389
+          },
+          {
+            "start": 10.18,
+            "end": 10.52,
+            "word": " میگیم.",
+            "probability": 0.8641085475683212
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "start": 10.66,
+        "end": 12.46,
+        "text": "و مهم‌تری مسئله",
+        "avg_logprob": -0.4363019083753044,
+        "compression_ratio": 1.5571428571428572,
+        "no_speech_prob": 4.265994502095083e-10,
+        "words": [
+          {
+            "start": 10.66,
+            "end": 10.94,
+            "word": " و",
+            "probability": 0.9247728586196899
+          },
+          {
+            "start": 10.94,
+            "end": 11.64,
+            "word": " مهم‌تری",
+            "probability": 0.6305279828608036
+          },
+          {
+            "start": 11.64,
+            "end": 12.46,
+            "word": " مسئله",
+            "probability": 0.9129100441932678
+          }
+        ]
+      }
+    ]
+  }
+}

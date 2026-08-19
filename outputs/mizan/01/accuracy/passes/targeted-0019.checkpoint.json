@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "65b24cfd43ebe2be3bb6921485b618c9a3615e61203078463f8b360f6666de98",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 14.3,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 14.2,
+        "text": "سواد مالی رو شروع کردیم به ساختن و نزدیک 500 هزار نفر ساعت آموزش سوادم مالي داشتیم، بیش از صد عنوان کتاب از پیشتبستانی تا انتهای دویرستان داریم و 800 دقیقاً برنامه‌ی رسانه‌ای.",
+        "avg_logprob": -0.16831099885141748,
+        "compression_ratio": 1.5808080808080809,
+        "no_speech_prob": 3.7862751822714813e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.4,
+            "word": " سواد",
+            "probability": 0.8237159649531046
+          },
+          {
+            "start": 0.4,
+            "end": 0.78,
+            "word": " مالی",
+            "probability": 0.976717213789622
+          },
+          {
+            "start": 0.78,
+            "end": 0.94,
+            "word": " رو",
+            "probability": 0.9638262093067169
+          },
+          {
+            "start": 0.94,
+            "end": 1.28,
+            "word": " شروع",
+            "probability": 0.9988943537076315
+          },
+          {
+            "start": 1.28,
+            "end": 1.68,
+            "word": " کردیم",
+            "probability": 0.9976880848407745
+          },
+          {
+            "start": 1.68,
+            "end": 1.78,
+            "word": " به",
+            "probability": 0.9951164722442627
+          },
+          {
+            "start": 1.78,
+            "end": 2.5,
+            "word": " ساختن",
+            "probability": 0.9936133623123169
+          },
+          {
+            "start": 2.5,
+            "end": 3.6,
+            "word": " و",
+            "probability": 0.9790483713150024
+          },
+          {
+            "start": 3.6,
+            "end": 4.12,
+            "word": " نزدیک",
+            "probability": 0.9953527450561523
+          },
+          {
+            "start": 4.12,
+            "end": 4.46,
+            "word": " 500",
+            "probability": 0.30440500378608704
+          },
+          {
+            "start": 4.46,
+            "end": 5.02,
+            "word": " هزار",
+            "probability": 0.9968701601028442
+          },
+          {
+            "start": 5.02,
+            "end": 5.42,
+            "word": " نفر",
+            "probability": 0.9985208908716837
+          },
+          {
+            "start": 5.42,
+            "end": 5.84,
+            "word": " ساعت",
+            "probability": 0.9939450621604919
+          },
+          {
+            "start": 5.84,
+            "end": 6.52,
+            "word": " آموزش",
+            "probability": 0.9902037501335144
+          },
+          {
+            "start": 6.52,
+            "end": 6.98,
+            "word": " سوادم",
+            "probability": 0.6655872420948677
+          },
+          {
+            "start": 6.98,
+            "end": 7.34,
+            "word": " مالي",
+            "probability": 0.6618903917878924
+          },
+          {
+            "start": 7.34,
+            "end": 7.88,
+            "word": " داشتیم،",
+            "probability": 0.8322805162363996
+          },
+          {
+            "start": 7.88,
+            "end": 8.02,
+            "word": " بیش",
+            "probability": 0.9965587258338928
+          },
+          {
+            "start": 8.02,
+            "end": 8.2,
+            "word": " از",
+            "probability": 0.9841833412647247
+          },
+          {
+            "start": 8.2,
+            "end": 8.42,
+            "word": " صد",
+            "probability": 0.7297112941741943
+          },
+          {
+            "start": 8.42,
+            "end": 8.9,
+            "word": " عنوان",
+            "probability": 0.7571779588858286
+          },
+          {
+            "start": 8.9,
+            "end": 9.3,
+            "word": " کتاب",
+            "probability": 0.9924207925796509
+          },
+          {
+            "start": 9.3,
+            "end": 9.48,
+            "word": " از",
+            "probability": 0.9968039691448212
+          },
+          {
+            "start": 9.48,
+            "end": 10.3,
+            "word": " پیشتبستانی",
+            "probability": 0.8826292864978313
+          },
+          {
+            "start": 10.3,
+            "end": 10.5,
+            "word": " تا",
+            "probability": 0.8331431746482849
+          },
+          {
+            "start": 10.5,
+            "end": 10.78,
+            "word": " انتهای",
+            "probability": 0.8932142853736877
+          },
+          {
+            "start": 10.78,
+            "end": 11.48,
+            "word": " دویرستان",
+            "probability": 0.888019452492396
+          },
+          {
+            "start": 11.48,
+            "end": 11.8,
+            "word": " داریم",
+            "probability": 0.9970716834068298
+          },
+          {
+            "start": 11.8,
+            "end": 12.02,
+            "word": " و",
+            "probability": 0.99581378698349
+          },
+          {
+            "start": 12.02,
+            "end": 12.66,
+            "word": " 800",
+            "probability": 0.9330063462257385
+          },
+          {
+            "start": 12.66,
+            "end": 13.12,
+            "word": " دقیقاً",
+            "probability": 0.8673298209905624
+          },
+          {
+            "start": 13.12,
+            "end": 13.64,
+            "word": " برنامه‌ی",
+            "probability": 0.8534198964147696
+          },
+          {
+            "start": 13.64,
+            "end": 14.2,
+            "word": " رسانه‌ای.",
+            "probability": 0.9257297601018634
+          }
+        ]
+      }
+    ]
+  }
+}

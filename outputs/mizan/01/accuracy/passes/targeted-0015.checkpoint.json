@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "81db0899197a94c2f3b9cf580cef8805f295bcaaea2451d938e7bab6aac22e2f",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.44,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.42,
+        "text": "زمان مقال تاهاروارد، حضور رسانه‌ی هم داشتم تو کتاب باز بودم با سروش صحت خانه تو، با فرهاد جمع اثر شیرین با خانوم متولیان.",
+        "avg_logprob": -0.14886262973672465,
+        "compression_ratio": 1.5103448275862068,
+        "no_speech_prob": 2.786428865420021e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.38,
+            "word": " زمان",
+            "probability": 0.9806863864262899
+          },
+          {
+            "start": 0.38,
+            "end": 0.74,
+            "word": " مقال",
+            "probability": 0.9958921670913696
+          },
+          {
+            "start": 0.74,
+            "end": 1.66,
+            "word": " تاهاروارد،",
+            "probability": 0.6422618074409131
+          },
+          {
+            "start": 1.66,
+            "end": 3.22,
+            "word": " حضور",
+            "probability": 0.9899924397468567
+          },
+          {
+            "start": 3.22,
+            "end": 3.86,
+            "word": " رسانه‌ی",
+            "probability": 0.7651886846870184
+          },
+          {
+            "start": 3.86,
+            "end": 4.02,
+            "word": " هم",
+            "probability": 0.9195294082164764
+          },
+          {
+            "start": 4.02,
+            "end": 4.38,
+            "word": " داشتم",
+            "probability": 0.9906624952952067
+          },
+          {
+            "start": 4.38,
+            "end": 4.54,
+            "word": " تو",
+            "probability": 0.9437663555145264
+          },
+          {
+            "start": 4.54,
+            "end": 4.92,
+            "word": " کتاب",
+            "probability": 0.9334674874941508
+          },
+          {
+            "start": 4.92,
+            "end": 5.18,
+            "word": " باز",
+            "probability": 0.8935721516609192
+          },
+          {
+            "start": 5.18,
+            "end": 5.48,
+            "word": " بودم",
+            "probability": 0.9628067215283712
+          },
+          {
+            "start": 5.48,
+            "end": 5.62,
+            "word": " با",
+            "probability": 0.9364475607872009
+          },
+          {
+            "start": 5.62,
+            "end": 5.98,
+            "word": " سروش",
+            "probability": 0.9434508681297302
+          },
+          {
+            "start": 5.98,
+            "end": 6.4,
+            "word": " صحت",
+            "probability": 0.7047064900398254
+          },
+          {
+            "start": 6.4,
+            "end": 6.78,
+            "word": " خانه",
+            "probability": 0.9639796813329061
+          },
+          {
+            "start": 6.78,
+            "end": 7.04,
+            "word": " تو،",
+            "probability": 0.47740256786346436
+          },
+          {
+            "start": 7.04,
+            "end": 7.14,
+            "word": " با",
+            "probability": 0.9633924067020416
+          },
+          {
+            "start": 7.14,
+            "end": 7.58,
+            "word": " فرهاد",
+            "probability": 0.9863952249288559
+          },
+          {
+            "start": 7.58,
+            "end": 7.96,
+            "word": " جمع",
+            "probability": 0.9227867722511292
+          },
+          {
+            "start": 7.96,
+            "end": 8.26,
+            "word": " اثر",
+            "probability": 0.4053739458322525
+          },
+          {
+            "start": 8.26,
+            "end": 9.24,
+            "word": " شیرین",
+            "probability": 0.9634181559085846
+          },
+          {
+            "start": 9.24,
+            "end": 9.42,
+            "word": " با",
+            "probability": 0.9275773763656616
+          },
+          {
+            "start": 9.42,
+            "end": 9.68,
+            "word": " خانوم",
+            "probability": 0.9385719497998556
+          },
+          {
+            "start": 9.68,
+            "end": 10.42,
+            "word": " متولیان.",
+            "probability": 0.9483950138092041
+          }
+        ]
+      }
+    ]
+  }
+}

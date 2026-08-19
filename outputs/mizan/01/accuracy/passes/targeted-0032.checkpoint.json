@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "5b6fce543d2c9431cf95d69889e249bdbc495244c3888a0376d789d63066803a",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.52,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 4.86,
+        "text": "در واقع جسل و جو بکنید، گوگل کنی، همه این محتوایی که آماده کردیم اونجا هست.",
+        "avg_logprob": -0.22329581705006687,
+        "compression_ratio": 1.276190476190476,
+        "no_speech_prob": 2.4721150126971736e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.3,
+            "word": " در",
+            "probability": 0.8436572253704071
+          },
+          {
+            "start": 0.3,
+            "end": 0.44,
+            "word": " واقع",
+            "probability": 0.9728097518285116
+          },
+          {
+            "start": 0.44,
+            "end": 0.82,
+            "word": " جسل",
+            "probability": 0.7222147186597189
+          },
+          {
+            "start": 0.82,
+            "end": 0.92,
+            "word": " و",
+            "probability": 0.5409325361251831
+          },
+          {
+            "start": 0.92,
+            "end": 1.04,
+            "word": " جو",
+            "probability": 0.8877944052219391
+          },
+          {
+            "start": 1.04,
+            "end": 1.58,
+            "word": " بکنید،",
+            "probability": 0.8212521200378736
+          },
+          {
+            "start": 1.58,
+            "end": 1.9,
+            "word": " گوگل",
+            "probability": 0.9712109267711639
+          },
+          {
+            "start": 1.9,
+            "end": 2.5,
+            "word": " کنی،",
+            "probability": 0.7476490781609755
+          },
+          {
+            "start": 2.5,
+            "end": 2.92,
+            "word": " همه",
+            "probability": 0.973876953125
+          },
+          {
+            "start": 2.92,
+            "end": 3.0,
+            "word": " این",
+            "probability": 0.7760687172412872
+          },
+          {
+            "start": 3.0,
+            "end": 3.6,
+            "word": " محتوایی",
+            "probability": 0.7985234588384629
+          },
+          {
+            "start": 3.6,
+            "end": 3.62,
+            "word": " که",
+            "probability": 0.9835194051265717
+          },
+          {
+            "start": 3.62,
+            "end": 3.9,
+            "word": " آماده",
+            "probability": 0.8040689006447792
+          },
+          {
+            "start": 3.9,
+            "end": 4.32,
+            "word": " کردیم",
+            "probability": 0.9839663952589035
+          },
+          {
+            "start": 4.32,
+            "end": 4.5,
+            "word": " اونجا",
+            "probability": 0.9626965671777725
+          },
+          {
+            "start": 4.5,
+            "end": 4.86,
+            "word": " هست.",
+            "probability": 0.9924766421318054
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "c84e9a31ae46633dc111a257cf7e84c08fa48b6122e8d269214365954eef5116",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.28,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.9600000000000026,
+        "end": 9.94,
+        "text": "میزان باشم، یه معرفی بکنم اسم کومیل، فاملی مرودی و دکترهای مدیریت از دانشگاه تهران دارم.",
+        "avg_logprob": -0.17478840761497372,
+        "compression_ratio": 1.391304347826087,
+        "no_speech_prob": 4.922440233201542e-10,
+        "words": [
+          {
+            "start": 0.9600000000000026,
+            "end": 1.92,
+            "word": " میزان",
+            "probability": 0.9146311084429423
+          },
+          {
+            "start": 1.92,
+            "end": 2.66,
+            "word": " باشم،",
+            "probability": 0.7500430929940194
+          },
+          {
+            "start": 2.66,
+            "end": 3.12,
+            "word": " یه",
+            "probability": 0.8888477981090546
+          },
+          {
+            "start": 3.12,
+            "end": 3.6,
+            "word": " معرفی",
+            "probability": 0.9978941877683004
+          },
+          {
+            "start": 3.6,
+            "end": 4.04,
+            "word": " بکنم",
+            "probability": 0.993633896112442
+          },
+          {
+            "start": 4.04,
+            "end": 4.3,
+            "word": " اسم",
+            "probability": 0.7304879128932953
+          },
+          {
+            "start": 4.3,
+            "end": 5.0,
+            "word": " کومیل،",
+            "probability": 0.6664163738489151
+          },
+          {
+            "start": 5.0,
+            "end": 5.42,
+            "word": " فاملی",
+            "probability": 0.9396495968103409
+          },
+          {
+            "start": 5.42,
+            "end": 5.92,
+            "word": " مرودی",
+            "probability": 0.8578353226184845
+          },
+          {
+            "start": 5.92,
+            "end": 6.16,
+            "word": " و",
+            "probability": 0.9545412659645081
+          },
+          {
+            "start": 6.16,
+            "end": 6.86,
+            "word": " دکترهای",
+            "probability": 0.8924336532751719
+          },
+          {
+            "start": 6.86,
+            "end": 7.78,
+            "word": " مدیریت",
+            "probability": 0.9972994327545166
+          },
+          {
+            "start": 7.78,
+            "end": 8.72,
+            "word": " از",
+            "probability": 0.9682098627090454
+          },
+          {
+            "start": 8.72,
+            "end": 9.14,
+            "word": " دانشگاه",
+            "probability": 0.9439943552017211
+          },
+          {
+            "start": 9.14,
+            "end": 9.62,
+            "word": " تهران",
+            "probability": 0.9965764135122299
+          },
+          {
+            "start": 9.62,
+            "end": 9.94,
+            "word": " دارم.",
+            "probability": 0.9945661822954813
+          }
+        ]
+      }
+    ]
+  }
+}

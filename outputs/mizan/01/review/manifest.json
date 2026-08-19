@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "human_review_required",
+  "generated_at": "2026-08-19T07:50:47.733316+00:00",
+  "job_root": "/tmp/recover-mizan-runtime/mizan-fe7d775f",
+  "segment_count": 1092,
+  "review_item_count": 1063,
+  "required_item_count": 1063,
+  "external_reference_used": false,
+  "quality_source": "/tmp/recover-mizan-runtime/mizan-fe7d775f/accuracy/transcript.consensus.json",
+  "source_files": {
+    "raw_json": "/tmp/recover-mizan-runtime/mizan-fe7d775f/raw/transcript.raw.json",
+    "machine_text": "/tmp/recover-mizan-runtime/mizan-fe7d775f/machine/transcript.machine.txt",
+    "final_text": "/tmp/recover-mizan-runtime/mizan-fe7d775f/final/transcript.final.txt",
+    "audio": "/tmp/recover-mizan-runtime/mizan-fe7d775f/audio/audio-16k-mono.wav"
+  },
+  "source_sha256": {
+    "raw_json": "e83c6d77e5051327571671a2479014f0fae1a08de67bc3bb24f91ce49c7487aa",
+    "machine_text": "7a16fb3b2ce680041b4461ced5eabf54dc6fa23cdac2d167403a4cd97ade70a9",
+    "final_text": "7a16fb3b2ce680041b4461ced5eabf54dc6fa23cdac2d167403a4cd97ade70a9"
+  },
+  "files": {
+    "manifest": "/tmp/recover-mizan-runtime/mizan-fe7d775f/review/manifest.json",
+    "uncertain_spans": "/tmp/recover-mizan-runtime/mizan-fe7d775f/review/uncertain-spans.json",
+    "editorial_audit": "/tmp/recover-mizan-runtime/mizan-fe7d775f/review/editorial-audit.json",
+    "assistant_package": "/tmp/recover-mizan-runtime/mizan-fe7d775f/review/assistant-review-package.json",
+    "quality_report": "/tmp/recover-mizan-runtime/mizan-fe7d775f/review/quality-report.json",
+    "review_srt": "/tmp/recover-mizan-runtime/mizan-fe7d775f/review/transcript.review.srt",
+    "review_vtt": "/tmp/recover-mizan-runtime/mizan-fe7d775f/review/transcript.review.vtt",
+    "review_markdown": "/tmp/recover-mizan-runtime/mizan-fe7d775f/review/review.md",
+    "review_html": "/tmp/recover-mizan-runtime/mizan-fe7d775f/review/review.html",
+    "corrections_template": "/tmp/recover-mizan-runtime/mizan-fe7d775f/review/corrections.template.json",
+    "review_archive": "/tmp/recover-mizan-runtime/mizan-fe7d775f/final/review-package.zip"
+  },
+  "warnings": []
+}

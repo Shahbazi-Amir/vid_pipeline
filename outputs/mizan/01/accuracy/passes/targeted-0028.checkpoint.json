@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "98f1f50448843a2c95a62c505b2d3c1c3b39dea7e671154895b93470ff1ff19d",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.18,
+    "segments": [
+      {
+        "id": 1,
+        "start": 5.62,
+        "end": 8.16,
+        "text": "نه، بوسیدم تقدیم یکی دیگه کرده.",
+        "avg_logprob": -0.4240759563446045,
+        "compression_ratio": 0.9032258064516129,
+        "no_speech_prob": 4.818553889229804e-10,
+        "words": [
+          {
+            "start": 5.62,
+            "end": 6.38,
+            "word": " نه،",
+            "probability": 0.4468025465806325
+          },
+          {
+            "start": 6.38,
+            "end": 6.88,
+            "word": " بوسیدم",
+            "probability": 0.9187697321176529
+          },
+          {
+            "start": 6.88,
+            "end": 7.32,
+            "word": " تقدیم",
+            "probability": 0.8811754584312439
+          },
+          {
+            "start": 7.32,
+            "end": 7.64,
+            "word": " یکی",
+            "probability": 0.9690917531649271
+          },
+          {
+            "start": 7.64,
+            "end": 7.94,
+            "word": " دیگه",
+            "probability": 0.991872638463974
+          },
+          {
+            "start": 7.94,
+            "end": 8.16,
+            "word": " کرده.",
+            "probability": 0.738352636496226
+          }
+        ]
+      }
+    ]
+  }
+}

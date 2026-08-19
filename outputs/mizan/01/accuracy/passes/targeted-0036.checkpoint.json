@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "c07a7eea75730fd118d1c3ad52f585c936a3446f305fe0553796cca04b211001",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.9,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.88,
+        "text": "منابع انسانی آدم ها، و من فهمیدم که تا آدم‌ها توصیح یافته نشوند، آدم سازمان‌های توصيح یفته نخواهیم داشت، با خطر همین تمرکزم رو توص...",
+        "avg_logprob": -0.24190155919208084,
+        "compression_ratio": 1.5751633986928104,
+        "no_speech_prob": 2.7158625348633336e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 1.28,
+            "word": " منابع",
+            "probability": 0.9264111965894699
+          },
+          {
+            "start": 1.28,
+            "end": 1.7,
+            "word": " انسانی",
+            "probability": 0.9873605966567993
+          },
+          {
+            "start": 1.7,
+            "end": 2.14,
+            "word": " آدم",
+            "probability": 0.9909088313579559
+          },
+          {
+            "start": 2.14,
+            "end": 2.58,
+            "word": " ها،",
+            "probability": 0.5654611637971053
+          },
+          {
+            "start": 2.58,
+            "end": 3.02,
+            "word": " و",
+            "probability": 0.9760357141494751
+          },
+          {
+            "start": 3.02,
+            "end": 3.18,
+            "word": " من",
+            "probability": 0.990652322769165
+          },
+          {
+            "start": 3.18,
+            "end": 3.76,
+            "word": " فهمیدم",
+            "probability": 0.9873670786619186
+          },
+          {
+            "start": 3.76,
+            "end": 3.98,
+            "word": " که",
+            "probability": 0.9877098798751831
+          },
+          {
+            "start": 3.98,
+            "end": 4.18,
+            "word": " تا",
+            "probability": 0.9926339685916901
+          },
+          {
+            "start": 4.18,
+            "end": 4.68,
+            "word": " آدم‌ها",
+            "probability": 0.7472389516187832
+          },
+          {
+            "start": 4.68,
+            "end": 5.14,
+            "word": " توصیح",
+            "probability": 0.7076439186930656
+          },
+          {
+            "start": 5.14,
+            "end": 5.54,
+            "word": " یافته",
+            "probability": 0.9015429417292277
+          },
+          {
+            "start": 5.54,
+            "end": 6.52,
+            "word": " نشوند،",
+            "probability": 0.879319143295288
+          },
+          {
+            "start": 6.52,
+            "end": 6.9,
+            "word": " آدم",
+            "probability": 0.8609199225902557
+          },
+          {
+            "start": 6.9,
+            "end": 7.84,
+            "word": " سازمان‌های",
+            "probability": 0.9106048345565796
+          },
+          {
+            "start": 7.84,
+            "end": 8.24,
+            "word": " توصيح",
+            "probability": 0.7434763561504951
+          },
+          {
+            "start": 8.24,
+            "end": 8.56,
+            "word": " یفته",
+            "probability": 0.634934714238625
+          },
+          {
+            "start": 8.56,
+            "end": 9.14,
+            "word": " نخواهیم",
+            "probability": 0.9754636983076731
+          },
+          {
+            "start": 9.14,
+            "end": 9.5,
+            "word": " داشت،",
+            "probability": 0.8455327525734901
+          },
+          {
+            "start": 9.5,
+            "end": 9.64,
+            "word": " با",
+            "probability": 0.6708217114210129
+          },
+          {
+            "start": 9.64,
+            "end": 9.8,
+            "word": " خطر",
+            "probability": 0.866968055566152
+          },
+          {
+            "start": 9.8,
+            "end": 10.14,
+            "word": " همین",
+            "probability": 0.9163316289583842
+          },
+          {
+            "start": 10.14,
+            "end": 11.4,
+            "word": " تمرکزم",
+            "probability": 0.8982975363731385
+          },
+          {
+            "start": 11.4,
+            "end": 11.54,
+            "word": " رو",
+            "probability": 0.9712356328964233
+          },
+          {
+            "start": 11.54,
+            "end": 11.88,
+            "word": " توص...",
+            "probability": 0.6548859234899282
+          }
+        ]
+      }
+    ]
+  }
+}

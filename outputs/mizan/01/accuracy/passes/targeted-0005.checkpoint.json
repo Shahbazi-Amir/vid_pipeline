@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "9ee3b2678f7f11df948e3695c68b05c85fbabff5acb8fac42e09223a17dfed09",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.32,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.3,
+        "text": "و من به تصمیم‌گیری فردی علاقه داشتم در نتیجه وارد توسع فردي شدم و تقریبا می‌توانم بگم 20 سال الان تو این حوضه داریم کار میکنیم.",
+        "avg_logprob": -0.17365892823920193,
+        "compression_ratio": 1.4901960784313726,
+        "no_speech_prob": 3.04962055608371e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.48,
+            "word": " و",
+            "probability": 0.9176422357559204
+          },
+          {
+            "start": 0.48,
+            "end": 0.6,
+            "word": " من",
+            "probability": 0.9911510348320007
+          },
+          {
+            "start": 0.6,
+            "end": 0.72,
+            "word": " به",
+            "probability": 0.9932479858398438
+          },
+          {
+            "start": 0.72,
+            "end": 1.3,
+            "word": " تصمیم‌گیری",
+            "probability": 0.8788534837464491
+          },
+          {
+            "start": 1.3,
+            "end": 1.8,
+            "word": " فردی",
+            "probability": 0.9901605099439621
+          },
+          {
+            "start": 1.8,
+            "end": 2.16,
+            "word": " علاقه",
+            "probability": 0.9852260053157806
+          },
+          {
+            "start": 2.16,
+            "end": 2.5,
+            "word": " داشتم",
+            "probability": 0.9930077393849691
+          },
+          {
+            "start": 2.5,
+            "end": 2.72,
+            "word": " در",
+            "probability": 0.9478782713413239
+          },
+          {
+            "start": 2.72,
+            "end": 3.1,
+            "word": " نتیجه",
+            "probability": 0.9889938831329346
+          },
+          {
+            "start": 3.1,
+            "end": 3.36,
+            "word": " وارد",
+            "probability": 0.894051750500997
+          },
+          {
+            "start": 3.36,
+            "end": 3.78,
+            "word": " توسع",
+            "probability": 0.7560359338919321
+          },
+          {
+            "start": 3.78,
+            "end": 4.24,
+            "word": " فردي",
+            "probability": 0.6068225440879663
+          },
+          {
+            "start": 4.24,
+            "end": 4.62,
+            "word": " شدم",
+            "probability": 0.9884504675865173
+          },
+          {
+            "start": 4.62,
+            "end": 4.84,
+            "word": " و",
+            "probability": 0.909308671951294
+          },
+          {
+            "start": 4.84,
+            "end": 5.3,
+            "word": " تقریبا",
+            "probability": 0.9303080677986145
+          },
+          {
+            "start": 5.3,
+            "end": 5.62,
+            "word": " می‌توانم",
+            "probability": 0.7648861259222031
+          },
+          {
+            "start": 5.62,
+            "end": 5.82,
+            "word": " بگم",
+            "probability": 0.9612720410029093
+          },
+          {
+            "start": 5.82,
+            "end": 5.98,
+            "word": " 20",
+            "probability": 0.2783321142196655
+          },
+          {
+            "start": 5.98,
+            "end": 6.38,
+            "word": " سال",
+            "probability": 0.9875357151031494
+          },
+          {
+            "start": 6.38,
+            "end": 6.68,
+            "word": " الان",
+            "probability": 0.7791576981544495
+          },
+          {
+            "start": 6.68,
+            "end": 6.82,
+            "word": " تو",
+            "probability": 0.9431163668632507
+          },
+          {
+            "start": 6.82,
+            "end": 6.98,
+            "word": " این",
+            "probability": 0.8849490284919739
+          },
+          {
+            "start": 6.98,
+            "end": 7.28,
+            "word": " حوضه",
+            "probability": 0.9683407247066498
+          },
+          {
+            "start": 7.28,
+            "end": 7.56,
+            "word": " داریم",
+            "probability": 0.9751929938793182
+          },
+          {
+            "start": 7.56,
+            "end": 7.84,
+            "word": " کار",
+            "probability": 0.9918578565120697
+          },
+          {
+            "start": 7.84,
+            "end": 8.3,
+            "word": " میکنیم.",
+            "probability": 0.8683833837509155
+          }
+        ]
+      }
+    ]
+  }
+}

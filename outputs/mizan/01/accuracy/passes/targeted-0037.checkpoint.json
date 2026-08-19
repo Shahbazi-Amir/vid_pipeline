@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "b264ba5d4af58da78fb443a516da119bc69ebc0948683eff72c779196665a9bb",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.96,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.44,
+        "text": "هم سازمان‌های توسع یافته نخواهیم داشت، بخطر همین تمرکزم رو توساع یافتن آدم هاست.",
+        "avg_logprob": -0.25399201674894856,
+        "compression_ratio": 1.3125,
+        "no_speech_prob": 2.3062771137283278e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.02,
+            "word": " هم",
+            "probability": 0.48073345387820154
+          },
+          {
+            "start": 0.02,
+            "end": 0.94,
+            "word": " سازمان‌های",
+            "probability": 0.8463945226477725
+          },
+          {
+            "start": 0.94,
+            "end": 1.24,
+            "word": " توسع",
+            "probability": 0.8056097626686096
+          },
+          {
+            "start": 1.24,
+            "end": 1.64,
+            "word": " یافته",
+            "probability": 0.6628462870915731
+          },
+          {
+            "start": 1.64,
+            "end": 2.24,
+            "word": " نخواهیم",
+            "probability": 0.9751844108104706
+          },
+          {
+            "start": 2.24,
+            "end": 2.6,
+            "word": " داشت،",
+            "probability": 0.7781058512628078
+          },
+          {
+            "start": 2.6,
+            "end": 2.9,
+            "word": " بخطر",
+            "probability": 0.7096786871552467
+          },
+          {
+            "start": 2.9,
+            "end": 3.26,
+            "word": " همین",
+            "probability": 0.946273684501648
+          },
+          {
+            "start": 3.26,
+            "end": 4.52,
+            "word": " تمرکزم",
+            "probability": 0.9122557282447815
+          },
+          {
+            "start": 4.52,
+            "end": 4.64,
+            "word": " رو",
+            "probability": 0.9837535321712494
+          },
+          {
+            "start": 4.64,
+            "end": 5.08,
+            "word": " توساع",
+            "probability": 0.6540075854451667
+          },
+          {
+            "start": 5.08,
+            "end": 5.64,
+            "word": " یافتن",
+            "probability": 0.9271493852138519
+          },
+          {
+            "start": 5.64,
+            "end": 6.08,
+            "word": " آدم",
+            "probability": 0.9794431924819946
+          },
+          {
+            "start": 6.08,
+            "end": 6.44,
+            "word": " هاست.",
+            "probability": 0.7545590400695801
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "d4f0b8a3e9a9c4b2a5061527cdf6d518e1ddf26ec71239b30312f093f8d18f2d",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.48,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.0,
+        "text": "حال هم که باز هم خدمت شما هستم و می‌تونیم در باره آموزه‌های ثبات مالی با همدیگه صحبت کنیم.",
+        "avg_logprob": -0.171225446742028,
+        "compression_ratio": 1.3697478991596639,
+        "no_speech_prob": 3.073718224388955e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.14,
+            "word": " حال",
+            "probability": 0.7050562500953674
+          },
+          {
+            "start": 0.14,
+            "end": 0.28,
+            "word": " هم",
+            "probability": 0.8264907002449036
+          },
+          {
+            "start": 0.28,
+            "end": 0.66,
+            "word": " که",
+            "probability": 0.962550938129425
+          },
+          {
+            "start": 0.66,
+            "end": 0.94,
+            "word": " باز",
+            "probability": 0.98061403632164
+          },
+          {
+            "start": 0.94,
+            "end": 1.12,
+            "word": " هم",
+            "probability": 0.9565884470939636
+          },
+          {
+            "start": 1.12,
+            "end": 1.48,
+            "word": " خدمت",
+            "probability": 0.9927149216334025
+          },
+          {
+            "start": 1.48,
+            "end": 1.84,
+            "word": " شما",
+            "probability": 0.7710655629634857
+          },
+          {
+            "start": 1.84,
+            "end": 2.5,
+            "word": " هستم",
+            "probability": 0.9869869152704874
+          },
+          {
+            "start": 2.5,
+            "end": 2.64,
+            "word": " و",
+            "probability": 0.9897538423538208
+          },
+          {
+            "start": 2.64,
+            "end": 3.06,
+            "word": " می‌تونیم",
+            "probability": 0.807596616136531
+          },
+          {
+            "start": 3.06,
+            "end": 3.3,
+            "word": " در",
+            "probability": 0.8334664702415466
+          },
+          {
+            "start": 3.3,
+            "end": 3.54,
+            "word": " باره",
+            "probability": 0.9718583822250366
+          },
+          {
+            "start": 3.54,
+            "end": 4.08,
+            "word": " آموزه‌های",
+            "probability": 0.9084364101290703
+          },
+          {
+            "start": 4.08,
+            "end": 4.44,
+            "word": " ثبات",
+            "probability": 0.269955871005853
+          },
+          {
+            "start": 4.44,
+            "end": 4.68,
+            "word": " مالی",
+            "probability": 0.7926180263360342
+          },
+          {
+            "start": 4.68,
+            "end": 4.82,
+            "word": " با",
+            "probability": 0.957965761423111
+          },
+          {
+            "start": 4.82,
+            "end": 5.14,
+            "word": " همدیگه",
+            "probability": 0.9271170794963837
+          },
+          {
+            "start": 5.14,
+            "end": 5.6,
+            "word": " صحبت",
+            "probability": 0.9902591407299042
+          },
+          {
+            "start": 5.6,
+            "end": 6.0,
+            "word": " کنیم.",
+            "probability": 0.9860518425703049
+          }
+        ]
+      }
+    ]
+  }
+}

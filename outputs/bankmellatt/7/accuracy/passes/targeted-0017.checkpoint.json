@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "cad4b5401e67591477e394a99e86eaae48c0a7eee436002e9cb54e91ee3b07e1",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.76,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.74,
+        "text": "نهایی کردید و یک قرض‌های ایجاد کردین که الان قصد آنها، پرداخت آن‌ها باعث میشه که یک فشاری به زندگی‌تون بیاد و اجازه نده ک پسندازمون",
+        "avg_logprob": -0.24585236037193342,
+        "compression_ratio": 1.5894039735099337,
+        "no_speech_prob": 3.2149560791339127e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.44,
+            "word": " نهایی",
+            "probability": 0.7428784240037203
+          },
+          {
+            "start": 0.44,
+            "end": 0.86,
+            "word": " کردید",
+            "probability": 0.9914717376232147
+          },
+          {
+            "start": 0.86,
+            "end": 0.94,
+            "word": " و",
+            "probability": 0.9879866242408752
+          },
+          {
+            "start": 0.94,
+            "end": 1.16,
+            "word": " یک",
+            "probability": 0.7852998375892639
+          },
+          {
+            "start": 1.16,
+            "end": 1.64,
+            "word": " قرض‌های",
+            "probability": 0.7107941302470863
+          },
+          {
+            "start": 1.64,
+            "end": 1.98,
+            "word": " ایجاد",
+            "probability": 0.7540224678814411
+          },
+          {
+            "start": 1.98,
+            "end": 2.4,
+            "word": " کردین",
+            "probability": 0.666130793086874
+          },
+          {
+            "start": 2.4,
+            "end": 2.76,
+            "word": " که",
+            "probability": 0.9454889893531799
+          },
+          {
+            "start": 2.76,
+            "end": 3.38,
+            "word": " الان",
+            "probability": 0.9702703952789307
+          },
+          {
+            "start": 3.38,
+            "end": 4.32,
+            "word": " قصد",
+            "probability": 0.9667728145917257
+          },
+          {
+            "start": 4.32,
+            "end": 4.96,
+            "word": " آنها،",
+            "probability": 0.6714770197868347
+          },
+          {
+            "start": 4.96,
+            "end": 5.56,
+            "word": " پرداخت",
+            "probability": 0.9810492753982544
+          },
+          {
+            "start": 5.56,
+            "end": 5.82,
+            "word": " آن‌ها",
+            "probability": 0.7347365349996835
+          },
+          {
+            "start": 5.82,
+            "end": 6.24,
+            "word": " باعث",
+            "probability": 0.9781558513641357
+          },
+          {
+            "start": 6.24,
+            "end": 6.48,
+            "word": " میشه",
+            "probability": 0.7498468061288198
+          },
+          {
+            "start": 6.48,
+            "end": 6.64,
+            "word": " که",
+            "probability": 0.9893884658813477
+          },
+          {
+            "start": 6.64,
+            "end": 6.74,
+            "word": " یک",
+            "probability": 0.7201659679412842
+          },
+          {
+            "start": 6.74,
+            "end": 7.18,
+            "word": " فشاری",
+            "probability": 0.9698750227689743
+          },
+          {
+            "start": 7.18,
+            "end": 7.26,
+            "word": " به",
+            "probability": 0.9937506318092346
+          },
+          {
+            "start": 7.26,
+            "end": 7.9,
+            "word": " زندگی‌تون",
+            "probability": 0.9102209040096828
+          },
+          {
+            "start": 7.9,
+            "end": 8.26,
+            "word": " بیاد",
+            "probability": 0.985046923160553
+          },
+          {
+            "start": 8.26,
+            "end": 8.56,
+            "word": " و",
+            "probability": 0.9633657932281494
+          },
+          {
+            "start": 8.56,
+            "end": 9.54,
+            "word": " اجازه",
+            "probability": 0.9873978495597839
+          },
+          {
+            "start": 9.54,
+            "end": 9.8,
+            "word": " نده",
+            "probability": 0.9590619405110677
+          },
+          {
+            "start": 9.8,
+            "end": 9.92,
+            "word": " ک",
+            "probability": 0.9723774790763855
+          },
+          {
+            "start": 9.92,
+            "end": 10.74,
+            "word": " پسندازمون",
+            "probability": 0.6050063038322454
+          }
+        ]
+      }
+    ]
+  }
+}

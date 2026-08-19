@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "5b4fed0ce6ed0e309d123f0b989886b1c0f86a82303151574233ce893c671da4",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.78,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.72,
+        "text": "به زندگی روزانم نرسه؟ اولین جواب اینه که خب پس معلومه ک یک کمی از درامد آینده‌تون خوردید، امروز آیندای",
+        "avg_logprob": -0.18738617982183184,
+        "compression_ratio": 1.3984962406015038,
+        "no_speech_prob": 2.2714148617541952e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.08,
+            "word": " به",
+            "probability": 0.9825770258903503
+          },
+          {
+            "start": 0.08,
+            "end": 0.48,
+            "word": " زندگی",
+            "probability": 0.9990976303815842
+          },
+          {
+            "start": 0.48,
+            "end": 1.1,
+            "word": " روزانم",
+            "probability": 0.9956560492515564
+          },
+          {
+            "start": 1.1,
+            "end": 1.78,
+            "word": " نرسه؟",
+            "probability": 0.7780329614877701
+          },
+          {
+            "start": 1.78,
+            "end": 3.22,
+            "word": " اولین",
+            "probability": 0.9745088418324789
+          },
+          {
+            "start": 3.22,
+            "end": 3.72,
+            "word": " جواب",
+            "probability": 0.99921053647995
+          },
+          {
+            "start": 3.72,
+            "end": 3.9,
+            "word": " اینه",
+            "probability": 0.9947205384572347
+          },
+          {
+            "start": 3.9,
+            "end": 4.1,
+            "word": " که",
+            "probability": 0.9896118938922882
+          },
+          {
+            "start": 4.1,
+            "end": 4.32,
+            "word": " خب",
+            "probability": 0.9629932940006256
+          },
+          {
+            "start": 4.32,
+            "end": 4.56,
+            "word": " پس",
+            "probability": 0.9950338006019592
+          },
+          {
+            "start": 4.56,
+            "end": 5.2,
+            "word": " معلومه",
+            "probability": 0.9977950900793076
+          },
+          {
+            "start": 5.2,
+            "end": 5.36,
+            "word": " ک",
+            "probability": 0.9991627931594849
+          },
+          {
+            "start": 5.36,
+            "end": 5.92,
+            "word": " یک",
+            "probability": 0.3154779748039118
+          },
+          {
+            "start": 5.92,
+            "end": 6.2,
+            "word": " کمی",
+            "probability": 0.9743723471959432
+          },
+          {
+            "start": 6.2,
+            "end": 6.4,
+            "word": " از",
+            "probability": 0.998403936624527
+          },
+          {
+            "start": 6.4,
+            "end": 6.9,
+            "word": " درامد",
+            "probability": 0.9337612986564636
+          },
+          {
+            "start": 6.9,
+            "end": 7.54,
+            "word": " آینده‌تون",
+            "probability": 0.8034921594496284
+          },
+          {
+            "start": 7.54,
+            "end": 8.46,
+            "word": " خوردید،",
+            "probability": 0.8296346181693176
+          },
+          {
+            "start": 8.46,
+            "end": 9.92,
+            "word": " امروز",
+            "probability": 0.9942773878574371
+          },
+          {
+            "start": 9.92,
+            "end": 10.72,
+            "word": " آیندای",
+            "probability": 0.7050871850369731
+          }
+        ]
+      }
+    ]
+  }
+}

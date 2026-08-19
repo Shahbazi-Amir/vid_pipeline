@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "18663951a8a3e51e185bc41c5c7e8d5be36b961a4fa0c8af409fea0727e7cdae",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.64,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.82,
+        "text": "اضافه شد، حالا چه زندگی خوبی خواهم داشم. ده درصد خیلی اثر نداره. پس نشون میده ده",
+        "avg_logprob": -0.18811150853122985,
+        "compression_ratio": 1.3148148148148149,
+        "no_speech_prob": 2.5770177658479554e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.42,
+            "word": " اضافه",
+            "probability": 0.9789320230484009
+          },
+          {
+            "start": 0.42,
+            "end": 0.62,
+            "word": " شد،",
+            "probability": 0.6616687004764875
+          },
+          {
+            "start": 0.62,
+            "end": 0.86,
+            "word": " حالا",
+            "probability": 0.99381556113561
+          },
+          {
+            "start": 0.86,
+            "end": 1.0,
+            "word": " چه",
+            "probability": 0.9662239253520966
+          },
+          {
+            "start": 1.0,
+            "end": 1.36,
+            "word": " زندگی",
+            "probability": 0.9329834431409836
+          },
+          {
+            "start": 1.36,
+            "end": 1.74,
+            "word": " خوبی",
+            "probability": 0.989557166894277
+          },
+          {
+            "start": 1.74,
+            "end": 2.1,
+            "word": " خواهم",
+            "probability": 0.9846855600674947
+          },
+          {
+            "start": 2.1,
+            "end": 2.56,
+            "word": " داشم.",
+            "probability": 0.7079304158687592
+          },
+          {
+            "start": 2.76,
+            "end": 3.12,
+            "word": " ده",
+            "probability": 0.8874520361423492
+          },
+          {
+            "start": 3.12,
+            "end": 3.6,
+            "word": " درصد",
+            "probability": 0.9474427998065948
+          },
+          {
+            "start": 3.6,
+            "end": 3.98,
+            "word": " خیلی",
+            "probability": 0.9993912279605865
+          },
+          {
+            "start": 3.98,
+            "end": 4.28,
+            "word": " اثر",
+            "probability": 0.9835734367370605
+          },
+          {
+            "start": 4.28,
+            "end": 4.88,
+            "word": " نداره.",
+            "probability": 0.9722219705581665
+          },
+          {
+            "start": 5.32,
+            "end": 6.0,
+            "word": " پس",
+            "probability": 0.9972661733627319
+          },
+          {
+            "start": 6.0,
+            "end": 6.34,
+            "word": " نشون",
+            "probability": 0.9962552785873413
+          },
+          {
+            "start": 6.34,
+            "end": 6.56,
+            "word": " میده",
+            "probability": 0.9716724952061971
+          },
+          {
+            "start": 6.56,
+            "end": 6.82,
+            "word": " ده",
+            "probability": 0.9894483685493469
+          }
+        ]
+      }
+    ]
+  }
+}

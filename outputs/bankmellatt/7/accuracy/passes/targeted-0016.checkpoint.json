@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "db6ceeb061627104304926706844e8f503907f58fe48ebd06cb85b935f349f9b",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.74,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.56,
+        "text": "امروز آینده‌ی دیروزتونه. فکر می‌کنم که دی روز یه هزینه‌هایی کردید و یه قرض‌ها ایجاد کرده که الان قصد اون‌ها",
+        "avg_logprob": -0.21577956636746726,
+        "compression_ratio": 1.5307692307692307,
+        "no_speech_prob": 2.9936289558385454e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.8,
+            "word": " امروز",
+            "probability": 0.9681774526834488
+          },
+          {
+            "start": 0.8,
+            "end": 1.6,
+            "word": " آینده‌ی",
+            "probability": 0.8310803274313608
+          },
+          {
+            "start": 1.6,
+            "end": 2.5,
+            "word": " دیروزتونه.",
+            "probability": 0.8953284791537693
+          },
+          {
+            "start": 2.72,
+            "end": 3.22,
+            "word": " فکر",
+            "probability": 0.9813916881879171
+          },
+          {
+            "start": 3.22,
+            "end": 3.68,
+            "word": " می‌کنم",
+            "probability": 0.9519744753837586
+          },
+          {
+            "start": 3.68,
+            "end": 3.88,
+            "word": " که",
+            "probability": 0.9492101669311523
+          },
+          {
+            "start": 3.88,
+            "end": 4.1,
+            "word": " دی",
+            "probability": 0.9579052031040192
+          },
+          {
+            "start": 4.1,
+            "end": 4.3,
+            "word": " روز",
+            "probability": 0.6620931146899238
+          },
+          {
+            "start": 4.3,
+            "end": 4.4,
+            "word": " یه",
+            "probability": 0.7862603664398193
+          },
+          {
+            "start": 4.4,
+            "end": 5.18,
+            "word": " هزینه‌هایی",
+            "probability": 0.899092648178339
+          },
+          {
+            "start": 5.18,
+            "end": 5.6,
+            "word": " کردید",
+            "probability": 0.9806673675775528
+          },
+          {
+            "start": 5.6,
+            "end": 5.68,
+            "word": " و",
+            "probability": 0.9241480231285095
+          },
+          {
+            "start": 5.68,
+            "end": 5.86,
+            "word": " یه",
+            "probability": 0.921208918094635
+          },
+          {
+            "start": 5.86,
+            "end": 6.32,
+            "word": " قرض‌ها",
+            "probability": 0.8997641354799271
+          },
+          {
+            "start": 6.32,
+            "end": 6.72,
+            "word": " ایجاد",
+            "probability": 0.6194200073659886
+          },
+          {
+            "start": 6.72,
+            "end": 7.14,
+            "word": " کرده",
+            "probability": 0.6609107521362603
+          },
+          {
+            "start": 7.14,
+            "end": 7.52,
+            "word": " که",
+            "probability": 0.7686441838741302
+          },
+          {
+            "start": 7.52,
+            "end": 8.14,
+            "word": " الان",
+            "probability": 0.9522296786308289
+          },
+          {
+            "start": 8.14,
+            "end": 9.08,
+            "word": " قصد",
+            "probability": 0.9572578072547913
+          },
+          {
+            "start": 9.08,
+            "end": 9.56,
+            "word": " اون‌ها",
+            "probability": 0.7420369535684586
+          }
+        ]
+      }
+    ]
+  }
+}

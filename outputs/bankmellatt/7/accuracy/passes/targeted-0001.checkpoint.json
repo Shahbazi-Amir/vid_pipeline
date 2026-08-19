@@ -1,0 +1,254 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "f853f25295fe9a2281f27728709662b674f667f6a452c889730d8114688b7042",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 15.78,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 15.76,
+        "text": "اول سال نو یا روز تولدمون یا اون شنبه‌ای که هیچوقت نمیاد، تصمیم می‌گیریم که خیلی از کارها رو نکنیم و خیالی برنامه‌ها را اجرا بکنم و به اهدافمون برسیم. اما بعد از چند وقت یا آخ...",
+        "avg_logprob": -0.1379451928039392,
+        "compression_ratio": 1.7527472527472527,
+        "no_speech_prob": 2.464321247064305e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.54,
+            "word": " اول",
+            "probability": 0.9871631860733032
+          },
+          {
+            "start": 0.54,
+            "end": 0.94,
+            "word": " سال",
+            "probability": 0.993517130613327
+          },
+          {
+            "start": 0.94,
+            "end": 1.38,
+            "word": " نو",
+            "probability": 0.8212036788463593
+          },
+          {
+            "start": 1.38,
+            "end": 1.92,
+            "word": " یا",
+            "probability": 0.7778129577636719
+          },
+          {
+            "start": 1.92,
+            "end": 2.08,
+            "word": " روز",
+            "probability": 0.9994084040323893
+          },
+          {
+            "start": 2.08,
+            "end": 3.1,
+            "word": " تولدمون",
+            "probability": 0.8449440836906433
+          },
+          {
+            "start": 3.1,
+            "end": 3.54,
+            "word": " یا",
+            "probability": 0.9928649961948395
+          },
+          {
+            "start": 3.54,
+            "end": 3.68,
+            "word": " اون",
+            "probability": 0.9972254931926727
+          },
+          {
+            "start": 3.68,
+            "end": 4.3,
+            "word": " شنبه‌ای",
+            "probability": 0.8232679947146347
+          },
+          {
+            "start": 4.3,
+            "end": 4.44,
+            "word": " که",
+            "probability": 0.863092452287674
+          },
+          {
+            "start": 4.44,
+            "end": 4.88,
+            "word": " هیچوقت",
+            "probability": 0.9086909174919129
+          },
+          {
+            "start": 4.88,
+            "end": 5.62,
+            "word": " نمیاد،",
+            "probability": 0.8184675455093384
+          },
+          {
+            "start": 5.62,
+            "end": 6.2,
+            "word": " تصمیم",
+            "probability": 0.9925750374794007
+          },
+          {
+            "start": 6.2,
+            "end": 6.66,
+            "word": " می‌گیریم",
+            "probability": 0.9748011330763499
+          },
+          {
+            "start": 6.66,
+            "end": 6.84,
+            "word": " که",
+            "probability": 0.9963560998439789
+          },
+          {
+            "start": 6.84,
+            "end": 7.42,
+            "word": " خیلی",
+            "probability": 0.9966483563184738
+          },
+          {
+            "start": 7.42,
+            "end": 7.58,
+            "word": " از",
+            "probability": 0.9976481795310974
+          },
+          {
+            "start": 7.58,
+            "end": 7.92,
+            "word": " کارها",
+            "probability": 0.9257914423942566
+          },
+          {
+            "start": 7.92,
+            "end": 8.08,
+            "word": " رو",
+            "probability": 0.9650039374828339
+          },
+          {
+            "start": 8.08,
+            "end": 8.7,
+            "word": " نکنیم",
+            "probability": 0.9968505740165711
+          },
+          {
+            "start": 8.7,
+            "end": 9.2,
+            "word": " و",
+            "probability": 0.9576172232627869
+          },
+          {
+            "start": 9.2,
+            "end": 9.68,
+            "word": " خیالی",
+            "probability": 0.7453847803772078
+          },
+          {
+            "start": 9.68,
+            "end": 10.52,
+            "word": " برنامه‌ها",
+            "probability": 0.9843021971838815
+          },
+          {
+            "start": 10.52,
+            "end": 10.78,
+            "word": " را",
+            "probability": 0.5055430494248867
+          },
+          {
+            "start": 10.78,
+            "end": 11.32,
+            "word": " اجرا",
+            "probability": 0.9616808096567789
+          },
+          {
+            "start": 11.32,
+            "end": 11.74,
+            "word": " بکنم",
+            "probability": 0.7308086699922569
+          },
+          {
+            "start": 11.74,
+            "end": 11.86,
+            "word": " و",
+            "probability": 0.978154718875885
+          },
+          {
+            "start": 11.86,
+            "end": 12.08,
+            "word": " به",
+            "probability": 0.9871541857719421
+          },
+          {
+            "start": 12.08,
+            "end": 12.62,
+            "word": " اهدافمون",
+            "probability": 0.8932381570339203
+          },
+          {
+            "start": 12.62,
+            "end": 13.16,
+            "word": " برسیم.",
+            "probability": 0.9902452111244202
+          },
+          {
+            "start": 13.3,
+            "end": 13.84,
+            "word": " اما",
+            "probability": 0.9853209555149078
+          },
+          {
+            "start": 13.84,
+            "end": 14.12,
+            "word": " بعد",
+            "probability": 0.9901279807090759
+          },
+          {
+            "start": 14.12,
+            "end": 14.28,
+            "word": " از",
+            "probability": 0.9726842939853668
+          },
+          {
+            "start": 14.28,
+            "end": 14.66,
+            "word": " چند",
+            "probability": 0.9847756922245026
+          },
+          {
+            "start": 14.66,
+            "end": 15.04,
+            "word": " وقت",
+            "probability": 0.9763934314250946
+          },
+          {
+            "start": 15.04,
+            "end": 15.58,
+            "word": " یا",
+            "probability": 0.917066901922226
+          },
+          {
+            "start": 15.58,
+            "end": 15.76,
+            "word": " آخ...",
+            "probability": 0.49777234345674515
+          }
+        ]
+      }
+    ]
+  }
+}

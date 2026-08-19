@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "e37ee01585ddd2510a8556d8d7d1e1481c27564a8ca1fc189bb34912d1325675",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.42,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.4,
+        "text": "خب من می‌تونم چهار سر هزار توم پسنداز بکنم بدون این که اثار خواستی تو سبک زندگیم داشته باشه، یا اگه چهر ملیونم بشه چار و چههار",
+        "avg_logprob": -0.3262656412006896,
+        "compression_ratio": 1.5874125874125875,
+        "no_speech_prob": 3.387724545333981e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.28,
+            "word": " خب",
+            "probability": 0.8774687945842743
+          },
+          {
+            "start": 0.28,
+            "end": 0.38,
+            "word": " من",
+            "probability": 0.9234288930892944
+          },
+          {
+            "start": 0.38,
+            "end": 0.68,
+            "word": " می‌تونم",
+            "probability": 0.7147402256727219
+          },
+          {
+            "start": 0.68,
+            "end": 0.9,
+            "word": " چهار",
+            "probability": 0.7533539632956187
+          },
+          {
+            "start": 0.9,
+            "end": 1.06,
+            "word": " سر",
+            "probability": 0.40558741986751556
+          },
+          {
+            "start": 1.06,
+            "end": 1.3,
+            "word": " هزار",
+            "probability": 0.6487261404593786
+          },
+          {
+            "start": 1.3,
+            "end": 1.44,
+            "word": " توم",
+            "probability": 0.5405109375715256
+          },
+          {
+            "start": 1.44,
+            "end": 2.1,
+            "word": " پسنداز",
+            "probability": 0.735950194299221
+          },
+          {
+            "start": 2.1,
+            "end": 2.5,
+            "word": " بکنم",
+            "probability": 0.9735188484191895
+          },
+          {
+            "start": 2.5,
+            "end": 2.9,
+            "word": " بدون",
+            "probability": 0.9618175029754639
+          },
+          {
+            "start": 2.9,
+            "end": 3.06,
+            "word": " این",
+            "probability": 0.9761003851890564
+          },
+          {
+            "start": 3.06,
+            "end": 3.22,
+            "word": " که",
+            "probability": 0.6390279680490494
+          },
+          {
+            "start": 3.22,
+            "end": 3.56,
+            "word": " اثار",
+            "probability": 0.7714017629623413
+          },
+          {
+            "start": 3.56,
+            "end": 4.1,
+            "word": " خواستی",
+            "probability": 0.810887522995472
+          },
+          {
+            "start": 4.1,
+            "end": 4.24,
+            "word": " تو",
+            "probability": 0.7846882939338684
+          },
+          {
+            "start": 4.24,
+            "end": 4.68,
+            "word": " سبک",
+            "probability": 0.7733618418375651
+          },
+          {
+            "start": 4.68,
+            "end": 5.18,
+            "word": " زندگیم",
+            "probability": 0.9064279198646545
+          },
+          {
+            "start": 5.18,
+            "end": 5.52,
+            "word": " داشته",
+            "probability": 0.994394838809967
+          },
+          {
+            "start": 5.52,
+            "end": 5.94,
+            "word": " باشه،",
+            "probability": 0.7462390215368941
+          },
+          {
+            "start": 5.94,
+            "end": 6.56,
+            "word": " یا",
+            "probability": 0.9676028192043304
+          },
+          {
+            "start": 6.56,
+            "end": 6.74,
+            "word": " اگه",
+            "probability": 0.9661312699317932
+          },
+          {
+            "start": 6.74,
+            "end": 7.04,
+            "word": " چهر",
+            "probability": 0.6345349408414526
+          },
+          {
+            "start": 7.04,
+            "end": 7.48,
+            "word": " ملیونم",
+            "probability": 0.7698396235704422
+          },
+          {
+            "start": 7.48,
+            "end": 7.72,
+            "word": " بشه",
+            "probability": 0.9785268902778625
+          },
+          {
+            "start": 7.72,
+            "end": 8.0,
+            "word": " چار",
+            "probability": 0.42657356429845095
+          },
+          {
+            "start": 8.0,
+            "end": 8.08,
+            "word": " و",
+            "probability": 0.8513224720954895
+          },
+          {
+            "start": 8.08,
+            "end": 8.4,
+            "word": " چههار",
+            "probability": 0.7005826275562868
+          }
+        ]
+      }
+    ]
+  }
+}

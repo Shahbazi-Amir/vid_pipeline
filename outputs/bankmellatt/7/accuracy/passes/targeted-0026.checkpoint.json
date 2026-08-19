@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "156aef33525c99f5134f6ec363e6ae1133be17e42bc754fb455d0e72f62810e4",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.56,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.54,
+        "text": "من چقدر تو زندگی محصر داره؟ مثلا 400 هزار تومن به حقوق 4 ملیون من اضافه کنن؟ من خود نفع می‌کنم خیلی",
+        "avg_logprob": -0.29203834216440877,
+        "compression_ratio": 1.3384615384615384,
+        "no_speech_prob": 5.767867850003938e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.1,
+            "word": " من",
+            "probability": 0.6700936555862427
+          },
+          {
+            "start": 0.1,
+            "end": 0.64,
+            "word": " چقدر",
+            "probability": 0.9878127773602804
+          },
+          {
+            "start": 0.64,
+            "end": 0.76,
+            "word": " تو",
+            "probability": 0.6395986676216125
+          },
+          {
+            "start": 0.76,
+            "end": 1.5,
+            "word": " زندگی",
+            "probability": 0.9921015650033951
+          },
+          {
+            "start": 1.5,
+            "end": 1.94,
+            "word": " محصر",
+            "probability": 0.6557512283325195
+          },
+          {
+            "start": 1.94,
+            "end": 2.46,
+            "word": " داره؟",
+            "probability": 0.8419952020049095
+          },
+          {
+            "start": 2.46,
+            "end": 3.2,
+            "word": " مثلا",
+            "probability": 0.9744707345962524
+          },
+          {
+            "start": 3.2,
+            "end": 3.7,
+            "word": " 400",
+            "probability": 0.23076066374778748
+          },
+          {
+            "start": 3.7,
+            "end": 4.2,
+            "word": " هزار",
+            "probability": 0.8726815382639567
+          },
+          {
+            "start": 4.2,
+            "end": 4.62,
+            "word": " تومن",
+            "probability": 0.8822694420814514
+          },
+          {
+            "start": 4.62,
+            "end": 4.84,
+            "word": " به",
+            "probability": 0.9855931401252747
+          },
+          {
+            "start": 4.84,
+            "end": 5.36,
+            "word": " حقوق",
+            "probability": 0.9841576218605042
+          },
+          {
+            "start": 5.36,
+            "end": 5.62,
+            "word": " 4",
+            "probability": 0.46669214963912964
+          },
+          {
+            "start": 5.62,
+            "end": 6.02,
+            "word": " ملیون",
+            "probability": 0.9544266313314438
+          },
+          {
+            "start": 6.02,
+            "end": 6.2,
+            "word": " من",
+            "probability": 0.1946616768836975
+          },
+          {
+            "start": 6.2,
+            "end": 6.68,
+            "word": " اضافه",
+            "probability": 0.994983360171318
+          },
+          {
+            "start": 6.68,
+            "end": 7.24,
+            "word": " کنن؟",
+            "probability": 0.8557469695806503
+          },
+          {
+            "start": 7.24,
+            "end": 8.1,
+            "word": " من",
+            "probability": 0.9646733999252319
+          },
+          {
+            "start": 8.1,
+            "end": 8.3,
+            "word": " خود",
+            "probability": 0.6942254304885864
+          },
+          {
+            "start": 8.3,
+            "end": 8.46,
+            "word": " نفع",
+            "probability": 0.6403848727544149
+          },
+          {
+            "start": 8.46,
+            "end": 8.76,
+            "word": " می‌کنم",
+            "probability": 0.6396228708326817
+          },
+          {
+            "start": 8.76,
+            "end": 9.54,
+            "word": " خیلی",
+            "probability": 0.9709097146987915
+          }
+        ]
+      }
+    ]
+  }
+}

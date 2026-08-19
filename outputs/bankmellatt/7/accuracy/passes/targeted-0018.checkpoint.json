@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "467aef26b63a100aa41b1752c0b255564a5e0582f58f5b55b62f5ffe84179e4d",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.09,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.66,
+        "text": "این‌ها باعث می‌شه که یه فشاری به زندگیتون بیاد و اجازه نده ک پسنداز مناسب یا صندوق استراری داشته باشید.",
+        "avg_logprob": -0.1821008828970102,
+        "compression_ratio": 1.4029850746268657,
+        "no_speech_prob": 2.501714668756705e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.08,
+            "word": " این‌ها",
+            "probability": 0.43130567111074924
+          },
+          {
+            "start": 0.08,
+            "end": 0.48,
+            "word": " باعث",
+            "probability": 0.9884757598241171
+          },
+          {
+            "start": 0.48,
+            "end": 0.72,
+            "word": " می‌شه",
+            "probability": 0.9363585263490677
+          },
+          {
+            "start": 0.72,
+            "end": 0.9,
+            "word": " که",
+            "probability": 0.9872867465019226
+          },
+          {
+            "start": 0.9,
+            "end": 0.98,
+            "word": " یه",
+            "probability": 0.8099229633808136
+          },
+          {
+            "start": 0.98,
+            "end": 1.4,
+            "word": " فشاری",
+            "probability": 0.9489509016275406
+          },
+          {
+            "start": 1.4,
+            "end": 1.5,
+            "word": " به",
+            "probability": 0.9905347228050232
+          },
+          {
+            "start": 1.5,
+            "end": 2.14,
+            "word": " زندگیتون",
+            "probability": 0.8552906935413679
+          },
+          {
+            "start": 2.14,
+            "end": 2.5,
+            "word": " بیاد",
+            "probability": 0.9860023856163025
+          },
+          {
+            "start": 2.5,
+            "end": 2.8,
+            "word": " و",
+            "probability": 0.9758367538452148
+          },
+          {
+            "start": 2.8,
+            "end": 3.78,
+            "word": " اجازه",
+            "probability": 0.987364262342453
+          },
+          {
+            "start": 3.78,
+            "end": 4.04,
+            "word": " نده",
+            "probability": 0.9621817866961161
+          },
+          {
+            "start": 4.04,
+            "end": 4.16,
+            "word": " ک",
+            "probability": 0.9762260317802429
+          },
+          {
+            "start": 4.16,
+            "end": 4.8,
+            "word": " پسنداز",
+            "probability": 0.721970614453312
+          },
+          {
+            "start": 4.8,
+            "end": 5.4,
+            "word": " مناسب",
+            "probability": 0.9818644324938456
+          },
+          {
+            "start": 5.4,
+            "end": 6.26,
+            "word": " یا",
+            "probability": 0.9818337261676788
+          },
+          {
+            "start": 6.26,
+            "end": 6.82,
+            "word": " صندوق",
+            "probability": 0.9868945082028707
+          },
+          {
+            "start": 6.82,
+            "end": 7.8,
+            "word": " استراری",
+            "probability": 0.8985267281532288
+          },
+          {
+            "start": 7.8,
+            "end": 8.14,
+            "word": " داشته",
+            "probability": 0.9878195722897848
+          },
+          {
+            "start": 8.14,
+            "end": 8.66,
+            "word": " باشید.",
+            "probability": 0.8774677067995071
+          }
+        ]
+      }
+    ]
+  }
+}

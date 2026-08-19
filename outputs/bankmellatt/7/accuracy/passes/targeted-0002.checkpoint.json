@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "7a0fc7137df22e2b385d8a144fe51590a087f95a6d1f2e5167e0b051c817d454",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.24,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.22,
+        "text": "اجرا بکنیم و به اهدافمون برسیم. اما بعد از چند وقت یا آخر همون روز کارهایی کردیم که نمی‌خواستیم، کار‌های رو که باید انجام می‌داریم",
+        "avg_logprob": -0.15632305371350255,
+        "compression_ratio": 1.576158940397351,
+        "no_speech_prob": 1.9503638981621663e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.54,
+            "word": " اجرا",
+            "probability": 0.962275763352712
+          },
+          {
+            "start": 0.54,
+            "end": 1.0,
+            "word": " بکنیم",
+            "probability": 0.9912037253379822
+          },
+          {
+            "start": 1.0,
+            "end": 1.08,
+            "word": " و",
+            "probability": 0.9974890947341919
+          },
+          {
+            "start": 1.08,
+            "end": 1.36,
+            "word": " به",
+            "probability": 0.9954221844673157
+          },
+          {
+            "start": 1.36,
+            "end": 1.84,
+            "word": " اهدافمون",
+            "probability": 0.9239289164543152
+          },
+          {
+            "start": 1.84,
+            "end": 2.38,
+            "word": " برسیم.",
+            "probability": 0.9955771088600158
+          },
+          {
+            "start": 2.48,
+            "end": 3.06,
+            "word": " اما",
+            "probability": 0.998648077249527
+          },
+          {
+            "start": 3.06,
+            "end": 3.34,
+            "word": " بعد",
+            "probability": 0.9993237257003784
+          },
+          {
+            "start": 3.34,
+            "end": 3.5,
+            "word": " از",
+            "probability": 0.9988066852092743
+          },
+          {
+            "start": 3.5,
+            "end": 3.86,
+            "word": " چند",
+            "probability": 0.993796706199646
+          },
+          {
+            "start": 3.86,
+            "end": 4.24,
+            "word": " وقت",
+            "probability": 0.9996098875999451
+          },
+          {
+            "start": 4.24,
+            "end": 4.82,
+            "word": " یا",
+            "probability": 0.9855967462062836
+          },
+          {
+            "start": 4.82,
+            "end": 5.18,
+            "word": " آخر",
+            "probability": 0.9996525645256042
+          },
+          {
+            "start": 5.18,
+            "end": 5.64,
+            "word": " همون",
+            "probability": 0.9886200825373331
+          },
+          {
+            "start": 5.64,
+            "end": 5.84,
+            "word": " روز",
+            "probability": 0.9927610158920288
+          },
+          {
+            "start": 5.84,
+            "end": 6.5,
+            "word": " کارهایی",
+            "probability": 0.9929746508598327
+          },
+          {
+            "start": 6.5,
+            "end": 6.82,
+            "word": " کردیم",
+            "probability": 0.9990963488817215
+          },
+          {
+            "start": 6.82,
+            "end": 6.94,
+            "word": " که",
+            "probability": 0.9994251430034637
+          },
+          {
+            "start": 6.94,
+            "end": 8.1,
+            "word": " نمی‌خواستیم،",
+            "probability": 0.8001805085688829
+          },
+          {
+            "start": 8.1,
+            "end": 9.16,
+            "word": " کار‌های",
+            "probability": 0.7960082527715713
+          },
+          {
+            "start": 9.16,
+            "end": 9.28,
+            "word": " رو",
+            "probability": 0.4977508643642068
+          },
+          {
+            "start": 9.28,
+            "end": 9.38,
+            "word": " که",
+            "probability": 0.9699733853340149
+          },
+          {
+            "start": 9.38,
+            "end": 9.72,
+            "word": " باید",
+            "probability": 0.9959378093481064
+          },
+          {
+            "start": 9.72,
+            "end": 10.06,
+            "word": " انجام",
+            "probability": 0.9913544456164042
+          },
+          {
+            "start": 10.06,
+            "end": 10.22,
+            "word": " می‌داریم",
+            "probability": 0.7752067744731903
+          }
+        ]
+      }
+    ]
+  }
+}

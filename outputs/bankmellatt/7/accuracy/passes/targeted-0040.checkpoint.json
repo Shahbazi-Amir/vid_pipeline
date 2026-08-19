@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "c98e6ea59096f23c67709689d4f3f2540ef9a56c4cc881df041c7829c2733b8d",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.76,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.74,
+        "text": "بسر خاص ثی توز سبک زندگیم داشته باشه. یا اگه چار میلیون هم بشه، چار و چهارصد، خب ده درصد می‌تونم خوب پسانداز بکنم.",
+        "avg_logprob": -0.2750428930307046,
+        "compression_ratio": 1.446808510638298,
+        "no_speech_prob": 2.8575625199422916e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.14,
+            "word": " بسر",
+            "probability": 0.5413457353909811
+          },
+          {
+            "start": 0.14,
+            "end": 0.5,
+            "word": " خاص",
+            "probability": 0.5779808908700943
+          },
+          {
+            "start": 0.5,
+            "end": 0.7,
+            "word": " ثی",
+            "probability": 0.3665153793990612
+          },
+          {
+            "start": 0.7,
+            "end": 0.9,
+            "word": " توز",
+            "probability": 0.3859294354915619
+          },
+          {
+            "start": 0.9,
+            "end": 1.26,
+            "word": " سبک",
+            "probability": 0.9129460453987122
+          },
+          {
+            "start": 1.26,
+            "end": 1.76,
+            "word": " زندگیم",
+            "probability": 0.9442136406898498
+          },
+          {
+            "start": 1.76,
+            "end": 2.1,
+            "word": " داشته",
+            "probability": 0.9976972341537476
+          },
+          {
+            "start": 2.1,
+            "end": 2.52,
+            "word": " باشه.",
+            "probability": 0.9958144426345825
+          },
+          {
+            "start": 2.58,
+            "end": 3.1,
+            "word": " یا",
+            "probability": 0.990955650806427
+          },
+          {
+            "start": 3.1,
+            "end": 3.32,
+            "word": " اگه",
+            "probability": 0.9880054593086243
+          },
+          {
+            "start": 3.32,
+            "end": 3.6,
+            "word": " چار",
+            "probability": 0.48328912258148193
+          },
+          {
+            "start": 3.6,
+            "end": 3.98,
+            "word": " میلیون",
+            "probability": 0.8656191304326057
+          },
+          {
+            "start": 3.98,
+            "end": 4.08,
+            "word": " هم",
+            "probability": 0.6514199525117874
+          },
+          {
+            "start": 4.08,
+            "end": 4.36,
+            "word": " بشه،",
+            "probability": 0.763534365221858
+          },
+          {
+            "start": 4.36,
+            "end": 4.58,
+            "word": " چار",
+            "probability": 0.9537417888641357
+          },
+          {
+            "start": 4.58,
+            "end": 4.66,
+            "word": " و",
+            "probability": 0.9003046154975891
+          },
+          {
+            "start": 4.66,
+            "end": 5.38,
+            "word": " چهارصد،",
+            "probability": 0.6704986418286959
+          },
+          {
+            "start": 5.38,
+            "end": 5.48,
+            "word": " خب",
+            "probability": 0.8208751678466797
+          },
+          {
+            "start": 5.48,
+            "end": 5.72,
+            "word": " ده",
+            "probability": 0.8989845812320709
+          },
+          {
+            "start": 5.72,
+            "end": 6.12,
+            "word": " درصد",
+            "probability": 0.9598502367734909
+          },
+          {
+            "start": 6.12,
+            "end": 6.48,
+            "word": " می‌تونم",
+            "probability": 0.7493501342833042
+          },
+          {
+            "start": 6.48,
+            "end": 6.7,
+            "word": " خوب",
+            "probability": 0.9390078783035278
+          },
+          {
+            "start": 6.7,
+            "end": 7.34,
+            "word": " پسانداز",
+            "probability": 0.8378862112760543
+          },
+          {
+            "start": 7.34,
+            "end": 7.74,
+            "word": " بکنم.",
+            "probability": 0.9139166474342346
+          }
+        ]
+      }
+    ]
+  }
+}

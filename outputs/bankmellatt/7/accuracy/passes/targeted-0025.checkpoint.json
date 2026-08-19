@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "61c3e4985196aa520a1a54143acacbf50f730999b5234386781673f7e6e0c947",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.64,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.62,
+        "text": "در آمدن بشه چار میلیون و چار سد، واقعاً چقدر تو زندگی مثر داره؟ مثلاً چارسد هزار تومن به...",
+        "avg_logprob": -0.23949257695469364,
+        "compression_ratio": 1.424778761061947,
+        "no_speech_prob": 3.5119115948667456e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.6,
+            "word": " در",
+            "probability": 0.9715081453323364
+          },
+          {
+            "start": 0.6,
+            "end": 0.94,
+            "word": " آمدن",
+            "probability": 0.8226376324892044
+          },
+          {
+            "start": 0.94,
+            "end": 1.18,
+            "word": " بشه",
+            "probability": 0.7757811745007833
+          },
+          {
+            "start": 1.18,
+            "end": 1.5,
+            "word": " چار",
+            "probability": 0.656388521194458
+          },
+          {
+            "start": 1.5,
+            "end": 1.82,
+            "word": " میلیون",
+            "probability": 0.8865750283002853
+          },
+          {
+            "start": 1.82,
+            "end": 1.94,
+            "word": " و",
+            "probability": 0.9893136620521545
+          },
+          {
+            "start": 1.94,
+            "end": 2.2,
+            "word": " چار",
+            "probability": 0.8102113306522369
+          },
+          {
+            "start": 2.2,
+            "end": 2.68,
+            "word": " سد،",
+            "probability": 0.4704772303036104
+          },
+          {
+            "start": 2.68,
+            "end": 3.84,
+            "word": " واقعاً",
+            "probability": 0.8410948544740677
+          },
+          {
+            "start": 3.84,
+            "end": 4.3,
+            "word": " چقدر",
+            "probability": 0.9887851675351461
+          },
+          {
+            "start": 4.3,
+            "end": 4.4,
+            "word": " تو",
+            "probability": 0.7813881635665894
+          },
+          {
+            "start": 4.4,
+            "end": 5.1,
+            "word": " زندگی",
+            "probability": 0.9927224814891815
+          },
+          {
+            "start": 5.1,
+            "end": 5.54,
+            "word": " مثر",
+            "probability": 0.4017224609851837
+          },
+          {
+            "start": 5.54,
+            "end": 6.12,
+            "word": " داره؟",
+            "probability": 0.889093890786171
+          },
+          {
+            "start": 6.12,
+            "end": 7.02,
+            "word": " مثلاً",
+            "probability": 0.8903735280036926
+          },
+          {
+            "start": 7.02,
+            "end": 7.52,
+            "word": " چارسد",
+            "probability": 0.7214921498671174
+          },
+          {
+            "start": 7.52,
+            "end": 7.82,
+            "word": " هزار",
+            "probability": 0.964081605275472
+          },
+          {
+            "start": 7.82,
+            "end": 8.26,
+            "word": " تومن",
+            "probability": 0.8354447285334269
+          },
+          {
+            "start": 8.26,
+            "end": 8.62,
+            "word": " به...",
+            "probability": 0.5597288906574249
+          }
+        ]
+      }
+    ]
+  }
+}

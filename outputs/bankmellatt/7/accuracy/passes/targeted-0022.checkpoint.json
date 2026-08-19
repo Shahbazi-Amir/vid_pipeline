@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "2455b478ac79b3889768828928d4b640147406231e9b4f9dfcfe1565ba7c0c8f",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.42,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.4,
+        "text": "هدر می‌ره، پرت می‌شه در اسطلاح. یعنی این که مثلاً ده دارصد از درامت‌مون فرض کنید که اضافه کنند. مثلا من چه بدونم، چهار ملیان",
+        "avg_logprob": -0.29325386663762537,
+        "compression_ratio": 1.5410958904109588,
+        "no_speech_prob": 3.2046304498933864e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.52,
+            "word": " هدر",
+            "probability": 0.7409753352403641
+          },
+          {
+            "start": 0.52,
+            "end": 0.96,
+            "word": " می‌ره،",
+            "probability": 0.646115694846958
+          },
+          {
+            "start": 0.96,
+            "end": 1.36,
+            "word": " پرت",
+            "probability": 0.7993470430374146
+          },
+          {
+            "start": 1.36,
+            "end": 1.72,
+            "word": " می‌شه",
+            "probability": 0.9600615352392197
+          },
+          {
+            "start": 1.72,
+            "end": 1.92,
+            "word": " در",
+            "probability": 0.9776273965835571
+          },
+          {
+            "start": 1.92,
+            "end": 2.6,
+            "word": " اسطلاح.",
+            "probability": 0.844748429954052
+          },
+          {
+            "start": 2.7,
+            "end": 3.5,
+            "word": " یعنی",
+            "probability": 0.959688812494278
+          },
+          {
+            "start": 3.5,
+            "end": 3.6,
+            "word": " این",
+            "probability": 0.9378746151924133
+          },
+          {
+            "start": 3.6,
+            "end": 4.56,
+            "word": " که",
+            "probability": 0.8732252717018127
+          },
+          {
+            "start": 4.56,
+            "end": 5.26,
+            "word": " مثلاً",
+            "probability": 0.686186303695043
+          },
+          {
+            "start": 5.26,
+            "end": 5.62,
+            "word": " ده",
+            "probability": 0.7861358523368835
+          },
+          {
+            "start": 5.62,
+            "end": 6.04,
+            "word": " دارصد",
+            "probability": 0.6461319858644856
+          },
+          {
+            "start": 6.04,
+            "end": 6.18,
+            "word": " از",
+            "probability": 0.9852305054664612
+          },
+          {
+            "start": 6.18,
+            "end": 7.06,
+            "word": " درامت‌مون",
+            "probability": 0.7756823939936501
+          },
+          {
+            "start": 7.06,
+            "end": 7.46,
+            "word": " فرض",
+            "probability": 0.9574119746685028
+          },
+          {
+            "start": 7.46,
+            "end": 7.82,
+            "word": " کنید",
+            "probability": 0.9884772896766663
+          },
+          {
+            "start": 7.82,
+            "end": 8.04,
+            "word": " که",
+            "probability": 0.9904431104660034
+          },
+          {
+            "start": 8.04,
+            "end": 8.6,
+            "word": " اضافه",
+            "probability": 0.9941157400608063
+          },
+          {
+            "start": 8.6,
+            "end": 8.94,
+            "word": " کنند.",
+            "probability": 0.7367065151532491
+          },
+          {
+            "start": 9.1,
+            "end": 9.62,
+            "word": " مثلا",
+            "probability": 0.9859099686145782
+          },
+          {
+            "start": 9.62,
+            "end": 10.02,
+            "word": " من",
+            "probability": 0.14048169553279877
+          },
+          {
+            "start": 10.02,
+            "end": 10.58,
+            "word": " چه",
+            "probability": 0.7865135669708252
+          },
+          {
+            "start": 10.58,
+            "end": 11.0,
+            "word": " بدونم،",
+            "probability": 0.7624576278030872
+          },
+          {
+            "start": 11.0,
+            "end": 11.24,
+            "word": " چهار",
+            "probability": 0.8282820781071981
+          },
+          {
+            "start": 11.24,
+            "end": 11.4,
+            "word": " ملیان",
+            "probability": 0.5901052635163069
+          }
+        ]
+      }
+    ]
+  }
+}

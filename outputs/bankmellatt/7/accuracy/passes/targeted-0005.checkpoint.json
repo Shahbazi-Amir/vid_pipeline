@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "b14b397fa2bab88f002a47585ef81a8ebee4c38384ff10b5062b9e8aa29768a2",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.7,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.4,
+        "text": "می‌دادیم و انجام ندادین. چرا؟ چون اون چی که می‌‌دونیم معمولاً به ما آسیب نمی‌زنه، بلکه اونچه که نمي‌دانیم",
+        "avg_logprob": -0.30026417235805564,
+        "compression_ratio": 1.5193798449612403,
+        "no_speech_prob": 2.6263616281774205e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.4,
+            "word": " می‌دادیم",
+            "probability": 0.675206771120429
+          },
+          {
+            "start": 0.4,
+            "end": 0.44,
+            "word": " و",
+            "probability": 0.9202674627304077
+          },
+          {
+            "start": 0.44,
+            "end": 0.8,
+            "word": " انجام",
+            "probability": 0.9862717191378275
+          },
+          {
+            "start": 0.8,
+            "end": 1.32,
+            "word": " ندادین.",
+            "probability": 0.730328397188714
+          },
+          {
+            "start": 1.82,
+            "end": 2.52,
+            "word": " چرا؟",
+            "probability": 0.9698958198229471
+          },
+          {
+            "start": 2.52,
+            "end": 3.08,
+            "word": " چون",
+            "probability": 0.9455854594707489
+          },
+          {
+            "start": 3.08,
+            "end": 3.3,
+            "word": " اون",
+            "probability": 0.9727651178836823
+          },
+          {
+            "start": 3.3,
+            "end": 3.44,
+            "word": " چی",
+            "probability": 0.7226434946060181
+          },
+          {
+            "start": 3.44,
+            "end": 3.62,
+            "word": " که",
+            "probability": 0.9832482933998108
+          },
+          {
+            "start": 3.62,
+            "end": 4.34,
+            "word": " می‌‌دونیم",
+            "probability": 0.8253937234569874
+          },
+          {
+            "start": 4.34,
+            "end": 5.1,
+            "word": " معمولاً",
+            "probability": 0.891633939743042
+          },
+          {
+            "start": 5.1,
+            "end": 5.16,
+            "word": " به",
+            "probability": 0.9635210633277893
+          },
+          {
+            "start": 5.16,
+            "end": 5.3,
+            "word": " ما",
+            "probability": 0.9816980361938477
+          },
+          {
+            "start": 5.3,
+            "end": 5.64,
+            "word": " آسیب",
+            "probability": 0.8428485840559006
+          },
+          {
+            "start": 5.64,
+            "end": 6.44,
+            "word": " نمی‌زنه،",
+            "probability": 0.7772819893434644
+          },
+          {
+            "start": 6.44,
+            "end": 6.98,
+            "word": " بلکه",
+            "probability": 0.9933028966188431
+          },
+          {
+            "start": 6.98,
+            "end": 7.32,
+            "word": " اونچه",
+            "probability": 0.6257733195088804
+          },
+          {
+            "start": 7.32,
+            "end": 7.5,
+            "word": " که",
+            "probability": 0.9738087952136993
+          },
+          {
+            "start": 7.5,
+            "end": 8.4,
+            "word": " نمي‌دانیم",
+            "probability": 0.7450773566815769
+          }
+        ]
+      }
+    ]
+  }
+}

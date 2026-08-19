@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "7b0bbb68936042e6283d8eee69d156657e7430066945ccde6a087bb6ded79e6a",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.28,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.78,
+        "text": "یعنی حقوق من بشه سه و شیشتد، خیلی من با تلاتومی توی زندگی مواجه نمی‌شم.",
+        "avg_logprob": -0.21088345176898515,
+        "compression_ratio": 1.2673267326732673,
+        "no_speech_prob": 2.72473238416282e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.68,
+            "word": " یعنی",
+            "probability": 0.9981808066368103
+          },
+          {
+            "start": 0.68,
+            "end": 1.06,
+            "word": " حقوق",
+            "probability": 0.8023611704508463
+          },
+          {
+            "start": 1.06,
+            "end": 1.2,
+            "word": " من",
+            "probability": 0.689399003982544
+          },
+          {
+            "start": 1.2,
+            "end": 1.54,
+            "word": " بشه",
+            "probability": 0.9829532106717428
+          },
+          {
+            "start": 1.54,
+            "end": 1.8,
+            "word": " سه",
+            "probability": 0.6735602915287018
+          },
+          {
+            "start": 1.8,
+            "end": 1.9,
+            "word": " و",
+            "probability": 0.9922130703926086
+          },
+          {
+            "start": 1.9,
+            "end": 2.88,
+            "word": " شیشتد،",
+            "probability": 0.6460410517950853
+          },
+          {
+            "start": 2.88,
+            "end": 3.74,
+            "word": " خیلی",
+            "probability": 0.997768372297287
+          },
+          {
+            "start": 3.74,
+            "end": 3.88,
+            "word": " من",
+            "probability": 0.9986838698387146
+          },
+          {
+            "start": 3.88,
+            "end": 4.14,
+            "word": " با",
+            "probability": 0.9981320202350616
+          },
+          {
+            "start": 4.14,
+            "end": 4.88,
+            "word": " تلاتومی",
+            "probability": 0.9194145679473877
+          },
+          {
+            "start": 4.88,
+            "end": 5.08,
+            "word": " توی",
+            "probability": 0.9757659733295441
+          },
+          {
+            "start": 5.08,
+            "end": 5.58,
+            "word": " زندگی",
+            "probability": 0.9985159039497375
+          },
+          {
+            "start": 5.58,
+            "end": 6.12,
+            "word": " مواجه",
+            "probability": 0.9965623021125793
+          },
+          {
+            "start": 6.12,
+            "end": 6.78,
+            "word": " نمی‌شم.",
+            "probability": 0.8037220872938633
+          }
+        ]
+      }
+    ]
+  }
+}

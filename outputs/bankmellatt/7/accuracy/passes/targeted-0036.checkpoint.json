@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "f0f8345cdd145d45c72f0b0ffcdb2e79288b7009ebffbfe4d6c62deeee96abf8",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.62,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.5,
+        "text": "باید این ده درصدها رو پیدا بکنیم، اینده دارصد ها کمک میکنه که ما بتونیم پسانداز بهتری داشته باشیم. خب اگر حقوق من سه و شیش ست",
+        "avg_logprob": -0.22598229579272724,
+        "compression_ratio": 1.60431654676259,
+        "no_speech_prob": 1.6813528347370266e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.2,
+            "word": " باید",
+            "probability": 0.7686338946223259
+          },
+          {
+            "start": 0.2,
+            "end": 0.32,
+            "word": " این",
+            "probability": 0.9968332052230835
+          },
+          {
+            "start": 0.32,
+            "end": 0.6,
+            "word": " ده",
+            "probability": 0.9223388731479645
+          },
+          {
+            "start": 0.6,
+            "end": 1.24,
+            "word": " درصدها",
+            "probability": 0.7541232764720917
+          },
+          {
+            "start": 1.24,
+            "end": 1.4,
+            "word": " رو",
+            "probability": 0.9771727621555328
+          },
+          {
+            "start": 1.4,
+            "end": 1.84,
+            "word": " پیدا",
+            "probability": 0.9987064202626547
+          },
+          {
+            "start": 1.84,
+            "end": 2.6,
+            "word": " بکنیم،",
+            "probability": 0.8320340489347776
+          },
+          {
+            "start": 2.6,
+            "end": 3.2,
+            "word": " اینده",
+            "probability": 0.7436798679991625
+          },
+          {
+            "start": 3.2,
+            "end": 3.62,
+            "word": " دارصد",
+            "probability": 0.6892347062603221
+          },
+          {
+            "start": 3.62,
+            "end": 3.74,
+            "word": " ها",
+            "probability": 0.5046781548298895
+          },
+          {
+            "start": 3.74,
+            "end": 4.18,
+            "word": " کمک",
+            "probability": 0.9919308622678121
+          },
+          {
+            "start": 4.18,
+            "end": 4.62,
+            "word": " میکنه",
+            "probability": 0.9568969458341599
+          },
+          {
+            "start": 4.62,
+            "end": 4.86,
+            "word": " که",
+            "probability": 0.9844523966312408
+          },
+          {
+            "start": 4.86,
+            "end": 4.96,
+            "word": " ما",
+            "probability": 0.9894936084747314
+          },
+          {
+            "start": 4.96,
+            "end": 5.3,
+            "word": " بتونیم",
+            "probability": 0.9591427147388458
+          },
+          {
+            "start": 5.3,
+            "end": 5.88,
+            "word": " پسانداز",
+            "probability": 0.8443065494298935
+          },
+          {
+            "start": 5.88,
+            "end": 6.34,
+            "word": " بهتری",
+            "probability": 0.9861726959546407
+          },
+          {
+            "start": 6.34,
+            "end": 6.7,
+            "word": " داشته",
+            "probability": 0.9941252668698629
+          },
+          {
+            "start": 6.7,
+            "end": 7.14,
+            "word": " باشیم.",
+            "probability": 0.9967934489250183
+          },
+          {
+            "start": 7.34,
+            "end": 7.8,
+            "word": " خب",
+            "probability": 0.9165815114974976
+          },
+          {
+            "start": 7.8,
+            "end": 8.1,
+            "word": " اگر",
+            "probability": 0.9775391817092896
+          },
+          {
+            "start": 8.1,
+            "end": 8.5,
+            "word": " حقوق",
+            "probability": 0.9948355555534363
+          },
+          {
+            "start": 8.5,
+            "end": 8.68,
+            "word": " من",
+            "probability": 0.9528399705886841
+          },
+          {
+            "start": 8.68,
+            "end": 8.94,
+            "word": " سه",
+            "probability": 0.6437541097402573
+          },
+          {
+            "start": 8.94,
+            "end": 9.02,
+            "word": " و",
+            "probability": 0.971421480178833
+          },
+          {
+            "start": 9.02,
+            "end": 9.3,
+            "word": " شیش",
+            "probability": 0.9340799252192179
+          },
+          {
+            "start": 9.3,
+            "end": 9.5,
+            "word": " ست",
+            "probability": 0.45225465297698975
+          }
+        ]
+      }
+    ]
+  }
+}

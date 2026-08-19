@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "48ecda6bb5d5494ff4b60810c2d8b9fce57fda17d220295f6d229c9faf2f8183",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.94,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.92,
+        "text": "سه و شیش ست باشه، مثلاً بشه چهار ملیون، خب من می‌تونم چهرسن هزار توم پسانداز بکنم بدون این که اثار خواستی تو سبک زندگی.",
+        "avg_logprob": -0.31661678315737307,
+        "compression_ratio": 1.4861111111111112,
+        "no_speech_prob": 3.03251174171848e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.14,
+            "word": " سه",
+            "probability": 0.15988605096936226
+          },
+          {
+            "start": 0.14,
+            "end": 0.22,
+            "word": " و",
+            "probability": 0.9656936526298523
+          },
+          {
+            "start": 0.22,
+            "end": 0.5,
+            "word": " شیش",
+            "probability": 0.9757925470670065
+          },
+          {
+            "start": 0.5,
+            "end": 0.7,
+            "word": " ست",
+            "probability": 0.6582033336162567
+          },
+          {
+            "start": 0.7,
+            "end": 1.1,
+            "word": " باشه،",
+            "probability": 0.7648756392300129
+          },
+          {
+            "start": 1.1,
+            "end": 1.56,
+            "word": " مثلاً",
+            "probability": 0.6993180761734644
+          },
+          {
+            "start": 1.56,
+            "end": 1.72,
+            "word": " بشه",
+            "probability": 0.9647166132926941
+          },
+          {
+            "start": 1.72,
+            "end": 2.04,
+            "word": " چهار",
+            "probability": 0.9073577920595804
+          },
+          {
+            "start": 2.04,
+            "end": 2.66,
+            "word": " ملیون،",
+            "probability": 0.7730243444442749
+          },
+          {
+            "start": 2.66,
+            "end": 3.22,
+            "word": " خب",
+            "probability": 0.976460725069046
+          },
+          {
+            "start": 3.22,
+            "end": 3.32,
+            "word": " من",
+            "probability": 0.8967322111129761
+          },
+          {
+            "start": 3.32,
+            "end": 3.62,
+            "word": " می‌تونم",
+            "probability": 0.6874195706099272
+          },
+          {
+            "start": 3.62,
+            "end": 4.0,
+            "word": " چهرسن",
+            "probability": 0.6193250408396125
+          },
+          {
+            "start": 4.0,
+            "end": 4.24,
+            "word": " هزار",
+            "probability": 0.6747926324605942
+          },
+          {
+            "start": 4.24,
+            "end": 4.4,
+            "word": " توم",
+            "probability": 0.339001327753067
+          },
+          {
+            "start": 4.4,
+            "end": 5.06,
+            "word": " پسانداز",
+            "probability": 0.6889225006103515
+          },
+          {
+            "start": 5.06,
+            "end": 5.44,
+            "word": " بکنم",
+            "probability": 0.9834249764680862
+          },
+          {
+            "start": 5.44,
+            "end": 5.84,
+            "word": " بدون",
+            "probability": 0.918962836265564
+          },
+          {
+            "start": 5.84,
+            "end": 6.0,
+            "word": " این",
+            "probability": 0.9833467602729797
+          },
+          {
+            "start": 6.0,
+            "end": 6.16,
+            "word": " که",
+            "probability": 0.6662428379058838
+          },
+          {
+            "start": 6.16,
+            "end": 6.5,
+            "word": " اثار",
+            "probability": 0.8228244582811991
+          },
+          {
+            "start": 6.5,
+            "end": 7.04,
+            "word": " خواستی",
+            "probability": 0.8792498111724854
+          },
+          {
+            "start": 7.04,
+            "end": 7.18,
+            "word": " تو",
+            "probability": 0.9248955845832825
+          },
+          {
+            "start": 7.18,
+            "end": 7.62,
+            "word": " سبک",
+            "probability": 0.889130175113678
+          },
+          {
+            "start": 7.62,
+            "end": 7.92,
+            "word": " زندگی.",
+            "probability": 0.9941383004188538
+          }
+        ]
+      }
+    ]
+  }
+}

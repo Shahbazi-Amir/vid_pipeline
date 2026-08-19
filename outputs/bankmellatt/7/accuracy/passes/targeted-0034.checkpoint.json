@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "2801517443dff8160738b35aeda87d09b40fb2470a8d71d833f5c23905dc7729",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.6,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.58,
+        "text": "عبداللهی مالی من داره به هدر میره. که نه افضایشش اثری تو زندگیم دارد، نه کاهشش. ما باید این ده درصد",
+        "avg_logprob": -0.2620850748090602,
+        "compression_ratio": 1.4666666666666666,
+        "no_speech_prob": 2.707051527384152e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.34,
+            "word": " عبداللهی",
+            "probability": 0.2234159350860864
+          },
+          {
+            "start": 0.34,
+            "end": 0.9,
+            "word": " مالی",
+            "probability": 0.9825767676035563
+          },
+          {
+            "start": 0.9,
+            "end": 1.18,
+            "word": " من",
+            "probability": 0.9031050801277161
+          },
+          {
+            "start": 1.18,
+            "end": 1.54,
+            "word": " داره",
+            "probability": 0.9924295743306478
+          },
+          {
+            "start": 1.54,
+            "end": 1.66,
+            "word": " به",
+            "probability": 0.9988539218902588
+          },
+          {
+            "start": 1.66,
+            "end": 2.12,
+            "word": " هدر",
+            "probability": 0.9598154226938883
+          },
+          {
+            "start": 2.12,
+            "end": 2.58,
+            "word": " میره.",
+            "probability": 0.9916145205497742
+          },
+          {
+            "start": 2.7,
+            "end": 3.44,
+            "word": " که",
+            "probability": 0.9904703795909882
+          },
+          {
+            "start": 3.44,
+            "end": 3.6,
+            "word": " نه",
+            "probability": 0.9911810457706451
+          },
+          {
+            "start": 3.6,
+            "end": 4.46,
+            "word": " افضایشش",
+            "probability": 0.8840268850326538
+          },
+          {
+            "start": 4.46,
+            "end": 4.84,
+            "word": " اثری",
+            "probability": 0.739382247130076
+          },
+          {
+            "start": 4.84,
+            "end": 4.98,
+            "word": " تو",
+            "probability": 0.9699515104293823
+          },
+          {
+            "start": 4.98,
+            "end": 5.54,
+            "word": " زندگیم",
+            "probability": 0.9477854132652282
+          },
+          {
+            "start": 5.54,
+            "end": 6.0,
+            "word": " دارد،",
+            "probability": 0.5549442612973507
+          },
+          {
+            "start": 6.0,
+            "end": 6.28,
+            "word": " نه",
+            "probability": 0.9932559132575989
+          },
+          {
+            "start": 6.28,
+            "end": 7.06,
+            "word": " کاهشش.",
+            "probability": 0.9788562655448914
+          },
+          {
+            "start": 7.64,
+            "end": 8.4,
+            "word": " ما",
+            "probability": 0.9520890116691589
+          },
+          {
+            "start": 8.4,
+            "end": 8.72,
+            "word": " باید",
+            "probability": 0.9882185608148575
+          },
+          {
+            "start": 8.72,
+            "end": 8.86,
+            "word": " این",
+            "probability": 0.9894292950630188
+          },
+          {
+            "start": 8.86,
+            "end": 9.14,
+            "word": " ده",
+            "probability": 0.9328180849552155
+          },
+          {
+            "start": 9.14,
+            "end": 9.58,
+            "word": " درصد",
+            "probability": 0.7197070643305779
+          }
+        ]
+      }
+    ]
+  }
+}

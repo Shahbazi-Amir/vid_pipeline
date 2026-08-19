@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "b0f5a7567db12d8cec58ed068c87128d1d56554787e31185ff5f5a86a250264a",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.54,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.52,
+        "text": "زندگی مواجه نمی‌شم. این نشون می‌ده ده درصد از زنده‌ی مالی من داره به هدر می‌ره، که نه افضایه شش اثری تو",
+        "avg_logprob": -0.2328338554749886,
+        "compression_ratio": 1.492063492063492,
+        "no_speech_prob": 3.882682231282075e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.28,
+            "word": " زندگی",
+            "probability": 0.7474577291868627
+          },
+          {
+            "start": 0.28,
+            "end": 0.84,
+            "word": " مواجه",
+            "probability": 0.9962977468967438
+          },
+          {
+            "start": 0.84,
+            "end": 1.5,
+            "word": " نمی‌شم.",
+            "probability": 0.7928299941122532
+          },
+          {
+            "start": 2.26,
+            "end": 3.14,
+            "word": " این",
+            "probability": 0.9718268811702728
+          },
+          {
+            "start": 3.14,
+            "end": 3.96,
+            "word": " نشون",
+            "probability": 0.970166007677714
+          },
+          {
+            "start": 3.96,
+            "end": 4.24,
+            "word": " می‌ده",
+            "probability": 0.9590519219636917
+          },
+          {
+            "start": 4.24,
+            "end": 4.58,
+            "word": " ده",
+            "probability": 0.6909064799547195
+          },
+          {
+            "start": 4.58,
+            "end": 5.08,
+            "word": " درصد",
+            "probability": 0.9572880864143372
+          },
+          {
+            "start": 5.08,
+            "end": 5.26,
+            "word": " از",
+            "probability": 0.9805079996585846
+          },
+          {
+            "start": 5.26,
+            "end": 5.88,
+            "word": " زنده‌ی",
+            "probability": 0.7075858250260353
+          },
+          {
+            "start": 5.88,
+            "end": 6.44,
+            "word": " مالی",
+            "probability": 0.9771708448727926
+          },
+          {
+            "start": 6.44,
+            "end": 6.74,
+            "word": " من",
+            "probability": 0.9276997447013855
+          },
+          {
+            "start": 6.74,
+            "end": 7.06,
+            "word": " داره",
+            "probability": 0.9702375133832296
+          },
+          {
+            "start": 7.06,
+            "end": 7.2,
+            "word": " به",
+            "probability": 0.9952312111854553
+          },
+          {
+            "start": 7.2,
+            "end": 7.66,
+            "word": " هدر",
+            "probability": 0.9201145172119141
+          },
+          {
+            "start": 7.66,
+            "end": 8.4,
+            "word": " می‌ره،",
+            "probability": 0.7728207565844059
+          },
+          {
+            "start": 8.4,
+            "end": 9.0,
+            "word": " که",
+            "probability": 0.9870586097240448
+          },
+          {
+            "start": 9.0,
+            "end": 9.14,
+            "word": " نه",
+            "probability": 0.9784700274467468
+          },
+          {
+            "start": 9.14,
+            "end": 9.8,
+            "word": " افضایه",
+            "probability": 0.8800908227761587
+          },
+          {
+            "start": 9.8,
+            "end": 10.02,
+            "word": " شش",
+            "probability": 0.6918857097625732
+          },
+          {
+            "start": 10.02,
+            "end": 10.38,
+            "word": " اثری",
+            "probability": 0.6355690558751425
+          },
+          {
+            "start": 10.38,
+            "end": 10.52,
+            "word": " تو",
+            "probability": 0.8955453038215637
+          }
+        ]
+      }
+    ]
+  }
+}

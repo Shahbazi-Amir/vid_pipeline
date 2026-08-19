@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "8c6d59e197d30b13073fc86241da76ce180308bf054a242842adc320b472843c",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.38,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.88,
+        "text": "هست که نمی‌رسم به پسنده هست، یعنی اگر یه بخشی از پولم هم کم بکنم، باعث می‌شه که اصلا به زندگی روزانم نرسه.",
+        "avg_logprob": -0.21621365963735364,
+        "compression_ratio": 1.5066666666666666,
+        "no_speech_prob": 3.1568681002625e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.36,
+            "word": " هست",
+            "probability": 0.5109380446374416
+          },
+          {
+            "start": 0.36,
+            "end": 0.68,
+            "word": " که",
+            "probability": 0.9878572523593903
+          },
+          {
+            "start": 0.68,
+            "end": 1.3,
+            "word": " نمی‌رسم",
+            "probability": 0.8209391583998998
+          },
+          {
+            "start": 1.3,
+            "end": 1.7,
+            "word": " به",
+            "probability": 0.6250090003013611
+          },
+          {
+            "start": 1.7,
+            "end": 2.34,
+            "word": " پسنده",
+            "probability": 0.8343632370233536
+          },
+          {
+            "start": 2.34,
+            "end": 2.66,
+            "word": " هست،",
+            "probability": 0.5849767805387577
+          },
+          {
+            "start": 2.66,
+            "end": 3.08,
+            "word": " یعنی",
+            "probability": 0.9691309183835983
+          },
+          {
+            "start": 3.08,
+            "end": 3.38,
+            "word": " اگر",
+            "probability": 0.9854938586552938
+          },
+          {
+            "start": 3.38,
+            "end": 3.52,
+            "word": " یه",
+            "probability": 0.8537124693393707
+          },
+          {
+            "start": 3.52,
+            "end": 3.86,
+            "word": " بخشی",
+            "probability": 0.9666818678379059
+          },
+          {
+            "start": 3.86,
+            "end": 4.0,
+            "word": " از",
+            "probability": 0.9877668023109436
+          },
+          {
+            "start": 4.0,
+            "end": 4.36,
+            "word": " پولم",
+            "probability": 0.9354615807533264
+          },
+          {
+            "start": 4.36,
+            "end": 4.5,
+            "word": " هم",
+            "probability": 0.8084716498851776
+          },
+          {
+            "start": 4.5,
+            "end": 4.88,
+            "word": " کم",
+            "probability": 0.9932311475276947
+          },
+          {
+            "start": 4.88,
+            "end": 5.82,
+            "word": " بکنم،",
+            "probability": 0.8042836397886276
+          },
+          {
+            "start": 5.82,
+            "end": 6.56,
+            "word": " باعث",
+            "probability": 0.9905794461568197
+          },
+          {
+            "start": 6.56,
+            "end": 6.82,
+            "word": " می‌شه",
+            "probability": 0.9587604403495789
+          },
+          {
+            "start": 6.82,
+            "end": 7.0,
+            "word": " که",
+            "probability": 0.9604512453079224
+          },
+          {
+            "start": 7.0,
+            "end": 7.22,
+            "word": " اصلا",
+            "probability": 0.8231286605199178
+          },
+          {
+            "start": 7.22,
+            "end": 7.32,
+            "word": " به",
+            "probability": 0.9083264470100403
+          },
+          {
+            "start": 7.32,
+            "end": 7.74,
+            "word": " زندگی",
+            "probability": 0.9964417219161987
+          },
+          {
+            "start": 7.74,
+            "end": 8.36,
+            "word": " روزانم",
+            "probability": 0.9399762392044068
+          },
+          {
+            "start": 8.36,
+            "end": 8.88,
+            "word": " نرسه.",
+            "probability": 0.9740069508552551
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 9.8,
+        "end": 11.36,
+        "text": "اولین جواب اینه ک...",
+        "avg_logprob": -0.21621365963735364,
+        "compression_ratio": 1.5066666666666666,
+        "no_speech_prob": 3.1568681002625e-10,
+        "words": [
+          {
+            "start": 9.8,
+            "end": 10.5,
+            "word": " اولین",
+            "probability": 0.9591885209083557
+          },
+          {
+            "start": 10.5,
+            "end": 11.0,
+            "word": " جواب",
+            "probability": 0.9906558990478516
+          },
+          {
+            "start": 11.0,
+            "end": 11.2,
+            "word": " اینه",
+            "probability": 0.9441687862078348
+          },
+          {
+            "start": 11.2,
+            "end": 11.36,
+            "word": " ک...",
+            "probability": 0.43929540645331144
+          }
+        ]
+      }
+    ]
+  }
+}

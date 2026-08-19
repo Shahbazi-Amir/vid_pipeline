@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "5ae60b10f5e6c0eada1827c42107d7b148bfe3678b2a167c333cbfc381d95439",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.86,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.84,
+        "text": "ده درصد خیلی اثر نداره. پس نشون میده دهدرصاد از در آمد من کم بشه، خیالی اثار ندره. یعنی حقوق من بشته سه و شیش در.",
+        "avg_logprob": -0.2862089488655329,
+        "compression_ratio": 1.5,
+        "no_speech_prob": 2.756604111642247e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.5,
+            "word": " ده",
+            "probability": 0.8002411723136902
+          },
+          {
+            "start": 0.5,
+            "end": 0.96,
+            "word": " درصد",
+            "probability": 0.9677430838346481
+          },
+          {
+            "start": 0.96,
+            "end": 1.34,
+            "word": " خیلی",
+            "probability": 0.9990847557783127
+          },
+          {
+            "start": 1.34,
+            "end": 1.66,
+            "word": " اثر",
+            "probability": 0.9802011251449585
+          },
+          {
+            "start": 1.66,
+            "end": 2.3,
+            "word": " نداره.",
+            "probability": 0.9963793903589249
+          },
+          {
+            "start": 2.72,
+            "end": 3.36,
+            "word": " پس",
+            "probability": 0.9982035458087921
+          },
+          {
+            "start": 3.36,
+            "end": 3.7,
+            "word": " نشون",
+            "probability": 0.9968058466911316
+          },
+          {
+            "start": 3.7,
+            "end": 3.92,
+            "word": " میده",
+            "probability": 0.971977969010671
+          },
+          {
+            "start": 3.92,
+            "end": 4.64,
+            "word": " دهدرصاد",
+            "probability": 0.6197425658792781
+          },
+          {
+            "start": 4.64,
+            "end": 4.74,
+            "word": " از",
+            "probability": 0.9210669696331024
+          },
+          {
+            "start": 4.74,
+            "end": 4.96,
+            "word": " در",
+            "probability": 0.9900447130203247
+          },
+          {
+            "start": 4.96,
+            "end": 5.22,
+            "word": " آمد",
+            "probability": 0.7066572705904642
+          },
+          {
+            "start": 5.22,
+            "end": 5.34,
+            "word": " من",
+            "probability": 0.4278966784477234
+          },
+          {
+            "start": 5.34,
+            "end": 5.78,
+            "word": " کم",
+            "probability": 0.9802587628364563
+          },
+          {
+            "start": 5.78,
+            "end": 6.12,
+            "word": " بشه،",
+            "probability": 0.7466526022180915
+          },
+          {
+            "start": 6.12,
+            "end": 6.4,
+            "word": " خیالی",
+            "probability": 0.7482757900513661
+          },
+          {
+            "start": 6.4,
+            "end": 6.78,
+            "word": " اثار",
+            "probability": 0.5896944841733784
+          },
+          {
+            "start": 6.78,
+            "end": 7.28,
+            "word": " ندره.",
+            "probability": 0.7497733066156798
+          },
+          {
+            "start": 7.62,
+            "end": 8.26,
+            "word": " یعنی",
+            "probability": 0.998572364449501
+          },
+          {
+            "start": 8.26,
+            "end": 8.64,
+            "word": " حقوق",
+            "probability": 0.7970089813073477
+          },
+          {
+            "start": 8.64,
+            "end": 8.78,
+            "word": " من",
+            "probability": 0.6493713855743408
+          },
+          {
+            "start": 8.78,
+            "end": 9.08,
+            "word": " بشته",
+            "probability": 0.6591703533704276
+          },
+          {
+            "start": 9.08,
+            "end": 9.36,
+            "word": " سه",
+            "probability": 0.6783597767353058
+          },
+          {
+            "start": 9.36,
+            "end": 9.46,
+            "word": " و",
+            "probability": 0.994371771812439
+          },
+          {
+            "start": 9.46,
+            "end": 9.76,
+            "word": " شیش",
+            "probability": 0.9508731762568156
+          },
+          {
+            "start": 9.76,
+            "end": 9.84,
+            "word": " در.",
+            "probability": 0.6078591346740723
+          }
+        ]
+      }
+    ]
+  }
+}

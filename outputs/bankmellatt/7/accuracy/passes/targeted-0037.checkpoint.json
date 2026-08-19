@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "3c272f73c06fd48b5fec128df82270cd51b06f179f60cfe7b2b5ded094d1f71b",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.18,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.16,
+        "text": "که ما بتونیم پسنداز بهتری داشته باشیم. خب اگر حقوق من سه و شیش ست باشه، مثلاً بشه چار میلیون، خب من بیتونم چهار سن هزار تون پسانداز",
+        "avg_logprob": -0.23432077740023777,
+        "compression_ratio": 1.5810810810810811,
+        "no_speech_prob": 2.485758265891036e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.24,
+            "word": " که",
+            "probability": 0.9951596558094025
+          },
+          {
+            "start": 0.24,
+            "end": 0.32,
+            "word": " ما",
+            "probability": 0.9990973472595215
+          },
+          {
+            "start": 0.32,
+            "end": 0.68,
+            "word": " بتونیم",
+            "probability": 0.9876450151205063
+          },
+          {
+            "start": 0.68,
+            "end": 1.24,
+            "word": " پسنداز",
+            "probability": 0.9438743144273758
+          },
+          {
+            "start": 1.24,
+            "end": 1.72,
+            "word": " بهتری",
+            "probability": 0.9700901508331299
+          },
+          {
+            "start": 1.72,
+            "end": 2.08,
+            "word": " داشته",
+            "probability": 0.9991792241732279
+          },
+          {
+            "start": 2.08,
+            "end": 2.54,
+            "word": " باشیم.",
+            "probability": 0.9993420839309692
+          },
+          {
+            "start": 2.66,
+            "end": 3.18,
+            "word": " خب",
+            "probability": 0.973696768283844
+          },
+          {
+            "start": 3.18,
+            "end": 3.48,
+            "word": " اگر",
+            "probability": 0.997607966264089
+          },
+          {
+            "start": 3.48,
+            "end": 3.88,
+            "word": " حقوق",
+            "probability": 0.9961240092913309
+          },
+          {
+            "start": 3.88,
+            "end": 4.06,
+            "word": " من",
+            "probability": 0.9931603670120239
+          },
+          {
+            "start": 4.06,
+            "end": 4.32,
+            "word": " سه",
+            "probability": 0.7328320741653442
+          },
+          {
+            "start": 4.32,
+            "end": 4.4,
+            "word": " و",
+            "probability": 0.993123471736908
+          },
+          {
+            "start": 4.4,
+            "end": 4.66,
+            "word": " شیش",
+            "probability": 0.9685132304827372
+          },
+          {
+            "start": 4.66,
+            "end": 4.88,
+            "word": " ست",
+            "probability": 0.5901000201702118
+          },
+          {
+            "start": 4.88,
+            "end": 5.3,
+            "word": " باشه،",
+            "probability": 0.7585873324424028
+          },
+          {
+            "start": 5.3,
+            "end": 5.74,
+            "word": " مثلاً",
+            "probability": 0.7127892225980759
+          },
+          {
+            "start": 5.74,
+            "end": 5.9,
+            "word": " بشه",
+            "probability": 0.9759178558985392
+          },
+          {
+            "start": 5.9,
+            "end": 6.2,
+            "word": " چار",
+            "probability": 0.7500810921192169
+          },
+          {
+            "start": 6.2,
+            "end": 6.88,
+            "word": " میلیون،",
+            "probability": 0.8067516922950745
+          },
+          {
+            "start": 6.88,
+            "end": 7.38,
+            "word": " خب",
+            "probability": 0.9973480105400085
+          },
+          {
+            "start": 7.38,
+            "end": 7.5,
+            "word": " من",
+            "probability": 0.9958580136299133
+          },
+          {
+            "start": 7.5,
+            "end": 7.8,
+            "word": " بیتونم",
+            "probability": 0.8964040637016296
+          },
+          {
+            "start": 7.8,
+            "end": 8.02,
+            "word": " چهار",
+            "probability": 0.825976183017095
+          },
+          {
+            "start": 8.02,
+            "end": 8.18,
+            "word": " سن",
+            "probability": 0.6161307841539383
+          },
+          {
+            "start": 8.18,
+            "end": 8.42,
+            "word": " هزار",
+            "probability": 0.6827471554279327
+          },
+          {
+            "start": 8.42,
+            "end": 8.56,
+            "word": " تون",
+            "probability": 0.5750684589147568
+          },
+          {
+            "start": 8.56,
+            "end": 9.16,
+            "word": " پسانداز",
+            "probability": 0.7706023743143305
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "ad064aae55a1aa7edbbbda90bc9cdd37d00ca150f62d34c4fcb9df4399cfda41",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.52,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.5,
+        "text": "هیچ اثری تو زندگی مالی ما نداره ولی داره خرج میشه، در واقع حدر می‌ره، پرت می‌شه در اسطلاح. یعنی این که مثلا",
+        "avg_logprob": -0.19785502337027286,
+        "compression_ratio": 1.4621212121212122,
+        "no_speech_prob": 2.391759290620854e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.08,
+            "word": " هیچ",
+            "probability": 0.7307597001393636
+          },
+          {
+            "start": 0.08,
+            "end": 0.52,
+            "word": " اثری",
+            "probability": 0.9801998535792033
+          },
+          {
+            "start": 0.52,
+            "end": 0.66,
+            "word": " تو",
+            "probability": 0.9871345162391663
+          },
+          {
+            "start": 0.66,
+            "end": 1.16,
+            "word": " زندگی",
+            "probability": 0.9933716356754303
+          },
+          {
+            "start": 1.16,
+            "end": 1.6,
+            "word": " مالی",
+            "probability": 0.9971091548601786
+          },
+          {
+            "start": 1.6,
+            "end": 1.82,
+            "word": " ما",
+            "probability": 0.980922520160675
+          },
+          {
+            "start": 1.82,
+            "end": 2.5,
+            "word": " نداره",
+            "probability": 0.9975661933422089
+          },
+          {
+            "start": 2.5,
+            "end": 3.7,
+            "word": " ولی",
+            "probability": 0.9437131285667419
+          },
+          {
+            "start": 3.7,
+            "end": 4.44,
+            "word": " داره",
+            "probability": 0.975090225537618
+          },
+          {
+            "start": 4.44,
+            "end": 4.86,
+            "word": " خرج",
+            "probability": 0.9310485422611237
+          },
+          {
+            "start": 4.86,
+            "end": 5.6,
+            "word": " میشه،",
+            "probability": 0.7447884408757091
+          },
+          {
+            "start": 5.6,
+            "end": 5.8,
+            "word": " در",
+            "probability": 0.9894403517246246
+          },
+          {
+            "start": 5.8,
+            "end": 6.14,
+            "word": " واقع",
+            "probability": 0.9854430158933004
+          },
+          {
+            "start": 6.14,
+            "end": 7.04,
+            "word": " حدر",
+            "probability": 0.7558884620666504
+          },
+          {
+            "start": 7.04,
+            "end": 7.5,
+            "word": " می‌ره،",
+            "probability": 0.7292276392225177
+          },
+          {
+            "start": 7.5,
+            "end": 7.88,
+            "word": " پرت",
+            "probability": 0.8976079821586609
+          },
+          {
+            "start": 7.88,
+            "end": 8.24,
+            "word": " می‌شه",
+            "probability": 0.8733360022306442
+          },
+          {
+            "start": 8.24,
+            "end": 8.46,
+            "word": " در",
+            "probability": 0.9775448143482208
+          },
+          {
+            "start": 8.46,
+            "end": 9.08,
+            "word": " اسطلاح.",
+            "probability": 0.8585522919893265
+          },
+          {
+            "start": 9.26,
+            "end": 10.0,
+            "word": " یعنی",
+            "probability": 0.9791736900806427
+          },
+          {
+            "start": 10.0,
+            "end": 10.12,
+            "word": " این",
+            "probability": 0.9535640478134155
+          },
+          {
+            "start": 10.12,
+            "end": 11.02,
+            "word": " که",
+            "probability": 0.83364337682724
+          },
+          {
+            "start": 11.02,
+            "end": 11.5,
+            "word": " مثلا",
+            "probability": 0.7911557257175446
+          }
+        ]
+      }
+    ]
+  }
+}

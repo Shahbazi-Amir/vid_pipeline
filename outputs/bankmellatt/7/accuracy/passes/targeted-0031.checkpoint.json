@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "71debf40adcc3f4e034e758b952f7f13816e42970ce8365e063546bb9d2b845e",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.72,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.7,
+        "text": "در آمده من کم بشه، خیلی اثر نداره. یعنی این حقوق من بشد ثبت و شیشتد، خلی من با تلاتو می‌تونه",
+        "avg_logprob": -0.3266147613525391,
+        "compression_ratio": 1.3553719008264462,
+        "no_speech_prob": 2.865542803043297e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.1,
+            "word": " در",
+            "probability": 0.5060586221516132
+          },
+          {
+            "start": 0.1,
+            "end": 0.42,
+            "word": " آمده",
+            "probability": 0.8684132993221283
+          },
+          {
+            "start": 0.42,
+            "end": 0.5,
+            "word": " من",
+            "probability": 0.9043214917182922
+          },
+          {
+            "start": 0.5,
+            "end": 0.92,
+            "word": " کم",
+            "probability": 0.965760201215744
+          },
+          {
+            "start": 0.92,
+            "end": 1.24,
+            "word": " بشه،",
+            "probability": 0.7337431702762842
+          },
+          {
+            "start": 1.24,
+            "end": 1.54,
+            "word": " خیلی",
+            "probability": 0.9562973827123642
+          },
+          {
+            "start": 1.54,
+            "end": 1.86,
+            "word": " اثر",
+            "probability": 0.9757699072360992
+          },
+          {
+            "start": 1.86,
+            "end": 2.46,
+            "word": " نداره.",
+            "probability": 0.9942637830972672
+          },
+          {
+            "start": 2.76,
+            "end": 3.4,
+            "word": " یعنی",
+            "probability": 0.991365596652031
+          },
+          {
+            "start": 3.4,
+            "end": 3.48,
+            "word": " این",
+            "probability": 0.7293241322040558
+          },
+          {
+            "start": 3.48,
+            "end": 3.8,
+            "word": " حقوق",
+            "probability": 0.9850677251815796
+          },
+          {
+            "start": 3.8,
+            "end": 3.92,
+            "word": " من",
+            "probability": 0.5363125801086426
+          },
+          {
+            "start": 3.92,
+            "end": 4.22,
+            "word": " بشد",
+            "probability": 0.6482036846573465
+          },
+          {
+            "start": 4.22,
+            "end": 4.64,
+            "word": " ثبت",
+            "probability": 0.30225080500046414
+          },
+          {
+            "start": 4.64,
+            "end": 4.64,
+            "word": " و",
+            "probability": 0.8824160695075989
+          },
+          {
+            "start": 4.64,
+            "end": 5.6,
+            "word": " شیشتد،",
+            "probability": 0.7153860280911127
+          },
+          {
+            "start": 5.6,
+            "end": 6.4,
+            "word": " خلی",
+            "probability": 0.6507450633410675
+          },
+          {
+            "start": 6.4,
+            "end": 6.58,
+            "word": " من",
+            "probability": 0.7707663178443909
+          },
+          {
+            "start": 6.58,
+            "end": 6.86,
+            "word": " با",
+            "probability": 0.9852842390537262
+          },
+          {
+            "start": 6.86,
+            "end": 7.46,
+            "word": " تلاتو",
+            "probability": 0.884855329990387
+          },
+          {
+            "start": 7.46,
+            "end": 7.7,
+            "word": " می‌تونه",
+            "probability": 0.577491644024849
+          }
+        ]
+      }
+    ]
+  }
+}

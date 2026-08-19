@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "ae9d93a59142533acc75f92bfd6317945f72471a21c1a3d367db5b6a648715a7",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.12,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.1,
+        "text": "چه بدونم، چار ملیون حقوق می‌گیرم، در آمدم بشه چار میلیان و چار صد. واقعا چقدر تو زندگی",
+        "avg_logprob": -0.2673746284685637,
+        "compression_ratio": 1.3596491228070176,
+        "no_speech_prob": 2.555138045590155e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.62,
+            "word": " چه",
+            "probability": 0.9269815981388092
+          },
+          {
+            "start": 0.62,
+            "end": 1.04,
+            "word": " بدونم،",
+            "probability": 0.7444998165592551
+          },
+          {
+            "start": 1.04,
+            "end": 1.28,
+            "word": " چار",
+            "probability": 0.47976554930210114
+          },
+          {
+            "start": 1.28,
+            "end": 1.58,
+            "word": " ملیون",
+            "probability": 0.9014281034469604
+          },
+          {
+            "start": 1.58,
+            "end": 1.92,
+            "word": " حقوق",
+            "probability": 0.9959811170895895
+          },
+          {
+            "start": 1.92,
+            "end": 2.82,
+            "word": " می‌گیرم،",
+            "probability": 0.7118968004360795
+          },
+          {
+            "start": 2.82,
+            "end": 3.72,
+            "word": " در",
+            "probability": 0.9868341088294983
+          },
+          {
+            "start": 3.72,
+            "end": 4.02,
+            "word": " آمدم",
+            "probability": 0.6934198439121246
+          },
+          {
+            "start": 4.02,
+            "end": 4.3,
+            "word": " بشه",
+            "probability": 0.948425809542338
+          },
+          {
+            "start": 4.3,
+            "end": 4.62,
+            "word": " چار",
+            "probability": 0.9428402185440063
+          },
+          {
+            "start": 4.62,
+            "end": 4.96,
+            "word": " میلیان",
+            "probability": 0.4302600788651034
+          },
+          {
+            "start": 4.96,
+            "end": 5.02,
+            "word": " و",
+            "probability": 0.9355402588844299
+          },
+          {
+            "start": 5.02,
+            "end": 5.3,
+            "word": " چار",
+            "probability": 0.8068834543228149
+          },
+          {
+            "start": 5.3,
+            "end": 5.62,
+            "word": " صد.",
+            "probability": 0.5649722069501877
+          },
+          {
+            "start": 6.2,
+            "end": 6.88,
+            "word": " واقعا",
+            "probability": 0.9970530718564987
+          },
+          {
+            "start": 6.88,
+            "end": 7.42,
+            "word": " چقدر",
+            "probability": 0.8911439776420593
+          },
+          {
+            "start": 7.42,
+            "end": 7.54,
+            "word": " تو",
+            "probability": 0.768740713596344
+          },
+          {
+            "start": 7.54,
+            "end": 8.1,
+            "word": " زندگی",
+            "probability": 0.9720789343118668
+          }
+        ]
+      }
+    ]
+  }
+}

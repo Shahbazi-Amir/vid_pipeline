@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "66a9b9dd2d1bbf363cca6765100bec9adc05e6cbceb2963916a5a3a078d9e99d",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.62,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.6,
+        "text": "به حقوق چار ملیون من اضافه کنند، من خود نفعه می‌کنم خیلی اثر خیالی جدی تو زندگیم نشته باشه، بگم اوه مثلا در آمد هم اضافه شد.",
+        "avg_logprob": -0.26491974994360684,
+        "compression_ratio": 1.48,
+        "no_speech_prob": 2.557996869878565e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.3,
+            "word": " به",
+            "probability": 0.9914352297782898
+          },
+          {
+            "start": 0.3,
+            "end": 0.76,
+            "word": " حقوق",
+            "probability": 0.9712967673937479
+          },
+          {
+            "start": 0.76,
+            "end": 1.12,
+            "word": " چار",
+            "probability": 0.5946460217237473
+          },
+          {
+            "start": 1.12,
+            "end": 1.48,
+            "word": " ملیون",
+            "probability": 0.9002255797386169
+          },
+          {
+            "start": 1.48,
+            "end": 1.66,
+            "word": " من",
+            "probability": 0.45079848170280457
+          },
+          {
+            "start": 1.66,
+            "end": 2.12,
+            "word": " اضافه",
+            "probability": 0.9982754439115524
+          },
+          {
+            "start": 2.12,
+            "end": 2.62,
+            "word": " کنند،",
+            "probability": 0.5686949511873536
+          },
+          {
+            "start": 2.62,
+            "end": 3.52,
+            "word": " من",
+            "probability": 0.925255537033081
+          },
+          {
+            "start": 3.52,
+            "end": 3.74,
+            "word": " خود",
+            "probability": 0.6472137123346329
+          },
+          {
+            "start": 3.74,
+            "end": 3.94,
+            "word": " نفعه",
+            "probability": 0.6179702654480934
+          },
+          {
+            "start": 3.94,
+            "end": 4.2,
+            "word": " می‌کنم",
+            "probability": 0.7332427501678467
+          },
+          {
+            "start": 4.2,
+            "end": 5.06,
+            "word": " خیلی",
+            "probability": 0.9462194889783859
+          },
+          {
+            "start": 5.06,
+            "end": 5.88,
+            "word": " اثر",
+            "probability": 0.8933293521404266
+          },
+          {
+            "start": 5.88,
+            "end": 6.34,
+            "word": " خیالی",
+            "probability": 0.734502189396153
+          },
+          {
+            "start": 6.34,
+            "end": 6.9,
+            "word": " جدی",
+            "probability": 0.9920878807703654
+          },
+          {
+            "start": 6.9,
+            "end": 7.06,
+            "word": " تو",
+            "probability": 0.6681815981864929
+          },
+          {
+            "start": 7.06,
+            "end": 7.5,
+            "word": " زندگیم",
+            "probability": 0.9113563776016236
+          },
+          {
+            "start": 7.5,
+            "end": 7.92,
+            "word": " نشته",
+            "probability": 0.7721243898073832
+          },
+          {
+            "start": 7.92,
+            "end": 8.14,
+            "word": " باشه،",
+            "probability": 0.7506858557462692
+          },
+          {
+            "start": 8.14,
+            "end": 8.42,
+            "word": " بگم",
+            "probability": 0.9263856410980225
+          },
+          {
+            "start": 8.42,
+            "end": 9.06,
+            "word": " اوه",
+            "probability": 0.8330077330271403
+          },
+          {
+            "start": 9.06,
+            "end": 9.34,
+            "word": " مثلا",
+            "probability": 0.7885988056659698
+          },
+          {
+            "start": 9.34,
+            "end": 9.6,
+            "word": " در",
+            "probability": 0.9200113713741302
+          },
+          {
+            "start": 9.6,
+            "end": 9.86,
+            "word": " آمد",
+            "probability": 0.8047894438107809
+          },
+          {
+            "start": 9.86,
+            "end": 9.96,
+            "word": " هم",
+            "probability": 0.7425516098737717
+          },
+          {
+            "start": 9.96,
+            "end": 10.4,
+            "word": " اضافه",
+            "probability": 0.7737668040164862
+          },
+          {
+            "start": 10.4,
+            "end": 10.6,
+            "word": " شد.",
+            "probability": 0.9837307929992676
+          }
+        ]
+      }
+    ]
+  }
+}

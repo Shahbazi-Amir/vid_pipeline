@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "0c0766d5cd3fc7270e996de73c34e45bb2a295189d90ca82cd8e935d0aee15ca",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.22,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 12.2,
+        "text": "خارج از حضینه‌های زندگی‌مون باشه؟ یه سؤال مهم اینه که حضینا‌ها‌ی زنگی من اونقدر هست که نمی‌رسم اصلا به پسانده‌است. یعنی اگر یه بخشی از پولم هم کم بودم،",
+        "avg_logprob": -0.2927769926878122,
+        "compression_ratio": 1.5942857142857143,
+        "no_speech_prob": 2.380270702762033e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.8,
+            "word": " خارج",
+            "probability": 0.9901790022850037
+          },
+          {
+            "start": 0.8,
+            "end": 0.98,
+            "word": " از",
+            "probability": 0.9847922325134277
+          },
+          {
+            "start": 0.98,
+            "end": 1.54,
+            "word": " حضینه‌های",
+            "probability": 0.7264586349150964
+          },
+          {
+            "start": 1.54,
+            "end": 2.14,
+            "word": " زندگی‌مون",
+            "probability": 0.8742093230996814
+          },
+          {
+            "start": 2.14,
+            "end": 2.84,
+            "word": " باشه؟",
+            "probability": 0.8566400706768036
+          },
+          {
+            "start": 2.84,
+            "end": 3.68,
+            "word": " یه",
+            "probability": 0.9253270924091339
+          },
+          {
+            "start": 3.68,
+            "end": 4.0,
+            "word": " سؤال",
+            "probability": 0.8729650775591532
+          },
+          {
+            "start": 4.0,
+            "end": 4.36,
+            "word": " مهم",
+            "probability": 0.9847574532032013
+          },
+          {
+            "start": 4.36,
+            "end": 4.6,
+            "word": " اینه",
+            "probability": 0.9385361870129904
+          },
+          {
+            "start": 4.6,
+            "end": 4.98,
+            "word": " که",
+            "probability": 0.9671560227870941
+          },
+          {
+            "start": 4.98,
+            "end": 5.6,
+            "word": " حضینا‌ها‌ی",
+            "probability": 0.6262109783892811
+          },
+          {
+            "start": 5.6,
+            "end": 6.06,
+            "word": " زنگی",
+            "probability": 0.7042185160389636
+          },
+          {
+            "start": 6.06,
+            "end": 6.3,
+            "word": " من",
+            "probability": 0.531578540802002
+          },
+          {
+            "start": 6.3,
+            "end": 6.96,
+            "word": " اونقدر",
+            "probability": 0.9502622932195663
+          },
+          {
+            "start": 6.96,
+            "end": 7.58,
+            "word": " هست",
+            "probability": 0.9234878122806549
+          },
+          {
+            "start": 7.58,
+            "end": 7.9,
+            "word": " که",
+            "probability": 0.9900522828102112
+          },
+          {
+            "start": 7.9,
+            "end": 8.48,
+            "word": " نمی‌رسم",
+            "probability": 0.9150219957033793
+          },
+          {
+            "start": 8.48,
+            "end": 8.8,
+            "word": " اصلا",
+            "probability": 0.5958821773529053
+          },
+          {
+            "start": 8.8,
+            "end": 8.94,
+            "word": " به",
+            "probability": 0.8026731014251709
+          },
+          {
+            "start": 8.94,
+            "end": 9.78,
+            "word": " پسانده‌است.",
+            "probability": 0.6735678948462009
+          },
+          {
+            "start": 9.86,
+            "end": 10.28,
+            "word": " یعنی",
+            "probability": 0.9433576464653015
+          },
+          {
+            "start": 10.28,
+            "end": 10.6,
+            "word": " اگر",
+            "probability": 0.9808597763379415
+          },
+          {
+            "start": 10.6,
+            "end": 10.74,
+            "word": " یه",
+            "probability": 0.940304696559906
+          },
+          {
+            "start": 10.74,
+            "end": 11.06,
+            "word": " بخشی",
+            "probability": 0.9269959330558777
+          },
+          {
+            "start": 11.06,
+            "end": 11.2,
+            "word": " از",
+            "probability": 0.9901106655597687
+          },
+          {
+            "start": 11.2,
+            "end": 11.58,
+            "word": " پولم",
+            "probability": 0.8769128123919169
+          },
+          {
+            "start": 11.58,
+            "end": 11.64,
+            "word": " هم",
+            "probability": 0.6960976123809814
+          },
+          {
+            "start": 11.64,
+            "end": 12.1,
+            "word": " کم",
+            "probability": 0.8784660995006561
+          },
+          {
+            "start": 12.1,
+            "end": 12.2,
+            "word": " بودم،",
+            "probability": 0.36893768794834614
+          }
+        ]
+      }
+    ]
+  }
+}

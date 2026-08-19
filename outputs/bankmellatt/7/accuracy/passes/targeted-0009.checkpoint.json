@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "4a4741f2f0cd80fc144444346471a029a7674278a8678a511cdbf2c627084d7e",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.72,
+    "segments": [
+      {
+        "id": 1,
+        "start": 2.2799999999999994,
+        "end": 11.0,
+        "text": "گفتیم که ما خوبه که بخشی از درامدمون رو کنار بذاریم به محض دریافت و در قالب پسندار",
+        "avg_logprob": -0.11174898415252014,
+        "compression_ratio": 1.3611111111111112,
+        "no_speech_prob": 2.2028899537840374e-10,
+        "words": [
+          {
+            "start": 2.2799999999999994,
+            "end": 3.26,
+            "word": " گفتیم",
+            "probability": 0.9786866664886474
+          },
+          {
+            "start": 3.26,
+            "end": 3.8,
+            "word": " که",
+            "probability": 0.9984875023365021
+          },
+          {
+            "start": 3.8,
+            "end": 4.08,
+            "word": " ما",
+            "probability": 0.9946564435958862
+          },
+          {
+            "start": 4.08,
+            "end": 4.52,
+            "word": " خوبه",
+            "probability": 0.9987616936365763
+          },
+          {
+            "start": 4.52,
+            "end": 5.0,
+            "word": " که",
+            "probability": 0.9996125996112823
+          },
+          {
+            "start": 5.0,
+            "end": 5.72,
+            "word": " بخشی",
+            "probability": 0.9996841549873352
+          },
+          {
+            "start": 5.72,
+            "end": 5.96,
+            "word": " از",
+            "probability": 0.9997742176055908
+          },
+          {
+            "start": 5.96,
+            "end": 6.8,
+            "word": " درامدمون",
+            "probability": 0.8856633722782135
+          },
+          {
+            "start": 6.8,
+            "end": 7.02,
+            "word": " رو",
+            "probability": 0.9970034658908844
+          },
+          {
+            "start": 7.02,
+            "end": 7.46,
+            "word": " کنار",
+            "probability": 0.9990271727244059
+          },
+          {
+            "start": 7.46,
+            "end": 7.96,
+            "word": " بذاریم",
+            "probability": 0.9959796667098999
+          },
+          {
+            "start": 7.96,
+            "end": 8.06,
+            "word": " به",
+            "probability": 0.999138593673706
+          },
+          {
+            "start": 8.06,
+            "end": 8.4,
+            "word": " محض",
+            "probability": 0.8193299869696299
+          },
+          {
+            "start": 8.4,
+            "end": 9.24,
+            "word": " دریافت",
+            "probability": 0.9204000383615494
+          },
+          {
+            "start": 9.24,
+            "end": 9.78,
+            "word": " و",
+            "probability": 0.9901395440101624
+          },
+          {
+            "start": 9.78,
+            "end": 10.04,
+            "word": " در",
+            "probability": 0.9996929466724396
+          },
+          {
+            "start": 10.04,
+            "end": 10.6,
+            "word": " قالب",
+            "probability": 0.9436415731906891
+          },
+          {
+            "start": 10.6,
+            "end": 11.09,
+            "word": " پسندار",
+            "probability": 0.8675497174263
+          }
+        ]
+      }
+    ]
+  }
+}

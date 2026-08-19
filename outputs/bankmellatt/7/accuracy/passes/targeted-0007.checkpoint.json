@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "a059fd3230368c81a87e7dc6d3dfc3479995ddc8ce9f25239a8d84abde89de55",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.82,
+    "segments": [
+      {
+        "id": 1,
+        "start": 2.5599999999999987,
+        "end": 8.8,
+        "text": "سلام، خوشحالم که باز هم خدمت شما هستم و می‌تونیم درباره آموزه‌های ثواد مالی با هم دیگرم.",
+        "avg_logprob": -0.23568415343761445,
+        "compression_ratio": 1.3416666666666666,
+        "no_speech_prob": 3.5457073388478477e-10,
+        "words": [
+          {
+            "start": 2.5599999999999987,
+            "end": 3.2799999999999994,
+            "word": " سلام،",
+            "probability": 0.6178172367314497
+          },
+          {
+            "start": 3.2799999999999994,
+            "end": 4.0,
+            "word": " خوشحالم",
+            "probability": 0.987601923942566
+          },
+          {
+            "start": 4.0,
+            "end": 4.46,
+            "word": " که",
+            "probability": 0.9937523305416107
+          },
+          {
+            "start": 4.46,
+            "end": 4.76,
+            "word": " باز",
+            "probability": 0.9842674136161804
+          },
+          {
+            "start": 4.76,
+            "end": 4.94,
+            "word": " هم",
+            "probability": 0.9299196302890778
+          },
+          {
+            "start": 4.94,
+            "end": 5.3,
+            "word": " خدمت",
+            "probability": 0.9889047940572103
+          },
+          {
+            "start": 5.3,
+            "end": 5.66,
+            "word": " شما",
+            "probability": 0.6964720785617828
+          },
+          {
+            "start": 5.66,
+            "end": 6.34,
+            "word": " هستم",
+            "probability": 0.9955994884173075
+          },
+          {
+            "start": 6.34,
+            "end": 6.46,
+            "word": " و",
+            "probability": 0.9814060926437378
+          },
+          {
+            "start": 6.46,
+            "end": 6.88,
+            "word": " می‌تونیم",
+            "probability": 0.7997556452949842
+          },
+          {
+            "start": 6.88,
+            "end": 7.34,
+            "word": " درباره",
+            "probability": 0.9170553237199783
+          },
+          {
+            "start": 7.34,
+            "end": 7.9,
+            "word": " آموزه‌های",
+            "probability": 0.8774511516094208
+          },
+          {
+            "start": 7.9,
+            "end": 8.28,
+            "word": " ثواد",
+            "probability": 0.7290910085042318
+          },
+          {
+            "start": 8.28,
+            "end": 8.5,
+            "word": " مالی",
+            "probability": 0.7642831802368164
+          },
+          {
+            "start": 8.5,
+            "end": 8.64,
+            "word": " با",
+            "probability": 0.9766367375850677
+          },
+          {
+            "start": 8.64,
+            "end": 8.76,
+            "word": " هم",
+            "probability": 0.9832632541656494
+          },
+          {
+            "start": 8.76,
+            "end": 8.8,
+            "word": " دیگرم.",
+            "probability": 0.39921653270721436
+          }
+        ]
+      }
+    ]
+  }
+}

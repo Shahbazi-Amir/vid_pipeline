@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "2c928b41ff94ac57d8dc141e5048edde2eba343ae995dbc42d026d7dbdd03f11",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.94,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.92,
+        "text": "اثاری تو زندگیم داره، نه کاهشش. ما باید این ده درصد‌ها رو پیدا بکنیم. این 10 درست‌ها کمک میکنه که ما",
+        "avg_logprob": -0.22781568984774983,
+        "compression_ratio": 1.4126984126984128,
+        "no_speech_prob": 2.6335203462402035e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.3,
+            "word": " اثاری",
+            "probability": 0.5949254706501961
+          },
+          {
+            "start": 0.3,
+            "end": 0.36,
+            "word": " تو",
+            "probability": 0.9764470458030701
+          },
+          {
+            "start": 0.36,
+            "end": 0.92,
+            "word": " زندگیم",
+            "probability": 0.8907360970973969
+          },
+          {
+            "start": 0.92,
+            "end": 1.48,
+            "word": " داره،",
+            "probability": 0.7663821503520012
+          },
+          {
+            "start": 1.48,
+            "end": 1.68,
+            "word": " نه",
+            "probability": 0.98997762799263
+          },
+          {
+            "start": 1.68,
+            "end": 2.46,
+            "word": " کاهشش.",
+            "probability": 0.9720743894577026
+          },
+          {
+            "start": 3.2,
+            "end": 3.8,
+            "word": " ما",
+            "probability": 0.9849541187286377
+          },
+          {
+            "start": 3.8,
+            "end": 4.14,
+            "word": " باید",
+            "probability": 0.9951596409082413
+          },
+          {
+            "start": 4.14,
+            "end": 4.28,
+            "word": " این",
+            "probability": 0.9942943155765533
+          },
+          {
+            "start": 4.28,
+            "end": 4.54,
+            "word": " ده",
+            "probability": 0.9445155560970306
+          },
+          {
+            "start": 4.54,
+            "end": 5.18,
+            "word": " درصد‌ها",
+            "probability": 0.742139662305514
+          },
+          {
+            "start": 5.18,
+            "end": 5.34,
+            "word": " رو",
+            "probability": 0.9356657862663269
+          },
+          {
+            "start": 5.34,
+            "end": 5.8,
+            "word": " پیدا",
+            "probability": 0.9979102810223898
+          },
+          {
+            "start": 5.8,
+            "end": 6.44,
+            "word": " بکنیم.",
+            "probability": 0.9868108630180359
+          },
+          {
+            "start": 6.62,
+            "end": 6.92,
+            "word": " این",
+            "probability": 0.9894683063030243
+          },
+          {
+            "start": 6.92,
+            "end": 7.12,
+            "word": " 10",
+            "probability": 0.0011577855329960585
+          },
+          {
+            "start": 7.12,
+            "end": 7.66,
+            "word": " درست‌ها",
+            "probability": 0.7652954019606113
+          },
+          {
+            "start": 7.66,
+            "end": 8.12,
+            "word": " کمک",
+            "probability": 0.9936825434366862
+          },
+          {
+            "start": 8.12,
+            "end": 8.56,
+            "word": " میکنه",
+            "probability": 0.8983879238367081
+          },
+          {
+            "start": 8.56,
+            "end": 8.82,
+            "word": " که",
+            "probability": 0.9655211269855499
+          },
+          {
+            "start": 8.82,
+            "end": 8.92,
+            "word": " ما",
+            "probability": 0.9710010290145874
+          }
+        ]
+      }
+    ]
+  }
+}

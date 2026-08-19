@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "aa071861f2e3f8fab7f773e478f01e72157c949cea42bebae8ef0e7ba3b75904",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.66,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.34,
+        "text": "یا اگه چار میلیونم بشه چهار و چهر ست، خب ده درست می‌تونم خوب پسنداز بکنم بدون اینکه مثلاً بخوام",
+        "avg_logprob": -0.24097892878547547,
+        "compression_ratio": 1.4333333333333333,
+        "no_speech_prob": 3.291032724117571e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.36,
+            "word": " یا",
+            "probability": 0.9866850078105927
+          },
+          {
+            "start": 0.36,
+            "end": 0.56,
+            "word": " اگه",
+            "probability": 0.9885509610176086
+          },
+          {
+            "start": 0.56,
+            "end": 0.84,
+            "word": " چار",
+            "probability": 0.30899789929389954
+          },
+          {
+            "start": 0.84,
+            "end": 1.3,
+            "word": " میلیونم",
+            "probability": 0.8621210217475891
+          },
+          {
+            "start": 1.3,
+            "end": 1.54,
+            "word": " بشه",
+            "probability": 0.9916218121846517
+          },
+          {
+            "start": 1.54,
+            "end": 1.82,
+            "word": " چهار",
+            "probability": 0.7078325798114141
+          },
+          {
+            "start": 1.82,
+            "end": 1.9,
+            "word": " و",
+            "probability": 0.8913158178329468
+          },
+          {
+            "start": 1.9,
+            "end": 2.2,
+            "word": " چهر",
+            "probability": 0.6547686209475311
+          },
+          {
+            "start": 2.2,
+            "end": 2.6,
+            "word": " ست،",
+            "probability": 0.3543751860658328
+          },
+          {
+            "start": 2.6,
+            "end": 2.72,
+            "word": " خب",
+            "probability": 0.8451662957668304
+          },
+          {
+            "start": 2.72,
+            "end": 2.96,
+            "word": " ده",
+            "probability": 0.9570628702640533
+          },
+          {
+            "start": 2.96,
+            "end": 3.28,
+            "word": " درست",
+            "probability": 0.8112236360708872
+          },
+          {
+            "start": 3.28,
+            "end": 3.72,
+            "word": " می‌تونم",
+            "probability": 0.757942209392786
+          },
+          {
+            "start": 3.72,
+            "end": 3.92,
+            "word": " خوب",
+            "probability": 0.8586314916610718
+          },
+          {
+            "start": 3.92,
+            "end": 4.58,
+            "word": " پسنداز",
+            "probability": 0.8874271810054779
+          },
+          {
+            "start": 4.58,
+            "end": 5.18,
+            "word": " بکنم",
+            "probability": 0.9908406883478165
+          },
+          {
+            "start": 5.18,
+            "end": 6.1,
+            "word": " بدون",
+            "probability": 0.9378180801868439
+          },
+          {
+            "start": 6.1,
+            "end": 6.46,
+            "word": " اینکه",
+            "probability": 0.9144672304391861
+          },
+          {
+            "start": 6.46,
+            "end": 6.94,
+            "word": " مثلاً",
+            "probability": 0.7710575858751932
+          },
+          {
+            "start": 6.94,
+            "end": 7.34,
+            "word": " بخوام",
+            "probability": 0.9506328254938126
+          }
+        ]
+      }
+    ]
+  }
+}

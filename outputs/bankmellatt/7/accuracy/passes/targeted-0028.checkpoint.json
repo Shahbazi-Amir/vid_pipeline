@@ -1,0 +1,193 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "9f0ba3b075f27bee044c992a63edb5574ab32b998511c6c26ac8c7236b57f6cb",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.36,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.9,
+        "text": "اثر خیلی جدی تو زندگیم نشته باشه، بگم اوه مثلا در آمدم اضافه شد، حالا چه زندقی خوبی خواهم داشت؟",
+        "avg_logprob": -0.20199746184232759,
+        "compression_ratio": 1.5323741007194245,
+        "no_speech_prob": 2.618406325094469e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.26,
+            "word": " اثر",
+            "probability": 0.9147371053695679
+          },
+          {
+            "start": 0.26,
+            "end": 0.72,
+            "word": " خیلی",
+            "probability": 0.98616161942482
+          },
+          {
+            "start": 0.72,
+            "end": 1.28,
+            "word": " جدی",
+            "probability": 0.9939732551574707
+          },
+          {
+            "start": 1.28,
+            "end": 1.42,
+            "word": " تو",
+            "probability": 0.535657525062561
+          },
+          {
+            "start": 1.42,
+            "end": 1.88,
+            "word": " زندگیم",
+            "probability": 0.8953604936599732
+          },
+          {
+            "start": 1.88,
+            "end": 2.28,
+            "word": " نشته",
+            "probability": 0.7431276738643646
+          },
+          {
+            "start": 2.28,
+            "end": 2.52,
+            "word": " باشه،",
+            "probability": 0.718106497079134
+          },
+          {
+            "start": 2.52,
+            "end": 2.82,
+            "word": " بگم",
+            "probability": 0.9293237328529358
+          },
+          {
+            "start": 2.82,
+            "end": 3.44,
+            "word": " اوه",
+            "probability": 0.7926200826962789
+          },
+          {
+            "start": 3.44,
+            "end": 3.72,
+            "word": " مثلا",
+            "probability": 0.773680567741394
+          },
+          {
+            "start": 3.72,
+            "end": 3.98,
+            "word": " در",
+            "probability": 0.9492312371730804
+          },
+          {
+            "start": 3.98,
+            "end": 4.26,
+            "word": " آمدم",
+            "probability": 0.6742473443349203
+          },
+          {
+            "start": 4.26,
+            "end": 4.78,
+            "word": " اضافه",
+            "probability": 0.9921126067638397
+          },
+          {
+            "start": 4.78,
+            "end": 5.02,
+            "word": " شد،",
+            "probability": 0.7815623680750529
+          },
+          {
+            "start": 5.02,
+            "end": 5.2,
+            "word": " حالا",
+            "probability": 0.9771621425946554
+          },
+          {
+            "start": 5.2,
+            "end": 5.34,
+            "word": " چه",
+            "probability": 0.9631354510784149
+          },
+          {
+            "start": 5.34,
+            "end": 5.72,
+            "word": " زندقی",
+            "probability": 0.7470094103499605
+          },
+          {
+            "start": 5.72,
+            "end": 6.1,
+            "word": " خوبی",
+            "probability": 0.9859135150909424
+          },
+          {
+            "start": 6.1,
+            "end": 6.44,
+            "word": " خواهم",
+            "probability": 0.9792926708857218
+          },
+          {
+            "start": 6.44,
+            "end": 6.9,
+            "word": " داشت؟",
+            "probability": 0.6996593922376633
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 6.9,
+        "end": 9.18,
+        "text": "ده درصد خیله اثر نداره.",
+        "avg_logprob": -0.20199746184232759,
+        "compression_ratio": 1.5323741007194245,
+        "no_speech_prob": 2.618406325094469e-10,
+        "words": [
+          {
+            "start": 6.9,
+            "end": 7.5,
+            "word": " ده",
+            "probability": 0.8238060474395752
+          },
+          {
+            "start": 7.5,
+            "end": 7.96,
+            "word": " درصد",
+            "probability": 0.9342796206474304
+          },
+          {
+            "start": 7.96,
+            "end": 8.28,
+            "word": " خیله",
+            "probability": 0.6618215229827911
+          },
+          {
+            "start": 8.28,
+            "end": 8.68,
+            "word": " اثر",
+            "probability": 0.9861723482608795
+          },
+          {
+            "start": 8.68,
+            "end": 9.18,
+            "word": " نداره.",
+            "probability": 0.9634421765804291
+          }
+        ]
+      }
+    ]
+  }
+}

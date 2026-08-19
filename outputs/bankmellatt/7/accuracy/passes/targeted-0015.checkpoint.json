@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "a180ef331fffacd8642dc61d38fa57f619cf994e47f3b23e256b982aa509d621",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.42,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.4,
+        "text": "آمد آینده‌تون خوردید، امروز آینه‌ی دیروزتونه، فکر می‌کنم که دی روز یه حضینه های،",
+        "avg_logprob": -0.2958166990123811,
+        "compression_ratio": 1.4423076923076923,
+        "no_speech_prob": 3.1997429705832303e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.2,
+            "word": " آمد",
+            "probability": 0.42367851237456006
+          },
+          {
+            "start": 0.2,
+            "end": 0.82,
+            "word": " آینده‌تون",
+            "probability": 0.8375786734478814
+          },
+          {
+            "start": 0.82,
+            "end": 1.78,
+            "word": " خوردید،",
+            "probability": 0.8358686976134777
+          },
+          {
+            "start": 1.78,
+            "end": 3.2,
+            "word": " امروز",
+            "probability": 0.984568178653717
+          },
+          {
+            "start": 3.2,
+            "end": 4.0,
+            "word": " آینه‌ی",
+            "probability": 0.7441857754893135
+          },
+          {
+            "start": 4.0,
+            "end": 5.26,
+            "word": " دیروزتونه،",
+            "probability": 0.8188908230513334
+          },
+          {
+            "start": 5.26,
+            "end": 5.64,
+            "word": " فکر",
+            "probability": 0.9932820598284403
+          },
+          {
+            "start": 5.64,
+            "end": 6.1,
+            "word": " می‌کنم",
+            "probability": 0.9258636116981507
+          },
+          {
+            "start": 6.1,
+            "end": 6.3,
+            "word": " که",
+            "probability": 0.967108815908432
+          },
+          {
+            "start": 6.3,
+            "end": 6.52,
+            "word": " دی",
+            "probability": 0.9725488722324371
+          },
+          {
+            "start": 6.52,
+            "end": 6.72,
+            "word": " روز",
+            "probability": 0.6596288591778526
+          },
+          {
+            "start": 6.72,
+            "end": 6.84,
+            "word": " یه",
+            "probability": 0.5487870126962662
+          },
+          {
+            "start": 6.84,
+            "end": 7.28,
+            "word": " حضینه",
+            "probability": 0.7804500833153725
+          },
+          {
+            "start": 7.28,
+            "end": 7.4,
+            "word": " های،",
+            "probability": 0.3987339660525322
+          }
+        ]
+      }
+    ]
+  }
+}

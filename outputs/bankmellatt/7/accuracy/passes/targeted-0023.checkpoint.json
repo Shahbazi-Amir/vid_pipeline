@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "e56bb80553a4b06151f071b2cdd23e4f3340d80139680bcd03864f3a3f5d2760",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.54,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.52,
+        "text": "درامدمون فرض کنید که اضافه کنند. مثلا من چه بدونم چار میلیون حقوق می‌گیرم، در آمدم بشه چار ملیان روح پرواز.",
+        "avg_logprob": -0.2735411464304164,
+        "compression_ratio": 1.4087591240875912,
+        "no_speech_prob": 3.402798598450829e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.62,
+            "word": " درامدمون",
+            "probability": 0.8092664241790771
+          },
+          {
+            "start": 0.62,
+            "end": 1.04,
+            "word": " فرض",
+            "probability": 0.9800976812839508
+          },
+          {
+            "start": 1.04,
+            "end": 1.4,
+            "word": " کنید",
+            "probability": 0.9980329722166061
+          },
+          {
+            "start": 1.4,
+            "end": 1.64,
+            "word": " که",
+            "probability": 0.9979402124881744
+          },
+          {
+            "start": 1.64,
+            "end": 2.18,
+            "word": " اضافه",
+            "probability": 0.9989859908819199
+          },
+          {
+            "start": 2.18,
+            "end": 2.56,
+            "word": " کنند.",
+            "probability": 0.7305063853661219
+          },
+          {
+            "start": 2.64,
+            "end": 3.2,
+            "word": " مثلا",
+            "probability": 0.9932100474834442
+          },
+          {
+            "start": 3.2,
+            "end": 3.58,
+            "word": " من",
+            "probability": 0.9678413271903992
+          },
+          {
+            "start": 3.58,
+            "end": 4.18,
+            "word": " چه",
+            "probability": 0.9249885976314545
+          },
+          {
+            "start": 4.18,
+            "end": 4.5,
+            "word": " بدونم",
+            "probability": 0.9739312132199606
+          },
+          {
+            "start": 4.5,
+            "end": 4.82,
+            "word": " چار",
+            "probability": 0.3427993059158325
+          },
+          {
+            "start": 4.82,
+            "end": 5.12,
+            "word": " میلیون",
+            "probability": 0.8896123915910721
+          },
+          {
+            "start": 5.12,
+            "end": 5.46,
+            "word": " حقوق",
+            "probability": 0.9958357612291971
+          },
+          {
+            "start": 5.46,
+            "end": 6.56,
+            "word": " می‌گیرم،",
+            "probability": 0.723170470180256
+          },
+          {
+            "start": 6.56,
+            "end": 7.26,
+            "word": " در",
+            "probability": 0.9937874972820282
+          },
+          {
+            "start": 7.26,
+            "end": 7.56,
+            "word": " آمدم",
+            "probability": 0.6183071738729874
+          },
+          {
+            "start": 7.56,
+            "end": 7.84,
+            "word": " بشه",
+            "probability": 0.9206396142641703
+          },
+          {
+            "start": 7.84,
+            "end": 8.16,
+            "word": " چار",
+            "probability": 0.9601117670536041
+          },
+          {
+            "start": 8.16,
+            "end": 8.52,
+            "word": " ملیان",
+            "probability": 0.5011270936229266
+          },
+          {
+            "start": 8.52,
+            "end": 8.52,
+            "word": " روح",
+            "probability": 0.2821972733363509
+          },
+          {
+            "start": 8.52,
+            "end": 8.52,
+            "word": " پرواز.",
+            "probability": 0.016544957645237446
+          }
+        ]
+      }
+    ]
+  }
+}

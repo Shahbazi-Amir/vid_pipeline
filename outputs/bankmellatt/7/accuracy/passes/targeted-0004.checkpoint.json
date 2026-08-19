@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "224bbfb8a1e546ec32fd8489b661f902b596c42c693097fa8ef82b45e6b02bd2",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.16,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.14,
+        "text": "شاهده هایی رو که باید انجام می‌دادیم و انجم ندادین. چرا؟ چون اون چی که می‌‌دونیم معمولت",
+        "avg_logprob": -0.33125718064227344,
+        "compression_ratio": 1.4678899082568808,
+        "no_speech_prob": 2.868446036252692e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.2,
+            "word": " شاهده",
+            "probability": 0.21386308455839753
+          },
+          {
+            "start": 0.2,
+            "end": 0.34,
+            "word": " هایی",
+            "probability": 0.8873131722211838
+          },
+          {
+            "start": 0.34,
+            "end": 0.44,
+            "word": " رو",
+            "probability": 0.5673229843378067
+          },
+          {
+            "start": 0.44,
+            "end": 0.52,
+            "word": " که",
+            "probability": 0.9568224251270294
+          },
+          {
+            "start": 0.52,
+            "end": 0.82,
+            "word": " باید",
+            "probability": 0.9957702159881592
+          },
+          {
+            "start": 0.82,
+            "end": 1.18,
+            "word": " انجام",
+            "probability": 0.9980266094207764
+          },
+          {
+            "start": 1.18,
+            "end": 1.56,
+            "word": " می‌دادیم",
+            "probability": 0.8267375770956278
+          },
+          {
+            "start": 1.56,
+            "end": 1.62,
+            "word": " و",
+            "probability": 0.9196994304656982
+          },
+          {
+            "start": 1.62,
+            "end": 1.96,
+            "word": " انجم",
+            "probability": 0.6611831785558024
+          },
+          {
+            "start": 1.96,
+            "end": 2.46,
+            "word": " ندادین.",
+            "probability": 0.7330380836610857
+          },
+          {
+            "start": 3.12,
+            "end": 3.62,
+            "word": " چرا؟",
+            "probability": 0.9647307594617208
+          },
+          {
+            "start": 3.62,
+            "end": 4.22,
+            "word": " چون",
+            "probability": 0.927475094795227
+          },
+          {
+            "start": 4.22,
+            "end": 4.42,
+            "word": " اون",
+            "probability": 0.9692268371582031
+          },
+          {
+            "start": 4.42,
+            "end": 4.6,
+            "word": " چی",
+            "probability": 0.7047866880893707
+          },
+          {
+            "start": 4.6,
+            "end": 4.8,
+            "word": " که",
+            "probability": 0.9850870966911316
+          },
+          {
+            "start": 4.8,
+            "end": 5.5,
+            "word": " می‌‌دونیم",
+            "probability": 0.8308045230972182
+          },
+          {
+            "start": 5.5,
+            "end": 6.14,
+            "word": " معمولت",
+            "probability": 0.7995223701000214
+          }
+        ]
+      }
+    ]
+  }
+}

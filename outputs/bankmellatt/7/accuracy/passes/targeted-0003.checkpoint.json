@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "f5f34482baefb53e428e529f043a10315eba07874dc6f95efa72e17f83dfbd95",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.64,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.38,
+        "text": "همون روز کارهایی کردیم که نمی‌خواستیم، کار‌های رو که باید انجام می‌دادیم و انجم ندادین. چرا؟",
+        "avg_logprob": -0.22914477274753153,
+        "compression_ratio": 1.4869565217391305,
+        "no_speech_prob": 2.160235185177939e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.4,
+            "word": " همون",
+            "probability": 0.926945706208547
+          },
+          {
+            "start": 0.4,
+            "end": 0.6,
+            "word": " روز",
+            "probability": 0.9952467282613119
+          },
+          {
+            "start": 0.6,
+            "end": 1.26,
+            "word": " کارهایی",
+            "probability": 0.9909960389137268
+          },
+          {
+            "start": 1.26,
+            "end": 1.58,
+            "word": " کردیم",
+            "probability": 0.9976208508014679
+          },
+          {
+            "start": 1.58,
+            "end": 1.7,
+            "word": " که",
+            "probability": 0.9991883933544159
+          },
+          {
+            "start": 1.7,
+            "end": 2.58,
+            "word": " نمی‌خواستیم،",
+            "probability": 0.8011009157780791
+          },
+          {
+            "start": 2.58,
+            "end": 3.92,
+            "word": " کار‌های",
+            "probability": 0.7962984822224826
+          },
+          {
+            "start": 3.92,
+            "end": 4.08,
+            "word": " رو",
+            "probability": 0.5349449850618839
+          },
+          {
+            "start": 4.08,
+            "end": 4.16,
+            "word": " که",
+            "probability": 0.9572713375091553
+          },
+          {
+            "start": 4.16,
+            "end": 4.46,
+            "word": " باید",
+            "probability": 0.9945376217365265
+          },
+          {
+            "start": 4.46,
+            "end": 4.8,
+            "word": " انجام",
+            "probability": 0.990208903948466
+          },
+          {
+            "start": 4.8,
+            "end": 5.2,
+            "word": " می‌دادیم",
+            "probability": 0.9782946010430654
+          },
+          {
+            "start": 5.2,
+            "end": 5.26,
+            "word": " و",
+            "probability": 0.8910621404647827
+          },
+          {
+            "start": 5.26,
+            "end": 5.6,
+            "word": " انجم",
+            "probability": 0.6582967024805839
+          },
+          {
+            "start": 5.6,
+            "end": 6.12,
+            "word": " ندادین.",
+            "probability": 0.6944763814062753
+          },
+          {
+            "start": 6.7,
+            "end": 7.38,
+            "word": " چرا؟",
+            "probability": 0.952523430188497
+          }
+        ]
+      }
+    ]
+  }
+}

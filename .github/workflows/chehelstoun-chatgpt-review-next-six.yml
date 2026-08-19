@@ -45,7 +45,7 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
 
           python - <<'PY'
-          import json, re, subprocess, sys
+          import json, re, subprocess
           from datetime import datetime, timezone
           from pathlib import Path
 
@@ -142,3 +142,5 @@ jobs:
               subprocess.run(['git','push','origin','HEAD:main'],check=True)
               print(f'COMMITTED {ep} items={len(items)}')
           PY
+
+# trigger 2026-08-19

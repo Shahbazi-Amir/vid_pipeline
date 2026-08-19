@@ -1,7 +1,7 @@
 # Output Status
 
-- Finalized: **27**
-- Review-ready: **15**
+- Finalized: **29**
+- Review-ready: **13**
 
 ## Finalized
 - `chehelstoun/01`
@@ -31,6 +31,8 @@
 - `chehelstoun/25`
 - `chehelstoun/26`
 - `chehelstoun/27`
+- `chehelstoun/28`
+- `chehelstoun/29`
 
 ## Review-ready
 - `bankmellatt/1`
@@ -39,8 +41,6 @@
 - `bankmellatt/5`
 - `bankmellatt/6`
 - `bankmellatt/7`
-- `chehelstoun/28`
-- `chehelstoun/29`
 - `chehelstoun/31`
 - `chehelstoun/33`
 - `chehelstoun/34`

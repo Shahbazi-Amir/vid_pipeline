@@ -30,7 +30,7 @@ jobs:
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          for ep in 32 35 37 38; do
+          for ep in 30 32 35 37 38; do
             root="outputs/chehelstoun/${ep}"
             test -s "$root/review/assistant-review-package.json"
             test -s "$root/review/corrections.template.json"

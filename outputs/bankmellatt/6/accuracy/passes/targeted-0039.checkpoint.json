@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "cf5e438ca8d3c719b9e00c8151f37028ca7da680799168d7bc92e4d33fb51f30",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.06,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.04,
+        "text": "بلکه به صورت واقعا سرمایه گذاری، بریم شریک اون کس با کار بشین، هم تأمین مالی بکنیم اونکس بکار",
+        "avg_logprob": -0.13849592744372785,
+        "compression_ratio": 1.4482758620689655,
+        "no_speech_prob": 2.1464091615186476e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.64,
+            "word": " بلکه",
+            "probability": 0.9838764667510986
+          },
+          {
+            "start": 0.64,
+            "end": 0.74,
+            "word": " به",
+            "probability": 0.9861339926719666
+          },
+          {
+            "start": 0.74,
+            "end": 1.08,
+            "word": " صورت",
+            "probability": 0.9979363282521566
+          },
+          {
+            "start": 1.08,
+            "end": 1.5,
+            "word": " واقعا",
+            "probability": 0.9969068616628647
+          },
+          {
+            "start": 1.5,
+            "end": 2.06,
+            "word": " سرمایه",
+            "probability": 0.9087597250938415
+          },
+          {
+            "start": 2.06,
+            "end": 2.6,
+            "word": " گذاری،",
+            "probability": 0.7957706704735756
+          },
+          {
+            "start": 2.6,
+            "end": 2.84,
+            "word": " بریم",
+            "probability": 0.9974714517593384
+          },
+          {
+            "start": 2.84,
+            "end": 3.3,
+            "word": " شریک",
+            "probability": 0.9911065896352133
+          },
+          {
+            "start": 3.3,
+            "end": 3.48,
+            "word": " اون",
+            "probability": 0.979695051908493
+          },
+          {
+            "start": 3.48,
+            "end": 3.74,
+            "word": " کس",
+            "probability": 0.9004117846488953
+          },
+          {
+            "start": 3.74,
+            "end": 3.94,
+            "word": " با",
+            "probability": 0.8997681140899658
+          },
+          {
+            "start": 3.94,
+            "end": 4.16,
+            "word": " کار",
+            "probability": 0.998064786195755
+          },
+          {
+            "start": 4.16,
+            "end": 4.76,
+            "word": " بشین،",
+            "probability": 0.5778022259473801
+          },
+          {
+            "start": 4.76,
+            "end": 5.18,
+            "word": " هم",
+            "probability": 0.998738169670105
+          },
+          {
+            "start": 5.18,
+            "end": 5.58,
+            "word": " تأمین",
+            "probability": 0.9608552008867264
+          },
+          {
+            "start": 5.58,
+            "end": 5.98,
+            "word": " مالی",
+            "probability": 0.9977716604868571
+          },
+          {
+            "start": 5.98,
+            "end": 6.4,
+            "word": " بکنیم",
+            "probability": 0.9961588859558106
+          },
+          {
+            "start": 6.4,
+            "end": 6.76,
+            "word": " اونکس",
+            "probability": 0.7446151762051159
+          },
+          {
+            "start": 6.76,
+            "end": 7.04,
+            "word": " بکار",
+            "probability": 0.6612842620136993
+          }
+        ]
+      }
+    ]
+  }
+}

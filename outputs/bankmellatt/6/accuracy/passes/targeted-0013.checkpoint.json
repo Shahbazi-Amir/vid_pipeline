@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "62edbd62695b9ae31187191d0b67809b57c492b937ec35a6498d252f1687c9e9",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.5,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.48,
+        "text": "دیگه بزرگتونو بدید؟ دیژه بازرگو داد، ولی دیجه پس نیوبرد. همسایی...",
+        "avg_logprob": -0.43808042200712055,
+        "compression_ratio": 1.2421052631578948,
+        "no_speech_prob": 2.6934932062516737e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.22,
+            "word": " دیگه",
+            "probability": 0.9753125309944153
+          },
+          {
+            "start": 0.22,
+            "end": 1.02,
+            "word": " بزرگتونو",
+            "probability": 0.9379650184086391
+          },
+          {
+            "start": 1.02,
+            "end": 1.58,
+            "word": " بدید؟",
+            "probability": 0.8628860488533974
+          },
+          {
+            "start": 1.58,
+            "end": 3.2,
+            "word": " دیژه",
+            "probability": 0.7857250626327869
+          },
+          {
+            "start": 3.2,
+            "end": 3.66,
+            "word": " بازرگو",
+            "probability": 0.7923399086430436
+          },
+          {
+            "start": 3.66,
+            "end": 4.18,
+            "word": " داد،",
+            "probability": 0.6606357074342668
+          },
+          {
+            "start": 4.18,
+            "end": 4.84,
+            "word": " ولی",
+            "probability": 0.9897288382053375
+          },
+          {
+            "start": 4.84,
+            "end": 5.0,
+            "word": " دیجه",
+            "probability": 0.7403036150608386
+          },
+          {
+            "start": 5.0,
+            "end": 5.28,
+            "word": " پس",
+            "probability": 0.8468739092350006
+          },
+          {
+            "start": 5.28,
+            "end": 5.84,
+            "word": " نیوبرد.",
+            "probability": 0.574990662932396
+          },
+          {
+            "start": 5.9,
+            "end": 6.48,
+            "word": " همسایی...",
+            "probability": 0.7470999211072922
+          }
+        ]
+      }
+    ]
+  }
+}

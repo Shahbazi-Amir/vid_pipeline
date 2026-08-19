@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "3b830ea97bbdd3bf6746904782e028ce99b4ddc4bb20af036fcd5dd6365897a7",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.82,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.900000000000001,
+        "end": 6.72,
+        "text": "دیگه بزرگ رو داد، ولی دی‌گه پس نیورد، همسا یه دوباره رفت در خونه، گفت",
+        "avg_logprob": -0.3068382413341449,
+        "compression_ratio": 1.288659793814433,
+        "no_speech_prob": 2.687219335939517e-10,
+        "words": [
+          {
+            "start": 0.900000000000001,
+            "end": 1.7,
+            "word": " دیگه",
+            "probability": 0.967983216047287
+          },
+          {
+            "start": 1.7,
+            "end": 2.06,
+            "word": " بزرگ",
+            "probability": 0.9949639737606049
+          },
+          {
+            "start": 2.06,
+            "end": 2.18,
+            "word": " رو",
+            "probability": 0.6060786545276642
+          },
+          {
+            "start": 2.18,
+            "end": 2.74,
+            "word": " داد،",
+            "probability": 0.5777371044581135
+          },
+          {
+            "start": 2.74,
+            "end": 3.34,
+            "word": " ولی",
+            "probability": 0.9913287162780762
+          },
+          {
+            "start": 3.34,
+            "end": 3.5,
+            "word": " دی‌گه",
+            "probability": 0.770002466396727
+          },
+          {
+            "start": 3.5,
+            "end": 3.78,
+            "word": " پس",
+            "probability": 0.8398867845535278
+          },
+          {
+            "start": 3.78,
+            "end": 4.4,
+            "word": " نیورد،",
+            "probability": 0.5787020564079285
+          },
+          {
+            "start": 4.4,
+            "end": 4.8,
+            "word": " همسا",
+            "probability": 0.8461508750915527
+          },
+          {
+            "start": 4.8,
+            "end": 4.96,
+            "word": " یه",
+            "probability": 0.7318109571933746
+          },
+          {
+            "start": 4.96,
+            "end": 5.38,
+            "word": " دوباره",
+            "probability": 0.9840526729822159
+          },
+          {
+            "start": 5.38,
+            "end": 5.64,
+            "word": " رفت",
+            "probability": 0.9759900371233622
+          },
+          {
+            "start": 5.64,
+            "end": 5.76,
+            "word": " در",
+            "probability": 0.9444067180156708
+          },
+          {
+            "start": 5.76,
+            "end": 6.28,
+            "word": " خونه،",
+            "probability": 0.7700863368809223
+          },
+          {
+            "start": 6.28,
+            "end": 6.72,
+            "word": " گفت",
+            "probability": 0.8406102657318115
+          }
+        ]
+      }
+    ]
+  }
+}

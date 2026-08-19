@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "8409225e06e382db54fb9188edbebca9cb415e59aa1d8e43de53a147a76a5074",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.14,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.0,
+        "text": "همین که باید دسترسی‌های خوبی داشته باشیم، تو شرایط تحریم خیلی روی رمز عرض‌ها نمیشه سرمایه گذاری کرد یا ریسکش خیالی بالاست.",
+        "avg_logprob": -0.15718664562000947,
+        "compression_ratio": 1.5342465753424657,
+        "no_speech_prob": 2.013060412808798e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.6,
+            "word": " همین",
+            "probability": 0.9870078563690186
+          },
+          {
+            "start": 0.6,
+            "end": 0.64,
+            "word": " که",
+            "probability": 0.9825576841831207
+          },
+          {
+            "start": 0.64,
+            "end": 0.82,
+            "word": " باید",
+            "probability": 0.997673287987709
+          },
+          {
+            "start": 0.82,
+            "end": 1.58,
+            "word": " دسترسی‌های",
+            "probability": 0.8537146032322198
+          },
+          {
+            "start": 1.58,
+            "end": 1.9,
+            "word": " خوبی",
+            "probability": 0.9930347800254822
+          },
+          {
+            "start": 1.9,
+            "end": 2.22,
+            "word": " داشته",
+            "probability": 0.9880573153495789
+          },
+          {
+            "start": 2.22,
+            "end": 2.56,
+            "word": " باشیم،",
+            "probability": 0.7596754685044289
+          },
+          {
+            "start": 2.56,
+            "end": 2.7,
+            "word": " تو",
+            "probability": 0.09235820919275284
+          },
+          {
+            "start": 2.7,
+            "end": 3.48,
+            "word": " شرایط",
+            "probability": 0.9462857246398926
+          },
+          {
+            "start": 3.48,
+            "end": 4.2,
+            "word": " تحریم",
+            "probability": 0.9785567373037338
+          },
+          {
+            "start": 4.2,
+            "end": 4.68,
+            "word": " خیلی",
+            "probability": 0.9660713821649551
+          },
+          {
+            "start": 4.68,
+            "end": 4.92,
+            "word": " روی",
+            "probability": 0.9809065063794454
+          },
+          {
+            "start": 4.92,
+            "end": 5.38,
+            "word": " رمز",
+            "probability": 0.8964579304059347
+          },
+          {
+            "start": 5.38,
+            "end": 6.08,
+            "word": " عرض‌ها",
+            "probability": 0.759604923427105
+          },
+          {
+            "start": 6.08,
+            "end": 7.32,
+            "word": " نمیشه",
+            "probability": 0.8479610741138458
+          },
+          {
+            "start": 7.32,
+            "end": 7.92,
+            "word": " سرمایه",
+            "probability": 0.9626864671707154
+          },
+          {
+            "start": 7.92,
+            "end": 8.34,
+            "word": " گذاری",
+            "probability": 0.8143033981323242
+          },
+          {
+            "start": 8.34,
+            "end": 8.66,
+            "word": " کرد",
+            "probability": 0.9768697321414948
+          },
+          {
+            "start": 8.66,
+            "end": 9.32,
+            "word": " یا",
+            "probability": 0.9618071019649506
+          },
+          {
+            "start": 9.32,
+            "end": 9.88,
+            "word": " ریسکش",
+            "probability": 0.9038089156150818
+          },
+          {
+            "start": 9.88,
+            "end": 10.22,
+            "word": " خیالی",
+            "probability": 0.7342824812694744
+          },
+          {
+            "start": 10.22,
+            "end": 11.0,
+            "word": " بالاست.",
+            "probability": 0.9282671014467875
+          }
+        ]
+      }
+    ]
+  }
+}

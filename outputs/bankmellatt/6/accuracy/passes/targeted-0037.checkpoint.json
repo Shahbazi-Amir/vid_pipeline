@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "8f6aee39aba3dfaf5fc609f0fb456491fcc75ef3318c15920fc7cba022912c58",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.92,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.9,
+        "text": "با کار رونق داره، منم یه پولی دارم، نه به صورت روا خدایی نکرده، بلکه بهصورت واقعا سرمایه گذاری.",
+        "avg_logprob": -0.21615494948167066,
+        "compression_ratio": 1.4491525423728813,
+        "no_speech_prob": 2.610299754124412e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.22,
+            "word": " با",
+            "probability": 0.5515485405921936
+          },
+          {
+            "start": 0.22,
+            "end": 0.4,
+            "word": " کار",
+            "probability": 0.9861471354961395
+          },
+          {
+            "start": 0.4,
+            "end": 0.98,
+            "word": " رونق",
+            "probability": 0.7884931961695353
+          },
+          {
+            "start": 0.98,
+            "end": 1.32,
+            "word": " داره،",
+            "probability": 0.7536306269466877
+          },
+          {
+            "start": 1.32,
+            "end": 1.58,
+            "word": " منم",
+            "probability": 0.8715271949768066
+          },
+          {
+            "start": 1.58,
+            "end": 1.76,
+            "word": " یه",
+            "probability": 0.9644581973552704
+          },
+          {
+            "start": 1.76,
+            "end": 2.04,
+            "word": " پولی",
+            "probability": 0.9972338477770487
+          },
+          {
+            "start": 2.04,
+            "end": 2.6,
+            "word": " دارم،",
+            "probability": 0.7746263351291418
+          },
+          {
+            "start": 2.6,
+            "end": 2.88,
+            "word": " نه",
+            "probability": 0.9639358222484589
+          },
+          {
+            "start": 2.88,
+            "end": 2.94,
+            "word": " به",
+            "probability": 0.9817749261856079
+          },
+          {
+            "start": 2.94,
+            "end": 3.44,
+            "word": " صورت",
+            "probability": 0.998086412747701
+          },
+          {
+            "start": 3.44,
+            "end": 4.32,
+            "word": " روا",
+            "probability": 0.7869689762592316
+          },
+          {
+            "start": 4.32,
+            "end": 4.82,
+            "word": " خدایی",
+            "probability": 0.9745702892541885
+          },
+          {
+            "start": 4.82,
+            "end": 5.56,
+            "word": " نکرده،",
+            "probability": 0.8792552053928375
+          },
+          {
+            "start": 5.56,
+            "end": 6.1,
+            "word": " بلکه",
+            "probability": 0.9813579618930817
+          },
+          {
+            "start": 6.1,
+            "end": 6.52,
+            "word": " بهصورت",
+            "probability": 0.741060312197078
+          },
+          {
+            "start": 6.52,
+            "end": 6.94,
+            "word": " واقعا",
+            "probability": 0.9605625569820404
+          },
+          {
+            "start": 6.94,
+            "end": 7.52,
+            "word": " سرمایه",
+            "probability": 0.8544799089431763
+          },
+          {
+            "start": 7.52,
+            "end": 7.9,
+            "word": " گذاری.",
+            "probability": 0.9850658178329468
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "7e0cce92d61f12a32e6cdf853d865524d460fbb106985f3ee17ba8b1bec092e8",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.66,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.26,
+        "text": "دیگه ما رو می‌شه پس بدید، اون آدم هم دیغه متوسط رو با یه دیژه کچکتر گذاشت داخلش و داد بهش. همسایی گفت این دیجه کُچیکه مالمان نیست.",
+        "avg_logprob": -0.23783156789011425,
+        "compression_ratio": 1.4409937888198758,
+        "no_speech_prob": 2.1409216066636816e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.74,
+            "word": " دیگه",
+            "probability": 0.9917001724243164
+          },
+          {
+            "start": 0.74,
+            "end": 0.86,
+            "word": " ما",
+            "probability": 0.9873815178871155
+          },
+          {
+            "start": 0.86,
+            "end": 0.96,
+            "word": " رو",
+            "probability": 0.993141382932663
+          },
+          {
+            "start": 0.96,
+            "end": 1.16,
+            "word": " می‌شه",
+            "probability": 0.7330885225092061
+          },
+          {
+            "start": 1.16,
+            "end": 1.42,
+            "word": " پس",
+            "probability": 0.9361850023269653
+          },
+          {
+            "start": 1.42,
+            "end": 2.0,
+            "word": " بدید،",
+            "probability": 0.7436087224632502
+          },
+          {
+            "start": 2.0,
+            "end": 3.08,
+            "word": " اون",
+            "probability": 0.9648379385471344
+          },
+          {
+            "start": 3.08,
+            "end": 3.42,
+            "word": " آدم",
+            "probability": 0.9911701381206512
+          },
+          {
+            "start": 3.42,
+            "end": 3.72,
+            "word": " هم",
+            "probability": 0.9530251026153564
+          },
+          {
+            "start": 3.72,
+            "end": 4.16,
+            "word": " دیغه",
+            "probability": 0.7110923935661049
+          },
+          {
+            "start": 4.16,
+            "end": 4.84,
+            "word": " متوسط",
+            "probability": 0.9905479351679484
+          },
+          {
+            "start": 4.84,
+            "end": 5.12,
+            "word": " رو",
+            "probability": 0.8623234033584595
+          },
+          {
+            "start": 5.12,
+            "end": 5.4,
+            "word": " با",
+            "probability": 0.97951740026474
+          },
+          {
+            "start": 5.4,
+            "end": 5.58,
+            "word": " یه",
+            "probability": 0.9445481896400452
+          },
+          {
+            "start": 5.58,
+            "end": 5.8,
+            "word": " دیژه",
+            "probability": 0.7666260603349656
+          },
+          {
+            "start": 5.8,
+            "end": 6.42,
+            "word": " کچکتر",
+            "probability": 0.8464875459671021
+          },
+          {
+            "start": 6.42,
+            "end": 6.9,
+            "word": " گذاشت",
+            "probability": 0.8009889870882034
+          },
+          {
+            "start": 6.9,
+            "end": 7.42,
+            "word": " داخلش",
+            "probability": 0.9698493629693985
+          },
+          {
+            "start": 7.42,
+            "end": 7.54,
+            "word": " و",
+            "probability": 0.3638956844806671
+          },
+          {
+            "start": 7.54,
+            "end": 7.82,
+            "word": " داد",
+            "probability": 0.9938049018383026
+          },
+          {
+            "start": 7.82,
+            "end": 8.16,
+            "word": " بهش.",
+            "probability": 0.9955746531486511
+          },
+          {
+            "start": 8.26,
+            "end": 8.72,
+            "word": " همسایی",
+            "probability": 0.8535922169685364
+          },
+          {
+            "start": 8.72,
+            "end": 8.92,
+            "word": " گفت",
+            "probability": 0.9889365037282308
+          },
+          {
+            "start": 8.92,
+            "end": 9.06,
+            "word": " این",
+            "probability": 0.8726815581321716
+          },
+          {
+            "start": 9.06,
+            "end": 9.26,
+            "word": " دیجه",
+            "probability": 0.742624053847976
+          },
+          {
+            "start": 9.26,
+            "end": 9.62,
+            "word": " کُچیکه",
+            "probability": 0.6667441783705726
+          },
+          {
+            "start": 9.62,
+            "end": 10.02,
+            "word": " مالمان",
+            "probability": 0.7216045757134756
+          },
+          {
+            "start": 10.02,
+            "end": 10.26,
+            "word": " نیست.",
+            "probability": 0.9460471272468567
+          }
+        ]
+      }
+    ]
+  }
+}

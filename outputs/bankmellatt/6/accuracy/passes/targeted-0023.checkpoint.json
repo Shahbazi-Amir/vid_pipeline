@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "139d95eebe76de7b3d4efc34077872e657b879e6a3b10da8e57bffe42c715816",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.44,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 12.42,
+        "text": "مثل سرمایه‌گذاری در رمزرزها، هم اطلاعات زیادی می‌خواد، هن ریسک بالایی داره، همن که باید دسترسی‌های خوبی داشته باشیم، به ویژه تو شرایط تحریم خیلی روی...",
+        "avg_logprob": -0.20514217558361236,
+        "compression_ratio": 1.5738636363636365,
+        "no_speech_prob": 2.3505569712867214e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.62,
+            "word": " مثل",
+            "probability": 0.9528824687004089
+          },
+          {
+            "start": 0.62,
+            "end": 1.46,
+            "word": " سرمایه‌گذاری",
+            "probability": 0.8318648294080049
+          },
+          {
+            "start": 1.46,
+            "end": 1.66,
+            "word": " در",
+            "probability": 0.9762812852859497
+          },
+          {
+            "start": 1.66,
+            "end": 2.7,
+            "word": " رمزرزها،",
+            "probability": 0.6622557448489326
+          },
+          {
+            "start": 2.7,
+            "end": 3.52,
+            "word": " هم",
+            "probability": 0.7455517202615738
+          },
+          {
+            "start": 3.52,
+            "end": 4.56,
+            "word": " اطلاعات",
+            "probability": 0.9914791703224182
+          },
+          {
+            "start": 4.56,
+            "end": 5.16,
+            "word": " زیادی",
+            "probability": 0.9905589669942856
+          },
+          {
+            "start": 5.16,
+            "end": 5.7,
+            "word": " می‌خواد،",
+            "probability": 0.8769916594028473
+          },
+          {
+            "start": 5.7,
+            "end": 5.8,
+            "word": " هن",
+            "probability": 0.4900741753317561
+          },
+          {
+            "start": 5.8,
+            "end": 6.18,
+            "word": " ریسک",
+            "probability": 0.9438974261283875
+          },
+          {
+            "start": 6.18,
+            "end": 6.78,
+            "word": " بالایی",
+            "probability": 0.9788082093000412
+          },
+          {
+            "start": 6.78,
+            "end": 7.4,
+            "word": " داره،",
+            "probability": 0.8801005929708481
+          },
+          {
+            "start": 7.4,
+            "end": 7.96,
+            "word": " همن",
+            "probability": 0.4847673498734366
+          },
+          {
+            "start": 7.96,
+            "end": 8.1,
+            "word": " که",
+            "probability": 0.8437705934047699
+          },
+          {
+            "start": 8.1,
+            "end": 8.26,
+            "word": " باید",
+            "probability": 0.9825704842805862
+          },
+          {
+            "start": 8.26,
+            "end": 9.04,
+            "word": " دسترسی‌های",
+            "probability": 0.9536132141947746
+          },
+          {
+            "start": 9.04,
+            "end": 9.34,
+            "word": " خوبی",
+            "probability": 0.9887192646662394
+          },
+          {
+            "start": 9.34,
+            "end": 9.66,
+            "word": " داشته",
+            "probability": 0.9843063155810038
+          },
+          {
+            "start": 9.66,
+            "end": 10.0,
+            "word": " باشیم،",
+            "probability": 0.7450536280870438
+          },
+          {
+            "start": 10.0,
+            "end": 10.08,
+            "word": " به",
+            "probability": 0.758307933807373
+          },
+          {
+            "start": 10.08,
+            "end": 10.28,
+            "word": " ویژه",
+            "probability": 0.6787944257259368
+          },
+          {
+            "start": 10.28,
+            "end": 10.4,
+            "word": " تو",
+            "probability": 0.941552460193634
+          },
+          {
+            "start": 10.4,
+            "end": 10.92,
+            "word": " شرایط",
+            "probability": 0.9820743948221207
+          },
+          {
+            "start": 10.92,
+            "end": 11.64,
+            "word": " تحریم",
+            "probability": 0.9769416153430939
+          },
+          {
+            "start": 11.64,
+            "end": 12.12,
+            "word": " خیلی",
+            "probability": 0.972753256559372
+          },
+          {
+            "start": 12.12,
+            "end": 12.42,
+            "word": " روی...",
+            "probability": 0.7454847823828459
+          }
+        ]
+      }
+    ]
+  }
+}

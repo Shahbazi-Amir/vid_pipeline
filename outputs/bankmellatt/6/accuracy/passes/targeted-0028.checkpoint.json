@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "7dd0ded9fb9213c93ee10319df31252cc0c6aaa9332b127c941e37cff7a5046b",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.28,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.26,
+        "text": "از آی پی ایران داره، یعنی خرید و فروش صورت می‌گیره، ممکنه انوال شما بلوکه بشه. پس یک سرمایه گذاری هست.",
+        "avg_logprob": -0.2697054784591884,
+        "compression_ratio": 1.3357664233576643,
+        "no_speech_prob": 3.392812142344326e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.08,
+            "word": " از",
+            "probability": 0.5793153345584869
+          },
+          {
+            "start": 0.08,
+            "end": 0.28,
+            "word": " آی",
+            "probability": 0.5214597061276436
+          },
+          {
+            "start": 0.28,
+            "end": 0.44,
+            "word": " پی",
+            "probability": 0.7732113301753998
+          },
+          {
+            "start": 0.44,
+            "end": 0.74,
+            "word": " ایران",
+            "probability": 0.9845699369907379
+          },
+          {
+            "start": 0.74,
+            "end": 1.04,
+            "word": " داره،",
+            "probability": 0.7261705580167472
+          },
+          {
+            "start": 1.04,
+            "end": 1.1,
+            "word": " یعنی",
+            "probability": 0.6843921169638634
+          },
+          {
+            "start": 1.1,
+            "end": 1.46,
+            "word": " خرید",
+            "probability": 0.9493566751480103
+          },
+          {
+            "start": 1.46,
+            "end": 1.52,
+            "word": " و",
+            "probability": 0.9716036319732666
+          },
+          {
+            "start": 1.52,
+            "end": 1.78,
+            "word": " فروش",
+            "probability": 0.982359786828359
+          },
+          {
+            "start": 1.78,
+            "end": 2.16,
+            "word": " صورت",
+            "probability": 0.7641971409320831
+          },
+          {
+            "start": 2.16,
+            "end": 2.54,
+            "word": " می‌گیره،",
+            "probability": 0.7479131618248565
+          },
+          {
+            "start": 2.54,
+            "end": 3.1,
+            "word": " ممکنه",
+            "probability": 0.9819393992424011
+          },
+          {
+            "start": 3.1,
+            "end": 3.88,
+            "word": " انوال",
+            "probability": 0.8646871447563171
+          },
+          {
+            "start": 3.88,
+            "end": 4.16,
+            "word": " شما",
+            "probability": 0.9805850386619568
+          },
+          {
+            "start": 4.16,
+            "end": 4.54,
+            "word": " بلوکه",
+            "probability": 0.8433131337165832
+          },
+          {
+            "start": 4.54,
+            "end": 4.78,
+            "word": " بشه.",
+            "probability": 0.947236160437266
+          },
+          {
+            "start": 4.9,
+            "end": 5.26,
+            "word": " پس",
+            "probability": 0.9740654528141022
+          },
+          {
+            "start": 5.26,
+            "end": 5.7,
+            "word": " یک",
+            "probability": 0.9653665125370026
+          },
+          {
+            "start": 5.7,
+            "end": 6.92,
+            "word": " سرمایه",
+            "probability": 0.8633876442909241
+          },
+          {
+            "start": 6.92,
+            "end": 7.26,
+            "word": " گذاری",
+            "probability": 0.8131382465362549
+          },
+          {
+            "start": 7.26,
+            "end": 7.26,
+            "word": " هست.",
+            "probability": 0.3935319185256958
+          }
+        ]
+      }
+    ]
+  }
+}

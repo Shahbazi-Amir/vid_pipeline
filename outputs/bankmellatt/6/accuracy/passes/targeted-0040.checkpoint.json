@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "a71f898be983604a0f9adfd9b4bbe26006b463651e1fea38dafaca1aa5ff9b3a",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.42,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.1,
+        "text": "بریم شریک اون کس با کار بشیم، هم تأمین مالی بکنیم اونکس بکار کوچک رو، همن که برا ما سود خواهد داشت.",
+        "avg_logprob": -0.18450263661868643,
+        "compression_ratio": 1.5172413793103448,
+        "no_speech_prob": 2.812068078394958e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.78,
+            "word": " بریم",
+            "probability": 0.9720432162284851
+          },
+          {
+            "start": 0.78,
+            "end": 1.22,
+            "word": " شریک",
+            "probability": 0.9887327154477438
+          },
+          {
+            "start": 1.22,
+            "end": 1.42,
+            "word": " اون",
+            "probability": 0.980694591999054
+          },
+          {
+            "start": 1.42,
+            "end": 1.68,
+            "word": " کس",
+            "probability": 0.9511407315731049
+          },
+          {
+            "start": 1.68,
+            "end": 1.88,
+            "word": " با",
+            "probability": 0.9405351877212524
+          },
+          {
+            "start": 1.88,
+            "end": 2.08,
+            "word": " کار",
+            "probability": 0.9991948902606964
+          },
+          {
+            "start": 2.08,
+            "end": 2.66,
+            "word": " بشیم،",
+            "probability": 0.7087147944606841
+          },
+          {
+            "start": 2.66,
+            "end": 3.1,
+            "word": " هم",
+            "probability": 0.9967076480388641
+          },
+          {
+            "start": 3.1,
+            "end": 3.54,
+            "word": " تأمین",
+            "probability": 0.9494037926197052
+          },
+          {
+            "start": 3.54,
+            "end": 3.92,
+            "word": " مالی",
+            "probability": 0.9976899027824402
+          },
+          {
+            "start": 3.92,
+            "end": 4.34,
+            "word": " بکنیم",
+            "probability": 0.9941097140312195
+          },
+          {
+            "start": 4.34,
+            "end": 4.7,
+            "word": " اونکس",
+            "probability": 0.7373576848185621
+          },
+          {
+            "start": 4.7,
+            "end": 5.04,
+            "word": " بکار",
+            "probability": 0.662083943762506
+          },
+          {
+            "start": 5.04,
+            "end": 5.6,
+            "word": " کوچک",
+            "probability": 0.9575308760007223
+          },
+          {
+            "start": 5.6,
+            "end": 6.1,
+            "word": " رو،",
+            "probability": 0.7312290122111639
+          },
+          {
+            "start": 6.1,
+            "end": 6.48,
+            "word": " همن",
+            "probability": 0.49801439919974655
+          },
+          {
+            "start": 6.48,
+            "end": 6.62,
+            "word": " که",
+            "probability": 0.7441713213920593
+          },
+          {
+            "start": 6.62,
+            "end": 6.82,
+            "word": " برا",
+            "probability": 0.9522217214107513
+          },
+          {
+            "start": 6.82,
+            "end": 6.96,
+            "word": " ما",
+            "probability": 0.955996036529541
+          },
+          {
+            "start": 6.96,
+            "end": 7.28,
+            "word": " سود",
+            "probability": 0.8155732452869415
+          },
+          {
+            "start": 7.28,
+            "end": 7.66,
+            "word": " خواهد",
+            "probability": 0.9949872642755508
+          },
+          {
+            "start": 7.66,
+            "end": 8.1,
+            "word": " داشت.",
+            "probability": 0.9699046413103739
+          }
+        ]
+      }
+    ]
+  }
+}

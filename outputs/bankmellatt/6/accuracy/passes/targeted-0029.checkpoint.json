@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "05a37a24d077614cd4098cc7816fd518df54f11df069fb214f2af315a32186fc",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.38,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.96,
+        "text": "می‌گیره، ممکنه انوال شما بلوکی بشه. پس یک سرمایه‌گذاریای خاصی هست تو بازارهای جهانی یا توی رمزرسا. این رو ما استثنا قرار می‌دهیم.",
+        "avg_logprob": -0.23037505827166818,
+        "compression_ratio": 1.5128205128205128,
+        "no_speech_prob": 2.4298929535149227e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.34,
+            "word": " می‌گیره،",
+            "probability": 0.5823303099189486
+          },
+          {
+            "start": 0.34,
+            "end": 0.82,
+            "word": " ممکنه",
+            "probability": 0.9777803182601928
+          },
+          {
+            "start": 0.82,
+            "end": 1.6,
+            "word": " انوال",
+            "probability": 0.8438451091448466
+          },
+          {
+            "start": 1.6,
+            "end": 1.88,
+            "word": " شما",
+            "probability": 0.9501332938671112
+          },
+          {
+            "start": 1.88,
+            "end": 2.26,
+            "word": " بلوکی",
+            "probability": 0.8606850564479828
+          },
+          {
+            "start": 2.26,
+            "end": 2.5,
+            "word": " بشه.",
+            "probability": 0.9707006414731344
+          },
+          {
+            "start": 2.58,
+            "end": 2.96,
+            "word": " پس",
+            "probability": 0.9512762725353241
+          },
+          {
+            "start": 2.96,
+            "end": 3.4,
+            "word": " یک",
+            "probability": 0.973833292722702
+          },
+          {
+            "start": 3.4,
+            "end": 5.08,
+            "word": " سرمایه‌گذاریای",
+            "probability": 0.8138857754794034
+          },
+          {
+            "start": 5.08,
+            "end": 5.74,
+            "word": " خاصی",
+            "probability": 0.9736572106679281
+          },
+          {
+            "start": 5.74,
+            "end": 6.16,
+            "word": " هست",
+            "probability": 0.967844694852829
+          },
+          {
+            "start": 6.16,
+            "end": 6.4,
+            "word": " تو",
+            "probability": 0.7841416597366333
+          },
+          {
+            "start": 6.4,
+            "end": 7.04,
+            "word": " بازارهای",
+            "probability": 0.9110118389129639
+          },
+          {
+            "start": 7.04,
+            "end": 7.66,
+            "word": " جهانی",
+            "probability": 0.9915777444839478
+          },
+          {
+            "start": 7.66,
+            "end": 7.94,
+            "word": " یا",
+            "probability": 0.9593718945980072
+          },
+          {
+            "start": 7.94,
+            "end": 8.06,
+            "word": " توی",
+            "probability": 0.8886620104312897
+          },
+          {
+            "start": 8.06,
+            "end": 8.88,
+            "word": " رمزرسا.",
+            "probability": 0.6220507025718689
+          },
+          {
+            "start": 9.0,
+            "end": 9.24,
+            "word": " این",
+            "probability": 0.9802857041358948
+          },
+          {
+            "start": 9.24,
+            "end": 9.4,
+            "word": " رو",
+            "probability": 0.8877167999744415
+          },
+          {
+            "start": 9.4,
+            "end": 9.48,
+            "word": " ما",
+            "probability": 0.9874259233474731
+          },
+          {
+            "start": 9.48,
+            "end": 10.08,
+            "word": " استثنا",
+            "probability": 0.84917151927948
+          },
+          {
+            "start": 10.08,
+            "end": 10.5,
+            "word": " قرار",
+            "probability": 0.8458885749181112
+          },
+          {
+            "start": 10.5,
+            "end": 10.96,
+            "word": " می‌دهیم.",
+            "probability": 0.8930100450913111
+          }
+        ]
+      }
+    ]
+  }
+}

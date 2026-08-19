@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "06cd8f66c704871878a939343c96039c2214015eaa3c5620d5df7a7c44e116de",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.54,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.04,
+        "text": "صورت ربا خدایی نکرده، بلکه به صورته واقعا سرمایه گذاری، بریم شریک اون کس با کار بشین.",
+        "avg_logprob": -0.22492159322156743,
+        "compression_ratio": 1.3909090909090909,
+        "no_speech_prob": 2.2353845163802788e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.54,
+            "word": " صورت",
+            "probability": 0.8150511582692465
+          },
+          {
+            "start": 0.54,
+            "end": 1.44,
+            "word": " ربا",
+            "probability": 0.8059439261754354
+          },
+          {
+            "start": 1.44,
+            "end": 1.86,
+            "word": " خدایی",
+            "probability": 0.9938121736049652
+          },
+          {
+            "start": 1.86,
+            "end": 2.64,
+            "word": " نکرده،",
+            "probability": 0.8292257189750671
+          },
+          {
+            "start": 2.64,
+            "end": 3.18,
+            "word": " بلکه",
+            "probability": 0.9852164089679718
+          },
+          {
+            "start": 3.18,
+            "end": 3.28,
+            "word": " به",
+            "probability": 0.8844366073608398
+          },
+          {
+            "start": 3.28,
+            "end": 3.62,
+            "word": " صورته",
+            "probability": 0.6652322249525847
+          },
+          {
+            "start": 3.62,
+            "end": 4.02,
+            "word": " واقعا",
+            "probability": 0.9837084412574768
+          },
+          {
+            "start": 4.02,
+            "end": 4.6,
+            "word": " سرمایه",
+            "probability": 0.8139843463897705
+          },
+          {
+            "start": 4.6,
+            "end": 5.14,
+            "word": " گذاری،",
+            "probability": 0.8514418184757233
+          },
+          {
+            "start": 5.14,
+            "end": 5.38,
+            "word": " بریم",
+            "probability": 0.9885065952936808
+          },
+          {
+            "start": 5.38,
+            "end": 5.82,
+            "word": " شریک",
+            "probability": 0.9694589177767435
+          },
+          {
+            "start": 5.82,
+            "end": 6.02,
+            "word": " اون",
+            "probability": 0.9291769862174988
+          },
+          {
+            "start": 6.02,
+            "end": 6.28,
+            "word": " کس",
+            "probability": 0.7349607646465302
+          },
+          {
+            "start": 6.28,
+            "end": 6.48,
+            "word": " با",
+            "probability": 0.8155143558979034
+          },
+          {
+            "start": 6.48,
+            "end": 6.7,
+            "word": " کار",
+            "probability": 0.9900387227535248
+          },
+          {
+            "start": 6.7,
+            "end": 7.04,
+            "word": " بشین.",
+            "probability": 0.7662377258141836
+          }
+        ]
+      }
+    ]
+  }
+}

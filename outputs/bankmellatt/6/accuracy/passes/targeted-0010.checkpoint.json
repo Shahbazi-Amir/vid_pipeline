@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "c92b84c7afe2f878a622a2bae1565f1c498fc30d5065c3de93a138d562ba7033",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.06,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.04,
+        "text": "تو برگشت، گفت آقای بابایی اصلا هیچ چی نمی‌دونه، یه دیگه کاثب شدیم. چند روز بعد دوباره اومد در خونه‌ای همه‌ها،",
+        "avg_logprob": -0.2996727850288153,
+        "compression_ratio": 1.4285714285714286,
+        "no_speech_prob": 3.0954794283388765e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.04,
+            "word": " تو",
+            "probability": 0.07400032877922058
+          },
+          {
+            "start": 0.04,
+            "end": 0.7,
+            "word": " برگشت،",
+            "probability": 0.8283249059071144
+          },
+          {
+            "start": 0.7,
+            "end": 0.84,
+            "word": " گفت",
+            "probability": 0.9282481471697489
+          },
+          {
+            "start": 0.84,
+            "end": 0.96,
+            "word": " آقای",
+            "probability": 0.5509192906320095
+          },
+          {
+            "start": 0.96,
+            "end": 1.36,
+            "word": " بابایی",
+            "probability": 0.9485878109931946
+          },
+          {
+            "start": 1.36,
+            "end": 1.54,
+            "word": " اصلا",
+            "probability": 0.8651395440101624
+          },
+          {
+            "start": 1.54,
+            "end": 1.76,
+            "word": " هیچ",
+            "probability": 0.964750866095225
+          },
+          {
+            "start": 1.76,
+            "end": 1.88,
+            "word": " چی",
+            "probability": 0.7295907586812973
+          },
+          {
+            "start": 1.88,
+            "end": 2.74,
+            "word": " نمی‌دونه،",
+            "probability": 0.7596436709573027
+          },
+          {
+            "start": 2.74,
+            "end": 3.46,
+            "word": " یه",
+            "probability": 0.9250156283378601
+          },
+          {
+            "start": 3.46,
+            "end": 3.66,
+            "word": " دیگه",
+            "probability": 0.7970006465911865
+          },
+          {
+            "start": 3.66,
+            "end": 4.06,
+            "word": " کاثب",
+            "probability": 0.8924387991428375
+          },
+          {
+            "start": 4.06,
+            "end": 4.6,
+            "word": " شدیم.",
+            "probability": 0.9639952927827835
+          },
+          {
+            "start": 4.96,
+            "end": 5.26,
+            "word": " چند",
+            "probability": 0.9498810470104218
+          },
+          {
+            "start": 5.26,
+            "end": 5.5,
+            "word": " روز",
+            "probability": 0.991601844628652
+          },
+          {
+            "start": 5.5,
+            "end": 5.76,
+            "word": " بعد",
+            "probability": 0.9327017068862915
+          },
+          {
+            "start": 5.76,
+            "end": 6.26,
+            "word": " دوباره",
+            "probability": 0.9537697285413742
+          },
+          {
+            "start": 6.26,
+            "end": 6.5,
+            "word": " اومد",
+            "probability": 0.9579975605010986
+          },
+          {
+            "start": 6.5,
+            "end": 6.64,
+            "word": " در",
+            "probability": 0.9556628167629242
+          },
+          {
+            "start": 6.64,
+            "end": 6.96,
+            "word": " خونه‌ای",
+            "probability": 0.8364670872688293
+          },
+          {
+            "start": 6.96,
+            "end": 7.04,
+            "word": " همه‌ها،",
+            "probability": 0.5327883766343197
+          }
+        ]
+      }
+    ]
+  }
+}

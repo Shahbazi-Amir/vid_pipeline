@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "bdd8ae7cf4a2da3738319f389b1c5b7579ee0d3adce9bf162e0c1575d707943f",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.62,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.16,
+        "text": "سایت‌ها بلوکه بشه و اجازه ندم مثلا بفهمن که از IP ایران داره این خرید و فروش صورت میگیره ممکنه انوال شما بلکه",
+        "avg_logprob": -0.21137892546719067,
+        "compression_ratio": 1.455223880597015,
+        "no_speech_prob": 4.936134834210293e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.62,
+            "word": " سایت‌ها",
+            "probability": 0.839199868341287
+          },
+          {
+            "start": 0.62,
+            "end": 1.16,
+            "word": " بلوکه",
+            "probability": 0.9360319972038269
+          },
+          {
+            "start": 1.16,
+            "end": 1.58,
+            "word": " بشه",
+            "probability": 0.9706157048543295
+          },
+          {
+            "start": 1.58,
+            "end": 1.76,
+            "word": " و",
+            "probability": 0.9438984990119934
+          },
+          {
+            "start": 1.76,
+            "end": 2.18,
+            "word": " اجازه",
+            "probability": 0.991622194647789
+          },
+          {
+            "start": 2.18,
+            "end": 2.46,
+            "word": " ندم",
+            "probability": 0.5473767966032028
+          },
+          {
+            "start": 2.46,
+            "end": 2.84,
+            "word": " مثلا",
+            "probability": 0.9670778512954712
+          },
+          {
+            "start": 2.84,
+            "end": 3.4,
+            "word": " بفهمن",
+            "probability": 0.8162614554166794
+          },
+          {
+            "start": 3.4,
+            "end": 3.56,
+            "word": " که",
+            "probability": 0.9781115353107452
+          },
+          {
+            "start": 3.56,
+            "end": 3.68,
+            "word": " از",
+            "probability": 0.9718015789985657
+          },
+          {
+            "start": 3.68,
+            "end": 3.98,
+            "word": " IP",
+            "probability": 0.4184131622314453
+          },
+          {
+            "start": 3.98,
+            "end": 4.38,
+            "word": " ایران",
+            "probability": 0.9578452706336975
+          },
+          {
+            "start": 4.38,
+            "end": 4.6,
+            "word": " داره",
+            "probability": 0.9406981468200684
+          },
+          {
+            "start": 4.6,
+            "end": 4.72,
+            "word": " این",
+            "probability": 0.7025404423475266
+          },
+          {
+            "start": 4.72,
+            "end": 5.1,
+            "word": " خرید",
+            "probability": 0.9642624855041504
+          },
+          {
+            "start": 5.1,
+            "end": 5.14,
+            "word": " و",
+            "probability": 0.9584662914276123
+          },
+          {
+            "start": 5.14,
+            "end": 5.4,
+            "word": " فروش",
+            "probability": 0.9894235134124756
+          },
+          {
+            "start": 5.4,
+            "end": 5.78,
+            "word": " صورت",
+            "probability": 0.7452594339847565
+          },
+          {
+            "start": 5.78,
+            "end": 6.12,
+            "word": " میگیره",
+            "probability": 0.8521432161331177
+          },
+          {
+            "start": 6.12,
+            "end": 6.72,
+            "word": " ممکنه",
+            "probability": 0.9663671374320983
+          },
+          {
+            "start": 6.72,
+            "end": 7.5,
+            "word": " انوال",
+            "probability": 0.9063454866409302
+          },
+          {
+            "start": 7.5,
+            "end": 7.76,
+            "word": " شما",
+            "probability": 0.9758521914482117
+          },
+          {
+            "start": 7.76,
+            "end": 8.16,
+            "word": " بلکه",
+            "probability": 0.7440005345270038
+          }
+        ]
+      }
+    ]
+  }
+}

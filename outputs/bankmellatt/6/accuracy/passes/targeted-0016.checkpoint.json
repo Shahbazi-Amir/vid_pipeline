@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "eab5abcaf96cd37a6a2561f6c13323f9e426401a616346455f0e0c3fd7d87504",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.88,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.54,
+        "text": "پس نیورد، همسا یه دوباره رفت در خونه، گفت آقا دیگ بزرگ ما رو بدید، گرفت دیژتون دیشب خونهای ما مرد، مگه دیغم می‌میره؟",
+        "avg_logprob": -0.24292655762504128,
+        "compression_ratio": 1.5,
+        "no_speech_prob": 3.3972177848617946e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.2,
+            "word": " پس",
+            "probability": 0.7515105307102203
+          },
+          {
+            "start": 0.2,
+            "end": 0.84,
+            "word": " نیورد،",
+            "probability": 0.5555567368865013
+          },
+          {
+            "start": 0.84,
+            "end": 1.2,
+            "word": " همسا",
+            "probability": 0.8416761457920074
+          },
+          {
+            "start": 1.2,
+            "end": 1.36,
+            "word": " یه",
+            "probability": 0.5600680112838745
+          },
+          {
+            "start": 1.36,
+            "end": 1.78,
+            "word": " دوباره",
+            "probability": 0.9873553812503815
+          },
+          {
+            "start": 1.78,
+            "end": 2.04,
+            "word": " رفت",
+            "probability": 0.9899114370346069
+          },
+          {
+            "start": 2.04,
+            "end": 2.16,
+            "word": " در",
+            "probability": 0.9827167987823486
+          },
+          {
+            "start": 2.16,
+            "end": 2.64,
+            "word": " خونه،",
+            "probability": 0.7905778922140598
+          },
+          {
+            "start": 2.64,
+            "end": 3.12,
+            "word": " گفت",
+            "probability": 0.9661667744318644
+          },
+          {
+            "start": 3.12,
+            "end": 3.32,
+            "word": " آقا",
+            "probability": 0.8759746551513672
+          },
+          {
+            "start": 3.32,
+            "end": 3.6,
+            "word": " دیگ",
+            "probability": 0.9488592545191447
+          },
+          {
+            "start": 3.6,
+            "end": 4.3,
+            "word": " بزرگ",
+            "probability": 0.8812340199947357
+          },
+          {
+            "start": 4.3,
+            "end": 4.48,
+            "word": " ما",
+            "probability": 0.941752016544342
+          },
+          {
+            "start": 4.48,
+            "end": 4.64,
+            "word": " رو",
+            "probability": 0.964067667722702
+          },
+          {
+            "start": 4.64,
+            "end": 5.16,
+            "word": " بدید،",
+            "probability": 0.8449091389775276
+          },
+          {
+            "start": 5.16,
+            "end": 5.7,
+            "word": " گرفت",
+            "probability": 0.6620968209608691
+          },
+          {
+            "start": 5.7,
+            "end": 6.08,
+            "word": " دیژتون",
+            "probability": 0.7544772470719181
+          },
+          {
+            "start": 6.08,
+            "end": 6.46,
+            "word": " دیشب",
+            "probability": 0.9138962477445602
+          },
+          {
+            "start": 6.46,
+            "end": 6.78,
+            "word": " خونهای",
+            "probability": 0.6758089532631857
+          },
+          {
+            "start": 6.78,
+            "end": 6.92,
+            "word": " ما",
+            "probability": 0.9740100502967834
+          },
+          {
+            "start": 6.92,
+            "end": 7.72,
+            "word": " مرد،",
+            "probability": 0.8714825212955475
+          },
+          {
+            "start": 7.72,
+            "end": 8.5,
+            "word": " مگه",
+            "probability": 0.6592431714137396
+          },
+          {
+            "start": 8.5,
+            "end": 8.9,
+            "word": " دیغم",
+            "probability": 0.7275181814766256
+          },
+          {
+            "start": 8.9,
+            "end": 9.54,
+            "word": " می‌میره؟",
+            "probability": 0.7709058044212205
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "ffcf05873fe18dc12f8c6bf675bc30a189059aff872109567426083519e6aec2",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.72,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.42,
+        "text": "و خوبه ما کمکش بکنیم. بگیم که اگر بیزنست داره می‌چرخه، کس با کار رونق دارد، منم یه پولی دارم. نه به صورت",
+        "avg_logprob": -0.16878092392451233,
+        "compression_ratio": 1.4230769230769231,
+        "no_speech_prob": 2.476540916784842e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.76,
+            "word": " و",
+            "probability": 0.99666827917099
+          },
+          {
+            "start": 0.76,
+            "end": 1.1,
+            "word": " خوبه",
+            "probability": 0.9913546641667684
+          },
+          {
+            "start": 1.1,
+            "end": 1.28,
+            "word": " ما",
+            "probability": 0.9265003204345703
+          },
+          {
+            "start": 1.28,
+            "end": 1.86,
+            "word": " کمکش",
+            "probability": 0.9991322606801987
+          },
+          {
+            "start": 1.86,
+            "end": 2.58,
+            "word": " بکنیم.",
+            "probability": 0.9983482956886292
+          },
+          {
+            "start": 2.72,
+            "end": 3.34,
+            "word": " بگیم",
+            "probability": 0.9972645193338394
+          },
+          {
+            "start": 3.34,
+            "end": 3.6,
+            "word": " که",
+            "probability": 0.9962438344955444
+          },
+          {
+            "start": 3.6,
+            "end": 4.26,
+            "word": " اگر",
+            "probability": 0.7601902087529501
+          },
+          {
+            "start": 4.26,
+            "end": 5.74,
+            "word": " بیزنست",
+            "probability": 0.8999284744262696
+          },
+          {
+            "start": 5.74,
+            "end": 6.08,
+            "word": " داره",
+            "probability": 0.9965131878852844
+          },
+          {
+            "start": 6.08,
+            "end": 6.78,
+            "word": " می‌چرخه،",
+            "probability": 0.7705550056749156
+          },
+          {
+            "start": 6.78,
+            "end": 7.0,
+            "word": " کس",
+            "probability": 0.9850009679794312
+          },
+          {
+            "start": 7.0,
+            "end": 7.18,
+            "word": " با",
+            "probability": 0.8008002042770386
+          },
+          {
+            "start": 7.18,
+            "end": 7.36,
+            "word": " کار",
+            "probability": 0.9975602328777313
+          },
+          {
+            "start": 7.36,
+            "end": 7.94,
+            "word": " رونق",
+            "probability": 0.5759858886400858
+          },
+          {
+            "start": 7.94,
+            "end": 8.26,
+            "word": " دارد،",
+            "probability": 0.6219494150427636
+          },
+          {
+            "start": 8.26,
+            "end": 8.54,
+            "word": " منم",
+            "probability": 0.9155079126358032
+          },
+          {
+            "start": 8.54,
+            "end": 8.72,
+            "word": " یه",
+            "probability": 0.9586743414402008
+          },
+          {
+            "start": 8.72,
+            "end": 9.02,
+            "word": " پولی",
+            "probability": 0.9947854081789652
+          },
+          {
+            "start": 9.02,
+            "end": 9.46,
+            "word": " دارم.",
+            "probability": 0.9906188646952311
+          },
+          {
+            "start": 9.54,
+            "end": 9.84,
+            "word": " نه",
+            "probability": 0.9631006121635437
+          },
+          {
+            "start": 9.84,
+            "end": 9.9,
+            "word": " به",
+            "probability": 0.9744523167610168
+          },
+          {
+            "start": 9.9,
+            "end": 10.42,
+            "word": " صورت",
+            "probability": 0.9887489676475525
+          }
+        ]
+      }
+    ]
+  }
+}

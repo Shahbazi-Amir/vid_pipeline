@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "1744f465512c5ccf126b617c8da86c339f0238ca22fb702ffdfe595f2955dba5",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.5,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.98,
+        "text": "گفت دیگتون دیشب خونه ما مرد. گف مگه دی‌گم می‌میره؟ گف آره هموجودی که اون شب خونای ما زایید، دی شب دی بزرگتان خونها ما مورد.",
+        "avg_logprob": -0.2720866956930051,
+        "compression_ratio": 1.6492537313432836,
+        "no_speech_prob": 3.148405702813051e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.82,
+            "word": " گفت",
+            "probability": 0.959824820359548
+          },
+          {
+            "start": 0.82,
+            "end": 1.2,
+            "word": " دیگتون",
+            "probability": 0.920340633392334
+          },
+          {
+            "start": 1.2,
+            "end": 1.58,
+            "word": " دیشب",
+            "probability": 0.9735396802425385
+          },
+          {
+            "start": 1.58,
+            "end": 1.86,
+            "word": " خونه",
+            "probability": 0.9605834285418192
+          },
+          {
+            "start": 1.86,
+            "end": 2.0,
+            "word": " ما",
+            "probability": 0.9043053984642029
+          },
+          {
+            "start": 2.0,
+            "end": 2.5,
+            "word": " مرد.",
+            "probability": 0.9865395029385885
+          },
+          {
+            "start": 2.7,
+            "end": 3.34,
+            "word": " گف",
+            "probability": 0.9942221343517303
+          },
+          {
+            "start": 3.34,
+            "end": 3.62,
+            "word": " مگه",
+            "probability": 0.6618678113639666
+          },
+          {
+            "start": 3.62,
+            "end": 4.0,
+            "word": " دی‌گم",
+            "probability": 0.7224737600212393
+          },
+          {
+            "start": 4.0,
+            "end": 4.66,
+            "word": " می‌میره؟",
+            "probability": 0.9175758872713361
+          },
+          {
+            "start": 4.66,
+            "end": 4.82,
+            "word": " گف",
+            "probability": 0.9560617506504059
+          },
+          {
+            "start": 4.82,
+            "end": 5.12,
+            "word": " آره",
+            "probability": 0.6594941829874491
+          },
+          {
+            "start": 5.12,
+            "end": 5.78,
+            "word": " هموجودی",
+            "probability": 0.8600900292396545
+          },
+          {
+            "start": 5.78,
+            "end": 5.9,
+            "word": " که",
+            "probability": 0.9807756543159485
+          },
+          {
+            "start": 5.9,
+            "end": 6.06,
+            "word": " اون",
+            "probability": 0.977272093296051
+          },
+          {
+            "start": 6.06,
+            "end": 6.28,
+            "word": " شب",
+            "probability": 0.8275025486946106
+          },
+          {
+            "start": 6.28,
+            "end": 6.62,
+            "word": " خونای",
+            "probability": 0.5582191942958161
+          },
+          {
+            "start": 6.62,
+            "end": 6.76,
+            "word": " ما",
+            "probability": 0.9789931774139404
+          },
+          {
+            "start": 6.76,
+            "end": 7.46,
+            "word": " زایید،",
+            "probability": 0.7856423010428747
+          },
+          {
+            "start": 7.46,
+            "end": 7.86,
+            "word": " دی",
+            "probability": 0.9973489046096802
+          },
+          {
+            "start": 7.86,
+            "end": 8.12,
+            "word": " شب",
+            "probability": 0.5011590886861086
+          },
+          {
+            "start": 8.12,
+            "end": 8.28,
+            "word": " دی",
+            "probability": 0.8853285312652588
+          },
+          {
+            "start": 8.28,
+            "end": 9.0,
+            "word": " بزرگتان",
+            "probability": 0.6463695903269885
+          },
+          {
+            "start": 9.0,
+            "end": 9.36,
+            "word": " خونها",
+            "probability": 0.4366593500696278
+          },
+          {
+            "start": 9.36,
+            "end": 9.52,
+            "word": " ما",
+            "probability": 0.3885378837585449
+          },
+          {
+            "start": 9.52,
+            "end": 9.98,
+            "word": " مورد.",
+            "probability": 0.6643323863390833
+          }
+        ]
+      }
+    ]
+  }
+}

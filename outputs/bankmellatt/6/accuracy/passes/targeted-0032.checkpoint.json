@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "5bff70eae7999759c13b2a909ce11368d68999531563678e8226b06ada4fceab",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.2,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.18,
+        "text": "باشن که بخوام پیگیر این موضوع باشه. یه سرمایه‌گذاری هایی هم هست مثل اینکه مثلا امه‌ی خاله‌ای ام...",
+        "avg_logprob": -0.2902518493541773,
+        "compression_ratio": 1.4126984126984128,
+        "no_speech_prob": 4.0861916628109896e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.26,
+            "word": " باشن",
+            "probability": 0.6039488712946574
+          },
+          {
+            "start": 0.26,
+            "end": 0.38,
+            "word": " که",
+            "probability": 0.989488959312439
+          },
+          {
+            "start": 0.38,
+            "end": 0.64,
+            "word": " بخوام",
+            "probability": 0.8349327892065048
+          },
+          {
+            "start": 0.64,
+            "end": 1.08,
+            "word": " پیگیر",
+            "probability": 0.9686968326568604
+          },
+          {
+            "start": 1.08,
+            "end": 1.18,
+            "word": " این",
+            "probability": 0.9016889929771423
+          },
+          {
+            "start": 1.18,
+            "end": 1.52,
+            "word": " موضوع",
+            "probability": 0.9974360466003418
+          },
+          {
+            "start": 1.52,
+            "end": 1.84,
+            "word": " باشه.",
+            "probability": 0.7653269271055857
+          },
+          {
+            "start": 2.24,
+            "end": 2.92,
+            "word": " یه",
+            "probability": 0.9795807003974915
+          },
+          {
+            "start": 2.92,
+            "end": 3.74,
+            "word": " سرمایه‌گذاری",
+            "probability": 0.8069717444479465
+          },
+          {
+            "start": 3.74,
+            "end": 4.02,
+            "word": " هایی",
+            "probability": 0.7360493019223213
+          },
+          {
+            "start": 4.02,
+            "end": 4.2,
+            "word": " هم",
+            "probability": 0.9450131952762604
+          },
+          {
+            "start": 4.2,
+            "end": 4.52,
+            "word": " هست",
+            "probability": 0.9642629623413086
+          },
+          {
+            "start": 4.52,
+            "end": 4.9,
+            "word": " مثل",
+            "probability": 0.9848428964614868
+          },
+          {
+            "start": 4.9,
+            "end": 5.68,
+            "word": " اینکه",
+            "probability": 0.9041405767202377
+          },
+          {
+            "start": 5.68,
+            "end": 6.26,
+            "word": " مثلا",
+            "probability": 0.9541281163692474
+          },
+          {
+            "start": 6.26,
+            "end": 7.4,
+            "word": " امه‌ی",
+            "probability": 0.8014050900936127
+          },
+          {
+            "start": 7.4,
+            "end": 7.96,
+            "word": " خاله‌ای",
+            "probability": 0.8309881637493769
+          },
+          {
+            "start": 7.96,
+            "end": 8.18,
+            "word": " ام...",
+            "probability": 0.5107949686547121
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "e038785deeaecc75c728549b08975a3d79e9c680d6a0c71ba24c9be5b8c2375d",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.12,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.1,
+        "text": "این دیگه کوچکتر گذاشت داخلش و داد بهش، همسایی گفت ایندیگ کوچیکه مال ما نیست، گفt آره دیشن",
+        "avg_logprob": -0.24152574368885585,
+        "compression_ratio": 1.415929203539823,
+        "no_speech_prob": 2.941867582872959e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.0,
+            "word": " این",
+            "probability": 0.5313310325145721
+          },
+          {
+            "start": 0.0,
+            "end": 0.16,
+            "word": " دیگه",
+            "probability": 0.9771258234977722
+          },
+          {
+            "start": 0.16,
+            "end": 0.74,
+            "word": " کوچکتر",
+            "probability": 0.7246486127376557
+          },
+          {
+            "start": 0.74,
+            "end": 1.24,
+            "word": " گذاشت",
+            "probability": 0.9732700288295746
+          },
+          {
+            "start": 1.24,
+            "end": 1.74,
+            "word": " داخلش",
+            "probability": 0.9879229962825775
+          },
+          {
+            "start": 1.74,
+            "end": 1.88,
+            "word": " و",
+            "probability": 0.7604902386665344
+          },
+          {
+            "start": 1.88,
+            "end": 2.16,
+            "word": " داد",
+            "probability": 0.9876021444797516
+          },
+          {
+            "start": 2.16,
+            "end": 2.6,
+            "word": " بهش،",
+            "probability": 0.6673290130371848
+          },
+          {
+            "start": 2.6,
+            "end": 3.06,
+            "word": " همسایی",
+            "probability": 0.9120552043120066
+          },
+          {
+            "start": 3.06,
+            "end": 3.26,
+            "word": " گفت",
+            "probability": 0.9887558023134867
+          },
+          {
+            "start": 3.26,
+            "end": 3.58,
+            "word": " ایندیگ",
+            "probability": 0.75434803776443
+          },
+          {
+            "start": 3.58,
+            "end": 3.98,
+            "word": " کوچیکه",
+            "probability": 0.44716341281309724
+          },
+          {
+            "start": 3.98,
+            "end": 4.14,
+            "word": " مال",
+            "probability": 0.7152037918567657
+          },
+          {
+            "start": 4.14,
+            "end": 4.26,
+            "word": " ما",
+            "probability": 0.46480318903923035
+          },
+          {
+            "start": 4.26,
+            "end": 4.8,
+            "word": " نیست،",
+            "probability": 0.8475027903914452
+          },
+          {
+            "start": 4.8,
+            "end": 5.62,
+            "word": " گفt",
+            "probability": 0.6618608247760372
+          },
+          {
+            "start": 5.62,
+            "end": 6.18,
+            "word": " آره",
+            "probability": 0.9227695862452189
+          },
+          {
+            "start": 6.18,
+            "end": 7.1,
+            "word": " دیشن",
+            "probability": 0.7495223730802536
+          }
+        ]
+      }
+    ]
+  }
+}

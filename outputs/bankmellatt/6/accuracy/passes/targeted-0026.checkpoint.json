@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "efc779edba812c1d856c295a00886226ad307d334446818809b38036a7abdb8f",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.98,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.96,
+        "text": "یا ریسکش خیلی بالاست، این که یک دفعه مثلا سایت‌ها بلوکه بشه و اجازه ندهن مثلا بفهمن که از آئی پی ایران داره این خرید.",
+        "avg_logprob": -0.18727579234558858,
+        "compression_ratio": 1.4383561643835616,
+        "no_speech_prob": 2.862455550367571e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.6,
+            "word": " یا",
+            "probability": 0.9839743375778198
+          },
+          {
+            "start": 0.6,
+            "end": 1.34,
+            "word": " ریسکش",
+            "probability": 0.9858624577522278
+          },
+          {
+            "start": 1.34,
+            "end": 1.68,
+            "word": " خیلی",
+            "probability": 0.9973353296518326
+          },
+          {
+            "start": 1.68,
+            "end": 2.7,
+            "word": " بالاست،",
+            "probability": 0.6986428266391158
+          },
+          {
+            "start": 2.7,
+            "end": 2.8,
+            "word": " این",
+            "probability": 0.9922479689121246
+          },
+          {
+            "start": 2.8,
+            "end": 2.92,
+            "word": " که",
+            "probability": 0.8973912000656128
+          },
+          {
+            "start": 2.92,
+            "end": 3.14,
+            "word": " یک",
+            "probability": 0.9928440451622009
+          },
+          {
+            "start": 3.14,
+            "end": 3.62,
+            "word": " دفعه",
+            "probability": 0.7554848864674568
+          },
+          {
+            "start": 3.62,
+            "end": 3.94,
+            "word": " مثلا",
+            "probability": 0.9169231057167053
+          },
+          {
+            "start": 3.94,
+            "end": 5.6,
+            "word": " سایت‌ها",
+            "probability": 0.8316204858322939
+          },
+          {
+            "start": 5.6,
+            "end": 6.14,
+            "word": " بلوکه",
+            "probability": 0.9451634883880615
+          },
+          {
+            "start": 6.14,
+            "end": 6.56,
+            "word": " بشه",
+            "probability": 0.9741933941841125
+          },
+          {
+            "start": 6.56,
+            "end": 6.74,
+            "word": " و",
+            "probability": 0.968979001045227
+          },
+          {
+            "start": 6.74,
+            "end": 7.18,
+            "word": " اجازه",
+            "probability": 0.9932050704956055
+          },
+          {
+            "start": 7.18,
+            "end": 7.52,
+            "word": " ندهن",
+            "probability": 0.6535592898726463
+          },
+          {
+            "start": 7.52,
+            "end": 7.84,
+            "word": " مثلا",
+            "probability": 0.9246083199977875
+          },
+          {
+            "start": 7.84,
+            "end": 8.38,
+            "word": " بفهمن",
+            "probability": 0.9514915496110916
+          },
+          {
+            "start": 8.38,
+            "end": 8.54,
+            "word": " که",
+            "probability": 0.987711489200592
+          },
+          {
+            "start": 8.54,
+            "end": 8.66,
+            "word": " از",
+            "probability": 0.9827074408531189
+          },
+          {
+            "start": 8.66,
+            "end": 8.92,
+            "word": " آئی",
+            "probability": 0.5203534166018168
+          },
+          {
+            "start": 8.92,
+            "end": 9.04,
+            "word": " پی",
+            "probability": 0.7830117046833038
+          },
+          {
+            "start": 9.04,
+            "end": 9.36,
+            "word": " ایران",
+            "probability": 0.981039434671402
+          },
+          {
+            "start": 9.36,
+            "end": 9.6,
+            "word": " داره",
+            "probability": 0.9591177701950073
+          },
+          {
+            "start": 9.6,
+            "end": 9.7,
+            "word": " این",
+            "probability": 0.8190197348594666
+          },
+          {
+            "start": 9.7,
+            "end": 9.96,
+            "word": " خرید.",
+            "probability": 0.8216847976048788
+          }
+        ]
+      }
+    ]
+  }
+}

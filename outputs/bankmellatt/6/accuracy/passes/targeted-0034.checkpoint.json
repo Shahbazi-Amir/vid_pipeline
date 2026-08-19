@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "4840268527cdfb4d664f954de52d9e194721bef8cbfc058f50936b3e4d041524",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.5,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.74,
+        "text": "گردایی داره توی بیزنسی کار می‌کنه و خوبه ما کمکش بکنیم. بگیم که خب اگر",
+        "avg_logprob": -0.22857335868936318,
+        "compression_ratio": 1.2989690721649485,
+        "no_speech_prob": 2.6439891942509064e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.38,
+            "word": " گردایی",
+            "probability": 0.6321507185697556
+          },
+          {
+            "start": 0.38,
+            "end": 0.72,
+            "word": " داره",
+            "probability": 0.9774078130722046
+          },
+          {
+            "start": 0.72,
+            "end": 0.86,
+            "word": " توی",
+            "probability": 0.9208092093467712
+          },
+          {
+            "start": 0.86,
+            "end": 1.58,
+            "word": " بیزنسی",
+            "probability": 0.9643731514612833
+          },
+          {
+            "start": 1.58,
+            "end": 1.94,
+            "word": " کار",
+            "probability": 0.9932559132575989
+          },
+          {
+            "start": 1.94,
+            "end": 2.5,
+            "word": " می‌کنه",
+            "probability": 0.7686686277389526
+          },
+          {
+            "start": 2.5,
+            "end": 3.26,
+            "word": " و",
+            "probability": 0.9379110336303711
+          },
+          {
+            "start": 3.26,
+            "end": 3.6,
+            "word": " خوبه",
+            "probability": 0.9114294648170471
+          },
+          {
+            "start": 3.6,
+            "end": 3.78,
+            "word": " ما",
+            "probability": 0.7575488686561584
+          },
+          {
+            "start": 3.78,
+            "end": 4.36,
+            "word": " کمکش",
+            "probability": 0.9901235699653625
+          },
+          {
+            "start": 4.36,
+            "end": 5.06,
+            "word": " بکنیم.",
+            "probability": 0.9756761431694031
+          },
+          {
+            "start": 5.2,
+            "end": 5.86,
+            "word": " بگیم",
+            "probability": 0.9759594798088074
+          },
+          {
+            "start": 5.86,
+            "end": 6.1,
+            "word": " که",
+            "probability": 0.9621799290180206
+          },
+          {
+            "start": 6.1,
+            "end": 6.32,
+            "word": " خب",
+            "probability": 0.7663832008838654
+          },
+          {
+            "start": 6.32,
+            "end": 6.74,
+            "word": " اگر",
+            "probability": 0.9591361085573832
+          }
+        ]
+      }
+    ]
+  }
+}

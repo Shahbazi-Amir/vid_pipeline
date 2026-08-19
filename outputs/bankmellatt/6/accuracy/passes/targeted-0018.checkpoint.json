@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "984deed9410cc4a08afbc4bd09e895ece62e040914981ae4358095bd3441dbe7",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.14,
+    "segments": [
+      {
+        "id": 1,
+        "start": 3.0799999999999987,
+        "end": 10.12,
+        "text": "سلام، خیلی خوبه که همچنان آموزه‌های ثواد مالی را پیگیری می‌کنید، امیدوارم که اونها را همین روزها هم بکن.",
+        "avg_logprob": -0.13588325182596842,
+        "compression_ratio": 1.4806201550387597,
+        "no_speech_prob": 2.752286731855236e-10,
+        "words": [
+          {
+            "start": 3.0799999999999987,
+            "end": 3.68,
+            "word": " سلام،",
+            "probability": 0.5436317399144173
+          },
+          {
+            "start": 3.68,
+            "end": 3.94,
+            "word": " خیلی",
+            "probability": 0.9978365898132324
+          },
+          {
+            "start": 3.94,
+            "end": 4.18,
+            "word": " خوبه",
+            "probability": 0.9810517430305481
+          },
+          {
+            "start": 4.18,
+            "end": 4.38,
+            "word": " که",
+            "probability": 0.9978186786174774
+          },
+          {
+            "start": 4.38,
+            "end": 4.88,
+            "word": " همچنان",
+            "probability": 0.9967576861381531
+          },
+          {
+            "start": 4.88,
+            "end": 5.92,
+            "word": " آموزه‌های",
+            "probability": 0.806297916569747
+          },
+          {
+            "start": 5.92,
+            "end": 6.3,
+            "word": " ثواد",
+            "probability": 0.8510469396909078
+          },
+          {
+            "start": 6.3,
+            "end": 6.6,
+            "word": " مالی",
+            "probability": 0.985001822312673
+          },
+          {
+            "start": 6.6,
+            "end": 6.66,
+            "word": " را",
+            "probability": 0.3842274472117424
+          },
+          {
+            "start": 6.66,
+            "end": 7.08,
+            "word": " پیگیری",
+            "probability": 0.9672971963882446
+          },
+          {
+            "start": 7.08,
+            "end": 7.72,
+            "word": " می‌کنید،",
+            "probability": 0.8590631059237889
+          },
+          {
+            "start": 7.72,
+            "end": 8.2,
+            "word": " امیدوارم",
+            "probability": 0.9754931075232369
+          },
+          {
+            "start": 8.2,
+            "end": 8.34,
+            "word": " که",
+            "probability": 0.9757460355758667
+          },
+          {
+            "start": 8.34,
+            "end": 8.64,
+            "word": " اونها",
+            "probability": 0.7668096025784811
+          },
+          {
+            "start": 8.64,
+            "end": 8.86,
+            "word": " را",
+            "probability": 0.9654143452644348
+          },
+          {
+            "start": 8.86,
+            "end": 9.22,
+            "word": " همین",
+            "probability": 0.9826034704844157
+          },
+          {
+            "start": 9.22,
+            "end": 9.7,
+            "word": " روزها",
+            "probability": 0.928124412894249
+          },
+          {
+            "start": 9.7,
+            "end": 9.9,
+            "word": " هم",
+            "probability": 0.9764930009841919
+          },
+          {
+            "start": 9.9,
+            "end": 10.12,
+            "word": " بکن.",
+            "probability": 0.7977195382118225
+          }
+        ]
+      }
+    ]
+  }
+}

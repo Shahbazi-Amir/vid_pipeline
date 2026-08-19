@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "80805b370b0058954efab8cd7733f2908aece4e66e8af69ae7c2c91bcb02394d",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.14,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.12,
+        "text": "همسایه گفت این دیگه کچیک مالمان نیست، گف آره دیشب دیژه تو اون خونه ما زایمان کرد و یه ديگه کوچیک داشت، هم ساییه خیلی خوشحال شد و برگرد.",
+        "avg_logprob": -0.2594296179319683,
+        "compression_ratio": 1.6283783783783783,
+        "no_speech_prob": 3.207288601370095e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.94,
+            "word": " همسایه",
+            "probability": 0.9105072816212972
+          },
+          {
+            "start": 0.94,
+            "end": 1.14,
+            "word": " گفت",
+            "probability": 0.9828011393547058
+          },
+          {
+            "start": 1.14,
+            "end": 1.3,
+            "word": " این",
+            "probability": 0.9733000695705414
+          },
+          {
+            "start": 1.3,
+            "end": 1.48,
+            "word": " دیگه",
+            "probability": 0.9957766085863113
+          },
+          {
+            "start": 1.48,
+            "end": 1.78,
+            "word": " کچیک",
+            "probability": 0.858535905679067
+          },
+          {
+            "start": 1.78,
+            "end": 2.24,
+            "word": " مالمان",
+            "probability": 0.5751294990380605
+          },
+          {
+            "start": 2.24,
+            "end": 2.68,
+            "word": " نیست،",
+            "probability": 0.7343179145827889
+          },
+          {
+            "start": 2.68,
+            "end": 3.42,
+            "word": " گف",
+            "probability": 0.9849770069122314
+          },
+          {
+            "start": 3.42,
+            "end": 3.92,
+            "word": " آره",
+            "probability": 0.6650129333720542
+          },
+          {
+            "start": 3.92,
+            "end": 5.1,
+            "word": " دیشب",
+            "probability": 0.9197894036769867
+          },
+          {
+            "start": 5.1,
+            "end": 5.62,
+            "word": " دیژه",
+            "probability": 0.7324824020819506
+          },
+          {
+            "start": 5.62,
+            "end": 5.76,
+            "word": " تو",
+            "probability": 0.60516756772995
+          },
+          {
+            "start": 5.76,
+            "end": 5.86,
+            "word": " اون",
+            "probability": 0.8307170569896698
+          },
+          {
+            "start": 5.86,
+            "end": 6.16,
+            "word": " خونه",
+            "probability": 0.9655391971270243
+          },
+          {
+            "start": 6.16,
+            "end": 6.38,
+            "word": " ما",
+            "probability": 0.26979491114616394
+          },
+          {
+            "start": 6.38,
+            "end": 6.94,
+            "word": " زایمان",
+            "probability": 0.8679848551750183
+          },
+          {
+            "start": 6.94,
+            "end": 7.26,
+            "word": " کرد",
+            "probability": 0.9929201900959015
+          },
+          {
+            "start": 7.26,
+            "end": 7.36,
+            "word": " و",
+            "probability": 0.8610566854476929
+          },
+          {
+            "start": 7.36,
+            "end": 7.62,
+            "word": " یه",
+            "probability": 0.9371307492256165
+          },
+          {
+            "start": 7.62,
+            "end": 7.84,
+            "word": " ديگه",
+            "probability": 0.7463790901952052
+          },
+          {
+            "start": 7.84,
+            "end": 8.24,
+            "word": " کوچیک",
+            "probability": 0.664278220385313
+          },
+          {
+            "start": 8.24,
+            "end": 8.7,
+            "word": " داشت،",
+            "probability": 0.8141852393746376
+          },
+          {
+            "start": 8.7,
+            "end": 9.02,
+            "word": " هم",
+            "probability": 0.9965308010578156
+          },
+          {
+            "start": 9.02,
+            "end": 9.38,
+            "word": " ساییه",
+            "probability": 0.5974779999698512
+          },
+          {
+            "start": 9.38,
+            "end": 9.88,
+            "word": " خیلی",
+            "probability": 0.9787815362215042
+          },
+          {
+            "start": 9.88,
+            "end": 10.36,
+            "word": " خوشحال",
+            "probability": 0.9972731590270996
+          },
+          {
+            "start": 10.36,
+            "end": 10.6,
+            "word": " شد",
+            "probability": 0.9972324967384338
+          },
+          {
+            "start": 10.6,
+            "end": 10.7,
+            "word": " و",
+            "probability": 0.9129888415336609
+          },
+          {
+            "start": 10.7,
+            "end": 11.12,
+            "word": " برگرد.",
+            "probability": 0.9539699673652648
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "545929742a06b781fed7b417a8e91c36c330eb9a9d6f21dee98433de48faf820",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.86,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.32,
+        "text": "همسایه خیلی خوشحال شد و برگشت، گفت این بابایی اصلا هیچ چی نمی‌دونه. یه دیگه کاثب شدیم.",
+        "avg_logprob": -0.21332043343607118,
+        "compression_ratio": 1.3135593220338984,
+        "no_speech_prob": 2.9233915288529033e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.54,
+            "word": " همسایه",
+            "probability": 0.9783366620540619
+          },
+          {
+            "start": 0.54,
+            "end": 1.06,
+            "word": " خیلی",
+            "probability": 0.9911252558231354
+          },
+          {
+            "start": 1.06,
+            "end": 1.54,
+            "word": " خوشحال",
+            "probability": 0.9978685855865479
+          },
+          {
+            "start": 1.54,
+            "end": 1.78,
+            "word": " شد",
+            "probability": 0.9987297654151917
+          },
+          {
+            "start": 1.78,
+            "end": 1.88,
+            "word": " و",
+            "probability": 0.9697183966636658
+          },
+          {
+            "start": 1.88,
+            "end": 2.6,
+            "word": " برگشت،",
+            "probability": 0.8295949613675475
+          },
+          {
+            "start": 2.6,
+            "end": 2.72,
+            "word": " گفت",
+            "probability": 0.8675285577774048
+          },
+          {
+            "start": 2.72,
+            "end": 2.84,
+            "word": " این",
+            "probability": 0.41327132284641266
+          },
+          {
+            "start": 2.84,
+            "end": 3.22,
+            "word": " بابایی",
+            "probability": 0.8012019634246826
+          },
+          {
+            "start": 3.22,
+            "end": 3.4,
+            "word": " اصلا",
+            "probability": 0.8591848413149515
+          },
+          {
+            "start": 3.4,
+            "end": 3.62,
+            "word": " هیچ",
+            "probability": 0.9699537555376688
+          },
+          {
+            "start": 3.62,
+            "end": 3.76,
+            "word": " چی",
+            "probability": 0.8588743805885315
+          },
+          {
+            "start": 3.76,
+            "end": 4.4,
+            "word": " نمی‌دونه.",
+            "probability": 0.839809726657612
+          },
+          {
+            "start": 4.84,
+            "end": 5.32,
+            "word": " یه",
+            "probability": 0.9529890418052673
+          },
+          {
+            "start": 5.32,
+            "end": 5.52,
+            "word": " دیگه",
+            "probability": 0.8297794014215469
+          },
+          {
+            "start": 5.52,
+            "end": 5.92,
+            "word": " کاثب",
+            "probability": 0.8764551877975464
+          },
+          {
+            "start": 5.92,
+            "end": 6.32,
+            "word": " شدیم.",
+            "probability": 0.9712056666612625
+          }
+        ]
+      }
+    ]
+  }
+}

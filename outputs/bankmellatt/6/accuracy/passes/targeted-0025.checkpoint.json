@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "89e1fa0798f8ca1f3ad51ccf7d975188734c552655b483706b8b5f3dc0df276b",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.4,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.9,
+        "text": "یا نمی‌شه سرمایه گذاری کرد، یا ریسکش خیلی بالاست، این که یکی دفعه مثلاً",
+        "avg_logprob": -0.18695980396408302,
+        "compression_ratio": 1.25,
+        "no_speech_prob": 1.9205433077207346e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.68,
+            "word": " یا",
+            "probability": 0.44772040587849915
+          },
+          {
+            "start": 0.68,
+            "end": 1.2,
+            "word": " نمی‌شه",
+            "probability": 0.7955211562511977
+          },
+          {
+            "start": 1.2,
+            "end": 1.78,
+            "word": " سرمایه",
+            "probability": 0.9772238612174988
+          },
+          {
+            "start": 1.78,
+            "end": 2.2,
+            "word": " گذاری",
+            "probability": 0.8039792850613594
+          },
+          {
+            "start": 2.2,
+            "end": 2.6,
+            "word": " کرد،",
+            "probability": 0.6590447382380565
+          },
+          {
+            "start": 2.6,
+            "end": 2.98,
+            "word": " یا",
+            "probability": 0.9831240773200989
+          },
+          {
+            "start": 2.98,
+            "end": 3.74,
+            "word": " ریسکش",
+            "probability": 0.9393575310707092
+          },
+          {
+            "start": 3.74,
+            "end": 4.08,
+            "word": " خیلی",
+            "probability": 0.9922754764556885
+          },
+          {
+            "start": 4.08,
+            "end": 5.1,
+            "word": " بالاست،",
+            "probability": 0.718969639390707
+          },
+          {
+            "start": 5.1,
+            "end": 5.2,
+            "word": " این",
+            "probability": 0.9898825287818909
+          },
+          {
+            "start": 5.2,
+            "end": 5.32,
+            "word": " که",
+            "probability": 0.7922026216983795
+          },
+          {
+            "start": 5.32,
+            "end": 5.64,
+            "word": " یکی",
+            "probability": 0.9328675270080566
+          },
+          {
+            "start": 5.64,
+            "end": 6.0,
+            "word": " دفعه",
+            "probability": 0.8185726329684258
+          },
+          {
+            "start": 6.0,
+            "end": 6.9,
+            "word": " مثلاً",
+            "probability": 0.7113497654596964
+          }
+        ]
+      }
+    ]
+  }
+}

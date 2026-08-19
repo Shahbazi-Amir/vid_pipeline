@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "2ab6c9339e455547c1424e3e5a65ac4f13972af974fe4efdb6cad35bf211e7aa",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.78,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.76,
+        "text": "گذینه‌های سرمایه‌گزاری پیش روی ما هست. ببینید یه سری گذینا ها هست که خوب خیلی مدرنه مثلا مثل سر مایه گذاری در رمزرس ها، هم اطلاعات زیادی",
+        "avg_logprob": -0.2513568509132304,
+        "compression_ratio": 1.625,
+        "no_speech_prob": 3.8605355023868526e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.4,
+            "word": " گذینه‌های",
+            "probability": 0.7076768204569817
+          },
+          {
+            "start": 0.4,
+            "end": 1.18,
+            "word": " سرمایه‌گزاری",
+            "probability": 0.8459777578711509
+          },
+          {
+            "start": 1.18,
+            "end": 1.46,
+            "word": " پیش",
+            "probability": 0.9670263727506002
+          },
+          {
+            "start": 1.46,
+            "end": 1.72,
+            "word": " روی",
+            "probability": 0.8955861727396647
+          },
+          {
+            "start": 1.72,
+            "end": 1.9,
+            "word": " ما",
+            "probability": 0.9835079908370972
+          },
+          {
+            "start": 1.9,
+            "end": 2.14,
+            "word": " هست.",
+            "probability": 0.8571786284446716
+          },
+          {
+            "start": 2.42,
+            "end": 3.1,
+            "word": " ببینید",
+            "probability": 0.951104736328125
+          },
+          {
+            "start": 3.1,
+            "end": 3.22,
+            "word": " یه",
+            "probability": 0.7949633002281189
+          },
+          {
+            "start": 3.22,
+            "end": 3.38,
+            "word": " سری",
+            "probability": 0.9565515518188477
+          },
+          {
+            "start": 3.38,
+            "end": 3.84,
+            "word": " گذینا",
+            "probability": 0.7324610052164644
+          },
+          {
+            "start": 3.84,
+            "end": 4.02,
+            "word": " ها",
+            "probability": 0.8195975422859192
+          },
+          {
+            "start": 4.02,
+            "end": 4.28,
+            "word": " هست",
+            "probability": 0.9580721855163574
+          },
+          {
+            "start": 4.28,
+            "end": 4.72,
+            "word": " که",
+            "probability": 0.9624612033367157
+          },
+          {
+            "start": 4.72,
+            "end": 4.92,
+            "word": " خوب",
+            "probability": 0.5715344175696373
+          },
+          {
+            "start": 4.92,
+            "end": 5.28,
+            "word": " خیلی",
+            "probability": 0.9865058362483978
+          },
+          {
+            "start": 5.28,
+            "end": 5.9,
+            "word": " مدرنه",
+            "probability": 0.9232274055480957
+          },
+          {
+            "start": 5.9,
+            "end": 6.44,
+            "word": " مثلا",
+            "probability": 0.91399747133255
+          },
+          {
+            "start": 6.44,
+            "end": 7.34,
+            "word": " مثل",
+            "probability": 0.892954558134079
+          },
+          {
+            "start": 7.34,
+            "end": 7.74,
+            "word": " سر",
+            "probability": 0.9646778106689453
+          },
+          {
+            "start": 7.74,
+            "end": 7.92,
+            "word": " مایه",
+            "probability": 0.5325968589434827
+          },
+          {
+            "start": 7.92,
+            "end": 8.24,
+            "word": " گذاری",
+            "probability": 0.6247128359973431
+          },
+          {
+            "start": 8.24,
+            "end": 8.44,
+            "word": " در",
+            "probability": 0.9899482727050781
+          },
+          {
+            "start": 8.44,
+            "end": 9.18,
+            "word": " رمزرس",
+            "probability": 0.733405876159668
+          },
+          {
+            "start": 9.18,
+            "end": 9.5,
+            "word": " ها،",
+            "probability": 0.5072963808973631
+          },
+          {
+            "start": 9.5,
+            "end": 10.3,
+            "word": " هم",
+            "probability": 0.9707531034946442
+          },
+          {
+            "start": 10.3,
+            "end": 11.36,
+            "word": " اطلاعات",
+            "probability": 0.9919427514076233
+          },
+          {
+            "start": 11.36,
+            "end": 11.76,
+            "word": " زیادی",
+            "probability": 0.8269826173782349
+          }
+        ]
+      }
+    ]
+  }
+}

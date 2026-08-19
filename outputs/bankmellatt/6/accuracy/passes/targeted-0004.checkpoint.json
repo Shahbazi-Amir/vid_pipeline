@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "d0930c25521515f0720d990f6549f81bd7152a5964bd6a042721d4662b3551fb",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.18,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.16,
+        "text": "همسایه دید، دیگ رو پست نهیورده، رفت در خونهشون و گفت، دیکه ما رو می‌شه پست بدید؟ اون آدم هم، ديگه مت...",
+        "avg_logprob": -0.292850653050651,
+        "compression_ratio": 1.4409448818897639,
+        "no_speech_prob": 2.5947022308514534e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.56,
+            "word": " همسایه",
+            "probability": 0.8755168914794922
+          },
+          {
+            "start": 0.56,
+            "end": 1.02,
+            "word": " دید،",
+            "probability": 0.7718420624732971
+          },
+          {
+            "start": 1.02,
+            "end": 1.66,
+            "word": " دیگ",
+            "probability": 0.9877789417902628
+          },
+          {
+            "start": 1.66,
+            "end": 1.74,
+            "word": " رو",
+            "probability": 0.5444924160838127
+          },
+          {
+            "start": 1.74,
+            "end": 2.02,
+            "word": " پست",
+            "probability": 0.6440732777118683
+          },
+          {
+            "start": 2.02,
+            "end": 2.56,
+            "word": " نهیورده،",
+            "probability": 0.6909468940326146
+          },
+          {
+            "start": 2.56,
+            "end": 2.9,
+            "word": " رفت",
+            "probability": 0.9951962033907572
+          },
+          {
+            "start": 2.9,
+            "end": 3.04,
+            "word": " در",
+            "probability": 0.992607057094574
+          },
+          {
+            "start": 3.04,
+            "end": 3.52,
+            "word": " خونهشون",
+            "probability": 0.8821017146110535
+          },
+          {
+            "start": 3.52,
+            "end": 3.6,
+            "word": " و",
+            "probability": 0.828916609287262
+          },
+          {
+            "start": 3.6,
+            "end": 4.0,
+            "word": " گفت،",
+            "probability": 0.8054046593606472
+          },
+          {
+            "start": 4.0,
+            "end": 4.54,
+            "word": " دیکه",
+            "probability": 0.473753780349701
+          },
+          {
+            "start": 4.54,
+            "end": 4.66,
+            "word": " ما",
+            "probability": 0.965142548084259
+          },
+          {
+            "start": 4.66,
+            "end": 4.76,
+            "word": " رو",
+            "probability": 0.9954107403755188
+          },
+          {
+            "start": 4.76,
+            "end": 4.96,
+            "word": " می‌شه",
+            "probability": 0.7266283014323562
+          },
+          {
+            "start": 4.96,
+            "end": 5.24,
+            "word": " پست",
+            "probability": 0.9431174993515015
+          },
+          {
+            "start": 5.24,
+            "end": 5.96,
+            "word": " بدید؟",
+            "probability": 0.8302086293697357
+          },
+          {
+            "start": 5.96,
+            "end": 6.9,
+            "word": " اون",
+            "probability": 0.9312272071838379
+          },
+          {
+            "start": 6.9,
+            "end": 7.22,
+            "word": " آدم",
+            "probability": 0.991242915391922
+          },
+          {
+            "start": 7.22,
+            "end": 7.64,
+            "word": " هم،",
+            "probability": 0.7695014973481497
+          },
+          {
+            "start": 7.64,
+            "end": 7.96,
+            "word": " ديگه",
+            "probability": 0.7345860271161655
+          },
+          {
+            "start": 7.96,
+            "end": 8.16,
+            "word": " مت...",
+            "probability": 0.47223254665732384
+          }
+        ]
+      }
+    ]
+  }
+}

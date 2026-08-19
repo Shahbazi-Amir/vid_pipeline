@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "935a21e557210e604c715ee4d5f8146864a2eddfe065326692fc11dfee7be78f",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.69,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.58,
+        "text": "یه نفر رفت بیشه همسایشونو گفت می‌شه دیگه متوسطتونو به من بدید، دیژه مت وسطتو گرفت و اومد خونه.",
+        "avg_logprob": -0.2197565044929732,
+        "compression_ratio": 1.4912280701754386,
+        "no_speech_prob": 2.7934377033744795e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.6,
+            "word": " یه",
+            "probability": 0.9613319933414459
+          },
+          {
+            "start": 0.6,
+            "end": 0.94,
+            "word": " نفر",
+            "probability": 0.8906525174776713
+          },
+          {
+            "start": 0.94,
+            "end": 1.08,
+            "word": " رفت",
+            "probability": 0.9837437073389689
+          },
+          {
+            "start": 1.08,
+            "end": 1.3,
+            "word": " بیشه",
+            "probability": 0.8676858991384506
+          },
+          {
+            "start": 1.3,
+            "end": 1.96,
+            "word": " همسایشونو",
+            "probability": 0.8100082650780678
+          },
+          {
+            "start": 1.96,
+            "end": 2.22,
+            "word": " گفت",
+            "probability": 0.9966319998105367
+          },
+          {
+            "start": 2.22,
+            "end": 2.44,
+            "word": " می‌شه",
+            "probability": 0.7269226357748266
+          },
+          {
+            "start": 2.44,
+            "end": 2.68,
+            "word": " دیگه",
+            "probability": 0.9909803420305252
+          },
+          {
+            "start": 2.68,
+            "end": 3.5,
+            "word": " متوسطتونو",
+            "probability": 0.9588454167048136
+          },
+          {
+            "start": 3.5,
+            "end": 3.6,
+            "word": " به",
+            "probability": 0.5830338597297668
+          },
+          {
+            "start": 3.6,
+            "end": 3.78,
+            "word": " من",
+            "probability": 0.9578102827072144
+          },
+          {
+            "start": 3.78,
+            "end": 4.28,
+            "word": " بدید،",
+            "probability": 0.7641409151256084
+          },
+          {
+            "start": 4.28,
+            "end": 4.7,
+            "word": " دیژه",
+            "probability": 0.7885323051661544
+          },
+          {
+            "start": 4.7,
+            "end": 4.82,
+            "word": " مت",
+            "probability": 0.9957868456840515
+          },
+          {
+            "start": 4.82,
+            "end": 5.44,
+            "word": " وسطتو",
+            "probability": 0.5143997263794517
+          },
+          {
+            "start": 5.44,
+            "end": 5.92,
+            "word": " گرفت",
+            "probability": 0.9857818484306335
+          },
+          {
+            "start": 5.92,
+            "end": 5.98,
+            "word": " و",
+            "probability": 0.8527962565422058
+          },
+          {
+            "start": 5.98,
+            "end": 6.28,
+            "word": " اومد",
+            "probability": 0.9672990441322327
+          },
+          {
+            "start": 6.28,
+            "end": 6.58,
+            "word": " خونه.",
+            "probability": 0.8277038733164469
+          }
+        ]
+      }
+    ]
+  }
+}

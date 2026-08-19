@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "46316566377022827b3138cff8bd62927af52fb613f4e7026809d09365d64662",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.16,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.14,
+        "text": "آموزه‌های ثواد مالی رو پیگیری می‌کنید، امیدوارم که اون‌ها را همین روز‌ها هم به کار بگیرین. خب درباره این صحبت کرد،",
+        "avg_logprob": -0.16817456763237715,
+        "compression_ratio": 1.5179856115107915,
+        "no_speech_prob": 2.273982530054397e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.78,
+            "word": " آموزه‌های",
+            "probability": 0.8501031590858474
+          },
+          {
+            "start": 0.78,
+            "end": 1.16,
+            "word": " ثواد",
+            "probability": 0.814512034257253
+          },
+          {
+            "start": 1.16,
+            "end": 1.44,
+            "word": " مالی",
+            "probability": 0.9765259623527527
+          },
+          {
+            "start": 1.44,
+            "end": 1.52,
+            "word": " رو",
+            "probability": 0.874418169260025
+          },
+          {
+            "start": 1.52,
+            "end": 1.96,
+            "word": " پیگیری",
+            "probability": 0.9275256276130677
+          },
+          {
+            "start": 1.96,
+            "end": 2.58,
+            "word": " می‌کنید،",
+            "probability": 0.8698210503373828
+          },
+          {
+            "start": 2.58,
+            "end": 3.06,
+            "word": " امیدوارم",
+            "probability": 0.9870743751525879
+          },
+          {
+            "start": 3.06,
+            "end": 3.2,
+            "word": " که",
+            "probability": 0.9631846845149994
+          },
+          {
+            "start": 3.2,
+            "end": 3.5,
+            "word": " اون‌ها",
+            "probability": 0.8024347871541977
+          },
+          {
+            "start": 3.5,
+            "end": 3.72,
+            "word": " را",
+            "probability": 0.5332366339862347
+          },
+          {
+            "start": 3.72,
+            "end": 4.08,
+            "word": " همین",
+            "probability": 0.9824988643328348
+          },
+          {
+            "start": 4.08,
+            "end": 4.56,
+            "word": " روز‌ها",
+            "probability": 0.905572485923767
+          },
+          {
+            "start": 4.56,
+            "end": 4.76,
+            "word": " هم",
+            "probability": 0.9493963420391083
+          },
+          {
+            "start": 4.76,
+            "end": 4.92,
+            "word": " به",
+            "probability": 0.962374210357666
+          },
+          {
+            "start": 4.92,
+            "end": 5.16,
+            "word": " کار",
+            "probability": 0.9467193186283112
+          },
+          {
+            "start": 5.16,
+            "end": 5.58,
+            "word": " بگیرین.",
+            "probability": 0.6963256880640983
+          },
+          {
+            "start": 6.5,
+            "end": 6.7,
+            "word": " خب",
+            "probability": 0.894170731306076
+          },
+          {
+            "start": 6.7,
+            "end": 7.2,
+            "word": " درباره",
+            "probability": 0.793282113969326
+          },
+          {
+            "start": 7.2,
+            "end": 7.32,
+            "word": " این",
+            "probability": 0.8559012115001678
+          },
+          {
+            "start": 7.32,
+            "end": 7.78,
+            "word": " صحبت",
+            "probability": 0.9854332804679871
+          },
+          {
+            "start": 7.78,
+            "end": 8.14,
+            "word": " کرد،",
+            "probability": 0.6961204955975214
+          }
+        ]
+      }
+    ]
+  }
+}

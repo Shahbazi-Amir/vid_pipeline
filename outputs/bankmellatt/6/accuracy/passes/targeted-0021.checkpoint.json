@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "b309cd400513e1515363f572fd0ee50d894cd06d7988680176abe09d7f8230cb",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.12,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.1,
+        "text": "وارد عرصه سرمایه گذاری می‌کنیم. اما چه گزینه‌های سر مایه‌گذاره‌ای پیش روی ما هست؟ ببینید یه سری گزدینه ها هست که خوب خیلی",
+        "avg_logprob": -0.2871952465800352,
+        "compression_ratio": 1.5815602836879432,
+        "no_speech_prob": 3.115206981263441e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.9,
+            "word": " وارد",
+            "probability": 0.41841560912628967
+          },
+          {
+            "start": 0.9,
+            "end": 1.22,
+            "word": " عرصه",
+            "probability": 0.8301258683204651
+          },
+          {
+            "start": 1.22,
+            "end": 1.74,
+            "word": " سرمایه",
+            "probability": 0.9171500563621521
+          },
+          {
+            "start": 1.74,
+            "end": 2.1,
+            "word": " گذاری",
+            "probability": 0.9869071394205093
+          },
+          {
+            "start": 2.1,
+            "end": 2.5,
+            "word": " می‌کنیم.",
+            "probability": 0.6526909315337738
+          },
+          {
+            "start": 2.58,
+            "end": 2.8,
+            "word": " اما",
+            "probability": 0.9648468196392059
+          },
+          {
+            "start": 2.8,
+            "end": 3.0,
+            "word": " چه",
+            "probability": 0.984772115945816
+          },
+          {
+            "start": 3.0,
+            "end": 3.52,
+            "word": " گزینه‌های",
+            "probability": 0.8257061296275684
+          },
+          {
+            "start": 3.52,
+            "end": 3.8,
+            "word": " سر",
+            "probability": 0.9829882383346558
+          },
+          {
+            "start": 3.8,
+            "end": 4.32,
+            "word": " مایه‌گذاره‌ای",
+            "probability": 0.6625270597578492
+          },
+          {
+            "start": 4.32,
+            "end": 4.58,
+            "word": " پیش",
+            "probability": 0.9453653693199158
+          },
+          {
+            "start": 4.58,
+            "end": 4.84,
+            "word": " روی",
+            "probability": 0.8526490330696106
+          },
+          {
+            "start": 4.84,
+            "end": 4.98,
+            "word": " ما",
+            "probability": 0.9774050116539001
+          },
+          {
+            "start": 4.98,
+            "end": 5.6,
+            "word": " هست؟",
+            "probability": 0.8547619382540385
+          },
+          {
+            "start": 5.6,
+            "end": 6.22,
+            "word": " ببینید",
+            "probability": 0.9512256145477295
+          },
+          {
+            "start": 6.22,
+            "end": 6.36,
+            "word": " یه",
+            "probability": 0.8999291956424713
+          },
+          {
+            "start": 6.36,
+            "end": 6.52,
+            "word": " سری",
+            "probability": 0.9185571372509003
+          },
+          {
+            "start": 6.52,
+            "end": 7.0,
+            "word": " گزدینه",
+            "probability": 0.7350565945496783
+          },
+          {
+            "start": 7.0,
+            "end": 7.14,
+            "word": " ها",
+            "probability": 0.49938503839075565
+          },
+          {
+            "start": 7.14,
+            "end": 7.4,
+            "word": " هست",
+            "probability": 0.9647661447525024
+          },
+          {
+            "start": 7.4,
+            "end": 7.8,
+            "word": " که",
+            "probability": 0.9519195854663849
+          },
+          {
+            "start": 7.8,
+            "end": 8.04,
+            "word": " خوب",
+            "probability": 0.6210502684116364
+          },
+          {
+            "start": 8.04,
+            "end": 8.1,
+            "word": " خیلی",
+            "probability": 0.6842187270522118
+          }
+        ]
+      }
+    ]
+  }
+}

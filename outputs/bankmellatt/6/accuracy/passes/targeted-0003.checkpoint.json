@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "8fbbd9457784530efce9a90f653114a1379072a3a9dbf0da895cab37f2ddfc71",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.88,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.86,
+        "text": "دیگه متوسط، گرفت و اومد خونه، همسایه دید، دیغ رو پس نهیورده، رفت در خونشون و گفت، ديگه ما رو میشه.",
+        "avg_logprob": -0.27937686359378655,
+        "compression_ratio": 1.4583333333333333,
+        "no_speech_prob": 2.5593302477311397e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.56,
+            "word": " دیگه",
+            "probability": 0.9532041549682617
+          },
+          {
+            "start": 0.56,
+            "end": 1.26,
+            "word": " متوسط،",
+            "probability": 0.7470592935569584
+          },
+          {
+            "start": 1.26,
+            "end": 1.82,
+            "word": " گرفت",
+            "probability": 0.9667880733807882
+          },
+          {
+            "start": 1.82,
+            "end": 1.9,
+            "word": " و",
+            "probability": 0.8276234269142151
+          },
+          {
+            "start": 1.9,
+            "end": 2.18,
+            "word": " اومد",
+            "probability": 0.9578901529312134
+          },
+          {
+            "start": 2.18,
+            "end": 2.62,
+            "word": " خونه،",
+            "probability": 0.7458557300269604
+          },
+          {
+            "start": 2.62,
+            "end": 3.44,
+            "word": " همسایه",
+            "probability": 0.8703940858443578
+          },
+          {
+            "start": 3.44,
+            "end": 3.84,
+            "word": " دید،",
+            "probability": 0.8045622557401657
+          },
+          {
+            "start": 3.84,
+            "end": 4.56,
+            "word": " دیغ",
+            "probability": 0.6557560316238474
+          },
+          {
+            "start": 4.56,
+            "end": 4.62,
+            "word": " رو",
+            "probability": 0.5147195532917976
+          },
+          {
+            "start": 4.62,
+            "end": 4.88,
+            "word": " پس",
+            "probability": 0.9297116100788116
+          },
+          {
+            "start": 4.88,
+            "end": 5.44,
+            "word": " نهیورده،",
+            "probability": 0.7116777045386178
+          },
+          {
+            "start": 5.44,
+            "end": 5.78,
+            "word": " رفت",
+            "probability": 0.994655986626943
+          },
+          {
+            "start": 5.78,
+            "end": 5.92,
+            "word": " در",
+            "probability": 0.9906165897846222
+          },
+          {
+            "start": 5.92,
+            "end": 6.4,
+            "word": " خونشون",
+            "probability": 0.7214336134493351
+          },
+          {
+            "start": 6.4,
+            "end": 6.48,
+            "word": " و",
+            "probability": 0.5979286432266235
+          },
+          {
+            "start": 6.48,
+            "end": 6.86,
+            "word": " گفت،",
+            "probability": 0.7844621613621712
+          },
+          {
+            "start": 6.86,
+            "end": 7.42,
+            "word": " ديگه",
+            "probability": 0.7434020542350481
+          },
+          {
+            "start": 7.42,
+            "end": 7.54,
+            "word": " ما",
+            "probability": 0.8225016593933105
+          },
+          {
+            "start": 7.54,
+            "end": 7.64,
+            "word": " رو",
+            "probability": 0.9909628033638
+          },
+          {
+            "start": 7.64,
+            "end": 7.86,
+            "word": " میشه.",
+            "probability": 0.9607070088386536
+          }
+        ]
+      }
+    ]
+  }
+}

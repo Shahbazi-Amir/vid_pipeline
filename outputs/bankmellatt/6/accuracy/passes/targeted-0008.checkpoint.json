@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "af1e7f6587cb65de8e2198037d33ee42fc475cf8e94d52cbf8976e77c0416cce",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.68,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.04,
+        "text": "مزایمان کرد و یه دیگه کوچیک داشت. همسایه خیلی خوشحال شد و برگشت. گفت ای بابایی اصلا هیچ چی نمی‌دونه.",
+        "avg_logprob": -0.22992154280344645,
+        "compression_ratio": 1.3984375,
+        "no_speech_prob": 3.006654369919204e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.78,
+            "word": " مزایمان",
+            "probability": 0.6684602399667104
+          },
+          {
+            "start": 0.78,
+            "end": 1.12,
+            "word": " کرد",
+            "probability": 0.9935136437416077
+          },
+          {
+            "start": 1.12,
+            "end": 1.22,
+            "word": " و",
+            "probability": 0.9420989155769348
+          },
+          {
+            "start": 1.22,
+            "end": 1.5,
+            "word": " یه",
+            "probability": 0.9572236239910126
+          },
+          {
+            "start": 1.5,
+            "end": 1.7,
+            "word": " دیگه",
+            "probability": 0.998082846403122
+          },
+          {
+            "start": 1.7,
+            "end": 2.08,
+            "word": " کوچیک",
+            "probability": 0.7057204147179922
+          },
+          {
+            "start": 2.08,
+            "end": 2.54,
+            "word": " داشت.",
+            "probability": 0.9917702476183573
+          },
+          {
+            "start": 2.74,
+            "end": 3.22,
+            "word": " همسایه",
+            "probability": 0.9891827205816904
+          },
+          {
+            "start": 3.22,
+            "end": 3.74,
+            "word": " خیلی",
+            "probability": 0.9862757176160812
+          },
+          {
+            "start": 3.74,
+            "end": 4.22,
+            "word": " خوشحال",
+            "probability": 0.9976579666137695
+          },
+          {
+            "start": 4.22,
+            "end": 4.46,
+            "word": " شد",
+            "probability": 0.9991931915283203
+          },
+          {
+            "start": 4.46,
+            "end": 4.56,
+            "word": " و",
+            "probability": 0.9915379285812378
+          },
+          {
+            "start": 4.56,
+            "end": 5.18,
+            "word": " برگشت.",
+            "probability": 0.9946910381317139
+          },
+          {
+            "start": 5.24,
+            "end": 5.4,
+            "word": " گفت",
+            "probability": 0.8891758720080057
+          },
+          {
+            "start": 5.4,
+            "end": 5.5,
+            "word": " ای",
+            "probability": 0.4670625627040863
+          },
+          {
+            "start": 5.5,
+            "end": 5.9,
+            "word": " بابایی",
+            "probability": 0.803463488817215
+          },
+          {
+            "start": 5.9,
+            "end": 6.08,
+            "word": " اصلا",
+            "probability": 0.8984718918800354
+          },
+          {
+            "start": 6.08,
+            "end": 6.32,
+            "word": " هیچ",
+            "probability": 0.9826390345891317
+          },
+          {
+            "start": 6.32,
+            "end": 6.44,
+            "word": " چی",
+            "probability": 0.8739792704582214
+          },
+          {
+            "start": 6.44,
+            "end": 7.04,
+            "word": " نمی‌دونه.",
+            "probability": 0.8421715710179082
+          }
+        ]
+      }
+    ]
+  }
+}

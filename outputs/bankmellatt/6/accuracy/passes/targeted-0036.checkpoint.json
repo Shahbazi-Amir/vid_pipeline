@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "110e9c308401b2aa2bcf0feac62f980b9326123549fe7ba7161b9f001c9b88a3",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.24,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.22,
+        "text": "داره می‌چرخه، کس با کار رونق دارد، منم یه پولی دارم، نه به صورت روا خدایی نکی.",
+        "avg_logprob": -0.2901383121058626,
+        "compression_ratio": 1.320754716981132,
+        "no_speech_prob": 3.2114236270253116e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.36,
+            "word": " داره",
+            "probability": 0.8687674005826315
+          },
+          {
+            "start": 0.36,
+            "end": 1.08,
+            "word": " می‌چرخه،",
+            "probability": 0.7246464325913361
+          },
+          {
+            "start": 1.08,
+            "end": 1.28,
+            "word": " کس",
+            "probability": 0.9558185935020447
+          },
+          {
+            "start": 1.28,
+            "end": 1.48,
+            "word": " با",
+            "probability": 0.7236669361591339
+          },
+          {
+            "start": 1.48,
+            "end": 1.64,
+            "word": " کار",
+            "probability": 0.9894370138645172
+          },
+          {
+            "start": 1.64,
+            "end": 2.22,
+            "word": " رونق",
+            "probability": 0.6116066177686056
+          },
+          {
+            "start": 2.22,
+            "end": 2.54,
+            "word": " دارد،",
+            "probability": 0.5594958176952787
+          },
+          {
+            "start": 2.54,
+            "end": 2.82,
+            "word": " منم",
+            "probability": 0.8893566131591797
+          },
+          {
+            "start": 2.82,
+            "end": 3.0,
+            "word": " یه",
+            "probability": 0.8733968436717987
+          },
+          {
+            "start": 3.0,
+            "end": 3.28,
+            "word": " پولی",
+            "probability": 0.9829626878102621
+          },
+          {
+            "start": 3.28,
+            "end": 3.88,
+            "word": " دارم،",
+            "probability": 0.7970862165093422
+          },
+          {
+            "start": 3.88,
+            "end": 4.12,
+            "word": " نه",
+            "probability": 0.9356096684932709
+          },
+          {
+            "start": 4.12,
+            "end": 4.18,
+            "word": " به",
+            "probability": 0.9598115682601929
+          },
+          {
+            "start": 4.18,
+            "end": 4.7,
+            "word": " صورت",
+            "probability": 0.99049840370814
+          },
+          {
+            "start": 4.7,
+            "end": 5.56,
+            "word": " روا",
+            "probability": 0.9243386089801788
+          },
+          {
+            "start": 5.56,
+            "end": 6.06,
+            "word": " خدایی",
+            "probability": 0.8421655148267746
+          },
+          {
+            "start": 6.06,
+            "end": 6.22,
+            "word": " نکی.",
+            "probability": 0.8739559451738993
+          }
+        ]
+      }
+    ]
+  }
+}

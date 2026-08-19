@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "d24a7d86b618579bee48c3e505d923c6f4623185b2248959a77155bdc2fba1f5",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.56,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.06,
+        "text": "این رو ما استثناء قرار می‌دهیم. ممکنه دوستانی باشند که بخواهم پیگیر این موضوع باشد.",
+        "avg_logprob": -0.15389679531965936,
+        "compression_ratio": 1.26890756302521,
+        "no_speech_prob": 2.540917753979244e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.78,
+            "word": " این",
+            "probability": 0.9488748610019684
+          },
+          {
+            "start": 0.78,
+            "end": 0.94,
+            "word": " رو",
+            "probability": 0.9599835872650146
+          },
+          {
+            "start": 0.94,
+            "end": 1.06,
+            "word": " ما",
+            "probability": 0.9969180822372437
+          },
+          {
+            "start": 1.06,
+            "end": 1.66,
+            "word": " استثناء",
+            "probability": 0.9080720394849777
+          },
+          {
+            "start": 1.66,
+            "end": 2.06,
+            "word": " قرار",
+            "probability": 0.9982250730196635
+          },
+          {
+            "start": 2.06,
+            "end": 2.52,
+            "word": " می‌دهیم.",
+            "probability": 0.7581351647968404
+          },
+          {
+            "start": 2.66,
+            "end": 3.16,
+            "word": " ممکنه",
+            "probability": 0.9645294308662414
+          },
+          {
+            "start": 3.16,
+            "end": 4.12,
+            "word": " دوستانی",
+            "probability": 0.98739595413208
+          },
+          {
+            "start": 4.12,
+            "end": 4.46,
+            "word": " باشند",
+            "probability": 0.7491963108380636
+          },
+          {
+            "start": 4.46,
+            "end": 4.58,
+            "word": " که",
+            "probability": 0.9956652522087097
+          },
+          {
+            "start": 4.58,
+            "end": 4.84,
+            "word": " بخواهم",
+            "probability": 0.7281469292938709
+          },
+          {
+            "start": 4.84,
+            "end": 5.28,
+            "word": " پیگیر",
+            "probability": 0.9562520265579224
+          },
+          {
+            "start": 5.28,
+            "end": 5.38,
+            "word": " این",
+            "probability": 0.9068784117698669
+          },
+          {
+            "start": 5.38,
+            "end": 5.72,
+            "word": " موضوع",
+            "probability": 0.993908703327179
+          },
+          {
+            "start": 5.72,
+            "end": 6.06,
+            "word": " باشد.",
+            "probability": 0.6917003442843755
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "a814b82a769cddbff6526bc830578f826f8433ed99f14a234465e89e0937b03f",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.06,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.04,
+        "text": "تو بازارهای جهانی یا توی رمفرس ها. این رو ما استثناء قرار می‌دیم، ممکنه دوستانی باشن که بخواهم پی...",
+        "avg_logprob": -0.25333205003004805,
+        "compression_ratio": 1.376923076923077,
+        "no_speech_prob": 2.3417057182228973e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.0,
+            "word": " تو",
+            "probability": 0.40991172194480896
+          },
+          {
+            "start": 0.0,
+            "end": 0.66,
+            "word": " بازارهای",
+            "probability": 0.8982439279556275
+          },
+          {
+            "start": 0.66,
+            "end": 1.28,
+            "word": " جهانی",
+            "probability": 0.9991094321012497
+          },
+          {
+            "start": 1.28,
+            "end": 1.56,
+            "word": " یا",
+            "probability": 0.9832481145858765
+          },
+          {
+            "start": 1.56,
+            "end": 1.7,
+            "word": " توی",
+            "probability": 0.9694299399852753
+          },
+          {
+            "start": 1.7,
+            "end": 2.42,
+            "word": " رمفرس",
+            "probability": 0.7877369344234466
+          },
+          {
+            "start": 2.42,
+            "end": 2.58,
+            "word": " ها.",
+            "probability": 0.6767402440309525
+          },
+          {
+            "start": 2.62,
+            "end": 2.84,
+            "word": " این",
+            "probability": 0.9985334873199463
+          },
+          {
+            "start": 2.84,
+            "end": 3.0,
+            "word": " رو",
+            "probability": 0.9592176079750061
+          },
+          {
+            "start": 3.0,
+            "end": 3.12,
+            "word": " ما",
+            "probability": 0.9979462027549744
+          },
+          {
+            "start": 3.12,
+            "end": 3.76,
+            "word": " استثناء",
+            "probability": 0.9235432595014572
+          },
+          {
+            "start": 3.76,
+            "end": 4.12,
+            "word": " قرار",
+            "probability": 0.998304029305776
+          },
+          {
+            "start": 4.12,
+            "end": 4.68,
+            "word": " می‌دیم،",
+            "probability": 0.6280719098867849
+          },
+          {
+            "start": 4.68,
+            "end": 5.22,
+            "word": " ممکنه",
+            "probability": 0.9902212977409363
+          },
+          {
+            "start": 5.22,
+            "end": 6.18,
+            "word": " دوستانی",
+            "probability": 0.9754905223846435
+          },
+          {
+            "start": 6.18,
+            "end": 6.5,
+            "word": " باشن",
+            "probability": 0.8936600486437479
+          },
+          {
+            "start": 6.5,
+            "end": 6.64,
+            "word": " که",
+            "probability": 0.9911122620105743
+          },
+          {
+            "start": 6.64,
+            "end": 6.9,
+            "word": " بخواهم",
+            "probability": 0.7345743402838707
+          },
+          {
+            "start": 6.9,
+            "end": 7.04,
+            "word": " پی...",
+            "probability": 0.540223895261685
+          }
+        ]
+      }
+    ]
+  }
+}

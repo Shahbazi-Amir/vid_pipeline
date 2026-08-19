@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "755a079207dc98f044a65fcdf1b7baa77a09e2094b324c46676190031a7c145f",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.96,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 4.6,
+        "text": "چند روز بعد دوباره اومد در خونه‌ی همسایه، گفت می‌شه دیگه بزرگتون رو بدید؟",
+        "avg_logprob": -0.23947243154912756,
+        "compression_ratio": 1.360655737704918,
+        "no_speech_prob": 2.2890932205310577e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.38,
+            "word": " چند",
+            "probability": 0.9657760560512543
+          },
+          {
+            "start": 0.38,
+            "end": 0.6,
+            "word": " روز",
+            "probability": 0.9976948897043864
+          },
+          {
+            "start": 0.6,
+            "end": 0.86,
+            "word": " بعد",
+            "probability": 0.7144266366958618
+          },
+          {
+            "start": 0.86,
+            "end": 1.36,
+            "word": " دوباره",
+            "probability": 0.9916174560785294
+          },
+          {
+            "start": 1.36,
+            "end": 1.6,
+            "word": " اومد",
+            "probability": 0.9781848788261414
+          },
+          {
+            "start": 1.6,
+            "end": 1.74,
+            "word": " در",
+            "probability": 0.9963124692440033
+          },
+          {
+            "start": 1.74,
+            "end": 2.06,
+            "word": " خونه‌ی",
+            "probability": 0.6356366399675608
+          },
+          {
+            "start": 2.06,
+            "end": 2.58,
+            "word": " همسایه،",
+            "probability": 0.8431699393051011
+          },
+          {
+            "start": 2.58,
+            "end": 2.76,
+            "word": " گفت",
+            "probability": 0.9867628614107767
+          },
+          {
+            "start": 2.76,
+            "end": 2.96,
+            "word": " می‌شه",
+            "probability": 0.8628052771091461
+          },
+          {
+            "start": 2.96,
+            "end": 3.24,
+            "word": " دیگه",
+            "probability": 0.9767223596572876
+          },
+          {
+            "start": 3.24,
+            "end": 3.96,
+            "word": " بزرگتون",
+            "probability": 0.9501306414604187
+          },
+          {
+            "start": 3.96,
+            "end": 4.08,
+            "word": " رو",
+            "probability": 0.7426353991031647
+          },
+          {
+            "start": 4.08,
+            "end": 4.6,
+            "word": " بدید؟",
+            "probability": 0.908429428935051
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 5.7,
+        "end": 6.94,
+        "text": "دیژه بضرگ رو داد.",
+        "avg_logprob": -0.23947243154912756,
+        "compression_ratio": 1.360655737704918,
+        "no_speech_prob": 2.2890932205310577e-10,
+        "words": [
+          {
+            "start": 5.7,
+            "end": 6.24,
+            "word": " دیژه",
+            "probability": 0.7404481913035852
+          },
+          {
+            "start": 6.24,
+            "end": 6.6,
+            "word": " بضرگ",
+            "probability": 0.7427124791283859
+          },
+          {
+            "start": 6.6,
+            "end": 6.7,
+            "word": " رو",
+            "probability": 0.7151557803153992
+          },
+          {
+            "start": 6.7,
+            "end": 6.94,
+            "word": " داد.",
+            "probability": 0.5708567798137665
+          }
+        ]
+      }
+    ]
+  }
+}

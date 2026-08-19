@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "66d7587e5614d202ee16336a4bdefe759a0aaf6cbec9d65ea27f15c4ba902453",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 13.7,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 13.68,
+        "text": "که اونها رو همین روزها هم به کار بگیرید. خب درباره این صحبت کردیم که پول‌های پسنداز و صندوق استراریمون رو وارد عرصه‌ی سرمایه گذاری می‌کنیم، اما چه گوزینه‌ها ی سر مایه‌گذاره‌ای پیش روی ما؟",
+        "avg_logprob": -0.22450896549224852,
+        "compression_ratio": 1.7336683417085428,
+        "no_speech_prob": 2.1468780919686736e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.08,
+            "word": " که",
+            "probability": 0.5370808243751526
+          },
+          {
+            "start": 0.08,
+            "end": 0.36,
+            "word": " اونها",
+            "probability": 0.8944291472434998
+          },
+          {
+            "start": 0.36,
+            "end": 0.58,
+            "word": " رو",
+            "probability": 0.921401858329773
+          },
+          {
+            "start": 0.58,
+            "end": 0.9,
+            "word": " همین",
+            "probability": 0.9964826703071594
+          },
+          {
+            "start": 0.9,
+            "end": 1.38,
+            "word": " روزها",
+            "probability": 0.9877626895904541
+          },
+          {
+            "start": 1.38,
+            "end": 1.6,
+            "word": " هم",
+            "probability": 0.9957865178585052
+          },
+          {
+            "start": 1.6,
+            "end": 1.76,
+            "word": " به",
+            "probability": 0.9728119373321533
+          },
+          {
+            "start": 1.76,
+            "end": 2.0,
+            "word": " کار",
+            "probability": 0.9989089369773865
+          },
+          {
+            "start": 2.0,
+            "end": 2.52,
+            "word": " بگیرید.",
+            "probability": 0.9554951548576355
+          },
+          {
+            "start": 2.88,
+            "end": 3.54,
+            "word": " خب",
+            "probability": 0.9315491914749146
+          },
+          {
+            "start": 3.54,
+            "end": 4.02,
+            "word": " درباره",
+            "probability": 0.7972741723060608
+          },
+          {
+            "start": 4.02,
+            "end": 4.16,
+            "word": " این",
+            "probability": 0.9962505102157593
+          },
+          {
+            "start": 4.16,
+            "end": 4.62,
+            "word": " صحبت",
+            "probability": 0.9957600831985474
+          },
+          {
+            "start": 4.62,
+            "end": 5.2,
+            "word": " کردیم",
+            "probability": 0.9985055029392242
+          },
+          {
+            "start": 5.2,
+            "end": 5.82,
+            "word": " که",
+            "probability": 0.9958702027797699
+          },
+          {
+            "start": 5.82,
+            "end": 6.52,
+            "word": " پول‌های",
+            "probability": 0.795371072832495
+          },
+          {
+            "start": 6.52,
+            "end": 7.52,
+            "word": " پسنداز",
+            "probability": 0.950262576341629
+          },
+          {
+            "start": 7.52,
+            "end": 7.84,
+            "word": " و",
+            "probability": 0.9805473685264587
+          },
+          {
+            "start": 7.84,
+            "end": 8.34,
+            "word": " صندوق",
+            "probability": 0.9798565705617269
+          },
+          {
+            "start": 8.34,
+            "end": 9.1,
+            "word": " استراریمون",
+            "probability": 0.836428721745809
+          },
+          {
+            "start": 9.1,
+            "end": 9.26,
+            "word": " رو",
+            "probability": 0.7166436016559601
+          },
+          {
+            "start": 9.26,
+            "end": 9.6,
+            "word": " وارد",
+            "probability": 0.9788897434870402
+          },
+          {
+            "start": 9.6,
+            "end": 9.98,
+            "word": " عرصه‌ی",
+            "probability": 0.8073903421560923
+          },
+          {
+            "start": 9.98,
+            "end": 10.44,
+            "word": " سرمایه",
+            "probability": 0.9286913871765137
+          },
+          {
+            "start": 10.44,
+            "end": 10.8,
+            "word": " گذاری",
+            "probability": 0.7699434664100409
+          },
+          {
+            "start": 10.8,
+            "end": 11.28,
+            "word": " می‌کنیم،",
+            "probability": 0.7941576295665332
+          },
+          {
+            "start": 11.28,
+            "end": 11.5,
+            "word": " اما",
+            "probability": 0.9805284738540649
+          },
+          {
+            "start": 11.5,
+            "end": 11.7,
+            "word": " چه",
+            "probability": 0.9704551100730896
+          },
+          {
+            "start": 11.7,
+            "end": 12.2,
+            "word": " گوزینه‌ها",
+            "probability": 0.8093688158052308
+          },
+          {
+            "start": 12.2,
+            "end": 12.24,
+            "word": " ی",
+            "probability": 0.0015041008591651917
+          },
+          {
+            "start": 12.24,
+            "end": 12.5,
+            "word": " سر",
+            "probability": 0.9024740159511566
+          },
+          {
+            "start": 12.5,
+            "end": 13.04,
+            "word": " مایه‌گذاره‌ای",
+            "probability": 0.5626354218402412
+          },
+          {
+            "start": 13.04,
+            "end": 13.3,
+            "word": " پیش",
+            "probability": 0.865635891755422
+          },
+          {
+            "start": 13.3,
+            "end": 13.54,
+            "word": " روی",
+            "probability": 0.8123311003049215
+          },
+          {
+            "start": 13.54,
+            "end": 13.68,
+            "word": " ما؟",
+            "probability": 0.6018086969852448
+          }
+        ]
+      }
+    ]
+  }
+}

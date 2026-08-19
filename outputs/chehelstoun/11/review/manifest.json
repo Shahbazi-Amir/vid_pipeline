@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "human_review_required",
+  "generated_at": "2026-08-19T02:31:39.594031+00:00",
+  "job_root": "/tmp/chehelstoun-review-runtime/chehelstoun-11-4586db64",
+  "segment_count": 363,
+  "review_item_count": 362,
+  "required_item_count": 362,
+  "external_reference_used": false,
+  "quality_source": "/tmp/chehelstoun-review-runtime/chehelstoun-11-4586db64/accuracy/transcript.consensus.json",
+  "source_files": {
+    "raw_json": "/tmp/chehelstoun-review-runtime/chehelstoun-11-4586db64/raw/transcript.raw.json",
+    "machine_text": "/tmp/chehelstoun-review-runtime/chehelstoun-11-4586db64/machine/transcript.machine.txt",
+    "final_text": "/tmp/chehelstoun-review-runtime/chehelstoun-11-4586db64/final/transcript.final.txt",
+    "audio": "/tmp/chehelstoun-review-runtime/chehelstoun-11-4586db64/audio/audio-16k-mono.wav"
+  },
+  "source_sha256": {
+    "raw_json": "e3c12612ca9d37608052b300eaea8add276f36e8f6f5cd5b3b949c65f4789a09",
+    "machine_text": "2abc3ee5a94c6a58acc636071dc8d06ca21d50e0e285e8148f2f71eaefa21c2f",
+    "final_text": "2abc3ee5a94c6a58acc636071dc8d06ca21d50e0e285e8148f2f71eaefa21c2f"
+  },
+  "files": {
+    "manifest": "/tmp/chehelstoun-review-runtime/chehelstoun-11-4586db64/review/manifest.json",
+    "uncertain_spans": "/tmp/chehelstoun-review-runtime/chehelstoun-11-4586db64/review/uncertain-spans.json",
+    "editorial_audit": "/tmp/chehelstoun-review-runtime/chehelstoun-11-4586db64/review/editorial-audit.json",
+    "assistant_package": "/tmp/chehelstoun-review-runtime/chehelstoun-11-4586db64/review/assistant-review-package.json",
+    "quality_report": "/tmp/chehelstoun-review-runtime/chehelstoun-11-4586db64/review/quality-report.json",
+    "review_srt": "/tmp/chehelstoun-review-runtime/chehelstoun-11-4586db64/review/transcript.review.srt",
+    "review_vtt": "/tmp/chehelstoun-review-runtime/chehelstoun-11-4586db64/review/transcript.review.vtt",
+    "review_markdown": "/tmp/chehelstoun-review-runtime/chehelstoun-11-4586db64/review/review.md",
+    "review_html": "/tmp/chehelstoun-review-runtime/chehelstoun-11-4586db64/review/review.html",
+    "corrections_template": "/tmp/chehelstoun-review-runtime/chehelstoun-11-4586db64/review/corrections.template.json",
+    "review_archive": "/tmp/chehelstoun-review-runtime/chehelstoun-11-4586db64/final/review-package.zip"
+  },
+  "warnings": []
+}

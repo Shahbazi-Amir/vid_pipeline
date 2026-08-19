@@ -1,0 +1,107 @@
+name: Recover bankmellatt 8 once
+run-name: Recover bankmellatt 8 ${{ github.run_id }}
+
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/recover-bank8-once.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      DEST: outputs/bankmellatt/8
+      VID_PIPELINE_ASR_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/asr
+      HF_HOME: ${{ github.workspace }}/.cache/huggingface
+      HF_HUB_CACHE: ${{ github.workspace }}/.cache/huggingface/hub
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Stop if already complete
+        id: existing
+        shell: bash
+        run: |
+          git pull --ff-only origin main
+          if [[ -s "$DEST/delivery/transcript.txt" && -s "$DEST/review/assistant-review-package.json" ]]; then echo 'skip=true' >> "$GITHUB_OUTPUT"; else echo 'skip=false' >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/setup-python@v5
+        if: steps.existing.outputs.skip != 'true'
+        with:
+          python-version: '3.11'
+      - name: Install system dependencies
+        if: steps.existing.outputs.skip != 'true'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg curl rsync
+      - name: Install vid pipeline worker
+        if: steps.existing.outputs.skip != 'true'
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e '.[worker]'
+      - name: Resolve and download bank 8
+        if: steps.existing.outputs.skip != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh api "repos/${GITHUB_REPOSITORY}/releases/tags/bankmellatt" > /tmp/release.json
+          python - <<'PY'
+          import json, os
+          r=json.load(open('/tmp/release.json'))
+          a=next((x for x in r.get('assets',[]) if x.get('name')=='8.mp4'),None)
+          if not a: raise SystemExit('8.mp4 not found in bankmellatt release')
+          with open(os.environ['GITHUB_ENV'],'a') as f:
+              f.write('ASSET_URL='+a['browser_download_url']+'\n')
+              f.write('ASSET_SIZE='+str(a['size'])+'\n')
+          PY
+          curl -fL --retry 5 --retry-all-errors --connect-timeout 30 --max-time 1800 "$ASSET_URL" -o /tmp/bank8.mp4
+          test "$(stat -c %s /tmp/bank8.mp4)" -eq "$ASSET_SIZE"
+          ffprobe -v error -select_streams a:0 -show_entries stream=codec_name -of default=nw=1:nk=1 /tmp/bank8.mp4 | grep -q .
+      - name: Run Persian ASR
+        if: steps.existing.outputs.skip != 'true'
+        shell: bash
+        run: |
+          rm -rf /tmp/bank8-runtime
+          vid-pipeline run-file /tmp/bank8.mp4 --name bankmellatt --output-root /tmp/bank8-runtime --profile balanced --language fa --device cpu --compute-type int8 --audio-profile safe --hotwords 'بانک ملت، کمیل رودی، دکتر کمیل رودی، سواد مالی' --title 'بانک ملت - 8' --program 'بانک ملت' --speaker 'دکتر کمیل رودی' --source-url "$ASSET_URL" --no-editorial
+      - name: Publish review-ready output
+        if: steps.existing.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          job_dir=$(find /tmp/bank8-runtime -mindepth 1 -maxdepth 1 -type d -name 'bankmellatt-*' -print -quit)
+          test -s "$job_dir/delivery/transcript.txt"
+          test -s "$job_dir/review/assistant-review-package.json"
+          rm -rf "$DEST" "outputs/review-ready/bankmellatt/8"
+          mkdir -p "$DEST" "outputs/review-ready/bankmellatt/8/review"
+          for d in delivery pre_review accuracy review raw machine final; do
+            if [[ -d "$job_dir/$d" ]]; then mkdir -p "$DEST/$d"; rsync -a --exclude 'clips/' --exclude 'review-package.zip' --exclude '*.mp3' --exclude '*.m4a' --exclude '*.wav' --exclude '*.mp4' "$job_dir/$d/" "$DEST/$d/"; fi
+          done
+          rm -f "$DEST/final/review-package.zip"
+          [[ -s "$job_dir/result.json" ]] && cp "$job_dir/result.json" "$DEST/result.json"
+          [[ -s "$job_dir/source.json" ]] && cp "$job_dir/source.json" "$DEST/source.json"
+          cp "$DEST/delivery/transcript.txt" outputs/review-ready/bankmellatt/8/transcript.txt
+          cp "$DEST/delivery/transcript.md" outputs/review-ready/bankmellatt/8/transcript.md
+          cp "$DEST/delivery/transcript.timestamped.md" outputs/review-ready/bankmellatt/8/transcript.timestamped.md
+          cp "$DEST/review/assistant-review-package.json" outputs/review-ready/bankmellatt/8/review/assistant-review-package.json
+          cat > "$DEST/metadata.json" <<EOF
+          {"collection":"بانک ملت","asset_name":"8.mp4","profile":"balanced","language":"fa","chatgpt_review_ready":true,"pipeline_run_id":"${GITHUB_RUN_ID}"}
+          EOF
+          cp "$DEST/metadata.json" outputs/review-ready/bankmellatt/8/metadata.json
+      - name: Commit bank 8
+        if: steps.existing.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/bankmellatt/8 outputs/review-ready/bankmellatt/8
+          git commit -m 'Recover بانک ملت media transcript: 8.mp4'
+          for attempt in 1 2 3 4 5; do git pull --rebase origin main && git push origin HEAD:main && exit 0; sleep $((attempt*3)); done
+          exit 1

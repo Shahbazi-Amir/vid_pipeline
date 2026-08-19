@@ -1,0 +1,108 @@
+name: Build clean Markdown copy folder
+run-name: Build clean Markdown copy folder ${{ github.run_id }}
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/build-copy-folder.yml'
+      - 'scripts/build_copy_folder.py'
+      - 'outputs/chehelstoun/**'
+      - 'outputs/ketab-baz/**'
+      - 'outputs/mizan/**'
+      - 'outputs/finup/**'
+      - 'outputs/bankmellatt/**'
+      - 'outputs/sherakat/**'
+      - 'outputs/sharakat/**'
+      - 'outputs/sharekat/**'
+      - 'outputs/partnership/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: clean-markdown-copy-folder
+  cancel-in-progress: false
+
+jobs:
+  build-copy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Download Chehelstoun source manifest
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/chehelstoun-copy-manifest
+          mkdir -p /tmp/chehelstoun-copy-manifest
+          if gh release download chehelstoun-archive-v1 \
+            --pattern manifest.csv \
+            --dir /tmp/chehelstoun-copy-manifest \
+            --clobber; then
+            echo 'Chehelstoun manifest downloaded.'
+          else
+            echo 'Manifest unavailable; builder will use repository metadata fallback.'
+          fi
+
+      - name: Build Markdown-only copy
+        shell: bash
+        run: |
+          set -euo pipefail
+          manifest=/tmp/chehelstoun-copy-manifest/manifest.csv
+          if [[ -s "$manifest" ]]; then
+            python scripts/build_copy_folder.py --chehelstoun-manifest "$manifest" | tee /tmp/copy-summary.json
+          else
+            python scripts/build_copy_folder.py | tee /tmp/copy-summary.json
+          fi
+
+      - name: Validate copy contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -d copy
+          if find copy -type f ! -name '*.md' -print -quit | grep -q .; then
+            echo 'copy/ must contain Markdown files only.' >&2
+            find copy -type f ! -name '*.md' -print >&2
+            exit 1
+          fi
+          cheh_count=$(find copy -maxdepth 1 -type f -name 'چهلستون *.md' | wc -l)
+          test "$cheh_count" -eq 38
+          test -s 'copy/کتاب باز.md'
+          test -s 'copy/میزان.md'
+          test -s 'copy/فناپ.md'
+          for f in copy/*.md; do
+            grep -q '^\- \*\*مدت‌زمان کل:\*\*' "$f"
+            grep -q '^\- \*\*صفحه/فید منبع:\*\*' "$f"
+            grep -q '^\- \*\*توضیحات:\*\*' "$f"
+          done
+          echo "Validated $(find copy -maxdepth 1 -type f -name '*.md' | wc -l) Markdown files."
+
+      - name: Commit generated copy
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f copy
+          if git diff --cached --quiet; then
+            echo 'copy/ is already current.'
+            exit 0
+          fi
+          git commit -m "Build clean Markdown transcript copy"
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep $((attempt * 3))
+          done
+          exit 1

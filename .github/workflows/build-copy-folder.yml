@@ -57,12 +57,18 @@ jobs:
           test -s 'copy/شراکت.md'
           for f in copy/*.md; do
             grep -q '^\- \*\*مدت‌زمان کل:\*\*' "$f"
-            grep -q '^\- \*\*لینک منبع اصلی:\*\*' "$f"
             grep -q '^\- \*\*توضیحات:\*\*' "$f"
             if grep -q 'github.com/Shahbazi-Amir/vid_pipeline' "$f"; then
               echo "Internal GitHub link leaked into $f" >&2
               exit 1
             fi
+            if grep -q '^\- \*\*منبع اصلی:\*\*' "$f" && ! grep -Eq '^\- \*\*منبع اصلی:\*\* https?://' "$f"; then
+              echo "Source must be a raw external URL in $f" >&2
+              exit 1
+            fi
+          done
+          for f in copy/چهلستون\ *.md 'copy/کتاب باز.md' 'copy/فناپ.md'; do
+            grep -Eq '^\- \*\*منبع اصلی:\*\* https?://' "$f"
           done
           echo "Validated $(find copy -maxdepth 1 -type f -name '*.md' | wc -l) Markdown files."
 

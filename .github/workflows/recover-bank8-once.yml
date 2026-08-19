@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: bank8-light-recovery
@@ -28,6 +29,12 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
+      - name: Cancel stale media backlog run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/actions/runs/32268034401/cancel" || true
       - name: Record live recovery run
         shell: bash
         run: |

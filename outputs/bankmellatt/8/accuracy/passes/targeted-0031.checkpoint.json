@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "816a1fa0e0cb253bd9cfa3b96e93aa639de5af8d7669dae84b3c8da218dd6aaa",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.18,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.16,
+        "text": "قبلن بهتون گفته بودم، مثلا این بشه په میلیارد، تفاوتی برای من نداره، من دارم",
+        "avg_logprob": -0.20359214471310985,
+        "compression_ratio": 1.4081632653061225,
+        "no_speech_prob": 2.646011187934505e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 1.22,
+            "word": " قبلن",
+            "probability": 0.7963883876800537
+          },
+          {
+            "start": 1.22,
+            "end": 1.82,
+            "word": " بهتون",
+            "probability": 0.9921777844429016
+          },
+          {
+            "start": 1.82,
+            "end": 2.18,
+            "word": " گفته",
+            "probability": 0.999203105767568
+          },
+          {
+            "start": 2.18,
+            "end": 2.56,
+            "word": " بودم،",
+            "probability": 0.7426877136458643
+          },
+          {
+            "start": 2.56,
+            "end": 2.94,
+            "word": " مثلا",
+            "probability": 0.9374133348464966
+          },
+          {
+            "start": 2.94,
+            "end": 3.08,
+            "word": " این",
+            "probability": 0.9956358373165131
+          },
+          {
+            "start": 3.08,
+            "end": 3.52,
+            "word": " بشه",
+            "probability": 0.9894914428393046
+          },
+          {
+            "start": 3.52,
+            "end": 4.04,
+            "word": " په",
+            "probability": 0.5478294640779495
+          },
+          {
+            "start": 4.04,
+            "end": 4.82,
+            "word": " میلیارد،",
+            "probability": 0.8105930512150129
+          },
+          {
+            "start": 4.82,
+            "end": 5.84,
+            "word": " تفاوتی",
+            "probability": 0.9961738586425781
+          },
+          {
+            "start": 5.84,
+            "end": 6.14,
+            "word": " برای",
+            "probability": 0.9996111392974854
+          },
+          {
+            "start": 6.14,
+            "end": 6.3,
+            "word": " من",
+            "probability": 0.9995217323303223
+          },
+          {
+            "start": 6.3,
+            "end": 6.8,
+            "word": " نداره،",
+            "probability": 0.8714648842811584
+          },
+          {
+            "start": 6.8,
+            "end": 6.9,
+            "word": " من",
+            "probability": 0.997535228729248
+          },
+          {
+            "start": 6.9,
+            "end": 7.16,
+            "word": " دارم",
+            "probability": 0.9976250330607096
+          }
+        ]
+      }
+    ]
+  }
+}

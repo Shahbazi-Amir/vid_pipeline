@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "494bc090975f43dd94279946f67682cd350fcef060ab3d7b356c85e49ada28cf",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.82,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.8,
+        "text": "یک مرور ذهنی به دارایاتون داشته باشید. مثلا من میگم خب یه ماشین دارم، یه خونه، تلفن همراه، کیف، لباس هم یه سری داریایی دارن، فرش خون.",
+        "avg_logprob": -0.25231851549709544,
+        "compression_ratio": 1.6527777777777777,
+        "no_speech_prob": 3.454447561335172e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.2,
+            "word": " یک",
+            "probability": 0.1551304254680872
+          },
+          {
+            "start": 0.2,
+            "end": 0.46,
+            "word": " مرور",
+            "probability": 0.9266069531440735
+          },
+          {
+            "start": 0.46,
+            "end": 0.96,
+            "word": " ذهنی",
+            "probability": 0.9725286364555359
+          },
+          {
+            "start": 0.96,
+            "end": 1.12,
+            "word": " به",
+            "probability": 0.9868898391723633
+          },
+          {
+            "start": 1.12,
+            "end": 1.74,
+            "word": " دارایاتون",
+            "probability": 0.8748233467340469
+          },
+          {
+            "start": 1.74,
+            "end": 2.1,
+            "word": " داشته",
+            "probability": 0.9983319044113159
+          },
+          {
+            "start": 2.1,
+            "end": 2.5,
+            "word": " باشید.",
+            "probability": 0.9967208057641983
+          },
+          {
+            "start": 2.56,
+            "end": 2.9,
+            "word": " مثلا",
+            "probability": 0.990570068359375
+          },
+          {
+            "start": 2.9,
+            "end": 3.12,
+            "word": " من",
+            "probability": 0.9677550196647644
+          },
+          {
+            "start": 3.12,
+            "end": 3.4,
+            "word": " میگم",
+            "probability": 0.9704208572705587
+          },
+          {
+            "start": 3.4,
+            "end": 3.6,
+            "word": " خب",
+            "probability": 0.9208061993122101
+          },
+          {
+            "start": 3.6,
+            "end": 3.74,
+            "word": " یه",
+            "probability": 0.9861063063144684
+          },
+          {
+            "start": 3.74,
+            "end": 4.14,
+            "word": " ماشین",
+            "probability": 0.9989560047785441
+          },
+          {
+            "start": 4.14,
+            "end": 4.68,
+            "word": " دارم،",
+            "probability": 0.7902573607861996
+          },
+          {
+            "start": 4.68,
+            "end": 4.82,
+            "word": " یه",
+            "probability": 0.9934758543968201
+          },
+          {
+            "start": 4.82,
+            "end": 5.68,
+            "word": " خونه،",
+            "probability": 0.9875383377075195
+          },
+          {
+            "start": 5.68,
+            "end": 6.4,
+            "word": " تلفن",
+            "probability": 0.847348670164744
+          },
+          {
+            "start": 6.4,
+            "end": 7.42,
+            "word": " همراه،",
+            "probability": 0.9959229230880737
+          },
+          {
+            "start": 7.42,
+            "end": 8.38,
+            "word": " کیف،",
+            "probability": 0.9922253688176473
+          },
+          {
+            "start": 8.38,
+            "end": 8.94,
+            "word": " لباس",
+            "probability": 0.9983077645301819
+          },
+          {
+            "start": 8.94,
+            "end": 9.34,
+            "word": " هم",
+            "probability": 0.7400498986244202
+          },
+          {
+            "start": 9.34,
+            "end": 10.18,
+            "word": " یه",
+            "probability": 0.6683681607246399
+          },
+          {
+            "start": 10.18,
+            "end": 10.28,
+            "word": " سری",
+            "probability": 0.7546807825565338
+          },
+          {
+            "start": 10.28,
+            "end": 10.86,
+            "word": " داریایی",
+            "probability": 0.7273184619261883
+          },
+          {
+            "start": 10.86,
+            "end": 11.26,
+            "word": " دارن،",
+            "probability": 0.6140792444348335
+          },
+          {
+            "start": 11.26,
+            "end": 11.6,
+            "word": " فرش",
+            "probability": 0.9976990421613058
+          },
+          {
+            "start": 11.6,
+            "end": 11.8,
+            "word": " خون.",
+            "probability": 0.9703311026096344
+          }
+        ]
+      }
+    ]
+  }
+}

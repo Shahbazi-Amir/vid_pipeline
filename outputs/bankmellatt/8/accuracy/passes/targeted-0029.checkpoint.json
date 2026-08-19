@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "3b91d610dad2086402cbd0a1b21b2134416a8ed3a2936cd7f623ad4e3274f542",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.8,
+    "segments": [
+      {
+        "id": 1,
+        "start": 2.9600000000000013,
+        "end": 7.6,
+        "text": "خونه‌ایی که دارم توش دندگی می‌کنم، قبلا بهتون گفته بودم.",
+        "avg_logprob": -0.25634463876485825,
+        "compression_ratio": 1.1685393258426966,
+        "no_speech_prob": 3.5285269150975296e-10,
+        "words": [
+          {
+            "start": 2.9600000000000013,
+            "end": 3.68,
+            "word": " خونه‌ایی",
+            "probability": 0.6517178191404257
+          },
+          {
+            "start": 3.68,
+            "end": 3.78,
+            "word": " که",
+            "probability": 0.9661706387996674
+          },
+          {
+            "start": 3.78,
+            "end": 4.0,
+            "word": " دارم",
+            "probability": 0.9761697053909302
+          },
+          {
+            "start": 4.0,
+            "end": 4.2,
+            "word": " توش",
+            "probability": 0.9143499433994293
+          },
+          {
+            "start": 4.2,
+            "end": 4.66,
+            "word": " دندگی",
+            "probability": 0.8990049660205841
+          },
+          {
+            "start": 4.66,
+            "end": 5.52,
+            "word": " می‌کنم،",
+            "probability": 0.7821634237964948
+          },
+          {
+            "start": 5.52,
+            "end": 6.18,
+            "word": " قبلا",
+            "probability": 0.839939534664154
+          },
+          {
+            "start": 6.18,
+            "end": 6.9,
+            "word": " بهتون",
+            "probability": 0.8462768793106079
+          },
+          {
+            "start": 6.9,
+            "end": 7.26,
+            "word": " گفته",
+            "probability": 0.9844667911529541
+          },
+          {
+            "start": 7.26,
+            "end": 7.6,
+            "word": " بودم.",
+            "probability": 0.9793487588564554
+          }
+        ]
+      }
+    ]
+  }
+}

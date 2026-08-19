@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "02ac3bca69bb9081d72131dafd65ddf8aaea7a0a8146e6e165e5859b88698eb3",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.46,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.44,
+        "text": "داراه، کیف، لباس هم، یه سری دارای هایی دارن، فرش خونه، تابلوهایی که تو خون دارند. خب، این ها دارائی هستند.",
+        "avg_logprob": -0.3576188487665994,
+        "compression_ratio": 1.6666666666666667,
+        "no_speech_prob": 3.099162038111558e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.82,
+            "word": " داراه،",
+            "probability": 0.4777788408100605
+          },
+          {
+            "start": 0.82,
+            "end": 1.56,
+            "word": " کیف،",
+            "probability": 0.9726939598719279
+          },
+          {
+            "start": 1.56,
+            "end": 2.12,
+            "word": " لباس",
+            "probability": 0.9952378670374552
+          },
+          {
+            "start": 2.12,
+            "end": 2.74,
+            "word": " هم،",
+            "probability": 0.5307977050542831
+          },
+          {
+            "start": 2.74,
+            "end": 3.36,
+            "word": " یه",
+            "probability": 0.9018531143665314
+          },
+          {
+            "start": 3.36,
+            "end": 3.48,
+            "word": " سری",
+            "probability": 0.6573087573051453
+          },
+          {
+            "start": 3.48,
+            "end": 3.86,
+            "word": " دارای",
+            "probability": 0.9499490708112717
+          },
+          {
+            "start": 3.86,
+            "end": 4.04,
+            "word": " هایی",
+            "probability": 0.7533390913158655
+          },
+          {
+            "start": 4.04,
+            "end": 4.46,
+            "word": " دارن،",
+            "probability": 0.7844366431236267
+          },
+          {
+            "start": 4.46,
+            "end": 4.78,
+            "word": " فرش",
+            "probability": 0.979928215344747
+          },
+          {
+            "start": 4.78,
+            "end": 5.38,
+            "word": " خونه،",
+            "probability": 0.9154287576675415
+          },
+          {
+            "start": 5.38,
+            "end": 6.02,
+            "word": " تابلوهایی",
+            "probability": 0.8926857113838196
+          },
+          {
+            "start": 6.02,
+            "end": 6.16,
+            "word": " که",
+            "probability": 0.9943394958972931
+          },
+          {
+            "start": 6.16,
+            "end": 6.24,
+            "word": " تو",
+            "probability": 0.9759337306022644
+          },
+          {
+            "start": 6.24,
+            "end": 6.48,
+            "word": " خون",
+            "probability": 0.9731384813785553
+          },
+          {
+            "start": 6.48,
+            "end": 6.96,
+            "word": " دارند.",
+            "probability": 0.32701804098905995
+          },
+          {
+            "start": 7.74,
+            "end": 8.66,
+            "word": " خب،",
+            "probability": 0.8172205090522766
+          },
+          {
+            "start": 8.66,
+            "end": 8.9,
+            "word": " این",
+            "probability": 0.6287702023983002
+          },
+          {
+            "start": 8.9,
+            "end": 8.98,
+            "word": " ها",
+            "probability": 0.8480436503887177
+          },
+          {
+            "start": 8.98,
+            "end": 9.44,
+            "word": " دارائی",
+            "probability": 0.7409699559793808
+          },
+          {
+            "start": 9.44,
+            "end": 9.44,
+            "word": " هستند.",
+            "probability": 0.37637194991111755
+          }
+        ]
+      }
+    ]
+  }
+}

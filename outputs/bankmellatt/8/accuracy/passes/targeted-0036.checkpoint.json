@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "6e9aa626063af71b66767ed7995db45de06e524f909bc6fa7747b233166cf545",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.1,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 3.68,
+        "text": "باید درامت ذا باشه، نه حزین ذا.",
+        "avg_logprob": -0.2633697509765625,
+        "compression_ratio": 0.9166666666666666,
+        "no_speech_prob": 2.424103695553015e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 1.0,
+            "word": " باید",
+            "probability": 0.9882853478193283
+          },
+          {
+            "start": 1.0,
+            "end": 1.8,
+            "word": " درامت",
+            "probability": 0.9105553776025772
+          },
+          {
+            "start": 1.8,
+            "end": 2.1,
+            "word": " ذا",
+            "probability": 0.7718066275119781
+          },
+          {
+            "start": 2.1,
+            "end": 2.6,
+            "word": " باشه،",
+            "probability": 0.7706272900104523
+          },
+          {
+            "start": 2.6,
+            "end": 2.8,
+            "word": " نه",
+            "probability": 0.9995002448558807
+          },
+          {
+            "start": 2.8,
+            "end": 3.24,
+            "word": " حزین",
+            "probability": 0.7499780356884003
+          },
+          {
+            "start": 3.24,
+            "end": 3.68,
+            "word": " ذا.",
+            "probability": 0.772225558757782
+          }
+        ]
+      }
+    ]
+  }
+}

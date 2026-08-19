@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "c9eefc7622551fad7659cbea8633986ca936533da98f5c19ddab230735e865a3",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.12,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.1,
+        "text": "داریم زندگیمون رو باهاش می‌گذرونیم، ولی باید یه توجهی بکنیم نسبت به اون دارائی که دارم ایجاد می‌کنین. ما با خرید کردن یه درائی رو کردیم.",
+        "avg_logprob": -0.22699559946636577,
+        "compression_ratio": 1.657718120805369,
+        "no_speech_prob": 2.5028767947077313e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.56,
+            "word": " داریم",
+            "probability": 0.9471683949232101
+          },
+          {
+            "start": 0.56,
+            "end": 1.26,
+            "word": " زندگیمون",
+            "probability": 0.955127994219462
+          },
+          {
+            "start": 1.26,
+            "end": 1.34,
+            "word": " رو",
+            "probability": 0.722414419054985
+          },
+          {
+            "start": 1.34,
+            "end": 1.66,
+            "word": " باهاش",
+            "probability": 0.6993226309617361
+          },
+          {
+            "start": 1.66,
+            "end": 2.72,
+            "word": " می‌گذرونیم،",
+            "probability": 0.7142592448573042
+          },
+          {
+            "start": 2.72,
+            "end": 3.62,
+            "word": " ولی",
+            "probability": 0.9520645141601562
+          },
+          {
+            "start": 3.62,
+            "end": 4.08,
+            "word": " باید",
+            "probability": 0.972324937582016
+          },
+          {
+            "start": 4.08,
+            "end": 4.24,
+            "word": " یه",
+            "probability": 0.824905127286911
+          },
+          {
+            "start": 4.24,
+            "end": 4.9,
+            "word": " توجهی",
+            "probability": 0.9242503046989441
+          },
+          {
+            "start": 4.9,
+            "end": 5.5,
+            "word": " بکنیم",
+            "probability": 0.9641061902046204
+          },
+          {
+            "start": 5.5,
+            "end": 6.1,
+            "word": " نسبت",
+            "probability": 0.9818563659985861
+          },
+          {
+            "start": 6.1,
+            "end": 6.24,
+            "word": " به",
+            "probability": 0.9896261692047119
+          },
+          {
+            "start": 6.24,
+            "end": 6.4,
+            "word": " اون",
+            "probability": 0.9650830328464508
+          },
+          {
+            "start": 6.4,
+            "end": 7.14,
+            "word": " دارائی",
+            "probability": 0.8352999240159988
+          },
+          {
+            "start": 7.14,
+            "end": 7.4,
+            "word": " که",
+            "probability": 0.8748942315578461
+          },
+          {
+            "start": 7.4,
+            "end": 7.64,
+            "word": " دارم",
+            "probability": 0.6635537638794631
+          },
+          {
+            "start": 7.64,
+            "end": 8.04,
+            "word": " ایجاد",
+            "probability": 0.9576699286699295
+          },
+          {
+            "start": 8.04,
+            "end": 8.54,
+            "word": " می‌کنین.",
+            "probability": 0.7690439915080788
+          },
+          {
+            "start": 8.74,
+            "end": 9.08,
+            "word": " ما",
+            "probability": 0.9350640177726746
+          },
+          {
+            "start": 9.08,
+            "end": 9.28,
+            "word": " با",
+            "probability": 0.9905180037021637
+          },
+          {
+            "start": 9.28,
+            "end": 9.68,
+            "word": " خرید",
+            "probability": 0.9941438237826029
+          },
+          {
+            "start": 9.68,
+            "end": 10.1,
+            "word": " کردن",
+            "probability": 0.9734320243199667
+          },
+          {
+            "start": 10.1,
+            "end": 10.28,
+            "word": " یه",
+            "probability": 0.9455307424068451
+          },
+          {
+            "start": 10.28,
+            "end": 10.78,
+            "word": " درائی",
+            "probability": 0.7483726000282331
+          },
+          {
+            "start": 10.78,
+            "end": 10.9,
+            "word": " رو",
+            "probability": 0.7374874353408813
+          },
+          {
+            "start": 10.9,
+            "end": 11.1,
+            "word": " کردیم.",
+            "probability": 0.6847371160984039
+          }
+        ]
+      }
+    ]
+  }
+}

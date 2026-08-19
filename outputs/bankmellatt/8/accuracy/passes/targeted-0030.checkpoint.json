@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "7ec96bc7238d93f4c521951ec31abba97596ba0dabec2dd64a697e47eacc46a2",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.28,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.94,
+        "text": "خونه هم، خونهایی که دارم توش دندگی می‌کنم، قبلن بهتون گفته بودم. مثلا این بشه 5 میلیارد.",
+        "avg_logprob": -0.21105420075613876,
+        "compression_ratio": 1.3504273504273505,
+        "no_speech_prob": 2.458513670422491e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.34,
+            "word": " خونه",
+            "probability": 0.9426306287447611
+          },
+          {
+            "start": 0.34,
+            "end": 0.52,
+            "word": " هم،",
+            "probability": 0.6948572595914205
+          },
+          {
+            "start": 0.52,
+            "end": 0.86,
+            "word": " خونهایی",
+            "probability": 0.7956702549032343
+          },
+          {
+            "start": 0.86,
+            "end": 0.98,
+            "word": " که",
+            "probability": 0.9832033812999725
+          },
+          {
+            "start": 0.98,
+            "end": 1.2,
+            "word": " دارم",
+            "probability": 0.9956873059272766
+          },
+          {
+            "start": 1.2,
+            "end": 1.4,
+            "word": " توش",
+            "probability": 0.9579136669635773
+          },
+          {
+            "start": 1.4,
+            "end": 1.86,
+            "word": " دندگی",
+            "probability": 0.9647132903337479
+          },
+          {
+            "start": 1.86,
+            "end": 3.04,
+            "word": " می‌کنم،",
+            "probability": 0.5862789079546928
+          },
+          {
+            "start": 3.04,
+            "end": 3.52,
+            "word": " قبلن",
+            "probability": 0.8072315752506256
+          },
+          {
+            "start": 3.52,
+            "end": 4.1,
+            "word": " بهتون",
+            "probability": 0.9518883426984152
+          },
+          {
+            "start": 4.1,
+            "end": 4.46,
+            "word": " گفته",
+            "probability": 0.9959320028622946
+          },
+          {
+            "start": 4.46,
+            "end": 4.8,
+            "word": " بودم.",
+            "probability": 0.9690145452817281
+          },
+          {
+            "start": 4.9,
+            "end": 5.22,
+            "word": " مثلا",
+            "probability": 0.7808404862880707
+          },
+          {
+            "start": 5.22,
+            "end": 5.36,
+            "word": " این",
+            "probability": 0.9803228378295898
+          },
+          {
+            "start": 5.36,
+            "end": 5.8,
+            "word": " بشه",
+            "probability": 0.9713456630706787
+          },
+          {
+            "start": 5.8,
+            "end": 6.26,
+            "word": " 5",
+            "probability": 0.13967718183994293
+          },
+          {
+            "start": 6.26,
+            "end": 6.94,
+            "word": " میلیارد.",
+            "probability": 0.947923481464386
+          }
+        ]
+      }
+    ]
+  }
+}

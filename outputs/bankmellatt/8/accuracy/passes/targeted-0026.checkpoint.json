@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "91d6f7a3085b0c5719e312c5dff968ab4678d8c0b82ea74ad0006ca6619222d9",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.32,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.3,
+        "text": "ماشینم، هیچ درامدی کسب نمی‌کنم، فقط یه زندگی داریم، باهاش یه راحتی درم، ولی دربادی ازش ندارم.",
+        "avg_logprob": -0.3017113199739745,
+        "compression_ratio": 1.452991452991453,
+        "no_speech_prob": 2.2703024182835208e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.82,
+            "word": " ماشینم،",
+            "probability": 0.655873897112906
+          },
+          {
+            "start": 0.82,
+            "end": 0.96,
+            "word": " هیچ",
+            "probability": 0.9945950110753378
+          },
+          {
+            "start": 0.96,
+            "end": 1.54,
+            "word": " درامدی",
+            "probability": 0.9896751523017884
+          },
+          {
+            "start": 1.54,
+            "end": 1.84,
+            "word": " کسب",
+            "probability": 0.6738787293434143
+          },
+          {
+            "start": 1.84,
+            "end": 3.14,
+            "word": " نمی‌کنم،",
+            "probability": 0.6773092282237485
+          },
+          {
+            "start": 3.14,
+            "end": 3.4,
+            "word": " فقط",
+            "probability": 0.9935062527656555
+          },
+          {
+            "start": 3.4,
+            "end": 3.62,
+            "word": " یه",
+            "probability": 0.8364993929862976
+          },
+          {
+            "start": 3.62,
+            "end": 4.16,
+            "word": " زندگی",
+            "probability": 0.8228356465697289
+          },
+          {
+            "start": 4.16,
+            "end": 5.06,
+            "word": " داریم،",
+            "probability": 0.7097007453441619
+          },
+          {
+            "start": 5.06,
+            "end": 5.86,
+            "word": " باهاش",
+            "probability": 0.6010295649369558
+          },
+          {
+            "start": 5.86,
+            "end": 6.56,
+            "word": " یه",
+            "probability": 0.8868539035320282
+          },
+          {
+            "start": 6.56,
+            "end": 7.28,
+            "word": " راحتی",
+            "probability": 0.9409159570932388
+          },
+          {
+            "start": 7.28,
+            "end": 8.46,
+            "word": " درم،",
+            "probability": 0.4752570358105004
+          },
+          {
+            "start": 8.46,
+            "end": 8.76,
+            "word": " ولی",
+            "probability": 0.9820756316184998
+          },
+          {
+            "start": 8.76,
+            "end": 9.48,
+            "word": " دربادی",
+            "probability": 0.5361276441317386
+          },
+          {
+            "start": 9.48,
+            "end": 9.82,
+            "word": " ازش",
+            "probability": 0.9842687447865804
+          },
+          {
+            "start": 9.82,
+            "end": 10.3,
+            "word": " ندارم.",
+            "probability": 0.9902871400117874
+          }
+        ]
+      }
+    ]
+  }
+}

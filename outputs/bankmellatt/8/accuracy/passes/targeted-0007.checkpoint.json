@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "e1ce33a002b53b259703a6e35ee5acb0435cdc86b15c4c418b01e65196e4f60b",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.52,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.5,
+        "text": "روز مثلا مورد استفاده‌مون قرار می‌گیری یا در طول ماه داریم زندگی‌مان رو باهاش می‌کذرونیم، ولی باید یه توجهی...",
+        "avg_logprob": -0.21889118974407515,
+        "compression_ratio": 1.4710144927536233,
+        "no_speech_prob": 2.680954347411557e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.4,
+            "word": " روز",
+            "probability": 0.9535534183184305
+          },
+          {
+            "start": 0.4,
+            "end": 0.8,
+            "word": " مثلا",
+            "probability": 0.9740810692310333
+          },
+          {
+            "start": 0.8,
+            "end": 1.2,
+            "word": " مورد",
+            "probability": 0.9728043079376221
+          },
+          {
+            "start": 1.2,
+            "end": 1.88,
+            "word": " استفاده‌مون",
+            "probability": 0.7891972267201969
+          },
+          {
+            "start": 1.88,
+            "end": 2.18,
+            "word": " قرار",
+            "probability": 0.9845947623252869
+          },
+          {
+            "start": 2.18,
+            "end": 2.48,
+            "word": " می‌گیری",
+            "probability": 0.9481725454330444
+          },
+          {
+            "start": 2.48,
+            "end": 2.72,
+            "word": " یا",
+            "probability": 0.813113808631897
+          },
+          {
+            "start": 2.72,
+            "end": 2.9,
+            "word": " در",
+            "probability": 0.9914168119430542
+          },
+          {
+            "start": 2.9,
+            "end": 3.14,
+            "word": " طول",
+            "probability": 0.9908779859542847
+          },
+          {
+            "start": 3.14,
+            "end": 3.66,
+            "word": " ماه",
+            "probability": 0.9872227013111115
+          },
+          {
+            "start": 3.66,
+            "end": 4.08,
+            "word": " داریم",
+            "probability": 0.9616815000772476
+          },
+          {
+            "start": 4.08,
+            "end": 4.8,
+            "word": " زندگی‌مان",
+            "probability": 0.7933387437037059
+          },
+          {
+            "start": 4.8,
+            "end": 4.88,
+            "word": " رو",
+            "probability": 0.5520871058106422
+          },
+          {
+            "start": 4.88,
+            "end": 5.16,
+            "word": " باهاش",
+            "probability": 0.7252882520357767
+          },
+          {
+            "start": 5.16,
+            "end": 6.72,
+            "word": " می‌کذرونیم،",
+            "probability": 0.6666571603725768
+          },
+          {
+            "start": 6.72,
+            "end": 7.12,
+            "word": " ولی",
+            "probability": 0.9583725929260254
+          },
+          {
+            "start": 7.12,
+            "end": 7.6,
+            "word": " باید",
+            "probability": 0.9741217195987701
+          },
+          {
+            "start": 7.6,
+            "end": 7.76,
+            "word": " یه",
+            "probability": 0.8572159111499786
+          },
+          {
+            "start": 7.76,
+            "end": 8.5,
+            "word": " توجهی...",
+            "probability": 0.7361603185534478
+          }
+        ]
+      }
+    ]
+  }
+}

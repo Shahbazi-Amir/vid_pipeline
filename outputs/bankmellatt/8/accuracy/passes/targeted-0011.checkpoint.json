@@ -1,0 +1,193 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "85f914a00f3dbdc6d0d43eac5a4a3f543b1dbf80e2c9d4f4592989b6bcd589a0",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.18,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.94,
+        "text": "می‌کنیم که ماهیت این دارایی چیه؟ فرض کنید الان یه مرور ذهنی به دارائیاتون داشته باشید. مثلا من می‌گم خب یه",
+        "avg_logprob": -0.26144339107885595,
+        "compression_ratio": 1.5774647887323943,
+        "no_speech_prob": 2.3863969134119145e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.26,
+            "word": " می‌کنیم",
+            "probability": 0.6263605261531969
+          },
+          {
+            "start": 0.26,
+            "end": 0.44,
+            "word": " که",
+            "probability": 0.9753383696079254
+          },
+          {
+            "start": 0.44,
+            "end": 1.42,
+            "word": " ماهیت",
+            "probability": 0.8672715127468109
+          },
+          {
+            "start": 1.42,
+            "end": 1.64,
+            "word": " این",
+            "probability": 0.7965947985649109
+          },
+          {
+            "start": 1.64,
+            "end": 2.22,
+            "word": " دارایی",
+            "probability": 0.9254250884056091
+          },
+          {
+            "start": 2.22,
+            "end": 2.8,
+            "word": " چیه؟",
+            "probability": 0.8602525889873505
+          },
+          {
+            "start": 2.8,
+            "end": 3.94,
+            "word": " فرض",
+            "probability": 0.9906971156597137
+          },
+          {
+            "start": 3.94,
+            "end": 4.24,
+            "word": " کنید",
+            "probability": 0.9466704428195953
+          },
+          {
+            "start": 4.24,
+            "end": 4.64,
+            "word": " الان",
+            "probability": 0.924376517534256
+          },
+          {
+            "start": 4.64,
+            "end": 5.26,
+            "word": " یه",
+            "probability": 0.9158968031406403
+          },
+          {
+            "start": 5.26,
+            "end": 5.64,
+            "word": " مرور",
+            "probability": 0.9371769030888876
+          },
+          {
+            "start": 5.64,
+            "end": 6.14,
+            "word": " ذهنی",
+            "probability": 0.9681104719638824
+          },
+          {
+            "start": 6.14,
+            "end": 6.28,
+            "word": " به",
+            "probability": 0.9771955013275146
+          },
+          {
+            "start": 6.28,
+            "end": 6.94,
+            "word": " دارائیاتون",
+            "probability": 0.7970631954958662
+          },
+          {
+            "start": 6.94,
+            "end": 7.28,
+            "word": " داشته",
+            "probability": 0.9950543840726217
+          },
+          {
+            "start": 7.28,
+            "end": 7.7,
+            "word": " باشید.",
+            "probability": 0.9911607801914215
+          },
+          {
+            "start": 7.8,
+            "end": 8.08,
+            "word": " مثلا",
+            "probability": 0.9652953445911407
+          },
+          {
+            "start": 8.08,
+            "end": 8.3,
+            "word": " من",
+            "probability": 0.7589278221130371
+          },
+          {
+            "start": 8.3,
+            "end": 8.58,
+            "word": " می‌گم",
+            "probability": 0.9688133150339127
+          },
+          {
+            "start": 8.58,
+            "end": 8.78,
+            "word": " خب",
+            "probability": 0.7564367651939392
+          },
+          {
+            "start": 8.78,
+            "end": 8.94,
+            "word": " یه",
+            "probability": 0.9729202389717102
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 8.94,
+        "end": 10.16,
+        "text": "ماشین درم یا خون.",
+        "avg_logprob": -0.26144339107885595,
+        "compression_ratio": 1.5774647887323943,
+        "no_speech_prob": 2.3863969134119145e-10,
+        "words": [
+          {
+            "start": 8.94,
+            "end": 9.32,
+            "word": " ماشین",
+            "probability": 0.9927780230840048
+          },
+          {
+            "start": 9.32,
+            "end": 9.74,
+            "word": " درم",
+            "probability": 0.6487193619832397
+          },
+          {
+            "start": 9.74,
+            "end": 10.0,
+            "word": " یا",
+            "probability": 0.746041864156723
+          },
+          {
+            "start": 10.0,
+            "end": 10.16,
+            "word": " خون.",
+            "probability": 0.9454143643379211
+          }
+        ]
+      }
+    ]
+  }
+}

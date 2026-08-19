@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "cb5a7813ca3c8486bb15bd084e47d0f60edee991f0fc1af7306fb6c55e2782ad",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.64,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.2,
+        "text": "و اندیشه فقر داری، یعنی چی ببینیم؟ من الان از ماشین هم هیچ درامدی کسب نمی‌کنم، فقط یه زندگی دارم.",
+        "avg_logprob": -0.2860887116369079,
+        "compression_ratio": 1.3888888888888888,
+        "no_speech_prob": 2.798073717169558e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 1.04,
+            "word": " و",
+            "probability": 0.9777210354804993
+          },
+          {
+            "start": 1.04,
+            "end": 1.6,
+            "word": " اندیشه",
+            "probability": 0.9985519647598267
+          },
+          {
+            "start": 1.6,
+            "end": 2.14,
+            "word": " فقر",
+            "probability": 0.9700844287872314
+          },
+          {
+            "start": 2.14,
+            "end": 2.58,
+            "word": " داری،",
+            "probability": 0.7412165963905863
+          },
+          {
+            "start": 2.58,
+            "end": 4.62,
+            "word": " یعنی",
+            "probability": 0.9837879687547684
+          },
+          {
+            "start": 4.62,
+            "end": 4.78,
+            "word": " چی",
+            "probability": 0.9026608467102051
+          },
+          {
+            "start": 4.78,
+            "end": 5.14,
+            "word": " ببینیم؟",
+            "probability": 0.7610444277524948
+          },
+          {
+            "start": 5.14,
+            "end": 5.28,
+            "word": " من",
+            "probability": 0.3010343611240387
+          },
+          {
+            "start": 5.28,
+            "end": 5.48,
+            "word": " الان",
+            "probability": 0.7980254590511322
+          },
+          {
+            "start": 5.48,
+            "end": 5.66,
+            "word": " از",
+            "probability": 0.9886622726917267
+          },
+          {
+            "start": 5.66,
+            "end": 6.18,
+            "word": " ماشین",
+            "probability": 0.981153686841329
+          },
+          {
+            "start": 6.18,
+            "end": 6.36,
+            "word": " هم",
+            "probability": 0.7671338319778442
+          },
+          {
+            "start": 6.36,
+            "end": 6.6,
+            "word": " هیچ",
+            "probability": 0.9044666488965353
+          },
+          {
+            "start": 6.6,
+            "end": 7.18,
+            "word": " درامدی",
+            "probability": 0.9556442379951477
+          },
+          {
+            "start": 7.18,
+            "end": 7.46,
+            "word": " کسب",
+            "probability": 0.6975185722112656
+          },
+          {
+            "start": 7.46,
+            "end": 8.7,
+            "word": " نمی‌کنم،",
+            "probability": 0.654660580214113
+          },
+          {
+            "start": 8.7,
+            "end": 9.04,
+            "word": " فقط",
+            "probability": 0.9973889887332916
+          },
+          {
+            "start": 9.04,
+            "end": 9.24,
+            "word": " یه",
+            "probability": 0.8515884280204773
+          },
+          {
+            "start": 9.24,
+            "end": 9.8,
+            "word": " زندگی",
+            "probability": 0.9626272618770599
+          },
+          {
+            "start": 9.8,
+            "end": 10.2,
+            "word": " دارم.",
+            "probability": 0.612987288661922
+          }
+        ]
+      }
+    ]
+  }
+}

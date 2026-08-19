@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "human_review_required",
+  "generated_at": "2026-08-19T20:23:46.318697+00:00",
+  "job_root": "/tmp/bankmellatt-process-1-runtime/bankmellatt-472beea5",
+  "segment_count": 231,
+  "review_item_count": 231,
+  "required_item_count": 231,
+  "external_reference_used": false,
+  "quality_source": "/tmp/bankmellatt-process-1-runtime/bankmellatt-472beea5/accuracy/transcript.consensus.json",
+  "source_files": {
+    "raw_json": "/tmp/bankmellatt-process-1-runtime/bankmellatt-472beea5/raw/transcript.raw.json",
+    "machine_text": "/tmp/bankmellatt-process-1-runtime/bankmellatt-472beea5/machine/transcript.machine.txt",
+    "final_text": "/tmp/bankmellatt-process-1-runtime/bankmellatt-472beea5/final/transcript.final.txt",
+    "audio": "/tmp/bankmellatt-process-1-runtime/bankmellatt-472beea5/audio/audio-16k-mono.wav"
+  },
+  "source_sha256": {
+    "raw_json": "5e956a58547131160773135280f44dd2a9f3164f1108cb48ae867bfbfb9c8bd8",
+    "machine_text": "0540e6a42d7c7edfef49e3965a20ed178024aba14d08d847a8565c03f3bb11bb",
+    "final_text": "0540e6a42d7c7edfef49e3965a20ed178024aba14d08d847a8565c03f3bb11bb"
+  },
+  "files": {
+    "manifest": "/tmp/bankmellatt-process-1-runtime/bankmellatt-472beea5/review/manifest.json",
+    "uncertain_spans": "/tmp/bankmellatt-process-1-runtime/bankmellatt-472beea5/review/uncertain-spans.json",
+    "editorial_audit": "/tmp/bankmellatt-process-1-runtime/bankmellatt-472beea5/review/editorial-audit.json",
+    "assistant_package": "/tmp/bankmellatt-process-1-runtime/bankmellatt-472beea5/review/assistant-review-package.json",
+    "quality_report": "/tmp/bankmellatt-process-1-runtime/bankmellatt-472beea5/review/quality-report.json",
+    "review_srt": "/tmp/bankmellatt-process-1-runtime/bankmellatt-472beea5/review/transcript.review.srt",
+    "review_vtt": "/tmp/bankmellatt-process-1-runtime/bankmellatt-472beea5/review/transcript.review.vtt",
+    "review_markdown": "/tmp/bankmellatt-process-1-runtime/bankmellatt-472beea5/review/review.md",
+    "review_html": "/tmp/bankmellatt-process-1-runtime/bankmellatt-472beea5/review/review.html",
+    "corrections_template": "/tmp/bankmellatt-process-1-runtime/bankmellatt-472beea5/review/corrections.template.json",
+    "review_archive": "/tmp/bankmellatt-process-1-runtime/bankmellatt-472beea5/final/review-package.zip"
+  },
+  "warnings": []
+}

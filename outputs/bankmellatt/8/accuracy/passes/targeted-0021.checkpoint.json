@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "adb7784d2912db1f673a41fb3b1eedb1ef22cb067dcb18236b544890b2cf28a3",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.18,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.78,
+        "text": "این نگاه بکنی، این دارائی که داری یا ایندارائه که می‌خواهی ایجاد بکونی، پول بدی، بخری، آیا درامتزاه؟",
+        "avg_logprob": -0.20593541371288585,
+        "compression_ratio": 1.5333333333333334,
+        "no_speech_prob": 2.2739413130246078e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.1,
+            "word": " این",
+            "probability": 0.5064902752637863
+          },
+          {
+            "start": 0.1,
+            "end": 0.46,
+            "word": " نگاه",
+            "probability": 0.8239601254463196
+          },
+          {
+            "start": 0.46,
+            "end": 1.0,
+            "word": " بکنی،",
+            "probability": 0.869197952747345
+          },
+          {
+            "start": 1.0,
+            "end": 1.08,
+            "word": " این",
+            "probability": 0.9975723028182983
+          },
+          {
+            "start": 1.08,
+            "end": 1.86,
+            "word": " دارائی",
+            "probability": 0.8581637442111969
+          },
+          {
+            "start": 1.86,
+            "end": 2.08,
+            "word": " که",
+            "probability": 0.965594083070755
+          },
+          {
+            "start": 2.08,
+            "end": 2.5,
+            "word": " داری",
+            "probability": 0.9993224143981934
+          },
+          {
+            "start": 2.5,
+            "end": 3.48,
+            "word": " یا",
+            "probability": 0.9758694767951965
+          },
+          {
+            "start": 3.48,
+            "end": 4.06,
+            "word": " ایندارائه",
+            "probability": 0.6633218114960376
+          },
+          {
+            "start": 4.06,
+            "end": 4.24,
+            "word": " که",
+            "probability": 0.9018628895282745
+          },
+          {
+            "start": 4.24,
+            "end": 4.52,
+            "word": " می‌خواهی",
+            "probability": 0.707510688342154
+          },
+          {
+            "start": 4.52,
+            "end": 5.0,
+            "word": " ایجاد",
+            "probability": 0.9914708137512207
+          },
+          {
+            "start": 5.0,
+            "end": 5.52,
+            "word": " بکونی،",
+            "probability": 0.7304916593493544
+          },
+          {
+            "start": 5.52,
+            "end": 5.82,
+            "word": " پول",
+            "probability": 0.9938510358333588
+          },
+          {
+            "start": 5.82,
+            "end": 6.2,
+            "word": " بدی،",
+            "probability": 0.9133509000142416
+          },
+          {
+            "start": 6.2,
+            "end": 6.94,
+            "word": " بخری،",
+            "probability": 0.8233518898487091
+          },
+          {
+            "start": 6.94,
+            "end": 7.46,
+            "word": " آیا",
+            "probability": 0.9951987862586975
+          },
+          {
+            "start": 7.46,
+            "end": 8.78,
+            "word": " درامتزاه؟",
+            "probability": 0.7777002453804016
+          }
+        ]
+      }
+    ]
+  }
+}

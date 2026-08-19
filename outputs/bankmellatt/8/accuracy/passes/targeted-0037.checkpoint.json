@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "02b3a302c582d80403a32d828503b5621dd68512399f6b8a4b98b9e823500c77",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.26,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.24,
+        "text": "درامت ذا باشه، نه حزین ذا. یعنی در ابتدایی که من میخوام پولم رو خرج بکنم، گردش مالی زندگی",
+        "avg_logprob": -0.11471749962337556,
+        "compression_ratio": 1.325,
+        "no_speech_prob": 2.6284396881237626e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.74,
+            "word": " درامت",
+            "probability": 0.9102868735790253
+          },
+          {
+            "start": 0.74,
+            "end": 0.98,
+            "word": " ذا",
+            "probability": 0.6495385617017746
+          },
+          {
+            "start": 0.98,
+            "end": 1.5,
+            "word": " باشه،",
+            "probability": 0.8228907659649849
+          },
+          {
+            "start": 1.5,
+            "end": 1.7,
+            "word": " نه",
+            "probability": 0.9990018010139465
+          },
+          {
+            "start": 1.7,
+            "end": 2.14,
+            "word": " حزین",
+            "probability": 0.8506481250127157
+          },
+          {
+            "start": 2.14,
+            "end": 2.62,
+            "word": " ذا.",
+            "probability": 0.7958437204360962
+          },
+          {
+            "start": 2.62,
+            "end": 3.38,
+            "word": " یعنی",
+            "probability": 0.9967207461595535
+          },
+          {
+            "start": 3.38,
+            "end": 3.84,
+            "word": " در",
+            "probability": 0.9941172301769257
+          },
+          {
+            "start": 3.84,
+            "end": 4.66,
+            "word": " ابتدایی",
+            "probability": 0.99041268825531
+          },
+          {
+            "start": 4.66,
+            "end": 4.84,
+            "word": " که",
+            "probability": 0.9595836699008942
+          },
+          {
+            "start": 4.84,
+            "end": 5.02,
+            "word": " من",
+            "probability": 0.998870313167572
+          },
+          {
+            "start": 5.02,
+            "end": 5.36,
+            "word": " میخوام",
+            "probability": 0.9695395678281784
+          },
+          {
+            "start": 5.36,
+            "end": 5.74,
+            "word": " پولم",
+            "probability": 0.9787203868230184
+          },
+          {
+            "start": 5.74,
+            "end": 5.84,
+            "word": " رو",
+            "probability": 0.8372235298156738
+          },
+          {
+            "start": 5.84,
+            "end": 6.18,
+            "word": " خرج",
+            "probability": 0.9134405255317688
+          },
+          {
+            "start": 6.18,
+            "end": 7.32,
+            "word": " بکنم،",
+            "probability": 0.9219510912895202
+          },
+          {
+            "start": 7.32,
+            "end": 7.88,
+            "word": " گردش",
+            "probability": 0.9988353401422501
+          },
+          {
+            "start": 7.88,
+            "end": 8.5,
+            "word": " مالی",
+            "probability": 0.9994026819864908
+          },
+          {
+            "start": 8.5,
+            "end": 9.24,
+            "word": " زندگی",
+            "probability": 0.9986089468002319
+          }
+        ]
+      }
+    ]
+  }
+}

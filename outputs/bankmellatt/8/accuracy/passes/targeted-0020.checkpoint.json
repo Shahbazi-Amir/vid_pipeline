@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "d6974a068f1caeb938afa1ddc3e394eda8e2653158cecfe7d44eb340c8bf4e08",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.94,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.5,
+        "text": "بلکه ممکنه فقیر باشی. چطوری؟ باید نگاه بکنی این دارایی که داری یا این",
+        "avg_logprob": -0.21012445711172545,
+        "compression_ratio": 1.3333333333333333,
+        "no_speech_prob": 2.679328980903506e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 1.28,
+            "word": " بلکه",
+            "probability": 0.948981299996376
+          },
+          {
+            "start": 1.28,
+            "end": 1.68,
+            "word": " ممکنه",
+            "probability": 0.9828240275382996
+          },
+          {
+            "start": 1.68,
+            "end": 2.16,
+            "word": " فقیر",
+            "probability": 0.998711958527565
+          },
+          {
+            "start": 2.16,
+            "end": 2.54,
+            "word": " باشی.",
+            "probability": 0.9930972258249918
+          },
+          {
+            "start": 3.4,
+            "end": 4.24,
+            "word": " چطوری؟",
+            "probability": 0.9912800908088684
+          },
+          {
+            "start": 4.24,
+            "end": 4.9,
+            "word": " باید",
+            "probability": 0.9955306053161621
+          },
+          {
+            "start": 4.9,
+            "end": 5.4,
+            "word": " نگاه",
+            "probability": 0.9983722567558289
+          },
+          {
+            "start": 5.4,
+            "end": 5.82,
+            "word": " بکنی",
+            "probability": 0.9953908175230026
+          },
+          {
+            "start": 5.82,
+            "end": 6.02,
+            "word": " این",
+            "probability": 0.8569296002388
+          },
+          {
+            "start": 6.02,
+            "end": 6.82,
+            "word": " دارایی",
+            "probability": 0.9044249057769775
+          },
+          {
+            "start": 6.82,
+            "end": 7.02,
+            "word": " که",
+            "probability": 0.9827646017074585
+          },
+          {
+            "start": 7.02,
+            "end": 7.44,
+            "word": " داری",
+            "probability": 0.9992344776789347
+          },
+          {
+            "start": 7.44,
+            "end": 8.4,
+            "word": " یا",
+            "probability": 0.9045441746711731
+          },
+          {
+            "start": 8.4,
+            "end": 8.5,
+            "word": " این",
+            "probability": 0.9927804470062256
+          }
+        ]
+      }
+    ]
+  }
+}

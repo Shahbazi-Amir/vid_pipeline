@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "71b981eed3d997bf6915788ab747dc0aa91174a9d5a9cbbd407879667fd1347b",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.04,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.02,
+        "text": "یا حزین زا، اگر درامت زایه، بله تو اندیشه‌ی ثروتمندی داری، تو ثروته مندی، ولی اگه",
+        "avg_logprob": -0.2868669347039291,
+        "compression_ratio": 1.4653465346534653,
+        "no_speech_prob": 2.9702743042925306e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.52,
+            "word": " یا",
+            "probability": 0.9785628616809845
+          },
+          {
+            "start": 0.52,
+            "end": 0.94,
+            "word": " حزین",
+            "probability": 0.8278959393501282
+          },
+          {
+            "start": 0.94,
+            "end": 1.52,
+            "word": " زا،",
+            "probability": 0.34229989706849057
+          },
+          {
+            "start": 1.52,
+            "end": 3.24,
+            "word": " اگر",
+            "probability": 0.9969034592310587
+          },
+          {
+            "start": 3.24,
+            "end": 3.94,
+            "word": " درامت",
+            "probability": 0.9505453705787659
+          },
+          {
+            "start": 3.94,
+            "end": 4.34,
+            "word": " زایه،",
+            "probability": 0.6972505688667298
+          },
+          {
+            "start": 4.34,
+            "end": 4.64,
+            "word": " بله",
+            "probability": 0.9910675287246704
+          },
+          {
+            "start": 4.64,
+            "end": 4.8,
+            "word": " تو",
+            "probability": 0.4943237006664276
+          },
+          {
+            "start": 4.8,
+            "end": 5.4,
+            "word": " اندیشه‌ی",
+            "probability": 0.841179798756327
+          },
+          {
+            "start": 5.4,
+            "end": 6.24,
+            "word": " ثروتمندی",
+            "probability": 0.8490186582008997
+          },
+          {
+            "start": 6.24,
+            "end": 6.8,
+            "word": " داری،",
+            "probability": 0.8223293647170067
+          },
+          {
+            "start": 6.8,
+            "end": 7.16,
+            "word": " تو",
+            "probability": 0.8975218534469604
+          },
+          {
+            "start": 7.16,
+            "end": 7.68,
+            "word": " ثروته",
+            "probability": 0.6618144339784825
+          },
+          {
+            "start": 7.68,
+            "end": 8.42,
+            "word": " مندی،",
+            "probability": 0.5779752675443888
+          },
+          {
+            "start": 8.42,
+            "end": 8.86,
+            "word": " ولی",
+            "probability": 0.9873101711273193
+          },
+          {
+            "start": 8.86,
+            "end": 9.02,
+            "word": " اگه",
+            "probability": 0.6711919258038203
+          }
+        ]
+      }
+    ]
+  }
+}

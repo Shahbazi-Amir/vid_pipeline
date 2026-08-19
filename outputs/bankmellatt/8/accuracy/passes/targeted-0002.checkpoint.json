@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "4e62cd9af92e3cb9d8f2775f892706f4749c794e950e296e1c720506c2d51732",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.58,
+    "segments": [
+      {
+        "id": 1,
+        "start": 2.900000000000001,
+        "end": 8.16,
+        "text": "سلام، تا اینجا راجع به خرج کردن و الگوهای نامناسب خرید صحبت کردیم.",
+        "avg_logprob": -0.15982482758435337,
+        "compression_ratio": 1.3153153153153154,
+        "no_speech_prob": 3.372817025670827e-10,
+        "words": [
+          {
+            "start": 2.900000000000001,
+            "end": 3.78,
+            "word": " سلام،",
+            "probability": 0.5519943113128344
+          },
+          {
+            "start": 3.78,
+            "end": 3.94,
+            "word": " تا",
+            "probability": 0.9986406862735748
+          },
+          {
+            "start": 3.94,
+            "end": 4.14,
+            "word": " اینجا",
+            "probability": 0.9987648874521255
+          },
+          {
+            "start": 4.14,
+            "end": 4.42,
+            "word": " راجع",
+            "probability": 0.7850131094455719
+          },
+          {
+            "start": 4.42,
+            "end": 4.5,
+            "word": " به",
+            "probability": 0.8321307897567749
+          },
+          {
+            "start": 4.5,
+            "end": 4.86,
+            "word": " خرج",
+            "probability": 0.7611415088176727
+          },
+          {
+            "start": 4.86,
+            "end": 5.46,
+            "word": " کردن",
+            "probability": 0.9993088841438293
+          },
+          {
+            "start": 5.46,
+            "end": 5.6,
+            "word": " و",
+            "probability": 0.9989577531814575
+          },
+          {
+            "start": 5.6,
+            "end": 6.08,
+            "word": " الگوهای",
+            "probability": 0.9132437705993652
+          },
+          {
+            "start": 6.08,
+            "end": 6.66,
+            "word": " نامناسب",
+            "probability": 0.7816438972949982
+          },
+          {
+            "start": 6.66,
+            "end": 7.1,
+            "word": " خرید",
+            "probability": 0.9807897408803304
+          },
+          {
+            "start": 7.1,
+            "end": 7.62,
+            "word": " صحبت",
+            "probability": 0.9971651136875153
+          },
+          {
+            "start": 7.62,
+            "end": 8.16,
+            "word": " کردیم.",
+            "probability": 0.9970526099205017
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 8.2,
+        "end": 10.2,
+        "text": "یکی از مهمترین",
+        "avg_logprob": -0.15982482758435337,
+        "compression_ratio": 1.3153153153153154,
+        "no_speech_prob": 3.372817025670827e-10,
+        "words": [
+          {
+            "start": 8.2,
+            "end": 8.84,
+            "word": " یکی",
+            "probability": 0.7181635499000549
+          },
+          {
+            "start": 8.84,
+            "end": 8.98,
+            "word": " از",
+            "probability": 0.9980806708335876
+          },
+          {
+            "start": 8.98,
+            "end": 10.2,
+            "word": " مهمترین",
+            "probability": 0.9911362409591675
+          }
+        ]
+      }
+    ]
+  }
+}

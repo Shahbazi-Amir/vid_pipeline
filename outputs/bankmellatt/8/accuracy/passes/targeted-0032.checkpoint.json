@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "b6586a1c173232e348259582ca95fed7db118bc0dd7746107433dd8af0cbe323",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.06,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.04,
+        "text": "بودم، مثلا این بشه په میلیارد. تفاوتی برای من نداره، من دارم تو اون خونه زندگی می‌کنم، من ثروتمند",
+        "avg_logprob": -0.23570758705177614,
+        "compression_ratio": 1.4545454545454546,
+        "no_speech_prob": 2.959696376869658e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.42,
+            "word": " بودم،",
+            "probability": 0.6406484397593886
+          },
+          {
+            "start": 0.42,
+            "end": 0.76,
+            "word": " مثلا",
+            "probability": 0.9077831208705902
+          },
+          {
+            "start": 0.76,
+            "end": 0.9,
+            "word": " این",
+            "probability": 0.9978079199790955
+          },
+          {
+            "start": 0.9,
+            "end": 1.34,
+            "word": " بشه",
+            "probability": 0.9891225496927897
+          },
+          {
+            "start": 1.34,
+            "end": 1.86,
+            "word": " په",
+            "probability": 0.5736176818609238
+          },
+          {
+            "start": 1.86,
+            "end": 2.52,
+            "word": " میلیارد.",
+            "probability": 0.9584890246391297
+          },
+          {
+            "start": 3.02,
+            "end": 3.66,
+            "word": " تفاوتی",
+            "probability": 0.9937590718269348
+          },
+          {
+            "start": 3.66,
+            "end": 3.96,
+            "word": " برای",
+            "probability": 0.9995151162147522
+          },
+          {
+            "start": 3.96,
+            "end": 4.12,
+            "word": " من",
+            "probability": 0.9996040463447571
+          },
+          {
+            "start": 4.12,
+            "end": 4.62,
+            "word": " نداره،",
+            "probability": 0.8084323845803738
+          },
+          {
+            "start": 4.62,
+            "end": 4.72,
+            "word": " من",
+            "probability": 0.9985577464103699
+          },
+          {
+            "start": 4.72,
+            "end": 4.94,
+            "word": " دارم",
+            "probability": 0.9991711576779684
+          },
+          {
+            "start": 4.94,
+            "end": 5.06,
+            "word": " تو",
+            "probability": 0.8151051998138428
+          },
+          {
+            "start": 5.06,
+            "end": 5.14,
+            "word": " اون",
+            "probability": 0.7829649746417999
+          },
+          {
+            "start": 5.14,
+            "end": 5.38,
+            "word": " خونه",
+            "probability": 0.9837851723035177
+          },
+          {
+            "start": 5.38,
+            "end": 5.82,
+            "word": " زندگی",
+            "probability": 0.9990759491920471
+          },
+          {
+            "start": 5.82,
+            "end": 6.32,
+            "word": " می‌کنم،",
+            "probability": 0.5932361201072732
+          },
+          {
+            "start": 6.32,
+            "end": 6.38,
+            "word": " من",
+            "probability": 0.989982545375824
+          },
+          {
+            "start": 6.38,
+            "end": 7.04,
+            "word": " ثروتمند",
+            "probability": 0.6710454404354096
+          }
+        ]
+      }
+    ]
+  }
+}

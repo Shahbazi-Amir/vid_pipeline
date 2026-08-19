@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "8419afe777f08858beb0d68ee40133713f05c4c3b8ccc6e94a2596e7754f5b04",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.02,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.0,
+        "text": "که می‌خوای ایجاد بکنی، پول بدی، بخری، آیا درامدزاه یا حضینه‌ها؟ اگر درآمدزا",
+        "avg_logprob": -0.2641699915485723,
+        "compression_ratio": 1.320754716981132,
+        "no_speech_prob": 2.1154000773293546e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.08,
+            "word": " که",
+            "probability": 0.6409526616334915
+          },
+          {
+            "start": 0.08,
+            "end": 0.32,
+            "word": " می‌خوای",
+            "probability": 0.681399036757648
+          },
+          {
+            "start": 0.32,
+            "end": 0.82,
+            "word": " ایجاد",
+            "probability": 0.8665612787008286
+          },
+          {
+            "start": 0.82,
+            "end": 1.34,
+            "word": " بکنی،",
+            "probability": 0.9006137847900391
+          },
+          {
+            "start": 1.34,
+            "end": 1.64,
+            "word": " پول",
+            "probability": 0.9940941035747528
+          },
+          {
+            "start": 1.64,
+            "end": 2.02,
+            "word": " بدی،",
+            "probability": 0.9138316909472147
+          },
+          {
+            "start": 2.02,
+            "end": 2.78,
+            "word": " بخری،",
+            "probability": 0.8531592786312103
+          },
+          {
+            "start": 2.78,
+            "end": 3.28,
+            "word": " آیا",
+            "probability": 0.9910910129547119
+          },
+          {
+            "start": 3.28,
+            "end": 4.4,
+            "word": " درامدزاه",
+            "probability": 0.7278610120217005
+          },
+          {
+            "start": 4.4,
+            "end": 5.46,
+            "word": " یا",
+            "probability": 0.6407989114522934
+          },
+          {
+            "start": 5.46,
+            "end": 7.02,
+            "word": " حضینه‌ها؟",
+            "probability": 0.6545514251504626
+          },
+          {
+            "start": 7.02,
+            "end": 8.16,
+            "word": " اگر",
+            "probability": 0.9795278310775757
+          },
+          {
+            "start": 8.16,
+            "end": 9.0,
+            "word": " درآمدزا",
+            "probability": 0.7330551103077596
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "df59e6b81345b0fcf3354923e91770cf9173d0f3129e5e46831c6e898745e152",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.14,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.78,
+        "text": "نمی‌شه، دارایی باید درامت ذا باشه، نه حزینه ذا.",
+        "avg_logprob": -0.2914740451072392,
+        "compression_ratio": 1.1466666666666667,
+        "no_speech_prob": 1.9470607071081503e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 1.2,
+            "word": " نمی‌شه،",
+            "probability": 0.5531208178061726
+          },
+          {
+            "start": 1.2,
+            "end": 2.8,
+            "word": " دارایی",
+            "probability": 0.9328718900680542
+          },
+          {
+            "start": 2.8,
+            "end": 4.12,
+            "word": " باید",
+            "probability": 0.9862324744462967
+          },
+          {
+            "start": 4.12,
+            "end": 4.94,
+            "word": " درامت",
+            "probability": 0.9084962010383606
+          },
+          {
+            "start": 4.94,
+            "end": 5.26,
+            "word": " ذا",
+            "probability": 0.527771569788456
+          },
+          {
+            "start": 5.26,
+            "end": 5.74,
+            "word": " باشه،",
+            "probability": 0.8383197113871574
+          },
+          {
+            "start": 5.74,
+            "end": 5.94,
+            "word": " نه",
+            "probability": 0.9938539564609528
+          },
+          {
+            "start": 5.94,
+            "end": 6.52,
+            "word": " حزینه",
+            "probability": 0.6855002716183662
+          },
+          {
+            "start": 6.52,
+            "end": 6.78,
+            "word": " ذا.",
+            "probability": 0.9168407320976257
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "ec0ebfbb38b168a7c9bb5a0be7d60f3c98e3a87b91a75f474f17219a361e2e46",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.96,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.54,
+        "text": "ایجاد بکنم، نه دارای حزین زاد. مثلا به من می‌گن که تو صد ملیون برنده شدی. چی کار می‌کنی؟",
+        "avg_logprob": -0.27326041763111697,
+        "compression_ratio": 1.3389830508474576,
+        "no_speech_prob": 2.7839489047387644e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.54,
+            "word": " ایجاد",
+            "probability": 0.9108887612819672
+          },
+          {
+            "start": 0.54,
+            "end": 1.16,
+            "word": " بکنم،",
+            "probability": 0.8054842881858348
+          },
+          {
+            "start": 1.16,
+            "end": 1.32,
+            "word": " نه",
+            "probability": 0.8694386184215546
+          },
+          {
+            "start": 1.32,
+            "end": 1.72,
+            "word": " دارای",
+            "probability": 0.9708331972360611
+          },
+          {
+            "start": 1.72,
+            "end": 2.18,
+            "word": " حزین",
+            "probability": 0.7182944019635519
+          },
+          {
+            "start": 2.18,
+            "end": 2.52,
+            "word": " زاد.",
+            "probability": 0.4079354554414749
+          },
+          {
+            "start": 3.58,
+            "end": 4.12,
+            "word": " مثلا",
+            "probability": 0.9947647452354431
+          },
+          {
+            "start": 4.12,
+            "end": 5.04,
+            "word": " به",
+            "probability": 0.794283926486969
+          },
+          {
+            "start": 5.04,
+            "end": 5.26,
+            "word": " من",
+            "probability": 0.9956808090209961
+          },
+          {
+            "start": 5.26,
+            "end": 5.6,
+            "word": " می‌گن",
+            "probability": 0.7441450782353058
+          },
+          {
+            "start": 5.6,
+            "end": 6.92,
+            "word": " که",
+            "probability": 0.9593813717365265
+          },
+          {
+            "start": 6.92,
+            "end": 7.2,
+            "word": " تو",
+            "probability": 0.8375406861305237
+          },
+          {
+            "start": 7.2,
+            "end": 7.88,
+            "word": " صد",
+            "probability": 0.7420962303876877
+          },
+          {
+            "start": 7.88,
+            "end": 8.52,
+            "word": " ملیون",
+            "probability": 0.7906548529863358
+          },
+          {
+            "start": 8.52,
+            "end": 9.16,
+            "word": " برنده",
+            "probability": 0.9836024791002274
+          },
+          {
+            "start": 9.16,
+            "end": 9.46,
+            "word": " شدی.",
+            "probability": 0.9973746339480082
+          },
+          {
+            "start": 9.98,
+            "end": 10.76,
+            "word": " چی",
+            "probability": 0.8579523265361786
+          },
+          {
+            "start": 10.76,
+            "end": 10.92,
+            "word": " کار",
+            "probability": 0.992264986038208
+          },
+          {
+            "start": 10.92,
+            "end": 11.54,
+            "word": " می‌کنی؟",
+            "probability": 0.9459636012713114
+          }
+        ]
+      }
+    ]
+  }
+}

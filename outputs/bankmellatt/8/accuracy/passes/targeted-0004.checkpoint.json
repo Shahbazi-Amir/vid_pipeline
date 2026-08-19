@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "10134ae0af682a8ee542242d7947a262c61a8c1f65eb2410f8bd8df31be98e1a",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.48,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.2,
+        "text": "برای که ما وارده یه خریب بشیم یا نشییم، نگاه کردن به اون داراییه. ببینیم ما چی می‌خواهیم بخریم؟",
+        "avg_logprob": -0.16535001044923608,
+        "compression_ratio": 1.5087719298245614,
+        "no_speech_prob": 1.9054724464950823e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.22,
+            "word": " برای",
+            "probability": 0.9698166052500407
+          },
+          {
+            "start": 0.22,
+            "end": 0.38,
+            "word": " که",
+            "probability": 0.7997735142707825
+          },
+          {
+            "start": 0.38,
+            "end": 0.46,
+            "word": " ما",
+            "probability": 0.9968710541725159
+          },
+          {
+            "start": 0.46,
+            "end": 0.84,
+            "word": " وارده",
+            "probability": 0.9905829578638077
+          },
+          {
+            "start": 0.84,
+            "end": 0.98,
+            "word": " یه",
+            "probability": 0.8048733770847321
+          },
+          {
+            "start": 0.98,
+            "end": 1.36,
+            "word": " خریب",
+            "probability": 0.8016858001550039
+          },
+          {
+            "start": 1.36,
+            "end": 1.72,
+            "word": " بشیم",
+            "probability": 0.9970056712627411
+          },
+          {
+            "start": 1.72,
+            "end": 1.86,
+            "word": " یا",
+            "probability": 0.9948789179325104
+          },
+          {
+            "start": 1.86,
+            "end": 2.66,
+            "word": " نشییم،",
+            "probability": 0.690984628473719
+          },
+          {
+            "start": 2.66,
+            "end": 3.5,
+            "word": " نگاه",
+            "probability": 0.9994326233863831
+          },
+          {
+            "start": 3.5,
+            "end": 3.94,
+            "word": " کردن",
+            "probability": 0.9868499040603638
+          },
+          {
+            "start": 3.94,
+            "end": 4.08,
+            "word": " به",
+            "probability": 0.9979028701782227
+          },
+          {
+            "start": 4.08,
+            "end": 4.22,
+            "word": " اون",
+            "probability": 0.9979092180728912
+          },
+          {
+            "start": 4.22,
+            "end": 4.96,
+            "word": " داراییه.",
+            "probability": 0.9407928685347239
+          },
+          {
+            "start": 5.1,
+            "end": 5.6,
+            "word": " ببینیم",
+            "probability": 0.9676018476486206
+          },
+          {
+            "start": 5.6,
+            "end": 5.76,
+            "word": " ما",
+            "probability": 0.9876684546470642
+          },
+          {
+            "start": 5.76,
+            "end": 6.08,
+            "word": " چی",
+            "probability": 0.9992727339267731
+          },
+          {
+            "start": 6.08,
+            "end": 6.5,
+            "word": " می‌خواهیم",
+            "probability": 0.7395627504613783
+          },
+          {
+            "start": 6.5,
+            "end": 7.2,
+            "word": " بخریم؟",
+            "probability": 0.8170109450817108
+          }
+        ]
+      }
+    ]
+  }
+}

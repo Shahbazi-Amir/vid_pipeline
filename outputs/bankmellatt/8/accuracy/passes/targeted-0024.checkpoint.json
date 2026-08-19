@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "d28dbb22d8a8c7698fd889c9b7fa580f7103a0f042feb7552f53dfbf30e11af7",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.84,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.4,
+        "text": "اندیشه‌ی فروتمندی داری، تو ثروت مندی، ولی اگر هزینه‌زاد، نه، تو فقیری و اندیکه‌فقر دارین.",
+        "avg_logprob": -0.36959586797222016,
+        "compression_ratio": 1.509090909090909,
+        "no_speech_prob": 3.978605778165445e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.16,
+            "word": " اندیشه‌ی",
+            "probability": 0.7145441650146884
+          },
+          {
+            "start": 0.16,
+            "end": 0.96,
+            "word": " فروتمندی",
+            "probability": 0.8464613457520803
+          },
+          {
+            "start": 0.96,
+            "end": 1.56,
+            "word": " داری،",
+            "probability": 0.7556257620453835
+          },
+          {
+            "start": 1.56,
+            "end": 1.88,
+            "word": " تو",
+            "probability": 0.9776355624198914
+          },
+          {
+            "start": 1.88,
+            "end": 2.4,
+            "word": " ثروت",
+            "probability": 0.6667475306118528
+          },
+          {
+            "start": 2.4,
+            "end": 2.96,
+            "word": " مندی،",
+            "probability": 0.5398636679165065
+          },
+          {
+            "start": 2.96,
+            "end": 3.58,
+            "word": " ولی",
+            "probability": 0.9903890192508698
+          },
+          {
+            "start": 3.58,
+            "end": 3.86,
+            "word": " اگر",
+            "probability": 0.9871787031491598
+          },
+          {
+            "start": 3.86,
+            "end": 4.96,
+            "word": " هزینه‌زاد،",
+            "probability": 0.6641938574612141
+          },
+          {
+            "start": 4.96,
+            "end": 5.48,
+            "word": " نه،",
+            "probability": 0.7298900385697683
+          },
+          {
+            "start": 5.48,
+            "end": 6.04,
+            "word": " تو",
+            "probability": 0.9961676001548767
+          },
+          {
+            "start": 6.04,
+            "end": 6.7,
+            "word": " فقیری",
+            "probability": 0.9910049587488174
+          },
+          {
+            "start": 6.7,
+            "end": 7.88,
+            "word": " و",
+            "probability": 0.7232797145843506
+          },
+          {
+            "start": 7.88,
+            "end": 8.98,
+            "word": " اندیکه‌فقر",
+            "probability": 0.7220468393861665
+          },
+          {
+            "start": 8.98,
+            "end": 9.4,
+            "word": " دارین.",
+            "probability": 0.6572286450148871
+          }
+        ]
+      }
+    ]
+  }
+}

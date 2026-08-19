@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "d1f6903702a3df04c7b872a875b5f402c77b1824a5ff9e5ba02262fbd3435034",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.66,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.6,
+        "text": "ولی یک ماهیت خاصی دارن. آیا من با این دارایا ثروت بندم؟",
+        "avg_logprob": -0.1948912917739815,
+        "compression_ratio": 1.1666666666666667,
+        "no_speech_prob": 3.3125635567898826e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.32,
+            "word": " ولی",
+            "probability": 0.9859795868396759
+          },
+          {
+            "start": 0.32,
+            "end": 0.54,
+            "word": " یک",
+            "probability": 0.9912340044975281
+          },
+          {
+            "start": 0.54,
+            "end": 1.4,
+            "word": " ماهیت",
+            "probability": 0.9856494069099426
+          },
+          {
+            "start": 1.4,
+            "end": 2.04,
+            "word": " خاصی",
+            "probability": 0.9040878415107727
+          },
+          {
+            "start": 2.04,
+            "end": 2.46,
+            "word": " دارن.",
+            "probability": 0.9500792622566223
+          },
+          {
+            "start": 2.92,
+            "end": 3.76,
+            "word": " آیا",
+            "probability": 0.998269647359848
+          },
+          {
+            "start": 3.76,
+            "end": 4.0,
+            "word": " من",
+            "probability": 0.9993158578872681
+          },
+          {
+            "start": 4.0,
+            "end": 4.28,
+            "word": " با",
+            "probability": 0.9992828071117401
+          },
+          {
+            "start": 4.28,
+            "end": 4.36,
+            "word": " این",
+            "probability": 0.9996438324451447
+          },
+          {
+            "start": 4.36,
+            "end": 4.84,
+            "word": " دارایا",
+            "probability": 0.8930052071809769
+          },
+          {
+            "start": 4.84,
+            "end": 5.38,
+            "word": " ثروت",
+            "probability": 0.7697502275307974
+          },
+          {
+            "start": 5.38,
+            "end": 6.6,
+            "word": " بندم؟",
+            "probability": 0.7585720419883728
+          }
+        ]
+      }
+    ]
+  }
+}

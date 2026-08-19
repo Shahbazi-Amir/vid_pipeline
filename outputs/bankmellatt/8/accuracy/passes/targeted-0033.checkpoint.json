@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "3bfe9b222a0170e336bdf29c9b913be842b706fffa93c072b9c341cf596d2aa0",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.66,
+    "segments": [
+      {
+        "id": 1,
+        "start": 1.1200000000000006,
+        "end": 6.44,
+        "text": "تفاوتی برای من نداره، من دارم تو اون خونه زندگی می‌کنم، من ثروتمند نمی‌شم.",
+        "avg_logprob": -0.1297247564792633,
+        "compression_ratio": 1.3877551020408163,
+        "no_speech_prob": 3.0652003157882746e-10,
+        "words": [
+          {
+            "start": 1.1200000000000006,
+            "end": 1.6,
+            "word": " تفاوتی",
+            "probability": 0.9907687067985534
+          },
+          {
+            "start": 1.6,
+            "end": 1.9,
+            "word": " برای",
+            "probability": 0.99972536166509
+          },
+          {
+            "start": 1.9,
+            "end": 2.06,
+            "word": " من",
+            "probability": 0.9997978806495667
+          },
+          {
+            "start": 2.06,
+            "end": 2.56,
+            "word": " نداره،",
+            "probability": 0.8045867379754782
+          },
+          {
+            "start": 2.56,
+            "end": 2.64,
+            "word": " من",
+            "probability": 0.9977789521217346
+          },
+          {
+            "start": 2.64,
+            "end": 2.88,
+            "word": " دارم",
+            "probability": 0.997985303401947
+          },
+          {
+            "start": 2.88,
+            "end": 3.0,
+            "word": " تو",
+            "probability": 0.8812032341957092
+          },
+          {
+            "start": 3.0,
+            "end": 3.1,
+            "word": " اون",
+            "probability": 0.8901986479759216
+          },
+          {
+            "start": 3.1,
+            "end": 3.32,
+            "word": " خونه",
+            "probability": 0.9759730696678162
+          },
+          {
+            "start": 3.32,
+            "end": 3.76,
+            "word": " زندگی",
+            "probability": 0.9990495592355728
+          },
+          {
+            "start": 3.76,
+            "end": 4.28,
+            "word": " می‌کنم،",
+            "probability": 0.6410870921487609
+          },
+          {
+            "start": 4.28,
+            "end": 4.32,
+            "word": " من",
+            "probability": 0.9934651255607605
+          },
+          {
+            "start": 4.32,
+            "end": 5.28,
+            "word": " ثروتمند",
+            "probability": 0.8711929619312286
+          },
+          {
+            "start": 5.28,
+            "end": 6.44,
+            "word": " نمی‌شم.",
+            "probability": 0.9281953374544779
+          }
+        ]
+      }
+    ]
+  }
+}

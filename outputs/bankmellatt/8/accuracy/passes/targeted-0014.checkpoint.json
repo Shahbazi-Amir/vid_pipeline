@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "070384eb896d6c34a9bf1bcc0fd34603be6fae6127c77c85dd74d038b5894513",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.28,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.26,
+        "text": "فرشخونه، تابلوهایی که تو خونه دارن؟ خب، اینا دارایی هستند، ولی یک ماهیت خاصی دارند. آیا من با این دارائی‌هاستند؟",
+        "avg_logprob": -0.2907038388186938,
+        "compression_ratio": 1.553030303030303,
+        "no_speech_prob": 2.776393559500434e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.86,
+            "word": " فرشخونه،",
+            "probability": 0.6910387660775866
+          },
+          {
+            "start": 0.86,
+            "end": 1.56,
+            "word": " تابلوهایی",
+            "probability": 0.9473458273070199
+          },
+          {
+            "start": 1.56,
+            "end": 1.7,
+            "word": " که",
+            "probability": 0.9988305568695068
+          },
+          {
+            "start": 1.7,
+            "end": 1.78,
+            "word": " تو",
+            "probability": 0.993361234664917
+          },
+          {
+            "start": 1.78,
+            "end": 2.12,
+            "word": " خونه",
+            "probability": 0.9875891009966532
+          },
+          {
+            "start": 2.12,
+            "end": 2.64,
+            "word": " دارن؟",
+            "probability": 0.7059169188141823
+          },
+          {
+            "start": 2.64,
+            "end": 4.32,
+            "word": " خب،",
+            "probability": 0.748408446709315
+          },
+          {
+            "start": 4.32,
+            "end": 4.48,
+            "word": " اینا",
+            "probability": 0.9905516306559244
+          },
+          {
+            "start": 4.48,
+            "end": 5.16,
+            "word": " دارایی",
+            "probability": 0.8980933904647828
+          },
+          {
+            "start": 5.16,
+            "end": 5.84,
+            "word": " هستند،",
+            "probability": 0.5611454043537378
+          },
+          {
+            "start": 5.84,
+            "end": 6.6,
+            "word": " ولی",
+            "probability": 0.9958921372890472
+          },
+          {
+            "start": 6.6,
+            "end": 6.8,
+            "word": " یک",
+            "probability": 0.9801516830921173
+          },
+          {
+            "start": 6.8,
+            "end": 7.68,
+            "word": " ماهیت",
+            "probability": 0.9780146479606628
+          },
+          {
+            "start": 7.68,
+            "end": 8.3,
+            "word": " خاصی",
+            "probability": 0.9595322211583456
+          },
+          {
+            "start": 8.3,
+            "end": 8.78,
+            "word": " دارند.",
+            "probability": 0.786250243584315
+          },
+          {
+            "start": 9.28,
+            "end": 10.02,
+            "word": " آیا",
+            "probability": 0.9914007782936096
+          },
+          {
+            "start": 10.02,
+            "end": 10.28,
+            "word": " من",
+            "probability": 0.9947082996368408
+          },
+          {
+            "start": 10.28,
+            "end": 10.56,
+            "word": " با",
+            "probability": 0.998361200094223
+          },
+          {
+            "start": 10.56,
+            "end": 10.64,
+            "word": " این",
+            "probability": 0.9987422227859497
+          },
+          {
+            "start": 10.64,
+            "end": 11.26,
+            "word": " دارائی‌هاستند؟",
+            "probability": 0.5700303221011482
+          }
+        ]
+      }
+    ]
+  }
+}

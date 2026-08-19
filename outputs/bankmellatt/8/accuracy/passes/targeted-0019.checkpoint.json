@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "a3ac2b1f4df5bd0df5e441da05c3d54ef96c7fba6424ad7753d54a0ebf970557",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.12,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.46,
+        "text": "تو فروتمند نیستی، بلکه ممکنه فقیر باشی. چطوری؟",
+        "avg_logprob": -0.16876876975099245,
+        "compression_ratio": 1.037037037037037,
+        "no_speech_prob": 2.797717058022897e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.98,
+            "word": " تو",
+            "probability": 0.9700596332550049
+          },
+          {
+            "start": 0.98,
+            "end": 2.04,
+            "word": " فروتمند",
+            "probability": 0.9522123694419861
+          },
+          {
+            "start": 2.04,
+            "end": 2.66,
+            "word": " نیستی،",
+            "probability": 0.7968375061638653
+          },
+          {
+            "start": 2.66,
+            "end": 3.4,
+            "word": " بلکه",
+            "probability": 0.9932749569416046
+          },
+          {
+            "start": 3.4,
+            "end": 3.8,
+            "word": " ممکنه",
+            "probability": 0.9753094673156738
+          },
+          {
+            "start": 3.8,
+            "end": 4.26,
+            "word": " فقیر",
+            "probability": 0.9989984631538391
+          },
+          {
+            "start": 4.26,
+            "end": 4.64,
+            "word": " باشی.",
+            "probability": 0.9958540598551432
+          },
+          {
+            "start": 5.22,
+            "end": 6.46,
+            "word": " چطوری؟",
+            "probability": 0.9904976725578308
+          }
+        ]
+      }
+    ]
+  }
+}

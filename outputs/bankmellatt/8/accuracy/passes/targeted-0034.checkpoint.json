@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "074d2f72da50e543dfae5ea6dd2b25456719e2e2b0b75854e84b623b01e30625",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.3,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.74,
+        "text": "دارایی من نداره، من دارم تو اون خونه زندگی می‌کنم، من ثروتمند نمیشم. دارائی؟",
+        "avg_logprob": -0.2045806424290526,
+        "compression_ratio": 1.39,
+        "no_speech_prob": 3.4547856242461705e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.32,
+            "word": " دارایی",
+            "probability": 0.8392056822776794
+          },
+          {
+            "start": 0.32,
+            "end": 0.34,
+            "word": " من",
+            "probability": 0.06865445524454117
+          },
+          {
+            "start": 0.34,
+            "end": 0.92,
+            "word": " نداره،",
+            "probability": 0.8095645368099212
+          },
+          {
+            "start": 0.92,
+            "end": 0.98,
+            "word": " من",
+            "probability": 0.9598740339279175
+          },
+          {
+            "start": 0.98,
+            "end": 1.24,
+            "word": " دارم",
+            "probability": 0.9817718664805094
+          },
+          {
+            "start": 1.24,
+            "end": 1.34,
+            "word": " تو",
+            "probability": 0.8317208886146545
+          },
+          {
+            "start": 1.34,
+            "end": 1.42,
+            "word": " اون",
+            "probability": 0.8362165689468384
+          },
+          {
+            "start": 1.42,
+            "end": 1.66,
+            "word": " خونه",
+            "probability": 0.9600337743759155
+          },
+          {
+            "start": 1.66,
+            "end": 2.1,
+            "word": " زندگی",
+            "probability": 0.9965353608131409
+          },
+          {
+            "start": 2.1,
+            "end": 2.6,
+            "word": " می‌کنم،",
+            "probability": 0.659982138623794
+          },
+          {
+            "start": 2.6,
+            "end": 2.66,
+            "word": " من",
+            "probability": 0.9831026196479797
+          },
+          {
+            "start": 2.66,
+            "end": 3.62,
+            "word": " ثروتمند",
+            "probability": 0.7998554855585098
+          },
+          {
+            "start": 3.62,
+            "end": 4.82,
+            "word": " نمیشم.",
+            "probability": 0.8260838478803635
+          },
+          {
+            "start": 6.1,
+            "end": 6.74,
+            "word": " دارائی؟",
+            "probability": 0.7007004812359809
+          }
+        ]
+      }
+    ]
+  }
+}

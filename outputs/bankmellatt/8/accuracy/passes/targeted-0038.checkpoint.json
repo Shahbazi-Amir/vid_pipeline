@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "ff3052a349243bdaee5764d53803293711604592277dfff9ecd5b00111ed4603",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.06,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.04,
+        "text": "اعداد هایی که من می‌خوام پولم رو خرج بکنم، گردش مالی زندگی من باید برای اساس دارای‌های درآمدزا باشه. من باعث داراه‌ی دروآ...",
+        "avg_logprob": -0.292356048311506,
+        "compression_ratio": 1.5202702702702702,
+        "no_speech_prob": 2.1663079663447604e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.18,
+            "word": " اعداد",
+            "probability": 0.38283129036426544
+          },
+          {
+            "start": 0.18,
+            "end": 0.4,
+            "word": " هایی",
+            "probability": 0.7720546424388885
+          },
+          {
+            "start": 0.4,
+            "end": 0.6,
+            "word": " که",
+            "probability": 0.9752935469150543
+          },
+          {
+            "start": 0.6,
+            "end": 0.76,
+            "word": " من",
+            "probability": 0.9946348667144775
+          },
+          {
+            "start": 0.76,
+            "end": 1.08,
+            "word": " می‌خوام",
+            "probability": 0.7855107569135725
+          },
+          {
+            "start": 1.08,
+            "end": 1.5,
+            "word": " پولم",
+            "probability": 0.9535859028498331
+          },
+          {
+            "start": 1.5,
+            "end": 1.56,
+            "word": " رو",
+            "probability": 0.7565551102161407
+          },
+          {
+            "start": 1.56,
+            "end": 1.92,
+            "word": " خرج",
+            "probability": 0.9459883570671082
+          },
+          {
+            "start": 1.92,
+            "end": 3.06,
+            "word": " بکنم،",
+            "probability": 0.8186028838157654
+          },
+          {
+            "start": 3.06,
+            "end": 3.62,
+            "word": " گردش",
+            "probability": 0.9927571564912796
+          },
+          {
+            "start": 3.62,
+            "end": 4.24,
+            "word": " مالی",
+            "probability": 0.9915004769961039
+          },
+          {
+            "start": 4.24,
+            "end": 4.94,
+            "word": " زندگی",
+            "probability": 0.9963886141777039
+          },
+          {
+            "start": 4.94,
+            "end": 5.3,
+            "word": " من",
+            "probability": 0.9780515432357788
+          },
+          {
+            "start": 5.3,
+            "end": 5.92,
+            "word": " باید",
+            "probability": 0.9822470098733902
+          },
+          {
+            "start": 5.92,
+            "end": 6.24,
+            "word": " برای",
+            "probability": 0.6798260708649954
+          },
+          {
+            "start": 6.24,
+            "end": 6.6,
+            "word": " اساس",
+            "probability": 0.8763202726840973
+          },
+          {
+            "start": 6.6,
+            "end": 7.34,
+            "word": " دارای‌های",
+            "probability": 0.8484724430101258
+          },
+          {
+            "start": 7.34,
+            "end": 8.14,
+            "word": " درآمدزا",
+            "probability": 0.7454537637531757
+          },
+          {
+            "start": 8.14,
+            "end": 8.62,
+            "word": " باشه.",
+            "probability": 0.9790271917978922
+          },
+          {
+            "start": 8.86,
+            "end": 9.48,
+            "word": " من",
+            "probability": 0.9406206011772156
+          },
+          {
+            "start": 9.48,
+            "end": 9.72,
+            "word": " باعث",
+            "probability": 0.5242230141302571
+          },
+          {
+            "start": 9.72,
+            "end": 10.28,
+            "word": " داراه‌ی",
+            "probability": 0.6889811368659139
+          },
+          {
+            "start": 10.28,
+            "end": 11.04,
+            "word": " دروآ...",
+            "probability": 0.531945195121807
+          }
+        ]
+      }
+    ]
+  }
+}

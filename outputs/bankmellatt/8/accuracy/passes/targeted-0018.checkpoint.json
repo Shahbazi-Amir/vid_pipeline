@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "05c18a6c4d8f0f8b747a1245125fec653dc43dac0ab47b8c4e5e32a1efcfc9f2",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.94,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.54,
+        "text": "لباس، فرش، تابل و فرس، هرچی، لزوماً تو ثروتمند نیستی، بلکه ممکنه فقیر باشی.",
+        "avg_logprob": -0.23728411239490174,
+        "compression_ratio": 1.36,
+        "no_speech_prob": 3.0297422903835525e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.92,
+            "word": " لباس،",
+            "probability": 0.8488277420401573
+          },
+          {
+            "start": 0.92,
+            "end": 1.4,
+            "word": " فرش،",
+            "probability": 0.9711566120386124
+          },
+          {
+            "start": 1.4,
+            "end": 1.72,
+            "word": " تابل",
+            "probability": 0.9216197927792867
+          },
+          {
+            "start": 1.72,
+            "end": 1.76,
+            "word": " و",
+            "probability": 0.7506811618804932
+          },
+          {
+            "start": 1.76,
+            "end": 2.14,
+            "word": " فرس،",
+            "probability": 0.5995822363329353
+          },
+          {
+            "start": 2.14,
+            "end": 2.68,
+            "word": " هرچی،",
+            "probability": 0.7921633914113044
+          },
+          {
+            "start": 2.68,
+            "end": 4.1,
+            "word": " لزوماً",
+            "probability": 0.667791610956192
+          },
+          {
+            "start": 4.1,
+            "end": 4.92,
+            "word": " تو",
+            "probability": 0.9782484769821167
+          },
+          {
+            "start": 4.92,
+            "end": 5.98,
+            "word": " ثروتمند",
+            "probability": 0.9221956133842468
+          },
+          {
+            "start": 5.98,
+            "end": 7.08,
+            "word": " نیستی،",
+            "probability": 0.8447395086288452
+          },
+          {
+            "start": 7.08,
+            "end": 7.34,
+            "word": " بلکه",
+            "probability": 0.9898289442062378
+          },
+          {
+            "start": 7.34,
+            "end": 7.74,
+            "word": " ممکنه",
+            "probability": 0.9868454337120056
+          },
+          {
+            "start": 7.74,
+            "end": 8.22,
+            "word": " فقیر",
+            "probability": 0.997930496931076
+          },
+          {
+            "start": 8.22,
+            "end": 8.54,
+            "word": " باشی.",
+            "probability": 0.994065523147583
+          }
+        ]
+      }
+    ]
+  }
+}

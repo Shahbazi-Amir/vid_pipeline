@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "cef3ba26c154c6b479b09b6c085ce566b467d2307ade935ce4c61a8b7b5c221f",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.52,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.5,
+        "text": "با هاش یه راحتی دارم، ولی درامدی ازش ندارم. این درآمدزایی برای...",
+        "avg_logprob": -0.31176488225658733,
+        "compression_ratio": 1.3068181818181819,
+        "no_speech_prob": 2.7032215355049516e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.34,
+            "word": " با",
+            "probability": 0.41581621766090393
+          },
+          {
+            "start": 0.34,
+            "end": 0.54,
+            "word": " هاش",
+            "probability": 0.8292204439640045
+          },
+          {
+            "start": 0.54,
+            "end": 1.24,
+            "word": " یه",
+            "probability": 0.8400193452835083
+          },
+          {
+            "start": 1.24,
+            "end": 1.96,
+            "word": " راحتی",
+            "probability": 0.9743152260780334
+          },
+          {
+            "start": 1.96,
+            "end": 2.66,
+            "word": " دارم،",
+            "probability": 0.7106331545510329
+          },
+          {
+            "start": 2.66,
+            "end": 3.44,
+            "word": " ولی",
+            "probability": 0.9903684854507446
+          },
+          {
+            "start": 3.44,
+            "end": 4.16,
+            "word": " درامدی",
+            "probability": 0.952833092212677
+          },
+          {
+            "start": 4.16,
+            "end": 4.5,
+            "word": " ازش",
+            "probability": 0.9952824910481771
+          },
+          {
+            "start": 4.5,
+            "end": 5.04,
+            "word": " ندارم.",
+            "probability": 0.9980358630418777
+          },
+          {
+            "start": 5.24,
+            "end": 5.84,
+            "word": " این",
+            "probability": 0.9783968925476074
+          },
+          {
+            "start": 5.84,
+            "end": 7.32,
+            "word": " درآمدزایی",
+            "probability": 0.817997809080407
+          },
+          {
+            "start": 7.32,
+            "end": 7.5,
+            "word": " برای...",
+            "probability": 0.6540299262851477
+          }
+        ]
+      }
+    ]
+  }
+}

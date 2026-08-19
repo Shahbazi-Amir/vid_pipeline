@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "d042d139bd9c5b3eeccb4103e20f9943aa66af5284a4150b7183b72b3dca22f8",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.77,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.28,
+        "text": "تفاوت فقیر با یک ثربت من در چی؟ من مطبعنم در میزان پولی که دارند نیست.",
+        "avg_logprob": -0.09785983727003138,
+        "compression_ratio": 1.24,
+        "no_speech_prob": 2.540063714917551e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 1.08,
+            "word": " تفاوت",
+            "probability": 0.9982273578643799
+          },
+          {
+            "start": 1.08,
+            "end": 2.0,
+            "word": " فقیر",
+            "probability": 0.9650587886571884
+          },
+          {
+            "start": 2.0,
+            "end": 2.4,
+            "word": " با",
+            "probability": 0.9977200031280518
+          },
+          {
+            "start": 2.4,
+            "end": 2.62,
+            "word": " یک",
+            "probability": 0.9975022375583649
+          },
+          {
+            "start": 2.62,
+            "end": 3.12,
+            "word": " ثربت",
+            "probability": 0.6859300235907236
+          },
+          {
+            "start": 3.12,
+            "end": 3.28,
+            "word": " من",
+            "probability": 0.2699708044528961
+          },
+          {
+            "start": 3.28,
+            "end": 3.58,
+            "word": " در",
+            "probability": 0.8946270942687988
+          },
+          {
+            "start": 3.58,
+            "end": 4.1,
+            "word": " چی؟",
+            "probability": 0.9150343934694926
+          },
+          {
+            "start": 4.1,
+            "end": 4.72,
+            "word": " من",
+            "probability": 0.9995278120040894
+          },
+          {
+            "start": 4.72,
+            "end": 5.76,
+            "word": " مطبعنم",
+            "probability": 0.8846030930678049
+          },
+          {
+            "start": 5.76,
+            "end": 6.36,
+            "word": " در",
+            "probability": 0.9991721212863922
+          },
+          {
+            "start": 6.36,
+            "end": 7.18,
+            "word": " میزان",
+            "probability": 0.9638477563858032
+          },
+          {
+            "start": 7.18,
+            "end": 7.94,
+            "word": " پولی",
+            "probability": 0.9993614355723063
+          },
+          {
+            "start": 7.94,
+            "end": 8.14,
+            "word": " که",
+            "probability": 0.9998030066490173
+          },
+          {
+            "start": 8.14,
+            "end": 8.7,
+            "word": " دارند",
+            "probability": 0.9444135228792826
+          },
+          {
+            "start": 8.7,
+            "end": 9.28,
+            "word": " نیست.",
+            "probability": 0.9933531880378723
+          }
+        ]
+      }
+    ]
+  }
+}

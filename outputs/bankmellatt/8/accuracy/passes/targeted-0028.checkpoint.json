@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "f8476ab96d5139545692c7383c50f05141fb2a4ffdcb3816aae05cd49ca2575b",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.42,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 5.88,
+        "text": "ولی درامدی ازش ندارم. این درآمدزایی برا من نمی‌کنه.",
+        "avg_logprob": -0.1951703065779151,
+        "compression_ratio": 1.1341463414634145,
+        "no_speech_prob": 1.7415298370071497e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.9,
+            "word": " ولی",
+            "probability": 0.9978028535842896
+          },
+          {
+            "start": 0.9,
+            "end": 1.64,
+            "word": " درامدی",
+            "probability": 0.9691155195236206
+          },
+          {
+            "start": 1.64,
+            "end": 1.98,
+            "word": " ازش",
+            "probability": 0.998394767443339
+          },
+          {
+            "start": 1.98,
+            "end": 2.5,
+            "word": " ندارم.",
+            "probability": 0.9990842193365097
+          },
+          {
+            "start": 2.72,
+            "end": 3.3,
+            "word": " این",
+            "probability": 0.9995315670967102
+          },
+          {
+            "start": 3.3,
+            "end": 4.78,
+            "word": " درآمدزایی",
+            "probability": 0.8551771749072941
+          },
+          {
+            "start": 4.78,
+            "end": 5.0,
+            "word": " برا",
+            "probability": 0.8755361437797546
+          },
+          {
+            "start": 5.0,
+            "end": 5.16,
+            "word": " من",
+            "probability": 0.8258477449417114
+          },
+          {
+            "start": 5.16,
+            "end": 5.88,
+            "word": " نمی‌کنه.",
+            "probability": 0.8428963235180292
+          }
+        ]
+      }
+    ]
+  }
+}

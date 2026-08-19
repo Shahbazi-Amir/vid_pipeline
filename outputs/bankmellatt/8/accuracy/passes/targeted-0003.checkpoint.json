@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "92c9bb42745c754c36147662eef460728944c815a4893126dc9e17a5ab377c62",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.66,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 12.56,
+        "text": "به الگوهای نمناسب خرید صحبت کردیم. ایکی از مهم‌ترین ایار‌های تصمیم‌گیری برای که ما وارده‌ی خریب بشیم یا نشییم، نگاه‌کردن به اون داراییه.",
+        "avg_logprob": -0.2050075501513978,
+        "compression_ratio": 1.6217948717948718,
+        "no_speech_prob": 2.332214421585377e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.08,
+            "word": " به",
+            "probability": 0.021967796608805656
+          },
+          {
+            "start": 0.08,
+            "end": 0.5,
+            "word": " الگوهای",
+            "probability": 0.902031946182251
+          },
+          {
+            "start": 0.5,
+            "end": 1.08,
+            "word": " نمناسب",
+            "probability": 0.8681689947843552
+          },
+          {
+            "start": 1.08,
+            "end": 1.52,
+            "word": " خرید",
+            "probability": 0.9713079333305359
+          },
+          {
+            "start": 1.52,
+            "end": 2.04,
+            "word": " صحبت",
+            "probability": 0.995709240436554
+          },
+          {
+            "start": 2.04,
+            "end": 2.6,
+            "word": " کردیم.",
+            "probability": 0.9960422664880753
+          },
+          {
+            "start": 2.62,
+            "end": 3.22,
+            "word": " ایکی",
+            "probability": 0.7242627143859863
+          },
+          {
+            "start": 3.22,
+            "end": 3.42,
+            "word": " از",
+            "probability": 0.9959794282913208
+          },
+          {
+            "start": 3.42,
+            "end": 4.66,
+            "word": " مهم‌ترین",
+            "probability": 0.8281668946923068
+          },
+          {
+            "start": 4.66,
+            "end": 6.46,
+            "word": " ایار‌های",
+            "probability": 0.8025353650252024
+          },
+          {
+            "start": 6.46,
+            "end": 7.52,
+            "word": " تصمیم‌گیری",
+            "probability": 0.973792228433821
+          },
+          {
+            "start": 7.52,
+            "end": 7.88,
+            "word": " برای",
+            "probability": 0.9243131081263224
+          },
+          {
+            "start": 7.88,
+            "end": 8.02,
+            "word": " که",
+            "probability": 0.7820035219192505
+          },
+          {
+            "start": 8.02,
+            "end": 8.14,
+            "word": " ما",
+            "probability": 0.9857990741729736
+          },
+          {
+            "start": 8.14,
+            "end": 8.56,
+            "word": " وارده‌ی",
+            "probability": 0.9381180206934611
+          },
+          {
+            "start": 8.56,
+            "end": 9.0,
+            "word": " خریب",
+            "probability": 0.657259379241926
+          },
+          {
+            "start": 9.0,
+            "end": 9.38,
+            "word": " بشیم",
+            "probability": 0.9758827090263367
+          },
+          {
+            "start": 9.38,
+            "end": 9.52,
+            "word": " یا",
+            "probability": 0.9861599504947662
+          },
+          {
+            "start": 9.52,
+            "end": 10.34,
+            "word": " نشییم،",
+            "probability": 0.6885928710301717
+          },
+          {
+            "start": 10.34,
+            "end": 11.6,
+            "word": " نگاه‌کردن",
+            "probability": 0.918148510158062
+          },
+          {
+            "start": 11.6,
+            "end": 11.74,
+            "word": " به",
+            "probability": 0.9904657602310181
+          },
+          {
+            "start": 11.74,
+            "end": 11.88,
+            "word": " اون",
+            "probability": 0.9452043771743774
+          },
+          {
+            "start": 11.88,
+            "end": 12.56,
+            "word": " داراییه.",
+            "probability": 0.9214925666650137
+          }
+        ]
+      }
+    ]
+  }
+}

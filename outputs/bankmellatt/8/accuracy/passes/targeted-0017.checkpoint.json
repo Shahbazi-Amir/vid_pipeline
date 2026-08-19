@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "7d10d613f74539ab4e5617c9a0a6a26873d21a0ff801088ed1afff6618778c1c",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 13.32,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 13.2,
+        "text": "دروتمندی می‌گه نه. میگه تو با داشتن این دارایی‌ها مثل ماشین، خونه، تلفون همراه، لباس، فرش، تابل و فرس، هرچی، لزوماً تو",
+        "avg_logprob": -0.22799406591802834,
+        "compression_ratio": 1.5766423357664234,
+        "no_speech_prob": 4.2250444809432963e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.8,
+            "word": " دروتمندی",
+            "probability": 0.7739426170786222
+          },
+          {
+            "start": 0.8,
+            "end": 1.14,
+            "word": " می‌گه",
+            "probability": 0.694999934581574
+          },
+          {
+            "start": 1.14,
+            "end": 2.28,
+            "word": " نه.",
+            "probability": 0.9710102379322052
+          },
+          {
+            "start": 2.28,
+            "end": 3.08,
+            "word": " میگه",
+            "probability": 0.689375509818395
+          },
+          {
+            "start": 3.08,
+            "end": 3.24,
+            "word": " تو",
+            "probability": 0.9700731635093689
+          },
+          {
+            "start": 3.24,
+            "end": 3.54,
+            "word": " با",
+            "probability": 0.9741803109645844
+          },
+          {
+            "start": 3.54,
+            "end": 4.08,
+            "word": " داشتن",
+            "probability": 0.9956081211566925
+          },
+          {
+            "start": 4.08,
+            "end": 4.24,
+            "word": " این",
+            "probability": 0.9801462888717651
+          },
+          {
+            "start": 4.24,
+            "end": 4.92,
+            "word": " دارایی‌ها",
+            "probability": 0.9188218116760254
+          },
+          {
+            "start": 4.92,
+            "end": 5.44,
+            "word": " مثل",
+            "probability": 0.9461934864521027
+          },
+          {
+            "start": 5.44,
+            "end": 6.4,
+            "word": " ماشین،",
+            "probability": 0.9267661273479462
+          },
+          {
+            "start": 6.4,
+            "end": 7.2,
+            "word": " خونه،",
+            "probability": 0.9830408096313477
+          },
+          {
+            "start": 7.2,
+            "end": 7.7,
+            "word": " تلفون",
+            "probability": 0.7908198734124502
+          },
+          {
+            "start": 7.7,
+            "end": 8.52,
+            "word": " همراه،",
+            "probability": 0.979192066192627
+          },
+          {
+            "start": 8.52,
+            "end": 9.24,
+            "word": " لباس،",
+            "probability": 0.9866124987602234
+          },
+          {
+            "start": 9.24,
+            "end": 9.72,
+            "word": " فرش،",
+            "probability": 0.9621451795101166
+          },
+          {
+            "start": 9.72,
+            "end": 10.04,
+            "word": " تابل",
+            "probability": 0.9622717301050822
+          },
+          {
+            "start": 10.04,
+            "end": 10.1,
+            "word": " و",
+            "probability": 0.7954117655754089
+          },
+          {
+            "start": 10.1,
+            "end": 10.48,
+            "word": " فرس،",
+            "probability": 0.6238809784845216
+          },
+          {
+            "start": 10.48,
+            "end": 11.12,
+            "word": " هرچی،",
+            "probability": 0.7781218066811562
+          },
+          {
+            "start": 11.12,
+            "end": 12.44,
+            "word": " لزوماً",
+            "probability": 0.6505239009857178
+          },
+          {
+            "start": 12.44,
+            "end": 13.2,
+            "word": " تو",
+            "probability": 0.9315928816795349
+          }
+        ]
+      }
+    ]
+  }
+}

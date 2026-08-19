@@ -268,9 +268,10 @@ jobs:
           for d in delivery pre_review accuracy review raw machine final; do
             if [[ -d "$job_dir/$d" ]]; then
               mkdir -p "$DEST/$d"
-              rsync -a --exclude 'clips/' --exclude '*.mp3' --exclude '*.m4a' --exclude '*.wav' --exclude '*.flac' --exclude '*.aac' --exclude '*.ogg' --exclude '*.opus' --exclude '*.mp4' --exclude '*.mkv' --exclude '*.mov' --exclude '*.webm' --exclude '*.avi' --exclude '*.m4v' "$job_dir/$d/" "$DEST/$d/"
+              rsync -a --exclude 'clips/' --exclude 'review-package.zip' --exclude '*.mp3' --exclude '*.m4a' --exclude '*.wav' --exclude '*.flac' --exclude '*.aac' --exclude '*.ogg' --exclude '*.opus' --exclude '*.mp4' --exclude '*.mkv' --exclude '*.mov' --exclude '*.webm' --exclude '*.avi' --exclude '*.m4v' "$job_dir/$d/" "$DEST/$d/"
             fi
           done
+          rm -f "$DEST/final/review-package.zip"
           [[ -f "$job_dir/result.json" ]] && cp "$job_dir/result.json" "$DEST/result.json"
           [[ -f "$job_dir/source.json" ]] && cp "$job_dir/source.json" "$DEST/source.json"
           python - <<'PY'
@@ -292,6 +293,12 @@ jobs:
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          rm -f "$DEST/final/review-package.zip"
+          oversized=$(find "$DEST" -type f -size +95M -print -quit)
+          if [[ -n "$oversized" ]]; then
+            echo "::error::Refusing to commit oversized generated file: $oversized"
+            exit 1
+          fi
           git add -f "$DEST"
           git diff --cached --quiet && exit 0
           git commit -m "Add ${DISPLAY} media transcript: ${ASSET_NAME}"

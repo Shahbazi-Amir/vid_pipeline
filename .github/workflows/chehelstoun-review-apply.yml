@@ -165,6 +165,41 @@ jobs:
           path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
           PY
 
+      - name: Sync canonical finalized output
+        if: steps.select.outputs.ready == 'true'
+        env:
+          EPISODE: ${{ steps.select.outputs.episode }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          root="${COLLECTION_ROOT}/${EPISODE}"
+          dest="outputs/finalized/chehelstoun/${EPISODE}"
+          rm -rf "$dest"
+          mkdir -p "$dest/review"
+          test -s "$root/final/transcript.final.md"
+          test -s "$root/final/transcript.final.txt"
+          cp "$root/final/transcript.final.md" "$dest/transcript.md"
+          cp "$root/final/transcript.final.txt" "$dest/transcript.txt"
+          [[ -s "$root/delivery/transcript.timestamped.md" ]] && cp "$root/delivery/transcript.timestamped.md" "$dest/transcript.timestamped.md"
+          cp "$root/review/chatgpt-corrections.json" "$dest/review/chatgpt-corrections.json"
+          cp "$root/human/verification.json" "$dest/review/verification.json"
+          [[ -s "$root/source.json" ]] && cp "$root/source.json" "$dest/source.json"
+          [[ -s "$root/metadata.json" ]] && cp "$root/metadata.json" "$dest/metadata.json"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p=Path('outputs/canonical-status.json')
+          data=json.loads(p.read_text(encoding='utf-8')) if p.exists() else {'schema_version':1,'canonical_paths':{'finalized':'outputs/finalized','review_ready':'outputs/review-ready'},'finalized':[],'review_ready':[]}
+          item=f"chehelstoun/{os.environ['EPISODE']}"
+          finalized=list(dict.fromkeys(data.get('finalized',[])+[item]))
+          ready=[x for x in data.get('review_ready',[]) if x != item]
+          data['finalized']=finalized
+          data['review_ready']=ready
+          data['finalized_count']=len(finalized)
+          data['review_ready_count']=len(ready)
+          p.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+
       - name: Commit this reviewed episode before moving on
         if: steps.select.outputs.ready == 'true'
         env:
@@ -174,7 +209,7 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f "${COLLECTION_ROOT}/${EPISODE}"
+          git add -f "${COLLECTION_ROOT}/${EPISODE}" "outputs/finalized/chehelstoun/${EPISODE}" outputs/canonical-status.json
           if git diff --cached --quiet; then
             echo "No review changes to commit for ${EPISODE}."
             exit 0

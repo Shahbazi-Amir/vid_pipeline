@@ -19,6 +19,7 @@ env:
   ASSET_NAME: -3178952013450502399_40155051444622.mp3
   ASSET_URL: https://github.com/Shahbazi-Amir/vid_pipeline/releases/download/chehelstoun-archive-v1/-3178952013450502399_40155051444622.mp3
   ASSET_SIZE: '64315445'
+  SAFE_INPUT: /tmp/mizan-input/mizan-source.mp3
   DEST: outputs/mizan/01
 
 concurrency:
@@ -68,22 +69,23 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e '.[worker]'
 
-      - name: Download and validate Mizan
+      - name: Download and validate Mizan with safe local filename
         if: steps.existing.outputs.skip != 'true'
         shell: bash
         run: |
           set -euo pipefail
+          rm -rf /tmp/mizan-input /tmp/mizan-runtime
           mkdir -p /tmp/mizan-input /tmp/mizan-runtime
-          curl -fL --retry 5 --retry-all-errors --connect-timeout 30 --max-time 1200 "$ASSET_URL" -o "/tmp/mizan-input/$ASSET_NAME"
-          test "$(stat -c %s "/tmp/mizan-input/$ASSET_NAME")" -eq "$ASSET_SIZE"
-          ffprobe -v error -select_streams a:0 -show_entries stream=codec_name -of default=nw=1:nk=1 "/tmp/mizan-input/$ASSET_NAME" | grep -q .
+          curl -fL --retry 5 --retry-all-errors --connect-timeout 30 --max-time 1200 "$ASSET_URL" -o "$SAFE_INPUT"
+          test "$(stat -c %s "$SAFE_INPUT")" -eq "$ASSET_SIZE"
+          ffprobe -v error -select_streams a:0 -show_entries stream=codec_name -of default=nw=1:nk=1 "$SAFE_INPUT" | grep -q .
 
       - name: Run Persian ASR pipeline
         if: steps.existing.outputs.skip != 'true'
         shell: bash
         run: |
           set -euo pipefail
-          vid-pipeline run-file "/tmp/mizan-input/$ASSET_NAME" \
+          vid-pipeline run-file "$SAFE_INPUT" \
             --name mizan \
             --output-root /tmp/mizan-runtime \
             --profile "$PROFILE" \
@@ -109,11 +111,12 @@ jobs:
           test -s "$job_dir/pre_review/transcript.pre-review.json"
           test -s "$job_dir/accuracy/transcript.consensus.json"
           test -s "$job_dir/review/assistant-review-package.json"
-          rm -rf "$DEST"; mkdir -p "$DEST"
+          rm -rf "$DEST"
+          mkdir -p "$DEST"
           for d in delivery pre_review accuracy review raw machine final; do
             if [[ -d "$job_dir/$d" ]]; then
               mkdir -p "$DEST/$d"
-              rsync -a --exclude 'clips/' --exclude '*.mp3' --exclude '*.m4a' --exclude '*.wav' "$job_dir/$d/" "$DEST/$d/"
+              rsync -a --exclude 'clips/' --exclude '*.mp3' --exclude '*.m4a' --exclude '*.wav' --exclude '*.flac' --exclude '*.aac' --exclude '*.ogg' --exclude '*.opus' --exclude '*.mp4' --exclude '*.mkv' --exclude '*.mov' --exclude '*.webm' "$job_dir/$d/" "$DEST/$d/"
             fi
           done
           [[ -f "$job_dir/result.json" ]] && cp "$job_dir/result.json" "$DEST/result.json"

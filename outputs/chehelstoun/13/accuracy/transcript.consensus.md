@@ -1,0 +1,1269 @@
+# متن اجماعی چندمرحله‌ای
+
+> فقط از کاندیدهای ASR انتخاب شده است.
+
+[00:00:04.370 → 00:00:53.550] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+بنایی سرشده به نر، امارتی افراشده به فکر، خانهی آکنده از خیر، چهلستون، چهل گفتگو در باری موانی سواد مالی و تدبیر معیشت خانواده، کاری از رادیو گفتگو و آکادمی حوش مالی
+
+[00:00:53.550 → 00:01:14.720] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+به نام خداوند دانای توانای مهربان، سلام و عرض عدب به شما شنوندگان عزیزه رادیو گفتگو با برنامه چهل ستون در خدمت شما هستیم تا در باقی سواد مالی و ستونهایی که بر معیشت و اقتصاد خانواده ما اثر گذار هست گفتگو کنیم.
+
+[00:01:14.720 → 00:01:31.220] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+من حادی نجف هستم و امروز با موضوع سواد مالی و پیشگیری از جرائم سایبری گفت‌گو می‌کنم با جناب آقای سرهنگ داود گودرزی، رئیس پولیس فتای اصطان تهران و همچنین جناب آقای دکتر کمیل رودی، مدیر اکادمی حوش مالی
+
+[00:01:31.220 → 00:01:50.980] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+از شما بزرگواران هم تقاضا می کنم در حین برنامه به ما پیامک بدید و از تجربیات خودتون در زمینه جرائم حوزه سایبری در فضای مجازی به ما بگید به شما پیامک سی هزار ده سی و پنج پاسختون رو ارسال کنید و به قید قرعه برنده یک حدیه از طرف اکادمی حوش مالی بشید.
+
+[00:01:51.140 → 00:01:57.020] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+شماره تماسه 162 و ویب سایت اگادیو گفتگو داتای آر هم مسیرهای ارتباطی شما با برنامه است.
+
+[00:01:57.020 → 00:02:04.240] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+و پیشنهاد می‌کنم اپلیکیشن ایگانسه داگ را هم نصب کنید تا بتونید در هر زمان و مکان به برنامه‌های گادیوی دستقسی داشته باشید
+
+[00:02:04.240 → 00:02:07.700] ⚠️ `low_word_confidence, multi_pass_disagreement`
+خب به پردازیم به سواد مالی و جرائم سایی بگیم
+
+[00:02:07.700 → 00:02:35.830] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چیزی نیست که توی روزنامه با رادیو و تلویزیون و دنیای مجازی و از در و همسایی نشنبیم که کلای فلانی و برداشتن و سر بهمانی کلا گذاشتن
+
+[00:02:35.830 → 00:02:45.130] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+هر داخت الکترونیکی و امکاناتی که روز به روز بیشتر میشن هم که کار رو پیچیده تر کرده و کلیامون اصلاً نمیفهمیم از کجا گل خوردیم
+
+[00:02:45.130 → 00:02:49.470] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چود از دی با چراقایت گذیده تر برد کانا
+
+[00:02:49.470 → 00:02:57.090] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پولی که با این همه سختی و محشقت به دست میاد یه باره از کفمون میره و ما میمونیم و کازه چه کنم چه کنم
+
+[00:02:57.090 → 00:03:04.050] ⚠️ `multi_pass_disagreement`
+به همین خاطر، لازم ما هم کمی خودمون رو در بربر این حرفی های خانمان برنداز مجهنز کنیم
+
+[00:03:04.050 → 00:03:10.170] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اطلاع از انواع گلاه برداری ها و روش های محافظت از دارای هامون در برابر اونها
+
+[00:03:10.170 → 00:03:16.230] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یکی از ستون های چهلستون سواد مالیه که باید از جنبه های مختلف به اون پرداخته
+
+[00:03:16.230 → 00:03:23.310] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چهلستون، مجموع گفتگوهای رادیو گفتگو با متخصصان حوضه های مختلف در باره سواد مالیه
+
+[00:03:23.310 → 00:03:25.650] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+به چهلستون خوش اومدید.
+
+[00:04:08.340 → 00:04:18.900] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+و ارز بکنم خدمت شما سواد مالی، یعنی تصمیم گیری و مدیریت اقتصادی و مدیریت پول و مدیریت دخل و خرچ
+
+[00:04:18.900 → 00:04:28.500] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب، وقتی ما یه تصمیم می‌گیریم اونو اجرا می‌کنیم، وقتی اجرا می‌کنیم باید موازب باشیم که از ناهیه اون تصمیم به ما صدماتی وارد نشد
+
+[00:04:28.500 → 00:04:55.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی صرفاً اینکه تصمیم درستیه، مثلاً سرمایه‌گذاری تصمیم درستیه، خرش کردن تصمیم‌های درستی می‌گیریم، این حوضه‌ها به کنار، ولی هنگام خرش کردن ممکنه صدمه ببینیم، می‌گه گرنم موشی اندرین انبان ماست، گندم اعمال چلساله کجاست؟ اولی جان دفع شر موش کن، وانگهی در جمع گندم کوش کن، یه سری موش‌ها میانین انبال ما رو می‌برن، یعنی موقعی که خرج می‌کنی
+
+[00:04:55.980 → 00:05:03.220] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+کارت می‌کشیم روی فروشگاه، فیعی می‌کنیم این برا ما بیس هزار تومان حضینه داشته ولی بعد می‌بینیم دو ملیون از حساب ما کم شده
+
+[00:05:03.220 → 00:05:15.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه موقع یه نفر میاد به ما می‌گهی که آقا یه جایزه‌ی بردی، فلان اتفاق می‌فته و ما می‌بینیم به تعمق یه جایزه‌ی مثلا یک ملیونی ده‌ها ملیون از دست دادیم
+
+[00:05:15.780 → 00:05:26.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا تو سرمایه‌گذاری ممکنه مورد کلاه‌برداری قرار بگیم یه تصویر خاصی از یک سرمایه‌گذاری یه سوداور به ما نشون بدن و بعد کلاه ما رو بردارن
+
+[00:05:26.240 → 00:05:37.840] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+به هر حال موفقیت اقتصادی یا موفقیت درست یا مدیریت درست امور اقتصادی بخشش بر می‌گرده به این که ما این اشتباهات رو بشنسیم
+
+[00:05:37.840 → 00:05:42.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بدونیم از کجا ما صدمه می‌خوریم و جلوی این صدمات رو بگیریم
+
+[00:05:42.680 → 00:05:47.340] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یکی از همین مهمترین اینها در واقع همین مراقبت مالیه
+
+[00:05:47.340 → 00:05:53.440] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما بتونیم از تصمیمات، انوال و دانائی ها مراقبت درستی داشته باشیم
+
+[00:05:53.440 → 00:05:56.960] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+تا بتونه پشوانه خوبی برای زندگیمون باشیم
+
+[00:05:56.960 → 00:06:02.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خیلی ممنونم از شما، اتفاقا تصویر که خیلی وقتها در ذهن متبادر میشه از کلاه برداری مالی
+
+[00:06:02.520 → 00:06:05.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه چیزی که انگاه برای دیگرانه، برای ما که اتفاق نمیافته
+
+[00:06:14.780 → 00:06:25.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بسم الله الرحمن الرحیم، بنده هم عرض سلام و عدب و احترام دارم، خدمت حضرتالی و شنوندگان عزیزی که برنامه خوب و پرمحتوی شما رو دنبال می‌کنن
+
+[00:06:26.520 → 00:06:35.740] ⚠️ `low_word_confidence, multi_pass_disagreement`
+خب، در حوضی جرام سایبری ما چند تا اصل داریم که باید اون مد نظر باشه من در همین ابتدای عرایزم خدمت شما بگم
+
+[00:06:35.740 → 00:06:42.740] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اولین که ما همیشه می‌گیم هیچ کس در مقابل تحدیدات فضای مجازی مسئلیت نداره
+
+[00:06:42.740 → 00:06:49.940]
+همون چیزی که آقای دکتر عرض کردن و هر فردی ممکنه خدای نکرده یک زمانی تومه قرار بگیری
+
+[00:06:49.940 → 00:06:56.320] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+آسیب شناسی که ما در حوضی جرام خودمون کردیم به این نتیجه رسیدیم
+
+[00:06:56.320 → 00:07:01.040] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+قالب کسایی که تومه قرار می‌گیرن به علت ناآگاهیه
+
+[00:07:01.040 → 00:07:07.740] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی سواد رسانه اونها و سواد اون کاری رو که میخوان انجام بدن متناسب نیست
+
+[00:07:07.740 → 00:07:14.920] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک تکنولوژی با سرعت فرابان رشد پیدا کرده، فرهنگ و سواد متناسب با اون رشد پیدا نکرده
+
+[00:07:14.920 → 00:07:21.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اهمیت حوضی اقتصادی ما که یک بخشی از جرام ما رو تشکیل میده
+
+[00:07:21.560 → 00:07:26.440] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+تا اونجاست که بیشتر جرام ما جرام مالی هستن در فضای مجازی
+
+[00:07:26.440 → 00:07:31.400] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی درصد عظیمی رو جرام مالی تشکیل میدن که شگرت‌های مختلفی دارن
+
+[00:07:31.400 → 00:07:36.100] ⚠️ `multi_pass_disagreement`
+من در طول برنامه این شگرت‌ها رو خدمت شما تشریح می‌کنم
+
+[00:07:36.100 → 00:07:38.360] ⚠️ `multi_pass_disagreement`
+راه‌های پیش‌گیریش هم خدمت شما می‌گم
+
+[00:07:38.360 → 00:07:45.960] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اگر یک مقداری شنوندگان عزیز و کسانی که دارن در این فضا فعالیت می‌کنن
+
+[00:07:45.960 → 00:07:50.720] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اونها رو رایت بکنن قطعاً تومه مجرمین سایبری قرار نمی‌گیرن
+
+[00:07:50.720 → 00:07:53.280] ⚠️ `multi_pass_disagreement`
+من یه دستبندی کلی خدمت شما بکنم
+
+[00:07:53.280 → 00:07:57.760]
+یک بخش حوضی جرام مالی ما بحث کلاه برداری هاست
+
+[00:07:57.760 → 00:08:06.900] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+انواع کلاه برداری هایی که داره اتفاق میفته با شگردهای مختلف که روزانه ما همکارهای عزیزم دارن پیگیری می‌کنن
+
+[00:08:06.900 → 00:08:16.360] ⚠️ `multi_pass_disagreement`
+تعداد زیادی از این نفرات که کلاه برداری می‌کردن در چنگال قانون گرفتار کردن و تحویل مراجع محترم قضایی دادن
+
+[00:08:16.360 → 00:08:22.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک شگرد دیگری که هست شگرد اسکیمر هست یا همون کپی کردن کارتهای بانکی
+
+[00:08:22.380 → 00:08:31.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و در کنار اون شگردبدی بحث فیشینک هست، یعنی یک درگاه و یک سایتی ساخته میشه
+
+[00:08:31.180 → 00:08:35.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که شبیه همون درگاهی که ما میخواییم بریم عملیات بانکیمون رو انجام بدیم
+
+[00:08:35.700 → 00:08:42.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و در باقی هدفی نداره جز این که اطلاعات حوییتی و اطلاعات بانکی ما رو سرقت بکنه
+
+[00:08:42.240 → 00:08:47.380] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+من در خیمتون هستم در روند برنامه اینها رو تشریح میکنم
+
+[00:08:47.380 → 00:08:58.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+متناسب با سینوری هایی که اتفاق افتاده و همین آخرین پرونده هایی که روز جاری ما باشون سر کار داشتیم و راهای پیشگیریش هم خدمت شما از زان در ادامه ارز خام کردیم
+
+[00:08:58.880 → 00:09:04.080] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خیلی عالی گفتگوی جذابی خواهد بود، همکارنم گزاگشو که آماده کردن، بشنویم و برگردیم
+
+[00:09:23.860 → 00:09:26.060] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سلام خیلی وقت از اون بخیر
+
+[00:09:26.060 → 00:09:28.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سلام، مرسی، خیلی ممنونم
+
+[00:09:28.000 → 00:09:29.580] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+تو این بودی کار میکنی؟
+
+[00:09:29.580 → 00:09:30.040] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بله
+
+[00:09:30.040 → 00:09:31.600] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چند ساله کار میکنی؟
+
+[00:09:31.600 → 00:09:32.320] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سه سالانی
+
+[00:09:32.320 → 00:09:38.240] ⚠️ `multi_pass_disagreement`
+تا حالا مورد کلاه برداری، سرقت یا چه که برگشتی قرار گرفتی؟
+
+[00:09:38.860 → 00:09:40.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خوشبختانه نه
+
+[00:09:40.180 → 00:09:41.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خدا رو شدی؟
+
+[00:09:41.000 → 00:09:42.760]
+بله، صد درصد بله
+
+[00:09:42.760 → 00:09:44.240] ⚠️ `multi_pass_disagreement`
+زیاد، آره
+
+[00:09:44.240 → 00:09:44.880]
+جدن؟
+
+[00:09:44.880 → 00:09:45.320]
+آره
+
+[00:09:45.320 → 00:09:46.200]
+چطور؟
+
+[00:09:46.200 → 00:09:53.920] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+مثلا توی کارت بکارت کردن و اینا خیلی اتفاق افتاده که میخواستن مثلا جنس رو ببرن بعد کارت بکارت کنن و اینجور موارد
+
+[00:09:53.920 → 00:09:54.840] ⚠️ `low_word_confidence, multi_pass_disagreement, low_consensus_confidence`
+بعد چیشون؟
+
+[00:09:54.840 → 00:10:07.780] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+بعد هیچه دیگه، مثلا می‌رفتن بیرون، اسما بر می‌داشتن از روی کارد، بعد می‌رفتن فوتوشاپ می‌کردن، مثلا اسما من رو می‌زدن، مبلغی که مثلا جنسشون بود رو می‌زدن، می‌گفتن این‌ها خانم کار بگار کردیم وسط دیگه این‌جوری می‌خواستن جنس رو ببرن
+
+[00:10:07.780 → 00:10:11.580] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+عجاب روشی، عجاب هرفه‌ی‌هایی بوده، دله
+
+[00:10:11.580 → 00:10:20.480] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+اومدن داخل مقازه چیزی بوده، حالا آقا یا خانم، حالا هر کسی که بوده اومده مثلا چیزی برداشه گوشی تو کیفش گوشی رو از جنو شما چادر سنتیزی چادرشون باشه برده
+
+[00:10:20.480 → 00:10:23.840] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+دیدم من، تو دوربین بیرفتمشون بعد من وقتی که اتراف را افتاده
+
+[00:10:23.840 → 00:10:25.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چک کردیم دینیم بله همچین چیزی بوده
+
+[00:10:25.780 → 00:10:29.740] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+همین چند وقت پیش بود یه دونه خانوم اومدین وسط راه روی مقازم
+
+[00:10:29.740 → 00:10:31.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خودشو مشغول کرد با صحبت کردم با من
+
+[00:10:31.980 → 00:10:39.440] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+دیدم داره یه چیزای جا به جا میکنه، خیلی راحت، رفتم بالا سرش، داشت خداحافظی میکرد، گفتم اینها چیه؟ توی کیستت قرار داری؟
+
+[00:10:39.440 → 00:10:50.180] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+و منغازه دیگه خریدم، بعد دیدم درست دستخط منه، من این قیمتهای لیول هایی که روی جنسان میزنم با دستخط خودمه، دیدم دستخط منه، درابردم گفتم خانم، چرا برمیداره مال ما رو؟ اینم دستخط من
+
+[00:10:50.180 → 00:10:53.680] ⚠️ `multi_pass_disagreement`
+خب به نظرشون چطور میشه جلوی این اتفاق رو گرفت؟
+
+[00:10:53.680 → 00:10:57.720] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اعتماد نکردم به نظرم دیگه چون واقعا هیچ راه دیگه ای نیست
+
+[00:10:57.720 → 00:11:02.200] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چون نه از ظاهر متوجه میشه آدم نه از نوعه برخورد
+
+[00:11:02.200 → 00:11:06.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+هر کسی ممکنه که این کار رو بکنه الان تو این جامعهی که ما داریم
+
+[00:11:06.640 → 00:11:11.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+عجب چیزی گفتیم به نظر من اینجور افراد واقعا اعتمادار رو عبه میبرم
+
+[00:11:11.360 → 00:11:14.680] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+و باعث میشن دیگه به آدمهای دیگه هم نتونیم اعتماد کنیم ما
+
+[00:11:14.680 → 00:11:15.660] ⚠️ `low_word_confidence, multi_pass_disagreement, low_consensus_confidence`
+ست درست
+
+[00:11:15.660 → 00:11:17.160] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+باید دقتی کرده
+
+[00:11:17.160 → 00:11:18.480] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+طرف تو بشناسی
+
+[00:11:18.480 → 00:11:22.760] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مثلا چکو تا قبل از اینی که نشناسی ازش قبول نکنی
+
+[00:11:22.760 → 00:11:24.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا زامن محتبر بده
+
+[00:11:24.560 → 00:11:26.080] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا خودش بشناسی
+
+[00:11:26.080 → 00:11:27.840] ⚠️ `multi_pass_disagreement`
+یا چند مرتبه معامله بکنی
+
+[00:11:27.840 → 00:11:28.360] ⚠️ `multi_pass_disagreement`
+بعدا
+
+[00:11:28.360 → 00:11:30.920] ⚠️ `multi_pass_disagreement`
+ولی افتدا به ساکن نباید چک بدی بش
+
+[00:11:30.920 → 00:11:32.060] ⚠️ `multi_pass_disagreement`
+یا چک قبول
+
+[00:11:32.060 → 00:11:34.480] ⚠️ `multi_pass_disagreement`
+این موجه بیعتمادی نمیشه به نظرشون
+
+[00:11:34.480 → 00:11:36.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+کس بکار همین استش
+
+[00:11:36.000 → 00:11:44.120] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سرمایه، درسته، سرمایه، از نظر اقتصاد هست، ولی آبرو یادم هم در خطر کنه، اونی که اقتصاد کار میکنه، اول باراد، آبرو شو بگیر
+
+[00:11:44.120 → 00:11:48.360] ⚠️ `low_word_confidence, multi_pass_disagreement, low_consensus_confidence`
+هیچ جور نمیشه جنر اتفاق گرفه، از چیزی کلا و هدرین با حاله
+
+[00:11:49.480 → 00:11:58.200] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+دوربین، یعنی کشک، تشبت بگم، هر جا میرین یعنی میگن که دوربین، کجا پیداد کنم، اون شخص کجا بده کنیم، وقتی برد برد کجا بدش کنیم
+
+[00:11:58.200 → 00:12:07.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بغیر از این که دقت خود آدم بیشتر بشه تو این عمر، چیزی دیگه نمیشه، واقعا چیزی دیگه نمیشه، فقط تنها راش اینه که خود دقتشو بیشتر بکنه
+
+[00:12:07.620 → 00:12:14.020] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+به قول من قدیمیه میگفتن کلا خود صفت نگرد، همسایتو دوز نکن یه همچین چیزی
+
+[00:12:14.020 → 00:12:29.340] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+الان دونیم برهن زمونه به نظر من، باید خود بکنه خودت سفنی گرداری که کسی ازت چیزی نزنه، ندوزه یا چیزی ازت نبرن یا مرد کلاورداری قرار نگیری، خودت باید پشیار باشی به نظر من
+
+[00:12:29.340 → 00:12:34.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اگر از طرف یک کاسب بخوام بسنجی، خب کاسب باید کارش مکم کاری بکنه
+
+[00:12:34.000 → 00:12:38.460] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+برچه از به قیمت داشته باشه، از این کارتخونا داشته باشه، دوربین داشته باشه
+
+[00:12:38.460 → 00:12:41.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+هزار یک قرم که این خیچی نباشه، کمترین هزیناش ده میلیونه
+
+[00:12:41.820 → 00:12:45.500] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+از طرف دیگه، طرف دولته، دولت مردم رو سیر میگرده
+
+[00:12:45.500 → 00:12:49.060] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+به این بله ها دوچار نشه، مردم گشنگی رو احساس نکنن
+
+[00:12:49.060 → 00:12:56.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یارو که دوزی می‌کنه، آبروشم در نظر گرفته که این کار رو می‌کنه، دیگه دیگه سیم آخر زده میاد دوزی می‌کنه
+
+[00:12:56.300 → 00:12:59.020] ⚠️ `low_word_confidence, multi_pass_disagreement`
+درود بر شما خیلی مچکرم که همراه ما بودیم
+
+[00:13:28.080 → 00:13:34.820] ⚠️ `low_word_confidence, multi_pass_disagreement`
+اونم جناب سرهنگو درزی گزارش رو با هم شنیدیم، ممنون می‌شنم کمی توضیح به فرمایی درگاه باته
+
+[00:13:34.820 → 00:13:47.120] ⚠️ `multi_pass_disagreement`
+بله، گزارشی که سم شما رسید و ملازه فرمودید، این گزارش قالباً افرادی بودن که در فضای مجازی تومه قرار نگرفته بودن
+
+[00:13:47.120 → 00:13:53.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و افرادی بودن که به ارحال جز کلاه برداری های هستن که در زمره کلاه برداری های سایبیدی قرار نمی گیرن
+
+[00:13:53.360 → 00:14:03.080] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما خب خیلی شگرتان نزدیک هستش، مثلاً ما بس رسید جعلی رو که یکی از شهرمندان عزیز عنوان کردن
+
+[00:14:03.080 → 00:14:08.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+به این شکلی که خب نفر میاد تحت عنوان یک خریدار یک کالایی
+
+[00:14:08.180 → 00:14:11.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+معمولاً وقتی شما کالایی رو در سایت قرار دادید یا به صورت حضوری
+
+[00:14:11.980 → 00:14:17.080] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+قبلش در اپلیکیشن های پرداخت اون شما روی کارت شما رو وقتی وارد می کنه
+
+[00:14:17.080 → 00:14:20.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک جاهای خالی داره که فقط نیاز اسم شما رو وارد کنه
+
+[00:14:20.820 → 00:14:24.860] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+شما با دیدن اون اس در یک لحظه وقتی ورود اطلاعات رو انجام می ده
+
+[00:14:24.860 → 00:14:32.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+فکر می‌کنید که اون مبلغ به حساب شما واریز شده و به وهم این که اون مبلغ واریز شده اون کالا رو تحویل می‌دید
+
+[00:14:32.360 → 00:14:41.260] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بعدا متوجه می‌شید که اون رسیدی که ارائه شده در گوشی موبایل نفر اون رسید کاملا جعلیه و صرفاً هدف جز کلاه برداری نداشته
+
+[00:14:41.260 → 00:14:49.760] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما ما در حوضه‌های کلاه برداری بیشترین کلاه برداری‌هایی که الان داره اتفاق می‌فته در فضای مجازی
+
+[00:14:49.760 → 00:14:56.440] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک بخش فروش کالا و اجناسی هستش که در شبکه‌های اجتماعی ما شاهده اون هستیم
+
+[00:14:56.440 → 00:15:05.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب میدونید کسب و کارها خیلی هاشون به واسطه همین بیماری کورونا فرابانیشون در فضای مجازی بیشتر شده
+
+[00:15:05.000 → 00:15:10.320] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مردم هم روح آوردن که بیشتر به صورت غیر حضوری از این خدمات استفاده بکنن
+
+[00:15:10.320 → 00:15:14.060] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+کلاه بردار هم دارن سو استفاده خودشون رو انجام میدن
+
+[00:15:14.060 → 00:15:23.860] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بسیاری از این تبلیغاتی که در شبکای اجتماعی هستن ممکنه که اون تبلیغات تبلیغات دروغی باشن و صرفاً هدفشون کلاه برداری باشه
+
+[00:15:23.860 → 00:15:33.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما در بحث فروش البسه، در بحث فروش لوازم خانگی چندین پرونده داشتیم که اشخاص میان کالایی رو در معرض فروش قرار میدن
+
+[00:15:33.620 → 00:15:57.500] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بعد از این که شما اونو پسند کردید، تماس می‌گیرید، می‌گید که من اینو خواستم یا استلاحاً در شبکه‌ای اجتماعی دایرکت می‌دهید، می‌گید که من اینو مطالبه می‌کنی از نفر، می‌گید که باید اول تصفیه حساب بکنید یا وشی رو به اونان بیانه واریز بکنید، به هیچ عنوان ما توصیه نمی‌کنیم که این کار رو انجام بدید، حتماً اگر خریدی خواستید انجام بدید از یه سایت
+
+[00:15:57.500 → 00:16:27.480] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+محتور خرید بکنید، اگر در شبکه اجتماعی خواستید خرید بکنید، یک کالایی بود که واقعا خیلی مورد نیازتون بود و شما ضرورت دونستی که اونو خرید بکنید، بعد از تحبیل کالا و اتمینان از سهت کالا شما تصویح ساب بکنید، در غیر این صورت ممکنه که اون طرف مقابل یک فرد شیاد باشه و صرفاً هدفش این باشه که کلاه برداری انجام بده و شما راه جز شکایت کردن ندارید، اما ف
+
+[00:16:27.480 → 00:16:51.960] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بحث برند شدن در گوره کشی هاست. حالا این گوره کشی های توی مقتعی که کماکانم استمرار داره بحث رادیو جوان رو مطرح می‌کردن، رادیو معارف رو مطرح می‌کردن، خوشحسابی پرداخت قبوز اوپراتورها رو مطرح می‌کردن، وقتی که تماس می‌گیرن با شما در شبکه‌های اجتماعی، وقتی که ممکنه که در شبکه‌های اجتماعی با لوگو یک سازمان با شما تماس بگیرن، باید ا
+
+[00:16:51.960 → 00:17:01.060] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اینو بدونید که هیچ سازمانی، سازمان رسمی، لوگوی در شبک اجتماعی نداره و بیاد با اون با شما تماست بگیری اینو باید دقت بکنید
+
+[00:17:01.060 → 00:17:08.280] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بعد از این که با شما تماست میگیرن حالا با طرفنت های مختلف که ما شگرتاشن به کررات در رسانه ها گفتیم
+
+[00:17:08.280 → 00:17:16.260] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+میان دستاسی پیدا می کنن به اطلاعات کارت بانکی شما به بحانه این که برای این که این جایزی شما رو بخواییم پرداخت بکنیم
+
+[00:17:16.260 → 00:17:25.280] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نیازه که شماره کارتتون رو بدونیم، در مرحله بعد میرن یک تراکنشی رو خودشون انجام میدن بعد از این که رمز یک بار مصدر به شما واسل میشه
+
+[00:17:25.280 → 00:17:32.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+عنوان می‌کنن که این رمز یک رمز یکی از طرف اونها اومده و نیاز شما اونو برایش قراعت بکنید
+
+[00:17:32.560 → 00:17:40.900] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا ممکنه این رمز تایید اصالت و تایید حوییت یک اپلیکیشن پرداخت باشه که با شماره شما اومدن نست گردن
+
+[00:17:40.900 → 00:17:51.480] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که واقعا خیلی میتونه به شما ضررر بزنه تمام حسابای بانکیتون رو دستسی میگیری یا نه رمز یک پرداختی باشه که اومدن دارن از کارت شما سوستفاده بکنن
+
+[00:17:51.480 → 00:17:56.600] ⚠️ `multi_pass_disagreement`
+اینو باید مدنظر داشته باشید و همواره سلوه کارتون قرار بود
+
+[00:17:56.600 → 00:18:02.780] ⚠️ `multi_pass_disagreement`
+اگر خریدی میخواید انجام بدید حتما از فروشگاه هایی خرید بکنید که دارای نماد اتمینان باشن
+
+[00:18:02.780 → 00:18:09.980] ⚠️ `multi_pass_disagreement`
+فروشگاه هایی که دارای نماد اطمینان هستن، در برابر اون خدماتی که دارن ارامیدن پاسخگو هستن
+
+[00:18:09.980 → 00:18:18.240] ⚠️ `multi_pass_disagreement`
+و افرادی به عنوان پشتیبان هستن اگر کالا مورد تعیید شما نبود، تخخیری در ارسال کالا بود، بلا فاصله میتونید پیگیری بکنید
+
+[00:18:18.240 → 00:18:25.660] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی برخی فروشگاه ها هستن که دارای نماد اطمینان نیستن و متاسفانه ممکنه که مورد کلاه برداری قرار بگیرید
+
+[00:18:25.660 → 00:18:33.960] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این نماد اتمینان که می‌فرمایید در سایت‌ها مطرح هست، آیا در شبک‌های اجتماعی هم داریم چیز مشابهی؟
+
+[00:18:33.960 → 00:18:48.100] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نه، در شبک‌های اجتماعی نماد اتمینان نداریم، صرفاً در سایت‌ها هستش به خاطر همین هم هست که ما می‌گیم اگر خواستید خرید رو انجام بدید و الزام بود به این که حالا در شبک‌های اجتماعی این کار رو انجام بدید
+
+[00:18:48.100 → 00:18:51.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+شما به هیچ عنوان قبل از تحویل کالا تصفیه حساب نکنید
+
+[00:18:51.820 → 00:18:55.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چه بحث بیانه باشه، مصر هستن که بیانه واریز بکنید
+
+[00:18:55.520 → 00:18:58.580] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+چون افراد زیادی مطالبه می کنن این کالا رو
+
+[00:18:58.580 → 00:19:02.500] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و با ترفندهای مختلفات، چرب زمانی شما رو ترقیب می کنن
+
+[00:19:02.500 → 00:19:07.120] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که وجوهاتی رو واریز بکنید که اونها ممکنه کلاه برداری باشن
+
+[00:19:07.120 → 00:19:08.720] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما به هیچ وش توصیه نمی کنید
+
+[00:19:08.720 → 00:19:16.980] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+و حالا از اون سمت چطور؟ آیا پرونده جرائی میداشتیم که مثلا فروشنده بگی؟ خب من کالا رو فرستادم که اون پرداخت بکنم و تحویل گرفته و پرداخت نکرده
+
+[00:19:16.980 → 00:19:22.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ببینید این موضوع یک بحث دوسویه است ممکنه برای یک فروشنده هم پیش بیاد
+
+[00:19:22.780 → 00:19:31.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما پیشنهاد کریم خود فروشنده هایی که هستن میگیم که برای اینکه این اتفاق نیفته شما هم این موارد امنیتی مدن نظرتون باشه
+
+[00:19:31.380 → 00:19:34.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی خیلی کم اتفاق میفته که برای یه فروشنده پیش بیاد
+
+[00:19:34.640 → 00:19:38.420] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما به فروشنده ها تحکید کریم اگر کالایی رو میخواید تحویل بدید
+
+[00:19:38.420 → 00:19:42.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حتما اون پیکی که شما دارید ببره به درب منزلی که عنوان میشه
+
+[00:19:42.620 → 00:19:46.260] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و به اون محل مشخصی که هستش کالا رو تحویل بده
+
+[00:19:46.260 → 00:19:51.580] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بعضا افرادی هستن که یه کالایی رو مطالبه میکنن و در کنار خیابون میخوانون رو بگیرن
+
+[00:19:51.580 → 00:19:55.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ممکنه همون لحظه یه موتوری باشه و پا به فرار بذاره
+
+[00:19:55.820 → 00:20:01.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این مواردو ها ما داشتیم، اما تعداد کسایی که از اون طرف قربانی هستن خیلی بیشتره
+
+[00:20:01.820 → 00:20:10.900] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و آیا شرایطی فراهم شده که خب همین صفحه ها که عموماً افرادی هستن که شرکتی یا ایک مؤسسه یه تولیدی نداشته باشن
+
+[00:20:10.900 → 00:20:14.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+توی خونه یه کالایی رو آماده می کنن و اون رو می خواهن رسال بکنن
+
+[00:20:19.660 → 00:20:43.120] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ببینید، هیچ محدودیتی برای اینا نیست که بخوان سایت بزنن و نماده اتمینان بگیرن، خب وضالت سمت یک چارچو رو برای این مشخص کرده، هر کسی اون فرایند رو طیب کنه میتونه اینو انجام بده، اما ما هم در مقام پولیس خیلی نمیان اختلال ایجاد بکنیم در روند کاری اینها، اونهایی رو که خودمون رسد میکنی و ممکنه کلاه برداری باشن،
+
+[00:20:43.120 → 00:21:00.080] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+با مراجع محترم قضایی همه هنگ می‌کنیم و تحت قنوان کشف پیش دستانه جلوی کلاه برداشش رو می‌گیریم ولی یه سری هم ممکنه که هیچ از نظر ظاهری و نوع خدمات تا شکایتی سمت ما واسل نشه ما متوجه تخلیح و جرام اونها نشیم
+
+[00:21:00.080 → 00:21:07.740] ⚠️ `multi_pass_disagreement`
+بله خیلی ممنامم از توضیحاتتون، این مواردی که فهمودید بحث فروش اجناس یا برندشان درقای کشی، تون قسمت کلاه برداری ها می‌کنجد
+
+[00:21:08.720 → 00:21:16.880]
+جماعی دکتر رودی، در الگوهای خرید که در سواد مالی مطرح میشه، یکی از مباعث اینه که ما یک فهرست خریدی داشته باشیم
+
+[00:21:16.880 → 00:21:23.600] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چرا که تحت تحصیل فعالیتهای بازاری آبانه قرار نگیریم و احساس نکنیم که یک عجلهی هست برای اون خرید؟
+
+[00:21:23.600 → 00:21:32.040] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+فکر میکنم همین این خودش یک راه حلیه برای پیشگیری از بحث کلاع برداری مالی که بتونیم فکر شده و با تدبیر اون خرید رو انجام میدیم
+
+[00:21:32.040 → 00:21:38.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بله یک نکتهی که توی صحبت‌های جواب سرهنگ بود اصرار فروشنده بود
+
+[00:21:38.360 → 00:21:42.100] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی این خودش باید به ما یک در واقع راه نمایی باشه
+
+[00:21:42.100 → 00:21:46.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+انگار یک کودی برای ما داره میفرسته که ما باید بهش توجه بکنیم
+
+[00:21:46.980 → 00:21:50.020] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و بگیم که احتمالاً اینجا یکی ضرورتی داره
+
+[00:21:50.020 → 00:21:54.180] ⚠️ `multi_pass_disagreement`
+نکته‌ی بردی مهمش همین تحویل کالا و تصویه حساب بود
+
+[00:21:54.180 → 00:22:00.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+میخوام این که اون اقدامات بازاریابانه بخشیش به آگاهی و سواد ما برمیگرده
+
+[00:22:00.980 → 00:22:10.040] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما خیلی راحت نمیتونیم تشخیص بدیم که این اقدام بازاریابانه مثلا برای کلاه برداریه یا نه واقعا داره بازاریابی میکنه
+
+[00:22:10.040 → 00:22:14.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+وقتی بارها اعلام شده مثلا قره کشی ها ما تماس مستقیمی نمیگیریم
+
+[00:22:14.880 → 00:22:21.320] ⚠️ `multi_pass_disagreement`
+یا این که برای مثلا پرداخت جاییزتون هیچ وقت شماره کارتتون رو نمیخواهیم
+
+[00:22:21.320 → 00:22:33.760] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب این دیگه این آگاهی منه و وقتی کسی دوباره این اتفاق براش بیفته این ناشه از اون کمسوادی مالیه دیگه که این باید جبران بشه و یه همچین برنامهی در همین راستاست
+
+[00:22:33.760 → 00:22:40.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+وقتی توی قره کشی برن نمیشی اجازه نداری اطلاعات مالی تو بگی اجازه نداری اطلاعات کارت تو بگی
+
+[00:22:40.520 → 00:22:51.840] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اصولا هیچ مقام در واقع خصوصی یا دولتی نمیاد از ما مشخصات حساب بانکی، کارت بانکی، رمزمون رو بخواد
+
+[00:22:51.840 → 00:22:57.600] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+من اینکه مقام قضایی باشه با یه دستور مشخصی که اون هم فرایند خودشو داره
+
+[00:22:57.600 → 00:23:03.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی باید بدونیم هیچ مقام از چه شرکت خصوصی باشه، دولتی باشه، صده و سیما باشه
+
+[00:23:03.620 → 00:23:11.660] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا اصلا بگه دو میلیارد ها توم هم برنده شدی، ما نمیتونیم دسترسی به اطلاعات مالیمون بهش بدیم
+
+[00:23:11.660 → 00:23:17.740] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+من فکر میکنم وجه مشخص همه مواردی که داریم میگیم بحث تحقیق کردن تمع هست
+
+[00:23:17.740 → 00:23:24.860] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و به روش های مختلف یا فرصت کمه یا مثلا متغازی زیاده پس تو اگر اقدام نکنی از دست میدی
+
+[00:23:24.860 → 00:23:27.280] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا یک پیشنهاد خیلی وسفس انگیزیه
+
+[00:23:27.280 → 00:23:38.300] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+مثلا خیلی وقتا پیش میاد میگن که خب الان آخر وقت اداریه فقط یک ساعت فرصت داری اینو اگر واریز نکنی دیگه مثلا برندهی این نمیشه و طرف هل میشه و میگون کار رو انجام میده و مورد کلاه برداری قرار میکره
+
+[00:23:38.300 → 00:23:44.200] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+جانب سرهنگ اگر توضیح تکمیلی تری در این زمینه دارید بفهمید اگر نه بریم بروی اسکیمر و فیشنگ
+
+[00:23:44.200 → 00:23:52.200] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب یک بخش دیگر جرام ما که داره اتفاق میفته بحث استلاحاً جرام اسکیمر هستش
+
+[00:23:52.200 → 00:24:02.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اسکیمر به این معنیه که یک فرد شیاد، یک فرد کلاه بردار میاد کارت بانکی شما رو کپی می‌کنه
+
+[00:24:02.360 → 00:24:09.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+با یک دستگاهی که در اختیارش هست دور از چشم شما میاد این کارتی که شما دارید رو داخل اون می‌کشه
+
+[00:24:09.640 → 00:24:14.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و حتی ممکنه در مقابل چشمان شما می اتفاق بیفته و متوجه نشید
+
+[00:24:14.300 → 00:24:19.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+رمزان که از خود شما پرسیده یا در مرآ و منظر ایشون رمزو زدید
+
+[00:24:19.700 → 00:24:25.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+رمزان یک گوشی یاد داشت میکنه و میره این همین کارت شما رو استلاحاً رایت میکنه
+
+[00:24:25.360 → 00:24:28.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی کارتی که در جیب شماست، در اختیار شماست
+
+[00:24:28.520 → 00:24:35.040] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این همین کارت در اختیار اون فرد هستش که میخواد از حساب شما پول خارج بکنه
+
+[00:24:35.040 → 00:24:40.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+با همه قابلیت‌ها و هر موجودی که این داره در داخل اونم هست و می‌تونه این کار رو انجام بده
+
+[00:24:42.200 → 00:24:48.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+آسیب‌شناسی که ما در این حوضه کردیم، قالبا توسط فروشنده‌های سیار این جرم اتفاق می‌فته
+
+[00:24:48.560 → 00:24:57.080] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+کسانی که جای ثابت ندارن، هرچند ما داشتیم پرونده‌هایی که اومدن برحال با مدارک جلی در محل‌هایی به عنوان مثال
+
+[00:24:57.080 → 00:25:12.060] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+میوه فروشی دایر کردن و مدت یک موه هم فعال بودن و در این مدت صرفاً اطلاعات کارت بانکی شهروندان رو کپی می‌کردن نهایتاً میان اونا رو استخراج می‌کنن و جمع می‌کنن موازشون
+
+[00:25:12.060 → 00:25:22.340] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما قالباً کسایی هستن که فروشنده‌های سیار هستن، حالا ما جسارتی نشه خدمت عزیزانی که حالا دست فروش هستن یا بابانت کار می‌کنن
+
+[00:25:22.340 → 00:25:34.920] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی خیلی هاشون با وانت بودن، با خدروهای سیار بودن، کالایی رو مثل میبه میفروختن، حالا هندگونه داشتیم، پلتغال داشتیم، موز داشتیم، انواع میبه ها رو در فصل خودش زیر قیمت هم میفروختن
+
+[00:25:34.920 → 00:25:41.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و اون شهروندان ترقیب میشدن که سریع تر بخوان یک خریدی رو انجام بدن بدون در نظر گرفتن مسائل امنیتی
+
+[00:25:41.980 → 00:25:53.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و یا پیکای مطوری سیاری که میان جلو در خونه ها، ما داشتیم به هر حال رستوران هایی که پیکایی رو بدون در نظر گرفتن مسائل امنیتی به استخدام خودشون در آوردن
+
+[00:25:53.700 → 00:26:06.220] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و این پیکای وقتی که میان جلو در خونه، کارتو خودشون می کشن، رمز هم خودشون می زنن و متاسفانه همون لحظه در یک لحظه می تونن که این کارتو کپی بکنن و سو استفاده های خودشون رو بکنن
+
+[00:26:06.220 → 00:26:13.100] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+راه پیشگیری که ما برای این پیشناها دادیم و به کرات هم خدمت هموطنان و عزیز گفتیم
+
+[00:26:13.100 → 00:26:17.500] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+گفتیم که حتی المقدور کار تو خودتون بکشید داخل دستگاه پوز
+
+[00:26:17.500 → 00:26:20.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی کار تو در اختیار فروشنده قرار ندید
+
+[00:26:20.380 → 00:26:26.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اگر به هر دلیل حالا فروشنده کار تو دادید کار تو گرفته رمز رو خودتون بزنید
+
+[00:26:26.560 → 00:26:30.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+آن هم به صورت محافظت شده یعنی سعی کنیم این آدست رو داشته باشیم
+
+[00:26:30.820 → 00:26:36.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+با یک دست رمز رو می‌زنیم، با دست دیگه جلوش رو بگیریم که کسی نبینه که رمز ما چیه
+
+[00:26:36.820 → 00:26:41.540] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اون رمز رو اگر ولو اینکه کارت شما رو محفظ بشه کپی بکنه
+
+[00:26:41.540 → 00:26:48.220] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اگر رمز رو در اختیار نداشته باشه به هیچ عنوان نمی‌تونه که ازش وشی رو استخراج بکنه
+
+[00:26:48.220 → 00:26:52.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا در کنار همه اینا شما همین موارد امنیتی رو داری رایت می‌کنید
+
+[00:26:52.880 → 00:26:55.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+به خاطر اینکه مسئون باشی ما پرونده داشتیم
+
+[00:26:55.800 → 00:27:07.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+به عنوان مثال در یک بازی زمانی کارتش کپی شده چند ماه بعد اون فرد شیاد و اون فرد کلاه بردار اومده از اون کارت وجوهاتی رو استخراج کرده
+
+[00:27:07.140 → 00:27:13.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این نشون میده که به هیچ عنوان توجهی به مسئله امنیتی نشده یعنی به صورت دورهی رمزو عوض نکرده
+
+[00:27:13.940 → 00:27:18.660] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما ولی اینکه کارتمون هم اصلا رفتیم یه جایی شک کردیم یه خریدی کردیم
+
+[00:27:18.660 → 00:27:22.100] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مشکوک شده ام گفتیم نکنه که حالا این کارتو کفی کرده باشه
+
+[00:27:22.100 → 00:27:26.760] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+جدایی از این که این امکان هست که به پولیس اطلاع بدیم
+
+[00:27:26.760 → 00:27:31.900] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+میتونه در اولین باجهی که هستش در دسکای ای تیم برمز کارتو تون رو عوض کنید
+
+[00:27:31.900 → 00:27:34.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+به هیچ اونها نمیتونه دیگه باش کاری بکنید
+
+[00:27:34.380 → 00:27:39.720] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اینجا زمان مواقع دیگه فکر میکنم میگیم که بقیه دیگران اتفاق میافته بقیه خودمون اتفاق نمیافته
+
+[00:27:39.720 → 00:27:43.080] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بله، ما ببینید پرمنده داشتیم
+
+[00:27:44.960 → 00:27:51.380] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+بله، با توجه به راه اندازی بحث OTP که رمز یک بار مصف هستش
+
+[00:27:51.380 → 00:27:56.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب در حوضی فیشنگ ما شاهده چشمگیر کاهش جرام بودیم
+
+[00:27:56.360 → 00:27:59.740] ⚠️ `multi_pass_disagreement`
+برخی از جرام شیفت شدن همین سمت
+
+[00:27:59.740 → 00:28:05.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی یک سری اومدن سمت اسکیمر و متاسقونه تعدادش هم قابل توجه هستش
+
+[00:28:05.800 → 00:28:13.960] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما پرونده داشتیم عروس و دامادی بودن برای تشکیل زندگیشون یک وچی رو داشتن که میخواستن برن خونه رحم کنن
+
+[00:28:13.960 → 00:28:20.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+با همون کار رفتن خریدشون رو انجام دادن و متاسقانه کل وچ از حسابشون خارج شده
+
+[00:28:20.980 → 00:28:25.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+توصیهی که در این حوض داریم بجاز اون دوتا موردی که ما خدمت شما گفتیم
+
+[00:28:25.300 → 00:28:31.020] ⚠️ `multi_pass_disagreement`
+کارتی رو که ما باشت خرید روزمره انجام میدیم از کارت پسندازمون جدا باشه
+
+[00:28:31.020 → 00:28:49.400] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما افرادی رو داشتیم که رفتن یک وامی رو گرفتن، حالا همون کارتی که تمام وچی رو که به عنوان وام عقص کردن داخل اونه، با همون میرن خریدای روزمرهشون رو انجام میدن، میرن مثلا تربار میرن، خریدایی که از خروشنده های سیار هست انجام میدن، هر آن ممکنه اتفاق گفته
+
+[00:28:49.400 → 00:28:58.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی اگر یک کارتی مجزا برای خرید شما داشته باشید، تمهیدات امنیتی هم روی اون بیشتر رایت می‌کنی، حواست هم بهش هست و چه مشخصی هم داخلشه
+
+[00:28:58.700 → 00:29:10.960] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+احیانا اگر هم یک زمانی اتفاقی بیفته، اینگونه نیست که بگید مثلا کل اون وجوهاتی رو که به عنوان پسنداز داشتم توسط سارقین به سلقت رفته
+
+[00:29:10.960 → 00:29:19.260] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و حتی میتونه اون حساب پسندازی که داریم و مبلغ قابل توجهی توش هست، اتصال به اینترنت و غمز دوبومین هم نداشته باشه
+
+[00:29:19.260 → 00:29:25.400] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بله، بله، اینم هستش ما به کسانی که دارن استفاده می‌کنن گاهن این توصیه رو می‌کنیم
+
+[00:29:25.400 → 00:29:29.480] ⚠️ `multi_pass_disagreement`
+ولی در کل ما مخالفه این نیستیم که صورت مسئله رو پاک کنیم
+
+[00:29:29.480 → 00:29:32.600] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما مخالفه این نیستیم که بگیم از تکنولوژی استفاده نشد
+
+[00:29:32.600 → 00:29:36.900] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+به هر حال یک تکنولوژی هست، دارن مردم استفاده می‌کنن
+
+[00:29:36.900 → 00:29:42.900] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما اگر سواد خودمون رو یک مقداری بالاتر ببریم، توصیح‌های پولیسی رو جدی بگیریم
+
+[00:29:42.900 → 00:29:53.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما به کررات در سایت‌مون سایبر پولیس آتایار، این موارد و سناریو مهور متناسب با پرونده‌هایی که روزانه در پولیس تشکیل می‌شه درش کردیم
+
+[00:29:53.620 → 00:30:07.020] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خواهشی که از شهروندان عزیز دارم، اینها رو هر ازگاه یک نیم نگاهی بندازن یک متعالیه داشته باشن، اگر چند تا نکته کچیک رو رایت بکنن، قطعا به هیچ اونان تومه مجرمین سایبری قرار نمیگیرن
+
+[00:30:07.020 → 00:30:17.660] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و یه سوال کتاه این که اینا متصل به کارت میشه دیگه، مثلا اگر توی یک بانک ما چند حساب داشته باشیم و یکیش مورد اسکیمر قرار بگیره، بقیه که تحت تحصیل قرار نمیگیره
+
+[00:30:17.660 → 00:30:21.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نه، مختص همون کارته، اون کارت رو کپی میکنه
+
+[00:30:21.180 → 00:30:22.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بله، خیلی ممدونم
+
+[00:30:25.390 → 00:30:26.890] ⚠️ `multi_pass_disagreement`
+چهلستون
+
+[00:30:26.890 → 00:30:31.490] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+فقرت یک در وارد خونه ایما میشه، ایما نظر دیگه خارج میشه
+
+[00:30:31.490 → 00:30:35.130] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چهلستون، ستونهای اقتصاد خانوادی
+
+[00:30:35.130 → 00:30:38.750] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا من میخوام که همه خواسته های بچه هم رو برورده بکنم
+
+[00:30:38.750 → 00:30:40.910] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چیزی تو دل بچه هم نمونه
+
+[00:30:40.910 → 00:30:44.430] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نصری باورای این مودلی خانواده ها ممکنه داشته باشن
+
+[00:30:44.430 → 00:30:49.110] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+هر هفته شهارشن به ساعت ده از رادیو گفت‌وگو
+
+[00:30:49.110 → 00:30:55.330] ⚠️ `multi_pass_disagreement`
+خیلی وقتا مشکلات محیشتی، مخصوصا در شرط اقتصادی فعلی باعث کار کردن اجباری بچه ها میشه
+
+[00:30:55.330 → 00:30:58.650] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پیامت سی هزار ده سی و پنج
+
+[00:30:58.650 → 00:31:05.050] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این میزان توجه به پول یا تعاغذ نداره با فرهنگ من با چیزهایی که حتی توی دینمون توصیه شده
+
+[00:31:05.050 → 00:31:08.130] ⚠️ `multi_pass_disagreement`
+ما نمیگیم این سواد مالی اصل زندگیه
+
+[00:31:08.130 → 00:31:15.350] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بلکه می‌گیم به میزانی باید بهش بپردازیم که بتونه خدمت مناسبی به سایر و حوضه‌های زندگیمون داشته باشه
+
+[00:31:42.300 → 00:31:47.540]
+جنب آقای دکتر گودی، ما خیلی توصیه شده در فرهنگمون، در دینمون حتی
+
+[00:31:47.540 → 00:31:53.860]
+که حتی اگر به برادرت قرض می‌دی، اون رو یاد داشت کن به نویسی که چیز مکتوبی بین شما باشه
+
+[00:31:53.860 → 00:32:00.360] ⚠️ `low_word_confidence`
+من فکر می‌کنم مواردی که جنابای سرهنگم فرمودن، مثلا این که رمز به خودمون بزنیم یا کارت به خودمون بکشیم
+
+[00:32:00.360 → 00:32:06.660]
+خیلی فرهنگی شده یعنی مثلا اگر من به سپرمارکت و محل بگم بذار خودم کارت هم بکشم یه ذره نراحت می‌شه می‌گه
+
+[00:32:06.660 → 00:32:11.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی فکر می‌کنی من مثلا کلاه بردارم، در این زمینه ممنون می‌شم کمی توضیح بده
+
+[00:32:12.820 → 00:32:19.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ببینید، حالا تو سرهنگ ما هم هست که مامله کن مثل بیگانه، معاشرت کن مثل برادر
+
+[00:32:19.780 → 00:32:26.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این امر مالی چیزی که نیست که ما در مورد شوخی بکنیم یا بگیم که نتارف بکنیم یا رودروسی بکنیم
+
+[00:32:26.780 → 00:32:32.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ببینید، سه نکته مهم تو صحبت‌های جراب سرهنگ بودن که میخواهم روش تحکید بکنم
+
+[00:32:32.520 → 00:32:39.340] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یکی این که تو این بحث در واقع کپی کردن کارت، مهم اینی که ما حساب کتاب داشته باشیم
+
+[00:32:39.340 → 00:32:43.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ببینید ما تو آموزه‌های سواد مالی داریم که همه‌ی خریده‌ها تو بنویس
+
+[00:32:43.680 → 00:32:50.200] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و مشخص بشه چقدر کجا خرج کردی به صورت روزانه تا بفهمی که هزینه‌ها چقدره
+
+[00:32:50.200 → 00:32:57.580] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب اگر نمی‌نویسی و نمی‌دونی اون مثلا خورد‌خورد هم 200 زارتوان، 200 زارتوان هم از روکارتت برداره متوجه نمی‌شی
+
+[00:32:57.580 → 00:33:05.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه دفعه میبینی سه ماه، چهار ماه درفت داره این کار رو انجام میده و چون خورد بوده و تو هم حساب کتابی نداشتی متوجه نشدی
+
+[00:33:05.180 → 00:33:11.320] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پس یه نکتهی که میخوام روش تحکید بکنم نوشتن هزینه هست که بعدن تو بودجه بندی به ما کمک میکنه
+
+[00:33:12.040 → 00:33:20.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+دومی نکته بودجه ماهانه داشتنه یعنی من اگر یه پول هنگفتی رو دریافت میکنم در اصطلاح حساب سرد و گرم داشتنه
+
+[00:33:20.940 → 00:33:42.920] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اینجز آموزه‌های سواد مالیه، میگه تو اگر مثلا ماهانه چهار ملیون حزینه داری، حتی اگر درامت‌های هنگفت‌ داری یا وامی می‌گیری تو این کارت مربوط به بجت اضافه بر چهار ملیون نریز، اول ماه چهار ملیون می‌ریز و در طول ماه این رو خرش کن. حالا اگر این کوپی بشه به هر حال یه خسارتی می‌بینی.
+
+[00:33:42.920 → 00:33:48.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+تا اینکه مثلا فرمودن که در واقع یه وامی بگیری پنجاه ملیون هم توش باشه
+
+[00:33:48.780 → 00:33:51.920] ⚠️ `multi_pass_disagreement`
+یا اصلا پسنداز زندگیت هم خورد خورد توش باشه
+
+[00:33:51.920 → 00:33:58.060] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+خب این حسابه سرد و گرم داشتن که از آموزه های سواد مالیه یه جلوگیری می کنه
+
+[00:33:58.060 → 00:34:02.140] ⚠️ `multi_pass_disagreement`
+از در واقع خسارت ناشی از کپی شدن کارت ها
+
+[00:34:02.140 → 00:34:06.920] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+دیگر ایش تعویز دورهیه ببینید ما تعویز دورهی رمز
+
+[00:34:06.920 → 00:34:13.860] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما خیلی دوشباره برای اون ممنون آدم هایی که الان تو دور اطراف خودم میدیم شیش افتا کارت بانکی دارن
+
+[00:34:13.860 → 00:34:17.840] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و میگه من برای هر کدومش یه رمز بذارم چجوری پیدا کنم
+
+[00:34:17.840 → 00:34:24.120] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یکی از راهکارهایی که سواد مالی داره اینه که شما یه فرمول رمز داشته باش
+
+[00:34:24.120 → 00:34:26.840] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و اون فرمول رو هر از چنگهایی تغییر بده
+
+[00:34:26.840 → 00:34:34.540] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مثلا من میگم که فرض کنید که چهار رقم ابتدای کارت هامو دو رقم دو رقم مثلا جا به جا میکنم
+
+[00:34:34.540 → 00:34:39.540] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این مثلا برای سه ماه بعد هر بار اصلا لازم نیست که اون فروشندم در مرز قرار بگه
+
+[00:34:39.540 → 00:34:45.280] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+من به کارتم نگاه میکنم چون یه تک فرموله هر کارتی هم بخوام استفاده بکنم
+
+[00:34:45.280 → 00:34:48.400] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+فرمولو محاسبه میکنم و رمزم به دست میاد
+
+[00:34:48.400 → 00:34:53.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی به جایی که مثلا من ده تا رمزو حفظ بکنم یک فرمولو حفظ کردم
+
+[00:34:53.520 → 00:34:59.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و رو کارت‌های متفاوت هم این جواب میده یا مثلا چار رقم آخرش و دو رقم اول آخرش رو جا به جا کنه
+
+[00:34:59.820 → 00:35:08.840] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این یک فرمول در واقع به دستو بردن مهمه و هی رمز تولید نکردن که ذهنمون آشفته بشه
+
+[00:35:08.840 → 00:35:15.420] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بعد این منجرم شما رمزهای ساده بذاریم برای اینکه مثلا در واقع بتونیم حفظشون بکنیم
+
+[00:35:15.420 → 00:35:20.320] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بلابراین یکی از آموزه هام اینه که در واقع فرمول لشته باشیم
+
+[00:35:20.320 → 00:35:29.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و در نهایت این که کسی ما رو بابت این که در واقع احتیاط نکردیم تشویق نمی کنه
+
+[00:35:30.880 → 00:35:36.460] ⚠️ `multi_pass_disagreement`
+ولی این که ما جدی باشیم رودرواسی نکنیم همواره مورد تعیید هر آقلیه
+
+[00:35:36.460 → 00:35:44.320] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی بخواهم بذاریم این فرهنگ هم ایجاد بشه که فروشنده هم بدونن که مردم این تغاظه رو دارن که رمز خودشون بزنن
+
+[00:35:44.320 → 00:35:49.500] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا مردم کارت رو نمیدن به وجه تو دوره کورونا جالبه دیگه مردم آدت کردن
+
+[00:35:49.500 → 00:35:55.400] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+میگه کارت همه من به فروشنده نمیدم چون همین تبادل کارت منجر به ممکنه انتقال ویروس باشه
+
+[00:35:55.400 → 00:35:57.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+من فقط کارت رو میکشم
+
+[00:35:57.180 → 00:36:00.080] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این خوبیه کمی ممکنه جلوگیری بکنه
+
+[00:36:00.080 → 00:36:07.420] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و بالاخره با رایت در واقع اون پروتوکل بهتاشی و دستگش و همون محافظتی که فرمودن رمزو خودم بزنیم
+
+[00:36:07.420 → 00:36:10.220] ⚠️ `multi_pass_disagreement`
+و قضیه تارف برداری نیست
+
+[00:36:10.220 → 00:36:16.340] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی جدی بودن تو مسائل مالی و همون جوری که فرمودین تو آیات قرآن هم داریم
+
+[00:36:16.340 → 00:36:21.680] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+آدم به برادرش هم قرض میده و هردی که بنویسین یعنی تو مسائل مالی خیلی تعرف بردار نیست که بگیم
+
+[00:36:21.680 → 00:36:29.440] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ممکنه دست من نراحت بشه. بلاخره آدم همیشه تو دنیا نیست باید یه صورت مکتوبی
+
+[00:36:29.440 → 00:36:36.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+از مبادلات مالیش باشه این که قرض و گفتن. حالا ایشالله همه و خانواده هاشون
+
+[00:36:36.880 → 00:36:43.260] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+تندرست و سالم باشن. ولی خیلی از مسائل برای بعد از فوت هم اتفاق میفته که
+
+[00:36:43.260 → 00:36:54.840] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+ترف فرض کنید، یه نفر ادعای طلبکاری یا بدهکاری میکنه، خب اگر نوشته باشه، این خیلی دقیق تر و موسخت تر برای اون ورس اگر میخوان تلب و بدهی و تصویه کنن
+
+[00:36:54.840 → 00:37:04.000] ⚠️ `multi_pass_disagreement`
+به این خاطره که این یه آموزه قرآنی هم هست که معاملاتتون و مبادلات مالیتون مکتوب و مشخص باشه
+
+[00:37:04.000 → 00:37:09.760] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چه برسه این که من دارم یک خرید سادهی و انجام میدم و در واقع جایی رو در بسی ندار
+
+[00:37:09.760 → 00:37:15.240] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+خیلی ممنونم از شما کاملا دوگاه سایی جناب سرخنگ اگر سلاح میدونیم مسئله فیشینگ کو باز کنیم
+
+[00:37:15.240 → 00:37:15.580]
+بله
+
+[00:37:15.580 → 00:37:26.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب شگرد فیشینگ مختص کشور ما نیست یک شگردی هستش که حالا ممکنه در حوضی بانکی بیشتر در کشور ما استفاده بشه
+
+[00:37:26.300 → 00:37:31.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+تیه چند سال اخیر جز ده حملی برتر در دنیا شناخته شده
+
+[00:37:31.180 → 00:37:40.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و چون خیلی کم حزینه و راحته برای سرغت اطلاعات یوزردین پاسورد و اکانت ها به راحتی ازش استفاده میشه
+
+[00:37:40.640 → 00:37:47.020] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک درگاه ورودی جلی مثل شبکای اجتماعی که میخوان ورود پیدا بکنن ساخته میشه
+
+[00:37:47.020 → 00:37:55.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بعد از این که یوزردین پاسورد رو بارد کردی متوجه میشی که حالا از اون راه ورود پیدا نمیکنه و اون فرد محاجم اطلاعات رو سرغت کرد
+
+[00:37:55.240 → 00:38:07.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما در حوضی بانکی بیشتر میان اطلاعات کارت بانکی، تمام اطلاعاتی رو که نیازه برای این که یک تراکنش انترنتی صورت بگیره رو به سرقت میبره درگاه های بانکی هستن
+
+[00:38:07.360 → 00:38:19.340] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا شیوه استفاده این به چه شکلیه؟ خب وقتی که شما در نگاه اول به شما میگن فیشنگ اینجوریه و این چارچوبو داره میگی خب من حواستم هستی که به دام نمیفتم
+
+[00:38:19.340 → 00:38:31.720] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی ایش با شگردهای مختلف، با شیوه های مختلف مجرمین سایبرین میان خودشون رو به شما نزدیک می‌کنن در فضایی مجازی و میان اطلاعات کارت بانکی شما رو سرغت می‌کنن
+
+[00:38:31.720 → 00:38:40.840] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بیشترین جرام ما در سال گذشته، در چند سال اخیر همین شگرد فیشین بوده که تعداد زیادی از هموطنان عزیز ما گرفتار شدن
+
+[00:38:40.840 → 00:38:46.880] ⚠️ `low_word_confidence`
+علا رقم این که پولیس فتا با اقدامات شبان و روزی خودش چندین باند از اینا رو دستگیر کرد
+
+[00:38:46.880 → 00:38:51.960] ⚠️ `multi_pass_disagreement`
+ولی خب به هر حال باز هم به خاطر این که خیلی از هموطنان رایت نمی کنن
+
+[00:38:51.960 → 00:38:53.860] ⚠️ `multi_pass_disagreement`
+بدام این فیشینگ ها را می افتن
+
+[00:38:53.860 → 00:38:55.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب باید دقت بکنید
+
+[00:38:55.620 → 00:38:57.960] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بعضا الان فراوانی جرم فیشینگ
+
+[00:38:57.960 → 00:38:59.400] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا خوشبختانه اینم بگم
+
+[00:38:59.400 → 00:39:03.840] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+با تعامل خیلی خوبی که با بانک مرکزی و قوه قضایی ما داشتیم
+
+[00:39:03.840 → 00:39:09.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+با را اندازی رمزی یک بار مستف تا حدود زیاد جلوی این جرب گرفته شده
+
+[00:39:09.940 → 00:39:18.520] ⚠️ `multi_pass_disagreement`
+اما باز هم داره اتفاق میفته که هموطنان عزیز اگه چند تا نکتر رو رویت کنن قطعا به دامه فیشین کارها نمیفتن
+
+[00:39:18.520 → 00:39:24.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک بودش که حالا یکی از شگرتاش که خیلی مرسوم رو دارن استفاده می‌کنن خرید شارش هستش
+
+[00:39:24.560 → 00:39:31.920] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما در بحث موتورهای جستجو وقتی که میاییم یک خدماتی رو میخواییم از فضای مجازی بگیریم
+
+[00:39:31.920 → 00:39:37.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+کلیدواجه رو سرچ میکنیم ممکنه اون لینک هایی که اون سایت هایی که به ما پیشنهاد میشن
+
+[00:39:37.700 → 00:39:43.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک سری سایت های تقلبی باشن که صرفا هدفشون سرقت اطلاعات کارت بانکی ماست
+
+[00:39:43.800 → 00:39:50.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خیلی از شهروندان برای خرید شارج میان در داخل موتورهای جستجو همین کلمه رو سرچ میکنن
+
+[00:39:50.560 → 00:39:56.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و متاسفانه با پرداخت وجوهاتی که توسط مجرمین داره صورت میگیره
+
+[00:39:56.240 → 00:40:00.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اینها میان جز رنگهای اول یعنی به عنوان اولین پیشنهادات هم
+
+[00:40:00.140 → 00:40:02.720] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+میان بالا و وقتی که روشون کلیک میکنی
+
+[00:40:02.720 → 00:40:07.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+هدایتتونو میکنن به یک درگاه جلی که کاملا شبیه درگاه اصلی بانکی
+
+[00:40:07.780 → 00:40:11.660] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و شما ناداناسته و ناخواسته اطلاعاتتونو وارد میکنید
+
+[00:40:11.660 → 00:40:14.920] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و ممکنه بعد از اون سرغت اطلاعات صورت بگیره
+
+[00:40:14.920 → 00:40:23.200] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اخیران همه مواردی رو داشتیم در خصوص سامانه سجام، حجم عظیمی از هموطنان اومدن که در این سامانه سبتنام بکنن
+
+[00:40:23.200 → 00:40:31.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+همین کلیدواجه رو سرچ می‌کردن و سایت‌هایی که بهشون پیشنهاد می‌شد می‌امد بالا برای دریافت یک مبالغ خیلی جزئی
+
+[00:40:31.800 → 00:40:37.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+معمولاً فیشین کارا برای این که اون فر ترقیب بشه به راحتی اطلاعات رو وارد بکنه
+
+[00:40:37.380 → 00:40:44.600] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مثلا میگه که مبلغ دو هزار تومن، پنچ هزار تومن واریز کن برای این که مثلا این اپلیکیشن فعال بشه، این خدمات رو بتون بدین
+
+[00:40:44.600 → 00:40:49.540] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب خیلی هم مردم براشون مهم نیست میگه اگه این چه پولیه بذار این کم بشه از حسابم
+
+[00:40:49.540 → 00:40:55.460] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+قافل از این که این سایت فقط هدفش اینه که اطلاعات کارت بانکیه شما رو سرغت بکنه
+
+[00:40:55.460 → 00:40:59.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما در سنوات گذشته خیلی مواردی رو داشتیم که از طریق سامانه‌های پیامکی
+
+[00:40:59.980 → 00:41:02.360] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+ریا خود پیامک این اتفاق می‌افتاد
+
+[00:41:02.360 → 00:41:13.120] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+می‌امدن پیامک‌های ارسال می‌کردن تحت عنوان پیامک سبد کالا، پیامک سبتنام یارانه، پیامک سامانی هم تا پیامک کارت سخت
+
+[00:41:13.120 → 00:41:18.220] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و وقتی که شما بعد از اینکه اون پیامک رو واسل می‌شد روش کریک می‌کردید
+
+[00:41:18.220 → 00:41:27.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+هدایت می‌شدید به یه درگاه فیشینگ تا حدود زیادی پولیس سعی کرده اقدام پیشگیرانه خودشو انجام بده و جلوی این شگرد گرفته بشه
+
+[00:41:27.140 → 00:41:31.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما این چند نکته رو اگه مد نظرم باشه خیلی می‌تونه به ما کمک بکنه
+
+[00:41:31.640 → 00:41:40.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اولا حواستمون باشه تمام لینک‌هایی که در شبک‌های اجتماعی برای پرداخت به ما پیشنهاد می‌شن ممکنه یک تله باشه
+
+[00:41:40.700 → 00:41:46.220] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا این تله ممکنه شما را هدایت بکنه به یک سایتی که سایت فیشینگ هستش
+
+[00:41:46.220 → 00:41:51.460] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ممکنه اون لینکی که به شما پیشنهاد میشه در شبکه اجتماعی حاوی بدفصاری باشه
+
+[00:41:51.460 → 00:41:54.660] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+تمام اطلاعات حوییتی شما را به سرغت ببره
+
+[00:41:54.660 → 00:41:59.160] ⚠️ `multi_pass_disagreement`
+خیلی مهمه که از چه مبدعی شما متصل میشید به اون درگاه
+
+[00:41:59.160 → 00:42:02.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بهترین راه اینه که هر خدماتی رو میخوایید بگیرید
+
+[00:42:02.680 → 00:42:16.060] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اون آدرس سایت رو بدونید، آدرس سایت رو خودتون تایپ بکنید، دقیقاً به همون آدرسی برید که مد نظرتون هست، یک بارم اگر تست بکنید، دیگه تا آخر شما راحت هستید و می‌تونید که از اون استفاده بکنید
+
+[00:42:16.060 → 00:42:27.480] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+بحث خیلی بر من جذاب هست سوالات کتا زیادی دارم یکی این که خب مثلا اطلاعات کارت من رو گرفت آیا مهگه محدودیت سقف وجود نداره برای انتقال کارت به کارت و اینا؟
+
+[00:42:27.480 → 00:42:42.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بله، الان متاسفانه در حوضی اینترنت بانک این محدودیت وجود نداره و اگر بانکش همون بانکی باشه که بانکیه که شما دارید استفاده میکنید خب تا مبلغ خیلی زیادی هم میتونه جا با جا بکنه
+
+[00:42:42.640 → 00:42:48.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و در حوضی اوتیپی ما تا سخف ست هزار تومن و الان نیاز به اوتیپی نداره
+
+[00:42:48.780 → 00:42:50.280] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+باز هم میتونه این کار رو انجام ده
+
+[00:42:50.280 → 00:42:54.260] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+ما بعضی پرونده ها هست که وصول میشه
+
+[00:42:54.260 → 00:42:59.460] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ببینیم مدت مدیدی فرد اومده داره از کارت یک شخصی شارج خریداری میکنه
+
+[00:42:59.460 → 00:43:00.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و متوجه نشده
+
+[00:43:00.700 → 00:43:05.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا این شارج هم قطعا اون فرد مهاجم نمیاد برای خط خودش استفاده بکنه
+
+[00:43:05.380 → 00:43:09.100] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+میاد در شبکه های اجتماعی میداره شارج ارزون تر
+
+[00:43:09.100 → 00:43:19.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مثلا شارج ده هزار تومن، این میده پنج هزار تومن میاد و از این طریق پلشوی می‌کنه که ره‌گیریش برای سیستم‌های پولیسی به خیال خودش سختر باشه
+
+[00:43:19.780 → 00:43:25.280] ⚠️ `multi_pass_disagreement`
+و این که معمولاً چه کسایی در معرض این کلاه برداری‌ها هستن؟
+
+[00:43:25.280 → 00:43:31.340] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مثلا من تصورم اینه که الان با مواردی که شما فرمودین، این یک چیز شاید فنو ورانه و خیلی امروزیه
+
+[00:43:31.340 → 00:43:37.020]
+در نتیجه مثلا بازنشسته‌های من، پدر و مادرها، بدر بزرگها، آیا واقعا این طبه؟
+
+[00:43:37.020 → 00:43:41.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خیلی، هیچ کس در مقابل تحدیدات فضای مجازی مسئولیت نداره
+
+[00:43:41.780 → 00:43:44.920] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+هر فردی ممکنه که این اتفاق براش بیفته
+
+[00:43:44.920 → 00:43:53.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما در حوضی جرام فیشینگ تعداد زیادی در مقتعی پرونده داشتیم که خود کارمندهای بانک بودن اتفاق افتاده بود براشون
+
+[00:43:53.820 → 00:43:59.660] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی فردی که خودش حواسش هست داره کار بانکی انجام میده و متاسفانه تومه قرار گرفته بود
+
+[00:43:59.660 → 00:44:07.060] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ممکنه یک فردی که خودش مهندس باشه در یک مقتعی که حالا ممکنه که شما از ذر روانی زیادم توجه نکنید
+
+[00:44:07.060 → 00:44:12.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اون کلیدواجی رو که دارید سرچ می‌کنید فقط می‌خوایید همون لحظه کارتون انجام بده بشه
+
+[00:44:12.700 → 00:44:18.900] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+توجه نمی‌کنید و صرفاً اطلاعات رو وارد می‌کنید که متاسفانه اطلاعات‌تون به سرغت می‌رود
+
+[00:44:18.900 → 00:44:21.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و اینکه ممکنه ترکیبی از اینها هم باشه دیگه
+
+[00:44:21.640 → 00:44:27.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی مثلاً یکی از آشناهامون می‌گفتن که یک وامی رو ظاهرم منتظر بودن به حسابشون واریز بشه
+
+[00:44:27.140 → 00:44:30.220] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+وامی فکر می‌کنم اشتغال و این چیزان بوده رقم سنگینی بوده
+
+[00:44:30.220 → 00:44:33.280] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+به محض اینکه واریز شده از حسابشون برداشته شده
+
+[00:44:33.280 → 00:44:40.960] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب اون رقم نه کارت، به کارت می‌شده کردن چیزی، یعنی احتمالا هم کارتشون کپی شده یه باگ، هم موقعه فیشینگ قرار گرفتن یا نه نمی‌شن هم چیزی
+
+[00:44:40.960 → 00:44:52.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ببینید دستسی داشته، به هر حال دستسی داشته، اون لحظه متوجه شده، البته این موضوع الان اتفاق نمی‌افته چون این رمزهای یک بار مصرف عمرشون کتاهه و مشخصه
+
+[00:44:52.680 → 00:45:02.080] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی قبلن ممکن بود شما در یک سایتی برود پیدا بکنید اطلاعات شما سی بی بی تور رمز دوم همه اطلاعات تاریخ انقضا سرغت بشه
+
+[00:45:02.080 → 00:45:07.200] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و اون فرد مهاجم حتی یک ماه دیگه یا دو ماه دیگه بیاد سرغت خودش رو انجام بده
+
+[00:45:07.200 → 00:45:15.140] ⚠️ `multi_pass_disagreement`
+ولی الان با توجه به این خدمات خوبی که توسط بانک مرکزی پولیس و قوه قضایی به مردم عزیز ما ارائه شد
+
+[00:45:15.140 → 00:45:23.100]
+اون رمز چون عمر زیادی نداره، به هر حال اون فرد شعیات هم زمان خیلی کمی داره که بخواد این کار رو انجام بده
+
+[00:45:23.100 → 00:45:30.720] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و این سایت های مختلفی که وجود داره در زمین شرطبندی، قامار یا چیزهای مختلف، اینا خب اساساً غیر قانونی هستن دیگه
+
+[00:45:31.280 → 00:45:37.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اینا به چه شکل کلا برداریمشه، اما مودل اوله یعنی که یه مبلغ اوما پرداخت میکنیم معلوم نیست که طرف حسابمون چه کسی
+
+[00:45:37.800 → 00:45:47.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ببینید، راجب سایت‌های شرطبندی، خب یک مقوله که اگر شما هم سلاح بدونید، ما در یک برنامهی به صورت مجزا کامل بهش بپردازیم
+
+[00:45:47.980 → 00:45:56.380] ⚠️ `multi_pass_disagreement`
+اما من فقط در همین حد خدمت شما عرض بکنم، خب قطعاً هیچ سایت‌های شرطبندی قانونی نیست و همه غیرقانونی هستن
+
+[00:45:56.380 → 00:46:02.840] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و سایت‌هایی هم که دایر شدن به هر ترتیبی که امکانش هست یا فیلتر میشن یا بسته میشن
+
+[00:46:02.840 → 00:46:10.520] ⚠️ `multi_pass_disagreement`
+اما در کل اینو خدمتون بگم، در سایت های شرطبندی، همون برود اطلاعات ها که شما میخواید انجام بدید
+
+[00:46:10.520 → 00:46:20.580] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+در واقع دستسی کامل میگیره به اطلاعات کارت بانکی شما چون رمز اپلیکیشنی که دستسی هست به اطلاعات کارت بانکی شما
+
+[00:46:20.580 → 00:46:27.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+همون لحظه از شما میگیره و دستسی داره یه بودشه، یک بود دیگرش همون بحث فیشینگ هستش
+
+[00:46:27.300 → 00:46:35.040] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و نگاه دیگر اینه که ما بررسی که کردیم الگوریتم حوش مصنوعی که در پشت این سایت ها هست
+
+[00:46:35.040 → 00:46:36.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+هیچ فردی برنده نیست
+
+[00:46:36.680 → 00:46:43.640]
+اگر هم در یکی دوبازی اول وجوهات جزئی به حساب اون شخص بخواد واریز بشه
+
+[00:46:43.640 → 00:46:49.100] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+در واقع فقط برای اینه که تتمی و ترقیب بکنه اون شخص رو که بخواد ادامه بده
+
+[00:46:49.100 → 00:46:55.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و خیلی هم متاسفانه خانمانسوزه و افرادی هستن که وجوهات خیلی زیادی رو به حساب اینکه
+
+[00:46:55.620 → 00:47:00.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بتونن اون پول قبلی رو برگردونن واریس کردن و الان هم گرفتار هستن
+
+[00:47:00.520 → 00:47:05.320] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بله، جناب سرهنگ حالا با تحجیب این که به پایان برنامه هم نزدیک میشیم
+
+[00:47:06.260 → 00:47:09.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+باید بگیم با نهایت تأصف و تأثار اگر این اتفاق افتاد
+
+[00:47:09.820 → 00:47:12.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا چه راهکار عملیاتی وجود داره؟ شهروند رو باید چی کار کنن؟
+
+[00:47:12.800 → 00:47:14.460] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+کجا مراجعه کنن؟ و چه مراحلی داره؟
+
+[00:47:14.460 → 00:47:34.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ببینید در حوضی تهران خب و البته کل کشور هم به همین شکل هستش ما مرکز فوریتهای سایبری سایبر پولیس داتایار شما ورود پیدا بکنید به سایت ما مرکز فوریتهای سایبری ما به صورت 24 ساعته و برخط پاسخگو هستن و میتونن کمک کنن مردم عزیز ما رو
+
+[00:47:34.940 → 00:47:43.060] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+در کنار اون مرکز فوریت‌های پولیسی، تماس تلفونی 110، شبان روز ما در تهران پاسقگوی شهروندانمون هستید
+
+[00:47:43.060 → 00:47:51.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اگر اتفاقی بیفته، قطعا همکاران بنده هم راهنمایی می‌کنن، هم اگر کار عملی دستشون بر بیاد، همون لحظه انجام می‌دن
+
+[00:47:51.300 → 00:48:01.160] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+منتاب برخی از جرام هست که نیازه در بد و عمر شاکی بره شکایتی رو در مراجع قضایی مطرح بکنه و بیاد ما در خیمتش باشیم
+
+[00:48:01.160 → 00:48:03.220]
+که اونم همون مراکز راه نمایی می کنن
+
+[00:48:03.220 → 00:48:04.160]
+بله، قطعا
+
+[00:48:04.160 → 00:48:08.100]
+خیلی ممنونم از شما به پایان برنامه چهل ستون رسیدیم
+
+[00:48:08.100 → 00:48:12.820]
+در این قسمت گفت‌وگو کردیم در باقی سواد مالی و پیشگیری از جرائم سایبری
+
+[00:48:12.820 → 00:48:14.700]
+از جنابای دکتر گودی تشکر میکنم
+
+[00:48:14.700 → 00:48:16.620]
+همچنین شما جنابای سرهنگو درزی
+
+[00:48:16.620 → 00:48:22.860]
+این برنامه توسط گروه اقتصاد رادیو گفت‌وگو با حمایت علمی اکادمی حوش مالی تحیه شده
+
+[00:48:31.160 → 00:48:36.340] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+از های مجازی به ما بگید و به قید قرعه برنده یک حدیه از طرف آکادمی حوش مالی بشید.
+
+[00:48:36.420 → 00:48:46.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+من حادی نجف، به اتفاق سایر همکارانم، تهیه کننده خانم آقا زاده، صدا بردار خانم آقای پور و همه هنگی خانم محسن زاده از شما شنامنده های عزیز چهل ستون خدافزی میکنیم.

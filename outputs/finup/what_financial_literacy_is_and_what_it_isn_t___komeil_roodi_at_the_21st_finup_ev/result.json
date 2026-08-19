@@ -1,11 +1,11 @@
 {
   "schema_version": 5,
-  "status": "human_review_required",
-  "review_status": "human_review_required",
+  "status": "completed",
+  "review_status": "human_verified",
   "job_id": "finup-514c2e8f",
   "source_url": "",
-  "final_markdown": "/tmp/finup-process-1-runtime/finup-514c2e8f/final/transcript.final.md",
-  "final_text": "/tmp/finup-process-1-runtime/finup-514c2e8f/final/transcript.final.txt",
+  "final_markdown": "outputs/finup/what_financial_literacy_is_and_what_it_isn_t___komeil_roodi_at_the_21st_finup_ev/final/transcript.final.md",
+  "final_text": "outputs/finup/what_financial_literacy_is_and_what_it_isn_t___komeil_roodi_at_the_21st_finup_ev/final/transcript.final.txt",
   "content_preservation": {
     "accepted": true,
     "source_tokens": 2708,
@@ -33,7 +33,7 @@
   "machine_markdown": "/tmp/finup-process-1-runtime/finup-514c2e8f/machine/transcript.machine.md",
   "machine_text": "/tmp/finup-process-1-runtime/finup-514c2e8f/machine/transcript.machine.txt",
   "editorial_report": "/tmp/finup-process-1-runtime/finup-514c2e8f/final/editorial-report.json",
-  "human_audio_verification": false,
+  "human_audio_verification": true,
   "pre_review_status": "completed",
   "pre_review_manifest": "/tmp/finup-process-1-runtime/finup-514c2e8f/pre_review/manifest.json",
   "pre_review_files": {
@@ -48,11 +48,11 @@
   "review_package": "/tmp/finup-process-1-runtime/finup-514c2e8f/review/manifest.json",
   "export_status": "completed",
   "final_outputs": {
-    "markdown": "/tmp/finup-process-1-runtime/finup-514c2e8f/delivery/transcript.md",
-    "text": "/tmp/finup-process-1-runtime/finup-514c2e8f/delivery/transcript.txt",
-    "timestamped_markdown": "/tmp/finup-process-1-runtime/finup-514c2e8f/delivery/transcript.timestamped.md"
+    "markdown": "/home/runner/work/vid_pipeline/vid_pipeline/outputs/finup/what_financial_literacy_is_and_what_it_isn_t___komeil_roodi_at_the_21st_finup_ev/delivery/transcript.md",
+    "text": "/home/runner/work/vid_pipeline/vid_pipeline/outputs/finup/what_financial_literacy_is_and_what_it_isn_t___komeil_roodi_at_the_21st_finup_ev/delivery/transcript.txt",
+    "timestamped_markdown": "/home/runner/work/vid_pipeline/vid_pipeline/outputs/finup/what_financial_literacy_is_and_what_it_isn_t___komeil_roodi_at_the_21st_finup_ev/delivery/transcript.timestamped.md"
   },
-  "timestamp_source": "/tmp/finup-process-1-runtime/finup-514c2e8f/accuracy/transcript.consensus.json",
+  "timestamp_source": "/home/runner/work/vid_pipeline/vid_pipeline/outputs/finup/what_financial_literacy_is_and_what_it_isn_t___komeil_roodi_at_the_21st_finup_ev/human/verification.json",
   "exported_speakers": [],
   "exported_effective_speakers": [],
   "exported_effective_speaker_count": 0,
@@ -60,5 +60,9 @@
     "original_download_url": "",
     "source_page_url": "",
     "archive_url": "https://github.com/Shahbazi-Amir/vid_pipeline/releases/download/ketab-baz-s05e68-komeil-roudi/What_Financial_Literacy_Is_and_What_It_Isn_t___Komeil_Roodi_at_the_21st_Finup_Event.mp3"
-  }
+  },
+  "human_reviewer": "ChatGPT",
+  "human_verification_report": "outputs/finup/what_financial_literacy_is_and_what_it_isn_t___komeil_roodi_at_the_21st_finup_ev/human/verification.json",
+  "final_srt": "outputs/finup/what_financial_literacy_is_and_what_it_isn_t___komeil_roodi_at_the_21st_finup_ev/final/transcript.final.srt",
+  "final_vtt": "outputs/finup/what_financial_literacy_is_and_what_it_isn_t___komeil_roodi_at_the_21st_finup_ev/final/transcript.final.vtt"
 }

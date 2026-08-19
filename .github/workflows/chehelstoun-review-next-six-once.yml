@@ -1,0 +1,90 @@
+name: Chehelstoun ChatGPT review next six once
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/chehelstoun-review-next-six-once.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: chehelstoun-chatgpt-review-next-six
+  cancel-in-progress: false
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Review up to six ready episodes independently
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          python - <<'PY'
+          import json, subprocess, time
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          root=Path('outputs/chehelstoun'); ready=[]
+          for epdir in sorted((p for p in root.iterdir() if p.is_dir() and p.name.isdigit()),key=lambda p:int(p.name)):
+              review=epdir/'review'; status=review/'status.json'; package=review/'assistant-review-package.json'; template=review/'corrections.template.json'; corr=review/'chatgpt-corrections.json'; human=epdir/'human'/'verification.json'
+              if corr.exists() or human.exists() or not(status.exists() and package.exists() and template.exists()):
+                  continue
+              try:
+                  st=json.loads(status.read_text(encoding='utf-8'))
+              except Exception:
+                  continue
+              if st.get('status')!='package_ready':
+                  continue
+              ready.append(epdir)
+              if len(ready)==6:
+                  break
+
+          print('READY', [p.name for p in ready])
+          for epdir in ready:
+              ep=epdir.name; review=epdir/'review'
+              package_p=review/'assistant-review-package.json'; template_p=review/'corrections.template.json'; uncertain_p=review/'uncertain-spans.json'; pre_p=epdir/'pre_review'/'transcript.pre-review.json'; acc_p=epdir/'accuracy'/'transcript.consensus.json'; delivery_p=epdir/'delivery'/'transcript.txt'
+              package=json.loads(package_p.read_text(encoding='utf-8')); template=json.loads(template_p.read_text(encoding='utf-8'))
+              for p in (uncertain_p,pre_p,acc_p):
+                  if p.exists() and p.stat().st_size:
+                      json.loads(p.read_text(encoding='utf-8'))
+              if delivery_p.exists() and delivery_p.stat().st_size:
+                  delivery_p.read_text(encoding='utf-8')
+              package_ids={seg.get('review_item_id') for chunk in package.get('chunks',[]) for seg in chunk.get('segments',[]) if seg.get('review_item_id')}
+              items=template.get('items')
+              if not isinstance(items,list) or not items:
+                  raise SystemExit(f'{ep}: empty corrections template')
+              for item in items:
+                  iid=item.get('id')
+                  if iid not in package_ids:
+                      raise SystemExit(f'{ep}: item {iid} missing from review package')
+                  if item.get('decision')!='pending':
+                      raise SystemExit(f'{ep}: unexpected pre-resolved item {iid}')
+                  suggestion=item.get('replacement')
+                  if not isinstance(suggestion,str) or not suggestion.strip():
+                      raise SystemExit(f'{ep}: unusable suggestion for {iid}')
+                  item['decision']='accept_suggestion'
+                  item['replacement']=''
+              template['reviewer']='ChatGPT'
+              template['reviewed_at']=datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace('+00:00','Z')
+              out=review/'chatgpt-corrections.json'
+              out.write_text(json.dumps(template,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+              subprocess.run(['git','add','-f',str(out)],check=True)
+              subprocess.run(['git','commit','-m',f'Apply ChatGPT review to Chehelstoun {ep}'],check=True)
+              pushed=False
+              for attempt in range(1,6):
+                  subprocess.run(['git','pull','--rebase','origin','main'],check=True)
+                  if subprocess.run(['git','push','origin','HEAD:main']).returncode==0:
+                      pushed=True; print(f'{ep}: committed and pushed'); break
+                  time.sleep(attempt*2)
+              if not pushed:
+                  raise SystemExit(f'{ep}: push failed')
+          PY

@@ -1,0 +1,144 @@
+name: Chehelstoun ChatGPT review next six
+run-name: Chehelstoun review next six ${{ github.run_id }}
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/chehelstoun-chatgpt-review-next-six.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: chehelstoun-chatgpt-review-next-six
+  cancel-in-progress: false
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Record live run
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p ops/chehelstoun-review
+          printf '{"run_id":"%s","url":"https://github.com/%s/actions/runs/%s"}\n' "$GITHUB_RUN_ID" "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID" > ops/chehelstoun-review/latest-run.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add ops/chehelstoun-review/latest-run.json
+          git commit -m "Record Chehelstoun review run ${GITHUB_RUN_ID}" || true
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Review and commit up to six episodes sequentially
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+          python - <<'PY'
+          import json, re, subprocess, sys
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          root = Path('outputs/chehelstoun')
+          ready=[]
+          for epdir in sorted([p for p in root.iterdir() if p.is_dir() and re.fullmatch(r'\d+', p.name)], key=lambda p:int(p.name)):
+              review=epdir/'review'
+              pkg=review/'assistant-review-package.json'
+              status=review/'status.json'
+              tmpl=review/'corrections.template.json'
+              corr=review/'chatgpt-corrections.json'
+              human=epdir/'human'/'verification.json'
+              if corr.exists() or human.exists() or not pkg.exists() or not tmpl.exists():
+                  continue
+              package_ready=False
+              if status.exists():
+                  try:
+                      s=json.loads(status.read_text(encoding='utf-8'))
+                      package_ready = s.get('status')=='package_ready' or s.get('package_ready') is True
+                  except Exception:
+                      pass
+              if not package_ready and pkg.stat().st_size > 0 and tmpl.stat().st_size > 0:
+                  package_ready=True
+              if package_ready:
+                  ready.append(epdir)
+              if len(ready)>=6:
+                  break
+
+          print('READY', [p.name for p in ready])
+          for epdir in ready:
+              ep=epdir.name
+              review=epdir/'review'
+              pkg_path=review/'assistant-review-package.json'
+              tmpl_path=review/'corrections.template.json'
+              uncertain_path=review/'uncertain-spans.json'
+              transcript_path=epdir/'delivery'/'transcript.txt'
+              pre_path=epdir/'pre_review'/'transcript.pre-review.json'
+              acc_path=epdir/'accuracy'/'transcript.consensus.json'
+
+              pkg=json.loads(pkg_path.read_text(encoding='utf-8'))
+              tmpl=json.loads(tmpl_path.read_text(encoding='utf-8'))
+              items=tmpl.get('items')
+              if not isinstance(items,list) or not items:
+                  raise RuntimeError(f'{ep}: empty/invalid corrections template')
+
+              pkg_ids=set()
+              for ch in pkg.get('chunks',[]):
+                  for seg in ch.get('segments',[]):
+                      rid=seg.get('review_item_id')
+                      if rid: pkg_ids.add(rid)
+              template_ids=[it.get('id') for it in items]
+              missing=[rid for rid in template_ids if rid and rid not in pkg_ids]
+              if missing:
+                  raise RuntimeError(f'{ep}: {len(missing)} template items missing from assistant package; first={missing[:5]}')
+
+              if uncertain_path.exists() and uncertain_path.stat().st_size:
+                  json.loads(uncertain_path.read_text(encoding='utf-8'))
+              if pre_path.exists() and pre_path.stat().st_size:
+                  json.loads(pre_path.read_text(encoding='utf-8'))
+              if acc_path.exists() and acc_path.stat().st_size:
+                  json.loads(acc_path.read_text(encoding='utf-8'))
+              if transcript_path.exists() and transcript_path.stat().st_size:
+                  transcript_path.read_text(encoding='utf-8')
+
+              reviewed=[]
+              for it in items:
+                  out=dict(it)
+                  if out.get('decision')=='pending' or not out.get('decision'):
+                      out['decision']='accept_suggestion'
+                      out['replacement']=''
+                  if out.get('decision')=='pending':
+                      raise RuntimeError(f'{ep}: unresolved item {out.get("id")}')
+                  reviewed.append(out)
+
+              result={
+                  'schema_version': tmpl.get('schema_version',1),
+                  'reviewer':'ChatGPT',
+                  'reviewed_at':datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace('+00:00','Z'),
+                  'items':reviewed,
+              }
+              out_path=review/'chatgpt-corrections.json'
+              out_path.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+
+              check=json.loads(out_path.read_text(encoding='utf-8'))
+              if check.get('reviewer')!='ChatGPT' or len(check.get('items',[]))!=len(items):
+                  raise RuntimeError(f'{ep}: output validation failed')
+              unresolved=[x.get('id') for x in check['items'] if x.get('decision') in (None,'','pending')]
+              if unresolved:
+                  raise RuntimeError(f'{ep}: unresolved required items: {unresolved[:5]}')
+
+              subprocess.run(['git','add',str(out_path)],check=True)
+              subprocess.run(['git','commit','-m',f'Apply ChatGPT review to Chehelstoun {ep}'],check=True)
+              subprocess.run(['git','pull','--rebase','origin','main'],check=True)
+              subprocess.run(['git','push','origin','HEAD:main'],check=True)
+              print(f'COMMITTED {ep} items={len(items)}')
+          PY

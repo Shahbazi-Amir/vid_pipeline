@@ -1,0 +1,109 @@
+{
+  "schema_version": 2,
+  "updated_at": "2026-08-19T10:59:40.664273+00:00",
+  "stages": {
+    "source": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "download": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "audio": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "transcribe": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "accuracy": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "pre_review": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "clean": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "editorial": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "finalize_machine": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "review": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "export": {
+      "status": "completed",
+      "updated_at": "2026-08-19T10:59:40.664246+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/chehelstoun/26/delivery/transcript.md",
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/chehelstoun/26/delivery/transcript.txt",
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/chehelstoun/26/delivery/transcript.timestamped.md"
+      ],
+      "details": {
+        "status": "completed",
+        "timestamp_source": "/home/runner/work/vid_pipeline/vid_pipeline/outputs/chehelstoun/26/human/verification.json",
+        "final_outputs": {
+          "markdown": "/home/runner/work/vid_pipeline/vid_pipeline/outputs/chehelstoun/26/delivery/transcript.md",
+          "text": "/home/runner/work/vid_pipeline/vid_pipeline/outputs/chehelstoun/26/delivery/transcript.txt",
+          "timestamped_markdown": "/home/runner/work/vid_pipeline/vid_pipeline/outputs/chehelstoun/26/delivery/transcript.timestamped.md"
+        },
+        "exported_speakers": [],
+        "exported_effective_speakers": [],
+        "exported_effective_speaker_count": 0,
+        "source_provenance": {
+          "original_download_url": "",
+          "source_page_url": "",
+          "archive_url": "https://github.com/Shahbazi-Amir/vid_pipeline/releases/download/chehelstoun-archive-v1/26.-.mp3"
+        },
+        "export_seconds": 0.036772,
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/chehelstoun/26/delivery/transcript.md": "920ab01f97c5f81b01347d56c28c6947d53dcab07150f397c7490bb392f11ab5",
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/chehelstoun/26/delivery/transcript.txt": "9a40fa4c1e1af78a0b8ce0f68fb76e5cd7d656954fab2a75bf83e68946fa3f90",
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/chehelstoun/26/delivery/transcript.timestamped.md": "c523c80af7326966ef0e98f0d2bb0fc5ec933f94ce3a46b44dc6eec2204d3f17"
+        }
+      },
+      "error": ""
+    }
+  }
+}

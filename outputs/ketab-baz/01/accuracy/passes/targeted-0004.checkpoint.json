@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "06d12c4f718d7246399cdf8750aa9d12a41b9857f8ba6ee402359bcc01f4b099",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.08,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.88,
+        "text": "سواد مالی به کتاباز خیلی خوش اومدید، سلامت باشین، سالم خدمت شما و بینندگان حفیز، ارادتمنده، آقای رودی،",
+        "avg_logprob": -0.28037440820651893,
+        "compression_ratio": 1.4841269841269842,
+        "no_speech_prob": 6.554470299846571e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.46,
+            "word": " سواد",
+            "probability": 0.8735048373540243
+          },
+          {
+            "start": 0.46,
+            "end": 0.88,
+            "word": " مالی",
+            "probability": 0.9922730922698975
+          },
+          {
+            "start": 0.88,
+            "end": 0.98,
+            "word": " به",
+            "probability": 0.9724063277244568
+          },
+          {
+            "start": 0.98,
+            "end": 1.52,
+            "word": " کتاباز",
+            "probability": 0.8858347088098526
+          },
+          {
+            "start": 1.52,
+            "end": 1.82,
+            "word": " خیلی",
+            "probability": 0.9788930118083954
+          },
+          {
+            "start": 1.82,
+            "end": 2.02,
+            "word": " خوش",
+            "probability": 0.996316154797872
+          },
+          {
+            "start": 2.02,
+            "end": 2.52,
+            "word": " اومدید،",
+            "probability": 0.7562305949783573
+          },
+          {
+            "start": 2.52,
+            "end": 3.24,
+            "word": " سلامت",
+            "probability": 0.8848962386449178
+          },
+          {
+            "start": 3.24,
+            "end": 3.58,
+            "word": " باشین،",
+            "probability": 0.7019107714295387
+          },
+          {
+            "start": 3.58,
+            "end": 3.78,
+            "word": " سالم",
+            "probability": 0.3908567065373063
+          },
+          {
+            "start": 3.78,
+            "end": 4.14,
+            "word": " خدمت",
+            "probability": 0.9945552945137024
+          },
+          {
+            "start": 4.14,
+            "end": 4.46,
+            "word": " شما",
+            "probability": 0.9633485972881317
+          },
+          {
+            "start": 4.46,
+            "end": 4.62,
+            "word": " و",
+            "probability": 0.9780040979385376
+          },
+          {
+            "start": 4.62,
+            "end": 5.2,
+            "word": " بینندگان",
+            "probability": 0.939849853515625
+          },
+          {
+            "start": 5.2,
+            "end": 5.68,
+            "word": " حفیز،",
+            "probability": 0.7162743508815765
+          },
+          {
+            "start": 5.68,
+            "end": 6.8,
+            "word": " ارادتمنده،",
+            "probability": 0.8265020605176687
+          },
+          {
+            "start": 6.8,
+            "end": 7.52,
+            "word": " آقای",
+            "probability": 0.9665890336036682
+          },
+          {
+            "start": 7.52,
+            "end": 7.88,
+            "word": " رودی،",
+            "probability": 0.8048211336135864
+          }
+        ]
+      }
+    ]
+  }
+}

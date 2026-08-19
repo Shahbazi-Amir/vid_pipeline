@@ -1,0 +1,288 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "6895f20e575a2d0566c7521ee8fb74839abae1a794771e68848bc73ac0a717d5",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.56,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 2.4,
+        "text": "امروز رو بکنیم، باید می‌شه امرروز پولون رو خرج کنییم.",
+        "avg_logprob": -0.40503034609874694,
+        "compression_ratio": 1.7333333333333334,
+        "no_speech_prob": 3.050759089795463e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.38,
+            "word": " امروز",
+            "probability": 0.9565390944480896
+          },
+          {
+            "start": 0.38,
+            "end": 0.46,
+            "word": " رو",
+            "probability": 0.8726529479026794
+          },
+          {
+            "start": 0.46,
+            "end": 0.76,
+            "word": " بکنیم،",
+            "probability": 0.8250726237893105
+          },
+          {
+            "start": 0.76,
+            "end": 0.94,
+            "word": " باید",
+            "probability": 0.8744679093360901
+          },
+          {
+            "start": 0.94,
+            "end": 1.1,
+            "word": " می‌شه",
+            "probability": 0.6812410424463451
+          },
+          {
+            "start": 1.1,
+            "end": 1.44,
+            "word": " امرروز",
+            "probability": 0.7233759551691037
+          },
+          {
+            "start": 1.44,
+            "end": 1.66,
+            "word": " پولون",
+            "probability": 0.5993177021543185
+          },
+          {
+            "start": 1.66,
+            "end": 1.84,
+            "word": " رو",
+            "probability": 0.8690758347511292
+          },
+          {
+            "start": 1.84,
+            "end": 2.1,
+            "word": " خرج",
+            "probability": 0.725031778216362
+          },
+          {
+            "start": 2.1,
+            "end": 2.4,
+            "word": " کنییم.",
+            "probability": 0.7821868399856612
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 2.4,
+        "end": 8.42,
+        "text": "چند نفر از اینکه فکر میکنم پول چیز بدیاره به من هم نفتیم بدین که بشناس همان بیشتر نگرانه.",
+        "avg_logprob": -0.40503034609874694,
+        "compression_ratio": 1.7333333333333334,
+        "no_speech_prob": 3.050759089795463e-10,
+        "words": [
+          {
+            "start": 2.4,
+            "end": 2.4,
+            "word": " چند",
+            "probability": 0.5448440462350845
+          },
+          {
+            "start": 2.4,
+            "end": 2.4,
+            "word": " نفر",
+            "probability": 0.7805928786595663
+          },
+          {
+            "start": 2.4,
+            "end": 2.4,
+            "word": " از",
+            "probability": 0.8127545118331909
+          },
+          {
+            "start": 2.4,
+            "end": 2.58,
+            "word": " اینکه",
+            "probability": 0.7409779243171215
+          },
+          {
+            "start": 2.58,
+            "end": 2.88,
+            "word": " فکر",
+            "probability": 0.9474945664405823
+          },
+          {
+            "start": 2.88,
+            "end": 3.2,
+            "word": " میکنم",
+            "probability": 0.7958289310336113
+          },
+          {
+            "start": 3.2,
+            "end": 3.42,
+            "word": " پول",
+            "probability": 0.9864076375961304
+          },
+          {
+            "start": 3.42,
+            "end": 3.6,
+            "word": " چیز",
+            "probability": 0.9622188210487366
+          },
+          {
+            "start": 3.6,
+            "end": 4.16,
+            "word": " بدیاره",
+            "probability": 0.7352168336510658
+          },
+          {
+            "start": 4.16,
+            "end": 4.24,
+            "word": " به",
+            "probability": 0.8953061699867249
+          },
+          {
+            "start": 4.24,
+            "end": 4.46,
+            "word": " من",
+            "probability": 0.9951006770133972
+          },
+          {
+            "start": 4.46,
+            "end": 4.62,
+            "word": " هم",
+            "probability": 0.5797726511955261
+          },
+          {
+            "start": 4.62,
+            "end": 5.06,
+            "word": " نفتیم",
+            "probability": 0.6861869931221009
+          },
+          {
+            "start": 5.06,
+            "end": 5.28,
+            "word": " بدین",
+            "probability": 0.36779239773750305
+          },
+          {
+            "start": 5.28,
+            "end": 5.44,
+            "word": " که",
+            "probability": 0.8997344076633453
+          },
+          {
+            "start": 5.44,
+            "end": 5.92,
+            "word": " بشناس",
+            "probability": 0.7757240608334541
+          },
+          {
+            "start": 5.92,
+            "end": 6.14,
+            "word": " همان",
+            "probability": 0.7233380675315857
+          },
+          {
+            "start": 6.14,
+            "end": 7.6,
+            "word": " بیشتر",
+            "probability": 0.8006525278091431
+          },
+          {
+            "start": 7.6,
+            "end": 8.42,
+            "word": " نگرانه.",
+            "probability": 0.7448771297931671
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "start": 8.54,
+        "end": 10.42,
+        "text": "یعنی که همه فكر کنم، پول زیادی چیست خوبی است.",
+        "avg_logprob": -0.40503034609874694,
+        "compression_ratio": 1.7333333333333334,
+        "no_speech_prob": 3.050759089795463e-10,
+        "words": [
+          {
+            "start": 8.54,
+            "end": 8.64,
+            "word": " یعنی",
+            "probability": 0.7554078567773104
+          },
+          {
+            "start": 8.64,
+            "end": 8.7,
+            "word": " که",
+            "probability": 0.616019606590271
+          },
+          {
+            "start": 8.7,
+            "end": 8.92,
+            "word": " همه",
+            "probability": 0.9949862360954285
+          },
+          {
+            "start": 8.92,
+            "end": 9.06,
+            "word": " فكر",
+            "probability": 0.4943827776078251
+          },
+          {
+            "start": 9.06,
+            "end": 9.22,
+            "word": " کنم،",
+            "probability": 0.6616986689623445
+          },
+          {
+            "start": 9.22,
+            "end": 9.42,
+            "word": " پول",
+            "probability": 0.9920536577701569
+          },
+          {
+            "start": 9.42,
+            "end": 9.8,
+            "word": " زیادی",
+            "probability": 0.9949199110269547
+          },
+          {
+            "start": 9.8,
+            "end": 10.06,
+            "word": " چیست",
+            "probability": 0.6598350371762839
+          },
+          {
+            "start": 10.06,
+            "end": 10.42,
+            "word": " خوبی",
+            "probability": 0.9726267655690511
+          },
+          {
+            "start": 10.42,
+            "end": 10.42,
+            "word": " است.",
+            "probability": 0.19580794870853424
+          }
+        ]
+      }
+    ]
+  }
+}

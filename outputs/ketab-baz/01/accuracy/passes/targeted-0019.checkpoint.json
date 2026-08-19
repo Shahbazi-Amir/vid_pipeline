@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "50708d37cbe772bc2ae8a5f0736acdb641f5bddf2d09dcc30e1c4c6a0e6bf5f8",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.36,
+    "segments": [
+      {
+        "id": 1,
+        "start": 2.600000000000001,
+        "end": 7.34,
+        "text": "همه فکر کنم پول زیادی چیز خوبی هست. آره، آلا من یه مثال می‌زنم، مثلا توضع پسندات،",
+        "avg_logprob": -0.448011248200028,
+        "compression_ratio": 1.226890756302521,
+        "no_speech_prob": 3.01783570355596e-10,
+        "words": [
+          {
+            "start": 2.600000000000001,
+            "end": 3.0800000000000005,
+            "word": " همه",
+            "probability": 0.4273197688162327
+          },
+          {
+            "start": 3.0800000000000005,
+            "end": 3.56,
+            "word": " فکر",
+            "probability": 0.8857596516609192
+          },
+          {
+            "start": 3.56,
+            "end": 3.64,
+            "word": " کنم",
+            "probability": 0.8767168323198954
+          },
+          {
+            "start": 3.64,
+            "end": 3.86,
+            "word": " پول",
+            "probability": 0.8805022239685059
+          },
+          {
+            "start": 3.86,
+            "end": 4.24,
+            "word": " زیادی",
+            "probability": 0.988534688949585
+          },
+          {
+            "start": 4.24,
+            "end": 4.5,
+            "word": " چیز",
+            "probability": 0.9691527485847473
+          },
+          {
+            "start": 4.5,
+            "end": 4.82,
+            "word": " خوبی",
+            "probability": 0.9513140718142191
+          },
+          {
+            "start": 4.82,
+            "end": 4.88,
+            "word": " هست.",
+            "probability": 0.5928318351507187
+          },
+          {
+            "start": 4.96,
+            "end": 5.12,
+            "word": " آره،",
+            "probability": 0.6702647879719734
+          },
+          {
+            "start": 5.12,
+            "end": 5.18,
+            "word": " آلا",
+            "probability": 0.34497253596782684
+          },
+          {
+            "start": 5.18,
+            "end": 5.26,
+            "word": " من",
+            "probability": 0.8160827159881592
+          },
+          {
+            "start": 5.26,
+            "end": 5.44,
+            "word": " یه",
+            "probability": 0.6004292517900467
+          },
+          {
+            "start": 5.44,
+            "end": 5.82,
+            "word": " مثال",
+            "probability": 0.9968317747116089
+          },
+          {
+            "start": 5.82,
+            "end": 6.2,
+            "word": " می‌زنم،",
+            "probability": 0.6624807566404343
+          },
+          {
+            "start": 6.2,
+            "end": 6.28,
+            "word": " مثلا",
+            "probability": 0.8889530301094055
+          },
+          {
+            "start": 6.28,
+            "end": 6.6,
+            "word": " توضع",
+            "probability": 0.8245802919069926
+          },
+          {
+            "start": 6.6,
+            "end": 7.34,
+            "word": " پسندات،",
+            "probability": 0.5942044705152512
+          }
+        ]
+      }
+    ]
+  }
+}

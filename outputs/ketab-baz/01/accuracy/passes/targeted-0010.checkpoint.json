@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "1a62967d118444865f00d6a28eb7d264c9492fd420f462efaeaa3b88a0289ead",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.34,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.32,
+        "text": "در حوضه امور مالی می‌شه سواد مال. یک چیزی به تون بگم نمی‌دونم باور می‌کنید یا نه چون به هر کی می‌گم بابرش نمشه ولی من واقعا یک بی‌سواد کامل",
+        "avg_logprob": -0.2684944022086359,
+        "compression_ratio": 1.65359477124183,
+        "no_speech_prob": 3.424448224986776e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.12,
+            "word": " در",
+            "probability": 0.7076217532157898
+          },
+          {
+            "start": 0.12,
+            "end": 0.48,
+            "word": " حوضه",
+            "probability": 0.9737940579652786
+          },
+          {
+            "start": 0.48,
+            "end": 0.88,
+            "word": " امور",
+            "probability": 0.940159261226654
+          },
+          {
+            "start": 0.88,
+            "end": 1.34,
+            "word": " مالی",
+            "probability": 0.9901947577794393
+          },
+          {
+            "start": 1.34,
+            "end": 1.72,
+            "word": " می‌شه",
+            "probability": 0.6975847212597728
+          },
+          {
+            "start": 1.72,
+            "end": 2.18,
+            "word": " سواد",
+            "probability": 0.8623571594556173
+          },
+          {
+            "start": 2.18,
+            "end": 2.48,
+            "word": " مال.",
+            "probability": 0.985095202922821
+          },
+          {
+            "start": 2.54,
+            "end": 2.8,
+            "word": " یک",
+            "probability": 0.7192401885986328
+          },
+          {
+            "start": 2.8,
+            "end": 3.02,
+            "word": " چیزی",
+            "probability": 0.9426534324884415
+          },
+          {
+            "start": 3.02,
+            "end": 3.12,
+            "word": " به",
+            "probability": 0.3726438581943512
+          },
+          {
+            "start": 3.12,
+            "end": 3.3,
+            "word": " تون",
+            "probability": 0.6410918682813644
+          },
+          {
+            "start": 3.3,
+            "end": 3.6,
+            "word": " بگم",
+            "probability": 0.9390600124994913
+          },
+          {
+            "start": 3.6,
+            "end": 4.0,
+            "word": " نمی‌دونم",
+            "probability": 0.922913304397038
+          },
+          {
+            "start": 4.0,
+            "end": 4.46,
+            "word": " باور",
+            "probability": 0.843398908774058
+          },
+          {
+            "start": 4.46,
+            "end": 4.96,
+            "word": " می‌کنید",
+            "probability": 0.9500208298365275
+          },
+          {
+            "start": 4.96,
+            "end": 5.1,
+            "word": " یا",
+            "probability": 0.9170264303684235
+          },
+          {
+            "start": 5.1,
+            "end": 5.2,
+            "word": " نه",
+            "probability": 0.8655607998371124
+          },
+          {
+            "start": 5.2,
+            "end": 5.42,
+            "word": " چون",
+            "probability": 0.825680673122406
+          },
+          {
+            "start": 5.42,
+            "end": 5.56,
+            "word": " به",
+            "probability": 0.9474983811378479
+          },
+          {
+            "start": 5.56,
+            "end": 5.8,
+            "word": " هر",
+            "probability": 0.9824135899543762
+          },
+          {
+            "start": 5.8,
+            "end": 5.88,
+            "word": " کی",
+            "probability": 0.1823318749666214
+          },
+          {
+            "start": 5.88,
+            "end": 6.18,
+            "word": " می‌گم",
+            "probability": 0.9668179601430893
+          },
+          {
+            "start": 6.18,
+            "end": 6.56,
+            "word": " بابرش",
+            "probability": 0.6507044348400086
+          },
+          {
+            "start": 6.56,
+            "end": 6.84,
+            "word": " نمشه",
+            "probability": 0.72369071142748
+          },
+          {
+            "start": 6.84,
+            "end": 7.06,
+            "word": " ولی",
+            "probability": 0.8961005210876465
+          },
+          {
+            "start": 7.06,
+            "end": 7.18,
+            "word": " من",
+            "probability": 0.9543142318725586
+          },
+          {
+            "start": 7.18,
+            "end": 7.96,
+            "word": " واقعا",
+            "probability": 0.9863108843564987
+          },
+          {
+            "start": 7.96,
+            "end": 8.18,
+            "word": " یک",
+            "probability": 0.9239622056484222
+          },
+          {
+            "start": 8.18,
+            "end": 9.0,
+            "word": " بی‌سواد",
+            "probability": 0.8883046209812164
+          },
+          {
+            "start": 9.0,
+            "end": 9.32,
+            "word": " کامل",
+            "probability": 0.8769157528877258
+          }
+        ]
+      }
+    ]
+  }
+}

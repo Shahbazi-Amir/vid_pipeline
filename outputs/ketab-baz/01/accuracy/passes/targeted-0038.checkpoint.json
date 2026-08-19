@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "b944bd2bd662ff7cd042a312d7854bc335a2a18c183adfb60634db25eb19b2d9",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.04,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.96,
+        "text": "کسی، حالا چجوری می‌خواد پسانداز کنه؟ و، حلا کسیکه می‌تونه چقدر باید پستاندز کن؟ آفری. تو حوضه‌ی اول",
+        "avg_logprob": -0.3703875299813091,
+        "compression_ratio": 1.3969465648854962,
+        "no_speech_prob": 6.407801511620903e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.24,
+            "word": " کسی،",
+            "probability": 0.5288046506466344
+          },
+          {
+            "start": 0.24,
+            "end": 0.4,
+            "word": " حالا",
+            "probability": 0.7492928604284922
+          },
+          {
+            "start": 0.4,
+            "end": 0.86,
+            "word": " چجوری",
+            "probability": 0.9628874659538269
+          },
+          {
+            "start": 0.86,
+            "end": 1.06,
+            "word": " می‌خواد",
+            "probability": 0.7248683482408523
+          },
+          {
+            "start": 1.06,
+            "end": 1.72,
+            "word": " پسانداز",
+            "probability": 0.8553735256195069
+          },
+          {
+            "start": 1.72,
+            "end": 2.2,
+            "word": " کنه؟",
+            "probability": 0.8665851950645447
+          },
+          {
+            "start": 2.2,
+            "end": 2.8,
+            "word": " و،",
+            "probability": 0.5664290264248848
+          },
+          {
+            "start": 2.8,
+            "end": 3.3,
+            "word": " حلا",
+            "probability": 0.2946426298003644
+          },
+          {
+            "start": 3.3,
+            "end": 3.84,
+            "word": " کسیکه",
+            "probability": 0.7089310253359145
+          },
+          {
+            "start": 3.84,
+            "end": 4.48,
+            "word": " می‌تونه",
+            "probability": 0.9508278012275696
+          },
+          {
+            "start": 4.48,
+            "end": 5.12,
+            "word": " چقدر",
+            "probability": 0.9009108543395996
+          },
+          {
+            "start": 5.12,
+            "end": 5.38,
+            "word": " باید",
+            "probability": 0.9788243174552917
+          },
+          {
+            "start": 5.38,
+            "end": 6.1,
+            "word": " پستاندز",
+            "probability": 0.5864385874418077
+          },
+          {
+            "start": 6.1,
+            "end": 6.54,
+            "word": " کن؟",
+            "probability": 0.6583220798056573
+          },
+          {
+            "start": 6.54,
+            "end": 7.22,
+            "word": " آفری.",
+            "probability": 0.6463393966356913
+          },
+          {
+            "start": 7.82,
+            "end": 8.06,
+            "word": " تو",
+            "probability": 0.84824538230896
+          },
+          {
+            "start": 8.06,
+            "end": 8.58,
+            "word": " حوضه‌ی",
+            "probability": 0.6886895447969437
+          },
+          {
+            "start": 8.58,
+            "end": 8.96,
+            "word": " اول",
+            "probability": 0.9401057362556458
+          }
+        ]
+      }
+    ]
+  }
+}

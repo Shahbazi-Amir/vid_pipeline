@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "3a132b5fd352e8053de798cd52e51e4863e681640300223feeabd7a659790f1d",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.32,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 2.5,
+        "text": "در پادکست برنامه کتاب باز هستید.",
+        "avg_logprob": -0.252853551000919,
+        "compression_ratio": 1.3958333333333333,
+        "no_speech_prob": 2.616942773592257e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.06,
+            "word": " در",
+            "probability": 0.5015945523045957
+          },
+          {
+            "start": 0.06,
+            "end": 0.62,
+            "word": " پادکست",
+            "probability": 0.935714989900589
+          },
+          {
+            "start": 0.62,
+            "end": 1.22,
+            "word": " برنامه",
+            "probability": 0.9972446203231812
+          },
+          {
+            "start": 1.22,
+            "end": 1.7,
+            "word": " کتاب",
+            "probability": 0.9882539312044779
+          },
+          {
+            "start": 1.7,
+            "end": 2.0,
+            "word": " باز",
+            "probability": 0.9049404263496399
+          },
+          {
+            "start": 2.0,
+            "end": 2.5,
+            "word": " هستید.",
+            "probability": 0.9945569038391113
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 2.6,
+        "end": 7.84,
+        "text": "سلام، سلام, سلام. برنمه‌ی کتب باز شروع شد.",
+        "avg_logprob": -0.252853551000919,
+        "compression_ratio": 1.3958333333333333,
+        "no_speech_prob": 2.616942773592257e-10,
+        "words": [
+          {
+            "start": 2.6,
+            "end": 3.42,
+            "word": " سلام،",
+            "probability": 0.7119449625412623
+          },
+          {
+            "start": 3.42,
+            "end": 3.8,
+            "word": " سلام,",
+            "probability": 0.9992260038852692
+          },
+          {
+            "start": 3.92,
+            "end": 4.4,
+            "word": " سلام.",
+            "probability": 0.9983006119728088
+          },
+          {
+            "start": 4.74,
+            "end": 5.56,
+            "word": " برنمه‌ی",
+            "probability": 0.6938854906607698
+          },
+          {
+            "start": 5.56,
+            "end": 5.94,
+            "word": " کتب",
+            "probability": 0.6651832344675009
+          },
+          {
+            "start": 5.94,
+            "end": 6.38,
+            "word": " باز",
+            "probability": 0.9911568760871887
+          },
+          {
+            "start": 6.38,
+            "end": 7.62,
+            "word": " شروع",
+            "probability": 0.9799411296844482
+          },
+          {
+            "start": 7.62,
+            "end": 7.84,
+            "word": " شد.",
+            "probability": 0.9353631138801575
+          }
+        ]
+      }
+    ]
+  }
+}

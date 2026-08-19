@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "9e623e8b1b8473a49951f08914fa59d44316a4bb74df393e023179dd5d8ebfa8",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 5.84,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 5.82,
+        "text": "تنان خدمت شما و بینندگان عزیز، ارادتمنده، آقای رودیس، سواد مالیه،",
+        "avg_logprob": -0.403249443845546,
+        "compression_ratio": 1.263157894736842,
+        "no_speech_prob": 1.1033958191575266e-09,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.72,
+            "word": " تنان",
+            "probability": 0.3366791953643163
+          },
+          {
+            "start": 0.72,
+            "end": 1.06,
+            "word": " خدمت",
+            "probability": 0.9779035250345866
+          },
+          {
+            "start": 1.06,
+            "end": 1.38,
+            "word": " شما",
+            "probability": 0.8811307549476624
+          },
+          {
+            "start": 1.38,
+            "end": 1.54,
+            "word": " و",
+            "probability": 0.9385008811950684
+          },
+          {
+            "start": 1.54,
+            "end": 2.1,
+            "word": " بینندگان",
+            "probability": 0.9618196606636047
+          },
+          {
+            "start": 2.1,
+            "end": 2.54,
+            "word": " عزیز،",
+            "probability": 0.7118812769651413
+          },
+          {
+            "start": 2.54,
+            "end": 3.48,
+            "word": " ارادتمنده،",
+            "probability": 0.7467023860663176
+          },
+          {
+            "start": 3.48,
+            "end": 4.44,
+            "word": " آقای",
+            "probability": 0.9115816056728363
+          },
+          {
+            "start": 4.44,
+            "end": 4.82,
+            "word": " رودیس،",
+            "probability": 0.6692703783512115
+          },
+          {
+            "start": 4.82,
+            "end": 5.28,
+            "word": " سواد",
+            "probability": 0.8875868121782938
+          },
+          {
+            "start": 5.28,
+            "end": 5.82,
+            "word": " مالیه،",
+            "probability": 0.7930975556373596
+          }
+        ]
+      }
+    ]
+  }
+}

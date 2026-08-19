@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "5799d338dff0ed78745b0468f76d553677ad855a005898781cfd97934f37cfd3",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.96,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.94,
+        "text": "پسنداز کردن؟ بله، یه ضرورت زندگیه. و بعد تو حوضه‌ی توانایی، می‌گم که مثلا از شما سؤال می‌کنم، اصلا شما پسانداز داری؟ اگر بگینم، میگم پس توانائی پس انداز کردم؟",
+        "avg_logprob": -0.2521773376087151,
+        "compression_ratio": 1.660919540229885,
+        "no_speech_prob": 2.459452086434055e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.16,
+            "word": " پسنداز",
+            "probability": 0.7250998932868242
+          },
+          {
+            "start": 0.16,
+            "end": 0.74,
+            "word": " کردن؟",
+            "probability": 0.8069261610507965
+          },
+          {
+            "start": 0.74,
+            "end": 1.04,
+            "word": " بله،",
+            "probability": 0.7412106196085612
+          },
+          {
+            "start": 1.04,
+            "end": 1.14,
+            "word": " یه",
+            "probability": 0.9878985285758972
+          },
+          {
+            "start": 1.14,
+            "end": 1.74,
+            "word": " ضرورت",
+            "probability": 0.9980758726596832
+          },
+          {
+            "start": 1.74,
+            "end": 2.5,
+            "word": " زندگیه.",
+            "probability": 0.9971352338790893
+          },
+          {
+            "start": 2.68,
+            "end": 3.1,
+            "word": " و",
+            "probability": 0.9709128141403198
+          },
+          {
+            "start": 3.1,
+            "end": 3.44,
+            "word": " بعد",
+            "probability": 0.9882586002349854
+          },
+          {
+            "start": 3.44,
+            "end": 3.66,
+            "word": " تو",
+            "probability": 0.9612210988998413
+          },
+          {
+            "start": 3.66,
+            "end": 3.98,
+            "word": " حوضه‌ی",
+            "probability": 0.6743703447282314
+          },
+          {
+            "start": 3.98,
+            "end": 4.68,
+            "word": " توانایی،",
+            "probability": 0.8375190943479538
+          },
+          {
+            "start": 4.68,
+            "end": 4.92,
+            "word": " می‌گم",
+            "probability": 0.8968824297189713
+          },
+          {
+            "start": 4.92,
+            "end": 5.1,
+            "word": " که",
+            "probability": 0.9204164147377014
+          },
+          {
+            "start": 5.1,
+            "end": 5.32,
+            "word": " مثلا",
+            "probability": 0.7605547606945038
+          },
+          {
+            "start": 5.32,
+            "end": 5.44,
+            "word": " از",
+            "probability": 0.8855395019054413
+          },
+          {
+            "start": 5.44,
+            "end": 5.6,
+            "word": " شما",
+            "probability": 0.8883351981639862
+          },
+          {
+            "start": 5.6,
+            "end": 5.9,
+            "word": " سؤال",
+            "probability": 0.7578494846820831
+          },
+          {
+            "start": 5.9,
+            "end": 6.26,
+            "word": " می‌کنم،",
+            "probability": 0.8300201197465261
+          },
+          {
+            "start": 6.26,
+            "end": 6.34,
+            "word": " اصلا",
+            "probability": 0.8529298702875773
+          },
+          {
+            "start": 6.34,
+            "end": 6.52,
+            "word": " شما",
+            "probability": 0.9376614391803741
+          },
+          {
+            "start": 6.52,
+            "end": 7.06,
+            "word": " پسانداز",
+            "probability": 0.7714715115725994
+          },
+          {
+            "start": 7.06,
+            "end": 7.48,
+            "word": " داری؟",
+            "probability": 0.9409631490707397
+          },
+          {
+            "start": 7.48,
+            "end": 7.74,
+            "word": " اگر",
+            "probability": 0.9814704259236654
+          },
+          {
+            "start": 7.74,
+            "end": 8.1,
+            "word": " بگینم،",
+            "probability": 0.6968909740447998
+          },
+          {
+            "start": 8.1,
+            "end": 8.26,
+            "word": " میگم",
+            "probability": 0.6645261521140734
+          },
+          {
+            "start": 8.26,
+            "end": 8.46,
+            "word": " پس",
+            "probability": 0.720608115196228
+          },
+          {
+            "start": 8.46,
+            "end": 9.1,
+            "word": " توانائی",
+            "probability": 0.7164495548058767
+          },
+          {
+            "start": 9.1,
+            "end": 9.44,
+            "word": " پس",
+            "probability": 0.8979761600494385
+          },
+          {
+            "start": 9.44,
+            "end": 9.72,
+            "word": " انداز",
+            "probability": 0.5926689667006334
+          },
+          {
+            "start": 9.72,
+            "end": 9.94,
+            "word": " کردم؟",
+            "probability": 0.4182223230600357
+          }
+        ]
+      }
+    ]
+  }
+}

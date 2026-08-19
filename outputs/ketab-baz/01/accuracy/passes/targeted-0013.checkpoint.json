@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "7d141e115323291063e78ae0e58145f12bc06e78bfe5b6f4185424c716b5a586",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.22,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.2,
+        "text": "سواد کامل مالیه. چرا؟ چون اصلا، مثلا، اولا که یه دست چک دارم که مال مثلا فکر کنم 17-18 است،",
+        "avg_logprob": -0.32911233316388044,
+        "compression_ratio": 1.3771929824561404,
+        "no_speech_prob": 4.0030997960904813e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.34,
+            "word": " سواد",
+            "probability": 0.6747134166459242
+          },
+          {
+            "start": 0.34,
+            "end": 0.8,
+            "word": " کامل",
+            "probability": 0.9418179392814636
+          },
+          {
+            "start": 0.8,
+            "end": 1.24,
+            "word": " مالیه.",
+            "probability": 0.8420894220471382
+          },
+          {
+            "start": 1.68,
+            "end": 2.42,
+            "word": " چرا؟",
+            "probability": 0.9589515527089437
+          },
+          {
+            "start": 2.42,
+            "end": 2.72,
+            "word": " چون",
+            "probability": 0.9463118016719818
+          },
+          {
+            "start": 2.72,
+            "end": 3.2,
+            "word": " اصلا،",
+            "probability": 0.7273572310805321
+          },
+          {
+            "start": 3.2,
+            "end": 4.06,
+            "word": " مثلا،",
+            "probability": 0.7374946077664694
+          },
+          {
+            "start": 4.06,
+            "end": 4.9,
+            "word": " اولا",
+            "probability": 0.9604211648305258
+          },
+          {
+            "start": 4.9,
+            "end": 5.06,
+            "word": " که",
+            "probability": 0.9085332751274109
+          },
+          {
+            "start": 5.06,
+            "end": 5.38,
+            "word": " یه",
+            "probability": 0.943431556224823
+          },
+          {
+            "start": 5.38,
+            "end": 5.84,
+            "word": " دست",
+            "probability": 0.9929832816123962
+          },
+          {
+            "start": 5.84,
+            "end": 6.22,
+            "word": " چک",
+            "probability": 0.9126526415348053
+          },
+          {
+            "start": 6.22,
+            "end": 6.74,
+            "word": " دارم",
+            "probability": 0.9846843282381693
+          },
+          {
+            "start": 6.74,
+            "end": 7.3,
+            "word": " که",
+            "probability": 0.8885496556758881
+          },
+          {
+            "start": 7.3,
+            "end": 7.56,
+            "word": " مال",
+            "probability": 0.9892549812793732
+          },
+          {
+            "start": 7.56,
+            "end": 8.0,
+            "word": " مثلا",
+            "probability": 0.8881816565990448
+          },
+          {
+            "start": 8.0,
+            "end": 8.28,
+            "word": " فکر",
+            "probability": 0.8260075350602468
+          },
+          {
+            "start": 8.28,
+            "end": 8.44,
+            "word": " کنم",
+            "probability": 0.8463723063468933
+          },
+          {
+            "start": 8.44,
+            "end": 8.68,
+            "word": " 17",
+            "probability": 0.778430163860321
+          },
+          {
+            "start": 8.68,
+            "end": 9.04,
+            "word": "-18",
+            "probability": 0.5167434886097908
+          },
+          {
+            "start": 9.04,
+            "end": 9.2,
+            "word": " است،",
+            "probability": 0.4379437118768692
+          }
+        ]
+      }
+    ]
+  }
+}

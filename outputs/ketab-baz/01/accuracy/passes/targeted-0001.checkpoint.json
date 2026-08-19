@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "5ee730b95a02e86a220ffe56ae48412a54d50a3927890b2501c287edce88bb94",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.5,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.02,
+        "text": "سلام، شما شنوانده ی گفتگو با دکتر کومیل رودی در پادکست برنامه کتاب باز هستید.",
+        "avg_logprob": -0.15828221387440158,
+        "compression_ratio": 1.435897435897436,
+        "no_speech_prob": 2.927067199731681e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 1.0,
+            "word": " سلام،",
+            "probability": 0.857260545094808
+          },
+          {
+            "start": 1.0,
+            "end": 1.34,
+            "word": " شما",
+            "probability": 0.9993231296539307
+          },
+          {
+            "start": 1.34,
+            "end": 1.86,
+            "word": " شنوانده",
+            "probability": 0.8546455875039101
+          },
+          {
+            "start": 1.86,
+            "end": 1.94,
+            "word": " ی",
+            "probability": 0.8143931031227112
+          },
+          {
+            "start": 1.94,
+            "end": 2.52,
+            "word": " گفتگو",
+            "probability": 0.8989814758300781
+          },
+          {
+            "start": 2.52,
+            "end": 2.68,
+            "word": " با",
+            "probability": 0.9990083277225494
+          },
+          {
+            "start": 2.68,
+            "end": 3.04,
+            "word": " دکتر",
+            "probability": 0.9889541417360306
+          },
+          {
+            "start": 3.04,
+            "end": 3.48,
+            "word": " کومیل",
+            "probability": 0.9604190289974213
+          },
+          {
+            "start": 3.48,
+            "end": 3.86,
+            "word": " رودی",
+            "probability": 0.9931506514549255
+          },
+          {
+            "start": 3.86,
+            "end": 4.52,
+            "word": " در",
+            "probability": 0.9989659488201141
+          },
+          {
+            "start": 4.52,
+            "end": 5.1,
+            "word": " پادکست",
+            "probability": 0.9547597318887711
+          },
+          {
+            "start": 5.1,
+            "end": 5.72,
+            "word": " برنامه",
+            "probability": 0.9984827399253845
+          },
+          {
+            "start": 5.72,
+            "end": 6.2,
+            "word": " کتاب",
+            "probability": 0.9337683121363322
+          },
+          {
+            "start": 6.2,
+            "end": 6.5,
+            "word": " باز",
+            "probability": 0.9220143556594849
+          },
+          {
+            "start": 6.5,
+            "end": 7.02,
+            "word": " هستید.",
+            "probability": 0.998347818851471
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 7.12,
+        "end": 8.78,
+        "text": "سلام سلام اسلام",
+        "avg_logprob": -0.15828221387440158,
+        "compression_ratio": 1.435897435897436,
+        "no_speech_prob": 2.927067199731681e-10,
+        "words": [
+          {
+            "start": 7.12,
+            "end": 7.8,
+            "word": " سلام",
+            "probability": 0.9993654787540436
+          },
+          {
+            "start": 7.8,
+            "end": 8.34,
+            "word": " سلام",
+            "probability": 0.5515449866652489
+          },
+          {
+            "start": 8.34,
+            "end": 8.78,
+            "word": " اسلام",
+            "probability": 0.499850267675356
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "9d20e40bd7ae2f7f5a20b84e370da23d21bc742887f3862939797f44a4ee7361",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.9,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.88,
+        "text": "آنچه که می‌خواهیم، آن چه کم می‌توانیم. مجموعین سه‌تا می‌شه در حوضه‌ی امور مالی، می‌ شه سواد مال. یک چیزی رو به‌تون بگم نمی‌دونم، باعور می‌کنید؟",
+        "avg_logprob": -0.3392394804260106,
+        "compression_ratio": 1.6645962732919255,
+        "no_speech_prob": 3.525920666547222e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.16,
+            "word": " آنچه",
+            "probability": 0.7102649603039026
+          },
+          {
+            "start": 0.16,
+            "end": 0.34,
+            "word": " که",
+            "probability": 0.9892778694629669
+          },
+          {
+            "start": 0.34,
+            "end": 1.16,
+            "word": " می‌خواهیم،",
+            "probability": 0.7604602426290512
+          },
+          {
+            "start": 1.16,
+            "end": 1.24,
+            "word": " آن",
+            "probability": 0.9959998428821564
+          },
+          {
+            "start": 1.24,
+            "end": 1.36,
+            "word": " چه",
+            "probability": 0.4953383106039837
+          },
+          {
+            "start": 1.36,
+            "end": 1.56,
+            "word": " کم",
+            "probability": 0.4914401099085808
+          },
+          {
+            "start": 1.56,
+            "end": 2.52,
+            "word": " می‌توانیم.",
+            "probability": 0.9589548451559884
+          },
+          {
+            "start": 2.6,
+            "end": 3.04,
+            "word": " مجموعین",
+            "probability": 0.8237930059432983
+          },
+          {
+            "start": 3.04,
+            "end": 3.54,
+            "word": " سه‌تا",
+            "probability": 0.7566222786903382
+          },
+          {
+            "start": 3.54,
+            "end": 4.06,
+            "word": " می‌شه",
+            "probability": 0.8536116480827332
+          },
+          {
+            "start": 4.06,
+            "end": 5.0,
+            "word": " در",
+            "probability": 0.8408459722995758
+          },
+          {
+            "start": 5.0,
+            "end": 5.42,
+            "word": " حوضه‌ی",
+            "probability": 0.8825538953145345
+          },
+          {
+            "start": 5.42,
+            "end": 5.78,
+            "word": " امور",
+            "probability": 0.9332587122917175
+          },
+          {
+            "start": 5.78,
+            "end": 6.42,
+            "word": " مالی،",
+            "probability": 0.8149486780166626
+          },
+          {
+            "start": 6.42,
+            "end": 6.5,
+            "word": " می‌",
+            "probability": 0.805953860282898
+          },
+          {
+            "start": 6.5,
+            "end": 6.62,
+            "word": " شه",
+            "probability": 0.4801213322789408
+          },
+          {
+            "start": 6.62,
+            "end": 7.08,
+            "word": " سواد",
+            "probability": 0.8767663836479187
+          },
+          {
+            "start": 7.08,
+            "end": 7.38,
+            "word": " مال.",
+            "probability": 0.9709151387214661
+          },
+          {
+            "start": 7.44,
+            "end": 7.7,
+            "word": " یک",
+            "probability": 0.6802094131708145
+          },
+          {
+            "start": 7.7,
+            "end": 7.92,
+            "word": " چیزی",
+            "probability": 0.8484477251768112
+          },
+          {
+            "start": 7.92,
+            "end": 8.04,
+            "word": " رو",
+            "probability": 0.49286945164203644
+          },
+          {
+            "start": 8.04,
+            "end": 8.18,
+            "word": " به‌تون",
+            "probability": 0.8430808931589127
+          },
+          {
+            "start": 8.18,
+            "end": 8.5,
+            "word": " بگم",
+            "probability": 0.9024424354235331
+          },
+          {
+            "start": 8.5,
+            "end": 8.94,
+            "word": " نمی‌دونم،",
+            "probability": 0.8254053704440594
+          },
+          {
+            "start": 8.94,
+            "end": 9.38,
+            "word": " باعور",
+            "probability": 0.6484072109063467
+          },
+          {
+            "start": 9.38,
+            "end": 9.88,
+            "word": " می‌کنید؟",
+            "probability": 0.7983387793813433
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "0bd29b816beb48b0be52db532e1303cc483621b7035a76f4379ead9a455e38ce",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.56,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.54,
+        "text": "مالیمون رو انجام بدهیم. مجموعه این ستا یعنی دانایی نگیرم. آنچه که می‌دانیم، آن چه ک می‌خواهییم آن‌چه‌که می توانیی. موجموع این ۳ تا می‌شه در واقع در...",
+        "avg_logprob": -0.4154028406120696,
+        "compression_ratio": 1.7215189873417722,
+        "no_speech_prob": 4.01145533457381e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.44,
+            "word": " مالیمون",
+            "probability": 0.8857671022415161
+          },
+          {
+            "start": 0.44,
+            "end": 0.5,
+            "word": " رو",
+            "probability": 0.47283821552991867
+          },
+          {
+            "start": 0.5,
+            "end": 0.8,
+            "word": " انجام",
+            "probability": 0.9939855138460795
+          },
+          {
+            "start": 0.8,
+            "end": 1.08,
+            "word": " بدهیم.",
+            "probability": 0.7419990678317845
+          },
+          {
+            "start": 1.12,
+            "end": 1.72,
+            "word": " مجموعه",
+            "probability": 0.8795401513576507
+          },
+          {
+            "start": 1.72,
+            "end": 1.8,
+            "word": " این",
+            "probability": 0.9549227654933929
+          },
+          {
+            "start": 1.8,
+            "end": 2.18,
+            "word": " ستا",
+            "probability": 0.8137307167053223
+          },
+          {
+            "start": 2.18,
+            "end": 2.5,
+            "word": " یعنی",
+            "probability": 0.9837113916873932
+          },
+          {
+            "start": 2.5,
+            "end": 2.86,
+            "word": " دانایی",
+            "probability": 0.9280923247337342
+          },
+          {
+            "start": 2.86,
+            "end": 2.86,
+            "word": " نگیرم.",
+            "probability": 0.4846778973937035
+          },
+          {
+            "start": 2.86,
+            "end": 3.28,
+            "word": " آنچه",
+            "probability": 0.9583131819963455
+          },
+          {
+            "start": 3.28,
+            "end": 3.92,
+            "word": " که",
+            "probability": 0.9986360967159271
+          },
+          {
+            "start": 3.92,
+            "end": 5.38,
+            "word": " می‌دانیم،",
+            "probability": 0.7312625619649354
+          },
+          {
+            "start": 5.38,
+            "end": 5.5,
+            "word": " آن",
+            "probability": 0.9988300800323486
+          },
+          {
+            "start": 5.5,
+            "end": 5.74,
+            "word": " چه",
+            "probability": 0.4963687090057647
+          },
+          {
+            "start": 5.74,
+            "end": 5.8,
+            "word": " ک",
+            "probability": 0.8962533473968506
+          },
+          {
+            "start": 5.8,
+            "end": 6.66,
+            "word": " می‌خواهییم",
+            "probability": 0.7200405924104416
+          },
+          {
+            "start": 6.66,
+            "end": 7.08,
+            "word": " آن‌چه‌که",
+            "probability": 0.6176889435810153
+          },
+          {
+            "start": 7.08,
+            "end": 7.26,
+            "word": " می",
+            "probability": 0.9829561710357666
+          },
+          {
+            "start": 7.26,
+            "end": 8.06,
+            "word": " توانیی.",
+            "probability": 0.5002966872416437
+          },
+          {
+            "start": 8.08,
+            "end": 8.52,
+            "word": " موجموع",
+            "probability": 0.6569791580404853
+          },
+          {
+            "start": 8.52,
+            "end": 8.62,
+            "word": " این",
+            "probability": 0.5085855796933174
+          },
+          {
+            "start": 8.62,
+            "end": 8.92,
+            "word": " ۳",
+            "probability": 0.5004224809041867
+          },
+          {
+            "start": 8.92,
+            "end": 9.1,
+            "word": " تا",
+            "probability": 0.7040171027183533
+          },
+          {
+            "start": 9.1,
+            "end": 9.6,
+            "word": " می‌شه",
+            "probability": 0.9267990440130234
+          },
+          {
+            "start": 9.6,
+            "end": 10.18,
+            "word": " در",
+            "probability": 0.8729610741138458
+          },
+          {
+            "start": 10.18,
+            "end": 10.36,
+            "word": " واقع",
+            "probability": 0.9350129763285319
+          },
+          {
+            "start": 10.36,
+            "end": 10.54,
+            "word": " در...",
+            "probability": 0.588038998345534
+          }
+        ]
+      }
+    ]
+  }
+}

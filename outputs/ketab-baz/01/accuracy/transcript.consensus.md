@@ -1,0 +1,1005 @@
+# متن اجماعی چندمرحله‌ای
+
+> فقط از کاندیدهای ASR انتخاب شده است.
+
+[00:00:00.000 → 00:00:07.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سلام، شما شنونده ی گفتگو با دکتر کمیل رودی در پادکست برنامه کتاب باز هستید
+
+[00:00:07.000 → 00:00:12.320] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سلام، سلام، سلام، برنامه کتاب باز شروع شد
+
+[00:00:26.620 → 00:00:33.740] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+آقای دکتر کمیل رودی، استاد دانشگاه و مدرس سواد مالی به کتاب باز خیلی خوش اومدید
+
+[00:00:33.740 → 00:00:36.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سلامت باشین، تنم خدمت شما و بینندگان عزیز
+
+[00:00:36.820 → 00:00:37.660] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ارادتمند
+
+[00:00:37.660 → 00:00:40.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+آقای رودی، سواد مالی این چی؟
+
+[00:00:40.820 → 00:00:59.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سواد مالی مجموعه از داناییه یعنی آنچه که می‌دانیم در باره امور مالی، مجموعه از احساسات و نگرشهای ماست، آنچه میخواهیم در باره امور مالی و مجموعه از رفتارها و محارتهای ماست، آنچه که می توانیم در باره امور مالیمون انجام بدیم.
+
+[00:01:00.980 → 00:01:06.540] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+آنچه که می‌دانیم، آنچه که می‌خواهیم، آنچه که می‌توانیم
+
+[00:01:06.540 → 00:01:11.440] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مجموع این ستا می‌شه در حوضه‌ی امور مالی، می‌شه سواد مالی
+
+[00:01:11.440 → 00:01:15.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه چیزی به‌تون بگم نمی‌دونم باور می‌کنید یا نه، چون به هرکی می‌گم باورش نمی‌شه
+
+[00:01:15.780 → 00:01:18.860] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی من واقعا یک بی‌سواد کامل مالی هم
+
+[00:01:18.860 → 00:01:19.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چرا؟
+
+[00:01:20.100 → 00:01:24.320] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چون اصلا، مثلا، اولا که یه دست چک دارم
+
+[00:01:24.320 → 00:01:48.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که مال مثلاً فکر کنم 17-18 سال پیشه، یعنی اینقدر ازش استفاده نکردم، دو سه برگش رفته، بعد دکی دوباری که امادم استفاده کنم به محض این که از مثلاً رقم میشه مثلاً 15 میلیون و 743 هزار تو من اینه اصلاً نمیتونم بنویسم، یعنی باید دو ساعته ای عددها رو چیک میکنم، جوری از این ممیز میزنم، آخرش هم اشتباه بنویسم
+
+[00:01:48.380 → 00:02:01.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی اینقدر با عدد و رقم و پول، اینکه چقدر پسنداز کنم، چجوری خرج و دخل ماهیانه بکنم، چجوری به آینده نگاه بکنم برای پول اینا، خیلی میتوجه هم. یعنی ذرا به من یاد بدین.
+
+[00:02:01.460 → 00:02:10.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خواهش میکنم. اینا به ثواد مالی رفت داریم. بله، بله، دقیقا، یعنی ما اول باید یکی این با این عدد و رقم را دوست بشیم، حالمون خوب بشه با پول، یعنی بعضی وقتی این...
+
+[00:02:10.380 → 00:02:21.860] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نه یعنی یه جور احساساتی در ما وجود داره که فکر می‌کنیم که پول چیز بدیه ممکنه اینجوری باشه یا آینده هرگز نایمده، فکر امروز رو بکنیم، باید می‌شه امروز پول امروز رو خرش کنیم
+
+[00:02:21.860 → 00:02:27.420] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چند نفر از اینکه فکر می‌کنم پول چیز بدی، یاره به منم نفسون بدین که بهش ناس همه بیشتر نگره
+
+[00:02:27.420 → 00:02:29.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی که همه فکر می‌کنم پول زیادی چیز خوبیه
+
+[00:02:29.780 → 00:02:36.100] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+آره، آره، من یه مثال می‌زنم، مثلا توضع پسنداز، مثلا می‌گیم که آیا شما می‌دونید که‌ی باید پسنداز کنید؟
+
+[00:02:36.800 → 00:02:49.100] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب، اکثر مردم یا بیشتر یه فهم عرفی وجود داره که بله، هرچی از پولمون باقی مود، می‌شه پسندازمون دیگه، یعنی پس از همه‌ی مصرف‌ها یک چیزی باقی می‌مونه که بهش می‌گیم پسنداز
+
+[00:02:49.100 → 00:03:02.440] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این از سواد مالی اشتباه، یعنی ما نمی‌دونیم پسنداز چیه، بخش دانایی، پسنداز یعنی ابتدای این که یک درامتی کستگدی یا یک ورودی پولی داشتی، یک بخشیش رو کنار بذاریم و نادیده بگیریم
+
+[00:03:02.440 → 00:03:06.100] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+اگه دخل خرج با همون پولی که به دست آوردی نشه، چجور؟
+
+[00:03:06.100 → 00:03:30.220] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+این گام بعدیه، یعنی این برای آینده‌سازی پسنداز، یعنی ما رو همون جوری که گفتیم، اصلا نمی‌دونم آینده چه اتفاقی ممکنه بیفته، ما اول باید سحم خودمون رو کنار بذاریم، اون چی که الان مصرست می‌کنیم می‌شه سحم آب و برق و گاز و این چیزا، و در واقع هزینه‌های روزمره‌ی ما، ما با پسنداز بخش اصلیی که مال خودمونه برای آینده‌مونه کنار می‌ذاریم، این یه مثال از خ
+
+[00:03:31.500 → 00:03:39.380] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+بعد می‌پرسیم که تالا پسنداز کردی می‌گه نه بابا پول برای خرش کردنه چون فردا شود فکر فردا کنیم
+
+[00:03:39.380 → 00:03:44.480] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اینا می‌گم اون نگرش‌ها و خواست‌های ماست که ناخداگاه بر ما اثر داره
+
+[00:03:44.480 → 00:03:47.060] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و اجازه نمی‌ده پولی رو پسنداز بکنیم
+
+[00:03:47.060 → 00:03:53.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی یک موضوع نگرشی دخالت کرده و این دانایی ما رو تبدیل به توانایی پسنداز کردن نکرده
+
+[00:03:53.780 → 00:03:55.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پس واجب پسنداز کردن
+
+[00:03:55.780 → 00:03:57.620] ⚠️ `multi_pass_disagreement`
+بله یه ضرورت زندگیه
+
+[00:03:57.620 → 00:04:02.580] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و بعد تو حوضه‌ی توانایی، می‌گم که مثلا از شما سوال می‌کنم، اصلا شما پسنداز داری؟
+
+[00:04:02.580 → 00:04:07.040] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اگر بگینم می‌گم پس توانایی پسنداز کردن رو هنوز در خود از ایجاد نکردی؟
+
+[00:04:07.040 → 00:04:10.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی یه سه بخشیه، یه چه سوال مهم دارم، ببخشم اصلا.
+
+[00:04:10.520 → 00:04:11.400] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+ما خواهش می‌کنم؟
+
+[00:04:11.400 → 00:04:16.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یکی اینکه کسی که امور روزمرش نمی‌گذره، یعنی در برای خودم عرض نمی‌کنه،
+
+[00:04:16.620 → 00:04:22.400] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+خیلی‌ها هستن که توی این گرونی‌ها، واقعاً فشار ما، چجوری می‌تونه پسنداز کنه؟
+
+[00:04:22.400 → 00:04:26.660] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+به آخر ماه نمی‌رست، حالا چجوری می‌خواد پسنداز کنه؟
+
+[00:04:26.660 → 00:04:30.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و حالا کسی که می‌تونه چقدر باید پسنداز کنه؟
+
+[00:04:31.620 → 00:04:37.680] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+تو حوضه‌ی اول اگر بخوام پاسخ بدم، می‌گم ما از یه جایی باید آغاز کنیم
+
+[00:04:37.680 → 00:05:04.420] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مدیریت و تسلط بر امور مالی مونه، اون از کجاست؟ لزومنم از پسنداز نیست، من پنج تا مرحله رو تو حوضه توانمندی مالی خدمتون رو از بکنم، گام اولش نی که من اصلا زندگیمو دارم بر اساس قرض پیش میبرم، بهش میگن ناتوانی مالی، یعنی قرض میگیرم قرضام هم با قرض پست میدم، یعنی حتی قرضام هم نمیتونم پست بدم، قرض همو از طریق قرض کردن از دیگران پست میدم، قرض رو قرض و بدهی روی بده
+
+[00:05:04.420 → 00:05:30.740] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+به دهی مفرد می‌شه، و این زندگی منو کاملا از ریل خارج می‌کنم، یه موقع نم می‌گم که من دارم تقلای مالی می‌کنم، یعنی زندگی منو با قرض می‌گذرونم، ولی می‌تونم قرض‌ها ما از درامد آینده‌م پس بدم، اینم خوب نیست دارم، یعنی در واقع آینده‌خاری دارم می‌کنم، اما به هر حال دارم اینجوری دخل و خرجم رو تراز می‌کنم، مرحله‌ی ثومینه که تعادل دخل و خرج، یعنی آنچه که
+
+[00:05:30.740 → 00:05:59.320] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+به دست میارم خرج میشه یه پله بالاتر از قبلی هست مرحله چارم تاباوری مالی یا امنیت مالیه یعنی نه تنها دخل و خرجم با هم میخونه بلکه اگه یه شکی هم به من وارد بشه حالا این شکی ممکنه آملش خودم باشم مثلا بیمار بشم درامد هم قطع بشه از کار بیکار بشم یه شکی بیرون از حوضه اقتصاد به من وارد بشه اگه تاباور باشم میتونم از این شکی عبور بکنم حالا پسنداز که حالا چند تا وی�
+
+[00:05:59.320 → 00:06:26.500] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+می‌تونه من رو تاباور بکنه یعنی از شک عبور بده و مرحله‌ی پنجم که بهش می‌گیم آزادی یا رفاه مالی اینه که من می‌دونم اگر یک اهدافی برا خودم در نظر بگیرم در آینده می‌تونم اون اهداف رو تأمین مالی کنم به اون اهدافم برسم یعنی این افق رو دارم که اگر مقداری تلاش بکنم می‌تونم همه‌ی آنچه که می‌خواهم رو در آینده به دست بیارم حالا این پسانداز کردن در واقع ما ر
+
+[00:06:27.100 → 00:06:42.800] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+برمی‌گردن و به اون ریل اصلی زندگی، یعنی حتی ممکنه، الان بگیم دخل و خرج هم نمی‌خونه، می‌گم باز یه بخشی رو پسنداز بکن، چرا که اگر تو پول‌های کوچک نتونی مدیریت بکنی، تو پول‌های بزرگ هم نمی‌دونی، واقعاً این رو نمی‌فهمم که وقتی دخل و خرج نمی‌خونه چجور پسنداز کنه؟
+
+[00:06:43.600 → 00:07:06.340] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+ببینید، اصل پسنداز کردن نادیده گرفتن بود دیگه، اگر این دانایی رو بپردیدیم که نادیده گرفتنه، مثلا یک نفر میگه من حقوق هم یک میلیونه، اصلا نمیرسه، بهش میگم ببین حقوقتو در واقع یک میلیون نیست، حقوقتو هیستت هزار تومنه، اصلا بیست درصد رو باید نادیده بگیری، حالا این بیست درصد تو سه بخش توضیح میشه و همون که گفتید مقدارش جقده، یک قاعده سرانگ
+
+[00:07:06.340 → 00:07:11.440] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+ده درصد برای صندوق استراری، یعنی همون روز مواده‌هایی که قدیما می‌گفتند،
+
+[00:07:11.440 → 00:07:15.160] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پنج درصد پسنداز و پنج درصد هم صندوق استراری.
+
+[00:07:15.300 → 00:07:20.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+در واقع ما وقت یه حقوقی رو دریافت می‌کنیم، بیس درصدش رو منتقل می‌کنیم به آینده
+
+[00:07:20.800 → 00:07:25.780] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+و آنچه که در زمان حال باید مسرف بشه، اون هیستد هزار تومن، اگه مثلا…
+
+[00:07:25.780 → 00:07:34.340] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+زیادی داهم دارن پول پسنداز می‌کنن، تمام عمر به خودشون سختی می‌دن و پسندازی که هرگز هم استفاده نمی‌کنه
+
+[00:07:34.340 → 00:07:39.480] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب، این باز تو سواده مالی یه نکته‌ی دیگه داره که می‌ره تو حوضه‌ی سرمایه‌گذاری
+
+[00:07:39.480 → 00:07:44.280] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی می‌گیم شکل نگه‌داری از این پسنداز‌ها باید چه شکلی باشه؟
+
+[00:07:44.280 → 00:07:50.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+شکلش به صورت سرمایه‌گذاری که هم عرضشش حفظ بشه، همین که بتونه آورده‌ی مالی داشته بشه
+
+[00:07:50.300 → 00:07:55.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا سرمایه‌گذاری به چه دلیلی؟ به سه دلیل می‌شه، آزم پس سرمایه‌گذاری بکنه
+
+[00:07:55.180 → 00:08:02.480] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک اینکه یک هدف مالی داره، من می‌خوام مثلا یک خونه‌ای بخرم، نمی‌دام یک تلفن همراه‌ای بخرم، به این دلیل پولم رو جمع می‌کنم
+
+[00:08:02.480 → 00:08:05.860] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+می‌دونم اردشش کاهش بیدا می‌کنه یا قیمت رو نفضایش بیدا می‌کنه
+
+[00:08:05.860 → 00:08:10.260] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بنابراین پولم رو به شکل سرمایه نگه‌داری می‌کنم
+
+[00:08:10.260 → 00:08:17.600] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و حالا در واقع تو اون آیندهی که من یک اهداف مالی دارم یک برنامه مالی دارم ازش استفاده میکنم اتفاقا
+
+[00:08:17.600 → 00:08:22.860] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی اینجوری نیست بهرمند میشم از اون چیزی که در واقع امروز دارم جمع میکنم
+
+[00:08:22.860 → 00:08:26.100] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی اونایی که یه اون فقط پس انداز میکنن این اشتباهه
+
+[00:08:26.100 → 00:08:29.440] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نه خودشون استفاده میکنن نه کسی دیگه ای رو میذارن استفاده
+
+[00:08:29.440 → 00:08:31.660] ⚠️ `multi_pass_disagreement`
+بله خب این اشتباهه یعنی توی حوضه سوادی
+
+[00:08:31.660 → 00:08:59.080] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+این هم دوباره بی‌سوادی های. بله، یعنی یک تعادلی بین حال و آینده باید وجود داشته باشه وقتی داریم به کار می‌دونیم. اینا همه دانای‌ها و توانای‌ها و در واقع نگرش‌هایی دورستی به پول و امر مالیه که ما باید رایتش بکنیم. اگر که کتابی هست که می‌شه معرفی کرد برای بی‌سواد‌هایی مثل من، لطفاً معرفی بکنیم. خواهش می‌کنم. حتماً به موقعش در واقع بهش برسیم من الان می
+
+[00:08:59.080 → 00:09:29.060] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+می‌خواهید یا؟ نه، الانم معرفی بکنید چقدر عالی. اگه کتابیی فهم کنم جلوی شما هم هست، این به زیریش کتاب معمار امارت معمار امارت دفتر حساب مدیران مالی خانواده دکتر کمیل رودی، آکادمی حوش مالی این چیه آی دکتر؟ ببینید ثواد مالی شیش سرفصل اصلی داره شامل خرج و پسنداز یعنی من چجوری باید خرج بکنم و چجوری پسنداز بکنم
+
+[00:09:29.060 → 00:09:52.560] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+کنم، مدیریت اعتبار و بدهی، کهی به دهکار باید بشم، کهی نباید به دهکار بشم، چجوری به دهی‌ها مو پس بدم، کاریابی و درامت، چه شغلی داشته باشم، چگونه از اون شغل درامت کست بکنم، سرمایه‌گذاری، چجوری پول برای من کار بکنه بدون اینکه من برای پول کار بکنم، و وقتی سرمایه‌گذاری می‌کنم با یه ریسک‌هایی مواجه می‌شم، و ممکنه پولم رو از دست بدم، مدیریت
+
+[00:09:52.560 → 00:10:20.340] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ریسک و بیمه بلد باشن و در نهایت همه اینها رو دارم یه جور تصمیم‌گیری مالی در واردش انجام میدم این کتاب میاد همه این شیش سرفصل رو پوشش میده سواد مالی شیش سرفصل و سد و بیس و هفت مفهومه من اینو تیه سی الاسی و چهار صفحه کل سواد مالی رو توضیح دادم و تو بخش دومش ابزارهای رو گذاشتم که افراد بتونن مثلا توضعی خرج و پسنداز هزینه های روزمره شون رو بینیشتن
+
+[00:10:20.340 → 00:10:42.840] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مثلا این ماه پنجمه، بوجه ماهانه، صندوق پسنداز، صندوق استراری، صندوق یاری دیگران، مسکن، خوراک، پوشاک، آراشی بهتشتی، تفریم اهمانی، رفته آمد، خدمات درمان، لوازم خانگی، خانه هدیه خود رو بدهی، رشد فردی، جمع، بعد هزین هایی، خب این خیلی وقت نمیگه اگه آنسان چقدر پول داره که
+
+[00:10:42.840 → 00:10:50.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اولین راه این که ما بتونیم مسلط بر امور مالیمون بشیم، اینه که بیرون از ذهنمون ببینیمش
+
+[00:10:50.140 → 00:10:56.040] ⚠️ `low_word_confidence, multi_pass_disagreement`
+ما وقتی امور مالی رو در ذهن خودمون می‌چرخونیم، این تبدیل به نگرانی می‌شه
+
+[00:10:56.040 → 00:10:59.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نگرانی هیچ کمکی به اداره زندگی ما نمی‌کنه
+
+[00:10:59.240 → 00:11:03.320] ⚠️ `multi_pass_disagreement`
+ما باید بتونیم این اعداد و ارقام رو از ذهنمون بیرون بیاریم
+
+[00:11:03.320 → 00:11:06.320] ⚠️ `multi_pass_disagreement`
+و روی کاغذ بیرون از خودمون بهش نگاه بکنیم
+
+[00:11:06.320 → 00:11:10.920] ⚠️ `multi_pass_disagreement`
+وقتی یه چیزی بیرون از ما قرار می‌گیره، تبدیل به یه مسئله می‌شه، دیگه نگرانی نیست
+
+[00:11:10.920 → 00:11:13.720] ⚠️ `multi_pass_disagreement`
+و وقتی تبدیل به مسئله می‌شه، قابل حل می‌شه
+
+[00:11:13.720 → 00:11:16.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+وقتی یه نفر مثلا به من می‌گی که دخل و خرجم نمی‌خونه
+
+[00:11:17.320 → 00:11:20.060] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+می‌گم که خب چقدر نمی‌خونه، نمی‌دونه
+
+[00:11:20.060 → 00:11:23.320] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+می‌گم خب گواب اولش نه که بدونی چقدر نمی‌خونه
+
+[00:11:23.320 → 00:11:27.300] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+بیس هزار تومن داری کم میاری، یا ماهی پنی میلیون داری کم میاری
+
+[00:11:27.300 → 00:11:33.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بعد، این که به نویسی، مثلاً نوشتن هزینه‌ها، عمومن میگه خب چه اثری داره؟
+
+[00:11:33.680 → 00:11:39.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نوشتن هزینه‌ها باعث میشه که من آگاه بشم نسبت به سبک هزینه‌ی خودم
+
+[00:11:39.640 → 00:11:44.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و مثلاً آخر ماه نگاه می‌کنم می‌کنم، اصلاً قرار نبود من اینقدر مثلاً کافی شاب برم
+
+[00:11:44.880 → 00:11:49.320] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چرا انقدر هزینه کردم؟ اصلا خودم، یعنی یه ابزار کنترولی برای خودم میشه
+
+[00:11:49.320 → 00:11:54.840] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نگران نیم همین ابزار کنترولیه، یعنی آدم اون دوچار خصت نمی کنه
+
+[00:11:54.840 → 00:11:57.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+آفرین، آفرین، خیلی نکته مهمی ها
+
+[00:11:57.380 → 00:12:02.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک انتقادی که به بودجه بندی وجود داره اینه که آدم خصیص میشه
+
+[00:12:02.180 → 00:12:03.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی بودجه بندی این نیست
+
+[00:12:03.820 → 00:12:11.540] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بودجه بندی یعنی ناآگاهی ما از تخصیص پول به خواسته هامون رو تبدیل میکنه به آگاهی
+
+[00:12:11.540 → 00:12:17.420] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی اصلا مهم نیست که شما تو بودجتون پنجاه درصد درامد رو تخصیص داده باشید به تفریح
+
+[00:12:17.420 → 00:12:20.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بیچه اشکالی نداره ولی این باید آگاهانه باشه
+
+[00:12:20.560 → 00:12:24.900] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نه اینکه آخر ماه بگید که اه من نصف حقوقم رفت مثلا به تفریح
+
+[00:12:24.900 → 00:12:29.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این بده ولی اگر آگاهانه دارین کار رو انجام میدید خیلی هم خوبه
+
+[00:12:29.000 → 00:12:35.500] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+در واقع بودجه ابزاریه که پول ما رو به مهمترین عرضش هامون تخصیص میده
+
+[00:12:35.500 → 00:12:45.060] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ممکنه این ارزشمون تفریح باشه، ممکنه ارزشمون خانواده باشه، ممکنه ارزشمون رشد فردی، کتاب خوندن، کتاب خریدن، دوره آموزشی رفتن باشه
+
+[00:12:45.060 → 00:12:50.020] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بودجه این کمک رو به ما میکنه، میگه تو قبل از ماه کسی برای شما بودجه نمینویسه
+
+[00:12:50.020 → 00:12:54.160] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+قبل از شروع ماه بودجه تو بنویسه، چقدر میخوایی به چی تخصیص بدی؟
+
+[00:12:54.160 → 00:12:56.320] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+در واقع بدونی داری چی کار میکنی؟
+
+[00:12:56.320 → 00:13:06.480] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این دانایه ما رو مسلط بر امور مالی می‌کنیم و از اینکه ما نگران عمر مالی باشیم تبدیل می‌کنه به یک حل کننده مسئله مالی
+
+[00:13:06.480 → 00:13:21.740] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چقدر جالب، چقدر مفید و کار بردی، ما وقت بخش اولمون تموم شده، اجازه می‌دین من یه شعری از سعدی که نشوندهنده اینه که چه سواد مالی داشته بخونم و بعد بریم بر بخش دوبارم
+
+[00:13:21.740 → 00:13:38.280] ⚠️ `multi_pass_disagreement`
+فکر می‌کنم این سواد مالیه دیگه سعدی می‌گه چو دخلت نیست خرج آهسته تر کن که می‌خوانند ملاحان سرودی اگر باران به کوهستان نبارد به سالی دجله گردد خوشک رودی
+
+[00:13:38.280 → 00:13:40.300] ⚠️ `multi_pass_disagreement`
+بله بله، درسته سواد مالیه دیگه؟
+
+[00:13:40.300 → 00:13:47.080] ⚠️ `multi_pass_disagreement`
+بله بله، اتفاقا من اگه اجازه می‌دین قبل از پایان این بخش یه نکتری اضافه کنم برای همین شهار سعدی
+
+[00:13:47.080 → 00:14:09.920] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سواد مالی می‌گه اولین کاری که برای تعادل دخل و خرجت می‌خوایی بکنی، این نیست که درامدتو افضایش بدی، بلکه باید هزینه‌ها رو کاش بدی، چون دخلت نیست، هر جا هسته تر کنید، چون افضایش درامد زمانبره، دوشواره، بعد وقتی هم درامدو افضایش می‌دی، اگر نتونی هزینه‌ها رو کنترول بکنی، هم باره با افضایش درامد هزینه‌ها هم افضایش بدید
+
+[00:14:09.920 → 00:14:16.000] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+آیدوزا، ولی من فکر کنم بعد از این برنامه شما من رو با یه آدم ها کمیل خصیص هر تبدیل کنیم
+
+[00:14:16.000 → 00:14:17.340] ⚠️ `low_word_confidence, multi_pass_disagreement, low_consensus_confidence, protected_name_or_number_disagreement`
+سرابت روزید
+
+[00:14:17.340 → 00:14:19.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بفهمه که چای مل دارین یا دم نوش؟
+
+[00:14:19.360 → 00:14:19.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چایی؟
+
+[00:14:19.820 → 00:14:21.280] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+جستش با درد نکنم
+
+[00:14:40.060 → 00:14:43.780] ⚠️ `multi_pass_disagreement`
+جناب رودی، چرا باید از نظر مالی با سواد باشیم؟
+
+[00:14:44.880 → 00:14:49.060] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ببینید، مهمترین سؤال بشر این نیست که من باید چقدر پول داشته باشم
+
+[00:14:49.060 → 00:14:59.420] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مهمترین سؤال بشر اینه که آیا من اونچنان که باید باشم هستم، اونچنان که باید می‌بودم شدم، من بهترین خودم هستم یا نه؟
+
+[00:14:59.420 → 00:15:00.360]
+بهترین خود
+
+[00:15:00.360 → 00:15:05.080] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بهترین خود، نه بهترین کسی در مقایصه با دیگران، این سؤال اصلی بشره
+
+[00:15:05.080 → 00:15:13.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و در پاسخ به این سؤال مجموعه از دانشها تولید شده، در قالب کتاب‌های خودیاری هم می‌شه پیداش کرد
+
+[00:15:13.560 → 00:15:21.060] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+من این تو ذهن من چهار حوضه نقش بسته که وقتی میخواییم ما خودمونو به درستی به جا بیاریم
+
+[00:15:21.060 → 00:15:23.460] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+باید تو چهار حوضه فعالیت داشته باشیم
+
+[00:15:23.460 → 00:15:27.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک حوضه معنا یا حوش معنوی ما
+
+[00:15:27.000 → 00:15:31.280] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این که معموریت من تو زندگی چیه؟ من چه کاری باید انجام بدم
+
+[00:15:32.280 → 00:15:36.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چشمنداز من چیه؟ من چه تصویری از آیندهی خودم دارم
+
+[00:15:36.180 → 00:15:37.500] ⚠️ `multi_pass_disagreement`
+چه سوالای سختی؟
+
+[00:15:37.500 → 00:15:43.980] ⚠️ `multi_pass_disagreement`
+و این مهمترین سؤالات بشره، تو حوضه‌ی چون تو حوضه‌ی حوش معنوی و راه‌برد سازه برای انسان
+
+[00:15:44.280 → 00:15:50.960] ⚠️ `multi_pass_disagreement`
+بر اساس این چشمنداز من چه اهدافی دارم؟ چه برنامه‌ی برای رسیدن به این اهداف دارم؟
+
+[00:15:50.960 → 00:15:57.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یکی از کتاب‌های خوب تو این حوضه کتاب هفت‌آدت مردمان‌مؤثر استفانکاویه
+
+[00:15:57.800 → 00:15:59.520] ⚠️ `multi_pass_disagreement`
+می‌شه، بله، بله، خواهش می‌کنم
+
+[00:16:01.260 → 00:16:06.580] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+هفت‌آدت مردمان‌مؤثر استفانکاوی ترجمه‌ی محمد رزا آلیاسین
+
+[00:16:07.600 → 00:16:13.720] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+درس‌های نیرومندی برای دگرگونی خیشتن، ناشر این کتاب انتشارات حامونه
+
+[00:16:13.720 → 00:16:18.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بله، این هفت محارت رو آموزش میده تو همین چهار حوضه‌ای که عرض کردم
+
+[00:16:18.940 → 00:16:24.160] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب این حوضه‌ی معنای زندگی ماست، من برای اینکه بتونم این کار رو انجام بدم
+
+[00:16:24.160 → 00:16:27.840] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی مثلا آموزش‌های مثل مدیریت زمان هم همینجا قرار می‌گیرم
+
+[00:16:27.840 → 00:16:30.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی من یه اهدافی دارم چگونه به این اهداف برسم
+
+[00:16:30.620 → 00:16:36.960] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب باید یه دانشهایی برای انجام این معمولیتم داشته باشم دیگه بدون دانش که نمیشه
+
+[00:16:36.960 → 00:16:42.580] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حوضه یه دوم در واقع آیکیو یا اون ذریب حوشی نقشافری نمی کنه
+
+[00:16:42.580 → 00:16:47.220] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+من دانایی های لازم برای انجام اون معمولیتم رو داشته باشم
+
+[00:16:47.220 → 00:16:49.880] ⚠️ `multi_pass_disagreement`
+تفکر نقاد اینجا مطرح میشه
+
+[00:16:49.880 → 00:16:54.800] ⚠️ `multi_pass_disagreement`
+علم منطق این که من درست ترس بزنم، مقالطه نکنم، اینجا مطرح میشه
+
+[00:16:54.800 → 00:16:56.980] ⚠️ `multi_pass_disagreement`
+تفکر خلاق اینجاست
+
+[00:16:56.980 → 00:17:09.100] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و این که من بتونم دانسته‌ها هم رو به کار بگیرم. یک کتاب خوبی داره آقای بلانچارد، دانسته‌ها به کار می‌آیند. ما معمولاً اونچه که می‌دانیم و نمی‌تونیم بهش عمل بکنیم. یک کتاب بله خواهش می‌کنم.
+
+[00:17:09.820 → 00:17:20.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+دانسته‌ها به کار می‌آیند راهکاری برای از میان برداشتن فاصله بین دانستن و انجام دادن. دانست وقتی دارم انجامش نده که فایده‌ای نداره.
+
+[00:17:20.380 → 00:17:34.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و احیای دانسته‌هایتان، کنت، بلانچارد، پاول مایر، دیک، گوه، ترجمه خانم مهندس نگار مختاری و نسل نواندیش ناشرشه
+
+[00:17:34.240 → 00:17:38.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بله، این حوضه‌ی دوم از زندگی ما، حوضه‌ی دانش‌های ما
+
+[00:17:38.880 → 00:17:44.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما این حوضه‌ی دانشی و ذریب حوشی، 20% از موفقیت ما رو پیشبینی می‌کنه
+
+[00:17:44.880 → 00:17:51.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی آدم‌هایی که بسیار ذریع به حوش بالایی دارن، لزومن در زندگی محفظ تر نیستن
+
+[00:17:51.300 → 00:17:56.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه حوضه‌ی دیگه‌ی کنار این موضوع مطرح شده، حوش آتفی یا ایموشنال کوشن
+
+[00:17:56.940 → 00:18:02.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که میاد عواطف ما رو درگیر می‌کنه، پنج مهارت تو این حوش آتفی مطرحه
+
+[00:18:02.700 → 00:18:11.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یکی شناخت احساسات خودم، دوم کنترول احساسات خودم، برنگیختن خودم، انگیزه‌ی کافی به خودم دادن
+
+[00:18:11.640 → 00:18:15.900] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+شناخت احساسات دیگران و کنترول و مدیریت احساسات دیگران
+
+[00:18:15.900 → 00:18:17.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک کتاب خوبی هم که تو این زمینه هست
+
+[00:18:17.800 → 00:18:21.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک کتاب در واقع مرجع از آقای گلمان، حوش آتفی اگر اینم
+
+[00:18:21.940 → 00:18:24.920] ⚠️ `multi_pass_disagreement`
+بله، فرمودین مرجعه
+
+[00:18:24.920 → 00:18:30.660] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حوش آتفی، دکتر دانیل گلمان، ترجمه همید رزا بلوچ
+
+[00:18:30.660 → 00:18:34.100] ⚠️ `multi_pass_disagreement`
+و ناشرشم، الان خدمتتون میگم
+
+[00:18:35.680 → 00:18:39.780] ⚠️ `multi_pass_disagreement`
+نشر روخ محتاب، بله، میفرمودین
+
+[00:18:39.780 → 00:18:45.500] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بله، عرضم این بود که این حوش آتفی هشتاد درصد موفقیت آدمها رو پیشبینی میکنه
+
+[00:18:45.500 → 00:18:51.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی اینقدر مؤثره در موفقیت یک معموریت که آدم برای خودش در نظر یه است
+
+[00:18:51.940 → 00:18:54.220] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا شما این سهوزه رو در نظر بگیرید
+
+[00:18:54.220 → 00:18:59.400] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حوش معنوی، حوش ذریب حوشی، همه حوش علمی، حوش آتفی
+
+[00:18:59.400 → 00:19:02.960] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بنیان همه این حوش هایی حوشیه به نام حوش مادی
+
+[00:19:02.960 → 00:19:06.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی من بتوانم محقق بکنم اون معموریت تار
+
+[00:19:06.940 → 00:19:14.340] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا بخشش برمیگرده به حوش جسمی من، یعنی من از حظر جسمی توانو داشته باشه، میگن عقل سالم در بدن سالم
+
+[00:19:14.340 → 00:19:23.740] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که سه تا اصل داره قدرت، انعتاف و استقامت، یعنی یک بدن سالم باید تو این شاخصها رشدیافته باشه تا یک آدم رشدیافته باشه
+
+[00:19:23.740 → 00:19:31.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و دومین بود این حوش در واقع مادی، اون چیزه که ما بشمیگیم حوش مالی یا سواد مالی
+
+[00:19:31.380 → 00:19:34.440] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی بتونه تأمین مالی بکنه من رو
+
+[00:19:34.440 → 00:19:39.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک آدمی که تو هر این چهارهوش در واقع توصیه یافته باشه
+
+[00:19:39.800 → 00:19:41.080] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بهش میگم یک آدم روشت یافته
+
+[00:19:41.080 → 00:19:44.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+لزومن بهترین آدم دنیا نیست در مقایصه با دیگران
+
+[00:19:44.880 → 00:19:46.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی مطمئنن بهترین خودشه
+
+[00:19:46.780 → 00:19:49.440] ⚠️ `multi_pass_disagreement`
+بهترین کسیه که میتونسته باشه
+
+[00:19:49.440 → 00:19:52.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اگر تو این چهارهوزه خودشو توصیه بده
+
+[00:19:52.360 → 00:19:54.480] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه تعبیلی میخوام به کار ببرم
+
+[00:19:54.480 → 00:19:58.120] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما زیاد توی جامعه همون به قهر ما نیاز نداریم
+
+[00:19:58.120 → 00:20:26.980] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+ما به آدم‌های معمولی خوب نیاز داریم، آدم‌هایی که بهترین خودشون باشن، اگر راننده تاکسی هن، بهترین راننده‌ی تاکسی باشه که می‌تونسته باشه، اگر خاربار فروشه، اگر قصابه، اگر معلمه، هر کسی بهترین خودش باشه، حالا تو این چار حوضه مهم‌ترین حوش چیه؟ مهم‌ترین حوش اقتصادی و حوش مالیه، چون پایست، و اگر این ثواد مالی رو نداشته باشه تو حوضه‌ی آتفی صدمه می‌زن
+
+[00:20:26.980 → 00:20:55.980] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+مثلا یک مثال بزنم در این حوضه میگن که آدم‌هایی که استرس داشته باشن سریتر خشمگین میشن و خشمگینی‌شون شدت بیشتری داره تو آسیب زدن به خودشون و دیگران یعنی میره تو اگر من مثلا تو حوضه‌ی اقتصادی احساس تنش بکنم تو روابط آتفی مشکل ایجاد میشه تو حوضه‌ی دانایی مشکل ایجاد میشه تو حوضه‌ی معنا مشکل ایجاد میشه فکر می‌کنم زندگی اصلا بیمزه است و اصلا برای چی زندگی
+
+[00:20:55.980 → 00:21:01.040] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+وقتی یک شوک اقتصادی شدید به هموارد می‌شه، معنای زندگیم هم از دست می‌دم
+
+[00:21:01.980 → 00:21:09.960] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این حوش در واقع مالی یا این سواد مالی کمک می‌کنه که خدمت رسانی بشه به سایر عباد زندگی ما
+
+[00:21:09.960 → 00:21:22.060] ⚠️ `multi_pass_disagreement`
+به حوش علمیمون، حوش آتفیمون و حوش معنویمون، در واقع این خدمت‌گذار ساریر حوش هست، اون حوش معنوی راهبر زندگی ماست، حوش مادی خدمت‌گذارش
+
+[00:21:22.740 → 00:21:29.560] ⚠️ `multi_pass_disagreement`
+بنابراین ما وقتی تو این حوض توصع پیدا بکنیم، میتونیم تو سایر اب آدم بهتر توصع پیدا کنیم
+
+[00:21:29.560 → 00:21:31.220] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این کتاب آخر در همینی
+
+[00:21:31.220 → 00:21:33.860] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این تو حوضه حوش مادی میتونه مطرفش
+
+[00:21:33.860 → 00:21:35.920] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اون چیزی که ما بعد از اقتصاد بدونیم
+
+[00:21:35.920 → 00:21:41.320] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بایدیم بعضی وقتا ما احساس میکنیم یه قریقیم تو رودخانه خروشان اقتصاد
+
+[00:21:41.320 → 00:21:45.040] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه لحظه سرمون میره پایین، یه لحظه سرمون میاد بالا، هیچی دست نمونیم
+
+[00:21:45.040 → 00:22:01.080] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این کمک می‌کنه ما این رودخانه ها رو بشناسیم، سرمون هر از چنگایی نره زیر آب، یا حتی بتونیم شنا بکنیم، یا گاهی اوقات بتونیم بر خلاف جریان این رودخانه خروشان شنا بکنیم، این به شناخت ما تو وضع اقتصاد کمک بکنیم
+
+[00:22:01.080 → 00:22:10.360] ⚠️ `multi_pass_disagreement`
+خیلی، متشکرم، دید اقتصادی، داستانی، جذاب برای آموختن اقتصاد، چقدر جالب
+
+[00:22:10.360 → 00:22:24.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پیتر دی شیف، اندرو جی شیف، ترجمه سهند همزهی و گروه پجروه شیرسنتی آریانا، انتشارات آریانا قلم
+
+[00:22:24.640 → 00:22:26.360] ⚠️ `multi_pass_disagreement`
+بله، میفرمودی؟
+
+[00:22:26.360 → 00:22:39.220] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بله، خب حالا من یه مثال اگر بخوام بزنم توضع سواد مالی، ببینیم ما مثلا میگیم بدنمون سالم باشه، مثلا از این چار تا پله احیانا ممکنه من بیوفتم وقتی از این پله ها بالا برم
+
+[00:22:40.080 → 00:22:40.680] ⚠️ `low_word_confidence, multi_pass_disagreement, low_consensus_confidence`
+بله
+
+[00:22:40.680 → 00:22:44.480] ⚠️ `multi_pass_disagreement`
+اگر وردشکار باشم، آسیب کمتری میبینم
+
+[00:22:45.080 → 00:22:45.880] ⚠️ `multi_pass_disagreement`
+بله، بله
+
+[00:22:45.880 → 00:22:49.220] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا این که من اصلا حدثم اینه که از این پله ها بالا برم
+
+[00:22:49.220 → 00:22:55.160] ⚠️ `multi_pass_disagreement`
+بنابراین اگر توان جسمانی خوبی داشته باشم به سادگی میتونم از این پله ها بالا برم
+
+[00:22:55.160 → 00:23:10.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سواده مالی این کمک رو به ما می‌کنه، اگر یک جایی نیاز پیدا شد، یعنی ناخاسته، یک آمل بیرونی بر من وارد شد و یک گپی ایجاد کرد، یک شکافی توی زندگی من ایجاد کرد، سواده مالی به من کمک می‌کنه که ازش اوبور بکنم
+
+[00:23:10.940 → 00:23:12.940]
+شما خودتون ها دارم پول داری هستی؟
+
+[00:23:14.440 → 00:23:18.260] ⚠️ `multi_pass_disagreement`
+آخه، خیلی سؤال خوبی ها، خیلی هم تو ایران خیلی...
+
+[00:23:18.260 → 00:23:22.340] ⚠️ `multi_pass_disagreement`
+ببخشیم، آخه اینقدر داشتیم، ببینیم چقدر الان
+
+[00:23:22.340 → 00:23:25.960] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خیلی سوال خوبیه و دوست داشتیم این سوال رو بپرسید اتفاقا
+
+[00:23:25.960 → 00:23:31.140] ⚠️ `multi_pass_disagreement`
+ما تو ایران خیلی کنجکاویم نسبت به میزان دارایی دیگران یا میزان دارایی خودم
+
+[00:23:31.140 → 00:23:36.500] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اتفاقا سواده مالی میگه اصلا مسئله میزان پولی که داری نیست
+
+[00:23:36.500 → 00:23:38.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مسئله مدیریت پولاته
+
+[00:23:38.680 → 00:23:43.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی ممکنه شما با 800 ازار تومن زندگی خوبی رو بتونید داشته باشی
+
+[00:23:43.380 → 00:23:46.420] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+با هشت میلیون کیفیت زندگی و تجربه نکنیم
+
+[00:23:46.420 → 00:23:48.220] ⚠️ `multi_pass_disagreement`
+این مسئله رضایته
+
+[00:23:48.220 → 00:23:49.700] ⚠️ `multi_pass_disagreement`
+آفرین، آفرین
+
+[00:23:49.700 → 00:23:52.440] ⚠️ `multi_pass_disagreement`
+این مسئله اینیست که من چقدر پول دارم
+
+[00:23:52.440 → 00:23:55.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مسئله اینی که الان پولم رو دارم درست مدیریت می‌کنم
+
+[00:23:55.520 → 00:23:58.200] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که آدم خوشحال و رضایتمندی باشم
+
+[00:23:59.540 → 00:24:02.180]
+ببخشین، یه ذر شعاری نیست
+
+[00:24:02.180 → 00:24:03.840] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نه، یه علمه
+
+[00:24:03.840 → 00:24:05.520] ⚠️ `multi_pass_disagreement`
+چی رو می‌گم چرا یه ذر شعاری نیست
+
+[00:24:05.520 → 00:24:11.160] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی واقعا کسی می‌تونه از یه حد اقلی کم‌تر داشته باشه
+
+[00:24:11.160 → 00:24:17.100] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و باز هم سعی کنه، مدیریتش کنه و باز هم خوشحال باشه، به نظرم دور از ذهن
+
+[00:24:17.100 → 00:24:27.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نه، این حرف شما درسته، ببینید تو مسئله پول و رضایتمندی، از یک کفی پایین تر رضایتی وجود نداره، افراد ناراضی هست
+
+[00:24:27.240 → 00:24:34.900] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و اتفاقا زمینه های اجتماعی و آنچه که دست حکمرانانه باید اون کف رو تعمیم بکنه
+
+[00:24:34.900 → 00:24:38.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بسترهاش رو تعمیم بکنه، نه این که پول مستقیم بده
+
+[00:24:38.300 → 00:24:43.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بسترهایی باید تقید می‌شه که همه‌ی مردم بتونن تو اون کف زندگی بکنه
+
+[00:24:43.520 → 00:24:47.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا می‌گن که چقدر می‌خواد که من به رضایت برسم؟
+
+[00:24:47.640 → 00:24:55.540] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+می‌گن که در آمد سیلیت، آدم ناراضی، تا هشت برابر افضایش بیدا بکنه، دیگه اوج رضایت رو احساس می‌کنه
+
+[00:24:55.540 → 00:25:00.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی از هشت برابر به بعد، دیگه هیچ کیفیتی تو زندگی اضافه نمی‌شه
+
+[00:25:00.880 → 00:25:05.360] ⚠️ `multi_pass_disagreement`
+یعنی اصلا دیگه وابستگی رضایت و پول قط میشه
+
+[00:25:05.360 → 00:25:10.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا این هشت برابره برای یه نفر ممکنه همین هشت برابر باشه
+
+[00:25:10.140 → 00:25:12.760] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+میگم پرسونال فاینانسیز پرسونال
+
+[00:25:12.760 → 00:25:16.020] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مدیریت مالی شخصی امری کاملا شخصی
+
+[00:25:16.020 → 00:25:17.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ممکنه برای شما متفاوت باشه
+
+[00:25:17.940 → 00:25:20.640] ⚠️ `multi_pass_disagreement`
+یعنی ما تو عدبیات در واقع
+
+[00:25:20.640 → 00:25:22.940] ⚠️ `multi_pass_disagreement`
+کوهنمون خیلی از این مسئله داریم
+
+[00:25:22.940 → 00:25:24.340] ⚠️ `multi_pass_disagreement`
+آره من را یاد یه شعر افتادم
+
+[00:25:24.340 → 00:25:28.120] ⚠️ `multi_pass_disagreement`
+خیلی هم شعر عجیبیه به نظرم
+
+[00:25:28.120 → 00:25:46.600] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خیلی، خیلی، خیلی، آره اصلا بی نظیره به نظرم، مال مولویه، ابتدای مصنوی میگه که گر بریزی بحر را در کوزعی چند گنجد قسمت یک روزه ای؟
+
+[00:25:47.080 → 00:25:55.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ادام از دریا هم داشته باشه، وقتی توی کوزه مصرفش میخواد بریزه، اندازه همون کوزه، بقیهش میریزه بیرون
+
+[00:25:55.680 → 00:26:06.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چند گنجت قسمت یک روزهی کوزه چشم حریسان پر نشد تا صدف قانع نشد، پردور نشد
+
+[00:26:06.680 → 00:26:14.940] ⚠️ `multi_pass_disagreement`
+یعنی حالا این مفهوم علمی قناعت تو سواد مالی بهش میگن در واقع آزادی مالی
+
+[00:26:14.940 → 00:26:21.540] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+به این مثلا ممکنه بگیم من بگم که من یک تلفون همراه خاصی رو میخوام ولی الان پولش رو ندارم
+
+[00:26:21.540 → 00:26:28.460] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+آخه چقدر مثلا من آدم بدبختیم؟ یه موقع هست من میگم که من اصلا نمیخوام، اصلا مسئله پول نیست
+
+[00:26:28.460 → 00:26:34.760] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مثلا این که من به اون نیازی ندارم، من قنیم از اون، یه حالت استقناه میده
+
+[00:26:34.760 → 00:26:38.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا این استقناه من تو چه سطحی از در آمدید؟ این دست منه
+
+[00:26:38.880 → 00:26:44.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ممکنه من با سه میلیون به استقناه برسم و بی نیاز از آلم و آدم بشم
+
+[00:26:44.680 → 00:26:46.840] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ممکنه یک نفر با سی ست میلیون نرفته
+
+[00:26:46.840 → 00:26:49.200] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چون ته نداره اگه بخواییم بریم
+
+[00:26:49.200 → 00:26:53.900] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اگر بخوایم بیشتر، بخوایم چیزایی که دیگه استفاده‌ای هم برمون نداره
+
+[00:26:53.900 → 00:26:58.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی از یه حدی به بالا دیگه آدم با کاری نمیتونه بکنه
+
+[00:26:58.620 → 00:27:06.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+دقیقا به همین دلیلی که میگیم که این نسبت پول و رضایت باید به درستی در زندگی ما تعریف بشه
+
+[00:27:06.700 → 00:27:10.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه نسبت تلاییی داره با سایر و حوضه‌های زندگیمون
+
+[00:27:10.300 → 00:27:14.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این حوش مالی یا این سواد مالی اصل زندگی ما نیست
+
+[00:27:14.640 → 00:27:17.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این قرار خدمت بده به حوضه ی معنای ما
+
+[00:27:17.380 → 00:27:22.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+فکر می‌کنم برای کسایی که درامد زیادی دارن این حرف‌ها خیلی خوب و مفیده
+
+[00:27:22.800 → 00:27:26.260] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی برای اونهایی که درامدشون کمه یه ذر شعاریه
+
+[00:27:26.260 → 00:27:30.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و نکتش اینه، حالا شعاریه، فکر می‌کنم مثلا ممکنه مخاطبین احساس بکنن
+
+[00:27:30.640 → 00:27:32.740] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این روزها این مسئله است
+
+[00:27:32.740 → 00:27:34.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی این مسئله زمان سعدی هم بوده
+
+[00:27:34.940 → 00:27:39.080] ⚠️ `multi_pass_disagreement`
+شما مگه اشاره نکردید به اون سعدی، به اون شعر سعدی
+
+[00:27:39.080 → 00:27:47.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چون دخلت نیست، خب چرا اینو گفته؟ چون قبلش گفته که بر احوال آن مرد باید یریست که دخلش باید 19 خرج بیست
+
+[00:27:47.380 → 00:27:53.740] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی زمان سعدی هم دخل و خرج ها نمیخونده، این به مدیریت مالی اون فرد بستگی داره
+
+[00:27:53.740 → 00:27:57.300]
+یعنی درستی که شرایط تغییر می‌کنه
+
+[00:27:57.300 → 00:28:05.420] ⚠️ `multi_pass_disagreement`
+ولی من میگن که یه اسطلاحی به کار ببرم، میگون کشتی ها بر اساس باد و توفان که به جایی نمیرن
+
+[00:28:05.420 → 00:28:10.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بادبالشون رو تنظیم می‌کنن، از اون بهترین استفاده رو می‌کنن که به یه مقصد برسن
+
+[00:28:10.520 → 00:28:14.720] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+این شرایط نباید ما رو به یه جایی یا به ناک و جا آبادی برسونه
+
+[00:28:14.720 → 00:28:20.100] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما باید تنظیم کننده باشیم که این شرایط چجوری ما رو به اونجایی که می‌خواییم برسونه
+
+[00:28:20.100 → 00:28:24.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و این سخته، کشتی‌ها برای در واقع بندر ساخته نشدن
+
+[00:28:24.880 → 00:28:27.280] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+در صورت که تو بندر خیلی جاشون ایمنه
+
+[00:28:27.280 → 00:28:54.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+برای رفتن دل زدن به دریا ساخته شدن، حالا این دل زدن به دریای تو عرصه سواد مالی یعنی که افسار امور مالی رو من به دستم بگیرم، این نگرانی مالی نباشه، شیش حوضه اصلی هم داره که خدمتون عرض کردم و حالا این یک در واقع تجربه یه جهانی پشتشه، اینجوری نیست که مثلا من به صورت زوغی بگم که خب خرجامونو کم کنیم، شغلمون مثلا باید رضایت بخش بشه، سرمایه گذاری این شکلی
+
+[00:28:54.700 → 00:29:01.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه استاندارد جهانی داره که اون کتاب سنگ بنای سواد مالی میاد این استاندارد رو توضیح میده
+
+[00:29:01.620 → 00:29:03.020] ⚠️ `multi_pass_disagreement`
+کتاب پایینی
+
+[00:29:03.760 → 00:29:04.620] ⚠️ `multi_pass_disagreement`
+این کتاب؟
+
+[00:29:04.620 → 00:29:05.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نه نه
+
+[00:29:05.240 → 00:29:05.620]
+آهان
+
+[00:29:05.620 → 00:29:16.420] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سنگ بنای سواد مالی، اکادمی حوش بر اساس استانداردهای سواد مالی مخاطب محور هم هست کتاب
+
+[00:29:16.420 → 00:29:21.840] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+دو روی کتاب، از یه طرف بر اساس مخاطب تر رایی شده، از یه طرف بر اساس موضوع
+
+[00:29:21.840 → 00:29:23.740] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+همین موضوعاتی که خدمتون هست
+
+[00:29:23.740 → 00:29:29.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا میاد این 127 مفهوم رو توی 14 سال تقسیم می‌کنه
+
+[00:29:29.620 → 00:29:35.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی از پیش دبستانی شروع می‌شه این آموزش‌های سواد مالی تا انتهایی دبیرستان
+
+[00:29:35.240 → 00:29:37.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+البته این صرفاً بخش دانش آموزشه
+
+[00:29:37.620 → 00:29:41.000] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+17 نوع مخاطب برای سواد مالی وجود داره
+
+[00:29:41.000 → 00:29:45.780] ⚠️ `multi_pass_disagreement`
+از بزرگ سالان بگیری، زنان خاندار، زنان سرپرست خانوار، زنان شاقل
+
+[00:29:45.780 → 00:29:50.260] ⚠️ `multi_pass_disagreement`
+در واقع بازنشسته‌ها و مخاطبین گناگون
+
+[00:29:50.260 → 00:29:53.220] ⚠️ `multi_pass_disagreement`
+این حوضه صرفاً برای در واقع بخش دانش آموزیشه
+
+[00:29:53.220 → 00:29:56.340] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و کتاب‌های خوبی هم تو این حوضه وجود داره
+
+[00:29:56.340 → 00:30:01.920] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک مجموعه ایوده جلدی برای پیش دبستانی و دوره اول دبستانه
+
+[00:30:01.920 → 00:30:05.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که اومده در واقع استاندارد سازی کرده
+
+[00:30:05.360 → 00:30:09.760] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که مثلاً من چه موضوعی از سواد مالی رو دارم آموزش می‌بینم
+
+[00:30:09.760 → 00:30:11.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این برای دوره مثلاً پیش دبستانی
+
+[00:30:11.780 → 00:30:14.080] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+می‌شه کامل‌تر کتاب رو به دور بینید؟
+
+[00:30:14.080 → 00:30:18.120] ⚠️ `low_word_confidence, multi_pass_disagreement`
+یا بازار اجازه‌ای من معرفی بکنم، سریشم معرفی بکنم، بله
+
+[00:30:19.960 → 00:30:35.620] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+مجموعه 17 کتاب داستان‌های سواد مالی برای پیش دبستانی‌ها و دوره اول دبستان، واقعیت‌های برای زندگی بهتره، فرزندان این سرزمین که نمونه‌ش اینجا هست، آخ ببخشید
+
+[00:30:37.640 → 00:30:56.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+از من کلاح بخرید، آموزش سواد مالی به کودکان نویسنده دیوید هوروید، ترجمه خانوم سودابه فرخونده و نشر کتاب‌های بنفشه واحد کودک و خردسال مؤسسه انتشارات قدیانی
+
+[00:30:56.700 → 00:31:04.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه مجموعه هم هست، اینها در واقع بیست و هفت جلد برای دوره دوم در بستان
+
+[00:31:04.180 → 00:31:34.020] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+بله، یعنی در واقع ادامه اونه برای سن بزرگتر، داستانهای سواد مالی 27 تاست، برای دوره دوم در بستان دوباره یک کیش رو به امان نمونه، زندگی خرج دارد، اینجا دیگه نویسنده رو ننوشته، بلی باز از همون انتشارات قدیانی، فکر می‌کنم خیلی جالب باشه که بچه‌ها و نوجوان‌ها اینا رو بخونن، بله، این یعنی جز آموزش‌های مهارت‌های زندگی قرار گرفته، سواد مالی،
+
+[00:31:34.180 → 00:31:43.580] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا یه موقع هست من الان می‌گم می‌خوام با ثواد مالی بشم تو دوره‌ی بزرگ سالی خب آموزش‌ها وجود داره، مثلا همون نمونه کتاب معمار امارت برای بزرگ سال نمیشته شده
+
+[00:31:43.580 → 00:31:52.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی الان برای بچه‌هامون هم می‌تونیم در معرض این آموزش قرار بدیم و نسل آینده‌ی رو داشته باشیم که تصمیمات درسته بهتری تو زندگی مالی‌شون می‌گیرم
+
+[00:31:52.880 → 00:31:55.340] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+های دو دو تو دانشگاه چی تدریس میکنین شما؟
+
+[00:31:55.340 → 00:31:59.940] ⚠️ `low_word_confidence, multi_pass_disagreement`
+من چیزهای مختلف از زبان تخصصی مدیریت بگیر تا در حوضه
+
+[00:31:59.940 → 00:32:02.540] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+گفتم شاید درسی در این حوضه هم تراحی شده؟
+
+[00:32:02.540 → 00:32:09.720] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+به صورت حرفه یعنی آموزش دانشگاهی نیست، به صورت حرفهی سواد مالی آموزش میدم، یعنی به صورت یک مؤسسه خصوصی
+
+[00:32:09.720 → 00:32:18.760] ⚠️ `multi_pass_disagreement`
+بعد شما خودتون کتاب خوندن را از که شروع کردید و کهی به حوضه سواد مالی علاقه من شدید؟ چی شد کسا به سواد مالی علاقه من شدید؟
+
+[00:32:18.760 → 00:32:23.680] ⚠️ `multi_pass_disagreement`
+الان کتاب خوندن رو بگم که من اولین پول تو جیویم و با خوهر برادرام رفتیم کتاب خریدیم
+
+[00:32:23.680 → 00:32:27.320] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی اولین پول تو جیویی که پدر ما به ما داد خرج کتاب شد
+
+[00:32:27.320 → 00:32:34.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و بعد اون موقع مثلا رفتیم یک کتاب فروشی نزدیک محلم بود رفتیم اونجا با همدیگه ستاری کتاب خریدیم
+
+[00:32:34.760 → 00:32:40.540] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+بله، الان اسمش الان زیاد جذاب نمشه یک ماجرای تنزی بود که در آن خریدم
+
+[00:32:40.540 → 00:32:50.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و بعد رفتم سر کار پیش پدرم، شاگردونگی گرفتم اون موقع، می‌گفتن شاگردونگی، اون کسی که از پدرم خرید کرد، او یه شاگردونگی به من داد
+
+[00:32:50.820 → 00:32:54.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و ما اون کتاب پروینه اتصامی رو خریدم با اون شاگردونگی
+
+[00:32:55.300 → 00:33:00.500] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+آها، این اول درامد خودتون بوده، دیوان پروینه اتصامی
+
+[00:33:00.500 → 00:33:03.440] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک کمی هم داغون شده، احتران یه سی سالی از اون موری
+
+[00:33:04.840 → 00:33:16.620] ⚠️ `multi_pass_disagreement`
+خطن از تعلیق جناب نجاد، فرد لورستانی، بله، آلی، چقدر جالب رفتیم با اولین پولی که در موردین یه پرمیتزام خریدیم
+
+[00:33:16.620 → 00:33:28.480] ⚠️ `low_word_confidence, multi_pass_disagreement`
+به نظرم صحیحی مهمه که ما در واقع قبل از خواب یه اشعاری بخونیم، یه چیز هنری ببینیم، یه موسیقی گوش بدیم، یه فیلم خوب ببینیم
+
+[00:33:28.480 → 00:33:32.860] ⚠️ `multi_pass_disagreement`
+بلی ما توی زندگی همواره، تو روزمره آشفتگی هایی داریم
+
+[00:33:32.860 → 00:33:36.260] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+موسیقی شعر این روح ما رو دوباره تنظیم میکنم
+
+[00:33:36.260 → 00:33:39.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و ما احتمالا یه خواب خوب و یک فردای بهتری خواهیم داشت
+
+[00:33:39.640 → 00:33:42.580] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+من میخواهم برقیه کتاب هایی که آوردیرم اگر امرو جزی بدید
+
+[00:33:42.580 → 00:33:44.900] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این دوتا مونده بعد میرم سراغه اونا
+
+[00:33:44.900 → 00:33:53.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این دو هستن یکی پری نشان پرواز چرخی در هوای سواد مالی
+
+[00:33:53.980 → 00:33:57.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این در واقع آموزش سواد مالی نیست
+
+[00:33:57.140 → 00:34:03.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بلکه کسایی که میخوان در حوضه‌ی سواد مالی آشنا بشن، علاقه مندن یا یک کاری بکنن
+
+[00:34:03.300 → 00:34:05.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این کتاب پرینشان و پرواز براشون خیلی خوبه
+
+[00:34:05.680 → 00:34:11.260] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و این یکی هم آموزش سواد مالی در اروپا، روانت‌ها و پیشرفت‌های اخیر
+
+[00:34:11.260 → 00:34:14.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+گزارش سازمان همکاری و توصیح اقتصادی 2016
+
+[00:34:14.940 → 00:34:22.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مترجم محمد رزا سمیاری که با همکاری کمیلی ملی یونسکو در ایران
+
+[00:34:22.680 → 00:34:25.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چاب شده مؤسسه اندشانات قدیانی، قبلی هم قدیانی بود
+
+[00:34:25.980 → 00:34:34.560] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+بله، و جالبه بدونید که شهست کشور تو دنیا الان برنامه استراتیجی که آموزش سواد مالی در سطح دولتشون دارن
+
+[00:34:34.560 → 00:34:38.820] ⚠️ `multi_pass_disagreement`
+مثلا کشورهایی مثل ترکیه، عربستان، اینا برنامه های ملی دارن
+
+[00:34:38.820 → 00:34:44.080] ⚠️ `multi_pass_disagreement`
+که به چه مخاطبی، چه آموزش هایی بدن و این آموزش ها رو همه گیر کردن
+
+[00:34:44.080 → 00:34:45.420] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بسیار عالی
+
+[00:34:47.300 → 00:35:03.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+کتاب جناب سید مهدی شجاعی، دموکراسی یا دموکرازه، کتاب بینظیری، خیلی کتاب قشنگ، ولی لازم بخونی، جز کتاب هایی که نخوندنش آره
+
+[00:35:03.680 → 00:35:11.720] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+بله، قبلانم چندین بار این کتاب در برنامه معرفی شده، خود جناب شجاعی هم مهمان کتابات بودن
+
+[00:35:13.500 → 00:35:24.260] ⚠️ `multi_pass_disagreement`
+نیمدانگ، پیونگ یانگ، نشر افق، جناب رضا امیرخانی عزیز و این کتابشون که همیشه هم کتاباشون مورد استقبال قرار گرفته
+
+[00:35:24.260 → 00:35:30.480] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بله این کتابا از این جهت که یه اقتصاد در واقع دولت مهور رو به خوبی نشون میده
+
+[00:35:30.480 → 00:35:36.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی تجربه زندگی در یک اقتصادی که کاملا دولت مهورشن رو نشون میده کتاب خیلی هردشمندی
+
+[00:35:36.980 → 00:35:47.460] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+کتاب بعدی نفحات نفت، جستاری در فرهنگ نفتی و مدیریت دولتی، جناب رزا امیرخانی و نشروفو
+
+[00:35:47.460 → 00:35:52.340] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی این آثار وجود نفت رو توی مدیریت دولتی ما نشون میده
+
+[00:35:52.340 → 00:35:58.920] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و این که در آخر نتیجه گیری خوبی میکنه که حالا من چه نقشی میتونم توی این وانفت و ایفا بکنم فوقلاده جزبا
+
+[00:35:58.920 → 00:36:04.500] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خیلی خیلی ممنونم از صحبتهای جدیدتون، نویتون در برنامه کتاب باز
+
+[00:36:05.200 → 00:36:10.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+رسم برنامه ما اینه که سردیس یکی از بزرگان عدب فارسی رو تقدیم مهمانمون می‌کنیم
+
+[00:36:10.380 → 00:36:12.580] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خواهش می‌کنم یکی از این سردیس ها رو انتخاب برم
+
+[00:36:12.580 → 00:36:14.500] ⚠️ `low_word_confidence, multi_pass_disagreement, low_consensus_confidence, protected_name_or_number_disagreement`
+دست شما درد کنه، متشکه
+
+[00:36:26.160 → 00:36:28.660] ⚠️ `multi_pass_disagreement`
+فهم می‌کنم چون چند بار ذکر سردی شد
+
+[00:36:28.660 → 00:36:34.360] ⚠️ `low_word_confidence, multi_pass_disagreement`
+بسیار عالی، برای دلیلش هم که فرمودید، بفرمایید، اینا رو ما زد و فونی کردیم
+
+[00:36:35.300 → 00:37:02.870] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خودتونم یه بار دیگه ضد افونی بکنید. من با کمی فاصله بیادبی من رو ببخشید. یک اکسی بگیرم به یادگار. خیلی خیلی متشکرم از حضورتون در برنامه ما توی کتاب باز آرزومون اینه که مردم بیشتر کتاب بخونن و بیشتر با هم حرف بزنن. و اثرگذار هم بوده. برنامه پرنفوزی. خیلی خیلی متشکرم از اینکه دوت همارو قبول کنید.

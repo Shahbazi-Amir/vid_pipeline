@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "e9b1cc8725d395fa9cb29c428a242a6787b44bf45fe5f2f255a5a962f654cd41",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.06,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.04,
+        "text": "شاهد رو باید پس انداز کنه. آفره، تو حوضه اول اگر بخوام پاسخ بدم می‌گم ما از یه جایی باقی آغاز کونیم مدیریت و تسلط بر امور مالی.",
+        "avg_logprob": -0.2970221804624254,
+        "compression_ratio": 1.4675324675324675,
+        "no_speech_prob": 2.839156132417031e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.12,
+            "word": " شاهد",
+            "probability": 0.28141211338030797
+          },
+          {
+            "start": 0.12,
+            "end": 0.24,
+            "word": " رو",
+            "probability": 0.7078449428081512
+          },
+          {
+            "start": 0.24,
+            "end": 0.42,
+            "word": " باید",
+            "probability": 0.9935981035232544
+          },
+          {
+            "start": 0.42,
+            "end": 0.72,
+            "word": " پس",
+            "probability": 0.983524888753891
+          },
+          {
+            "start": 0.72,
+            "end": 1.12,
+            "word": " انداز",
+            "probability": 0.9068984190622965
+          },
+          {
+            "start": 1.12,
+            "end": 1.52,
+            "word": " کنه.",
+            "probability": 0.9558195471763611
+          },
+          {
+            "start": 1.76,
+            "end": 2.44,
+            "word": " آفره،",
+            "probability": 0.45298939421772955
+          },
+          {
+            "start": 2.44,
+            "end": 3.1,
+            "word": " تو",
+            "probability": 0.8870696425437927
+          },
+          {
+            "start": 3.1,
+            "end": 3.54,
+            "word": " حوضه",
+            "probability": 0.873758390545845
+          },
+          {
+            "start": 3.54,
+            "end": 4.0,
+            "word": " اول",
+            "probability": 0.9237248301506042
+          },
+          {
+            "start": 4.0,
+            "end": 4.32,
+            "word": " اگر",
+            "probability": 0.9491560061772665
+          },
+          {
+            "start": 4.32,
+            "end": 4.62,
+            "word": " بخوام",
+            "probability": 0.9337311685085297
+          },
+          {
+            "start": 4.62,
+            "end": 5.06,
+            "word": " پاسخ",
+            "probability": 0.9920333027839661
+          },
+          {
+            "start": 5.06,
+            "end": 5.38,
+            "word": " بدم",
+            "probability": 0.9084026515483856
+          },
+          {
+            "start": 5.38,
+            "end": 5.72,
+            "word": " می‌گم",
+            "probability": 0.6309447111561894
+          },
+          {
+            "start": 5.72,
+            "end": 6.02,
+            "word": " ما",
+            "probability": 0.8475735783576965
+          },
+          {
+            "start": 6.02,
+            "end": 6.42,
+            "word": " از",
+            "probability": 0.9820751249790192
+          },
+          {
+            "start": 6.42,
+            "end": 6.7,
+            "word": " یه",
+            "probability": 0.9159854650497437
+          },
+          {
+            "start": 6.7,
+            "end": 7.14,
+            "word": " جایی",
+            "probability": 0.984472319483757
+          },
+          {
+            "start": 7.14,
+            "end": 7.44,
+            "word": " باقی",
+            "probability": 0.7171755363597185
+          },
+          {
+            "start": 7.44,
+            "end": 8.18,
+            "word": " آغاز",
+            "probability": 0.9358918269475301
+          },
+          {
+            "start": 8.18,
+            "end": 8.56,
+            "word": " کونیم",
+            "probability": 0.7449581454311556
+          },
+          {
+            "start": 8.56,
+            "end": 9.38,
+            "word": " مدیریت",
+            "probability": 0.9166211128234864
+          },
+          {
+            "start": 9.38,
+            "end": 9.54,
+            "word": " و",
+            "probability": 0.9886642098426819
+          },
+          {
+            "start": 9.54,
+            "end": 10.14,
+            "word": " تسلط",
+            "probability": 0.9774856120347977
+          },
+          {
+            "start": 10.14,
+            "end": 10.36,
+            "word": " بر",
+            "probability": 0.9822845757007599
+          },
+          {
+            "start": 10.36,
+            "end": 10.66,
+            "word": " امور",
+            "probability": 0.971802810827891
+          },
+          {
+            "start": 10.66,
+            "end": 11.04,
+            "word": " مالی.",
+            "probability": 0.9860371351242065
+          }
+        ]
+      }
+    ]
+  }
+}

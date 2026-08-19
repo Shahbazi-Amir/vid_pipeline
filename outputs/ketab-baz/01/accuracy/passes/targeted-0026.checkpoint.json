@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "759768e63c4f2544b93cdab4de306bead6ad2902becb6082f1128330a83cf1fd",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.1,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.08,
+        "text": "چون فردا شود، فکر فرده کنیم. اینا می‌گم اون نگرش‌ها و خواست‌های ماست که ناخداگاه بر ما اثر داره و اجازه نمی‌ده پولی رو پسانداز بکنی.",
+        "avg_logprob": -0.20708295990797607,
+        "compression_ratio": 1.5751633986928104,
+        "no_speech_prob": 3.6814365445003716e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.74,
+            "word": " چون",
+            "probability": 0.739384651184082
+          },
+          {
+            "start": 0.74,
+            "end": 1.12,
+            "word": " فردا",
+            "probability": 0.9745192726453146
+          },
+          {
+            "start": 1.12,
+            "end": 1.44,
+            "word": " شود،",
+            "probability": 0.7177301496267319
+          },
+          {
+            "start": 1.44,
+            "end": 1.74,
+            "word": " فکر",
+            "probability": 0.9932684103647867
+          },
+          {
+            "start": 1.74,
+            "end": 2.16,
+            "word": " فرده",
+            "probability": 0.6238188280840404
+          },
+          {
+            "start": 2.16,
+            "end": 2.52,
+            "word": " کنیم.",
+            "probability": 0.9846218079328537
+          },
+          {
+            "start": 2.58,
+            "end": 2.76,
+            "word": " اینا",
+            "probability": 0.9018809795379639
+          },
+          {
+            "start": 2.76,
+            "end": 3.02,
+            "word": " می‌گم",
+            "probability": 0.7045171353965998
+          },
+          {
+            "start": 3.02,
+            "end": 3.14,
+            "word": " اون",
+            "probability": 0.8947573006153107
+          },
+          {
+            "start": 3.14,
+            "end": 3.98,
+            "word": " نگرش‌ها",
+            "probability": 0.9033707678318024
+          },
+          {
+            "start": 3.98,
+            "end": 4.24,
+            "word": " و",
+            "probability": 0.9725098013877869
+          },
+          {
+            "start": 4.24,
+            "end": 5.26,
+            "word": " خواست‌های",
+            "probability": 0.8968525727589926
+          },
+          {
+            "start": 5.26,
+            "end": 5.54,
+            "word": " ماست",
+            "probability": 0.9413842558860779
+          },
+          {
+            "start": 5.54,
+            "end": 5.7,
+            "word": " که",
+            "probability": 0.9299315512180328
+          },
+          {
+            "start": 5.7,
+            "end": 6.56,
+            "word": " ناخداگاه",
+            "probability": 0.9364443182945251
+          },
+          {
+            "start": 6.56,
+            "end": 6.78,
+            "word": " بر",
+            "probability": 0.970252275466919
+          },
+          {
+            "start": 6.78,
+            "end": 6.9,
+            "word": " ما",
+            "probability": 0.948257565498352
+          },
+          {
+            "start": 6.9,
+            "end": 7.3,
+            "word": " اثر",
+            "probability": 0.9220392107963562
+          },
+          {
+            "start": 7.3,
+            "end": 7.62,
+            "word": " داره",
+            "probability": 0.8651561141014099
+          },
+          {
+            "start": 7.62,
+            "end": 8.08,
+            "word": " و",
+            "probability": 0.5772412419319153
+          },
+          {
+            "start": 8.08,
+            "end": 8.54,
+            "word": " اجازه",
+            "probability": 0.9956197440624237
+          },
+          {
+            "start": 8.54,
+            "end": 8.82,
+            "word": " نمی‌ده",
+            "probability": 0.967536081870397
+          },
+          {
+            "start": 8.82,
+            "end": 9.12,
+            "word": " پولی",
+            "probability": 0.9283295671145121
+          },
+          {
+            "start": 9.12,
+            "end": 9.18,
+            "word": " رو",
+            "probability": 0.5118339508771896
+          },
+          {
+            "start": 9.18,
+            "end": 9.76,
+            "word": " پسانداز",
+            "probability": 0.8388867020606995
+          },
+          {
+            "start": 9.76,
+            "end": 10.08,
+            "word": " بکنی.",
+            "probability": 0.9588456749916077
+          }
+        ]
+      }
+    ]
+  }
+}

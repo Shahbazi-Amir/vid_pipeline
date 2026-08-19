@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "e35281e6d71679f646a53d20c93405098e9f1a6dc3716b743c98c43e8ce4288f",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.72,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.54,
+        "text": "و اجازه نمیده پولی رو پسنداز بکنیم، یعنی یک موضوع نگرشی دخالت کرده و این دانایی ما رو تبدیل به تواناای پسانداز کردن نکرده.",
+        "avg_logprob": -0.18883693802590465,
+        "compression_ratio": 1.6903225806451614,
+        "no_speech_prob": 2.2600872562339447e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.4,
+            "word": " و",
+            "probability": 0.9887076616287231
+          },
+          {
+            "start": 0.4,
+            "end": 0.84,
+            "word": " اجازه",
+            "probability": 0.9977287650108337
+          },
+          {
+            "start": 0.84,
+            "end": 1.14,
+            "word": " نمیده",
+            "probability": 0.9746170043945312
+          },
+          {
+            "start": 1.14,
+            "end": 1.44,
+            "word": " پولی",
+            "probability": 0.9858646790186564
+          },
+          {
+            "start": 1.44,
+            "end": 1.5,
+            "word": " رو",
+            "probability": 0.7027995586395264
+          },
+          {
+            "start": 1.5,
+            "end": 2.08,
+            "word": " پسنداز",
+            "probability": 0.9122513979673386
+          },
+          {
+            "start": 2.08,
+            "end": 2.58,
+            "word": " بکنیم،",
+            "probability": 0.831205708013537
+          },
+          {
+            "start": 2.58,
+            "end": 3.02,
+            "word": " یعنی",
+            "probability": 0.9980470687150955
+          },
+          {
+            "start": 3.02,
+            "end": 3.22,
+            "word": " یک",
+            "probability": 0.9691766202449799
+          },
+          {
+            "start": 3.22,
+            "end": 3.66,
+            "word": " موضوع",
+            "probability": 0.9966308772563934
+          },
+          {
+            "start": 3.66,
+            "end": 4.32,
+            "word": " نگرشی",
+            "probability": 0.9908453941345214
+          },
+          {
+            "start": 4.32,
+            "end": 5.0,
+            "word": " دخالت",
+            "probability": 0.9851297736167908
+          },
+          {
+            "start": 5.0,
+            "end": 5.36,
+            "word": " کرده",
+            "probability": 0.9954259991645813
+          },
+          {
+            "start": 5.36,
+            "end": 5.5,
+            "word": " و",
+            "probability": 0.9574819803237915
+          },
+          {
+            "start": 5.5,
+            "end": 5.96,
+            "word": " این",
+            "probability": 0.9532052576541901
+          },
+          {
+            "start": 5.96,
+            "end": 6.56,
+            "word": " دانایی",
+            "probability": 0.9765159130096436
+          },
+          {
+            "start": 6.56,
+            "end": 6.7,
+            "word": " ما",
+            "probability": 0.9834324717521667
+          },
+          {
+            "start": 6.7,
+            "end": 6.86,
+            "word": " رو",
+            "probability": 0.9669217467308044
+          },
+          {
+            "start": 6.86,
+            "end": 7.18,
+            "word": " تبدیل",
+            "probability": 0.9964918196201324
+          },
+          {
+            "start": 7.18,
+            "end": 7.28,
+            "word": " به",
+            "probability": 0.9972406625747681
+          },
+          {
+            "start": 7.28,
+            "end": 7.88,
+            "word": " تواناای",
+            "probability": 0.7899538591322198
+          },
+          {
+            "start": 7.88,
+            "end": 8.54,
+            "word": " پسانداز",
+            "probability": 0.622162282653153
+          },
+          {
+            "start": 8.54,
+            "end": 8.94,
+            "word": " کردن",
+            "probability": 0.9909278154373169
+          },
+          {
+            "start": 8.94,
+            "end": 9.54,
+            "word": " نکرده.",
+            "probability": 0.9857888460159302
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 9.54,
+        "end": 11.24,
+        "text": "پس واجب پس انداز کاردن.",
+        "avg_logprob": -0.18883693802590465,
+        "compression_ratio": 1.6903225806451614,
+        "no_speech_prob": 2.2600872562339447e-10,
+        "words": [
+          {
+            "start": 9.54,
+            "end": 9.56,
+            "word": " پس",
+            "probability": 0.9167251586914062
+          },
+          {
+            "start": 9.56,
+            "end": 9.96,
+            "word": " واجب",
+            "probability": 0.9494903683662415
+          },
+          {
+            "start": 9.96,
+            "end": 10.32,
+            "word": " پس",
+            "probability": 0.9842678606510162
+          },
+          {
+            "start": 10.32,
+            "end": 10.72,
+            "word": " انداز",
+            "probability": 0.6648678239434958
+          },
+          {
+            "start": 10.72,
+            "end": 11.24,
+            "word": " کاردن.",
+            "probability": 0.4862900235748384
+          }
+        ]
+      }
+    ]
+  }
+}

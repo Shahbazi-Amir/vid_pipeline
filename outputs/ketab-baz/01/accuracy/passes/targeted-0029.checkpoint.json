@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "59a734b248fc0fc36beb2c150d89c947decf51a837bbb95de6cce1231e7c183a",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.0,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.34,
+        "text": "ما رو تبدیل به توانایی پس انداز کردن نکرده. پس واجب پسانداز‌کردم. بله، یه ضرورت زندگیه.",
+        "avg_logprob": -0.24188513408104578,
+        "compression_ratio": 1.3771929824561404,
+        "no_speech_prob": 2.2357428408614766e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.08,
+            "word": " ما",
+            "probability": 0.07824890315532684
+          },
+          {
+            "start": 0.08,
+            "end": 0.16,
+            "word": " رو",
+            "probability": 0.8991046249866486
+          },
+          {
+            "start": 0.16,
+            "end": 0.46,
+            "word": " تبدیل",
+            "probability": 0.9946862310171127
+          },
+          {
+            "start": 0.46,
+            "end": 0.54,
+            "word": " به",
+            "probability": 0.9947340488433838
+          },
+          {
+            "start": 0.54,
+            "end": 1.2,
+            "word": " توانایی",
+            "probability": 0.9625526666641235
+          },
+          {
+            "start": 1.2,
+            "end": 1.52,
+            "word": " پس",
+            "probability": 0.9913634657859802
+          },
+          {
+            "start": 1.52,
+            "end": 1.82,
+            "word": " انداز",
+            "probability": 0.8368713061014811
+          },
+          {
+            "start": 1.82,
+            "end": 2.22,
+            "word": " کردن",
+            "probability": 0.9931432008743286
+          },
+          {
+            "start": 2.22,
+            "end": 2.5,
+            "word": " نکرده.",
+            "probability": 0.9721985459327698
+          },
+          {
+            "start": 2.5,
+            "end": 2.76,
+            "word": " پس",
+            "probability": 0.9575799703598022
+          },
+          {
+            "start": 2.76,
+            "end": 3.24,
+            "word": " واجب",
+            "probability": 0.9513996243476868
+          },
+          {
+            "start": 3.24,
+            "end": 4.46,
+            "word": " پسانداز‌کردم.",
+            "probability": 0.6171668671813677
+          },
+          {
+            "start": 4.56,
+            "end": 4.88,
+            "word": " بله،",
+            "probability": 0.7632165054480234
+          },
+          {
+            "start": 4.88,
+            "end": 4.96,
+            "word": " یه",
+            "probability": 0.9229747951030731
+          },
+          {
+            "start": 4.96,
+            "end": 5.58,
+            "word": " ضرورت",
+            "probability": 0.9918083399534225
+          },
+          {
+            "start": 5.58,
+            "end": 6.34,
+            "word": " زندگیه.",
+            "probability": 0.981066370010376
+          }
+        ]
+      }
+    ]
+  }
+}

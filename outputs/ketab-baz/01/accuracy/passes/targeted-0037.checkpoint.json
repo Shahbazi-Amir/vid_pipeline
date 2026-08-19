@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "ec331033d15e9d02ff48f796306ed30bb7450e436886173eb3e52753b901ed9f",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.26,
+    "segments": [
+      {
+        "id": 1,
+        "start": 2.0799999999999996,
+        "end": 9.24,
+        "text": "به آخر ماه نمی‌رسته، حالا چجوری می‌خواد پس انداز کنه؟ و حالان کسی که می‌تونه چقدر",
+        "avg_logprob": -0.33785805768436855,
+        "compression_ratio": 1.3636363636363635,
+        "no_speech_prob": 3.3514610531248934e-10,
+        "words": [
+          {
+            "start": 2.0799999999999996,
+            "end": 2.94,
+            "word": " به",
+            "probability": 0.043151725083589554
+          },
+          {
+            "start": 2.94,
+            "end": 3.48,
+            "word": " آخر",
+            "probability": 0.9672127664089203
+          },
+          {
+            "start": 3.48,
+            "end": 3.88,
+            "word": " ماه",
+            "probability": 0.9662623405456543
+          },
+          {
+            "start": 3.88,
+            "end": 4.5,
+            "word": " نمی‌رسته،",
+            "probability": 0.6894211899489164
+          },
+          {
+            "start": 4.5,
+            "end": 4.64,
+            "word": " حالا",
+            "probability": 0.8722604314486185
+          },
+          {
+            "start": 4.64,
+            "end": 5.14,
+            "word": " چجوری",
+            "probability": 0.7962644770741463
+          },
+          {
+            "start": 5.14,
+            "end": 5.3,
+            "word": " می‌خواد",
+            "probability": 0.9046538591384887
+          },
+          {
+            "start": 5.3,
+            "end": 5.58,
+            "word": " پس",
+            "probability": 0.9814445972442627
+          },
+          {
+            "start": 5.58,
+            "end": 5.98,
+            "word": " انداز",
+            "probability": 0.8079588413238525
+          },
+          {
+            "start": 5.98,
+            "end": 6.44,
+            "word": " کنه؟",
+            "probability": 0.8635368347167969
+          },
+          {
+            "start": 6.44,
+            "end": 6.82,
+            "word": " و",
+            "probability": 0.6298388838768005
+          },
+          {
+            "start": 6.82,
+            "end": 7.6,
+            "word": " حالان",
+            "probability": 0.5175982972529406
+          },
+          {
+            "start": 7.6,
+            "end": 7.9,
+            "word": " کسی",
+            "probability": 0.9708706736564636
+          },
+          {
+            "start": 7.9,
+            "end": 8.14,
+            "word": " که",
+            "probability": 0.9696674346923828
+          },
+          {
+            "start": 8.14,
+            "end": 8.76,
+            "word": " می‌تونه",
+            "probability": 0.9399609327316284
+          },
+          {
+            "start": 8.76,
+            "end": 9.24,
+            "word": " چقدر",
+            "probability": 0.9349497358004252
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "19225d190d21ecd430e0b0ccca475052989620c046437dae2667364c2fa9186e",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 5.66,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 5.04,
+        "text": "واقعا یک بی‌سواد کامل مالی هست. چرا؟ چون اصلا مثلا",
+        "avg_logprob": -0.3025702325736775,
+        "compression_ratio": 1.0459770114942528,
+        "no_speech_prob": 3.860965713808895e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.54,
+            "word": " واقعا",
+            "probability": 0.9729466438293457
+          },
+          {
+            "start": 0.54,
+            "end": 0.76,
+            "word": " یک",
+            "probability": 0.9325084686279297
+          },
+          {
+            "start": 0.76,
+            "end": 1.56,
+            "word": " بی‌سواد",
+            "probability": 0.7812399105944982
+          },
+          {
+            "start": 1.56,
+            "end": 2.02,
+            "word": " کامل",
+            "probability": 0.989331841468811
+          },
+          {
+            "start": 2.02,
+            "end": 2.4,
+            "word": " مالی",
+            "probability": 0.993832528591156
+          },
+          {
+            "start": 2.4,
+            "end": 2.58,
+            "word": " هست.",
+            "probability": 0.624330997467041
+          },
+          {
+            "start": 2.94,
+            "end": 3.7,
+            "word": " چرا؟",
+            "probability": 0.9328810373942057
+          },
+          {
+            "start": 3.7,
+            "end": 3.96,
+            "word": " چون",
+            "probability": 0.9328292012214661
+          },
+          {
+            "start": 3.96,
+            "end": 4.32,
+            "word": " اصلا",
+            "probability": 0.9010122418403625
+          },
+          {
+            "start": 4.32,
+            "end": 5.04,
+            "word": " مثلا",
+            "probability": 0.87068310379982
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "ea30a681e57acbff1ea15e47c3472c716b6116bfce6c6b3a2155010a4a5f342b",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.32,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.9,
+        "text": "اونه که همه فکر کنم پول زیادی چیز خوبیه. آره، من یک مثال می‌زنم، طوضع پسنداز، مثلا می‌گیم که آیا شما می‌دونید که‌ای باید پسانداس کنید؟",
+        "avg_logprob": -0.3021178527544903,
+        "compression_ratio": 1.5185185185185186,
+        "no_speech_prob": 3.2234873104108885e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.64,
+            "word": " اونه",
+            "probability": 0.5291937962174416
+          },
+          {
+            "start": 0.64,
+            "end": 0.78,
+            "word": " که",
+            "probability": 0.8533593416213989
+          },
+          {
+            "start": 0.78,
+            "end": 1.0,
+            "word": " همه",
+            "probability": 0.973281999429067
+          },
+          {
+            "start": 1.0,
+            "end": 1.2,
+            "word": " فکر",
+            "probability": 0.9726740121841431
+          },
+          {
+            "start": 1.2,
+            "end": 1.28,
+            "word": " کنم",
+            "probability": 0.8316712180773417
+          },
+          {
+            "start": 1.28,
+            "end": 1.5,
+            "word": " پول",
+            "probability": 0.9466012716293335
+          },
+          {
+            "start": 1.5,
+            "end": 1.88,
+            "word": " زیادی",
+            "probability": 0.9911232888698578
+          },
+          {
+            "start": 1.88,
+            "end": 2.14,
+            "word": " چیز",
+            "probability": 0.9754320979118347
+          },
+          {
+            "start": 2.14,
+            "end": 2.5,
+            "word": " خوبیه.",
+            "probability": 0.7426861301064491
+          },
+          {
+            "start": 2.58,
+            "end": 2.78,
+            "word": " آره،",
+            "probability": 0.7635425925254822
+          },
+          {
+            "start": 2.78,
+            "end": 2.86,
+            "word": " من",
+            "probability": 0.352112352848053
+          },
+          {
+            "start": 2.86,
+            "end": 3.08,
+            "word": " یک",
+            "probability": 0.7276202440261841
+          },
+          {
+            "start": 3.08,
+            "end": 3.48,
+            "word": " مثال",
+            "probability": 0.9949213266372681
+          },
+          {
+            "start": 3.48,
+            "end": 3.82,
+            "word": " می‌زنم،",
+            "probability": 0.6654740447799364
+          },
+          {
+            "start": 3.82,
+            "end": 4.22,
+            "word": " طوضع",
+            "probability": 0.6730835661292076
+          },
+          {
+            "start": 4.22,
+            "end": 5.26,
+            "word": " پسنداز،",
+            "probability": 0.6714656919240951
+          },
+          {
+            "start": 5.26,
+            "end": 5.7,
+            "word": " مثلا",
+            "probability": 0.8436515629291534
+          },
+          {
+            "start": 5.7,
+            "end": 6.04,
+            "word": " می‌گیم",
+            "probability": 0.9408738017082214
+          },
+          {
+            "start": 6.04,
+            "end": 6.34,
+            "word": " که",
+            "probability": 0.786672443151474
+          },
+          {
+            "start": 6.34,
+            "end": 6.54,
+            "word": " آیا",
+            "probability": 0.8042357861995697
+          },
+          {
+            "start": 6.54,
+            "end": 6.76,
+            "word": " شما",
+            "probability": 0.9507569372653961
+          },
+          {
+            "start": 6.76,
+            "end": 7.24,
+            "word": " می‌دونید",
+            "probability": 0.9859071870644888
+          },
+          {
+            "start": 7.24,
+            "end": 7.42,
+            "word": " که‌ای",
+            "probability": 0.7633379220962524
+          },
+          {
+            "start": 7.42,
+            "end": 7.62,
+            "word": " باید",
+            "probability": 0.9467540234327316
+          },
+          {
+            "start": 7.62,
+            "end": 8.18,
+            "word": " پسانداس",
+            "probability": 0.7015215545892716
+          },
+          {
+            "start": 8.18,
+            "end": 8.9,
+            "word": " کنید؟",
+            "probability": 0.9589892387390136
+          }
+        ]
+      }
+    ]
+  }
+}

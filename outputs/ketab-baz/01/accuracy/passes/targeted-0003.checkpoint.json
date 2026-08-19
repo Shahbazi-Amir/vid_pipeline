@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "0714095e0983913929318cf7b0da5766279af3e863827eb021f37da3cc9653ed",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.12,
+    "segments": [
+      {
+        "id": 1,
+        "start": 2.900000000000002,
+        "end": 9.56,
+        "text": "آقای دکتر کمیل رودی، استاد دانشگاه و مدرس سواد مالی به کتاباز خیلی خوش اومدین.",
+        "avg_logprob": -0.1521647907793522,
+        "compression_ratio": 1.5333333333333334,
+        "no_speech_prob": 2.526329423435669e-10,
+        "words": [
+          {
+            "start": 2.900000000000002,
+            "end": 3.66,
+            "word": " آقای",
+            "probability": 0.9131530672311783
+          },
+          {
+            "start": 3.66,
+            "end": 4.06,
+            "word": " دکتر",
+            "probability": 0.9860181212425232
+          },
+          {
+            "start": 4.06,
+            "end": 4.6,
+            "word": " کمیل",
+            "probability": 0.8632282018661499
+          },
+          {
+            "start": 4.6,
+            "end": 5.12,
+            "word": " رودی،",
+            "probability": 0.7612246992066503
+          },
+          {
+            "start": 5.12,
+            "end": 5.48,
+            "word": " استاد",
+            "probability": 0.9694537222385406
+          },
+          {
+            "start": 5.48,
+            "end": 6.18,
+            "word": " دانشگاه",
+            "probability": 0.9960168361663818
+          },
+          {
+            "start": 6.18,
+            "end": 6.36,
+            "word": " و",
+            "probability": 0.9985677003860474
+          },
+          {
+            "start": 6.36,
+            "end": 6.98,
+            "word": " مدرس",
+            "probability": 0.9957043081521988
+          },
+          {
+            "start": 6.98,
+            "end": 7.58,
+            "word": " سواد",
+            "probability": 0.950818141301473
+          },
+          {
+            "start": 7.58,
+            "end": 8.0,
+            "word": " مالی",
+            "probability": 0.9992729425430298
+          },
+          {
+            "start": 8.0,
+            "end": 8.1,
+            "word": " به",
+            "probability": 0.9721097350120544
+          },
+          {
+            "start": 8.1,
+            "end": 8.64,
+            "word": " کتاباز",
+            "probability": 0.964955061674118
+          },
+          {
+            "start": 8.64,
+            "end": 8.88,
+            "word": " خیلی",
+            "probability": 0.9662188291549683
+          },
+          {
+            "start": 8.88,
+            "end": 9.14,
+            "word": " خوش",
+            "probability": 0.9957759380340576
+          },
+          {
+            "start": 9.14,
+            "end": 9.56,
+            "word": " اومدین.",
+            "probability": 0.7752831131219864
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 9.72,
+        "end": 12.1,
+        "text": "سلامت باشین، سلام خدمت شما و بیننده.",
+        "avg_logprob": -0.1521647907793522,
+        "compression_ratio": 1.5333333333333334,
+        "no_speech_prob": 2.526329423435669e-10,
+        "words": [
+          {
+            "start": 9.72,
+            "end": 10.34,
+            "word": " سلامت",
+            "probability": 0.9788914124170939
+          },
+          {
+            "start": 10.34,
+            "end": 10.7,
+            "word": " باشین،",
+            "probability": 0.6440208051353693
+          },
+          {
+            "start": 10.7,
+            "end": 10.9,
+            "word": " سلام",
+            "probability": 0.8027288019657135
+          },
+          {
+            "start": 10.9,
+            "end": 11.28,
+            "word": " خدمت",
+            "probability": 0.9928183158238729
+          },
+          {
+            "start": 11.28,
+            "end": 11.58,
+            "word": " شما",
+            "probability": 0.9868271350860596
+          },
+          {
+            "start": 11.58,
+            "end": 11.74,
+            "word": " و",
+            "probability": 0.9876559972763062
+          },
+          {
+            "start": 11.74,
+            "end": 12.1,
+            "word": " بیننده.",
+            "probability": 0.8031917065382004
+          }
+        ]
+      }
+    ]
+  }
+}

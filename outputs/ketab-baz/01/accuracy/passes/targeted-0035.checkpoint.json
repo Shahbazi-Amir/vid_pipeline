@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "aa66158e5816e7dad1ae5ba6c6d8d35a49604315865a32940901b13de0483814",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.22,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.98,
+        "text": "این سوال مهم دارم، ببخشیم. ما فایش می‌کنم؟ یکی این که کسی که امور روزمره‌اش نمی‌گذره، یعنی در برای خودم عرض نمیکنم، ولان خیلی‌ها هستند که توی اون گرونی‌ا",
+        "avg_logprob": -0.33421948069617863,
+        "compression_ratio": 1.6022727272727273,
+        "no_speech_prob": 3.017801564197953e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.08,
+            "word": " این",
+            "probability": 0.4043221026659012
+          },
+          {
+            "start": 0.08,
+            "end": 0.34,
+            "word": " سوال",
+            "probability": 0.7311984598636627
+          },
+          {
+            "start": 0.34,
+            "end": 0.68,
+            "word": " مهم",
+            "probability": 0.8435370922088623
+          },
+          {
+            "start": 0.68,
+            "end": 1.14,
+            "word": " دارم،",
+            "probability": 0.7644738368690014
+          },
+          {
+            "start": 1.14,
+            "end": 1.56,
+            "word": " ببخشیم.",
+            "probability": 0.7718777159849802
+          },
+          {
+            "start": 1.62,
+            "end": 1.76,
+            "word": " ما",
+            "probability": 0.5042852163314819
+          },
+          {
+            "start": 1.76,
+            "end": 2.08,
+            "word": " فایش",
+            "probability": 0.7479981780052185
+          },
+          {
+            "start": 2.08,
+            "end": 2.48,
+            "word": " می‌کنم؟",
+            "probability": 0.6314365466435751
+          },
+          {
+            "start": 2.48,
+            "end": 2.72,
+            "word": " یکی",
+            "probability": 0.8719493945439657
+          },
+          {
+            "start": 2.72,
+            "end": 2.82,
+            "word": " این",
+            "probability": 0.8890815377235413
+          },
+          {
+            "start": 2.82,
+            "end": 2.96,
+            "word": " که",
+            "probability": 0.5973919332027435
+          },
+          {
+            "start": 2.96,
+            "end": 3.42,
+            "word": " کسی",
+            "probability": 0.9774319529533386
+          },
+          {
+            "start": 3.42,
+            "end": 3.66,
+            "word": " که",
+            "probability": 0.9672680199146271
+          },
+          {
+            "start": 3.66,
+            "end": 4.14,
+            "word": " امور",
+            "probability": 0.9668465654055277
+          },
+          {
+            "start": 4.14,
+            "end": 5.26,
+            "word": " روزمره‌اش",
+            "probability": 0.7697627161230359
+          },
+          {
+            "start": 5.26,
+            "end": 6.42,
+            "word": " نمی‌گذره،",
+            "probability": 0.8597053819232516
+          },
+          {
+            "start": 6.42,
+            "end": 6.5,
+            "word": " یعنی",
+            "probability": 0.8793856054544449
+          },
+          {
+            "start": 6.5,
+            "end": 6.74,
+            "word": " در",
+            "probability": 0.537225753068924
+          },
+          {
+            "start": 6.74,
+            "end": 6.82,
+            "word": " برای",
+            "probability": 0.7495163679122925
+          },
+          {
+            "start": 6.82,
+            "end": 7.2,
+            "word": " خودم",
+            "probability": 0.9533233443895975
+          },
+          {
+            "start": 7.2,
+            "end": 7.42,
+            "word": " عرض",
+            "probability": 0.7479958236217499
+          },
+          {
+            "start": 7.42,
+            "end": 7.86,
+            "word": " نمیکنم،",
+            "probability": 0.6580898637572924
+          },
+          {
+            "start": 7.86,
+            "end": 8.0,
+            "word": " ولان",
+            "probability": 0.24904778599739075
+          },
+          {
+            "start": 8.0,
+            "end": 8.46,
+            "word": " خیلی‌ها",
+            "probability": 0.8080482358733813
+          },
+          {
+            "start": 8.46,
+            "end": 8.86,
+            "word": " هستند",
+            "probability": 0.7589124540487925
+          },
+          {
+            "start": 8.86,
+            "end": 9.04,
+            "word": " که",
+            "probability": 0.9765320718288422
+          },
+          {
+            "start": 9.04,
+            "end": 9.22,
+            "word": " توی",
+            "probability": 0.7412787973880768
+          },
+          {
+            "start": 9.22,
+            "end": 9.24,
+            "word": " اون",
+            "probability": 0.46048793953377753
+          },
+          {
+            "start": 9.24,
+            "end": 9.98,
+            "word": " گرونی‌ا",
+            "probability": 0.7719889328194162
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 9.98,
+        "end": 10.12,
+        "text": "موسیقی",
+        "avg_logprob": -0.7147444859147072,
+        "compression_ratio": 0.5714285714285714,
+        "no_speech_prob": 2.657037612152635e-08,
+        "words": [
+          {
+            "start": 9.98,
+            "end": 10.12,
+            "word": " موسیقی",
+            "probability": 0.7506827414035797
+          }
+        ]
+      }
+    ]
+  }
+}

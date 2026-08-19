@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "f3d95991e6e74602c4fae5a0c90e5c9e4b34ea9a9417513e46415fdbae5cf1ec",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 5.88,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 5.86,
+        "text": "خب به تو سوال مهم دارم، ببخش مثلا، یکی این که کسی که امور روزمره",
+        "avg_logprob": -0.34852400214173074,
+        "compression_ratio": 1.2666666666666666,
+        "no_speech_prob": 3.5629207917331485e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.7,
+            "word": " خب",
+            "probability": 0.482652697712183
+          },
+          {
+            "start": 0.7,
+            "end": 0.7,
+            "word": " به",
+            "probability": 0.7877984642982483
+          },
+          {
+            "start": 0.7,
+            "end": 0.84,
+            "word": " تو",
+            "probability": 0.7317478656768799
+          },
+          {
+            "start": 0.84,
+            "end": 1.18,
+            "word": " سوال",
+            "probability": 0.8840565085411072
+          },
+          {
+            "start": 1.18,
+            "end": 1.54,
+            "word": " مهم",
+            "probability": 0.9428590536117554
+          },
+          {
+            "start": 1.54,
+            "end": 2.04,
+            "word": " دارم،",
+            "probability": 0.7588714035227895
+          },
+          {
+            "start": 2.04,
+            "end": 2.36,
+            "word": " ببخش",
+            "probability": 0.9175605028867722
+          },
+          {
+            "start": 2.36,
+            "end": 2.96,
+            "word": " مثلا،",
+            "probability": 0.38607048988342285
+          },
+          {
+            "start": 2.96,
+            "end": 3.64,
+            "word": " یکی",
+            "probability": 0.7044448604186376
+          },
+          {
+            "start": 3.64,
+            "end": 3.7,
+            "word": " این",
+            "probability": 0.9734467566013336
+          },
+          {
+            "start": 3.7,
+            "end": 3.82,
+            "word": " که",
+            "probability": 0.7619828283786774
+          },
+          {
+            "start": 3.82,
+            "end": 4.3,
+            "word": " کسی",
+            "probability": 0.9796953002611796
+          },
+          {
+            "start": 4.3,
+            "end": 4.6,
+            "word": " که",
+            "probability": 0.9922523200511932
+          },
+          {
+            "start": 4.6,
+            "end": 5.02,
+            "word": " امور",
+            "probability": 0.9781113664309183
+          },
+          {
+            "start": 5.02,
+            "end": 5.86,
+            "word": " روزمره",
+            "probability": 0.8518481254577637
+          }
+        ]
+      }
+    ]
+  }
+}

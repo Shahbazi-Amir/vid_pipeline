@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "3368adab7e93b600306c416dd1fd2b3e03319df665072d548a204949367fd0f3",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.66,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.64,
+        "text": "یه بخشیش رو کنار بذاریم و نادیده بگیریم، اگر دق و خرج با همون پولی که به دست آوردی، نشه، آفرین، این گام بعدیه، یعنی این برای آیا",
+        "avg_logprob": -0.32287898451782937,
+        "compression_ratio": 1.6013986013986015,
+        "no_speech_prob": 4.5722445274343215e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.4,
+            "word": " یه",
+            "probability": 0.4067660868167877
+          },
+          {
+            "start": 0.4,
+            "end": 0.86,
+            "word": " بخشیش",
+            "probability": 0.8603035569190979
+          },
+          {
+            "start": 0.86,
+            "end": 0.96,
+            "word": " رو",
+            "probability": 0.6808051466941833
+          },
+          {
+            "start": 0.96,
+            "end": 1.36,
+            "word": " کنار",
+            "probability": 0.9961376190185547
+          },
+          {
+            "start": 1.36,
+            "end": 1.8,
+            "word": " بذاریم",
+            "probability": 0.8369486093521118
+          },
+          {
+            "start": 1.8,
+            "end": 1.96,
+            "word": " و",
+            "probability": 0.9082359671592712
+          },
+          {
+            "start": 1.96,
+            "end": 2.46,
+            "word": " نادیده",
+            "probability": 0.9787130117416382
+          },
+          {
+            "start": 2.46,
+            "end": 2.5,
+            "word": " بگیریم،",
+            "probability": 0.8011088480707258
+          },
+          {
+            "start": 2.5,
+            "end": 2.52,
+            "word": " اگر",
+            "probability": 0.6413456499576569
+          },
+          {
+            "start": 2.52,
+            "end": 2.72,
+            "word": " دق",
+            "probability": 0.5418361946940422
+          },
+          {
+            "start": 2.72,
+            "end": 2.96,
+            "word": " و",
+            "probability": 0.09762441366910934
+          },
+          {
+            "start": 2.96,
+            "end": 3.24,
+            "word": " خرج",
+            "probability": 0.9539504051208496
+          },
+          {
+            "start": 3.24,
+            "end": 3.48,
+            "word": " با",
+            "probability": 0.9720056653022766
+          },
+          {
+            "start": 3.48,
+            "end": 3.8,
+            "word": " همون",
+            "probability": 0.9752628207206726
+          },
+          {
+            "start": 3.8,
+            "end": 4.1,
+            "word": " پولی",
+            "probability": 0.9908028443654379
+          },
+          {
+            "start": 4.1,
+            "end": 4.24,
+            "word": " که",
+            "probability": 0.9926587045192719
+          },
+          {
+            "start": 4.24,
+            "end": 4.34,
+            "word": " به",
+            "probability": 0.9701318740844727
+          },
+          {
+            "start": 4.34,
+            "end": 4.66,
+            "word": " دست",
+            "probability": 0.9951740205287933
+          },
+          {
+            "start": 4.66,
+            "end": 5.14,
+            "word": " آوردی،",
+            "probability": 0.6736513286828995
+          },
+          {
+            "start": 5.14,
+            "end": 5.76,
+            "word": " نشه،",
+            "probability": 0.7589567303657532
+          },
+          {
+            "start": 5.76,
+            "end": 6.24,
+            "word": " آفرین،",
+            "probability": 0.6204434335231781
+          },
+          {
+            "start": 6.24,
+            "end": 6.28,
+            "word": " این",
+            "probability": 0.9903092682361603
+          },
+          {
+            "start": 6.28,
+            "end": 6.5,
+            "word": " گام",
+            "probability": 0.9665429294109344
+          },
+          {
+            "start": 6.5,
+            "end": 7.04,
+            "word": " بعدیه،",
+            "probability": 0.6998948305845261
+          },
+          {
+            "start": 7.04,
+            "end": 7.32,
+            "word": " یعنی",
+            "probability": 0.9953640252351761
+          },
+          {
+            "start": 7.32,
+            "end": 7.58,
+            "word": " این",
+            "probability": 0.8031827807426453
+          },
+          {
+            "start": 7.58,
+            "end": 8.24,
+            "word": " برای",
+            "probability": 0.9712520837783813
+          },
+          {
+            "start": 8.24,
+            "end": 8.64,
+            "word": " آیا",
+            "probability": 0.5613861009478569
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "f835345b0d5e3c6fe906968dbd52991f43f015ad833fd6177afb9f0696514e97",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.58,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.56,
+        "text": "که ناخداگاه بر ما اثر داره و اجازه نمیده پولیو پسانداز بکنیم. یعنی یک موضوع نگرشی، دخالت،",
+        "avg_logprob": -0.2066645440645516,
+        "compression_ratio": 1.424778761061947,
+        "no_speech_prob": 3.453415331478027e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.64,
+            "word": " که",
+            "probability": 0.5418759621679783
+          },
+          {
+            "start": 0.64,
+            "end": 1.46,
+            "word": " ناخداگاه",
+            "probability": 0.9470077395439148
+          },
+          {
+            "start": 1.46,
+            "end": 1.68,
+            "word": " بر",
+            "probability": 0.9651244580745697
+          },
+          {
+            "start": 1.68,
+            "end": 1.8,
+            "word": " ما",
+            "probability": 0.9353615641593933
+          },
+          {
+            "start": 1.8,
+            "end": 2.2,
+            "word": " اثر",
+            "probability": 0.95046666264534
+          },
+          {
+            "start": 2.2,
+            "end": 2.52,
+            "word": " داره",
+            "probability": 0.9632266362508138
+          },
+          {
+            "start": 2.52,
+            "end": 2.98,
+            "word": " و",
+            "probability": 0.900000810623169
+          },
+          {
+            "start": 2.98,
+            "end": 3.44,
+            "word": " اجازه",
+            "probability": 0.9975051730871201
+          },
+          {
+            "start": 3.44,
+            "end": 3.74,
+            "word": " نمیده",
+            "probability": 0.9857315182685852
+          },
+          {
+            "start": 3.74,
+            "end": 4.06,
+            "word": " پولیو",
+            "probability": 0.8305409252643585
+          },
+          {
+            "start": 4.06,
+            "end": 4.66,
+            "word": " پسانداز",
+            "probability": 0.8223508298397064
+          },
+          {
+            "start": 4.66,
+            "end": 5.1,
+            "word": " بکنیم.",
+            "probability": 0.9927873492240906
+          },
+          {
+            "start": 5.18,
+            "end": 5.6,
+            "word": " یعنی",
+            "probability": 0.9978934079408646
+          },
+          {
+            "start": 5.6,
+            "end": 5.8,
+            "word": " یک",
+            "probability": 0.9739934206008911
+          },
+          {
+            "start": 5.8,
+            "end": 6.24,
+            "word": " موضوع",
+            "probability": 0.9975507855415344
+          },
+          {
+            "start": 6.24,
+            "end": 6.98,
+            "word": " نگرشی،",
+            "probability": 0.8702465891838074
+          },
+          {
+            "start": 6.98,
+            "end": 7.56,
+            "word": " دخالت،",
+            "probability": 0.8511421263217926
+          }
+        ]
+      }
+    ]
+  }
+}

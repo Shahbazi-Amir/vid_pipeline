@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "3265a237755a0b6f4bde319b77814f67cbe98350ad40c09e136aafd3fbcea473",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.84,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.82,
+        "text": "پس واجبه پس انداز کردن. بله، یه ضرورت زندگیه. و بعد تو حوضه‌ی توانایی می‌گم که",
+        "avg_logprob": -0.25983065704129776,
+        "compression_ratio": 1.2589285714285714,
+        "no_speech_prob": 2.506151397518863e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.76,
+            "word": " پس",
+            "probability": 0.8290477693080902
+          },
+          {
+            "start": 0.76,
+            "end": 1.3,
+            "word": " واجبه",
+            "probability": 0.807187058031559
+          },
+          {
+            "start": 1.3,
+            "end": 1.6,
+            "word": " پس",
+            "probability": 0.9947080314159393
+          },
+          {
+            "start": 1.6,
+            "end": 1.98,
+            "word": " انداز",
+            "probability": 0.8608959515889486
+          },
+          {
+            "start": 1.98,
+            "end": 2.54,
+            "word": " کردن.",
+            "probability": 0.966864804426829
+          },
+          {
+            "start": 2.58,
+            "end": 2.88,
+            "word": " بله،",
+            "probability": 0.6859792818625768
+          },
+          {
+            "start": 2.88,
+            "end": 2.98,
+            "word": " یه",
+            "probability": 0.9829276204109192
+          },
+          {
+            "start": 2.98,
+            "end": 3.58,
+            "word": " ضرورت",
+            "probability": 0.9977024495601654
+          },
+          {
+            "start": 3.58,
+            "end": 4.36,
+            "word": " زندگیه.",
+            "probability": 0.9960575819015502
+          },
+          {
+            "start": 4.52,
+            "end": 4.94,
+            "word": " و",
+            "probability": 0.972595751285553
+          },
+          {
+            "start": 4.94,
+            "end": 5.28,
+            "word": " بعد",
+            "probability": 0.9961439371109009
+          },
+          {
+            "start": 5.28,
+            "end": 5.5,
+            "word": " تو",
+            "probability": 0.9701020121574402
+          },
+          {
+            "start": 5.5,
+            "end": 5.84,
+            "word": " حوضه‌ی",
+            "probability": 0.6843040343374014
+          },
+          {
+            "start": 5.84,
+            "end": 6.44,
+            "word": " توانایی",
+            "probability": 0.9775654315948487
+          },
+          {
+            "start": 6.44,
+            "end": 6.76,
+            "word": " می‌گم",
+            "probability": 0.711748443543911
+          },
+          {
+            "start": 6.76,
+            "end": 6.82,
+            "word": " که",
+            "probability": 0.6758152842521667
+          }
+        ]
+      }
+    ]
+  }
+}

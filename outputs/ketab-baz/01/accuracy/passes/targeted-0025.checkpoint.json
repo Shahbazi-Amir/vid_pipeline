@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "fa055037ae593c3aa267208a7c87a9e3269eb297ba60990b2f6d7bc7c8fa76d2",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.88,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 12.86,
+        "text": "این یک مثال از حوضه‌ی دانایی. بعد می‌پرسیم که تالا پسنداز کردی، می‌گه نه بابا، پول برای خرج کردنه، چون فردا شود، فکر فرده کنیم. اینا می‌کم اون نگرش‌ها و خواست‌ها.",
+        "avg_logprob": -0.2556495705136546,
+        "compression_ratio": 1.6229508196721312,
+        "no_speech_prob": 3.5035396805938035e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.44,
+            "word": " این",
+            "probability": 0.7493136525154114
+          },
+          {
+            "start": 0.44,
+            "end": 0.54,
+            "word": " یک",
+            "probability": 0.570306271314621
+          },
+          {
+            "start": 0.54,
+            "end": 0.94,
+            "word": " مثال",
+            "probability": 0.9954617321491241
+          },
+          {
+            "start": 0.94,
+            "end": 1.1,
+            "word": " از",
+            "probability": 0.979555755853653
+          },
+          {
+            "start": 1.1,
+            "end": 1.44,
+            "word": " حوضه‌ی",
+            "probability": 0.735621397693952
+          },
+          {
+            "start": 1.44,
+            "end": 1.94,
+            "word": " دانایی.",
+            "probability": 0.9091539144515991
+          },
+          {
+            "start": 2.62,
+            "end": 3.3,
+            "word": " بعد",
+            "probability": 0.9841152429580688
+          },
+          {
+            "start": 3.3,
+            "end": 3.88,
+            "word": " می‌پرسیم",
+            "probability": 0.9689641850335258
+          },
+          {
+            "start": 3.88,
+            "end": 4.02,
+            "word": " که",
+            "probability": 0.9344750940799713
+          },
+          {
+            "start": 4.02,
+            "end": 4.26,
+            "word": " تالا",
+            "probability": 0.6698436935742696
+          },
+          {
+            "start": 4.26,
+            "end": 4.84,
+            "word": " پسنداز",
+            "probability": 0.8112074062228203
+          },
+          {
+            "start": 4.84,
+            "end": 5.36,
+            "word": " کردی،",
+            "probability": 0.7501634005457163
+          },
+          {
+            "start": 5.36,
+            "end": 5.52,
+            "word": " می‌گه",
+            "probability": 0.9041436910629272
+          },
+          {
+            "start": 5.52,
+            "end": 5.84,
+            "word": " نه",
+            "probability": 0.6575191020965576
+          },
+          {
+            "start": 5.84,
+            "end": 6.56,
+            "word": " بابا،",
+            "probability": 0.7626832574605942
+          },
+          {
+            "start": 6.56,
+            "end": 7.24,
+            "word": " پول",
+            "probability": 0.978137880563736
+          },
+          {
+            "start": 7.24,
+            "end": 7.48,
+            "word": " برای",
+            "probability": 0.9061919450759888
+          },
+          {
+            "start": 7.48,
+            "end": 7.78,
+            "word": " خرج",
+            "probability": 0.6262359768152237
+          },
+          {
+            "start": 7.78,
+            "end": 8.48,
+            "word": " کردنه،",
+            "probability": 0.7634819149971008
+          },
+          {
+            "start": 8.48,
+            "end": 8.62,
+            "word": " چون",
+            "probability": 0.8540920317173004
+          },
+          {
+            "start": 8.62,
+            "end": 9.0,
+            "word": " فردا",
+            "probability": 0.9783943692843119
+          },
+          {
+            "start": 9.0,
+            "end": 9.34,
+            "word": " شود،",
+            "probability": 0.781218965848287
+          },
+          {
+            "start": 9.34,
+            "end": 9.62,
+            "word": " فکر",
+            "probability": 0.991791288057963
+          },
+          {
+            "start": 9.62,
+            "end": 10.04,
+            "word": " فرده",
+            "probability": 0.5969745187321678
+          },
+          {
+            "start": 10.04,
+            "end": 10.38,
+            "word": " کنیم.",
+            "probability": 0.9673016965389252
+          },
+          {
+            "start": 10.46,
+            "end": 10.64,
+            "word": " اینا",
+            "probability": 0.9074234167734782
+          },
+          {
+            "start": 10.64,
+            "end": 10.92,
+            "word": " می‌کم",
+            "probability": 0.6779657630249858
+          },
+          {
+            "start": 10.92,
+            "end": 11.04,
+            "word": " اون",
+            "probability": 0.8632866442203522
+          },
+          {
+            "start": 11.04,
+            "end": 11.88,
+            "word": " نگرش‌ها",
+            "probability": 0.9230794211228689
+          },
+          {
+            "start": 11.88,
+            "end": 12.12,
+            "word": " و",
+            "probability": 0.9551853537559509
+          },
+          {
+            "start": 12.12,
+            "end": 12.86,
+            "word": " خواست‌ها.",
+            "probability": 0.899824583530426
+          }
+        ]
+      }
+    ]
+  }
+}

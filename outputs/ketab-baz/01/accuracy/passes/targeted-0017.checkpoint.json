@@ -1,0 +1,448 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "03f87e0354061df2671e070481842ff1f19cecc94ce37447ef3382f20d5f57ae",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 16.48,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 2.04,
+        "text": "خوب بشه با پول، یعنی بعضی وقت این بسیار...",
+        "avg_logprob": -0.32034748029239074,
+        "compression_ratio": 1.956043956043956,
+        "no_speech_prob": 2.9732058481890533e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.22,
+            "word": " خوب",
+            "probability": 0.6944869309663773
+          },
+          {
+            "start": 0.22,
+            "end": 0.52,
+            "word": " بشه",
+            "probability": 0.9947039484977722
+          },
+          {
+            "start": 0.52,
+            "end": 0.68,
+            "word": " با",
+            "probability": 0.9945269525051117
+          },
+          {
+            "start": 0.68,
+            "end": 1.06,
+            "word": " پول،",
+            "probability": 0.6688617132604122
+          },
+          {
+            "start": 1.06,
+            "end": 1.26,
+            "word": " یعنی",
+            "probability": 0.991219773888588
+          },
+          {
+            "start": 1.26,
+            "end": 1.54,
+            "word": " بعضی",
+            "probability": 0.969607432683309
+          },
+          {
+            "start": 1.54,
+            "end": 1.72,
+            "word": " وقت",
+            "probability": 0.9960142970085144
+          },
+          {
+            "start": 1.72,
+            "end": 1.92,
+            "word": " این",
+            "probability": 0.6018180847167969
+          },
+          {
+            "start": 1.92,
+            "end": 2.04,
+            "word": " بسیار...",
+            "probability": 0.6449184566736221
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 2.04,
+        "end": 3.26,
+        "text": "باپول که هالمون خوبه؟",
+        "avg_logprob": -0.32034748029239074,
+        "compression_ratio": 1.956043956043956,
+        "no_speech_prob": 2.9732058481890533e-10,
+        "words": [
+          {
+            "start": 2.04,
+            "end": 2.5,
+            "word": " باپول",
+            "probability": 0.6535316027875524
+          },
+          {
+            "start": 2.5,
+            "end": 2.6,
+            "word": " که",
+            "probability": 0.9520411193370819
+          },
+          {
+            "start": 2.6,
+            "end": 2.86,
+            "word": " هالمون",
+            "probability": 0.7076123853524526
+          },
+          {
+            "start": 2.86,
+            "end": 3.26,
+            "word": " خوبه؟",
+            "probability": 0.889706164598465
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "start": 3.26,
+        "end": 9.1,
+        "text": "نه یعني یه جور احساساتی در ما وجود داره که فکر می‌کنیم که پول چیز بدیه ممکنه اینجوری باشه",
+        "avg_logprob": -0.32034748029239074,
+        "compression_ratio": 1.956043956043956,
+        "no_speech_prob": 2.9732058481890533e-10,
+        "words": [
+          {
+            "start": 3.26,
+            "end": 3.44,
+            "word": " نه",
+            "probability": 0.9783275425434113
+          },
+          {
+            "start": 3.44,
+            "end": 3.62,
+            "word": " یعني",
+            "probability": 0.6000281877810872
+          },
+          {
+            "start": 3.62,
+            "end": 3.92,
+            "word": " یه",
+            "probability": 0.8982477486133575
+          },
+          {
+            "start": 3.92,
+            "end": 4.08,
+            "word": " جور",
+            "probability": 0.9875417053699493
+          },
+          {
+            "start": 4.08,
+            "end": 5.16,
+            "word": " احساساتی",
+            "probability": 0.9957668880621592
+          },
+          {
+            "start": 5.16,
+            "end": 5.4,
+            "word": " در",
+            "probability": 0.9984051585197449
+          },
+          {
+            "start": 5.4,
+            "end": 5.5,
+            "word": " ما",
+            "probability": 0.9774252772331238
+          },
+          {
+            "start": 5.5,
+            "end": 5.9,
+            "word": " وجود",
+            "probability": 0.9973722994327545
+          },
+          {
+            "start": 5.9,
+            "end": 6.26,
+            "word": " داره",
+            "probability": 0.9964013695716858
+          },
+          {
+            "start": 6.26,
+            "end": 6.5,
+            "word": " که",
+            "probability": 0.9789021015167236
+          },
+          {
+            "start": 6.5,
+            "end": 6.76,
+            "word": " فکر",
+            "probability": 0.9980583588282267
+          },
+          {
+            "start": 6.76,
+            "end": 7.1,
+            "word": " می‌کنیم",
+            "probability": 0.6920241167147955
+          },
+          {
+            "start": 7.1,
+            "end": 7.24,
+            "word": " که",
+            "probability": 0.9913994669914246
+          },
+          {
+            "start": 7.24,
+            "end": 7.46,
+            "word": " پول",
+            "probability": 0.9919740259647369
+          },
+          {
+            "start": 7.46,
+            "end": 7.68,
+            "word": " چیز",
+            "probability": 0.9922153949737549
+          },
+          {
+            "start": 7.68,
+            "end": 8.12,
+            "word": " بدیه",
+            "probability": 0.8968838850657145
+          },
+          {
+            "start": 8.12,
+            "end": 8.54,
+            "word": " ممکنه",
+            "probability": 0.9331386089324951
+          },
+          {
+            "start": 8.54,
+            "end": 8.82,
+            "word": " اینجوری",
+            "probability": 0.9617525219917298
+          },
+          {
+            "start": 8.82,
+            "end": 9.1,
+            "word": " باشه",
+            "probability": 0.9961727460225424
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "start": 9.1,
+        "end": 13.5,
+        "text": "یا آینده هرگز نایمده، فکل امروز رو بکنین، باعث می‌شه امروج پول اون رو خرج کنی.",
+        "avg_logprob": -0.32034748029239074,
+        "compression_ratio": 1.956043956043956,
+        "no_speech_prob": 2.9732058481890533e-10,
+        "words": [
+          {
+            "start": 9.1,
+            "end": 9.58,
+            "word": " یا",
+            "probability": 0.8257478773593903
+          },
+          {
+            "start": 9.58,
+            "end": 10.16,
+            "word": " آینده",
+            "probability": 0.9946793913841248
+          },
+          {
+            "start": 10.16,
+            "end": 10.52,
+            "word": " هرگز",
+            "probability": 0.9506757110357285
+          },
+          {
+            "start": 10.52,
+            "end": 11.16,
+            "word": " نایمده،",
+            "probability": 0.863163309437888
+          },
+          {
+            "start": 11.16,
+            "end": 11.44,
+            "word": " فکل",
+            "probability": 0.6660914892951647
+          },
+          {
+            "start": 11.44,
+            "end": 11.88,
+            "word": " امروز",
+            "probability": 0.9921180307865143
+          },
+          {
+            "start": 11.88,
+            "end": 11.98,
+            "word": " رو",
+            "probability": 0.8470107913017273
+          },
+          {
+            "start": 11.98,
+            "end": 12.22,
+            "word": " بکنین،",
+            "probability": 0.6826125960797071
+          },
+          {
+            "start": 12.22,
+            "end": 12.44,
+            "word": " باعث",
+            "probability": 0.7891411582628886
+          },
+          {
+            "start": 12.44,
+            "end": 12.6,
+            "word": " می‌شه",
+            "probability": 0.8966020792722702
+          },
+          {
+            "start": 12.6,
+            "end": 12.88,
+            "word": " امروج",
+            "probability": 0.6429205192155981
+          },
+          {
+            "start": 12.88,
+            "end": 13.12,
+            "word": " پول",
+            "probability": 0.7625391781330109
+          },
+          {
+            "start": 13.12,
+            "end": 13.18,
+            "word": " اون",
+            "probability": 0.675408124923706
+          },
+          {
+            "start": 13.18,
+            "end": 13.3,
+            "word": " رو",
+            "probability": 0.652633786201477
+          },
+          {
+            "start": 13.3,
+            "end": 13.5,
+            "word": " خرج",
+            "probability": 0.661943718791008
+          },
+          {
+            "start": 13.5,
+            "end": 13.5,
+            "word": " کنی.",
+            "probability": 0.8656647006670634
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "start": 13.5,
+        "end": 16.46,
+        "text": "چهر نفر از این هنگه فكر می‌یکنم پولچیز بادی، یه رو به منم نبتیم؟",
+        "avg_logprob": -0.32034748029239074,
+        "compression_ratio": 1.956043956043956,
+        "no_speech_prob": 2.9732058481890533e-10,
+        "words": [
+          {
+            "start": 13.5,
+            "end": 13.5,
+            "word": " چهر",
+            "probability": 0.601926306883494
+          },
+          {
+            "start": 13.5,
+            "end": 13.58,
+            "word": " نفر",
+            "probability": 0.8943962852160136
+          },
+          {
+            "start": 13.58,
+            "end": 13.78,
+            "word": " از",
+            "probability": 0.6972209066152573
+          },
+          {
+            "start": 13.78,
+            "end": 13.82,
+            "word": " این",
+            "probability": 0.9424893260002136
+          },
+          {
+            "start": 13.82,
+            "end": 14.06,
+            "word": " هنگه",
+            "probability": 0.30061681382358074
+          },
+          {
+            "start": 14.06,
+            "end": 14.4,
+            "word": " فكر",
+            "probability": 0.20382421402609907
+          },
+          {
+            "start": 14.4,
+            "end": 14.68,
+            "word": " می‌یکنم",
+            "probability": 0.724297252499673
+          },
+          {
+            "start": 14.68,
+            "end": 15.1,
+            "word": " پولچیز",
+            "probability": 0.792861653957516
+          },
+          {
+            "start": 15.1,
+            "end": 15.54,
+            "word": " بادی،",
+            "probability": 0.36672116885893047
+          },
+          {
+            "start": 15.54,
+            "end": 15.56,
+            "word": " یه",
+            "probability": 0.5367999076843262
+          },
+          {
+            "start": 15.56,
+            "end": 15.66,
+            "word": " رو",
+            "probability": 0.8514010906219482
+          },
+          {
+            "start": 15.66,
+            "end": 15.76,
+            "word": " به",
+            "probability": 0.9854744672775269
+          },
+          {
+            "start": 15.76,
+            "end": 16.1,
+            "word": " منم",
+            "probability": 0.8834565579891205
+          },
+          {
+            "start": 16.1,
+            "end": 16.46,
+            "word": " نبتیم؟",
+            "probability": 0.520531884705027
+          }
+        ]
+      }
+    ]
+  }
+}

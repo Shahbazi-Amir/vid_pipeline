@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "14d396e372e5f454ecf73bc2c6ecd8bfd9d611267ba1784055aa0a91094353da",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.46,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.44,
+        "text": "که مثلا از شما سوال می‌کنم، اصلا شما پسانداز داری؟ اگر بگین، نمی‌گم پس توانایی پس انداز کردن رو هنوز در خودت ایجاد نکردی. یعنی یه سه بخشیه که هست داشت...",
+        "avg_logprob": -0.266026798922282,
+        "compression_ratio": 1.583815028901734,
+        "no_speech_prob": 2.9667418521839295e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.16,
+            "word": " که",
+            "probability": 0.623092770576477
+          },
+          {
+            "start": 0.16,
+            "end": 0.36,
+            "word": " مثلا",
+            "probability": 0.8185877501964569
+          },
+          {
+            "start": 0.36,
+            "end": 0.46,
+            "word": " از",
+            "probability": 0.9392291903495789
+          },
+          {
+            "start": 0.46,
+            "end": 0.64,
+            "word": " شما",
+            "probability": 0.838631272315979
+          },
+          {
+            "start": 0.64,
+            "end": 0.9,
+            "word": " سوال",
+            "probability": 0.8986653288205465
+          },
+          {
+            "start": 0.9,
+            "end": 1.28,
+            "word": " می‌کنم،",
+            "probability": 0.6441549907128016
+          },
+          {
+            "start": 1.28,
+            "end": 1.38,
+            "word": " اصلا",
+            "probability": 0.9000196854273478
+          },
+          {
+            "start": 1.38,
+            "end": 1.56,
+            "word": " شما",
+            "probability": 0.9278152883052826
+          },
+          {
+            "start": 1.56,
+            "end": 2.1,
+            "word": " پسانداز",
+            "probability": 0.8622327327728272
+          },
+          {
+            "start": 2.1,
+            "end": 2.5,
+            "word": " داری؟",
+            "probability": 0.9363356828689575
+          },
+          {
+            "start": 2.5,
+            "end": 2.78,
+            "word": " اگر",
+            "probability": 0.9897855321566263
+          },
+          {
+            "start": 2.78,
+            "end": 3.1,
+            "word": " بگین،",
+            "probability": 0.6266186907887459
+          },
+          {
+            "start": 3.1,
+            "end": 3.3,
+            "word": " نمی‌گم",
+            "probability": 0.8628544310728709
+          },
+          {
+            "start": 3.3,
+            "end": 3.48,
+            "word": " پس",
+            "probability": 0.756460964679718
+          },
+          {
+            "start": 3.48,
+            "end": 4.18,
+            "word": " توانایی",
+            "probability": 0.9234544396400451
+          },
+          {
+            "start": 4.18,
+            "end": 4.46,
+            "word": " پس",
+            "probability": 0.9912960827350616
+          },
+          {
+            "start": 4.46,
+            "end": 4.74,
+            "word": " انداز",
+            "probability": 0.6180114342520634
+          },
+          {
+            "start": 4.74,
+            "end": 5.08,
+            "word": " کردن",
+            "probability": 0.9603598713874817
+          },
+          {
+            "start": 5.08,
+            "end": 5.2,
+            "word": " رو",
+            "probability": 0.8188915550708771
+          },
+          {
+            "start": 5.2,
+            "end": 5.36,
+            "word": " هنوز",
+            "probability": 0.9846015572547913
+          },
+          {
+            "start": 5.36,
+            "end": 5.52,
+            "word": " در",
+            "probability": 0.9892635643482208
+          },
+          {
+            "start": 5.52,
+            "end": 5.8,
+            "word": " خودت",
+            "probability": 0.7736969192822775
+          },
+          {
+            "start": 5.8,
+            "end": 6.1,
+            "word": " ایجاد",
+            "probability": 0.9558207094669342
+          },
+          {
+            "start": 6.1,
+            "end": 6.62,
+            "word": " نکردی.",
+            "probability": 0.9465428113937377
+          },
+          {
+            "start": 6.74,
+            "end": 7.24,
+            "word": " یعنی",
+            "probability": 0.9946398884057999
+          },
+          {
+            "start": 7.24,
+            "end": 7.42,
+            "word": " یه",
+            "probability": 0.8052685260772705
+          },
+          {
+            "start": 7.42,
+            "end": 7.64,
+            "word": " سه",
+            "probability": 0.9194660782814026
+          },
+          {
+            "start": 7.64,
+            "end": 8.38,
+            "word": " بخشیه",
+            "probability": 0.9537401556968689
+          },
+          {
+            "start": 8.38,
+            "end": 8.66,
+            "word": " که",
+            "probability": 0.7849320471286774
+          },
+          {
+            "start": 8.66,
+            "end": 8.84,
+            "word": " هست",
+            "probability": 0.7756905853748322
+          },
+          {
+            "start": 8.84,
+            "end": 9.44,
+            "word": " داشت...",
+            "probability": 0.565181091427803
+          }
+        ]
+      }
+    ]
+  }
+}

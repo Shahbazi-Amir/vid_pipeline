@@ -1,0 +1,342 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "d0ea727326ebcbe2d7bf5d1922d0470ba88a3887fe18bf3d96959546882688c4",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 17.98,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.92,
+        "text": "ممیز می‌زنم، آخرش هم اشتباه می‌نوسم، یعنی اینقدر با عدد و رقم و پول، اینکه چقدر پسنداز کنم چجوری خرج و دخل ماهیانه بکنم",
+        "avg_logprob": -0.3274122130125761,
+        "compression_ratio": 1.8354430379746836,
+        "no_speech_prob": 4.0179060079026385e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.52,
+            "word": " ممیز",
+            "probability": 0.8734598904848099
+          },
+          {
+            "start": 0.52,
+            "end": 1.06,
+            "word": " می‌زنم،",
+            "probability": 0.6474867165088654
+          },
+          {
+            "start": 1.06,
+            "end": 1.64,
+            "word": " آخرش",
+            "probability": 0.9154101014137268
+          },
+          {
+            "start": 1.64,
+            "end": 1.76,
+            "word": " هم",
+            "probability": 0.6166145950555801
+          },
+          {
+            "start": 1.76,
+            "end": 2.08,
+            "word": " اشتباه",
+            "probability": 0.8166652858257294
+          },
+          {
+            "start": 2.08,
+            "end": 2.74,
+            "word": " می‌نوسم،",
+            "probability": 0.564769217123588
+          },
+          {
+            "start": 2.74,
+            "end": 3.42,
+            "word": " یعنی",
+            "probability": 0.9541064649820328
+          },
+          {
+            "start": 3.42,
+            "end": 4.08,
+            "word": " اینقدر",
+            "probability": 0.7638156116008759
+          },
+          {
+            "start": 4.08,
+            "end": 4.34,
+            "word": " با",
+            "probability": 0.9345160722732544
+          },
+          {
+            "start": 4.34,
+            "end": 4.84,
+            "word": " عدد",
+            "probability": 0.9800424774487814
+          },
+          {
+            "start": 4.84,
+            "end": 4.96,
+            "word": " و",
+            "probability": 0.8138643503189087
+          },
+          {
+            "start": 4.96,
+            "end": 5.42,
+            "word": " رقم",
+            "probability": 0.9775804082552592
+          },
+          {
+            "start": 5.42,
+            "end": 5.54,
+            "word": " و",
+            "probability": 0.9614884853363037
+          },
+          {
+            "start": 5.54,
+            "end": 6.24,
+            "word": " پول،",
+            "probability": 0.8137360016504923
+          },
+          {
+            "start": 6.24,
+            "end": 7.08,
+            "word": " اینکه",
+            "probability": 0.7937491089105606
+          },
+          {
+            "start": 7.08,
+            "end": 7.46,
+            "word": " چقدر",
+            "probability": 0.9646036624908447
+          },
+          {
+            "start": 7.46,
+            "end": 8.12,
+            "word": " پسنداز",
+            "probability": 0.9648562669754028
+          },
+          {
+            "start": 8.12,
+            "end": 8.48,
+            "word": " کنم",
+            "probability": 0.9648486574490865
+          },
+          {
+            "start": 8.48,
+            "end": 9.0,
+            "word": " چجوری",
+            "probability": 0.6168384999036789
+          },
+          {
+            "start": 9.0,
+            "end": 9.4,
+            "word": " خرج",
+            "probability": 0.9696791470050812
+          },
+          {
+            "start": 9.4,
+            "end": 9.5,
+            "word": " و",
+            "probability": 0.9795006513595581
+          },
+          {
+            "start": 9.5,
+            "end": 9.84,
+            "word": " دخل",
+            "probability": 0.988848884900411
+          },
+          {
+            "start": 9.84,
+            "end": 10.54,
+            "word": " ماهیانه",
+            "probability": 0.9701085329055786
+          },
+          {
+            "start": 10.54,
+            "end": 10.92,
+            "word": " بکنم",
+            "probability": 0.9302853643894196
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 10.92,
+        "end": 15.5,
+        "text": "چجروری به آینده نگاه بکنام برای پول اینا خیلی می‌توجهم، یه ذره به من یاد بدین.",
+        "avg_logprob": -0.3274122130125761,
+        "compression_ratio": 1.8354430379746836,
+        "no_speech_prob": 4.0179060079026385e-10,
+        "words": [
+          {
+            "start": 10.92,
+            "end": 11.28,
+            "word": " چجروری",
+            "probability": 0.5809519321192056
+          },
+          {
+            "start": 11.28,
+            "end": 11.38,
+            "word": " به",
+            "probability": 0.8298212885856628
+          },
+          {
+            "start": 11.38,
+            "end": 11.94,
+            "word": " آینده",
+            "probability": 0.9925303608179092
+          },
+          {
+            "start": 11.94,
+            "end": 12.26,
+            "word": " نگاه",
+            "probability": 0.9880795280138651
+          },
+          {
+            "start": 12.26,
+            "end": 12.64,
+            "word": " بکنام",
+            "probability": 0.656941831961376
+          },
+          {
+            "start": 12.64,
+            "end": 12.92,
+            "word": " برای",
+            "probability": 0.9470829566319784
+          },
+          {
+            "start": 12.92,
+            "end": 13.16,
+            "word": " پول",
+            "probability": 0.9877322614192963
+          },
+          {
+            "start": 13.16,
+            "end": 13.32,
+            "word": " اینا",
+            "probability": 0.6592844923337301
+          },
+          {
+            "start": 13.32,
+            "end": 14.02,
+            "word": " خیلی",
+            "probability": 0.9193461537361145
+          },
+          {
+            "start": 14.02,
+            "end": 14.5,
+            "word": " می‌توجهم،",
+            "probability": 0.7390763411919276
+          },
+          {
+            "start": 14.5,
+            "end": 14.54,
+            "word": " یه",
+            "probability": 0.6769570708274841
+          },
+          {
+            "start": 14.54,
+            "end": 14.72,
+            "word": " ذره",
+            "probability": 0.5081853369871775
+          },
+          {
+            "start": 14.72,
+            "end": 14.8,
+            "word": " به",
+            "probability": 0.8317742347717285
+          },
+          {
+            "start": 14.8,
+            "end": 14.92,
+            "word": " من",
+            "probability": 0.9378778338432312
+          },
+          {
+            "start": 14.92,
+            "end": 15.24,
+            "word": " یاد",
+            "probability": 0.9908736646175385
+          },
+          {
+            "start": 15.24,
+            "end": 15.5,
+            "word": " بدین.",
+            "probability": 0.8519651293754578
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "start": 15.6,
+        "end": 17.96,
+        "text": "خواهش میکنم این‌ها به ثواد مالی رفت دارم.",
+        "avg_logprob": -0.3274122130125761,
+        "compression_ratio": 1.8354430379746836,
+        "no_speech_prob": 4.0179060079026385e-10,
+        "words": [
+          {
+            "start": 15.6,
+            "end": 15.94,
+            "word": " خواهش",
+            "probability": 0.8019074499607086
+          },
+          {
+            "start": 15.94,
+            "end": 16.26,
+            "word": " میکنم",
+            "probability": 0.7669487595558167
+          },
+          {
+            "start": 16.26,
+            "end": 16.74,
+            "word": " این‌ها",
+            "probability": 0.5532669052481651
+          },
+          {
+            "start": 16.74,
+            "end": 16.92,
+            "word": " به",
+            "probability": 0.9814202189445496
+          },
+          {
+            "start": 16.92,
+            "end": 17.22,
+            "word": " ثواد",
+            "probability": 0.893578052520752
+          },
+          {
+            "start": 17.22,
+            "end": 17.54,
+            "word": " مالی",
+            "probability": 0.9611982107162476
+          },
+          {
+            "start": 17.54,
+            "end": 17.88,
+            "word": " رفت",
+            "probability": 0.7042488058408102
+          },
+          {
+            "start": 17.88,
+            "end": 17.96,
+            "word": " دارم.",
+            "probability": 0.5382956067721049
+          }
+        ]
+      }
+    ]
+  }
+}

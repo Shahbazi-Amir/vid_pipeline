@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "f3a82303a160bba976f406f23900b2f218c5d88fdf2d0e3f21eedb5413c773d2",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.16,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.02,
+        "text": "خدمت شما و بینندگان حفیز. ارادتمنده. آقای رودی، سواد مالی هست چی؟ سواهد ملی مجموعه هست.",
+        "avg_logprob": -0.4149964793783719,
+        "compression_ratio": 1.3333333333333333,
+        "no_speech_prob": 2.78196993219737e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.24,
+            "word": " خدمت",
+            "probability": 0.6610863991081715
+          },
+          {
+            "start": 0.24,
+            "end": 0.54,
+            "word": " شما",
+            "probability": 0.9546191096305847
+          },
+          {
+            "start": 0.54,
+            "end": 0.68,
+            "word": " و",
+            "probability": 0.9186903238296509
+          },
+          {
+            "start": 0.68,
+            "end": 1.28,
+            "word": " بینندگان",
+            "probability": 0.9594781398773193
+          },
+          {
+            "start": 1.28,
+            "end": 1.66,
+            "word": " حفیز.",
+            "probability": 0.6726287230849266
+          },
+          {
+            "start": 1.8,
+            "end": 2.52,
+            "word": " ارادتمنده.",
+            "probability": 0.7928645866257804
+          },
+          {
+            "start": 2.88,
+            "end": 3.6,
+            "word": " آقای",
+            "probability": 0.923958882689476
+          },
+          {
+            "start": 3.6,
+            "end": 3.96,
+            "word": " رودی،",
+            "probability": 0.7438313439488411
+          },
+          {
+            "start": 3.96,
+            "end": 4.46,
+            "word": " سواد",
+            "probability": 0.8545953035354614
+          },
+          {
+            "start": 4.46,
+            "end": 4.86,
+            "word": " مالی",
+            "probability": 0.9670112331708273
+          },
+          {
+            "start": 4.86,
+            "end": 5.06,
+            "word": " هست",
+            "probability": 0.40186771750450134
+          },
+          {
+            "start": 5.06,
+            "end": 5.66,
+            "word": " چی؟",
+            "probability": 0.811070998509725
+          },
+          {
+            "start": 5.66,
+            "end": 6.66,
+            "word": " سواهد",
+            "probability": 0.6213772127302946
+          },
+          {
+            "start": 6.66,
+            "end": 6.94,
+            "word": " ملی",
+            "probability": 0.6109488495858386
+          },
+          {
+            "start": 6.94,
+            "end": 7.66,
+            "word": " مجموعه",
+            "probability": 0.8131788372993469
+          },
+          {
+            "start": 7.66,
+            "end": 8.02,
+            "word": " هست.",
+            "probability": 0.7732699811458588
+          }
+        ]
+      }
+    ]
+  }
+}

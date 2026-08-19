@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "human_review_required",
+  "generated_at": "2026-08-19T06:33:06.877428+00:00",
+  "job_root": "/tmp/recover-ketab-baz-runtime/ketab-baz-99a4615b",
+  "segment_count": 334,
+  "review_item_count": 331,
+  "required_item_count": 331,
+  "external_reference_used": false,
+  "quality_source": "/tmp/recover-ketab-baz-runtime/ketab-baz-99a4615b/accuracy/transcript.consensus.json",
+  "source_files": {
+    "raw_json": "/tmp/recover-ketab-baz-runtime/ketab-baz-99a4615b/raw/transcript.raw.json",
+    "machine_text": "/tmp/recover-ketab-baz-runtime/ketab-baz-99a4615b/machine/transcript.machine.txt",
+    "final_text": "/tmp/recover-ketab-baz-runtime/ketab-baz-99a4615b/final/transcript.final.txt",
+    "audio": "/tmp/recover-ketab-baz-runtime/ketab-baz-99a4615b/audio/audio-16k-mono.wav"
+  },
+  "source_sha256": {
+    "raw_json": "473958df7d852f35c590e8349a0029e9213432ca29afe77da38e3572c0c6f5b7",
+    "machine_text": "ab696e11a88e0a9934e5152263258c66155568e1f7c39425b0fe3a76c9f20a2f",
+    "final_text": "ab696e11a88e0a9934e5152263258c66155568e1f7c39425b0fe3a76c9f20a2f"
+  },
+  "files": {
+    "manifest": "/tmp/recover-ketab-baz-runtime/ketab-baz-99a4615b/review/manifest.json",
+    "uncertain_spans": "/tmp/recover-ketab-baz-runtime/ketab-baz-99a4615b/review/uncertain-spans.json",
+    "editorial_audit": "/tmp/recover-ketab-baz-runtime/ketab-baz-99a4615b/review/editorial-audit.json",
+    "assistant_package": "/tmp/recover-ketab-baz-runtime/ketab-baz-99a4615b/review/assistant-review-package.json",
+    "quality_report": "/tmp/recover-ketab-baz-runtime/ketab-baz-99a4615b/review/quality-report.json",
+    "review_srt": "/tmp/recover-ketab-baz-runtime/ketab-baz-99a4615b/review/transcript.review.srt",
+    "review_vtt": "/tmp/recover-ketab-baz-runtime/ketab-baz-99a4615b/review/transcript.review.vtt",
+    "review_markdown": "/tmp/recover-ketab-baz-runtime/ketab-baz-99a4615b/review/review.md",
+    "review_html": "/tmp/recover-ketab-baz-runtime/ketab-baz-99a4615b/review/review.html",
+    "corrections_template": "/tmp/recover-ketab-baz-runtime/ketab-baz-99a4615b/review/corrections.template.json",
+    "review_archive": "/tmp/recover-ketab-baz-runtime/ketab-baz-99a4615b/final/review-package.zip"
+  },
+  "warnings": []
+}

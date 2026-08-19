@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "47a15bb72e04d9c4a2dbd77750a5139cc43dfcdf1f1f4b81b4ff70b3608d5a44",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.08,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.06,
+        "text": "بابر می‌کنید یا نه، چون به هرکی می‌گم بابریش نمی‌شه، ولی من واقعاً یک بی‌سواد کامل مالی است. چرا؟ چون اصلا مثلا",
+        "avg_logprob": -0.252292224805649,
+        "compression_ratio": 1.4782608695652173,
+        "no_speech_prob": 3.96250032785872e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.16,
+            "word": " بابر",
+            "probability": 0.6618095338344574
+          },
+          {
+            "start": 0.16,
+            "end": 0.64,
+            "word": " می‌کنید",
+            "probability": 0.7562241995086273
+          },
+          {
+            "start": 0.64,
+            "end": 0.76,
+            "word": " یا",
+            "probability": 0.8737199306488037
+          },
+          {
+            "start": 0.76,
+            "end": 0.94,
+            "word": " نه،",
+            "probability": 0.604929638405641
+          },
+          {
+            "start": 0.94,
+            "end": 1.08,
+            "word": " چون",
+            "probability": 0.981629878282547
+          },
+          {
+            "start": 1.08,
+            "end": 1.2,
+            "word": " به",
+            "probability": 0.9705179929733276
+          },
+          {
+            "start": 1.2,
+            "end": 1.58,
+            "word": " هرکی",
+            "probability": 0.872731551527977
+          },
+          {
+            "start": 1.58,
+            "end": 1.82,
+            "word": " می‌گم",
+            "probability": 0.8984687775373459
+          },
+          {
+            "start": 1.82,
+            "end": 2.24,
+            "word": " بابریش",
+            "probability": 0.6824033053708263
+          },
+          {
+            "start": 2.24,
+            "end": 2.56,
+            "word": " نمی‌شه،",
+            "probability": 0.8577226613249097
+          },
+          {
+            "start": 2.56,
+            "end": 2.72,
+            "word": " ولی",
+            "probability": 0.8560180068016052
+          },
+          {
+            "start": 2.72,
+            "end": 2.86,
+            "word": " من",
+            "probability": 0.9563464522361755
+          },
+          {
+            "start": 2.86,
+            "end": 3.64,
+            "word": " واقعاً",
+            "probability": 0.8558107674121856
+          },
+          {
+            "start": 3.64,
+            "end": 3.84,
+            "word": " یک",
+            "probability": 0.966865062713623
+          },
+          {
+            "start": 3.84,
+            "end": 4.64,
+            "word": " بی‌سواد",
+            "probability": 0.8715431888898214
+          },
+          {
+            "start": 4.64,
+            "end": 5.12,
+            "word": " کامل",
+            "probability": 0.9902189572652181
+          },
+          {
+            "start": 5.12,
+            "end": 5.48,
+            "word": " مالی",
+            "probability": 0.9900025725364685
+          },
+          {
+            "start": 5.48,
+            "end": 5.58,
+            "word": " است.",
+            "probability": 0.1488971710205078
+          },
+          {
+            "start": 6.14,
+            "end": 6.74,
+            "word": " چرا؟",
+            "probability": 0.9294017752011617
+          },
+          {
+            "start": 6.74,
+            "end": 7.04,
+            "word": " چون",
+            "probability": 0.94312584400177
+          },
+          {
+            "start": 7.04,
+            "end": 7.4,
+            "word": " اصلا",
+            "probability": 0.9563145836194357
+          },
+          {
+            "start": 7.4,
+            "end": 8.06,
+            "word": " مثلا",
+            "probability": 0.681756928563118
+          }
+        ]
+      }
+    ]
+  }
+}

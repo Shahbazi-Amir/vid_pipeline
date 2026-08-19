@@ -1,0 +1,295 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "43af0e6aba5f1ba10b7b3e4ee1b2695a97678b9c3dba5706cd9e1addbb9b77d9",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 18.34,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.12,
+        "text": "یک چیزی باقی می‌مونه که بهش می‌گیم پسنداز. این از سوادمالی اشتباه است، یعنی ما نمی‌دونیم",
+        "avg_logprob": -0.22266300051820045,
+        "compression_ratio": 1.8080357142857142,
+        "no_speech_prob": 3.5050878866016433e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.6,
+            "word": " یک",
+            "probability": 0.9759024381637573
+          },
+          {
+            "start": 0.6,
+            "end": 0.86,
+            "word": " چیزی",
+            "probability": 0.9933921694755554
+          },
+          {
+            "start": 0.86,
+            "end": 1.16,
+            "word": " باقی",
+            "probability": 0.9986264854669571
+          },
+          {
+            "start": 1.16,
+            "end": 1.46,
+            "word": " می‌مونه",
+            "probability": 0.7877132534980774
+          },
+          {
+            "start": 1.46,
+            "end": 1.58,
+            "word": " که",
+            "probability": 0.9759801924228668
+          },
+          {
+            "start": 1.58,
+            "end": 1.72,
+            "word": " بهش",
+            "probability": 0.9469892382621765
+          },
+          {
+            "start": 1.72,
+            "end": 1.92,
+            "word": " می‌گیم",
+            "probability": 0.8896758079528808
+          },
+          {
+            "start": 1.92,
+            "end": 2.5,
+            "word": " پسنداز.",
+            "probability": 0.875133752822876
+          },
+          {
+            "start": 2.76,
+            "end": 3.36,
+            "word": " این",
+            "probability": 0.9439511895179749
+          },
+          {
+            "start": 3.36,
+            "end": 3.56,
+            "word": " از",
+            "probability": 0.697534829378128
+          },
+          {
+            "start": 3.56,
+            "end": 4.36,
+            "word": " سوادمالی",
+            "probability": 0.6612918704748154
+          },
+          {
+            "start": 4.36,
+            "end": 4.86,
+            "word": " اشتباه",
+            "probability": 0.9599814057350159
+          },
+          {
+            "start": 4.86,
+            "end": 5.18,
+            "word": " است،",
+            "probability": 0.12263844162225723
+          },
+          {
+            "start": 5.18,
+            "end": 5.36,
+            "word": " یعنی",
+            "probability": 0.9874942600727081
+          },
+          {
+            "start": 5.36,
+            "end": 5.48,
+            "word": " ما",
+            "probability": 0.9937645196914673
+          },
+          {
+            "start": 5.48,
+            "end": 6.12,
+            "word": " نمی‌دونیم",
+            "probability": 0.9876032024621964
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 6.12,
+        "end": 16.0,
+        "text": "پسانداس چیه، بخش دانایی. پس انداز یعني ابتدای اینکه یک درامتی کست کرد یا یک ورودی پولی داشتی، یک بخصیش رو کنار بذارید و نادیده بگیرید.",
+        "avg_logprob": -0.22266300051820045,
+        "compression_ratio": 1.8080357142857142,
+        "no_speech_prob": 3.5050878866016433e-10,
+        "words": [
+          {
+            "start": 6.12,
+            "end": 6.8,
+            "word": " پسانداس",
+            "probability": 0.628488769941032
+          },
+          {
+            "start": 6.8,
+            "end": 7.1,
+            "word": " چیه،",
+            "probability": 0.7859284728765488
+          },
+          {
+            "start": 7.1,
+            "end": 7.38,
+            "word": " بخش",
+            "probability": 0.993169923623403
+          },
+          {
+            "start": 7.38,
+            "end": 8.04,
+            "word": " دانایی.",
+            "probability": 0.9607028722763061
+          },
+          {
+            "start": 8.3,
+            "end": 8.7,
+            "word": " پس",
+            "probability": 0.9795385301113129
+          },
+          {
+            "start": 8.7,
+            "end": 9.04,
+            "word": " انداز",
+            "probability": 0.45316466068228084
+          },
+          {
+            "start": 9.04,
+            "end": 9.26,
+            "word": " یعني",
+            "probability": 0.6448766658819901
+          },
+          {
+            "start": 9.26,
+            "end": 10.1,
+            "word": " ابتدای",
+            "probability": 0.98514424264431
+          },
+          {
+            "start": 10.1,
+            "end": 10.4,
+            "word": " اینکه",
+            "probability": 0.8275211676955223
+          },
+          {
+            "start": 10.4,
+            "end": 10.66,
+            "word": " یک",
+            "probability": 0.965271383523941
+          },
+          {
+            "start": 10.66,
+            "end": 11.42,
+            "word": " درامتی",
+            "probability": 0.8205909609794617
+          },
+          {
+            "start": 11.42,
+            "end": 11.78,
+            "word": " کست",
+            "probability": 0.5945515185594559
+          },
+          {
+            "start": 11.78,
+            "end": 12.06,
+            "word": " کرد",
+            "probability": 0.8778335750102997
+          },
+          {
+            "start": 12.06,
+            "end": 12.18,
+            "word": " یا",
+            "probability": 0.6184849441051483
+          },
+          {
+            "start": 12.18,
+            "end": 12.34,
+            "word": " یک",
+            "probability": 0.9666898548603058
+          },
+          {
+            "start": 12.34,
+            "end": 12.8,
+            "word": " ورودی",
+            "probability": 0.9885220378637314
+          },
+          {
+            "start": 12.8,
+            "end": 13.18,
+            "word": " پولی",
+            "probability": 0.9855380654335022
+          },
+          {
+            "start": 13.18,
+            "end": 13.6,
+            "word": " داشتی،",
+            "probability": 0.8370366573333741
+          },
+          {
+            "start": 13.6,
+            "end": 13.76,
+            "word": " یک",
+            "probability": 0.9131547510623932
+          },
+          {
+            "start": 13.76,
+            "end": 14.2,
+            "word": " بخصیش",
+            "probability": 0.7360656269476749
+          },
+          {
+            "start": 14.2,
+            "end": 14.28,
+            "word": " رو",
+            "probability": 0.7637422680854797
+          },
+          {
+            "start": 14.28,
+            "end": 14.7,
+            "word": " کنار",
+            "probability": 0.9954455693562826
+          },
+          {
+            "start": 14.7,
+            "end": 15.16,
+            "word": " بذارید",
+            "probability": 0.8077332019805908
+          },
+          {
+            "start": 15.16,
+            "end": 15.3,
+            "word": " و",
+            "probability": 0.85592120885849
+          },
+          {
+            "start": 15.3,
+            "end": 15.8,
+            "word": " نادیده",
+            "probability": 0.9760347366333008
+          },
+          {
+            "start": 15.8,
+            "end": 16.1,
+            "word": " بگیرید.",
+            "probability": 0.8811714053153992
+          }
+        ]
+      }
+    ]
+  }
+}

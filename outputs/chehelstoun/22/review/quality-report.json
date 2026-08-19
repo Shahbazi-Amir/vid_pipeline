@@ -1,0 +1,6923 @@
+{
+  "schema_version": 1,
+  "overall_score": 65.2,
+  "overall_label": "low",
+  "segment_count": 389,
+  "segments": [
+    {
+      "segment_id": 1,
+      "start": 15.34,
+      "end": 64.36,
+      "score": 66.5,
+      "label": "low",
+      "mean_word_confidence": 0.9338,
+      "avg_logprob": -0.0842,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 2,
+      "start": 68.65,
+      "end": 84.99,
+      "score": 95.0,
+      "label": "high",
+      "mean_word_confidence": 0.9305,
+      "avg_logprob": -0.069,
+      "no_speech_probability": 0.0,
+      "review_flags": [],
+      "review_penalty": 0
+    },
+    {
+      "segment_id": 3,
+      "start": 84.99,
+      "end": 99.61,
+      "score": 51.5,
+      "label": "low",
+      "mean_word_confidence": 0.9119,
+      "avg_logprob": -0.0847,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 4,
+      "start": 99.61,
+      "end": 105.85,
+      "score": 65.8,
+      "label": "low",
+      "mean_word_confidence": 0.9183,
+      "avg_logprob": -0.0847,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 5,
+      "start": 105.85,
+      "end": 114.21,
+      "score": 67.6,
+      "label": "low",
+      "mean_word_confidence": 0.9607,
+      "avg_logprob": -0.088,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 6,
+      "start": 114.21,
+      "end": 120.43,
+      "score": 65.9,
+      "label": "low",
+      "mean_word_confidence": 0.9206,
+      "avg_logprob": -0.088,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 7,
+      "start": 120.43,
+      "end": 126.23,
+      "score": 66.5,
+      "label": "low",
+      "mean_word_confidence": 0.9339,
+      "avg_logprob": -0.088,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 8,
+      "start": 126.23,
+      "end": 132.93,
+      "score": 64.9,
+      "label": "low",
+      "mean_word_confidence": 0.9035,
+      "avg_logprob": -0.1229,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 9,
+      "start": 132.93,
+      "end": 136.49,
+      "score": 75.5,
+      "label": "medium",
+      "mean_word_confidence": 0.9311,
+      "avg_logprob": -0.1229,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 10,
+      "start": 136.49,
+      "end": 160.78,
+      "score": 66.8,
+      "label": "low",
+      "mean_word_confidence": 0.9488,
+      "avg_logprob": -0.1229,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 11,
+      "start": 160.78,
+      "end": 164.64,
+      "score": 61.9,
+      "label": "low",
+      "mean_word_confidence": 0.8329,
+      "avg_logprob": -0.1229,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 12,
+      "start": 164.64,
+      "end": 168.16,
+      "score": 65.6,
+      "label": "low",
+      "mean_word_confidence": 0.9198,
+      "avg_logprob": -0.1229,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 13,
+      "start": 168.16,
+      "end": 172.76,
+      "score": 65.8,
+      "label": "low",
+      "mean_word_confidence": 0.9236,
+      "avg_logprob": -0.1175,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 14,
+      "start": 173.68,
+      "end": 181.04,
+      "score": 68.0,
+      "label": "low",
+      "mean_word_confidence": 0.9771,
+      "avg_logprob": -0.1175,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 15,
+      "start": 181.38,
+      "end": 190.3,
+      "score": 67.0,
+      "label": "low",
+      "mean_word_confidence": 0.9531,
+      "avg_logprob": -0.1175,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 16,
+      "start": 190.3,
+      "end": 199.24,
+      "score": 67.9,
+      "label": "low",
+      "mean_word_confidence": 0.9657,
+      "avg_logprob": -0.0697,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 17,
+      "start": 199.44,
+      "end": 210.34,
+      "score": 68.4,
+      "label": "low",
+      "mean_word_confidence": 0.9765,
+      "avg_logprob": -0.0697,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 18,
+      "start": 210.34,
+      "end": 221.12,
+      "score": 67.3,
+      "label": "low",
+      "mean_word_confidence": 0.9571,
+      "avg_logprob": -0.1068,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 19,
+      "start": 222.1,
+      "end": 232.42,
+      "score": 68.1,
+      "label": "low",
+      "mean_word_confidence": 0.976,
+      "avg_logprob": -0.1068,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 20,
+      "start": 232.42,
+      "end": 241.06,
+      "score": 68.4,
+      "label": "low",
+      "mean_word_confidence": 0.9752,
+      "avg_logprob": -0.0596,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 21,
+      "start": 241.06,
+      "end": 252.68,
+      "score": 67.0,
+      "label": "low",
+      "mean_word_confidence": 0.9409,
+      "avg_logprob": -0.0596,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 22,
+      "start": 252.68,
+      "end": 261.56,
+      "score": 98.1,
+      "label": "high",
+      "mean_word_confidence": 0.9809,
+      "avg_logprob": -0.0617,
+      "no_speech_probability": 0.0,
+      "review_flags": [],
+      "review_penalty": 0
+    },
+    {
+      "segment_id": 23,
+      "start": 261.56,
+      "end": 267.2,
+      "score": 67.8,
+      "label": "low",
+      "mean_word_confidence": 0.9609,
+      "avg_logprob": -0.0617,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 24,
+      "start": 267.2,
+      "end": 277.4,
+      "score": 77.5,
+      "label": "medium",
+      "mean_word_confidence": 0.9615,
+      "avg_logprob": -0.0617,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 25,
+      "start": 277.4,
+      "end": 279.08,
+      "score": 78.1,
+      "label": "medium",
+      "mean_word_confidence": 0.9741,
+      "avg_logprob": -0.0617,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 26,
+      "start": 279.08,
+      "end": 313.79,
+      "score": 67.0,
+      "label": "low",
+      "mean_word_confidence": 0.9436,
+      "avg_logprob": -0.075,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 27,
+      "start": 313.79,
+      "end": 318.73,
+      "score": 66.3,
+      "label": "low",
+      "mean_word_confidence": 0.9271,
+      "avg_logprob": -0.0726,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 28,
+      "start": 318.73,
+      "end": 320.87,
+      "score": 67.2,
+      "label": "low",
+      "mean_word_confidence": 0.948,
+      "avg_logprob": -0.0726,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 29,
+      "start": 320.87,
+      "end": 323.65,
+      "score": 68.4,
+      "label": "low",
+      "mean_word_confidence": 0.9778,
+      "avg_logprob": -0.0726,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 30,
+      "start": 323.65,
+      "end": 327.65,
+      "score": 65.8,
+      "label": "low",
+      "mean_word_confidence": 0.9157,
+      "avg_logprob": -0.0726,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 31,
+      "start": 327.65,
+      "end": 332.99,
+      "score": 68.1,
+      "label": "low",
+      "mean_word_confidence": 0.9703,
+      "avg_logprob": -0.0726,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 32,
+      "start": 332.99,
+      "end": 337.59,
+      "score": 69.2,
+      "label": "low",
+      "mean_word_confidence": 0.9949,
+      "avg_logprob": -0.0726,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 33,
+      "start": 337.59,
+      "end": 344.27,
+      "score": 66.7,
+      "label": "low",
+      "mean_word_confidence": 0.9462,
+      "avg_logprob": -0.1166,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 34,
+      "start": 344.27,
+      "end": 350.53,
+      "score": 64.6,
+      "label": "low",
+      "mean_word_confidence": 0.8965,
+      "avg_logprob": -0.1166,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 35,
+      "start": 350.53,
+      "end": 358.39,
+      "score": 66.5,
+      "label": "low",
+      "mean_word_confidence": 0.9416,
+      "avg_logprob": -0.1166,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 36,
+      "start": 358.39,
+      "end": 385.65,
+      "score": 63.9,
+      "label": "low",
+      "mean_word_confidence": 0.8823,
+      "avg_logprob": -0.1378,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 37,
+      "start": 385.65,
+      "end": 393.25,
+      "score": 66.7,
+      "label": "low",
+      "mean_word_confidence": 0.9455,
+      "avg_logprob": -0.1138,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 38,
+      "start": 393.25,
+      "end": 401.27,
+      "score": 66.1,
+      "label": "low",
+      "mean_word_confidence": 0.9308,
+      "avg_logprob": -0.1138,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 39,
+      "start": 401.27,
+      "end": 409.63,
+      "score": 66.1,
+      "label": "low",
+      "mean_word_confidence": 0.9311,
+      "avg_logprob": -0.1138,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 40,
+      "start": 409.63,
+      "end": 411.27,
+      "score": 65.7,
+      "label": "low",
+      "mean_word_confidence": 0.9223,
+      "avg_logprob": -0.1138,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 41,
+      "start": 411.27,
+      "end": 419.27,
+      "score": 65.6,
+      "label": "low",
+      "mean_word_confidence": 0.9193,
+      "avg_logprob": -0.1126,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 42,
+      "start": 419.27,
+      "end": 424.11,
+      "score": 74.0,
+      "label": "medium",
+      "mean_word_confidence": 0.8976,
+      "avg_logprob": -0.1126,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 43,
+      "start": 424.11,
+      "end": 430.11,
+      "score": 76.9,
+      "label": "medium",
+      "mean_word_confidence": 0.9589,
+      "avg_logprob": -0.1126,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 44,
+      "start": 430.11,
+      "end": 434.19,
+      "score": 67.9,
+      "label": "low",
+      "mean_word_confidence": 0.9738,
+      "avg_logprob": -0.1126,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 45,
+      "start": 434.19,
+      "end": 438.15,
+      "score": 66.9,
+      "label": "low",
+      "mean_word_confidence": 0.9505,
+      "avg_logprob": -0.1126,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 46,
+      "start": 438.15,
+      "end": 466.49,
+      "score": 61.9,
+      "label": "low",
+      "mean_word_confidence": 0.8554,
+      "avg_logprob": -0.2265,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 47,
+      "start": 467.37,
+      "end": 496.29,
+      "score": 63.7,
+      "label": "low",
+      "mean_word_confidence": 0.8924,
+      "avg_logprob": -0.2,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 48,
+      "start": 496.29,
+      "end": 501.07,
+      "score": 73.0,
+      "label": "medium",
+      "mean_word_confidence": 0.8926,
+      "avg_logprob": -0.1866,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 49,
+      "start": 501.07,
+      "end": 507.29,
+      "score": 64.2,
+      "label": "low",
+      "mean_word_confidence": 0.901,
+      "avg_logprob": -0.1866,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 50,
+      "start": 507.29,
+      "end": 510.43,
+      "score": 59.9,
+      "label": "low",
+      "mean_word_confidence": 0.7976,
+      "avg_logprob": -0.1866,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 51,
+      "start": 510.43,
+      "end": 515.95,
+      "score": 72.7,
+      "label": "medium",
+      "mean_word_confidence": 0.8876,
+      "avg_logprob": -0.1866,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 52,
+      "start": 515.95,
+      "end": 519.37,
+      "score": 75.8,
+      "label": "medium",
+      "mean_word_confidence": 0.9521,
+      "avg_logprob": -0.1866,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 53,
+      "start": 521.11,
+      "end": 549.01,
+      "score": 66.7,
+      "label": "low",
+      "mean_word_confidence": 0.9409,
+      "avg_logprob": -0.0923,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 54,
+      "start": 549.01,
+      "end": 557.67,
+      "score": 66.7,
+      "label": "low",
+      "mean_word_confidence": 0.94,
+      "avg_logprob": -0.0935,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 55,
+      "start": 557.67,
+      "end": 566.69,
+      "score": 66.3,
+      "label": "low",
+      "mean_word_confidence": 0.9304,
+      "avg_logprob": -0.0935,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 56,
+      "start": 566.69,
+      "end": 572.89,
+      "score": 67.6,
+      "label": "low",
+      "mean_word_confidence": 0.9627,
+      "avg_logprob": -0.0935,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 57,
+      "start": 572.89,
+      "end": 578.23,
+      "score": 74.0,
+      "label": "medium",
+      "mean_word_confidence": 0.9025,
+      "avg_logprob": -0.1366,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 58,
+      "start": 578.23,
+      "end": 581.33,
+      "score": 68.0,
+      "label": "low",
+      "mean_word_confidence": 0.9798,
+      "avg_logprob": -0.1366,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 59,
+      "start": 581.33,
+      "end": 586.93,
+      "score": 64.2,
+      "label": "low",
+      "mean_word_confidence": 0.8908,
+      "avg_logprob": -0.1366,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 60,
+      "start": 586.93,
+      "end": 591.93,
+      "score": 63.6,
+      "label": "low",
+      "mean_word_confidence": 0.8768,
+      "avg_logprob": -0.1366,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 61,
+      "start": 591.93,
+      "end": 599.03,
+      "score": 66.6,
+      "label": "low",
+      "mean_word_confidence": 0.9468,
+      "avg_logprob": -0.1366,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 62,
+      "start": 599.03,
+      "end": 604.63,
+      "score": 66.3,
+      "label": "low",
+      "mean_word_confidence": 0.934,
+      "avg_logprob": -0.1069,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 63,
+      "start": 604.63,
+      "end": 608.45,
+      "score": 67.3,
+      "label": "low",
+      "mean_word_confidence": 0.9576,
+      "avg_logprob": -0.1069,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 64,
+      "start": 608.45,
+      "end": 613.15,
+      "score": 66.9,
+      "label": "low",
+      "mean_word_confidence": 0.9475,
+      "avg_logprob": -0.1069,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 65,
+      "start": 613.15,
+      "end": 619.73,
+      "score": 65.7,
+      "label": "low",
+      "mean_word_confidence": 0.9205,
+      "avg_logprob": -0.1069,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 66,
+      "start": 619.73,
+      "end": 622.93,
+      "score": 67.5,
+      "label": "low",
+      "mean_word_confidence": 0.9627,
+      "avg_logprob": -0.1069,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 67,
+      "start": 622.93,
+      "end": 652.21,
+      "score": 65.4,
+      "label": "low",
+      "mean_word_confidence": 0.915,
+      "avg_logprob": -0.1177,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 68,
+      "start": 652.21,
+      "end": 669.95,
+      "score": 49.5,
+      "label": "low",
+      "mean_word_confidence": 0.8756,
+      "avg_logprob": -0.2024,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 69,
+      "start": 669.95,
+      "end": 684.71,
+      "score": 65.4,
+      "label": "low",
+      "mean_word_confidence": 0.9165,
+      "avg_logprob": -0.1215,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 70,
+      "start": 684.71,
+      "end": 693.41,
+      "score": 50.4,
+      "label": "low",
+      "mean_word_confidence": 0.8867,
+      "avg_logprob": -0.1215,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 71,
+      "start": 693.41,
+      "end": 698.73,
+      "score": 67.4,
+      "label": "low",
+      "mean_word_confidence": 0.9632,
+      "avg_logprob": -0.1215,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 72,
+      "start": 698.73,
+      "end": 707.53,
+      "score": 49.5,
+      "label": "low",
+      "mean_word_confidence": 0.8631,
+      "avg_logprob": -0.1441,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 73,
+      "start": 707.53,
+      "end": 714.49,
+      "score": 72.3,
+      "label": "medium",
+      "mean_word_confidence": 0.8695,
+      "avg_logprob": -0.1441,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 74,
+      "start": 714.49,
+      "end": 721.51,
+      "score": 65.9,
+      "label": "low",
+      "mean_word_confidence": 0.9335,
+      "avg_logprob": -0.1441,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 75,
+      "start": 722.29,
+      "end": 751.33,
+      "score": 66.7,
+      "label": "low",
+      "mean_word_confidence": 0.9408,
+      "avg_logprob": -0.0957,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 76,
+      "start": 751.33,
+      "end": 754.95,
+      "score": 63.1,
+      "label": "low",
+      "mean_word_confidence": 0.8634,
+      "avg_logprob": -0.1373,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 77,
+      "start": 754.95,
+      "end": 765.57,
+      "score": 66.1,
+      "label": "low",
+      "mean_word_confidence": 0.9356,
+      "avg_logprob": -0.1373,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 78,
+      "start": 765.57,
+      "end": 771.51,
+      "score": 64.9,
+      "label": "low",
+      "mean_word_confidence": 0.908,
+      "avg_logprob": -0.1373,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 79,
+      "start": 771.51,
+      "end": 777.91,
+      "score": 66.6,
+      "label": "low",
+      "mean_word_confidence": 0.9483,
+      "avg_logprob": -0.1373,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 80,
+      "start": 777.91,
+      "end": 785.75,
+      "score": 51.7,
+      "label": "low",
+      "mean_word_confidence": 0.9188,
+      "avg_logprob": -0.0951,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 81,
+      "start": 785.75,
+      "end": 796.05,
+      "score": 66.1,
+      "label": "low",
+      "mean_word_confidence": 0.9261,
+      "avg_logprob": -0.0951,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 82,
+      "start": 796.05,
+      "end": 804.71,
+      "score": 74.2,
+      "label": "medium",
+      "mean_word_confidence": 0.8983,
+      "avg_logprob": -0.0951,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 83,
+      "start": 804.71,
+      "end": 813.13,
+      "score": 66.6,
+      "label": "low",
+      "mean_word_confidence": 0.9409,
+      "avg_logprob": -0.1085,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 84,
+      "start": 813.13,
+      "end": 819.37,
+      "score": 67.2,
+      "label": "low",
+      "mean_word_confidence": 0.9557,
+      "avg_logprob": -0.1085,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 85,
+      "start": 819.37,
+      "end": 824.11,
+      "score": 65.8,
+      "label": "low",
+      "mean_word_confidence": 0.9229,
+      "avg_logprob": -0.1085,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 86,
+      "start": 824.11,
+      "end": 830.37,
+      "score": 66.0,
+      "label": "low",
+      "mean_word_confidence": 0.9272,
+      "avg_logprob": -0.1085,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 87,
+      "start": 830.37,
+      "end": 836.95,
+      "score": 62.5,
+      "label": "low",
+      "mean_word_confidence": 0.8483,
+      "avg_logprob": -0.129,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 88,
+      "start": 836.95,
+      "end": 845.39,
+      "score": 65.1,
+      "label": "low",
+      "mean_word_confidence": 0.9091,
+      "avg_logprob": -0.129,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 89,
+      "start": 845.39,
+      "end": 853.23,
+      "score": 51.8,
+      "label": "low",
+      "mean_word_confidence": 0.9288,
+      "avg_logprob": -0.129,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 90,
+      "start": 853.23,
+      "end": 879.37,
+      "score": 50.7,
+      "label": "low",
+      "mean_word_confidence": 0.8979,
+      "avg_logprob": -0.1393,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 91,
+      "start": 879.37,
+      "end": 908.39,
+      "score": 65.5,
+      "label": "low",
+      "mean_word_confidence": 0.922,
+      "avg_logprob": -0.1442,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 92,
+      "start": 908.39,
+      "end": 913.69,
+      "score": 61.3,
+      "label": "low",
+      "mean_word_confidence": 0.8221,
+      "avg_logprob": -0.1378,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 93,
+      "start": 913.69,
+      "end": 920.07,
+      "score": 65.2,
+      "label": "low",
+      "mean_word_confidence": 0.9142,
+      "avg_logprob": -0.1378,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 94,
+      "start": 920.07,
+      "end": 926.21,
+      "score": 50.8,
+      "label": "low",
+      "mean_word_confidence": 0.9022,
+      "avg_logprob": -0.1378,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 95,
+      "start": 926.21,
+      "end": 930.67,
+      "score": 76.5,
+      "label": "medium",
+      "mean_word_confidence": 0.9548,
+      "avg_logprob": -0.1378,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 96,
+      "start": 938.39,
+      "end": 949.03,
+      "score": 50.0,
+      "label": "low",
+      "mean_word_confidence": 0.8762,
+      "avg_logprob": -0.1369,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 97,
+      "start": 949.03,
+      "end": 958.25,
+      "score": 66.1,
+      "label": "low",
+      "mean_word_confidence": 0.935,
+      "avg_logprob": -0.1369,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 98,
+      "start": 958.25,
+      "end": 969.69,
+      "score": 67.4,
+      "label": "low",
+      "mean_word_confidence": 0.9547,
+      "avg_logprob": -0.0777,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 99,
+      "start": 969.69,
+      "end": 976.47,
+      "score": 66.9,
+      "label": "low",
+      "mean_word_confidence": 0.9417,
+      "avg_logprob": -0.0777,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 100,
+      "start": 976.47,
+      "end": 986.17,
+      "score": 67.6,
+      "label": "low",
+      "mean_word_confidence": 0.9593,
+      "avg_logprob": -0.0777,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 101,
+      "start": 986.17,
+      "end": 994.55,
+      "score": 64.5,
+      "label": "low",
+      "mean_word_confidence": 0.8922,
+      "avg_logprob": -0.1151,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 102,
+      "start": 995.77,
+      "end": 1005.75,
+      "score": 65.0,
+      "label": "low",
+      "mean_word_confidence": 0.906,
+      "avg_logprob": -0.1151,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 103,
+      "start": 1005.75,
+      "end": 1010.17,
+      "score": 77.1,
+      "label": "medium",
+      "mean_word_confidence": 0.9646,
+      "avg_logprob": -0.1151,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 104,
+      "start": 1010.95,
+      "end": 1021.01,
+      "score": 67.5,
+      "label": "low",
+      "mean_word_confidence": 0.9618,
+      "avg_logprob": -0.0999,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 105,
+      "start": 1021.97,
+      "end": 1025.39,
+      "score": 75.4,
+      "label": "medium",
+      "mean_word_confidence": 0.9252,
+      "avg_logprob": -0.0999,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 106,
+      "start": 1025.39,
+      "end": 1034.63,
+      "score": 51.7,
+      "label": "low",
+      "mean_word_confidence": 0.9219,
+      "avg_logprob": -0.0999,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 107,
+      "start": 1034.63,
+      "end": 1038.15,
+      "score": 68.3,
+      "label": "low",
+      "mean_word_confidence": 0.9804,
+      "avg_logprob": -0.0999,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 108,
+      "start": 1038.15,
+      "end": 1048.97,
+      "score": 68.7,
+      "label": "low",
+      "mean_word_confidence": 0.9887,
+      "avg_logprob": -0.0953,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 109,
+      "start": 1048.97,
+      "end": 1051.97,
+      "score": 67.2,
+      "label": "low",
+      "mean_word_confidence": 0.9535,
+      "avg_logprob": -0.0953,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 110,
+      "start": 1051.97,
+      "end": 1057.61,
+      "score": 67.9,
+      "label": "low",
+      "mean_word_confidence": 0.9709,
+      "avg_logprob": -0.0953,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 111,
+      "start": 1057.61,
+      "end": 1064.15,
+      "score": 66.7,
+      "label": "low",
+      "mean_word_confidence": 0.9412,
+      "avg_logprob": -0.0953,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 112,
+      "start": 1064.15,
+      "end": 1077.13,
+      "score": 66.9,
+      "label": "low",
+      "mean_word_confidence": 0.9416,
+      "avg_logprob": -0.0749,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 113,
+      "start": 1077.13,
+      "end": 1086.11,
+      "score": 66.9,
+      "label": "low",
+      "mean_word_confidence": 0.9409,
+      "avg_logprob": -0.0749,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 114,
+      "start": 1086.11,
+      "end": 1093.23,
+      "score": 66.5,
+      "label": "low",
+      "mean_word_confidence": 0.9378,
+      "avg_logprob": -0.0975,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 115,
+      "start": 1093.41,
+      "end": 1102.57,
+      "score": 67.8,
+      "label": "low",
+      "mean_word_confidence": 0.9682,
+      "avg_logprob": -0.0975,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 116,
+      "start": 1102.77,
+      "end": 1105.47,
+      "score": 68.4,
+      "label": "low",
+      "mean_word_confidence": 0.9811,
+      "avg_logprob": -0.0975,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 117,
+      "start": 1105.83,
+      "end": 1111.99,
+      "score": 67.1,
+      "label": "low",
+      "mean_word_confidence": 0.9508,
+      "avg_logprob": -0.0975,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 118,
+      "start": 1111.99,
+      "end": 1117.59,
+      "score": 66.8,
+      "label": "low",
+      "mean_word_confidence": 0.941,
+      "avg_logprob": -0.0835,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 119,
+      "start": 1117.59,
+      "end": 1121.17,
+      "score": 66.0,
+      "label": "low",
+      "mean_word_confidence": 0.923,
+      "avg_logprob": -0.0835,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 120,
+      "start": 1121.17,
+      "end": 1125.71,
+      "score": 66.7,
+      "label": "low",
+      "mean_word_confidence": 0.9396,
+      "avg_logprob": -0.0835,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 121,
+      "start": 1125.71,
+      "end": 1129.19,
+      "score": 78.1,
+      "label": "medium",
+      "mean_word_confidence": 0.9769,
+      "avg_logprob": -0.0835,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 122,
+      "start": 1130.05,
+      "end": 1135.37,
+      "score": 67.9,
+      "label": "low",
+      "mean_word_confidence": 0.9669,
+      "avg_logprob": -0.0835,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 123,
+      "start": 1135.37,
+      "end": 1139.39,
+      "score": 66.3,
+      "label": "low",
+      "mean_word_confidence": 0.9286,
+      "avg_logprob": -0.0835,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 124,
+      "start": 1139.39,
+      "end": 1145.27,
+      "score": 67.2,
+      "label": "low",
+      "mean_word_confidence": 0.9507,
+      "avg_logprob": -0.0787,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 125,
+      "start": 1145.27,
+      "end": 1150.33,
+      "score": 66.9,
+      "label": "low",
+      "mean_word_confidence": 0.9431,
+      "avg_logprob": -0.0787,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 126,
+      "start": 1150.33,
+      "end": 1160.49,
+      "score": 66.8,
+      "label": "low",
+      "mean_word_confidence": 0.9406,
+      "avg_logprob": -0.0787,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 127,
+      "start": 1160.49,
+      "end": 1170.69,
+      "score": 66.8,
+      "label": "low",
+      "mean_word_confidence": 0.9406,
+      "avg_logprob": -0.0836,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 128,
+      "start": 1170.69,
+      "end": 1179.73,
+      "score": 76.1,
+      "label": "medium",
+      "mean_word_confidence": 0.9351,
+      "avg_logprob": -0.0836,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 129,
+      "start": 1179.73,
+      "end": 1187.17,
+      "score": 65.9,
+      "label": "low",
+      "mean_word_confidence": 0.9189,
+      "avg_logprob": -0.0836,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 130,
+      "start": 1187.17,
+      "end": 1190.77,
+      "score": 66.5,
+      "label": "low",
+      "mean_word_confidence": 0.936,
+      "avg_logprob": -0.0928,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 131,
+      "start": 1190.77,
+      "end": 1197.17,
+      "score": 66.7,
+      "label": "low",
+      "mean_word_confidence": 0.9398,
+      "avg_logprob": -0.0928,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 132,
+      "start": 1197.17,
+      "end": 1201.93,
+      "score": 64.5,
+      "label": "low",
+      "mean_word_confidence": 0.8891,
+      "avg_logprob": -0.0928,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 133,
+      "start": 1201.93,
+      "end": 1203.57,
+      "score": 68.4,
+      "label": "low",
+      "mean_word_confidence": 0.9808,
+      "avg_logprob": -0.0928,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 134,
+      "start": 1203.57,
+      "end": 1206.31,
+      "score": 77.3,
+      "label": "medium",
+      "mean_word_confidence": 0.9641,
+      "avg_logprob": -0.0928,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 135,
+      "start": 1206.31,
+      "end": 1208.19,
+      "score": 78.6,
+      "label": "medium",
+      "mean_word_confidence": 0.9903,
+      "avg_logprob": -0.0928,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 136,
+      "start": 1208.19,
+      "end": 1210.53,
+      "score": 68.4,
+      "label": "low",
+      "mean_word_confidence": 0.9806,
+      "avg_logprob": -0.0928,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 137,
+      "start": 1210.53,
+      "end": 1211.67,
+      "score": 68.0,
+      "label": "low",
+      "mean_word_confidence": 0.9706,
+      "avg_logprob": -0.0928,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 138,
+      "start": 1211.67,
+      "end": 1213.43,
+      "score": 67.0,
+      "label": "low",
+      "mean_word_confidence": 0.9484,
+      "avg_logprob": -0.0928,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 139,
+      "start": 1213.43,
+      "end": 1215.65,
+      "score": 64.7,
+      "label": "low",
+      "mean_word_confidence": 0.893,
+      "avg_logprob": -0.0928,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 140,
+      "start": 1215.65,
+      "end": 1228.19,
+      "score": 68.0,
+      "label": "low",
+      "mean_word_confidence": 0.9645,
+      "avg_logprob": -0.0559,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 141,
+      "start": 1228.19,
+      "end": 1239.25,
+      "score": 68.6,
+      "label": "low",
+      "mean_word_confidence": 0.9789,
+      "avg_logprob": -0.0567,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 142,
+      "start": 1239.25,
+      "end": 1249.03,
+      "score": 68.5,
+      "label": "low",
+      "mean_word_confidence": 0.9768,
+      "avg_logprob": -0.0567,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 143,
+      "start": 1251.13,
+      "end": 1262.71,
+      "score": 65.1,
+      "label": "low",
+      "mean_word_confidence": 0.9066,
+      "avg_logprob": -0.1123,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 144,
+      "start": 1262.71,
+      "end": 1272.93,
+      "score": 65.9,
+      "label": "low",
+      "mean_word_confidence": 0.9269,
+      "avg_logprob": -0.1123,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 145,
+      "start": 1272.93,
+      "end": 1279.79,
+      "score": 65.8,
+      "label": "low",
+      "mean_word_confidence": 0.9201,
+      "avg_logprob": -0.1015,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 146,
+      "start": 1279.79,
+      "end": 1283.25,
+      "score": 66.2,
+      "label": "low",
+      "mean_word_confidence": 0.9301,
+      "avg_logprob": -0.1015,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 147,
+      "start": 1283.25,
+      "end": 1287.99,
+      "score": 65.7,
+      "label": "low",
+      "mean_word_confidence": 0.9181,
+      "avg_logprob": -0.1015,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 148,
+      "start": 1287.99,
+      "end": 1290.97,
+      "score": 65.9,
+      "label": "low",
+      "mean_word_confidence": 0.9234,
+      "avg_logprob": -0.1015,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 149,
+      "start": 1290.97,
+      "end": 1295.99,
+      "score": 75.8,
+      "label": "medium",
+      "mean_word_confidence": 0.943,
+      "avg_logprob": -0.1466,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 150,
+      "start": 1295.99,
+      "end": 1304.31,
+      "score": 62.2,
+      "label": "low",
+      "mean_word_confidence": 0.846,
+      "avg_logprob": -0.1466,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 151,
+      "start": 1304.31,
+      "end": 1307.65,
+      "score": 64.8,
+      "label": "low",
+      "mean_word_confidence": 0.9059,
+      "avg_logprob": -0.1466,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 152,
+      "start": 1307.65,
+      "end": 1313.91,
+      "score": 66.2,
+      "label": "low",
+      "mean_word_confidence": 0.939,
+      "avg_logprob": -0.1466,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 153,
+      "start": 1313.91,
+      "end": 1324.39,
+      "score": 64.2,
+      "label": "low",
+      "mean_word_confidence": 0.896,
+      "avg_logprob": -0.1669,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 154,
+      "start": 1324.39,
+      "end": 1338.33,
+      "score": 64.0,
+      "label": "low",
+      "mean_word_confidence": 0.8928,
+      "avg_logprob": -0.1669,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 155,
+      "start": 1339.35,
+      "end": 1362.15,
+      "score": 48.8,
+      "label": "low",
+      "mean_word_confidence": 0.8575,
+      "avg_logprob": -0.224,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 156,
+      "start": 1362.15,
+      "end": 1370.25,
+      "score": 62.9,
+      "label": "low",
+      "mean_word_confidence": 0.8665,
+      "avg_logprob": -0.1681,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 157,
+      "start": 1370.25,
+      "end": 1376.75,
+      "score": 63.0,
+      "label": "low",
+      "mean_word_confidence": 0.8688,
+      "avg_logprob": -0.1681,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 158,
+      "start": 1376.75,
+      "end": 1381.13,
+      "score": 61.6,
+      "label": "low",
+      "mean_word_confidence": 0.8354,
+      "avg_logprob": -0.1681,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 159,
+      "start": 1382.53,
+      "end": 1390.13,
+      "score": 63.4,
+      "label": "low",
+      "mean_word_confidence": 0.8836,
+      "avg_logprob": -0.199,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 160,
+      "start": 1390.13,
+      "end": 1401.28,
+      "score": 63.2,
+      "label": "low",
+      "mean_word_confidence": 0.8801,
+      "avg_logprob": -0.199,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 161,
+      "start": 1401.75,
+      "end": 1404.45,
+      "score": 65.3,
+      "label": "low",
+      "mean_word_confidence": 0.93,
+      "avg_logprob": -0.199,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 162,
+      "start": 1404.45,
+      "end": 1408.69,
+      "score": 65.6,
+      "label": "low",
+      "mean_word_confidence": 0.9365,
+      "avg_logprob": -0.199,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 163,
+      "start": 1417.31,
+      "end": 1422.79,
+      "score": 46.0,
+      "label": "low",
+      "mean_word_confidence": 0.7994,
+      "avg_logprob": -0.3421,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 164,
+      "start": 1424.31,
+      "end": 1432.41,
+      "score": 60.5,
+      "label": "low",
+      "mean_word_confidence": 0.8447,
+      "avg_logprob": -0.3421,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 165,
+      "start": 1432.41,
+      "end": 1439.33,
+      "score": 62.8,
+      "label": "low",
+      "mean_word_confidence": 0.8661,
+      "avg_logprob": -0.1785,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 166,
+      "start": 1439.33,
+      "end": 1442.87,
+      "score": 62.1,
+      "label": "low",
+      "mean_word_confidence": 0.848,
+      "avg_logprob": -0.1785,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 167,
+      "start": 1442.87,
+      "end": 1445.79,
+      "score": 49.6,
+      "label": "low",
+      "mean_word_confidence": 0.8744,
+      "avg_logprob": -0.1785,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 168,
+      "start": 1445.79,
+      "end": 1449.13,
+      "score": 64.2,
+      "label": "low",
+      "mean_word_confidence": 0.9002,
+      "avg_logprob": -0.1785,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 169,
+      "start": 1449.13,
+      "end": 1454.81,
+      "score": 63.9,
+      "label": "low",
+      "mean_word_confidence": 0.8927,
+      "avg_logprob": -0.1785,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 170,
+      "start": 1454.81,
+      "end": 1457.79,
+      "score": 65.1,
+      "label": "low",
+      "mean_word_confidence": 0.9123,
+      "avg_logprob": -0.1429,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 171,
+      "start": 1457.79,
+      "end": 1463.59,
+      "score": 51.4,
+      "label": "low",
+      "mean_word_confidence": 0.9193,
+      "avg_logprob": -0.1429,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 172,
+      "start": 1463.59,
+      "end": 1471.25,
+      "score": 66.0,
+      "label": "low",
+      "mean_word_confidence": 0.9347,
+      "avg_logprob": -0.1429,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 173,
+      "start": 1473.09,
+      "end": 1480.25,
+      "score": 61.4,
+      "label": "low",
+      "mean_word_confidence": 0.8422,
+      "avg_logprob": -0.2247,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 174,
+      "start": 1481.09,
+      "end": 1488.15,
+      "score": 62.9,
+      "label": "low",
+      "mean_word_confidence": 0.8773,
+      "avg_logprob": -0.2247,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 175,
+      "start": 1488.15,
+      "end": 1493.01,
+      "score": 63.0,
+      "label": "low",
+      "mean_word_confidence": 0.8794,
+      "avg_logprob": -0.2247,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 176,
+      "start": 1493.01,
+      "end": 1496.81,
+      "score": 63.0,
+      "label": "low",
+      "mean_word_confidence": 0.8812,
+      "avg_logprob": -0.2247,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 177,
+      "start": 1496.81,
+      "end": 1498.65,
+      "score": 65.8,
+      "label": "low",
+      "mean_word_confidence": 0.9466,
+      "avg_logprob": -0.2247,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 178,
+      "start": 1498.65,
+      "end": 1504.73,
+      "score": 63.6,
+      "label": "low",
+      "mean_word_confidence": 0.8844,
+      "avg_logprob": -0.1758,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 179,
+      "start": 1504.73,
+      "end": 1509.77,
+      "score": 48.2,
+      "label": "low",
+      "mean_word_confidence": 0.8314,
+      "avg_logprob": -0.1758,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 180,
+      "start": 1509.77,
+      "end": 1515.97,
+      "score": 64.6,
+      "label": "low",
+      "mean_word_confidence": 0.9071,
+      "avg_logprob": -0.1758,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 181,
+      "start": 1516.51,
+      "end": 1522.39,
+      "score": 49.7,
+      "label": "low",
+      "mean_word_confidence": 0.8755,
+      "avg_logprob": -0.1758,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 182,
+      "start": 1522.39,
+      "end": 1529.07,
+      "score": 50.1,
+      "label": "low",
+      "mean_word_confidence": 0.8797,
+      "avg_logprob": -0.1352,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 183,
+      "start": 1529.07,
+      "end": 1533.67,
+      "score": 67.2,
+      "label": "low",
+      "mean_word_confidence": 0.9622,
+      "avg_logprob": -0.1352,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 184,
+      "start": 1533.67,
+      "end": 1537.51,
+      "score": 49.4,
+      "label": "low",
+      "mean_word_confidence": 0.8594,
+      "avg_logprob": -0.1352,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 185,
+      "start": 1537.51,
+      "end": 1542.63,
+      "score": 95.4,
+      "label": "high",
+      "mean_word_confidence": 0.9515,
+      "avg_logprob": -0.1352,
+      "no_speech_probability": 0.0,
+      "review_flags": [],
+      "review_penalty": 0
+    },
+    {
+      "segment_id": 186,
+      "start": 1542.63,
+      "end": 1548.79,
+      "score": 50.0,
+      "label": "low",
+      "mean_word_confidence": 0.8772,
+      "avg_logprob": -0.1352,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 187,
+      "start": 1548.79,
+      "end": 1554.67,
+      "score": 63.5,
+      "label": "low",
+      "mean_word_confidence": 0.8721,
+      "avg_logprob": -0.1251,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 188,
+      "start": 1554.67,
+      "end": 1560.53,
+      "score": 65.9,
+      "label": "low",
+      "mean_word_confidence": 0.929,
+      "avg_logprob": -0.1251,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 189,
+      "start": 1560.53,
+      "end": 1565.51,
+      "score": 64.1,
+      "label": "low",
+      "mean_word_confidence": 0.8867,
+      "avg_logprob": -0.1251,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 190,
+      "start": 1565.51,
+      "end": 1569.33,
+      "score": 67.3,
+      "label": "low",
+      "mean_word_confidence": 0.9606,
+      "avg_logprob": -0.1251,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 191,
+      "start": 1569.33,
+      "end": 1574.21,
+      "score": 66.6,
+      "label": "low",
+      "mean_word_confidence": 0.9463,
+      "avg_logprob": -0.1251,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 192,
+      "start": 1574.21,
+      "end": 1580.59,
+      "score": 65.1,
+      "label": "low",
+      "mean_word_confidence": 0.916,
+      "avg_logprob": -0.1576,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 193,
+      "start": 1580.59,
+      "end": 1587.77,
+      "score": 63.7,
+      "label": "low",
+      "mean_word_confidence": 0.8824,
+      "avg_logprob": -0.1576,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 194,
+      "start": 1587.77,
+      "end": 1592.21,
+      "score": 50.0,
+      "label": "low",
+      "mean_word_confidence": 0.8811,
+      "avg_logprob": -0.1576,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 195,
+      "start": 1592.21,
+      "end": 1595.23,
+      "score": 56.1,
+      "label": "low",
+      "mean_word_confidence": 0.8058,
+      "avg_logprob": -0.1576,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.35
+    },
+    {
+      "segment_id": 196,
+      "start": 1595.23,
+      "end": 1598.83,
+      "score": 65.1,
+      "label": "low",
+      "mean_word_confidence": 0.9173,
+      "avg_logprob": -0.1576,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 197,
+      "start": 1598.83,
+      "end": 1603.97,
+      "score": 49.0,
+      "label": "low",
+      "mean_word_confidence": 0.8493,
+      "avg_logprob": -0.1425,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 198,
+      "start": 1603.97,
+      "end": 1609.41,
+      "score": 65.0,
+      "label": "low",
+      "mean_word_confidence": 0.9114,
+      "avg_logprob": -0.1425,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 199,
+      "start": 1609.41,
+      "end": 1613.39,
+      "score": 65.2,
+      "label": "low",
+      "mean_word_confidence": 0.9159,
+      "avg_logprob": -0.1425,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 200,
+      "start": 1613.39,
+      "end": 1621.01,
+      "score": 64.5,
+      "label": "low",
+      "mean_word_confidence": 0.8998,
+      "avg_logprob": -0.1425,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 201,
+      "start": 1621.01,
+      "end": 1625.69,
+      "score": 65.2,
+      "label": "low",
+      "mean_word_confidence": 0.9229,
+      "avg_logprob": -0.173,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 202,
+      "start": 1625.69,
+      "end": 1629.57,
+      "score": 64.9,
+      "label": "low",
+      "mean_word_confidence": 0.9137,
+      "avg_logprob": -0.173,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 203,
+      "start": 1629.57,
+      "end": 1634.99,
+      "score": 61.8,
+      "label": "low",
+      "mean_word_confidence": 0.8411,
+      "avg_logprob": -0.173,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 204,
+      "start": 1634.99,
+      "end": 1637.89,
+      "score": 63.9,
+      "label": "low",
+      "mean_word_confidence": 0.8904,
+      "avg_logprob": -0.173,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 205,
+      "start": 1637.89,
+      "end": 1642.35,
+      "score": 62.7,
+      "label": "low",
+      "mean_word_confidence": 0.8618,
+      "avg_logprob": -0.173,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 206,
+      "start": 1642.35,
+      "end": 1670.29,
+      "score": 51.7,
+      "label": "low",
+      "mean_word_confidence": 0.9249,
+      "avg_logprob": -0.1161,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 207,
+      "start": 1670.29,
+      "end": 1677.93,
+      "score": 66.3,
+      "label": "low",
+      "mean_word_confidence": 0.9362,
+      "avg_logprob": -0.1175,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 208,
+      "start": 1677.93,
+      "end": 1685.53,
+      "score": 66.3,
+      "label": "low",
+      "mean_word_confidence": 0.9368,
+      "avg_logprob": -0.1175,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 209,
+      "start": 1685.53,
+      "end": 1692.17,
+      "score": 65.5,
+      "label": "low",
+      "mean_word_confidence": 0.9167,
+      "avg_logprob": -0.1175,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 210,
+      "start": 1692.17,
+      "end": 1700.49,
+      "score": 75.2,
+      "label": "medium",
+      "mean_word_confidence": 0.9214,
+      "avg_logprob": -0.1068,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 211,
+      "start": 1700.49,
+      "end": 1704.87,
+      "score": 67.0,
+      "label": "low",
+      "mean_word_confidence": 0.952,
+      "avg_logprob": -0.1068,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 212,
+      "start": 1704.87,
+      "end": 1711.91,
+      "score": 66.7,
+      "label": "low",
+      "mean_word_confidence": 0.9439,
+      "avg_logprob": -0.1068,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 213,
+      "start": 1711.91,
+      "end": 1718.43,
+      "score": 72.2,
+      "label": "medium",
+      "mean_word_confidence": 0.8706,
+      "avg_logprob": -0.1586,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 214,
+      "start": 1718.43,
+      "end": 1726.83,
+      "score": 48.7,
+      "label": "low",
+      "mean_word_confidence": 0.842,
+      "avg_logprob": -0.1586,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 215,
+      "start": 1726.83,
+      "end": 1731.01,
+      "score": 64.4,
+      "label": "low",
+      "mean_word_confidence": 0.8996,
+      "avg_logprob": -0.1586,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 216,
+      "start": 1731.01,
+      "end": 1734.15,
+      "score": 62.4,
+      "label": "low",
+      "mean_word_confidence": 0.8525,
+      "avg_logprob": -0.1586,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 217,
+      "start": 1734.15,
+      "end": 1739.63,
+      "score": 64.3,
+      "label": "low",
+      "mean_word_confidence": 0.9003,
+      "avg_logprob": -0.1723,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 218,
+      "start": 1739.63,
+      "end": 1747.03,
+      "score": 64.0,
+      "label": "low",
+      "mean_word_confidence": 0.8936,
+      "avg_logprob": -0.1723,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 219,
+      "start": 1747.03,
+      "end": 1754.23,
+      "score": 63.5,
+      "label": "low",
+      "mean_word_confidence": 0.881,
+      "avg_logprob": -0.1723,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 220,
+      "start": 1754.23,
+      "end": 1761.25,
+      "score": 63.2,
+      "label": "low",
+      "mean_word_confidence": 0.8764,
+      "avg_logprob": -0.1813,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 221,
+      "start": 1761.25,
+      "end": 1770.33,
+      "score": 62.2,
+      "label": "low",
+      "mean_word_confidence": 0.8522,
+      "avg_logprob": -0.1813,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 222,
+      "start": 1770.33,
+      "end": 1780.29,
+      "score": 64.0,
+      "label": "low",
+      "mean_word_confidence": 0.8942,
+      "avg_logprob": -0.1813,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 223,
+      "start": 1780.29,
+      "end": 1787.57,
+      "score": 63.9,
+      "label": "low",
+      "mean_word_confidence": 0.8823,
+      "avg_logprob": -0.1274,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 224,
+      "start": 1787.57,
+      "end": 1794.49,
+      "score": 65.5,
+      "label": "low",
+      "mean_word_confidence": 0.9196,
+      "avg_logprob": -0.1274,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 225,
+      "start": 1794.49,
+      "end": 1800.19,
+      "score": 65.6,
+      "label": "low",
+      "mean_word_confidence": 0.9212,
+      "avg_logprob": -0.1274,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 226,
+      "start": 1800.19,
+      "end": 1805.75,
+      "score": 64.6,
+      "label": "low",
+      "mean_word_confidence": 0.8976,
+      "avg_logprob": -0.1274,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 227,
+      "start": 1805.75,
+      "end": 1815.03,
+      "score": 66.0,
+      "label": "low",
+      "mean_word_confidence": 0.9286,
+      "avg_logprob": -0.1146,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 228,
+      "start": 1815.03,
+      "end": 1820.11,
+      "score": 65.8,
+      "label": "low",
+      "mean_word_confidence": 0.9245,
+      "avg_logprob": -0.1146,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 229,
+      "start": 1820.11,
+      "end": 1822.73,
+      "score": 67.5,
+      "label": "low",
+      "mean_word_confidence": 0.9653,
+      "avg_logprob": -0.1146,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 230,
+      "start": 1822.73,
+      "end": 1824.45,
+      "score": 65.3,
+      "label": "low",
+      "mean_word_confidence": 0.9126,
+      "avg_logprob": -0.1146,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 231,
+      "start": 1824.45,
+      "end": 1831.17,
+      "score": 66.7,
+      "label": "low",
+      "mean_word_confidence": 0.9447,
+      "avg_logprob": -0.1146,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 232,
+      "start": 1831.17,
+      "end": 1832.72,
+      "score": 64.4,
+      "label": "low",
+      "mean_word_confidence": 0.8912,
+      "avg_logprob": -0.1146,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 233,
+      "start": 1832.72,
+      "end": 1837.94,
+      "score": 48.0,
+      "label": "low",
+      "mean_word_confidence": 0.8232,
+      "avg_logprob": -0.174,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 234,
+      "start": 1837.94,
+      "end": 1842.26,
+      "score": 62.4,
+      "label": "low",
+      "mean_word_confidence": 0.8545,
+      "avg_logprob": -0.174,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 235,
+      "start": 1844.04,
+      "end": 1848.32,
+      "score": 67.6,
+      "label": "low",
+      "mean_word_confidence": 0.9781,
+      "avg_logprob": -0.174,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 236,
+      "start": 1848.32,
+      "end": 1853.74,
+      "score": 66.7,
+      "label": "low",
+      "mean_word_confidence": 0.9589,
+      "avg_logprob": -0.174,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 237,
+      "start": 1853.74,
+      "end": 1856.32,
+      "score": 68.3,
+      "label": "low",
+      "mean_word_confidence": 0.997,
+      "avg_logprob": -0.174,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 238,
+      "start": 1856.32,
+      "end": 1862.4,
+      "score": 67.3,
+      "label": "low",
+      "mean_word_confidence": 0.965,
+      "avg_logprob": -0.1389,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 239,
+      "start": 1862.4,
+      "end": 1869.18,
+      "score": 64.2,
+      "label": "low",
+      "mean_word_confidence": 0.8902,
+      "avg_logprob": -0.1389,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 240,
+      "start": 1869.18,
+      "end": 1873.3,
+      "score": 64.9,
+      "label": "low",
+      "mean_word_confidence": 0.9084,
+      "avg_logprob": -0.1389,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 241,
+      "start": 1876.09,
+      "end": 1877.41,
+      "score": 62.7,
+      "label": "low",
+      "mean_word_confidence": 0.8554,
+      "avg_logprob": -0.1389,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 242,
+      "start": 1877.41,
+      "end": 1882.01,
+      "score": 65.9,
+      "label": "low",
+      "mean_word_confidence": 0.9316,
+      "avg_logprob": -0.1389,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 243,
+      "start": 1882.01,
+      "end": 1883.11,
+      "score": 78.5,
+      "label": "medium",
+      "mean_word_confidence": 0.9971,
+      "avg_logprob": -0.1389,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 244,
+      "start": 1883.11,
+      "end": 1885.61,
+      "score": 74.3,
+      "label": "medium",
+      "mean_word_confidence": 0.9103,
+      "avg_logprob": -0.1389,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 245,
+      "start": 1885.61,
+      "end": 1894.91,
+      "score": 64.7,
+      "label": "low",
+      "mean_word_confidence": 0.9034,
+      "avg_logprob": -0.1477,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 246,
+      "start": 1899.27,
+      "end": 1905.85,
+      "score": 65.4,
+      "label": "low",
+      "mean_word_confidence": 0.922,
+      "avg_logprob": -0.1477,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 247,
+      "start": 1908.61,
+      "end": 1915.53,
+      "score": 64.5,
+      "label": "low",
+      "mean_word_confidence": 0.8985,
+      "avg_logprob": -0.1366,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 248,
+      "start": 1915.53,
+      "end": 1925.85,
+      "score": 66.4,
+      "label": "low",
+      "mean_word_confidence": 0.9431,
+      "avg_logprob": -0.1366,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 249,
+      "start": 1938.79,
+      "end": 1951.56,
+      "score": 73.7,
+      "label": "medium",
+      "mean_word_confidence": 0.8982,
+      "avg_logprob": -0.1366,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 250,
+      "start": 1953.12,
+      "end": 1961.8,
+      "score": 49.9,
+      "label": "low",
+      "mean_word_confidence": 0.8705,
+      "avg_logprob": -0.1188,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 251,
+      "start": 1961.8,
+      "end": 1969.22,
+      "score": 66.8,
+      "label": "low",
+      "mean_word_confidence": 0.9488,
+      "avg_logprob": -0.1188,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 252,
+      "start": 1969.22,
+      "end": 1976.06,
+      "score": 67.6,
+      "label": "low",
+      "mean_word_confidence": 0.9687,
+      "avg_logprob": -0.1188,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 253,
+      "start": 1976.06,
+      "end": 1984.46,
+      "score": 66.5,
+      "label": "low",
+      "mean_word_confidence": 0.938,
+      "avg_logprob": -0.097,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 254,
+      "start": 1984.46,
+      "end": 1988.62,
+      "score": 64.8,
+      "label": "low",
+      "mean_word_confidence": 0.8954,
+      "avg_logprob": -0.097,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 255,
+      "start": 1988.62,
+      "end": 1993.34,
+      "score": 67.9,
+      "label": "low",
+      "mean_word_confidence": 0.9712,
+      "avg_logprob": -0.097,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 256,
+      "start": 1993.34,
+      "end": 1995.42,
+      "score": 67.0,
+      "label": "low",
+      "mean_word_confidence": 0.9485,
+      "avg_logprob": -0.097,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 257,
+      "start": 1995.42,
+      "end": 1999.64,
+      "score": 66.1,
+      "label": "low",
+      "mean_word_confidence": 0.9273,
+      "avg_logprob": -0.097,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 258,
+      "start": 1999.64,
+      "end": 2002.32,
+      "score": 66.6,
+      "label": "low",
+      "mean_word_confidence": 0.9406,
+      "avg_logprob": -0.0992,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 259,
+      "start": 2003.2,
+      "end": 2013.64,
+      "score": 65.6,
+      "label": "low",
+      "mean_word_confidence": 0.9153,
+      "avg_logprob": -0.0992,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 260,
+      "start": 2013.64,
+      "end": 2018.7,
+      "score": 66.3,
+      "label": "low",
+      "mean_word_confidence": 0.9324,
+      "avg_logprob": -0.0992,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 261,
+      "start": 2018.7,
+      "end": 2026.64,
+      "score": 66.9,
+      "label": "low",
+      "mean_word_confidence": 0.948,
+      "avg_logprob": -0.0992,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 262,
+      "start": 2026.64,
+      "end": 2029.48,
+      "score": 64.4,
+      "label": "low",
+      "mean_word_confidence": 0.8985,
+      "avg_logprob": -0.1546,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 263,
+      "start": 2031.2,
+      "end": 2036.58,
+      "score": 63.9,
+      "label": "low",
+      "mean_word_confidence": 0.8862,
+      "avg_logprob": -0.1546,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 264,
+      "start": 2036.58,
+      "end": 2041.46,
+      "score": 63.2,
+      "label": "low",
+      "mean_word_confidence": 0.8691,
+      "avg_logprob": -0.1546,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 265,
+      "start": 2041.46,
+      "end": 2047.5,
+      "score": 73.7,
+      "label": "medium",
+      "mean_word_confidence": 0.9005,
+      "avg_logprob": -0.1546,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 266,
+      "start": 2047.5,
+      "end": 2050.18,
+      "score": 64.5,
+      "label": "low",
+      "mean_word_confidence": 0.9003,
+      "avg_logprob": -0.1546,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 267,
+      "start": 2050.18,
+      "end": 2073.4,
+      "score": 50.3,
+      "label": "low",
+      "mean_word_confidence": 0.8873,
+      "avg_logprob": -0.1464,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 268,
+      "start": 2073.4,
+      "end": 2100.6,
+      "score": 49.4,
+      "label": "low",
+      "mean_word_confidence": 0.87,
+      "avg_logprob": -0.1861,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 269,
+      "start": 2100.6,
+      "end": 2111.12,
+      "score": 65.2,
+      "label": "low",
+      "mean_word_confidence": 0.908,
+      "avg_logprob": -0.102,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 270,
+      "start": 2111.12,
+      "end": 2121.9,
+      "score": 66.2,
+      "label": "low",
+      "mean_word_confidence": 0.9298,
+      "avg_logprob": -0.102,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 271,
+      "start": 2121.9,
+      "end": 2133.98,
+      "score": 66.3,
+      "label": "low",
+      "mean_word_confidence": 0.9318,
+      "avg_logprob": -0.0901,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 272,
+      "start": 2133.98,
+      "end": 2143.54,
+      "score": 67.5,
+      "label": "low",
+      "mean_word_confidence": 0.959,
+      "avg_logprob": -0.0901,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 273,
+      "start": 2143.54,
+      "end": 2154.26,
+      "score": 63.3,
+      "label": "low",
+      "mean_word_confidence": 0.8714,
+      "avg_logprob": -0.1475,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 274,
+      "start": 2154.26,
+      "end": 2170.2,
+      "score": 60.0,
+      "label": "low",
+      "mean_word_confidence": 0.9031,
+      "avg_logprob": -0.1475,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.35
+    },
+    {
+      "segment_id": 275,
+      "start": 2170.2,
+      "end": 2196.78,
+      "score": 63.8,
+      "label": "low",
+      "mean_word_confidence": 0.8822,
+      "avg_logprob": -0.1448,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 276,
+      "start": 2196.78,
+      "end": 2220.12,
+      "score": 65.6,
+      "label": "low",
+      "mean_word_confidence": 0.9215,
+      "avg_logprob": -0.1265,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 277,
+      "start": 2220.12,
+      "end": 2223.36,
+      "score": 64.0,
+      "label": "low",
+      "mean_word_confidence": 0.8917,
+      "avg_logprob": -0.1635,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 278,
+      "start": 2223.36,
+      "end": 2233.66,
+      "score": 50.1,
+      "label": "low",
+      "mean_word_confidence": 0.8859,
+      "avg_logprob": -0.1635,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 279,
+      "start": 2233.66,
+      "end": 2237.5,
+      "score": 77.9,
+      "label": "medium",
+      "mean_word_confidence": 0.9913,
+      "avg_logprob": -0.1635,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 280,
+      "start": 2238.12,
+      "end": 2245.8,
+      "score": 65.0,
+      "label": "low",
+      "mean_word_confidence": 0.9152,
+      "avg_logprob": -0.1635,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 281,
+      "start": 2245.8,
+      "end": 2258.5,
+      "score": 64.0,
+      "label": "low",
+      "mean_word_confidence": 0.8853,
+      "avg_logprob": -0.1395,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 282,
+      "start": 2258.5,
+      "end": 2268.3,
+      "score": 65.3,
+      "label": "low",
+      "mean_word_confidence": 0.9176,
+      "avg_logprob": -0.1395,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 283,
+      "start": 2268.3,
+      "end": 2273.24,
+      "score": 50.4,
+      "label": "low",
+      "mean_word_confidence": 0.8816,
+      "avg_logprob": -0.1061,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 284,
+      "start": 2273.24,
+      "end": 2278.22,
+      "score": 66.6,
+      "label": "low",
+      "mean_word_confidence": 0.9405,
+      "avg_logprob": -0.1061,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 285,
+      "start": 2278.22,
+      "end": 2284.28,
+      "score": 77.9,
+      "label": "medium",
+      "mean_word_confidence": 0.9792,
+      "avg_logprob": -0.1061,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 286,
+      "start": 2284.28,
+      "end": 2288.48,
+      "score": 66.8,
+      "label": "low",
+      "mean_word_confidence": 0.9466,
+      "avg_logprob": -0.1061,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 287,
+      "start": 2288.48,
+      "end": 2294.5,
+      "score": 68.1,
+      "label": "low",
+      "mean_word_confidence": 0.977,
+      "avg_logprob": -0.1061,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 288,
+      "start": 2294.5,
+      "end": 2298.54,
+      "score": 67.1,
+      "label": "low",
+      "mean_word_confidence": 0.958,
+      "avg_logprob": -0.1265,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 289,
+      "start": 2299.12,
+      "end": 2304.74,
+      "score": 65.5,
+      "label": "low",
+      "mean_word_confidence": 0.9196,
+      "avg_logprob": -0.1265,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 290,
+      "start": 2305.76,
+      "end": 2311.3,
+      "score": 65.4,
+      "label": "low",
+      "mean_word_confidence": 0.9156,
+      "avg_logprob": -0.1265,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 291,
+      "start": 2311.3,
+      "end": 2318.7,
+      "score": 64.0,
+      "label": "low",
+      "mean_word_confidence": 0.8843,
+      "avg_logprob": -0.1265,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 292,
+      "start": 2318.7,
+      "end": 2323.5,
+      "score": 66.1,
+      "label": "low",
+      "mean_word_confidence": 0.9301,
+      "avg_logprob": -0.1059,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 293,
+      "start": 2323.5,
+      "end": 2328.62,
+      "score": 66.5,
+      "label": "low",
+      "mean_word_confidence": 0.938,
+      "avg_logprob": -0.1059,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 294,
+      "start": 2328.62,
+      "end": 2333.24,
+      "score": 67.3,
+      "label": "low",
+      "mean_word_confidence": 0.9586,
+      "avg_logprob": -0.1059,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 295,
+      "start": 2333.24,
+      "end": 2340.98,
+      "score": 76.0,
+      "label": "medium",
+      "mean_word_confidence": 0.9385,
+      "avg_logprob": -0.1059,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 296,
+      "start": 2340.98,
+      "end": 2349.52,
+      "score": 66.7,
+      "label": "low",
+      "mean_word_confidence": 0.9425,
+      "avg_logprob": -0.1007,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 297,
+      "start": 2349.52,
+      "end": 2355.86,
+      "score": 67.7,
+      "label": "low",
+      "mean_word_confidence": 0.9672,
+      "avg_logprob": -0.1007,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 298,
+      "start": 2355.86,
+      "end": 2360.06,
+      "score": 67.2,
+      "label": "low",
+      "mean_word_confidence": 0.9551,
+      "avg_logprob": -0.1007,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 299,
+      "start": 2360.06,
+      "end": 2363.86,
+      "score": 64.9,
+      "label": "low",
+      "mean_word_confidence": 0.8989,
+      "avg_logprob": -0.1007,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 300,
+      "start": 2363.86,
+      "end": 2364.36,
+      "score": 75.6,
+      "label": "medium",
+      "mean_word_confidence": 0.93,
+      "avg_logprob": -0.1007,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 301,
+      "start": 2364.36,
+      "end": 2371.6,
+      "score": 64.5,
+      "label": "low",
+      "mean_word_confidence": 0.9079,
+      "avg_logprob": -0.1809,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 302,
+      "start": 2371.6,
+      "end": 2373.18,
+      "score": 68.7,
+      "label": "low",
+      "mean_word_confidence": 0.8026,
+      "avg_logprob": -0.1809,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 303,
+      "start": 2373.18,
+      "end": 2374.06,
+      "score": 69.8,
+      "label": "low",
+      "mean_word_confidence": 0.8253,
+      "avg_logprob": -0.1809,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 304,
+      "start": 2374.06,
+      "end": 2379.98,
+      "score": 63.4,
+      "label": "low",
+      "mean_word_confidence": 0.8799,
+      "avg_logprob": -0.1809,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 305,
+      "start": 2379.98,
+      "end": 2385.5,
+      "score": 66.2,
+      "label": "low",
+      "mean_word_confidence": 0.9483,
+      "avg_logprob": -0.1809,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 306,
+      "start": 2385.5,
+      "end": 2388.48,
+      "score": 64.3,
+      "label": "low",
+      "mean_word_confidence": 0.8923,
+      "avg_logprob": -0.132,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 307,
+      "start": 2388.48,
+      "end": 2394.66,
+      "score": 49.3,
+      "label": "low",
+      "mean_word_confidence": 0.8561,
+      "avg_logprob": -0.132,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 308,
+      "start": 2394.66,
+      "end": 2396.92,
+      "score": 67.6,
+      "label": "low",
+      "mean_word_confidence": 0.9705,
+      "avg_logprob": -0.132,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 309,
+      "start": 2396.92,
+      "end": 2399.08,
+      "score": 63.4,
+      "label": "low",
+      "mean_word_confidence": 0.8699,
+      "avg_logprob": -0.132,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 310,
+      "start": 2399.08,
+      "end": 2402.56,
+      "score": 49.8,
+      "label": "low",
+      "mean_word_confidence": 0.869,
+      "avg_logprob": -0.132,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 311,
+      "start": 2402.56,
+      "end": 2406.12,
+      "score": 67.1,
+      "label": "low",
+      "mean_word_confidence": 0.9587,
+      "avg_logprob": -0.132,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 312,
+      "start": 2406.12,
+      "end": 2409.26,
+      "score": 66.5,
+      "label": "low",
+      "mean_word_confidence": 0.9431,
+      "avg_logprob": -0.132,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 313,
+      "start": 2409.26,
+      "end": 2413.92,
+      "score": 66.6,
+      "label": "low",
+      "mean_word_confidence": 0.9467,
+      "avg_logprob": -0.1355,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 314,
+      "start": 2413.92,
+      "end": 2418.44,
+      "score": 50.6,
+      "label": "low",
+      "mean_word_confidence": 0.8936,
+      "avg_logprob": -0.1355,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 315,
+      "start": 2418.44,
+      "end": 2421.64,
+      "score": 48.8,
+      "label": "low",
+      "mean_word_confidence": 0.839,
+      "avg_logprob": -0.1355,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 316,
+      "start": 2421.64,
+      "end": 2424.98,
+      "score": 49.2,
+      "label": "low",
+      "mean_word_confidence": 0.8539,
+      "avg_logprob": -0.1355,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 317,
+      "start": 2425.98,
+      "end": 2431.5,
+      "score": 66.5,
+      "label": "low",
+      "mean_word_confidence": 0.9446,
+      "avg_logprob": -0.1355,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 318,
+      "start": 2431.5,
+      "end": 2439.18,
+      "score": 65.0,
+      "label": "low",
+      "mean_word_confidence": 0.9065,
+      "avg_logprob": -0.1207,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 319,
+      "start": 2439.18,
+      "end": 2446.36,
+      "score": 67.0,
+      "label": "low",
+      "mean_word_confidence": 0.9546,
+      "avg_logprob": -0.1207,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 320,
+      "start": 2446.36,
+      "end": 2452.14,
+      "score": 64.5,
+      "label": "low",
+      "mean_word_confidence": 0.894,
+      "avg_logprob": -0.1207,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 321,
+      "start": 2452.14,
+      "end": 2459.42,
+      "score": 64.2,
+      "label": "low",
+      "mean_word_confidence": 0.8925,
+      "avg_logprob": -0.1445,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 322,
+      "start": 2459.42,
+      "end": 2465.0,
+      "score": 48.7,
+      "label": "low",
+      "mean_word_confidence": 0.8407,
+      "avg_logprob": -0.1445,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 323,
+      "start": 2465.0,
+      "end": 2471.28,
+      "score": 64.8,
+      "label": "low",
+      "mean_word_confidence": 0.9074,
+      "avg_logprob": -0.1445,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 324,
+      "start": 2471.28,
+      "end": 2475.2,
+      "score": 67.1,
+      "label": "low",
+      "mean_word_confidence": 0.9605,
+      "avg_logprob": -0.1445,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 325,
+      "start": 2475.2,
+      "end": 2478.82,
+      "score": 62.8,
+      "label": "low",
+      "mean_word_confidence": 0.8575,
+      "avg_logprob": -0.1445,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 326,
+      "start": 2478.82,
+      "end": 2483.58,
+      "score": 62.7,
+      "label": "low",
+      "mean_word_confidence": 0.8544,
+      "avg_logprob": -0.1306,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 327,
+      "start": 2483.58,
+      "end": 2488.64,
+      "score": 65.4,
+      "label": "low",
+      "mean_word_confidence": 0.9188,
+      "avg_logprob": -0.1306,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 328,
+      "start": 2488.64,
+      "end": 2496.06,
+      "score": 66.1,
+      "label": "low",
+      "mean_word_confidence": 0.9349,
+      "avg_logprob": -0.1306,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 329,
+      "start": 2496.06,
+      "end": 2498.22,
+      "score": 76.2,
+      "label": "medium",
+      "mean_word_confidence": 0.9489,
+      "avg_logprob": -0.1306,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 330,
+      "start": 2498.22,
+      "end": 2509.38,
+      "score": 64.2,
+      "label": "low",
+      "mean_word_confidence": 0.8946,
+      "avg_logprob": -0.162,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 331,
+      "start": 2509.38,
+      "end": 2520.76,
+      "score": 63.3,
+      "label": "low",
+      "mean_word_confidence": 0.8741,
+      "avg_logprob": -0.162,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 332,
+      "start": 2520.76,
+      "end": 2527.12,
+      "score": 62.7,
+      "label": "low",
+      "mean_word_confidence": 0.855,
+      "avg_logprob": -0.1438,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 333,
+      "start": 2527.12,
+      "end": 2532.88,
+      "score": 71.3,
+      "label": "medium",
+      "mean_word_confidence": 0.8491,
+      "avg_logprob": -0.1438,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 334,
+      "start": 2532.88,
+      "end": 2539.36,
+      "score": 66.6,
+      "label": "low",
+      "mean_word_confidence": 0.9478,
+      "avg_logprob": -0.1438,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 335,
+      "start": 2539.36,
+      "end": 2544.14,
+      "score": 65.7,
+      "label": "low",
+      "mean_word_confidence": 0.927,
+      "avg_logprob": -0.1438,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 336,
+      "start": 2544.14,
+      "end": 2553.44,
+      "score": 50.2,
+      "label": "low",
+      "mean_word_confidence": 0.8839,
+      "avg_logprob": -0.1425,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 337,
+      "start": 2553.44,
+      "end": 2561.36,
+      "score": 75.2,
+      "label": "medium",
+      "mean_word_confidence": 0.9287,
+      "avg_logprob": -0.1425,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 338,
+      "start": 2561.36,
+      "end": 2565.76,
+      "score": 76.1,
+      "label": "medium",
+      "mean_word_confidence": 0.9485,
+      "avg_logprob": -0.1425,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 339,
+      "start": 2565.76,
+      "end": 2569.58,
+      "score": 64.6,
+      "label": "low",
+      "mean_word_confidence": 0.9023,
+      "avg_logprob": -0.1425,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 340,
+      "start": 2570.54,
+      "end": 2572.48,
+      "score": 66.8,
+      "label": "low",
+      "mean_word_confidence": 0.9543,
+      "avg_logprob": -0.1425,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 341,
+      "start": 2572.48,
+      "end": 2579.06,
+      "score": 65.4,
+      "label": "low",
+      "mean_word_confidence": 0.9164,
+      "avg_logprob": -0.1219,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 342,
+      "start": 2579.06,
+      "end": 2584.18,
+      "score": 59.0,
+      "label": "low",
+      "mean_word_confidence": 0.8725,
+      "avg_logprob": -0.1219,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.35
+    },
+    {
+      "segment_id": 343,
+      "start": 2584.18,
+      "end": 2590.62,
+      "score": 73.6,
+      "label": "medium",
+      "mean_word_confidence": 0.8914,
+      "avg_logprob": -0.1219,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 344,
+      "start": 2590.62,
+      "end": 2596.2,
+      "score": 65.7,
+      "label": "low",
+      "mean_word_confidence": 0.9228,
+      "avg_logprob": -0.1219,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 345,
+      "start": 2596.2,
+      "end": 2616.44,
+      "score": 65.0,
+      "label": "low",
+      "mean_word_confidence": 0.9121,
+      "avg_logprob": -0.1543,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 346,
+      "start": 2616.44,
+      "end": 2628.6,
+      "score": 63.3,
+      "label": "low",
+      "mean_word_confidence": 0.8698,
+      "avg_logprob": -0.1424,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 347,
+      "start": 2628.6,
+      "end": 2637.0,
+      "score": 66.4,
+      "label": "low",
+      "mean_word_confidence": 0.9444,
+      "avg_logprob": -0.1424,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 348,
+      "start": 2637.0,
+      "end": 2645.38,
+      "score": 65.3,
+      "label": "low",
+      "mean_word_confidence": 0.918,
+      "avg_logprob": -0.1424,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 349,
+      "start": 2645.38,
+      "end": 2653.56,
+      "score": 63.3,
+      "label": "low",
+      "mean_word_confidence": 0.8671,
+      "avg_logprob": -0.1261,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 350,
+      "start": 2653.56,
+      "end": 2659.34,
+      "score": 66.3,
+      "label": "low",
+      "mean_word_confidence": 0.9391,
+      "avg_logprob": -0.1261,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 351,
+      "start": 2659.34,
+      "end": 2669.22,
+      "score": 65.2,
+      "label": "low",
+      "mean_word_confidence": 0.9111,
+      "avg_logprob": -0.1261,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 352,
+      "start": 2669.22,
+      "end": 2672.62,
+      "score": 68.9,
+      "label": "low",
+      "mean_word_confidence": 0.9885,
+      "avg_logprob": -0.0749,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 353,
+      "start": 2672.62,
+      "end": 2675.78,
+      "score": 65.2,
+      "label": "low",
+      "mean_word_confidence": 0.902,
+      "avg_logprob": -0.0749,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 354,
+      "start": 2675.78,
+      "end": 2684.52,
+      "score": 67.3,
+      "label": "low",
+      "mean_word_confidence": 0.9514,
+      "avg_logprob": -0.0749,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 355,
+      "start": 2684.52,
+      "end": 2687.68,
+      "score": 67.2,
+      "label": "low",
+      "mean_word_confidence": 0.9492,
+      "avg_logprob": -0.0749,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 356,
+      "start": 2687.68,
+      "end": 2690.16,
+      "score": 66.0,
+      "label": "low",
+      "mean_word_confidence": 0.9208,
+      "avg_logprob": -0.0749,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 357,
+      "start": 2690.16,
+      "end": 2693.36,
+      "score": 64.7,
+      "label": "low",
+      "mean_word_confidence": 0.8994,
+      "avg_logprob": -0.1269,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 358,
+      "start": 2694.4,
+      "end": 2700.3,
+      "score": 65.5,
+      "label": "low",
+      "mean_word_confidence": 0.9193,
+      "avg_logprob": -0.1269,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 359,
+      "start": 2701.12,
+      "end": 2707.56,
+      "score": 73.6,
+      "label": "medium",
+      "mean_word_confidence": 0.8922,
+      "avg_logprob": -0.1269,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 360,
+      "start": 2707.56,
+      "end": 2713.22,
+      "score": 66.8,
+      "label": "low",
+      "mean_word_confidence": 0.951,
+      "avg_logprob": -0.1269,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 361,
+      "start": 2713.22,
+      "end": 2716.56,
+      "score": 66.4,
+      "label": "low",
+      "mean_word_confidence": 0.9404,
+      "avg_logprob": -0.1269,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 362,
+      "start": 2716.56,
+      "end": 2728.62,
+      "score": 66.3,
+      "label": "low",
+      "mean_word_confidence": 0.9365,
+      "avg_logprob": -0.1134,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 363,
+      "start": 2728.62,
+      "end": 2737.34,
+      "score": 66.5,
+      "label": "low",
+      "mean_word_confidence": 0.9397,
+      "avg_logprob": -0.1134,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 364,
+      "start": 2737.34,
+      "end": 2747.72,
+      "score": 67.6,
+      "label": "low",
+      "mean_word_confidence": 0.9617,
+      "avg_logprob": -0.093,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 365,
+      "start": 2747.72,
+      "end": 2756.44,
+      "score": 66.3,
+      "label": "low",
+      "mean_word_confidence": 0.9319,
+      "avg_logprob": -0.093,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 366,
+      "start": 2757.26,
+      "end": 2767.0,
+      "score": 66.1,
+      "label": "low",
+      "mean_word_confidence": 0.9291,
+      "avg_logprob": -0.105,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 367,
+      "start": 2767.0,
+      "end": 2773.24,
+      "score": 67.3,
+      "label": "low",
+      "mean_word_confidence": 0.9567,
+      "avg_logprob": -0.105,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 368,
+      "start": 2773.24,
+      "end": 2778.18,
+      "score": 67.2,
+      "label": "low",
+      "mean_word_confidence": 0.9556,
+      "avg_logprob": -0.105,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 369,
+      "start": 2778.18,
+      "end": 2804.22,
+      "score": 67.5,
+      "label": "low",
+      "mean_word_confidence": 0.9523,
+      "avg_logprob": -0.0625,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 370,
+      "start": 2804.22,
+      "end": 2814.16,
+      "score": 67.3,
+      "label": "low",
+      "mean_word_confidence": 0.9579,
+      "avg_logprob": -0.1117,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 371,
+      "start": 2814.16,
+      "end": 2817.66,
+      "score": 65.9,
+      "label": "low",
+      "mean_word_confidence": 0.9245,
+      "avg_logprob": -0.1117,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 372,
+      "start": 2817.66,
+      "end": 2827.54,
+      "score": 75.9,
+      "label": "medium",
+      "mean_word_confidence": 0.938,
+      "avg_logprob": -0.1117,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 373,
+      "start": 2827.54,
+      "end": 2834.52,
+      "score": 72.8,
+      "label": "medium",
+      "mean_word_confidence": 0.8817,
+      "avg_logprob": -0.1486,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 374,
+      "start": 2834.52,
+      "end": 2839.0,
+      "score": 75.0,
+      "label": "medium",
+      "mean_word_confidence": 0.9268,
+      "avg_logprob": -0.1486,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 375,
+      "start": 2839.0,
+      "end": 2839.94,
+      "score": 86.3,
+      "label": "high",
+      "mean_word_confidence": 0.8021,
+      "avg_logprob": -0.1486,
+      "no_speech_probability": 0.0,
+      "review_flags": [],
+      "review_penalty": 0
+    },
+    {
+      "segment_id": 376,
+      "start": 2839.94,
+      "end": 2849.1,
+      "score": 61.3,
+      "label": "low",
+      "mean_word_confidence": 0.936,
+      "avg_logprob": -0.1486,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.35
+    },
+    {
+      "segment_id": 377,
+      "start": 2849.1,
+      "end": 2854.3,
+      "score": 59.1,
+      "label": "low",
+      "mean_word_confidence": 0.8791,
+      "avg_logprob": -0.1486,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.35
+    },
+    {
+      "segment_id": 378,
+      "start": 2854.3,
+      "end": 2859.8,
+      "score": 71.0,
+      "label": "medium",
+      "mean_word_confidence": 0.8435,
+      "avg_logprob": -0.1533,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement"
+      ],
+      "review_penalty": 0.2
+    },
+    {
+      "segment_id": 379,
+      "start": 2859.8,
+      "end": 2866.86,
+      "score": 67.5,
+      "label": "low",
+      "mean_word_confidence": 0.9727,
+      "avg_logprob": -0.1533,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 380,
+      "start": 2866.86,
+      "end": 2872.84,
+      "score": 51.5,
+      "label": "low",
+      "mean_word_confidence": 0.9269,
+      "avg_logprob": -0.1533,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 381,
+      "start": 2872.84,
+      "end": 2875.52,
+      "score": 49.7,
+      "label": "low",
+      "mean_word_confidence": 0.8703,
+      "avg_logprob": -0.1533,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 382,
+      "start": 2875.52,
+      "end": 2897.4,
+      "score": 48.1,
+      "label": "low",
+      "mean_word_confidence": 0.8506,
+      "avg_logprob": -0.2828,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 383,
+      "start": 2897.4,
+      "end": 2920.12,
+      "score": 50.7,
+      "label": "low",
+      "mean_word_confidence": 0.8962,
+      "avg_logprob": -0.1213,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.45
+    },
+    {
+      "segment_id": 384,
+      "start": 2920.12,
+      "end": 2941.14,
+      "score": 66.0,
+      "label": "low",
+      "mean_word_confidence": 0.9207,
+      "avg_logprob": -0.0759,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 385,
+      "start": 2941.14,
+      "end": 2947.32,
+      "score": 65.4,
+      "label": "low",
+      "mean_word_confidence": 0.9121,
+      "avg_logprob": -0.1013,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 386,
+      "start": 2947.32,
+      "end": 2950.82,
+      "score": 65.7,
+      "label": "low",
+      "mean_word_confidence": 0.9183,
+      "avg_logprob": -0.1013,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 387,
+      "start": 2950.82,
+      "end": 2956.76,
+      "score": 66.7,
+      "label": "low",
+      "mean_word_confidence": 0.9414,
+      "avg_logprob": -0.1013,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 388,
+      "start": 2956.76,
+      "end": 2961.12,
+      "score": 65.4,
+      "label": "low",
+      "mean_word_confidence": 0.9117,
+      "avg_logprob": -0.1013,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    },
+    {
+      "segment_id": 389,
+      "start": 2961.12,
+      "end": 2967.4,
+      "score": 65.4,
+      "label": "low",
+      "mean_word_confidence": 0.919,
+      "avg_logprob": -0.1349,
+      "no_speech_probability": 0.0,
+      "review_flags": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "review_penalty": 0.3
+    }
+  ],
+  "blocks": [
+    {
+      "block": 1,
+      "start": 15.34,
+      "end": 114.21,
+      "segment_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "score": 69.3,
+      "label": "low"
+    },
+    {
+      "block": 2,
+      "start": 114.21,
+      "end": 160.78,
+      "segment_ids": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "score": 67.9,
+      "label": "low"
+    },
+    {
+      "block": 3,
+      "start": 160.78,
+      "end": 190.3,
+      "segment_ids": [
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "score": 65.7,
+      "label": "low"
+    },
+    {
+      "block": 4,
+      "start": 190.3,
+      "end": 241.06,
+      "segment_ids": [
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "score": 68.0,
+      "label": "low"
+    },
+    {
+      "block": 5,
+      "start": 241.06,
+      "end": 279.08,
+      "segment_ids": [
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "score": 77.7,
+      "label": "medium"
+    },
+    {
+      "block": 6,
+      "start": 279.08,
+      "end": 327.65,
+      "segment_ids": [
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "score": 66.9,
+      "label": "low"
+    },
+    {
+      "block": 7,
+      "start": 327.65,
+      "end": 358.39,
+      "segment_ids": [
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "score": 67.0,
+      "label": "low"
+    },
+    {
+      "block": 8,
+      "start": 358.39,
+      "end": 411.27,
+      "segment_ids": [
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "score": 65.7,
+      "label": "low"
+    },
+    {
+      "block": 9,
+      "start": 411.27,
+      "end": 438.15,
+      "segment_ids": [
+        41,
+        42,
+        43,
+        44,
+        45
+      ],
+      "score": 70.3,
+      "label": "medium"
+    },
+    {
+      "block": 10,
+      "start": 438.15,
+      "end": 510.43,
+      "segment_ids": [
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "score": 64.5,
+      "label": "low"
+    },
+    {
+      "block": 11,
+      "start": 510.43,
+      "end": 566.69,
+      "segment_ids": [
+        51,
+        52,
+        53,
+        54,
+        55
+      ],
+      "score": 69.6,
+      "label": "low"
+    },
+    {
+      "block": 12,
+      "start": 566.69,
+      "end": 591.93,
+      "segment_ids": [
+        56,
+        57,
+        58,
+        59,
+        60
+      ],
+      "score": 67.5,
+      "label": "low"
+    },
+    {
+      "block": 13,
+      "start": 591.93,
+      "end": 619.73,
+      "segment_ids": [
+        61,
+        62,
+        63,
+        64,
+        65
+      ],
+      "score": 66.6,
+      "label": "low"
+    },
+    {
+      "block": 14,
+      "start": 619.73,
+      "end": 693.41,
+      "segment_ids": [
+        66,
+        67,
+        68,
+        69,
+        70
+      ],
+      "score": 59.6,
+      "label": "low"
+    },
+    {
+      "block": 15,
+      "start": 693.41,
+      "end": 751.33,
+      "segment_ids": [
+        71,
+        72,
+        73,
+        74,
+        75
+      ],
+      "score": 64.4,
+      "label": "low"
+    },
+    {
+      "block": 16,
+      "start": 751.33,
+      "end": 785.75,
+      "segment_ids": [
+        76,
+        77,
+        78,
+        79,
+        80
+      ],
+      "score": 62.5,
+      "label": "low"
+    },
+    {
+      "block": 17,
+      "start": 785.75,
+      "end": 824.11,
+      "segment_ids": [
+        81,
+        82,
+        83,
+        84,
+        85
+      ],
+      "score": 68.0,
+      "label": "low"
+    },
+    {
+      "block": 18,
+      "start": 824.11,
+      "end": 879.37,
+      "segment_ids": [
+        86,
+        87,
+        88,
+        89,
+        90
+      ],
+      "score": 59.2,
+      "label": "low"
+    },
+    {
+      "block": 19,
+      "start": 879.37,
+      "end": 930.67,
+      "segment_ids": [
+        91,
+        92,
+        93,
+        94,
+        95
+      ],
+      "score": 63.9,
+      "label": "low"
+    },
+    {
+      "block": 20,
+      "start": 938.39,
+      "end": 986.17,
+      "segment_ids": [
+        96,
+        97,
+        98,
+        99,
+        100
+      ],
+      "score": 63.6,
+      "label": "low"
+    },
+    {
+      "block": 21,
+      "start": 986.17,
+      "end": 1025.39,
+      "segment_ids": [
+        101,
+        102,
+        103,
+        104,
+        105
+      ],
+      "score": 69.9,
+      "label": "low"
+    },
+    {
+      "block": 22,
+      "start": 1025.39,
+      "end": 1057.61,
+      "segment_ids": [
+        106,
+        107,
+        108,
+        109,
+        110
+      ],
+      "score": 64.8,
+      "label": "low"
+    },
+    {
+      "block": 23,
+      "start": 1057.61,
+      "end": 1102.57,
+      "segment_ids": [
+        111,
+        112,
+        113,
+        114,
+        115
+      ],
+      "score": 67.0,
+      "label": "low"
+    },
+    {
+      "block": 24,
+      "start": 1102.77,
+      "end": 1125.71,
+      "segment_ids": [
+        116,
+        117,
+        118,
+        119,
+        120
+      ],
+      "score": 67.0,
+      "label": "low"
+    },
+    {
+      "block": 25,
+      "start": 1125.71,
+      "end": 1150.33,
+      "segment_ids": [
+        121,
+        122,
+        123,
+        124,
+        125
+      ],
+      "score": 69.3,
+      "label": "low"
+    },
+    {
+      "block": 26,
+      "start": 1150.33,
+      "end": 1190.77,
+      "segment_ids": [
+        126,
+        127,
+        128,
+        129,
+        130
+      ],
+      "score": 68.4,
+      "label": "low"
+    },
+    {
+      "block": 27,
+      "start": 1190.77,
+      "end": 1208.19,
+      "segment_ids": [
+        131,
+        132,
+        133,
+        134,
+        135
+      ],
+      "score": 71.1,
+      "label": "medium"
+    },
+    {
+      "block": 28,
+      "start": 1208.19,
+      "end": 1228.19,
+      "segment_ids": [
+        136,
+        137,
+        138,
+        139,
+        140
+      ],
+      "score": 67.2,
+      "label": "low"
+    },
+    {
+      "block": 29,
+      "start": 1228.19,
+      "end": 1279.79,
+      "segment_ids": [
+        141,
+        142,
+        143,
+        144,
+        145
+      ],
+      "score": 66.8,
+      "label": "low"
+    },
+    {
+      "block": 30,
+      "start": 1279.79,
+      "end": 1304.31,
+      "segment_ids": [
+        146,
+        147,
+        148,
+        149,
+        150
+      ],
+      "score": 67.2,
+      "label": "low"
+    },
+    {
+      "block": 31,
+      "start": 1304.31,
+      "end": 1362.15,
+      "segment_ids": [
+        151,
+        152,
+        153,
+        154,
+        155
+      ],
+      "score": 61.6,
+      "label": "low"
+    },
+    {
+      "block": 32,
+      "start": 1362.15,
+      "end": 1401.28,
+      "segment_ids": [
+        156,
+        157,
+        158,
+        159,
+        160
+      ],
+      "score": 62.8,
+      "label": "low"
+    },
+    {
+      "block": 33,
+      "start": 1401.75,
+      "end": 1439.33,
+      "segment_ids": [
+        161,
+        162,
+        163,
+        164,
+        165
+      ],
+      "score": 60.0,
+      "label": "low"
+    },
+    {
+      "block": 34,
+      "start": 1439.33,
+      "end": 1457.79,
+      "segment_ids": [
+        166,
+        167,
+        168,
+        169,
+        170
+      ],
+      "score": 61.0,
+      "label": "low"
+    },
+    {
+      "block": 35,
+      "start": 1457.79,
+      "end": 1493.01,
+      "segment_ids": [
+        171,
+        172,
+        173,
+        174,
+        175
+      ],
+      "score": 60.9,
+      "label": "low"
+    },
+    {
+      "block": 36,
+      "start": 1493.01,
+      "end": 1515.97,
+      "segment_ids": [
+        176,
+        177,
+        178,
+        179,
+        180
+      ],
+      "score": 61.0,
+      "label": "low"
+    },
+    {
+      "block": 37,
+      "start": 1516.51,
+      "end": 1542.63,
+      "segment_ids": [
+        181,
+        182,
+        183,
+        184,
+        185
+      ],
+      "score": 62.4,
+      "label": "low"
+    },
+    {
+      "block": 38,
+      "start": 1542.63,
+      "end": 1569.33,
+      "segment_ids": [
+        186,
+        187,
+        188,
+        189,
+        190
+      ],
+      "score": 62.2,
+      "label": "low"
+    },
+    {
+      "block": 39,
+      "start": 1569.33,
+      "end": 1595.23,
+      "segment_ids": [
+        191,
+        192,
+        193,
+        194,
+        195
+      ],
+      "score": 60.3,
+      "label": "low"
+    },
+    {
+      "block": 40,
+      "start": 1595.23,
+      "end": 1621.01,
+      "segment_ids": [
+        196,
+        197,
+        198,
+        199,
+        200
+      ],
+      "score": 61.8,
+      "label": "low"
+    },
+    {
+      "block": 41,
+      "start": 1621.01,
+      "end": 1642.35,
+      "segment_ids": [
+        201,
+        202,
+        203,
+        204,
+        205
+      ],
+      "score": 63.7,
+      "label": "low"
+    },
+    {
+      "block": 42,
+      "start": 1642.35,
+      "end": 1700.49,
+      "segment_ids": [
+        206,
+        207,
+        208,
+        209,
+        210
+      ],
+      "score": 65.0,
+      "label": "low"
+    },
+    {
+      "block": 43,
+      "start": 1700.49,
+      "end": 1731.01,
+      "segment_ids": [
+        211,
+        212,
+        213,
+        214,
+        215
+      ],
+      "score": 63.8,
+      "label": "low"
+    },
+    {
+      "block": 44,
+      "start": 1731.01,
+      "end": 1761.25,
+      "segment_ids": [
+        216,
+        217,
+        218,
+        219,
+        220
+      ],
+      "score": 63.5,
+      "label": "low"
+    },
+    {
+      "block": 45,
+      "start": 1761.25,
+      "end": 1800.19,
+      "segment_ids": [
+        221,
+        222,
+        223,
+        224,
+        225
+      ],
+      "score": 64.2,
+      "label": "low"
+    },
+    {
+      "block": 46,
+      "start": 1800.19,
+      "end": 1824.45,
+      "segment_ids": [
+        226,
+        227,
+        228,
+        229,
+        230
+      ],
+      "score": 65.8,
+      "label": "low"
+    },
+    {
+      "block": 47,
+      "start": 1824.45,
+      "end": 1848.32,
+      "segment_ids": [
+        231,
+        232,
+        233,
+        234,
+        235
+      ],
+      "score": 61.8,
+      "label": "low"
+    },
+    {
+      "block": 48,
+      "start": 1848.32,
+      "end": 1873.3,
+      "segment_ids": [
+        236,
+        237,
+        238,
+        239,
+        240
+      ],
+      "score": 66.3,
+      "label": "low"
+    },
+    {
+      "block": 49,
+      "start": 1876.09,
+      "end": 1894.91,
+      "segment_ids": [
+        241,
+        242,
+        243,
+        244,
+        245
+      ],
+      "score": 69.2,
+      "label": "low"
+    },
+    {
+      "block": 50,
+      "start": 1899.27,
+      "end": 1961.8,
+      "segment_ids": [
+        246,
+        247,
+        248,
+        249,
+        250
+      ],
+      "score": 64.0,
+      "label": "low"
+    },
+    {
+      "block": 51,
+      "start": 1961.8,
+      "end": 1993.34,
+      "segment_ids": [
+        251,
+        252,
+        253,
+        254,
+        255
+      ],
+      "score": 66.7,
+      "label": "low"
+    },
+    {
+      "block": 52,
+      "start": 1993.34,
+      "end": 2018.7,
+      "segment_ids": [
+        256,
+        257,
+        258,
+        259,
+        260
+      ],
+      "score": 66.3,
+      "label": "low"
+    },
+    {
+      "block": 53,
+      "start": 2018.7,
+      "end": 2047.5,
+      "segment_ids": [
+        261,
+        262,
+        263,
+        264,
+        265
+      ],
+      "score": 66.4,
+      "label": "low"
+    },
+    {
+      "block": 54,
+      "start": 2047.5,
+      "end": 2121.9,
+      "segment_ids": [
+        266,
+        267,
+        268,
+        269,
+        270
+      ],
+      "score": 59.1,
+      "label": "low"
+    },
+    {
+      "block": 55,
+      "start": 2121.9,
+      "end": 2196.78,
+      "segment_ids": [
+        271,
+        272,
+        273,
+        274,
+        275
+      ],
+      "score": 64.2,
+      "label": "low"
+    },
+    {
+      "block": 56,
+      "start": 2196.78,
+      "end": 2245.8,
+      "segment_ids": [
+        276,
+        277,
+        278,
+        279,
+        280
+      ],
+      "score": 64.5,
+      "label": "low"
+    },
+    {
+      "block": 57,
+      "start": 2245.8,
+      "end": 2284.28,
+      "segment_ids": [
+        281,
+        282,
+        283,
+        284,
+        285
+      ],
+      "score": 64.8,
+      "label": "low"
+    },
+    {
+      "block": 58,
+      "start": 2284.28,
+      "end": 2311.3,
+      "segment_ids": [
+        286,
+        287,
+        288,
+        289,
+        290
+      ],
+      "score": 66.6,
+      "label": "low"
+    },
+    {
+      "block": 59,
+      "start": 2311.3,
+      "end": 2340.98,
+      "segment_ids": [
+        291,
+        292,
+        293,
+        294,
+        295
+      ],
+      "score": 68.0,
+      "label": "low"
+    },
+    {
+      "block": 60,
+      "start": 2340.98,
+      "end": 2364.36,
+      "segment_ids": [
+        296,
+        297,
+        298,
+        299,
+        300
+      ],
+      "score": 68.4,
+      "label": "low"
+    },
+    {
+      "block": 61,
+      "start": 2364.36,
+      "end": 2385.5,
+      "segment_ids": [
+        301,
+        302,
+        303,
+        304,
+        305
+      ],
+      "score": 66.5,
+      "label": "low"
+    },
+    {
+      "block": 62,
+      "start": 2385.5,
+      "end": 2402.56,
+      "segment_ids": [
+        306,
+        307,
+        308,
+        309,
+        310
+      ],
+      "score": 58.9,
+      "label": "low"
+    },
+    {
+      "block": 63,
+      "start": 2402.56,
+      "end": 2421.64,
+      "segment_ids": [
+        311,
+        312,
+        313,
+        314,
+        315
+      ],
+      "score": 59.9,
+      "label": "low"
+    },
+    {
+      "block": 64,
+      "start": 2421.64,
+      "end": 2452.14,
+      "segment_ids": [
+        316,
+        317,
+        318,
+        319,
+        320
+      ],
+      "score": 62.4,
+      "label": "low"
+    },
+    {
+      "block": 65,
+      "start": 2452.14,
+      "end": 2478.82,
+      "segment_ids": [
+        321,
+        322,
+        323,
+        324,
+        325
+      ],
+      "score": 61.5,
+      "label": "low"
+    },
+    {
+      "block": 66,
+      "start": 2478.82,
+      "end": 2509.38,
+      "segment_ids": [
+        326,
+        327,
+        328,
+        329,
+        330
+      ],
+      "score": 66.9,
+      "label": "low"
+    },
+    {
+      "block": 67,
+      "start": 2509.38,
+      "end": 2544.14,
+      "segment_ids": [
+        331,
+        332,
+        333,
+        334,
+        335
+      ],
+      "score": 65.9,
+      "label": "low"
+    },
+    {
+      "block": 68,
+      "start": 2544.14,
+      "end": 2572.48,
+      "segment_ids": [
+        336,
+        337,
+        338,
+        339,
+        340
+      ],
+      "score": 66.6,
+      "label": "low"
+    },
+    {
+      "block": 69,
+      "start": 2572.48,
+      "end": 2616.44,
+      "segment_ids": [
+        341,
+        342,
+        343,
+        344,
+        345
+      ],
+      "score": 65.7,
+      "label": "low"
+    },
+    {
+      "block": 70,
+      "start": 2616.44,
+      "end": 2659.34,
+      "segment_ids": [
+        346,
+        347,
+        348,
+        349,
+        350
+      ],
+      "score": 64.9,
+      "label": "low"
+    },
+    {
+      "block": 71,
+      "start": 2659.34,
+      "end": 2687.68,
+      "segment_ids": [
+        351,
+        352,
+        353,
+        354,
+        355
+      ],
+      "score": 66.8,
+      "label": "low"
+    },
+    {
+      "block": 72,
+      "start": 2687.68,
+      "end": 2713.22,
+      "segment_ids": [
+        356,
+        357,
+        358,
+        359,
+        360
+      ],
+      "score": 67.3,
+      "label": "low"
+    },
+    {
+      "block": 73,
+      "start": 2713.22,
+      "end": 2756.44,
+      "segment_ids": [
+        361,
+        362,
+        363,
+        364,
+        365
+      ],
+      "score": 66.6,
+      "label": "low"
+    },
+    {
+      "block": 74,
+      "start": 2757.26,
+      "end": 2814.16,
+      "segment_ids": [
+        366,
+        367,
+        368,
+        369,
+        370
+      ],
+      "score": 67.1,
+      "label": "low"
+    },
+    {
+      "block": 75,
+      "start": 2814.16,
+      "end": 2839.94,
+      "segment_ids": [
+        371,
+        372,
+        373,
+        374,
+        375
+      ],
+      "score": 75.2,
+      "label": "medium"
+    },
+    {
+      "block": 76,
+      "start": 2839.94,
+      "end": 2872.84,
+      "segment_ids": [
+        376,
+        377,
+        378,
+        379,
+        380
+      ],
+      "score": 62.1,
+      "label": "low"
+    },
+    {
+      "block": 77,
+      "start": 2872.84,
+      "end": 2947.32,
+      "segment_ids": [
+        381,
+        382,
+        383,
+        384,
+        385
+      ],
+      "score": 56.0,
+      "label": "low"
+    },
+    {
+      "block": 78,
+      "start": 2947.32,
+      "end": 2967.4,
+      "segment_ids": [
+        386,
+        387,
+        388,
+        389
+      ],
+      "score": 65.8,
+      "label": "low"
+    }
+  ]
+}

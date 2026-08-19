@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "985a887dbde2d464e5083a3b3dd317f03f9b195f53cffd7460942a9e28a88bda",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.82,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.26,
+        "text": "اولمپیک هم بشیم، باید به هر روز ورزش کنیم. ولی دوتا چیز متفاوته، وردش روضانه و ورژش قهرمانی دو چید کاملاً متفافته.",
+        "avg_logprob": -0.26473346913214957,
+        "compression_ratio": 1.5617283950617284,
+        "no_speech_prob": 4.125876862381972e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.46,
+            "word": " اولمپیک",
+            "probability": 0.754340186715126
+          },
+          {
+            "start": 0.46,
+            "end": 0.72,
+            "word": " هم",
+            "probability": 0.9533493518829346
+          },
+          {
+            "start": 0.72,
+            "end": 1.08,
+            "word": " بشیم،",
+            "probability": 0.778542585670948
+          },
+          {
+            "start": 1.08,
+            "end": 1.26,
+            "word": " باید",
+            "probability": 0.9964991360902786
+          },
+          {
+            "start": 1.26,
+            "end": 1.34,
+            "word": " به",
+            "probability": 0.29509130120277405
+          },
+          {
+            "start": 1.34,
+            "end": 1.56,
+            "word": " هر",
+            "probability": 0.9932593405246735
+          },
+          {
+            "start": 1.56,
+            "end": 1.74,
+            "word": " روز",
+            "probability": 0.9799325267473856
+          },
+          {
+            "start": 1.74,
+            "end": 2.16,
+            "word": " ورزش",
+            "probability": 0.9289305508136749
+          },
+          {
+            "start": 2.16,
+            "end": 2.52,
+            "word": " کنیم.",
+            "probability": 0.9956407099962234
+          },
+          {
+            "start": 2.58,
+            "end": 2.82,
+            "word": " ولی",
+            "probability": 0.9883116483688354
+          },
+          {
+            "start": 2.82,
+            "end": 3.06,
+            "word": " دوتا",
+            "probability": 0.8258934020996094
+          },
+          {
+            "start": 3.06,
+            "end": 3.32,
+            "word": " چیز",
+            "probability": 0.9936168591181437
+          },
+          {
+            "start": 3.32,
+            "end": 4.18,
+            "word": " متفاوته،",
+            "probability": 0.8768143157164255
+          },
+          {
+            "start": 4.18,
+            "end": 4.6,
+            "word": " وردش",
+            "probability": 0.7436168453714345
+          },
+          {
+            "start": 4.6,
+            "end": 5.12,
+            "word": " روضانه",
+            "probability": 0.7986039472278208
+          },
+          {
+            "start": 5.12,
+            "end": 5.24,
+            "word": " و",
+            "probability": 0.9697710871696472
+          },
+          {
+            "start": 5.24,
+            "end": 5.72,
+            "word": " ورژش",
+            "probability": 0.6864085644774605
+          },
+          {
+            "start": 5.72,
+            "end": 6.52,
+            "word": " قهرمانی",
+            "probability": 0.9902288516362509
+          },
+          {
+            "start": 6.52,
+            "end": 6.72,
+            "word": " دو",
+            "probability": 0.6434048414230347
+          },
+          {
+            "start": 6.72,
+            "end": 6.96,
+            "word": " چید",
+            "probability": 0.6526673632227661
+          },
+          {
+            "start": 6.96,
+            "end": 7.5,
+            "word": " کاملاً",
+            "probability": 0.7554352842271328
+          },
+          {
+            "start": 7.5,
+            "end": 8.26,
+            "word": " متفافته.",
+            "probability": 0.7336300387069059
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 8.74,
+        "end": 10.8,
+        "text": "سواد مالی درباره‌ی سروت...",
+        "avg_logprob": -0.26473346913214957,
+        "compression_ratio": 1.5617283950617284,
+        "no_speech_prob": 4.125876862381972e-10,
+        "words": [
+          {
+            "start": 8.74,
+            "end": 9.42,
+            "word": " سواد",
+            "probability": 0.8733306328455607
+          },
+          {
+            "start": 9.42,
+            "end": 9.74,
+            "word": " مالی",
+            "probability": 0.9905515710512797
+          },
+          {
+            "start": 9.74,
+            "end": 10.38,
+            "word": " درباره‌ی",
+            "probability": 0.7959989793598652
+          },
+          {
+            "start": 10.38,
+            "end": 10.8,
+            "word": " سروت...",
+            "probability": 0.5416242452338338
+          }
+        ]
+      }
+    ]
+  }
+}

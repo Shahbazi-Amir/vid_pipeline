@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "f977c3d9dec806ca0a84b0ce5da67054a2db886512bd6265c683ef69c177849b",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.36,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.0,
+        "text": "شورون، نشات، جواب من رو دادید؟ ثواد مالی در باره میزان پول نیفت، در‌باره‌ی؟",
+        "avg_logprob": -0.45048932845775896,
+        "compression_ratio": 1.3495145631067962,
+        "no_speech_prob": 5.937425551216791e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.68,
+            "word": " شورون،",
+            "probability": 0.30654656141996384
+          },
+          {
+            "start": 0.68,
+            "end": 1.3,
+            "word": " نشات،",
+            "probability": 0.7528135776519775
+          },
+          {
+            "start": 1.3,
+            "end": 1.66,
+            "word": " جواب",
+            "probability": 0.9946522911389669
+          },
+          {
+            "start": 1.66,
+            "end": 1.88,
+            "word": " من",
+            "probability": 0.9539861083030701
+          },
+          {
+            "start": 1.88,
+            "end": 2.02,
+            "word": " رو",
+            "probability": 0.7408563196659088
+          },
+          {
+            "start": 2.02,
+            "end": 2.6,
+            "word": " دادید؟",
+            "probability": 0.7771852612495422
+          },
+          {
+            "start": 2.6,
+            "end": 3.56,
+            "word": " ثواد",
+            "probability": 0.7789948085943857
+          },
+          {
+            "start": 3.56,
+            "end": 3.88,
+            "word": " مالی",
+            "probability": 0.9953965544700623
+          },
+          {
+            "start": 3.88,
+            "end": 4.18,
+            "word": " در",
+            "probability": 0.735309511423111
+          },
+          {
+            "start": 4.18,
+            "end": 4.44,
+            "word": " باره",
+            "probability": 0.9840371211369833
+          },
+          {
+            "start": 4.44,
+            "end": 5.06,
+            "word": " میزان",
+            "probability": 0.8899669845898946
+          },
+          {
+            "start": 5.06,
+            "end": 5.5,
+            "word": " پول",
+            "probability": 0.9909057319164276
+          },
+          {
+            "start": 5.5,
+            "end": 5.94,
+            "word": " نیفت،",
+            "probability": 0.6327737033367157
+          },
+          {
+            "start": 5.94,
+            "end": 7.0,
+            "word": " در‌باره‌ی؟",
+            "probability": 0.7124243304006086
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "b04e22e5cb42e6d855176e96b3b7401bde7548bd50db048f8a2a8672e81dcac8",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.64,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.14,
+        "text": "احواد مالی در باره میزان پول نیست، درباره مدیریت پوله. کاری به میزن پول، نداره.",
+        "avg_logprob": -0.35251414334332504,
+        "compression_ratio": 1.583941605839416,
+        "no_speech_prob": 4.84977724646285e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.2,
+            "word": " احواد",
+            "probability": 0.6179623007774353
+          },
+          {
+            "start": 0.2,
+            "end": 0.52,
+            "word": " مالی",
+            "probability": 0.9918700853983561
+          },
+          {
+            "start": 0.52,
+            "end": 0.8,
+            "word": " در",
+            "probability": 0.7329258918762207
+          },
+          {
+            "start": 0.8,
+            "end": 1.06,
+            "word": " باره",
+            "probability": 0.9873195091883341
+          },
+          {
+            "start": 1.06,
+            "end": 1.7,
+            "word": " میزان",
+            "probability": 0.8881645997365316
+          },
+          {
+            "start": 1.7,
+            "end": 2.14,
+            "word": " پول",
+            "probability": 0.993320882320404
+          },
+          {
+            "start": 2.14,
+            "end": 2.58,
+            "word": " نیست،",
+            "probability": 0.7987452894449234
+          },
+          {
+            "start": 2.58,
+            "end": 3.14,
+            "word": " درباره",
+            "probability": 0.7477700100280344
+          },
+          {
+            "start": 3.14,
+            "end": 5.5,
+            "word": " مدیریت",
+            "probability": 0.9721819639205933
+          },
+          {
+            "start": 5.5,
+            "end": 6.02,
+            "word": " پوله.",
+            "probability": 0.9588271578152975
+          },
+          {
+            "start": 6.22,
+            "end": 6.8,
+            "word": " کاری",
+            "probability": 0.9901935458183289
+          },
+          {
+            "start": 6.8,
+            "end": 6.88,
+            "word": " به",
+            "probability": 0.9942783117294312
+          },
+          {
+            "start": 6.88,
+            "end": 7.24,
+            "word": " میزن",
+            "probability": 0.665698120699138
+          },
+          {
+            "start": 7.24,
+            "end": 7.62,
+            "word": " پول،",
+            "probability": 0.662346945037522
+          },
+          {
+            "start": 7.62,
+            "end": 8.14,
+            "word": " نداره.",
+            "probability": 0.9597398042678833
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 8.28,
+        "end": 10.62,
+        "text": "میگه اگر شما در آمدتون ماهی هشت می‌کنین،",
+        "avg_logprob": -0.35251414334332504,
+        "compression_ratio": 1.583941605839416,
+        "no_speech_prob": 4.84977724646285e-10,
+        "words": [
+          {
+            "start": 8.28,
+            "end": 8.78,
+            "word": " میگه",
+            "probability": 0.9215366045633951
+          },
+          {
+            "start": 8.78,
+            "end": 9.04,
+            "word": " اگر",
+            "probability": 0.9594367345174154
+          },
+          {
+            "start": 9.04,
+            "end": 9.3,
+            "word": " شما",
+            "probability": 0.9566676616668701
+          },
+          {
+            "start": 9.3,
+            "end": 9.54,
+            "word": " در",
+            "probability": 0.9782496392726898
+          },
+          {
+            "start": 9.54,
+            "end": 10.0,
+            "word": " آمدتون",
+            "probability": 0.8739014744758606
+          },
+          {
+            "start": 10.0,
+            "end": 10.28,
+            "word": " ماهی",
+            "probability": 0.9625891447067261
+          },
+          {
+            "start": 10.28,
+            "end": 10.62,
+            "word": " هشت",
+            "probability": 0.8386415839195251
+          },
+          {
+            "start": 10.62,
+            "end": 10.62,
+            "word": " می‌کنین،",
+            "probability": 0.3714594015230735
+          }
+        ]
+      }
+    ]
+  }
+}

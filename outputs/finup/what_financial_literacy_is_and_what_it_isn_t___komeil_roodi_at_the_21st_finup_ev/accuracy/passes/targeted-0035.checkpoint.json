@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "d2e4dcce833bc1700380246096e13faebbfd35ee95ee139350e35f509399963c",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.56,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.48,
+        "text": "بین خودمون تو خوضه‌های مختلف، از بازیگری و فوتبال بگی، تو خوده‌ی هنر رو نمی‌دونم ورزش، تا خوزه‌ه‌ای دیگه...",
+        "avg_logprob": -0.23784532554839788,
+        "compression_ratio": 1.5348837209302326,
+        "no_speech_prob": 3.967307871111103e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.7,
+            "word": " بین",
+            "probability": 0.9676462709903717
+          },
+          {
+            "start": 0.7,
+            "end": 1.24,
+            "word": " خودمون",
+            "probability": 0.9919359236955643
+          },
+          {
+            "start": 1.24,
+            "end": 1.36,
+            "word": " تو",
+            "probability": 0.9362216591835022
+          },
+          {
+            "start": 1.36,
+            "end": 1.9,
+            "word": " خوضه‌های",
+            "probability": 0.7691590722118106
+          },
+          {
+            "start": 1.9,
+            "end": 2.6,
+            "word": " مختلف،",
+            "probability": 0.7869091890752316
+          },
+          {
+            "start": 2.6,
+            "end": 3.02,
+            "word": " از",
+            "probability": 0.9807827174663544
+          },
+          {
+            "start": 3.02,
+            "end": 4.52,
+            "word": " بازیگری",
+            "probability": 0.8816664099693299
+          },
+          {
+            "start": 4.52,
+            "end": 4.68,
+            "word": " و",
+            "probability": 0.9525479674339294
+          },
+          {
+            "start": 4.68,
+            "end": 5.2,
+            "word": " فوتبال",
+            "probability": 0.9810791909694672
+          },
+          {
+            "start": 5.2,
+            "end": 5.58,
+            "word": " بگی،",
+            "probability": 0.7763914838433266
+          },
+          {
+            "start": 5.58,
+            "end": 5.68,
+            "word": " تو",
+            "probability": 0.9931176900863647
+          },
+          {
+            "start": 5.68,
+            "end": 6.1,
+            "word": " خوده‌ی",
+            "probability": 0.6330769127933309
+          },
+          {
+            "start": 6.1,
+            "end": 6.6,
+            "word": " هنر",
+            "probability": 0.9502518971761068
+          },
+          {
+            "start": 6.6,
+            "end": 6.76,
+            "word": " رو",
+            "probability": 0.9331523180007935
+          },
+          {
+            "start": 6.76,
+            "end": 7.38,
+            "word": " نمی‌دونم",
+            "probability": 0.9652536511421204
+          },
+          {
+            "start": 7.38,
+            "end": 8.14,
+            "word": " ورزش،",
+            "probability": 0.804823487997055
+          },
+          {
+            "start": 8.14,
+            "end": 8.28,
+            "word": " تا",
+            "probability": 0.7486545443534851
+          },
+          {
+            "start": 8.28,
+            "end": 8.86,
+            "word": " خوزه‌ه‌ای",
+            "probability": 0.6402139994574504
+          },
+          {
+            "start": 8.86,
+            "end": 9.48,
+            "word": " دیگه...",
+            "probability": 0.7960266754031181
+          }
+        ]
+      }
+    ]
+  }
+}

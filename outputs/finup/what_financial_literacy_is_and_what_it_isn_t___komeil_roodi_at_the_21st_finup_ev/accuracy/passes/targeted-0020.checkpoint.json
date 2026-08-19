@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "71b7a40269db776586b08820403debf6a7d0fdfbccfb3bc8bb9948a64dc23648",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.68,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.66,
+        "text": "بارش صحبت می‌کنیم. سواد مالی، سواهد موفقیت هم نیست. سواد مال شما رو موفّق نمی‌کند. به این معنا نیس که ما سوا...",
+        "avg_logprob": -0.27784581380347684,
+        "compression_ratio": 1.5271317829457365,
+        "no_speech_prob": 3.4567973483667913e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.22,
+            "word": " بارش",
+            "probability": 0.6463265220324198
+          },
+          {
+            "start": 0.22,
+            "end": 0.64,
+            "word": " صحبت",
+            "probability": 0.9574333429336548
+          },
+          {
+            "start": 0.64,
+            "end": 1.14,
+            "word": " می‌کنیم.",
+            "probability": 0.8433331747849783
+          },
+          {
+            "start": 2.28,
+            "end": 3.08,
+            "word": " سواد",
+            "probability": 0.7442888915538788
+          },
+          {
+            "start": 3.08,
+            "end": 3.98,
+            "word": " مالی،",
+            "probability": 0.9450720995664597
+          },
+          {
+            "start": 3.98,
+            "end": 5.24,
+            "word": " سواهد",
+            "probability": 0.7319505609284533
+          },
+          {
+            "start": 5.24,
+            "end": 6.06,
+            "word": " موفقیت",
+            "probability": 0.9660868167877197
+          },
+          {
+            "start": 6.06,
+            "end": 6.32,
+            "word": " هم",
+            "probability": 0.9975243806838989
+          },
+          {
+            "start": 6.32,
+            "end": 6.72,
+            "word": " نیست.",
+            "probability": 0.9941537578900655
+          },
+          {
+            "start": 6.9,
+            "end": 7.46,
+            "word": " سواد",
+            "probability": 0.4866744424798526
+          },
+          {
+            "start": 7.46,
+            "end": 7.66,
+            "word": " مال",
+            "probability": 0.9961229264736176
+          },
+          {
+            "start": 7.66,
+            "end": 7.9,
+            "word": " شما",
+            "probability": 0.4912810348905623
+          },
+          {
+            "start": 7.9,
+            "end": 8.0,
+            "word": " رو",
+            "probability": 0.9689745604991913
+          },
+          {
+            "start": 8.0,
+            "end": 8.48,
+            "word": " موفّق",
+            "probability": 0.7277120552316774
+          },
+          {
+            "start": 8.48,
+            "end": 9.1,
+            "word": " نمی‌کند.",
+            "probability": 0.8282267935574055
+          },
+          {
+            "start": 9.56,
+            "end": 9.76,
+            "word": " به",
+            "probability": 0.9795827865600586
+          },
+          {
+            "start": 9.76,
+            "end": 9.88,
+            "word": " این",
+            "probability": 0.980343222618103
+          },
+          {
+            "start": 9.88,
+            "end": 10.18,
+            "word": " معنا",
+            "probability": 0.6766669303178787
+          },
+          {
+            "start": 10.18,
+            "end": 10.44,
+            "word": " نیس",
+            "probability": 0.6228657331084833
+          },
+          {
+            "start": 10.44,
+            "end": 11.18,
+            "word": " که",
+            "probability": 0.7221822738647461
+          },
+          {
+            "start": 11.18,
+            "end": 11.4,
+            "word": " ما",
+            "probability": 0.9123803973197937
+          },
+          {
+            "start": 11.4,
+            "end": 11.66,
+            "word": " سوا...",
+            "probability": 0.3823749218136072
+          }
+        ]
+      }
+    ]
+  }
+}

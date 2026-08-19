@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "97987cb92c2dd1d69c08d6b817f45efb31f6658b9b233157e7c048fb6932749b",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 14.4,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 14.38,
+        "text": "دارید به من نگاه می‌کنید. سواد مالی خیلی چیزا نیست. مثلا، سوادم مالي سروتمند شدن نی‌ست. سواد مال ما رو سروته‌مند نمی‌کند.",
+        "avg_logprob": -0.3147099085152149,
+        "compression_ratio": 1.7,
+        "no_speech_prob": 7.842790861189997e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.28,
+            "word": " دارید",
+            "probability": 0.9023433178663254
+          },
+          {
+            "start": 0.28,
+            "end": 0.4,
+            "word": " به",
+            "probability": 0.9130036234855652
+          },
+          {
+            "start": 0.4,
+            "end": 0.52,
+            "word": " من",
+            "probability": 0.9789186120033264
+          },
+          {
+            "start": 0.52,
+            "end": 0.92,
+            "word": " نگاه",
+            "probability": 0.9984990358352661
+          },
+          {
+            "start": 0.92,
+            "end": 1.56,
+            "word": " می‌کنید.",
+            "probability": 0.7535213728745779
+          },
+          {
+            "start": 2.46,
+            "end": 3.26,
+            "word": " سواد",
+            "probability": 0.8001262446244558
+          },
+          {
+            "start": 3.26,
+            "end": 3.66,
+            "word": " مالی",
+            "probability": 0.9832617044448853
+          },
+          {
+            "start": 3.66,
+            "end": 4.08,
+            "word": " خیلی",
+            "probability": 0.9528510421514511
+          },
+          {
+            "start": 4.08,
+            "end": 4.38,
+            "word": " چیزا",
+            "probability": 0.896176740527153
+          },
+          {
+            "start": 4.38,
+            "end": 4.88,
+            "word": " نیست.",
+            "probability": 0.9750692248344421
+          },
+          {
+            "start": 7.4,
+            "end": 8.2,
+            "word": " مثلا،",
+            "probability": 0.7499589125315348
+          },
+          {
+            "start": 8.2,
+            "end": 8.92,
+            "word": " سوادم",
+            "probability": 0.6635578487087818
+          },
+          {
+            "start": 8.92,
+            "end": 9.5,
+            "word": " مالي",
+            "probability": 0.3405607790919021
+          },
+          {
+            "start": 9.5,
+            "end": 10.98,
+            "word": " سروتمند",
+            "probability": 0.850296139717102
+          },
+          {
+            "start": 10.98,
+            "end": 11.42,
+            "word": " شدن",
+            "probability": 0.9802794456481934
+          },
+          {
+            "start": 11.42,
+            "end": 11.92,
+            "word": " نی‌ست.",
+            "probability": 0.7206412150844699
+          },
+          {
+            "start": 12.22,
+            "end": 13.0,
+            "word": " سواد",
+            "probability": 0.5975760517758317
+          },
+          {
+            "start": 13.0,
+            "end": 13.26,
+            "word": " مال",
+            "probability": 0.989737868309021
+          },
+          {
+            "start": 13.26,
+            "end": 13.36,
+            "word": " ما",
+            "probability": 0.0006280848174355924
+          },
+          {
+            "start": 13.36,
+            "end": 13.54,
+            "word": " رو",
+            "probability": 0.9527284801006317
+          },
+          {
+            "start": 13.54,
+            "end": 14.12,
+            "word": " سروته‌مند",
+            "probability": 0.7098976356598238
+          },
+          {
+            "start": 14.12,
+            "end": 14.38,
+            "word": " نمی‌کند.",
+            "probability": 0.6807879991829395
+          }
+        ]
+      }
+    ]
+  }
+}

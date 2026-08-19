@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "39b137774dc74be0c022317b77b876bea26577eb542130d8044feb0821f12cbe",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.28,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.26,
+        "text": "فراینده سرودمند شدن نیست. سرادمنده یک موضوعی، مثل ورزش قهرمانی، ما هر روز ورذش بکنیم با ثلاثت‌های خواهده‌ها",
+        "avg_logprob": -0.5464715094138415,
+        "compression_ratio": 1.4666666666666666,
+        "no_speech_prob": 5.410336068045751e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.62,
+            "word": " فراینده",
+            "probability": 0.9062005758285523
+          },
+          {
+            "start": 0.62,
+            "end": 1.22,
+            "word": " سرودمند",
+            "probability": 0.6425740852952003
+          },
+          {
+            "start": 1.22,
+            "end": 1.52,
+            "word": " شدن",
+            "probability": 0.9257196187973022
+          },
+          {
+            "start": 1.52,
+            "end": 1.78,
+            "word": " نیست.",
+            "probability": 0.9840643604596456
+          },
+          {
+            "start": 2.3,
+            "end": 3.3,
+            "word": " سرادمنده",
+            "probability": 0.7242723235394806
+          },
+          {
+            "start": 3.3,
+            "end": 3.48,
+            "word": " یک",
+            "probability": 0.8191120326519012
+          },
+          {
+            "start": 3.48,
+            "end": 4.3,
+            "word": " موضوعی،",
+            "probability": 0.7402381512025992
+          },
+          {
+            "start": 4.3,
+            "end": 5.44,
+            "word": " مثل",
+            "probability": 0.992045521736145
+          },
+          {
+            "start": 5.44,
+            "end": 6.06,
+            "word": " ورزش",
+            "probability": 0.9777755737304688
+          },
+          {
+            "start": 6.06,
+            "end": 8.02,
+            "word": " قهرمانی،",
+            "probability": 0.8802279978990555
+          },
+          {
+            "start": 8.02,
+            "end": 8.44,
+            "word": " ما",
+            "probability": 0.9779134392738342
+          },
+          {
+            "start": 8.44,
+            "end": 8.76,
+            "word": " هر",
+            "probability": 0.9868232011795044
+          },
+          {
+            "start": 8.76,
+            "end": 8.92,
+            "word": " روز",
+            "probability": 0.9911635518074036
+          },
+          {
+            "start": 8.92,
+            "end": 9.42,
+            "word": " ورذش",
+            "probability": 0.7454508501396049
+          },
+          {
+            "start": 9.42,
+            "end": 10.04,
+            "word": " بکنیم",
+            "probability": 0.9746000289916992
+          },
+          {
+            "start": 10.04,
+            "end": 10.26,
+            "word": " با",
+            "probability": 0.8009398579597473
+          },
+          {
+            "start": 10.26,
+            "end": 10.26,
+            "word": " ثلاثت‌های",
+            "probability": 0.38130658864974976
+          },
+          {
+            "start": 10.26,
+            "end": 10.26,
+            "word": " خواهده‌ها",
+            "probability": 0.23779182881116867
+          }
+        ]
+      }
+    ]
+  }
+}

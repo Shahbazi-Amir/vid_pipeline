@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "c47e8f202eed8c695ddfcf2c0aad8a68f2bf04feebfaf9279b23147a629febc5",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.32,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.3,
+        "text": "در حوضه‌ی هنر رو نمی‌دونم ورزش، تا حوزه‌های دیگه، اصولم سواده ما،",
+        "avg_logprob": -0.34702073438809466,
+        "compression_ratio": 1.2842105263157895,
+        "no_speech_prob": 3.8212896735778656e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.18,
+            "word": " در",
+            "probability": 0.40973866172134876
+          },
+          {
+            "start": 0.18,
+            "end": 0.54,
+            "word": " حوضه‌ی",
+            "probability": 0.7399580983134607
+          },
+          {
+            "start": 0.54,
+            "end": 1.04,
+            "word": " هنر",
+            "probability": 0.9300802946090698
+          },
+          {
+            "start": 1.04,
+            "end": 1.22,
+            "word": " رو",
+            "probability": 0.9146363437175751
+          },
+          {
+            "start": 1.22,
+            "end": 1.82,
+            "word": " نمی‌دونم",
+            "probability": 0.9674499120031085
+          },
+          {
+            "start": 1.82,
+            "end": 2.62,
+            "word": " ورزش،",
+            "probability": 0.6633906602859497
+          },
+          {
+            "start": 2.62,
+            "end": 2.72,
+            "word": " تا",
+            "probability": 0.8410903513431549
+          },
+          {
+            "start": 2.72,
+            "end": 3.28,
+            "word": " حوزه‌های",
+            "probability": 0.8366811562196484
+          },
+          {
+            "start": 3.28,
+            "end": 3.98,
+            "word": " دیگه،",
+            "probability": 0.7899059802293777
+          },
+          {
+            "start": 3.98,
+            "end": 5.4,
+            "word": " اصولم",
+            "probability": 0.8896381258964539
+          },
+          {
+            "start": 5.4,
+            "end": 6.26,
+            "word": " سواده",
+            "probability": 0.7145583555102348
+          },
+          {
+            "start": 6.26,
+            "end": 6.3,
+            "word": " ما،",
+            "probability": 0.27915703877806664
+          }
+        ]
+      }
+    ]
+  }
+}

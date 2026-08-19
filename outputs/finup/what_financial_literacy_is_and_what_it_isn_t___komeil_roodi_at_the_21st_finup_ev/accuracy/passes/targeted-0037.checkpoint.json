@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "b1ee092d033d420d8d2f8154a4a4f183b5d4c31e00056b2d4dc0bdf33b76f3fc",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.12,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.1,
+        "text": "تا حوضه‌های دیگه، اصولاً ثواد مالی با موفقیت متفاوته و مثلاً اون رو ببریم تو یک حوزه‌ی مثل فنده‌",
+        "avg_logprob": -0.29235068369995465,
+        "compression_ratio": 1.4390243902439024,
+        "no_speech_prob": 2.8979166288856106e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.4,
+            "word": " تا",
+            "probability": 0.702858030796051
+          },
+          {
+            "start": 0.4,
+            "end": 0.96,
+            "word": " حوضه‌های",
+            "probability": 0.7599390223622322
+          },
+          {
+            "start": 0.96,
+            "end": 1.64,
+            "word": " دیگه،",
+            "probability": 0.7933971673250199
+          },
+          {
+            "start": 1.64,
+            "end": 3.12,
+            "word": " اصولاً",
+            "probability": 0.7740479409694672
+          },
+          {
+            "start": 3.12,
+            "end": 3.82,
+            "word": " ثواد",
+            "probability": 0.8502391576766968
+          },
+          {
+            "start": 3.82,
+            "end": 4.4,
+            "word": " مالی",
+            "probability": 0.8904926180839539
+          },
+          {
+            "start": 4.4,
+            "end": 5.02,
+            "word": " با",
+            "probability": 0.8878715634346008
+          },
+          {
+            "start": 5.02,
+            "end": 5.8,
+            "word": " موفقیت",
+            "probability": 0.9512836098670959
+          },
+          {
+            "start": 5.8,
+            "end": 6.6,
+            "word": " متفاوته",
+            "probability": 0.9809150218963623
+          },
+          {
+            "start": 6.6,
+            "end": 6.8,
+            "word": " و",
+            "probability": 0.7987988591194153
+          },
+          {
+            "start": 6.8,
+            "end": 7.46,
+            "word": " مثلاً",
+            "probability": 0.8888286749521891
+          },
+          {
+            "start": 7.46,
+            "end": 7.6,
+            "word": " اون",
+            "probability": 0.9191755056381226
+          },
+          {
+            "start": 7.6,
+            "end": 7.7,
+            "word": " رو",
+            "probability": 0.8957839012145996
+          },
+          {
+            "start": 7.7,
+            "end": 8.04,
+            "word": " ببریم",
+            "probability": 0.9757809340953827
+          },
+          {
+            "start": 8.04,
+            "end": 8.14,
+            "word": " تو",
+            "probability": 0.9632775187492371
+          },
+          {
+            "start": 8.14,
+            "end": 8.28,
+            "word": " یک",
+            "probability": 0.4474638104438782
+          },
+          {
+            "start": 8.28,
+            "end": 8.64,
+            "word": " حوزه‌ی",
+            "probability": 0.7641307124091933
+          },
+          {
+            "start": 8.64,
+            "end": 8.92,
+            "word": " مثل",
+            "probability": 0.9824103116989136
+          },
+          {
+            "start": 8.92,
+            "end": 9.1,
+            "word": " فنده‌",
+            "probability": 0.6048725843429565
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "dd02d62538bc133444ed5424d35c21f0234ac127a305353071321d2a6cee8793",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.08,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.0,
+        "text": "در مسیر ثواد مالی ما هم موفق می‌شویم، نه، اون یک چیز این یکچیز دیگه است. بعد تازه خیلی اوقات موفاقیت",
+        "avg_logprob": -0.21555158406940858,
+        "compression_ratio": 1.44,
+        "no_speech_prob": 3.836815032354224e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.06,
+            "word": " در",
+            "probability": 0.7266990095376968
+          },
+          {
+            "start": 0.06,
+            "end": 0.42,
+            "word": " مسیر",
+            "probability": 0.9907098213831583
+          },
+          {
+            "start": 0.42,
+            "end": 0.84,
+            "word": " ثواد",
+            "probability": 0.8486899733543396
+          },
+          {
+            "start": 0.84,
+            "end": 1.12,
+            "word": " مالی",
+            "probability": 0.9093937873840332
+          },
+          {
+            "start": 1.12,
+            "end": 1.22,
+            "word": " ما",
+            "probability": 0.80169278383255
+          },
+          {
+            "start": 1.22,
+            "end": 1.38,
+            "word": " هم",
+            "probability": 0.9354332387447357
+          },
+          {
+            "start": 1.38,
+            "end": 1.9,
+            "word": " موفق",
+            "probability": 0.9041804273923238
+          },
+          {
+            "start": 1.9,
+            "end": 2.58,
+            "word": " می‌شویم،",
+            "probability": 0.7844037562608719
+          },
+          {
+            "start": 2.58,
+            "end": 3.0,
+            "word": " نه،",
+            "probability": 0.7660142580668131
+          },
+          {
+            "start": 3.0,
+            "end": 3.2,
+            "word": " اون",
+            "probability": 0.9424006640911102
+          },
+          {
+            "start": 3.2,
+            "end": 3.4,
+            "word": " یک",
+            "probability": 0.7628266215324402
+          },
+          {
+            "start": 3.4,
+            "end": 3.6,
+            "word": " چیز",
+            "probability": 0.978507916132609
+          },
+          {
+            "start": 3.6,
+            "end": 3.72,
+            "word": " این",
+            "probability": 0.8684676289558411
+          },
+          {
+            "start": 3.72,
+            "end": 4.04,
+            "word": " یکچیز",
+            "probability": 0.7774933636013884
+          },
+          {
+            "start": 4.04,
+            "end": 4.44,
+            "word": " دیگه",
+            "probability": 0.948025718331337
+          },
+          {
+            "start": 4.44,
+            "end": 4.54,
+            "word": " است.",
+            "probability": 0.831689715385437
+          },
+          {
+            "start": 4.72,
+            "end": 5.28,
+            "word": " بعد",
+            "probability": 0.6767601370811462
+          },
+          {
+            "start": 5.28,
+            "end": 5.58,
+            "word": " تازه",
+            "probability": 0.926739513874054
+          },
+          {
+            "start": 5.58,
+            "end": 5.86,
+            "word": " خیلی",
+            "probability": 0.9417791962623596
+          },
+          {
+            "start": 5.86,
+            "end": 6.1,
+            "word": " اوقات",
+            "probability": 0.9632891813913981
+          },
+          {
+            "start": 6.1,
+            "end": 7.0,
+            "word": " موفاقیت",
+            "probability": 0.7950740742465617
+          }
+        ]
+      }
+    ]
+  }
+}

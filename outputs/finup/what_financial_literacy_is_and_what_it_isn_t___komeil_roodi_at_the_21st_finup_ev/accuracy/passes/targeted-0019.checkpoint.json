@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "30f92371bb3a34034fba39f022dbe92de217eecf37ff4ce7f019ff1670e9d065",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.72,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.7,
+        "text": "مدیریت ثروته، نه میزان ثروت. البته ممکنه که نتیجه‌ی ثروتمندی هم داشته باشه. نتیکه‌ش، امنیت و آده‌است.",
+        "avg_logprob": -0.36599810549191064,
+        "compression_ratio": 1.4761904761904763,
+        "no_speech_prob": 4.716696477835569e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.5,
+            "word": " مدیریت",
+            "probability": 0.6853209912776947
+          },
+          {
+            "start": 0.5,
+            "end": 1.2,
+            "word": " ثروته،",
+            "probability": 0.5885355547070503
+          },
+          {
+            "start": 1.2,
+            "end": 1.4,
+            "word": " نه",
+            "probability": 0.988522469997406
+          },
+          {
+            "start": 1.4,
+            "end": 1.88,
+            "word": " میزان",
+            "probability": 0.9593591292699178
+          },
+          {
+            "start": 1.88,
+            "end": 2.5,
+            "word": " ثروت.",
+            "probability": 0.9725167552630106
+          },
+          {
+            "start": 2.62,
+            "end": 3.22,
+            "word": " البته",
+            "probability": 0.9853173792362213
+          },
+          {
+            "start": 3.22,
+            "end": 3.66,
+            "word": " ممکنه",
+            "probability": 0.9525220513343811
+          },
+          {
+            "start": 3.66,
+            "end": 3.82,
+            "word": " که",
+            "probability": 0.9770082831382751
+          },
+          {
+            "start": 3.82,
+            "end": 4.36,
+            "word": " نتیجه‌ی",
+            "probability": 0.8493354192801884
+          },
+          {
+            "start": 4.36,
+            "end": 5.36,
+            "word": " ثروتمندی",
+            "probability": 0.7390131993219257
+          },
+          {
+            "start": 5.36,
+            "end": 5.48,
+            "word": " هم",
+            "probability": 0.9594477713108063
+          },
+          {
+            "start": 5.48,
+            "end": 5.84,
+            "word": " داشته",
+            "probability": 0.9930876096089681
+          },
+          {
+            "start": 5.84,
+            "end": 6.22,
+            "word": " باشه.",
+            "probability": 0.9912440180778503
+          },
+          {
+            "start": 6.68,
+            "end": 7.56,
+            "word": " نتیکه‌ش،",
+            "probability": 0.5347209448435544
+          },
+          {
+            "start": 7.56,
+            "end": 8.48,
+            "word": " امنیت",
+            "probability": 0.9517762511968613
+          },
+          {
+            "start": 8.48,
+            "end": 8.58,
+            "word": " و",
+            "probability": 0.9180544018745422
+          },
+          {
+            "start": 8.58,
+            "end": 8.7,
+            "word": " آده‌است.",
+            "probability": 0.39596200610200566
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "84afec5539219a56630949864318a98badfef1bb7d150771c6838555c330ecec",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.46,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.44,
+        "text": "نه پس مثلاً حتماً برای پول دار شدن، باید یه حوضه‌ی بازارهای مالی رو بری، نه با معفقیت هم",
+        "avg_logprob": -0.2783369040880047,
+        "compression_ratio": 1.394736842105263,
+        "no_speech_prob": 4.576329870609186e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.22,
+            "word": " نه",
+            "probability": 0.5867341011762619
+          },
+          {
+            "start": 0.22,
+            "end": 0.44,
+            "word": " پس",
+            "probability": 0.7897859513759613
+          },
+          {
+            "start": 0.44,
+            "end": 0.92,
+            "word": " مثلاً",
+            "probability": 0.8081238071123759
+          },
+          {
+            "start": 0.92,
+            "end": 1.36,
+            "word": " حتماً",
+            "probability": 0.8698969483375549
+          },
+          {
+            "start": 1.36,
+            "end": 1.62,
+            "word": " برای",
+            "probability": 0.9950085878372192
+          },
+          {
+            "start": 1.62,
+            "end": 1.9,
+            "word": " پول",
+            "probability": 0.9742871522903442
+          },
+          {
+            "start": 1.9,
+            "end": 2.04,
+            "word": " دار",
+            "probability": 0.6703213304281235
+          },
+          {
+            "start": 2.04,
+            "end": 2.72,
+            "word": " شدن،",
+            "probability": 0.7622101381421089
+          },
+          {
+            "start": 2.72,
+            "end": 3.32,
+            "word": " باید",
+            "probability": 0.9940079301595688
+          },
+          {
+            "start": 3.32,
+            "end": 3.52,
+            "word": " یه",
+            "probability": 0.8269268870353699
+          },
+          {
+            "start": 3.52,
+            "end": 4.4,
+            "word": " حوضه‌ی",
+            "probability": 0.7221521033595005
+          },
+          {
+            "start": 4.4,
+            "end": 4.9,
+            "word": " بازارهای",
+            "probability": 0.9259558916091919
+          },
+          {
+            "start": 4.9,
+            "end": 5.3,
+            "word": " مالی",
+            "probability": 0.9909379482269287
+          },
+          {
+            "start": 5.3,
+            "end": 5.4,
+            "word": " رو",
+            "probability": 0.8982940912246704
+          },
+          {
+            "start": 5.4,
+            "end": 5.68,
+            "word": " بری،",
+            "probability": 0.6996684869130453
+          },
+          {
+            "start": 5.68,
+            "end": 6.44,
+            "word": " نه",
+            "probability": 0.9945141673088074
+          },
+          {
+            "start": 6.44,
+            "end": 7.36,
+            "word": " با",
+            "probability": 0.6358412951231003
+          },
+          {
+            "start": 7.36,
+            "end": 8.28,
+            "word": " معفقیت",
+            "probability": 0.8245780557394028
+          },
+          {
+            "start": 8.28,
+            "end": 8.44,
+            "word": " هم",
+            "probability": 0.9842400848865509
+          }
+        ]
+      }
+    ]
+  }
+}

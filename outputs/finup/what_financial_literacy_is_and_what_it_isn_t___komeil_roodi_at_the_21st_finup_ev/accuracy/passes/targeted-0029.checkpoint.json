@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "faa3349b54a6a2577761a5f691ee8a73b926d7bf4e3dcbfa5c2680acc9daef85",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.02,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.0,
+        "text": "نام‌شویم، نه، اون یک چیز این یکچیز دیگر است. بعد تازه خیلی اوقات موفقیت هم با شهرت اشتباه می‌گیریم. یعنی می‌کیم مثلا ایلام‌ها،",
+        "avg_logprob": -0.25821758910667064,
+        "compression_ratio": 1.5364238410596027,
+        "no_speech_prob": 3.842954565680401e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.5,
+            "word": " نام‌شویم،",
+            "probability": 0.5932625426867162
+          },
+          {
+            "start": 0.5,
+            "end": 0.94,
+            "word": " نه،",
+            "probability": 0.7885203262170156
+          },
+          {
+            "start": 0.94,
+            "end": 1.12,
+            "word": " اون",
+            "probability": 0.9240269660949707
+          },
+          {
+            "start": 1.12,
+            "end": 1.32,
+            "word": " یک",
+            "probability": 0.7556672692298889
+          },
+          {
+            "start": 1.32,
+            "end": 1.54,
+            "word": " چیز",
+            "probability": 0.9674003521601359
+          },
+          {
+            "start": 1.54,
+            "end": 1.64,
+            "word": " این",
+            "probability": 0.8460223078727722
+          },
+          {
+            "start": 1.64,
+            "end": 1.98,
+            "word": " یکچیز",
+            "probability": 0.7693795032566413
+          },
+          {
+            "start": 1.98,
+            "end": 2.36,
+            "word": " دیگر",
+            "probability": 0.7860605083405972
+          },
+          {
+            "start": 2.36,
+            "end": 2.48,
+            "word": " است.",
+            "probability": 0.8262781500816345
+          },
+          {
+            "start": 2.66,
+            "end": 3.2,
+            "word": " بعد",
+            "probability": 0.6560580134391785
+          },
+          {
+            "start": 3.2,
+            "end": 3.5,
+            "word": " تازه",
+            "probability": 0.9474461078643799
+          },
+          {
+            "start": 3.5,
+            "end": 3.78,
+            "word": " خیلی",
+            "probability": 0.9209696352481842
+          },
+          {
+            "start": 3.78,
+            "end": 4.04,
+            "word": " اوقات",
+            "probability": 0.9266669750213623
+          },
+          {
+            "start": 4.04,
+            "end": 4.96,
+            "word": " موفقیت",
+            "probability": 0.9005827307701111
+          },
+          {
+            "start": 4.96,
+            "end": 5.32,
+            "word": " هم",
+            "probability": 0.9917908608913422
+          },
+          {
+            "start": 5.32,
+            "end": 5.84,
+            "word": " با",
+            "probability": 0.9784067571163177
+          },
+          {
+            "start": 5.84,
+            "end": 6.34,
+            "word": " شهرت",
+            "probability": 0.9700778921445211
+          },
+          {
+            "start": 6.34,
+            "end": 6.92,
+            "word": " اشتباه",
+            "probability": 0.9915217638015748
+          },
+          {
+            "start": 6.92,
+            "end": 7.48,
+            "word": " می‌گیریم.",
+            "probability": 0.9723518192768097
+          },
+          {
+            "start": 8.08,
+            "end": 8.8,
+            "word": " یعنی",
+            "probability": 0.9946238696575165
+          },
+          {
+            "start": 8.8,
+            "end": 9.06,
+            "word": " می‌کیم",
+            "probability": 0.7467270715744234
+          },
+          {
+            "start": 9.06,
+            "end": 9.46,
+            "word": " مثلا",
+            "probability": 0.930789589881897
+          },
+          {
+            "start": 9.46,
+            "end": 10.0,
+            "word": " ایلام‌ها،",
+            "probability": 0.5627242177724838
+          }
+        ]
+      }
+    ]
+  }
+}

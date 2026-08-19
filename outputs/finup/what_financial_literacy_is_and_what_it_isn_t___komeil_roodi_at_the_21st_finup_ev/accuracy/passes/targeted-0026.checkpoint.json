@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "32c165976978f338000eff31d94891a881bedaa1b1d96e80679adccf76b199d4",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.46,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.44,
+        "text": "بازارهای مالی رو بری نه، با موفقیت هم فرق می‌کنه. اینجوری نیست که بگیم در مسیر ثواد مالي ما هم",
+        "avg_logprob": -0.20262085204012692,
+        "compression_ratio": 1.3852459016393444,
+        "no_speech_prob": 5.877973663359626e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.52,
+            "word": " بازارهای",
+            "probability": 0.939246940612793
+          },
+          {
+            "start": 0.52,
+            "end": 0.92,
+            "word": " مالی",
+            "probability": 0.9875925381978353
+          },
+          {
+            "start": 0.92,
+            "end": 1.02,
+            "word": " رو",
+            "probability": 0.8953799903392792
+          },
+          {
+            "start": 1.02,
+            "end": 1.2,
+            "word": " بری",
+            "probability": 0.8453029692173004
+          },
+          {
+            "start": 1.2,
+            "end": 1.74,
+            "word": " نه،",
+            "probability": 0.553692027926445
+          },
+          {
+            "start": 1.74,
+            "end": 3.0,
+            "word": " با",
+            "probability": 0.98250612616539
+          },
+          {
+            "start": 3.0,
+            "end": 3.9,
+            "word": " موفقیت",
+            "probability": 0.9631173968315124
+          },
+          {
+            "start": 3.9,
+            "end": 4.08,
+            "word": " هم",
+            "probability": 0.9930373430252075
+          },
+          {
+            "start": 4.08,
+            "end": 4.54,
+            "word": " فرق",
+            "probability": 0.9974731802940369
+          },
+          {
+            "start": 4.54,
+            "end": 4.98,
+            "word": " می‌کنه.",
+            "probability": 0.6123695626854897
+          },
+          {
+            "start": 5.04,
+            "end": 5.3,
+            "word": " اینجوری",
+            "probability": 0.8883128762245178
+          },
+          {
+            "start": 5.3,
+            "end": 5.52,
+            "word": " نیست",
+            "probability": 0.9482474128405253
+          },
+          {
+            "start": 5.52,
+            "end": 5.64,
+            "word": " که",
+            "probability": 0.9893447756767273
+          },
+          {
+            "start": 5.64,
+            "end": 5.88,
+            "word": " بگیم",
+            "probability": 0.9816938191652298
+          },
+          {
+            "start": 5.88,
+            "end": 6.12,
+            "word": " در",
+            "probability": 0.9646239578723907
+          },
+          {
+            "start": 6.12,
+            "end": 6.52,
+            "word": " مسیر",
+            "probability": 0.9947130481402079
+          },
+          {
+            "start": 6.52,
+            "end": 6.96,
+            "word": " ثواد",
+            "probability": 0.8639514048894247
+          },
+          {
+            "start": 6.96,
+            "end": 7.24,
+            "word": " مالي",
+            "probability": 0.6308978404073665
+          },
+          {
+            "start": 7.24,
+            "end": 7.34,
+            "word": " ما",
+            "probability": 0.7876105308532715
+          },
+          {
+            "start": 7.34,
+            "end": 7.44,
+            "word": " هم",
+            "probability": 0.9790283143520355
+          }
+        ]
+      }
+    ]
+  }
+}

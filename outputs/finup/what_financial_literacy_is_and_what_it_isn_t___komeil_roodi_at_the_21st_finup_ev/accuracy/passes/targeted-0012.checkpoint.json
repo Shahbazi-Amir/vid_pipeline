@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "84a69ba6b9b3ee9d9d187c474027870f8e34c20b8cf52e0f77db490a2a7f0687",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 13.63,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 4.92,
+        "text": "درباره پولار شدن نیست، ثواد مالی دربراه چیه؟",
+        "avg_logprob": -0.3260347109876181,
+        "compression_ratio": 1.6076923076923078,
+        "no_speech_prob": 4.343054804678559e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.78,
+            "word": " درباره",
+            "probability": 0.8530259430408478
+          },
+          {
+            "start": 0.78,
+            "end": 1.88,
+            "word": " پولار",
+            "probability": 0.8145452737808228
+          },
+          {
+            "start": 1.88,
+            "end": 2.32,
+            "word": " شدن",
+            "probability": 0.9600668549537659
+          },
+          {
+            "start": 2.32,
+            "end": 2.54,
+            "word": " نیست،",
+            "probability": 0.7397491410374641
+          },
+          {
+            "start": 2.54,
+            "end": 2.94,
+            "word": " ثواد",
+            "probability": 0.8536162575085958
+          },
+          {
+            "start": 2.94,
+            "end": 3.26,
+            "word": " مالی",
+            "probability": 0.9837363163630167
+          },
+          {
+            "start": 3.26,
+            "end": 3.72,
+            "word": " دربراه",
+            "probability": 0.6449107349762926
+          },
+          {
+            "start": 3.72,
+            "end": 4.92,
+            "word": " چیه؟",
+            "probability": 0.9457519203424454
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 6.4,
+        "end": 13.6,
+        "text": "بله ممنونم، خیلی باشور و نشات جواب منو دادید، ثوات مالای در باره میزان",
+        "avg_logprob": -0.3260347109876181,
+        "compression_ratio": 1.6076923076923078,
+        "no_speech_prob": 4.343054804678559e-10,
+        "words": [
+          {
+            "start": 6.26,
+            "end": 6.76,
+            "word": " بله",
+            "probability": 0.92952561378479
+          },
+          {
+            "start": 6.76,
+            "end": 7.52,
+            "word": " ممنونم،",
+            "probability": 0.8532132387161255
+          },
+          {
+            "start": 7.52,
+            "end": 8.18,
+            "word": " خیلی",
+            "probability": 0.9754094630479813
+          },
+          {
+            "start": 8.18,
+            "end": 8.98,
+            "word": " باشور",
+            "probability": 0.5571631590525309
+          },
+          {
+            "start": 8.98,
+            "end": 9.22,
+            "word": " و",
+            "probability": 0.4087187945842743
+          },
+          {
+            "start": 9.22,
+            "end": 9.84,
+            "word": " نشات",
+            "probability": 0.8241258462270101
+          },
+          {
+            "start": 9.84,
+            "end": 10.28,
+            "word": " جواب",
+            "probability": 0.8732238213221232
+          },
+          {
+            "start": 10.28,
+            "end": 10.64,
+            "word": " منو",
+            "probability": 0.7720203399658203
+          },
+          {
+            "start": 10.64,
+            "end": 11.24,
+            "word": " دادید،",
+            "probability": 0.7420775592327118
+          },
+          {
+            "start": 11.24,
+            "end": 12.16,
+            "word": " ثوات",
+            "probability": 0.583523923686395
+          },
+          {
+            "start": 12.16,
+            "end": 12.5,
+            "word": " مالای",
+            "probability": 0.6944583299555234
+          },
+          {
+            "start": 12.5,
+            "end": 12.78,
+            "word": " در",
+            "probability": 0.45232120528817177
+          },
+          {
+            "start": 12.78,
+            "end": 13.06,
+            "word": " باره",
+            "probability": 0.9499465624491373
+          },
+          {
+            "start": 13.06,
+            "end": 13.6,
+            "word": " میزان",
+            "probability": 0.879655659198761
+          }
+        ]
+      }
+    ]
+  }
+}

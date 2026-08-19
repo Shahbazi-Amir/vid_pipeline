@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "0fcfdcb821562d0101376a21552845de80a370083f75539adc89dcf9df753f21",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.78,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.76,
+        "text": "باسته می‌شه قهرمان اولیمپیک بشیم. اون یک مسیر دیگه‌ای داره، ولی دست کم می‌دونیم بدن سالمی دادیم، اگر می‌خواییم قهارمان آولی...",
+        "avg_logprob": -0.27722611330276314,
+        "compression_ratio": 1.6,
+        "no_speech_prob": 3.4897659761945476e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.58,
+            "word": " باسته",
+            "probability": 0.7711094543337822
+          },
+          {
+            "start": 0.58,
+            "end": 0.72,
+            "word": " می‌شه",
+            "probability": 0.790144607424736
+          },
+          {
+            "start": 0.72,
+            "end": 1.24,
+            "word": " قهرمان",
+            "probability": 0.9769622683525085
+          },
+          {
+            "start": 1.24,
+            "end": 1.78,
+            "word": " اولیمپیک",
+            "probability": 0.7209792832533518
+          },
+          {
+            "start": 1.78,
+            "end": 2.24,
+            "word": " بشیم.",
+            "probability": 0.9453329145908356
+          },
+          {
+            "start": 2.44,
+            "end": 2.92,
+            "word": " اون",
+            "probability": 0.8868822753429413
+          },
+          {
+            "start": 2.92,
+            "end": 3.06,
+            "word": " یک",
+            "probability": 0.7704904973506927
+          },
+          {
+            "start": 3.06,
+            "end": 3.48,
+            "word": " مسیر",
+            "probability": 0.9899723529815674
+          },
+          {
+            "start": 3.48,
+            "end": 3.86,
+            "word": " دیگه‌ای",
+            "probability": 0.965258709021977
+          },
+          {
+            "start": 3.86,
+            "end": 4.16,
+            "word": " داره،",
+            "probability": 0.7478907629847527
+          },
+          {
+            "start": 4.16,
+            "end": 4.36,
+            "word": " ولی",
+            "probability": 0.9920105040073395
+          },
+          {
+            "start": 4.36,
+            "end": 4.64,
+            "word": " دست",
+            "probability": 0.9763200879096985
+          },
+          {
+            "start": 4.64,
+            "end": 4.92,
+            "word": " کم",
+            "probability": 0.8878724873065948
+          },
+          {
+            "start": 4.92,
+            "end": 5.3,
+            "word": " می‌دونیم",
+            "probability": 0.9745667378107706
+          },
+          {
+            "start": 5.3,
+            "end": 5.7,
+            "word": " بدن",
+            "probability": 0.9562647342681885
+          },
+          {
+            "start": 5.7,
+            "end": 6.88,
+            "word": " سالمی",
+            "probability": 0.9329800804456075
+          },
+          {
+            "start": 6.88,
+            "end": 8.32,
+            "word": " دادیم،",
+            "probability": 0.5555944683146663
+          },
+          {
+            "start": 8.32,
+            "end": 8.72,
+            "word": " اگر",
+            "probability": 0.9880293607711792
+          },
+          {
+            "start": 8.72,
+            "end": 9.12,
+            "word": " می‌خواییم",
+            "probability": 0.797918194106647
+          },
+          {
+            "start": 9.12,
+            "end": 9.68,
+            "word": " قهارمان",
+            "probability": 0.7927923424213077
+          },
+          {
+            "start": 9.68,
+            "end": 9.76,
+            "word": " آولی...",
+            "probability": 0.45692483570746845
+          }
+        ]
+      }
+    ]
+  }
+}

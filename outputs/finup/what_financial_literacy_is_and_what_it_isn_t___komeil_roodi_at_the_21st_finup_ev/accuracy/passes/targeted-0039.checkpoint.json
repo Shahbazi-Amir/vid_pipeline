@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "1f82a2215fd745accb8564d5517c2f8571bf5a4fc24fb179ea8e2ab46d3e4c73",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.16,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.6,
+        "text": "مثلا اون رو ببریم توی یک حوضه‌ای مثل فنناوری‌ها و بگیم خب آدم‌هایی که با ثواد مالی هست، پس تو حوزه‌ی فنّاوری آدمهای موفقی هند. این هم اشتباهه.",
+        "avg_logprob": -0.2621429242814581,
+        "compression_ratio": 1.5602409638554218,
+        "no_speech_prob": 4.267539654989605e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.16,
+            "word": " مثلا",
+            "probability": 0.7519930601119995
+          },
+          {
+            "start": 0.16,
+            "end": 0.36,
+            "word": " اون",
+            "probability": 0.8795118629932404
+          },
+          {
+            "start": 0.36,
+            "end": 0.48,
+            "word": " رو",
+            "probability": 0.9222846329212189
+          },
+          {
+            "start": 0.48,
+            "end": 0.82,
+            "word": " ببریم",
+            "probability": 0.9500601887702942
+          },
+          {
+            "start": 0.82,
+            "end": 1.02,
+            "word": " توی",
+            "probability": 0.7545289099216461
+          },
+          {
+            "start": 1.02,
+            "end": 1.06,
+            "word": " یک",
+            "probability": 0.6394192278385162
+          },
+          {
+            "start": 1.06,
+            "end": 1.42,
+            "word": " حوضه‌ای",
+            "probability": 0.7724738121032715
+          },
+          {
+            "start": 1.42,
+            "end": 1.66,
+            "word": " مثل",
+            "probability": 0.9653804004192352
+          },
+          {
+            "start": 1.66,
+            "end": 2.46,
+            "word": " فنناوری‌ها",
+            "probability": 0.8642873849187579
+          },
+          {
+            "start": 2.46,
+            "end": 2.64,
+            "word": " و",
+            "probability": 0.8850184679031372
+          },
+          {
+            "start": 2.64,
+            "end": 3.38,
+            "word": " بگیم",
+            "probability": 0.9883652329444885
+          },
+          {
+            "start": 3.38,
+            "end": 3.58,
+            "word": " خب",
+            "probability": 0.5641583353281021
+          },
+          {
+            "start": 3.58,
+            "end": 4.04,
+            "word": " آدم‌هایی",
+            "probability": 0.9277921716372172
+          },
+          {
+            "start": 4.04,
+            "end": 4.1,
+            "word": " که",
+            "probability": 0.9723395705223083
+          },
+          {
+            "start": 4.1,
+            "end": 4.28,
+            "word": " با",
+            "probability": 0.9241729080677032
+          },
+          {
+            "start": 4.28,
+            "end": 4.64,
+            "word": " ثواد",
+            "probability": 0.8100013732910156
+          },
+          {
+            "start": 4.64,
+            "end": 5.04,
+            "word": " مالی",
+            "probability": 0.970644990603129
+          },
+          {
+            "start": 5.04,
+            "end": 5.52,
+            "word": " هست،",
+            "probability": 0.42167586584885913
+          },
+          {
+            "start": 5.52,
+            "end": 5.82,
+            "word": " پس",
+            "probability": 0.983244001865387
+          },
+          {
+            "start": 5.82,
+            "end": 5.94,
+            "word": " تو",
+            "probability": 0.7806552052497864
+          },
+          {
+            "start": 5.94,
+            "end": 6.46,
+            "word": " حوزه‌ی",
+            "probability": 0.6415223882553013
+          },
+          {
+            "start": 6.46,
+            "end": 7.0,
+            "word": " فنّاوری",
+            "probability": 0.7701644635696235
+          },
+          {
+            "start": 7.0,
+            "end": 7.46,
+            "word": " آدمهای",
+            "probability": 0.6805001614266075
+          },
+          {
+            "start": 7.46,
+            "end": 8.6,
+            "word": " موفقی",
+            "probability": 0.7925074547529221
+          },
+          {
+            "start": 8.6,
+            "end": 8.7,
+            "word": " هند.",
+            "probability": 0.40911737430724315
+          },
+          {
+            "start": 8.78,
+            "end": 8.86,
+            "word": " این",
+            "probability": 0.9898129403591156
+          },
+          {
+            "start": 8.86,
+            "end": 9.0,
+            "word": " هم",
+            "probability": 0.8562605679035187
+          },
+          {
+            "start": 9.0,
+            "end": 9.6,
+            "word": " اشتباهه.",
+            "probability": 0.9194141427675883
+          }
+        ]
+      }
+    ]
+  }
+}

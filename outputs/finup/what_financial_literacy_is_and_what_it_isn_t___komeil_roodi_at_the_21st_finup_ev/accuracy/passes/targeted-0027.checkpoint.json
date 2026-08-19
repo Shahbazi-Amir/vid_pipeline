@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "d56d20b78a86ee026934b64314e5cbc0c2465c45f9a36a8a5d18b79f2fc1aa9c",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.66,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.18,
+        "text": "با موفقیت هم فرق می‌کنه. اینجوری نیست که بگیم در مسیر ثواد مالی ما هم موفقت می‌شویم. نه، اون یه چیز این یه‌چیز دیگه است.",
+        "avg_logprob": -0.1751326663666461,
+        "compression_ratio": 1.542857142857143,
+        "no_speech_prob": 3.1129576694155503e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.56,
+            "word": " با",
+            "probability": 0.9355971813201904
+          },
+          {
+            "start": 0.56,
+            "end": 1.44,
+            "word": " موفقیت",
+            "probability": 0.933705496788025
+          },
+          {
+            "start": 1.44,
+            "end": 1.62,
+            "word": " هم",
+            "probability": 0.9876353740692139
+          },
+          {
+            "start": 1.62,
+            "end": 2.08,
+            "word": " فرق",
+            "probability": 0.9947699109713236
+          },
+          {
+            "start": 2.08,
+            "end": 2.52,
+            "word": " می‌کنه.",
+            "probability": 0.7559119582176208
+          },
+          {
+            "start": 2.58,
+            "end": 2.84,
+            "word": " اینجوری",
+            "probability": 0.9132725358009338
+          },
+          {
+            "start": 2.84,
+            "end": 3.06,
+            "word": " نیست",
+            "probability": 0.9848577777544657
+          },
+          {
+            "start": 3.06,
+            "end": 3.18,
+            "word": " که",
+            "probability": 0.9871470630168915
+          },
+          {
+            "start": 3.18,
+            "end": 3.42,
+            "word": " بگیم",
+            "probability": 0.9698825627565384
+          },
+          {
+            "start": 3.42,
+            "end": 3.66,
+            "word": " در",
+            "probability": 0.8693487346172333
+          },
+          {
+            "start": 3.66,
+            "end": 4.06,
+            "word": " مسیر",
+            "probability": 0.9952648480733236
+          },
+          {
+            "start": 4.06,
+            "end": 4.5,
+            "word": " ثواد",
+            "probability": 0.8606322805086771
+          },
+          {
+            "start": 4.5,
+            "end": 4.78,
+            "word": " مالی",
+            "probability": 0.8582004110018412
+          },
+          {
+            "start": 4.78,
+            "end": 4.88,
+            "word": " ما",
+            "probability": 0.8304284811019897
+          },
+          {
+            "start": 4.88,
+            "end": 5.04,
+            "word": " هم",
+            "probability": 0.9445308744907379
+          },
+          {
+            "start": 5.04,
+            "end": 5.56,
+            "word": " موفقت",
+            "probability": 0.6616516470482262
+          },
+          {
+            "start": 5.56,
+            "end": 6.18,
+            "word": " می‌شویم.",
+            "probability": 0.9771123925844828
+          },
+          {
+            "start": 6.24,
+            "end": 6.68,
+            "word": " نه،",
+            "probability": 0.7260971367359161
+          },
+          {
+            "start": 6.68,
+            "end": 6.86,
+            "word": " اون",
+            "probability": 0.9548568725585938
+          },
+          {
+            "start": 6.86,
+            "end": 7.06,
+            "word": " یه",
+            "probability": 0.8185756504535675
+          },
+          {
+            "start": 7.06,
+            "end": 7.28,
+            "word": " چیز",
+            "probability": 0.9939581751823425
+          },
+          {
+            "start": 7.28,
+            "end": 7.38,
+            "word": " این",
+            "probability": 0.847760796546936
+          },
+          {
+            "start": 7.38,
+            "end": 7.74,
+            "word": " یه‌چیز",
+            "probability": 0.8084753616907013
+          },
+          {
+            "start": 7.74,
+            "end": 8.08,
+            "word": " دیگه",
+            "probability": 0.9590790271759033
+          },
+          {
+            "start": 8.08,
+            "end": 8.18,
+            "word": " است.",
+            "probability": 0.6512537598609924
+          }
+        ]
+      }
+    ]
+  }
+}

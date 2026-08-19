@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "a114576b953e346a3056e5973c27c6668dc2a4bb18969c5ac87a6b6fb4cbe67e",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.0,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.98,
+        "text": "باید درست مدیریتش بکنی، اگه هشت میلیاردم داری، باست درس مدینیتش کن. درباره‌ی مدّیریّت ثروت،",
+        "avg_logprob": -0.3672271397183923,
+        "compression_ratio": 1.4608695652173913,
+        "no_speech_prob": 4.371288053750533e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 1.02,
+            "word": " باید",
+            "probability": 0.98588827252388
+          },
+          {
+            "start": 1.02,
+            "end": 1.36,
+            "word": " درست",
+            "probability": 0.998153805732727
+          },
+          {
+            "start": 1.36,
+            "end": 2.06,
+            "word": " مدیریتش",
+            "probability": 0.9975937108198801
+          },
+          {
+            "start": 2.06,
+            "end": 2.58,
+            "word": " بکنی،",
+            "probability": 0.7958382319658994
+          },
+          {
+            "start": 2.58,
+            "end": 2.82,
+            "word": " اگه",
+            "probability": 0.8556371728579203
+          },
+          {
+            "start": 2.82,
+            "end": 3.18,
+            "word": " هشت",
+            "probability": 0.8858060836791992
+          },
+          {
+            "start": 3.18,
+            "end": 3.78,
+            "word": " میلیاردم",
+            "probability": 0.940238618850708
+          },
+          {
+            "start": 3.78,
+            "end": 4.48,
+            "word": " داری،",
+            "probability": 0.900428056716919
+          },
+          {
+            "start": 4.48,
+            "end": 5.1,
+            "word": " باست",
+            "probability": 0.6647489317233521
+          },
+          {
+            "start": 5.1,
+            "end": 5.42,
+            "word": " درس",
+            "probability": 0.6605442454456352
+          },
+          {
+            "start": 5.42,
+            "end": 6.14,
+            "word": " مدینیتش",
+            "probability": 0.6194976532278815
+          },
+          {
+            "start": 6.14,
+            "end": 6.44,
+            "word": " کن.",
+            "probability": 0.3895404657814652
+          },
+          {
+            "start": 6.6,
+            "end": 7.56,
+            "word": " درباره‌ی",
+            "probability": 0.7816004361957312
+          },
+          {
+            "start": 7.56,
+            "end": 8.48,
+            "word": " مدّیریّت",
+            "probability": 0.7051819704315027
+          },
+          {
+            "start": 8.48,
+            "end": 8.98,
+            "word": " ثروت،",
+            "probability": 0.4073271108791232
+          }
+        ]
+      }
+    ]
+  }
+}

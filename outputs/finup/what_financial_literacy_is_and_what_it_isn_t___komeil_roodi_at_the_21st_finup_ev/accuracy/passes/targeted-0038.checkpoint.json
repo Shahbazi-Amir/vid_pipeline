@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "651b2bd6953a3e3e350958630c66c96dc56fae83a3a8bcd88a18463d15c80071",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.1,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.08,
+        "text": "مالی با موفقیت متفاوته و مثلا اون رو ببریم توی یک حوضه‌ای مثل فنناوری‌ها و بگیم، خب آدم‌هایی که با ثواد مال‌ی هستند.",
+        "avg_logprob": -0.2842567536311272,
+        "compression_ratio": 1.4589041095890412,
+        "no_speech_prob": 3.8852066008843167e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.26,
+            "word": " مالی",
+            "probability": 0.5980102121829987
+          },
+          {
+            "start": 0.26,
+            "end": 0.9,
+            "word": " با",
+            "probability": 0.9035758972167969
+          },
+          {
+            "start": 0.9,
+            "end": 1.68,
+            "word": " موفقیت",
+            "probability": 0.9552154541015625
+          },
+          {
+            "start": 1.68,
+            "end": 2.48,
+            "word": " متفاوته",
+            "probability": 0.9634270191192627
+          },
+          {
+            "start": 2.48,
+            "end": 2.7,
+            "word": " و",
+            "probability": 0.7554786205291748
+          },
+          {
+            "start": 2.7,
+            "end": 3.24,
+            "word": " مثلا",
+            "probability": 0.9910233616828918
+          },
+          {
+            "start": 3.24,
+            "end": 3.48,
+            "word": " اون",
+            "probability": 0.8920671045780182
+          },
+          {
+            "start": 3.48,
+            "end": 3.58,
+            "word": " رو",
+            "probability": 0.9312051236629486
+          },
+          {
+            "start": 3.58,
+            "end": 3.92,
+            "word": " ببریم",
+            "probability": 0.968806654214859
+          },
+          {
+            "start": 3.92,
+            "end": 4.12,
+            "word": " توی",
+            "probability": 0.9132975041866302
+          },
+          {
+            "start": 4.12,
+            "end": 4.16,
+            "word": " یک",
+            "probability": 0.6711359322071075
+          },
+          {
+            "start": 4.16,
+            "end": 4.52,
+            "word": " حوضه‌ای",
+            "probability": 0.8156999136720385
+          },
+          {
+            "start": 4.52,
+            "end": 4.78,
+            "word": " مثل",
+            "probability": 0.9809655249118805
+          },
+          {
+            "start": 4.78,
+            "end": 5.56,
+            "word": " فنناوری‌ها",
+            "probability": 0.9030685680253165
+          },
+          {
+            "start": 5.56,
+            "end": 5.78,
+            "word": " و",
+            "probability": 0.9341824650764465
+          },
+          {
+            "start": 5.78,
+            "end": 6.54,
+            "word": " بگیم،",
+            "probability": 0.8088138073682785
+          },
+          {
+            "start": 6.54,
+            "end": 6.68,
+            "word": " خب",
+            "probability": 0.834669440984726
+          },
+          {
+            "start": 6.68,
+            "end": 7.14,
+            "word": " آدم‌هایی",
+            "probability": 0.8630359272162119
+          },
+          {
+            "start": 7.14,
+            "end": 7.2,
+            "word": " که",
+            "probability": 0.9849847853183746
+          },
+          {
+            "start": 7.2,
+            "end": 7.38,
+            "word": " با",
+            "probability": 0.9363968968391418
+          },
+          {
+            "start": 7.38,
+            "end": 7.74,
+            "word": " ثواد",
+            "probability": 0.7964468896389008
+          },
+          {
+            "start": 7.74,
+            "end": 8.08,
+            "word": " مال‌ی",
+            "probability": 0.6330217504000757
+          },
+          {
+            "start": 8.08,
+            "end": 8.08,
+            "word": " هستند.",
+            "probability": 0.42313121755917865
+          }
+        ]
+      }
+    ]
+  }
+}

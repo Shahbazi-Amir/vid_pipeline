@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "1e643a496beb5dd06e564461dd3d12b11a40d949c4770cd29be7f7328214aff6",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.26,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.24,
+        "text": "هستن و البته مشهورند. ممکنه خیلی از آدم‌های موفق مشهر نباشند. بین خودمون،",
+        "avg_logprob": -0.35115282361706096,
+        "compression_ratio": 1.2788461538461537,
+        "no_speech_prob": 5.377805978312722e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.22,
+            "word": " هستن",
+            "probability": 0.3800618474682172
+          },
+          {
+            "start": 0.22,
+            "end": 0.34,
+            "word": " و",
+            "probability": 0.8642668128013611
+          },
+          {
+            "start": 0.34,
+            "end": 0.96,
+            "word": " البته",
+            "probability": 0.986787885427475
+          },
+          {
+            "start": 0.96,
+            "end": 2.56,
+            "word": " مشهورند.",
+            "probability": 0.7612848058342934
+          },
+          {
+            "start": 2.78,
+            "end": 3.54,
+            "word": " ممکنه",
+            "probability": 0.9772314190864563
+          },
+          {
+            "start": 3.54,
+            "end": 3.8,
+            "word": " خیلی",
+            "probability": 0.9350841045379639
+          },
+          {
+            "start": 3.8,
+            "end": 3.92,
+            "word": " از",
+            "probability": 0.9879297018051147
+          },
+          {
+            "start": 3.92,
+            "end": 4.28,
+            "word": " آدم‌های",
+            "probability": 0.723252059519291
+          },
+          {
+            "start": 4.28,
+            "end": 4.66,
+            "word": " موفق",
+            "probability": 0.8164378801981608
+          },
+          {
+            "start": 4.66,
+            "end": 5.16,
+            "word": " مشهر",
+            "probability": 0.6556449282409934
+          },
+          {
+            "start": 5.16,
+            "end": 5.82,
+            "word": " نباشند.",
+            "probability": 0.9687862545251846
+          },
+          {
+            "start": 7.02,
+            "end": 7.78,
+            "word": " بین",
+            "probability": 0.9765932559967041
+          },
+          {
+            "start": 7.78,
+            "end": 8.24,
+            "word": " خودمون،",
+            "probability": 0.7648722708225251
+          }
+        ]
+      }
+    ]
+  }
+}

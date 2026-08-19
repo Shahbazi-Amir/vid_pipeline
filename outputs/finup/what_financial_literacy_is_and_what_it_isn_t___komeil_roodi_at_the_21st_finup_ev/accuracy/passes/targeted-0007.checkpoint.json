@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "7de85c4140cb8f0a6ad48edfd6e4fdb2d87b504b7b1b46c9401e02a85fe03574",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.02,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.0,
+        "text": "ورزش قهرمانی، ما هر روز وردش بکنیم، باست نمی‌شه قهارمان اولمپیک بشیم. اون یه مسیر دیگه‌ای داره ولی دست که",
+        "avg_logprob": -0.2241132181960267,
+        "compression_ratio": 1.476923076923077,
+        "no_speech_prob": 4.0017561486749287e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.54,
+            "word": " ورزش",
+            "probability": 0.8071945756673813
+          },
+          {
+            "start": 0.54,
+            "end": 2.46,
+            "word": " قهرمانی،",
+            "probability": 0.8480240926146507
+          },
+          {
+            "start": 2.46,
+            "end": 2.92,
+            "word": " ما",
+            "probability": 0.9678238034248352
+          },
+          {
+            "start": 2.92,
+            "end": 3.24,
+            "word": " هر",
+            "probability": 0.9850670099258423
+          },
+          {
+            "start": 3.24,
+            "end": 3.4,
+            "word": " روز",
+            "probability": 0.9925861557324728
+          },
+          {
+            "start": 3.4,
+            "end": 3.88,
+            "word": " وردش",
+            "probability": 0.727082847210113
+          },
+          {
+            "start": 3.88,
+            "end": 4.58,
+            "word": " بکنیم،",
+            "probability": 0.9011172354221344
+          },
+          {
+            "start": 4.58,
+            "end": 4.84,
+            "word": " باست",
+            "probability": 0.9397368232409159
+          },
+          {
+            "start": 4.84,
+            "end": 5.06,
+            "word": " نمی‌شه",
+            "probability": 0.6861920055622855
+          },
+          {
+            "start": 5.06,
+            "end": 5.54,
+            "word": " قهارمان",
+            "probability": 0.7923529122199398
+          },
+          {
+            "start": 5.54,
+            "end": 6.08,
+            "word": " اولمپیک",
+            "probability": 0.9249479532241821
+          },
+          {
+            "start": 6.08,
+            "end": 6.54,
+            "word": " بشیم.",
+            "probability": 0.9824051260948181
+          },
+          {
+            "start": 6.76,
+            "end": 7.22,
+            "word": " اون",
+            "probability": 0.8576625287532806
+          },
+          {
+            "start": 7.22,
+            "end": 7.36,
+            "word": " یه",
+            "probability": 0.6756365299224854
+          },
+          {
+            "start": 7.36,
+            "end": 7.78,
+            "word": " مسیر",
+            "probability": 0.9945546189943949
+          },
+          {
+            "start": 7.78,
+            "end": 8.16,
+            "word": " دیگه‌ای",
+            "probability": 0.9435082503727504
+          },
+          {
+            "start": 8.16,
+            "end": 8.4,
+            "word": " داره",
+            "probability": 0.9635461568832397
+          },
+          {
+            "start": 8.4,
+            "end": 8.66,
+            "word": " ولی",
+            "probability": 0.6763383001089096
+          },
+          {
+            "start": 8.66,
+            "end": 8.94,
+            "word": " دست",
+            "probability": 0.935511976480484
+          },
+          {
+            "start": 8.94,
+            "end": 9.0,
+            "word": " که",
+            "probability": 0.5377668887376785
+          }
+        ]
+      }
+    ]
+  }
+}

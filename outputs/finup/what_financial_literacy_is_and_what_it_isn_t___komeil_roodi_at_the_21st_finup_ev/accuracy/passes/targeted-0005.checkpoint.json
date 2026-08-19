@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "dfe85b3f68fe74fc0f73b025ad71257cac2291eb0c8a7bf5153b057dd52386bb",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 13.62,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 13.48,
+        "text": "سروتمند می‌شید، اشتباهه. هدف ثواد مالی، سروتمند شدن نیست و فرایندی که ثوادمالی هم پیشنهاد می کنه، فرايند سروطمند شده نیز. ثواودمند یک موضوعیه.",
+        "avg_logprob": -0.30635007877939757,
+        "compression_ratio": 1.6709677419354838,
+        "no_speech_prob": 6.456721823866474e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.28,
+            "word": " سروتمند",
+            "probability": 0.6727555871009827
+          },
+          {
+            "start": 0.28,
+            "end": 0.58,
+            "word": " می‌شید،",
+            "probability": 0.6913198431332906
+          },
+          {
+            "start": 0.58,
+            "end": 1.26,
+            "word": " اشتباهه.",
+            "probability": 0.8983149578173956
+          },
+          {
+            "start": 1.5,
+            "end": 2.3,
+            "word": " هدف",
+            "probability": 0.9117187062899271
+          },
+          {
+            "start": 2.3,
+            "end": 2.84,
+            "word": " ثواد",
+            "probability": 0.7686445911725363
+          },
+          {
+            "start": 2.84,
+            "end": 3.32,
+            "word": " مالی،",
+            "probability": 0.7667604833841324
+          },
+          {
+            "start": 3.32,
+            "end": 3.86,
+            "word": " سروتمند",
+            "probability": 0.5347667580499547
+          },
+          {
+            "start": 3.86,
+            "end": 4.22,
+            "word": " شدن",
+            "probability": 0.9780123631159464
+          },
+          {
+            "start": 4.22,
+            "end": 4.56,
+            "word": " نیست",
+            "probability": 0.9936430056889852
+          },
+          {
+            "start": 4.56,
+            "end": 5.38,
+            "word": " و",
+            "probability": 0.4933771789073944
+          },
+          {
+            "start": 5.38,
+            "end": 6.5,
+            "word": " فرایندی",
+            "probability": 0.9564773201942444
+          },
+          {
+            "start": 6.5,
+            "end": 6.64,
+            "word": " که",
+            "probability": 0.9916044473648071
+          },
+          {
+            "start": 6.64,
+            "end": 7.36,
+            "word": " ثوادمالی",
+            "probability": 0.7590495608747005
+          },
+          {
+            "start": 7.36,
+            "end": 7.46,
+            "word": " هم",
+            "probability": 0.8347769379615784
+          },
+          {
+            "start": 7.46,
+            "end": 8.06,
+            "word": " پیشنهاد",
+            "probability": 0.9916975200176239
+          },
+          {
+            "start": 8.06,
+            "end": 8.18,
+            "word": " می",
+            "probability": 0.9613290429115295
+          },
+          {
+            "start": 8.18,
+            "end": 8.88,
+            "word": " کنه،",
+            "probability": 0.6746285480912775
+          },
+          {
+            "start": 8.88,
+            "end": 9.88,
+            "word": " فرايند",
+            "probability": 0.7411496224085568
+          },
+          {
+            "start": 9.88,
+            "end": 10.64,
+            "word": " سروطمند",
+            "probability": 0.7267205856682267
+          },
+          {
+            "start": 10.64,
+            "end": 10.84,
+            "word": " شده",
+            "probability": 0.6408451152965426
+          },
+          {
+            "start": 10.84,
+            "end": 11.12,
+            "word": " نیز.",
+            "probability": 0.6435816859739134
+          },
+          {
+            "start": 11.66,
+            "end": 12.62,
+            "word": " ثواودمند",
+            "probability": 0.7031509080901742
+          },
+          {
+            "start": 12.62,
+            "end": 12.76,
+            "word": " یک",
+            "probability": 0.6428483873605728
+          },
+          {
+            "start": 12.76,
+            "end": 13.48,
+            "word": " موضوعیه.",
+            "probability": 0.8011569629112879
+          }
+        ]
+      }
+    ]
+  }
+}

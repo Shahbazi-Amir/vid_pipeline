@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "2ecdbd909e0af1b6f5d5bc10b3ad96e99dc2e55b106015466c22581bb108ba70",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.66,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.64,
+        "text": "سروتمند نمی‌کنه، متاسفانه، و کل فرایندی که به ما می‌گه که با سواد مالی شما سروطمند می‌شید اشتباهه، هدف سوادمالی سروضمند",
+        "avg_logprob": -0.24407257735729218,
+        "compression_ratio": 1.6870229007633588,
+        "no_speech_prob": 1.3469982906855194e-09,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.58,
+            "word": " سروتمند",
+            "probability": 0.8028587877750397
+          },
+          {
+            "start": 0.58,
+            "end": 1.28,
+            "word": " نمی‌کنه،",
+            "probability": 0.7408440976869315
+          },
+          {
+            "start": 1.28,
+            "end": 2.32,
+            "word": " متاسفانه،",
+            "probability": 0.8202622396250566
+          },
+          {
+            "start": 2.32,
+            "end": 3.08,
+            "word": " و",
+            "probability": 0.9828076362609863
+          },
+          {
+            "start": 3.08,
+            "end": 3.46,
+            "word": " کل",
+            "probability": 0.9743851721286774
+          },
+          {
+            "start": 3.46,
+            "end": 4.4,
+            "word": " فرایندی",
+            "probability": 0.9575374722480774
+          },
+          {
+            "start": 4.4,
+            "end": 4.56,
+            "word": " که",
+            "probability": 0.9636419117450714
+          },
+          {
+            "start": 4.56,
+            "end": 4.66,
+            "word": " به",
+            "probability": 0.9733896851539612
+          },
+          {
+            "start": 4.66,
+            "end": 4.84,
+            "word": " ما",
+            "probability": 0.9639844298362732
+          },
+          {
+            "start": 4.84,
+            "end": 5.18,
+            "word": " می‌گه",
+            "probability": 0.9822467714548111
+          },
+          {
+            "start": 5.18,
+            "end": 5.36,
+            "word": " که",
+            "probability": 0.9372209906578064
+          },
+          {
+            "start": 5.36,
+            "end": 5.56,
+            "word": " با",
+            "probability": 0.9742247462272644
+          },
+          {
+            "start": 5.56,
+            "end": 5.94,
+            "word": " سواد",
+            "probability": 0.8287279605865479
+          },
+          {
+            "start": 5.94,
+            "end": 6.28,
+            "word": " مالی",
+            "probability": 0.9743348360061646
+          },
+          {
+            "start": 6.28,
+            "end": 6.54,
+            "word": " شما",
+            "probability": 0.9674522578716278
+          },
+          {
+            "start": 6.54,
+            "end": 7.24,
+            "word": " سروطمند",
+            "probability": 0.7055223555827979
+          },
+          {
+            "start": 7.24,
+            "end": 7.5,
+            "word": " می‌شید",
+            "probability": 0.9591729283332825
+          },
+          {
+            "start": 7.5,
+            "end": 8.78,
+            "word": " اشتباهه،",
+            "probability": 0.8054020277091435
+          },
+          {
+            "start": 8.78,
+            "end": 9.22,
+            "word": " هدف",
+            "probability": 0.9398788213729858
+          },
+          {
+            "start": 9.22,
+            "end": 10.14,
+            "word": " سوادمالی",
+            "probability": 0.7716010803822428
+          },
+          {
+            "start": 10.14,
+            "end": 10.64,
+            "word": " سروضمند",
+            "probability": 0.7550060720182955
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "ad40a2b7c173f4f6d166f9ecf63dc2e21c47bc524d579be5ec498a71215a1f02",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.94,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.92,
+        "text": "کم می‌دونیم، بدن سالمی داریم. اگر می‌خواهیم قهرمان اولمپیک هم بشیم باید به هر روز ورزش کنیم ولی دو تا چیز متفاوته، وردش روضانه،",
+        "avg_logprob": -0.20491488851033723,
+        "compression_ratio": 1.5263157894736843,
+        "no_speech_prob": 3.399949766169641e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.16,
+            "word": " کم",
+            "probability": 0.5856053978204727
+          },
+          {
+            "start": 0.16,
+            "end": 0.56,
+            "word": " می‌دونیم،",
+            "probability": 0.8231771418026516
+          },
+          {
+            "start": 0.56,
+            "end": 0.92,
+            "word": " بدن",
+            "probability": 0.9900377690792084
+          },
+          {
+            "start": 0.92,
+            "end": 2.1,
+            "word": " سالمی",
+            "probability": 0.9038877487182617
+          },
+          {
+            "start": 2.1,
+            "end": 2.52,
+            "word": " داریم.",
+            "probability": 0.9719932526350021
+          },
+          {
+            "start": 3.26,
+            "end": 3.94,
+            "word": " اگر",
+            "probability": 0.990532656510671
+          },
+          {
+            "start": 3.94,
+            "end": 4.32,
+            "word": " می‌خواهیم",
+            "probability": 0.918488051210131
+          },
+          {
+            "start": 4.32,
+            "end": 4.9,
+            "word": " قهرمان",
+            "probability": 0.976958954334259
+          },
+          {
+            "start": 4.9,
+            "end": 5.4,
+            "word": " اولمپیک",
+            "probability": 0.9021633625030517
+          },
+          {
+            "start": 5.4,
+            "end": 5.64,
+            "word": " هم",
+            "probability": 0.9568515717983246
+          },
+          {
+            "start": 5.64,
+            "end": 5.96,
+            "word": " بشیم",
+            "probability": 0.9419479519128799
+          },
+          {
+            "start": 5.96,
+            "end": 6.2,
+            "word": " باید",
+            "probability": 0.8314611911773682
+          },
+          {
+            "start": 6.2,
+            "end": 6.3,
+            "word": " به",
+            "probability": 0.30631473660469055
+          },
+          {
+            "start": 6.3,
+            "end": 6.5,
+            "word": " هر",
+            "probability": 0.9838475584983826
+          },
+          {
+            "start": 6.5,
+            "end": 6.68,
+            "word": " روز",
+            "probability": 0.9783726731936137
+          },
+          {
+            "start": 6.68,
+            "end": 7.1,
+            "word": " ورزش",
+            "probability": 0.9282018542289734
+          },
+          {
+            "start": 7.1,
+            "end": 7.44,
+            "word": " کنیم",
+            "probability": 0.9878848940134048
+          },
+          {
+            "start": 7.44,
+            "end": 7.72,
+            "word": " ولی",
+            "probability": 0.5806740447878838
+          },
+          {
+            "start": 7.72,
+            "end": 7.92,
+            "word": " دو",
+            "probability": 0.7590867877006531
+          },
+          {
+            "start": 7.92,
+            "end": 8.02,
+            "word": " تا",
+            "probability": 0.9691604673862457
+          },
+          {
+            "start": 8.02,
+            "end": 8.26,
+            "word": " چیز",
+            "probability": 0.9953208764394125
+          },
+          {
+            "start": 8.26,
+            "end": 9.12,
+            "word": " متفاوته،",
+            "probability": 0.885933518409729
+          },
+          {
+            "start": 9.12,
+            "end": 9.54,
+            "word": " وردش",
+            "probability": 0.7374336145003326
+          },
+          {
+            "start": 9.54,
+            "end": 9.92,
+            "word": " روضانه،",
+            "probability": 0.544065696032097
+          }
+        ]
+      }
+    ]
+  }
+}

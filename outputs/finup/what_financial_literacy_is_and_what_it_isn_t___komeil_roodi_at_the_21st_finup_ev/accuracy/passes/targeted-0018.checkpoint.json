@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "2c9e43fda444c5e8936a2d6867eec16647e47800f07c8319eb20d57b735d2d7a",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.0,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.98,
+        "text": "داری، باید درست مدیریتش بکنید. درباره‌ی مديریت ثروته، نه میزان ثروت، البته ممکنه که نتیجه‌ای ثروه‌ها،",
+        "avg_logprob": -0.33032399007718855,
+        "compression_ratio": 1.5241935483870968,
+        "no_speech_prob": 3.49696299695168e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.44,
+            "word": " داری،",
+            "probability": 0.4262520484626293
+          },
+          {
+            "start": 0.44,
+            "end": 1.1,
+            "word": " باید",
+            "probability": 0.9882460534572601
+          },
+          {
+            "start": 1.1,
+            "end": 1.44,
+            "word": " درست",
+            "probability": 0.9956527352333069
+          },
+          {
+            "start": 1.44,
+            "end": 2.12,
+            "word": " مدیریتش",
+            "probability": 0.9957274496555328
+          },
+          {
+            "start": 2.12,
+            "end": 2.58,
+            "word": " بکنید.",
+            "probability": 0.8832289576530457
+          },
+          {
+            "start": 2.66,
+            "end": 3.54,
+            "word": " درباره‌ی",
+            "probability": 0.8136321740845839
+          },
+          {
+            "start": 3.54,
+            "end": 4.48,
+            "word": " مديریت",
+            "probability": 0.7908621526687056
+          },
+          {
+            "start": 4.48,
+            "end": 5.2,
+            "word": " ثروته،",
+            "probability": 0.6139971613883972
+          },
+          {
+            "start": 5.2,
+            "end": 5.4,
+            "word": " نه",
+            "probability": 0.9851920902729034
+          },
+          {
+            "start": 5.4,
+            "end": 5.88,
+            "word": " میزان",
+            "probability": 0.900175948937734
+          },
+          {
+            "start": 5.88,
+            "end": 6.7,
+            "word": " ثروت،",
+            "probability": 0.7931209579110146
+          },
+          {
+            "start": 6.7,
+            "end": 7.22,
+            "word": " البته",
+            "probability": 0.9807621836662292
+          },
+          {
+            "start": 7.22,
+            "end": 7.66,
+            "word": " ممکنه",
+            "probability": 0.9622256875038147
+          },
+          {
+            "start": 7.66,
+            "end": 7.8,
+            "word": " که",
+            "probability": 0.9571475088596344
+          },
+          {
+            "start": 7.8,
+            "end": 8.46,
+            "word": " نتیجه‌ای",
+            "probability": 0.8003338752314448
+          },
+          {
+            "start": 8.46,
+            "end": 8.98,
+            "word": " ثروه‌ها،",
+            "probability": 0.4582257902269096
+          }
+        ]
+      }
+    ]
+  }
+}

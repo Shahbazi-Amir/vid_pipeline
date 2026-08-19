@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "87943545ce0fa50e391aa4ee086dc53a6d2b176e377f49c050d1f7e881495c5c",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.04,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.02,
+        "text": "سروتمند شدن نیست. سواده مالی ما رو سروطمند نمی‌کنه، متاسفانه. و کل فرایندی که بماید",
+        "avg_logprob": -0.32689357317727186,
+        "compression_ratio": 1.3603603603603605,
+        "no_speech_prob": 1.099973445661817e-09,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.84,
+            "word": " سروتمند",
+            "probability": 0.8784693002700805
+          },
+          {
+            "start": 0.84,
+            "end": 1.3,
+            "word": " شدن",
+            "probability": 0.9934627811113993
+          },
+          {
+            "start": 1.3,
+            "end": 1.82,
+            "word": " نیست.",
+            "probability": 0.9993915557861328
+          },
+          {
+            "start": 2.06,
+            "end": 2.98,
+            "word": " سواده",
+            "probability": 0.6889259964227676
+          },
+          {
+            "start": 2.98,
+            "end": 3.18,
+            "word": " مالی",
+            "probability": 0.9961123665173849
+          },
+          {
+            "start": 3.18,
+            "end": 3.26,
+            "word": " ما",
+            "probability": 0.9262009859085083
+          },
+          {
+            "start": 3.26,
+            "end": 3.4,
+            "word": " رو",
+            "probability": 0.9408669769763947
+          },
+          {
+            "start": 3.4,
+            "end": 4.0,
+            "word": " سروطمند",
+            "probability": 0.7970249769670772
+          },
+          {
+            "start": 4.0,
+            "end": 4.62,
+            "word": " نمی‌کنه،",
+            "probability": 0.7621382124489173
+          },
+          {
+            "start": 4.62,
+            "end": 5.54,
+            "word": " متاسفانه.",
+            "probability": 0.9808870792388916
+          },
+          {
+            "start": 5.88,
+            "end": 6.46,
+            "word": " و",
+            "probability": 0.9011569023132324
+          },
+          {
+            "start": 6.46,
+            "end": 6.84,
+            "word": " کل",
+            "probability": 0.9660762548446655
+          },
+          {
+            "start": 6.84,
+            "end": 7.78,
+            "word": " فرایندی",
+            "probability": 0.9774210333824158
+          },
+          {
+            "start": 7.78,
+            "end": 7.9,
+            "word": " که",
+            "probability": 0.9728741645812988
+          },
+          {
+            "start": 7.9,
+            "end": 8.02,
+            "word": " بماید",
+            "probability": 0.4011771362274885
+          }
+        ]
+      }
+    ]
+  }
+}

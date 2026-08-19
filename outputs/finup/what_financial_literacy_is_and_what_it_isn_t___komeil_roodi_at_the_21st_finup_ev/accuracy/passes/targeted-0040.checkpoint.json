@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "17d97d10d60fb33808960e24efcc3617173ab5d119454c5c09b5604185345531",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.18,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.16,
+        "text": "کم اشتباهه. سخوت مالی، کس با کار هم نیست. یعنی می‌گه آدم با سخوات،",
+        "avg_logprob": -0.43732340012987453,
+        "compression_ratio": 1.1919191919191918,
+        "no_speech_prob": 3.6362926558730635e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.04,
+            "word": " کم",
+            "probability": 0.3711712397634983
+          },
+          {
+            "start": 0.04,
+            "end": 0.8,
+            "word": " اشتباهه.",
+            "probability": 0.9344504177570343
+          },
+          {
+            "start": 2.44,
+            "end": 2.92,
+            "word": " سخوت",
+            "probability": 0.5068301558494568
+          },
+          {
+            "start": 2.92,
+            "end": 3.82,
+            "word": " مالی،",
+            "probability": 0.7667332459241152
+          },
+          {
+            "start": 3.82,
+            "end": 4.7,
+            "word": " کس",
+            "probability": 0.8522962927818298
+          },
+          {
+            "start": 4.7,
+            "end": 4.92,
+            "word": " با",
+            "probability": 0.7379432320594788
+          },
+          {
+            "start": 4.92,
+            "end": 5.1,
+            "word": " کار",
+            "probability": 0.976898580789566
+          },
+          {
+            "start": 5.1,
+            "end": 5.22,
+            "word": " هم",
+            "probability": 0.6432173997163773
+          },
+          {
+            "start": 5.22,
+            "end": 5.68,
+            "word": " نیست.",
+            "probability": 0.9967544277509054
+          },
+          {
+            "start": 6.82,
+            "end": 7.3,
+            "word": " یعنی",
+            "probability": 0.9956580400466919
+          },
+          {
+            "start": 7.3,
+            "end": 7.48,
+            "word": " می‌گه",
+            "probability": 0.7651176564395428
+          },
+          {
+            "start": 7.48,
+            "end": 7.76,
+            "word": " آدم",
+            "probability": 0.8284140527248383
+          },
+          {
+            "start": 7.76,
+            "end": 8.0,
+            "word": " با",
+            "probability": 0.6472190618515015
+          },
+          {
+            "start": 8.0,
+            "end": 8.16,
+            "word": " سخوات،",
+            "probability": 0.3708218812942505
+          }
+        ]
+      }
+    ]
+  }
+}

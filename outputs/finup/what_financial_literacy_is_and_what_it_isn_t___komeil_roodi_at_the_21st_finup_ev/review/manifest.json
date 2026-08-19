@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "human_review_required",
+  "generated_at": "2026-08-19T02:44:23.772515+00:00",
+  "job_root": "/tmp/finup-process-1-runtime/finup-514c2e8f",
+  "segment_count": 256,
+  "review_item_count": 254,
+  "required_item_count": 254,
+  "external_reference_used": false,
+  "quality_source": "/tmp/finup-process-1-runtime/finup-514c2e8f/accuracy/transcript.consensus.json",
+  "source_files": {
+    "raw_json": "/tmp/finup-process-1-runtime/finup-514c2e8f/raw/transcript.raw.json",
+    "machine_text": "/tmp/finup-process-1-runtime/finup-514c2e8f/machine/transcript.machine.txt",
+    "final_text": "/tmp/finup-process-1-runtime/finup-514c2e8f/final/transcript.final.txt",
+    "audio": "/tmp/finup-process-1-runtime/finup-514c2e8f/audio/audio-16k-mono.wav"
+  },
+  "source_sha256": {
+    "raw_json": "050e15ede9f9ffb88892e8b2ef9a249a8f57809995a02a16cf7188a17ac83209",
+    "machine_text": "f80775450b9c7884fd73703d35dcd5c41238295fd84a2dc67570ffdf8ffe3ea7",
+    "final_text": "f80775450b9c7884fd73703d35dcd5c41238295fd84a2dc67570ffdf8ffe3ea7"
+  },
+  "files": {
+    "manifest": "/tmp/finup-process-1-runtime/finup-514c2e8f/review/manifest.json",
+    "uncertain_spans": "/tmp/finup-process-1-runtime/finup-514c2e8f/review/uncertain-spans.json",
+    "editorial_audit": "/tmp/finup-process-1-runtime/finup-514c2e8f/review/editorial-audit.json",
+    "assistant_package": "/tmp/finup-process-1-runtime/finup-514c2e8f/review/assistant-review-package.json",
+    "quality_report": "/tmp/finup-process-1-runtime/finup-514c2e8f/review/quality-report.json",
+    "review_srt": "/tmp/finup-process-1-runtime/finup-514c2e8f/review/transcript.review.srt",
+    "review_vtt": "/tmp/finup-process-1-runtime/finup-514c2e8f/review/transcript.review.vtt",
+    "review_markdown": "/tmp/finup-process-1-runtime/finup-514c2e8f/review/review.md",
+    "review_html": "/tmp/finup-process-1-runtime/finup-514c2e8f/review/review.html",
+    "corrections_template": "/tmp/finup-process-1-runtime/finup-514c2e8f/review/corrections.template.json",
+    "review_archive": "/tmp/finup-process-1-runtime/finup-514c2e8f/final/review-package.zip"
+  },
+  "warnings": []
+}

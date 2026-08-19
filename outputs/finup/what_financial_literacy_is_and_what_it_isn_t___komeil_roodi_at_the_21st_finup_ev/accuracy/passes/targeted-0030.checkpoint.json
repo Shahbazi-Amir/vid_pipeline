@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "e27c9c4297d58a34a6054c92cdc256a78b1ed4496676f75eeb2b49679b1b1172",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.56,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.54,
+        "text": "هم با شهرت اشتباه می‌گیریم. یعنی می‌کیم مثلا ایلاماس که آدم موفقیه، زاکربرگ آدم معفقی، نه اون",
+        "avg_logprob": -0.3359338128939271,
+        "compression_ratio": 1.401639344262295,
+        "no_speech_prob": 4.5081446908845635e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.3,
+            "word": " هم",
+            "probability": 0.7078471183776855
+          },
+          {
+            "start": 0.3,
+            "end": 0.82,
+            "word": " با",
+            "probability": 0.9586645662784576
+          },
+          {
+            "start": 0.82,
+            "end": 1.32,
+            "word": " شهرت",
+            "probability": 0.973677416642507
+          },
+          {
+            "start": 1.32,
+            "end": 1.9,
+            "word": " اشتباه",
+            "probability": 0.9902621746063233
+          },
+          {
+            "start": 1.9,
+            "end": 2.5,
+            "word": " می‌گیریم.",
+            "probability": 0.9268594781557719
+          },
+          {
+            "start": 2.78,
+            "end": 3.8,
+            "word": " یعنی",
+            "probability": 0.9841800630092621
+          },
+          {
+            "start": 3.8,
+            "end": 4.04,
+            "word": " می‌کیم",
+            "probability": 0.6648327132454142
+          },
+          {
+            "start": 4.04,
+            "end": 4.44,
+            "word": " مثلا",
+            "probability": 0.8997659981250763
+          },
+          {
+            "start": 4.44,
+            "end": 5.02,
+            "word": " ایلاماس",
+            "probability": 0.6193621605634689
+          },
+          {
+            "start": 5.02,
+            "end": 5.2,
+            "word": " که",
+            "probability": 0.6196276694536209
+          },
+          {
+            "start": 5.2,
+            "end": 5.34,
+            "word": " آدم",
+            "probability": 0.9473205208778381
+          },
+          {
+            "start": 5.34,
+            "end": 6.08,
+            "word": " موفقیه،",
+            "probability": 0.7973667780558268
+          },
+          {
+            "start": 6.08,
+            "end": 6.76,
+            "word": " زاکربرگ",
+            "probability": 0.7092627733945847
+          },
+          {
+            "start": 6.76,
+            "end": 7.02,
+            "word": " آدم",
+            "probability": 0.9772105813026428
+          },
+          {
+            "start": 7.02,
+            "end": 7.86,
+            "word": " معفقی،",
+            "probability": 0.48379147553350776
+          },
+          {
+            "start": 7.86,
+            "end": 8.48,
+            "word": " نه",
+            "probability": 0.9636890888214111
+          },
+          {
+            "start": 8.48,
+            "end": 8.54,
+            "word": " اون",
+            "probability": 0.6970349103212357
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "154455b2b23544a6fa2248daaa98a8244c8820d39bff4c0f43432a50abc61e3f",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.72,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.7,
+        "text": "یعنی می‌گیم مثلاً ایلاماسک آدم موفقیه، زاکربرک آدام موفقتیه. نه، اونها آدم معفقی هستن و عبارات.",
+        "avg_logprob": -0.3646987904794514,
+        "compression_ratio": 1.4146341463414633,
+        "no_speech_prob": 4.985721280270639e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.22,
+            "word": " یعنی",
+            "probability": 0.9783087819814682
+          },
+          {
+            "start": 0.22,
+            "end": 0.48,
+            "word": " می‌گیم",
+            "probability": 0.866753363609314
+          },
+          {
+            "start": 0.48,
+            "end": 1.02,
+            "word": " مثلاً",
+            "probability": 0.7235421737035116
+          },
+          {
+            "start": 1.02,
+            "end": 1.56,
+            "word": " ایلاماسک",
+            "probability": 0.5531261801719666
+          },
+          {
+            "start": 1.56,
+            "end": 1.78,
+            "word": " آدم",
+            "probability": 0.8914760947227478
+          },
+          {
+            "start": 1.78,
+            "end": 2.54,
+            "word": " موفقیه،",
+            "probability": 0.8173876504103342
+          },
+          {
+            "start": 2.54,
+            "end": 3.2,
+            "word": " زاکربرک",
+            "probability": 0.6766526773571968
+          },
+          {
+            "start": 3.2,
+            "end": 3.46,
+            "word": " آدام",
+            "probability": 0.6170174908669045
+          },
+          {
+            "start": 3.46,
+            "end": 4.26,
+            "word": " موفقتیه.",
+            "probability": 0.7895335482156952
+          },
+          {
+            "start": 4.4,
+            "end": 4.96,
+            "word": " نه،",
+            "probability": 0.8127284447352091
+          },
+          {
+            "start": 4.96,
+            "end": 5.24,
+            "word": " اونها",
+            "probability": 0.8001631697018942
+          },
+          {
+            "start": 5.24,
+            "end": 5.52,
+            "word": " آدم",
+            "probability": 0.9971874356269836
+          },
+          {
+            "start": 5.52,
+            "end": 5.94,
+            "word": " معفقی",
+            "probability": 0.5685588090855163
+          },
+          {
+            "start": 5.94,
+            "end": 6.34,
+            "word": " هستن",
+            "probability": 0.8865237633387247
+          },
+          {
+            "start": 6.34,
+            "end": 6.46,
+            "word": " و",
+            "probability": 0.6970527768135071
+          },
+          {
+            "start": 6.46,
+            "end": 6.7,
+            "word": " عبارات.",
+            "probability": 0.04133352846838534
+          }
+        ]
+      }
+    ]
+  }
+}

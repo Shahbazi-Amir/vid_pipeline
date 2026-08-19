@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "4fee81e7f579e52bd46c7504c200bb855073c05ce5b264e6c75c9b042dac029d",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.4,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.38,
+        "text": "آدم موفقیه، زاکربرگ، آدم معفقی. نه، آنها آدم‌موفق هستند و البته مشهورند. ممکنه خیلی از آدام‌های موفاق مشهودند.",
+        "avg_logprob": -0.3642152414934055,
+        "compression_ratio": 1.5303030303030303,
+        "no_speech_prob": 6.096956828294253e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.08,
+            "word": " آدم",
+            "probability": 0.7078650593757629
+          },
+          {
+            "start": 0.08,
+            "end": 0.82,
+            "word": " موفقیه،",
+            "probability": 0.7819265425205231
+          },
+          {
+            "start": 0.82,
+            "end": 1.56,
+            "word": " زاکربرگ،",
+            "probability": 0.7773415041821343
+          },
+          {
+            "start": 1.56,
+            "end": 1.72,
+            "word": " آدم",
+            "probability": 0.9889254570007324
+          },
+          {
+            "start": 1.72,
+            "end": 2.42,
+            "word": " معفقی.",
+            "probability": 0.7272740667976905
+          },
+          {
+            "start": 2.58,
+            "end": 3.24,
+            "word": " نه،",
+            "probability": 0.8171650568644205
+          },
+          {
+            "start": 3.24,
+            "end": 3.52,
+            "word": " آنها",
+            "probability": 0.8652015725771586
+          },
+          {
+            "start": 3.52,
+            "end": 4.16,
+            "word": " آدم‌موفق",
+            "probability": 0.7739597461404628
+          },
+          {
+            "start": 4.16,
+            "end": 4.62,
+            "word": " هستند",
+            "probability": 0.5254030971166989
+          },
+          {
+            "start": 4.62,
+            "end": 4.74,
+            "word": " و",
+            "probability": 0.7838189005851746
+          },
+          {
+            "start": 4.74,
+            "end": 5.38,
+            "word": " البته",
+            "probability": 0.9295105040073395
+          },
+          {
+            "start": 5.38,
+            "end": 6.94,
+            "word": " مشهورند.",
+            "probability": 0.9375606775283813
+          },
+          {
+            "start": 7.24,
+            "end": 7.94,
+            "word": " ممکنه",
+            "probability": 0.9679877400398255
+          },
+          {
+            "start": 7.94,
+            "end": 8.2,
+            "word": " خیلی",
+            "probability": 0.9466403871774673
+          },
+          {
+            "start": 8.2,
+            "end": 8.3,
+            "word": " از",
+            "probability": 0.990476667881012
+          },
+          {
+            "start": 8.3,
+            "end": 8.68,
+            "word": " آدام‌های",
+            "probability": 0.7259397953748703
+          },
+          {
+            "start": 8.68,
+            "end": 9.08,
+            "word": " موفاق",
+            "probability": 0.6626947010663571
+          },
+          {
+            "start": 9.08,
+            "end": 9.38,
+            "word": " مشهودند.",
+            "probability": 0.5863298471085727
+          }
+        ]
+      }
+    ]
+  }
+}

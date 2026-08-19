@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "f8dac83d367a7f0d9ceb6b7c372ec2beefe3a75f26679a1e12f3242fa8cf1946",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.78,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.76,
+        "text": "تصمیمات خیلی خوبی بگیریم، بعد موفق بشین، باخرد موفّقیتون هم در حوضه‌ای ثروت اصولاً معنادار نیست، ما خیالی اوقات چیز هاییم،",
+        "avg_logprob": -0.36306694675894347,
+        "compression_ratio": 1.530612244897959,
+        "no_speech_prob": 3.4765615386511683e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.64,
+            "word": " تصمیمات",
+            "probability": 0.8875147054592768
+          },
+          {
+            "start": 0.64,
+            "end": 0.98,
+            "word": " خیلی",
+            "probability": 0.9828708469867706
+          },
+          {
+            "start": 0.98,
+            "end": 1.26,
+            "word": " خوبی",
+            "probability": 0.990569551785787
+          },
+          {
+            "start": 1.26,
+            "end": 1.7,
+            "word": " بگیریم،",
+            "probability": 0.8470539922515551
+          },
+          {
+            "start": 1.7,
+            "end": 1.78,
+            "word": " بعد",
+            "probability": 0.9068267345428467
+          },
+          {
+            "start": 1.78,
+            "end": 2.28,
+            "word": " موفق",
+            "probability": 0.9179735779762268
+          },
+          {
+            "start": 2.28,
+            "end": 2.54,
+            "word": " بشین،",
+            "probability": 0.5864619873464108
+          },
+          {
+            "start": 2.54,
+            "end": 2.7,
+            "word": " باخرد",
+            "probability": 0.33678965270519257
+          },
+          {
+            "start": 2.7,
+            "end": 3.52,
+            "word": " موفّقیتون",
+            "probability": 0.7726471284300455
+          },
+          {
+            "start": 3.52,
+            "end": 3.64,
+            "word": " هم",
+            "probability": 0.7044078260660172
+          },
+          {
+            "start": 3.64,
+            "end": 3.86,
+            "word": " در",
+            "probability": 0.981439471244812
+          },
+          {
+            "start": 3.86,
+            "end": 4.2,
+            "word": " حوضه‌ای",
+            "probability": 0.8631600482123238
+          },
+          {
+            "start": 4.2,
+            "end": 4.7,
+            "word": " ثروت",
+            "probability": 0.7888541122277578
+          },
+          {
+            "start": 4.7,
+            "end": 5.18,
+            "word": " اصولاً",
+            "probability": 0.8296441555023193
+          },
+          {
+            "start": 5.18,
+            "end": 5.8,
+            "word": " معنادار",
+            "probability": 0.8761652559041977
+          },
+          {
+            "start": 5.8,
+            "end": 6.5,
+            "word": " نیست،",
+            "probability": 0.7752118781208992
+          },
+          {
+            "start": 6.5,
+            "end": 7.74,
+            "word": " ما",
+            "probability": 0.9707605838775635
+          },
+          {
+            "start": 7.74,
+            "end": 8.1,
+            "word": " خیالی",
+            "probability": 0.7244415772001958
+          },
+          {
+            "start": 8.1,
+            "end": 8.4,
+            "word": " اوقات",
+            "probability": 0.9229534864425659
+          },
+          {
+            "start": 8.4,
+            "end": 8.72,
+            "word": " چیز",
+            "probability": 0.9871662656466166
+          },
+          {
+            "start": 8.72,
+            "end": 8.76,
+            "word": " هاییم،",
+            "probability": 0.485819935798645
+          }
+        ]
+      }
+    ]
+  }
+}

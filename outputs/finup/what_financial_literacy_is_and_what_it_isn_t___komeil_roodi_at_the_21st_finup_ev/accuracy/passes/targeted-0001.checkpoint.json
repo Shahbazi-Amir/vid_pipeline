@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "5f99e9223e0304e72f60274bd37f7b1b5514f6945653c80a41e748adc7e180f5",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 13.64,
+    "segments": [
+      {
+        "id": 1,
+        "start": 2.2,
+        "end": 13.62,
+        "text": "خوشحالم که نفر اول هستم و شما با چشمانی براق و لب‌های خندان دارید به من نگاه می‌کنین، ثبت مالی خیلی",
+        "avg_logprob": -0.18240324167104868,
+        "compression_ratio": 1.4634146341463414,
+        "no_speech_prob": 7.24520221595526e-10,
+        "words": [
+          {
+            "start": 2.2,
+            "end": 3.12,
+            "word": " خوشحالم",
+            "probability": 0.9249953508377076
+          },
+          {
+            "start": 3.12,
+            "end": 3.34,
+            "word": " که",
+            "probability": 0.9809322357177734
+          },
+          {
+            "start": 3.34,
+            "end": 3.66,
+            "word": " نفر",
+            "probability": 0.9913995265960693
+          },
+          {
+            "start": 3.66,
+            "end": 4.04,
+            "word": " اول",
+            "probability": 0.9946011006832123
+          },
+          {
+            "start": 4.04,
+            "end": 4.62,
+            "word": " هستم",
+            "probability": 0.9969658056894938
+          },
+          {
+            "start": 4.62,
+            "end": 4.82,
+            "word": " و",
+            "probability": 0.9749866724014282
+          },
+          {
+            "start": 4.82,
+            "end": 5.28,
+            "word": " شما",
+            "probability": 0.9978490173816681
+          },
+          {
+            "start": 5.28,
+            "end": 6.36,
+            "word": " با",
+            "probability": 0.9935989677906036
+          },
+          {
+            "start": 6.36,
+            "end": 6.9,
+            "word": " چشمانی",
+            "probability": 0.9906427145004273
+          },
+          {
+            "start": 6.9,
+            "end": 7.74,
+            "word": " براق",
+            "probability": 0.9163173834482828
+          },
+          {
+            "start": 7.74,
+            "end": 8.04,
+            "word": " و",
+            "probability": 0.9940662384033203
+          },
+          {
+            "start": 8.04,
+            "end": 9.02,
+            "word": " لب‌های",
+            "probability": 0.7989003956317902
+          },
+          {
+            "start": 9.02,
+            "end": 9.56,
+            "word": " خندان",
+            "probability": 0.9897425174713135
+          },
+          {
+            "start": 9.56,
+            "end": 9.86,
+            "word": " دارید",
+            "probability": 0.9863145053386688
+          },
+          {
+            "start": 9.86,
+            "end": 9.96,
+            "word": " به",
+            "probability": 0.9115594029426575
+          },
+          {
+            "start": 9.96,
+            "end": 10.1,
+            "word": " من",
+            "probability": 0.9842718243598938
+          },
+          {
+            "start": 10.1,
+            "end": 10.5,
+            "word": " نگاه",
+            "probability": 0.9983270565668741
+          },
+          {
+            "start": 10.5,
+            "end": 11.1,
+            "word": " می‌کنین،",
+            "probability": 0.6239658687263727
+          },
+          {
+            "start": 11.1,
+            "end": 12.76,
+            "word": " ثبت",
+            "probability": 0.5339459975560507
+          },
+          {
+            "start": 12.76,
+            "end": 13.24,
+            "word": " مالی",
+            "probability": 0.8979721665382385
+          },
+          {
+            "start": 13.24,
+            "end": 13.62,
+            "word": " خیلی",
+            "probability": 0.8407895043492317
+          }
+        ]
+      }
+    ]
+  }
+}

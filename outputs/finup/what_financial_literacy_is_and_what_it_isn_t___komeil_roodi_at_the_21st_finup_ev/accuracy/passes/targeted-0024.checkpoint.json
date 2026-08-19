@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "cf965223b875739cbe7f0f1f575d8c27d1c1d3c913d457fcc0e2206650b13390",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.64,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.62,
+        "text": "کم معفقیه، پولدار هم هست. ثواد مالی درباره‌ی بازارهای مالي نیست که بگیم که نه پس مثلاً حتماً برای پول دار شدن، باید یک حوضه‌ای بزارها‌ی م...",
+        "avg_logprob": -0.2801511988360831,
+        "compression_ratio": 1.58125,
+        "no_speech_prob": 4.3429973506370345e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.1,
+            "word": " کم",
+            "probability": 0.13519062381237745
+          },
+          {
+            "start": 0.1,
+            "end": 1.18,
+            "word": " معفقیه،",
+            "probability": 0.7635077585776647
+          },
+          {
+            "start": 1.18,
+            "end": 2.04,
+            "word": " پولدار",
+            "probability": 0.9404706209897995
+          },
+          {
+            "start": 2.04,
+            "end": 2.16,
+            "word": " هم",
+            "probability": 0.7764131724834442
+          },
+          {
+            "start": 2.16,
+            "end": 2.5,
+            "word": " هست.",
+            "probability": 0.9752872288227081
+          },
+          {
+            "start": 2.96,
+            "end": 3.58,
+            "word": " ثواد",
+            "probability": 0.8092304368813833
+          },
+          {
+            "start": 3.58,
+            "end": 4.02,
+            "word": " مالی",
+            "probability": 0.8606330355008444
+          },
+          {
+            "start": 4.02,
+            "end": 4.68,
+            "word": " درباره‌ی",
+            "probability": 0.7397028928001722
+          },
+          {
+            "start": 4.68,
+            "end": 5.4,
+            "word": " بازارهای",
+            "probability": 0.9407764554023743
+          },
+          {
+            "start": 5.4,
+            "end": 5.8,
+            "word": " مالي",
+            "probability": 0.664340898724428
+          },
+          {
+            "start": 5.8,
+            "end": 6.04,
+            "word": " نیست",
+            "probability": 0.9908532897631327
+          },
+          {
+            "start": 6.04,
+            "end": 6.18,
+            "word": " که",
+            "probability": 0.9862380623817444
+          },
+          {
+            "start": 6.18,
+            "end": 6.44,
+            "word": " بگیم",
+            "probability": 0.9700053185224533
+          },
+          {
+            "start": 6.44,
+            "end": 6.6,
+            "word": " که",
+            "probability": 0.9315471649169922
+          },
+          {
+            "start": 6.6,
+            "end": 6.88,
+            "word": " نه",
+            "probability": 0.7950434684753418
+          },
+          {
+            "start": 6.88,
+            "end": 7.08,
+            "word": " پس",
+            "probability": 0.7203219085931778
+          },
+          {
+            "start": 7.08,
+            "end": 7.56,
+            "word": " مثلاً",
+            "probability": 0.8217927018801371
+          },
+          {
+            "start": 7.56,
+            "end": 8.0,
+            "word": " حتماً",
+            "probability": 0.8684041798114777
+          },
+          {
+            "start": 8.0,
+            "end": 8.26,
+            "word": " برای",
+            "probability": 0.994458278020223
+          },
+          {
+            "start": 8.26,
+            "end": 8.52,
+            "word": " پول",
+            "probability": 0.9873345494270325
+          },
+          {
+            "start": 8.52,
+            "end": 8.7,
+            "word": " دار",
+            "probability": 0.5180146191269159
+          },
+          {
+            "start": 8.7,
+            "end": 9.38,
+            "word": " شدن،",
+            "probability": 0.8415148258209229
+          },
+          {
+            "start": 9.38,
+            "end": 9.96,
+            "word": " باید",
+            "probability": 0.9942277818918228
+          },
+          {
+            "start": 9.96,
+            "end": 10.14,
+            "word": " یک",
+            "probability": 0.69378362596035
+          },
+          {
+            "start": 10.14,
+            "end": 11.0,
+            "word": " حوضه‌ای",
+            "probability": 0.7978699468076229
+          },
+          {
+            "start": 11.0,
+            "end": 11.54,
+            "word": " بزارها‌ی",
+            "probability": 0.6410526935336142
+          },
+          {
+            "start": 11.54,
+            "end": 11.62,
+            "word": " م...",
+            "probability": 0.3431696267798543
+          }
+        ]
+      }
+    ]
+  }
+}

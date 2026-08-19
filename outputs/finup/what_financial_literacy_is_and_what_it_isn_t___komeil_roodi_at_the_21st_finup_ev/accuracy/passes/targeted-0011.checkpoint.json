@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "e9ad55d3cee7a44bac77e3129d11d8d0734c321a2dc2b68841a0543644d8e292",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.04,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.48,
+        "text": "قهرمانی، دو چیز کاملا متفاوته. سواد مالی درباره‌ی سروتمند شدن نیست، درباه‌ی پولار شده‌نیست. سواد مالي دربرای چیه؟",
+        "avg_logprob": -0.24923495719066033,
+        "compression_ratio": 1.6030534351145038,
+        "no_speech_prob": 5.247187129242548e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.76,
+            "word": " قهرمانی،",
+            "probability": 0.8465280937297004
+          },
+          {
+            "start": 0.76,
+            "end": 0.92,
+            "word": " دو",
+            "probability": 0.8870142698287964
+          },
+          {
+            "start": 0.92,
+            "end": 1.14,
+            "word": " چیز",
+            "probability": 0.9918709198633829
+          },
+          {
+            "start": 1.14,
+            "end": 1.6,
+            "word": " کاملا",
+            "probability": 0.9647800326347351
+          },
+          {
+            "start": 1.6,
+            "end": 2.46,
+            "word": " متفاوته.",
+            "probability": 0.9728695034980774
+          },
+          {
+            "start": 2.72,
+            "end": 3.6,
+            "word": " سواد",
+            "probability": 0.8093031148115793
+          },
+          {
+            "start": 3.6,
+            "end": 3.92,
+            "word": " مالی",
+            "probability": 0.9962242046991984
+          },
+          {
+            "start": 3.92,
+            "end": 4.56,
+            "word": " درباره‌ی",
+            "probability": 0.7763937612374624
+          },
+          {
+            "start": 4.56,
+            "end": 5.36,
+            "word": " سروتمند",
+            "probability": 0.857432222366333
+          },
+          {
+            "start": 5.36,
+            "end": 5.72,
+            "word": " شدن",
+            "probability": 0.9704877535502116
+          },
+          {
+            "start": 5.72,
+            "end": 6.32,
+            "word": " نیست،",
+            "probability": 0.7959708534181118
+          },
+          {
+            "start": 6.32,
+            "end": 8.16,
+            "word": " درباه‌ی",
+            "probability": 0.7792760846059537
+          },
+          {
+            "start": 8.16,
+            "end": 8.92,
+            "word": " پولار",
+            "probability": 0.8963040113449097
+          },
+          {
+            "start": 8.92,
+            "end": 9.56,
+            "word": " شده‌نیست.",
+            "probability": 0.7474403124568718
+          },
+          {
+            "start": 9.6,
+            "end": 9.98,
+            "word": " سواد",
+            "probability": 0.5137357879818106
+          },
+          {
+            "start": 9.98,
+            "end": 10.3,
+            "word": " مالي",
+            "probability": 0.6626667099238451
+          },
+          {
+            "start": 10.3,
+            "end": 10.76,
+            "word": " دربرای",
+            "probability": 0.5366251753875986
+          },
+          {
+            "start": 10.76,
+            "end": 11.48,
+            "word": " چیه؟",
+            "probability": 0.8988124281167984
+          }
+        ]
+      }
+    ]
+  }
+}

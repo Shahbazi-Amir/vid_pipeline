@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "d051b0fb8a8107b9498d175fed11769e277317daa281bdf42ae85a89fa2a523c",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.12,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.1,
+        "text": "پوله، کاری به میزان پول نداره. می‌گه اگر شما درآمدتون ماهی هشت میلیونه، خب ماه ی هشt میلینه باید مدریتش بکنی. اگه در آمد ماه هشداد میلون هم هست،",
+        "avg_logprob": -0.2689819405881726,
+        "compression_ratio": 1.6329113924050633,
+        "no_speech_prob": 3.7721659129630325e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.52,
+            "word": " پوله،",
+            "probability": 0.5903667062520981
+          },
+          {
+            "start": 0.52,
+            "end": 1.14,
+            "word": " کاری",
+            "probability": 0.9900186459223429
+          },
+          {
+            "start": 1.14,
+            "end": 1.24,
+            "word": " به",
+            "probability": 0.9965837001800537
+          },
+          {
+            "start": 1.24,
+            "end": 1.62,
+            "word": " میزان",
+            "probability": 0.9886449376742045
+          },
+          {
+            "start": 1.62,
+            "end": 1.94,
+            "word": " پول",
+            "probability": 0.986915111541748
+          },
+          {
+            "start": 1.94,
+            "end": 2.5,
+            "word": " نداره.",
+            "probability": 0.9981715381145477
+          },
+          {
+            "start": 2.64,
+            "end": 3.14,
+            "word": " می‌گه",
+            "probability": 0.7374839198309928
+          },
+          {
+            "start": 3.14,
+            "end": 3.4,
+            "word": " اگر",
+            "probability": 0.9811521967252096
+          },
+          {
+            "start": 3.4,
+            "end": 3.66,
+            "word": " شما",
+            "probability": 0.970081239938736
+          },
+          {
+            "start": 3.66,
+            "end": 4.38,
+            "word": " درآمدتون",
+            "probability": 0.8972931876778603
+          },
+          {
+            "start": 4.38,
+            "end": 4.64,
+            "word": " ماهی",
+            "probability": 0.968238631884257
+          },
+          {
+            "start": 4.64,
+            "end": 4.96,
+            "word": " هشت",
+            "probability": 0.8968653678894043
+          },
+          {
+            "start": 4.96,
+            "end": 5.36,
+            "word": " میلیونه،",
+            "probability": 0.8247722039620081
+          },
+          {
+            "start": 5.36,
+            "end": 5.5,
+            "word": " خب",
+            "probability": 0.9795504212379456
+          },
+          {
+            "start": 5.5,
+            "end": 5.72,
+            "word": " ماه",
+            "probability": 0.9439205527305603
+          },
+          {
+            "start": 5.72,
+            "end": 5.74,
+            "word": " ی",
+            "probability": 0.00019031716510653496
+          },
+          {
+            "start": 5.74,
+            "end": 6.04,
+            "word": " هشt",
+            "probability": 0.5446158200211357
+          },
+          {
+            "start": 6.04,
+            "end": 6.38,
+            "word": " میلینه",
+            "probability": 0.6670829645590857
+          },
+          {
+            "start": 6.38,
+            "end": 6.6,
+            "word": " باید",
+            "probability": 0.9081771373748779
+          },
+          {
+            "start": 6.6,
+            "end": 7.22,
+            "word": " مدریتش",
+            "probability": 0.8769961774349213
+          },
+          {
+            "start": 7.22,
+            "end": 7.62,
+            "word": " بکنی.",
+            "probability": 0.9590301066637039
+          },
+          {
+            "start": 7.78,
+            "end": 8.24,
+            "word": " اگه",
+            "probability": 0.8753438591957092
+          },
+          {
+            "start": 8.24,
+            "end": 8.48,
+            "word": " در",
+            "probability": 0.9966581761837006
+          },
+          {
+            "start": 8.48,
+            "end": 8.74,
+            "word": " آمد",
+            "probability": 0.6735914883514246
+          },
+          {
+            "start": 8.74,
+            "end": 9.04,
+            "word": " ماه",
+            "probability": 0.5044538346119225
+          },
+          {
+            "start": 9.04,
+            "end": 9.5,
+            "word": " هشداد",
+            "probability": 0.5184619906940497
+          },
+          {
+            "start": 9.5,
+            "end": 9.88,
+            "word": " میلون",
+            "probability": 0.6748930253088474
+          },
+          {
+            "start": 9.88,
+            "end": 10.02,
+            "word": " هم",
+            "probability": 0.8132628500461578
+          },
+          {
+            "start": 10.02,
+            "end": 10.1,
+            "word": " هست،",
+            "probability": 0.5362501988808314
+          }
+        ]
+      }
+    ]
+  }
+}

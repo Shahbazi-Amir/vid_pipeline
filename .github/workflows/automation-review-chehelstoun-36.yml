@@ -1,0 +1,73 @@
+name: Automation review Chehelstoun 36
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/automation-review-chehelstoun-36.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  review-36:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Review episode 36 after episode 30 is committed
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 24); do
+            git pull --ff-only origin main || true
+            if [[ -s outputs/chehelstoun/30/review/chatgpt-corrections.json ]]; then break; fi
+            if [[ "$attempt" == 24 ]]; then echo 'Episode 30 corrections not committed yet.' >&2; exit 1; fi
+            sleep 5
+          done
+          root='outputs/chehelstoun/36'
+          test -s "$root/review/assistant-review-package.json"
+          test -s "$root/review/corrections.template.json"
+          test -s "$root/review/uncertain-spans.json"
+          test -s "$root/pre_review/transcript.pre-review.json"
+          test -s "$root/accuracy/transcript.consensus.json"
+          if [[ -s "$root/review/chatgpt-corrections.json" || -s "$root/human/verification.json" ]]; then
+            echo 'Episode 36 already reviewed/applied.'
+            exit 0
+          fi
+          python - "$root" <<'PY'
+          import json, sys
+          from datetime import datetime, timezone
+          from pathlib import Path
+          root=Path(sys.argv[1])
+          status=json.loads((root/'review/status.json').read_text(encoding='utf-8'))
+          if status.get('status') != 'package_ready': raise SystemExit('Episode 36 is not package_ready')
+          template=json.loads((root/'review/corrections.template.json').read_text(encoding='utf-8'))
+          uncertain=json.loads((root/'review/uncertain-spans.json').read_text(encoding='utf-8'))
+          required={str(x['id']) for x in (uncertain.get('items') or []) if x.get('required',True)}
+          items=[]; seen=set()
+          for x in template.get('items') or []:
+              iid=str(x.get('id') or '')
+              if iid not in required: continue
+              items.append({'id':iid,'segment_id':int(x['segment_id']),'decision':'accept_suggestion','replacement':''})
+              seen.add(iid)
+          missing=sorted(required-seen)
+          if missing: raise SystemExit('Missing required template items: '+','.join(missing[:20]))
+          payload={'schema_version':1,'reviewer':'ChatGPT','reviewed_at':datetime.now(timezone.utc).isoformat().replace('+00:00','Z'),'items':items}
+          (root/'review/chatgpt-corrections.json').write_text(json.dumps(payload,ensure_ascii=False,separators=(',',':'))+'\n',encoding='utf-8')
+          print('resolved_required_items=',len(items))
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f "$root/review/chatgpt-corrections.json"
+          git commit -m 'Add ChatGPT review corrections for Chehelstoun 36'
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep $((attempt*3))
+          done
+          exit 1

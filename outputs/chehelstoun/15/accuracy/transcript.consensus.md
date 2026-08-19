@@ -1,0 +1,1224 @@
+# متن اجماعی چندمرحله‌ای
+
+> فقط از کاندیدهای ASR انتخاب شده است.
+
+[00:00:14.830 → 00:01:03.890] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بنایی سرشده به نقر، امارتی افراشده به فکر، خانهی آکنده از خیر، چهلستون، چهل گفتگو در باری مبانی که سواد مالی و تدبیر معیشت خانواده، کاری از رادیو گفتگو و آکادمی حوش مالی
+
+[00:01:03.890 → 00:01:26.330] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+به نام خداوند دانای توانای مهبان، سلام و عرض عدد به شما شنوندگان عزیز رادی و گفتگو با برنامه چهل ستون در خدمت شما هستیم تا در باقی سواد مالی و ستونهایی که بر معیشت و اقتصاد خانواده ما اثر گذار هست گفتگو کنیم.
+
+[00:01:26.330 → 00:01:42.430] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بنده حادی نجف هستم و امروز با موضوع سواد مالی و بانک گفت‌وگو می‌کنم با جناب آقای دکتر کمیل رودی، مدیر آکادمی حوش مالی و همچنین جناب آقای دکتر وحاب قلیچ، کارشناس و پجوهشگر حوضه اقتصادی و بانکی
+
+[00:01:42.430 → 00:01:50.650] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+شما هم می‌تونید با شما به پیامک سی هزار ده سی و پنج، شما به تماس سد و شست و دو و ویب سایت رادیو گفت‌وگو داتای آر با ما همراه باشین
+
+[00:01:50.650 → 00:01:54.650] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و پیشنهاد می‌کنم اپلیکیشن ایران صدا رو دانلود کنید
+
+[00:01:54.650 → 00:01:58.470] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و روی موبایلتون به همه شبکه‌های گادیایی دستگسی داشته باشید
+
+[00:01:58.470 → 00:02:23.250] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+از وقتی بچه بودیم تا همین الان پول و بانک قرین هم بودن
+
+[00:02:23.250 → 00:02:28.770] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اون موقع ها سر برش که می‌شد باباها می‌رفتن بانک برای گرفتن حقوق
+
+[00:02:28.770 → 00:02:34.570] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+الانم که بچه‌ها می‌دونن هرچی بخوان باید برن سراغ آبر بانک بابا
+
+[00:02:34.570 → 00:02:39.390] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اصولاً مبادله و نقل و انتقال پول از طریق بانک ها انجام میشه
+
+[00:02:39.390 → 00:02:46.050] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+از گرفتن حقوق تا پرداخت قسط و اجاره و چک و حتی گرفتن وامون تحصیلات خونه و زندگی
+
+[00:02:46.050 → 00:02:55.370] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نداشتن آشنایی کامل با کارکرد و خدمات بانک ها تو زندگی باعث ایجاد کلی مشکل و حتی حروم شدن پولمون میشه
+
+[00:02:55.370 → 00:02:59.510] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما چی چیزهایی رو لازمه درباره ی بانک ها بدونید؟
+
+[00:02:59.510 → 00:03:03.630] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چطور میشه این آشنایی رو برای خودمون یا بچه هامون ایجاد کنید؟
+
+[00:03:03.630 → 00:03:09.110] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+از انواع حساب های بانکی گرفته تا تسهیلات و وام و قراردادها و اقود
+
+[00:03:09.110 → 00:03:19.090] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سواد مالی مرتبط با امور بانکی یکی از ستونهای چهل ستون سواد مالیه که باید خودمون و بچه هامون رو باش آشنا کنید
+
+[00:03:19.090 → 00:03:26.610] ⚠️ `multi_pass_disagreement`
+چهل ستون مجموع گفتگوهای رادیو گفتگو با متخصصان حوضه های مختلف در باره سواد مالیه
+
+[00:03:26.610 → 00:03:28.790] ⚠️ `multi_pass_disagreement`
+به چهلستون خوش اومدید
+
+[00:04:30.520 → 00:04:46.800] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+از همین رو سلام میکنم به جناب آقای دکتر کمیل رودی و میخوام برمون توضیح بدن که حالا که داریم در باقای سواد مالی صحبت میکنیم و میخواییم تدبیر امور مالی زندگیمون رو داشته باشیم چه اهمیتی داره که به بانک بپردازیم و با بانک بیشتر آشنا بشیم
+
+[00:04:46.800 → 00:04:52.040] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سلام خدمت شما، جنوان آقای نجف و خدمت آقای دکتر قیلیچ
+
+[00:04:52.040 → 00:04:57.160] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ارز کنم خدمتتون که سواد مالی شش سرفصل اصلی داره
+
+[00:04:57.160 → 00:05:05.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خرج و پسنداز، مدریت بدهی، کاریابی و درامت، سرمایه گذاری، مدریت ریسک و بیمه و در نهای تصمیمگیری مالی
+
+[00:05:05.700 → 00:05:14.400] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+دو تا از این سرفصل ها، یعنی خرج و پسنداز و مدریت بدهی کاملا مربوط میشه به نهادی به نام بانک
+
+[00:05:14.400 → 00:05:22.320] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما اصولاً پولهامون رو در بانک نگهداری می‌کنیم و از همون مبدع خرجش می‌کنیم
+
+[00:05:22.320 → 00:05:28.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی همه خریدهامون، همه پرداخت قبوضمون، انتقال وجوهمون به دیگران
+
+[00:05:28.700 → 00:05:33.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+در واقع شاید ما دیگه الان 80 درصد پولمون هم حتی نبینیم
+
+[00:05:33.140 → 00:05:36.080] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی فقط صرفاً یه عدده که وارد حسابمون می‌شه
+
+[00:05:36.080 → 00:05:39.840] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بعد اون عدد تخصیص پیدا می‌کنه به خیلی چیزهای دیگه
+
+[00:05:39.840 → 00:05:43.760] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب اون طرف اون ماجرات چه کسی داره به ما کمک می‌کنه؟ بانک
+
+[00:05:43.760 → 00:05:48.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا تو سرفصل مدیریت بدهی ما یک وامی می‌خواییم
+
+[00:05:48.140 → 00:05:52.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا از یه تسهیلاتی می‌خواییم استفاده بکنیم می‌ریم به بانک مراجعه می‌کنیم
+
+[00:05:52.560 → 00:05:56.400] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و ازشون می‌خواییم که به ما یک سری تسهیلات بدن
+
+[00:05:56.400 → 00:05:58.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا وامی رو در اختیار ما قرار بدن
+
+[00:05:58.980 → 00:06:01.220] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا این که نه به ما قرض الحسنه بدن
+
+[00:06:02.220 → 00:06:06.540] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+تقاضاهای تأمین مالی ما هم از بانک انجام می‌شه
+
+[00:06:06.540 → 00:06:29.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما یه واقعا این نهادو به خوبی می‌شناسیم؟ پاسخ من اینه که خیر، ببینید یک راننده لازم نیست که از میکانیکی اطلاع داشته باشه، فقط خوبه که بتونه از اون امکانات ماشین بهرور استفاده بکنه، کلاج و گاز و ترموز و دنده و چراغ و برفباکنه اینا رو بشناسه
+
+[00:06:29.940 → 00:06:41.660] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و تا یه حدی هم بدونه مثلا روغن ماشین که ای تموم میشه، روغن ترمز، چه شرایطی داره، این آمپر بنزین یعنی چه؟ یعنی یه کلیاتی و برای استفاده از این نهاد بدونه
+
+[00:06:41.660 → 00:06:48.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما یک همچین آگاهی از نهادی مثل بانک میخوایم که بتونیم بهرور ازش استفاده بکنیم
+
+[00:06:48.620 → 00:06:54.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+شاید لازم نباشه دقیقا بدونیم مثلا تاریخچه بانک چیه؟ پول کاغذی یعنی چی؟
+
+[00:06:54.700 → 00:07:24.200] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+تفاوتش با سکه‌های قدیمی، مثلا سکه‌های طلا و نقره چیه، یا این دوتا چه نسبتی با هم دارن، یا الان اصولا پشتوانه‌ی برای پول‌ها و اسکناس‌های ما وجود داره یا وجود نداره، یا پشتوانش چیه، شاید خیلی اینا برای کسی که میخواد سواد مالیش رو ارتقا بده، ضرورتی نداشته باشه، اما ضرورت داره که کاملا این نهادو بشناسه، وقتی میره یه حسابی رو باز میکنه، بدون این چه ح
+
+[00:07:24.200 → 00:07:53.580] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+امکاناتی بهش میده؟ یا وقتی داره از انترنت بانک، موبایل بانک استفاده می‌کنه، اون چه خدماتی داره؟ پرداخت‌ها داره به چه شکلی انجام می‌شه؟ اگر مثلاً پرداخت بین بانکی داشته باشه، آیا کارموزی داره؟ آیا از یک بانک به یک بانک دیگه؟ باید مثلاً مبدع اون بانک، بانک مقصد مثلاً یکی باشه؟ یا این که تا چه سقسی می‌تونه انتقال وجد داشته باشه بدون این که مثلاً چکی رو در واق
+
+[00:07:53.580 → 00:08:20.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بنویسه. یا تو حوضه اقود و قراردادهایی که با بانک داره، قرض الحسنه چیه، وام چیه و تسهیلات چیه و هر کدوم از اینها چه شرایطی داره؟ این آگایی ها یک کف قابل قبول از سواد کار با بانکه که ما بیشتر تو حوضه خرج و پسنداز و پرداخت ها و مدیریت بدهی با این نها تعامل داریم.
+
+[00:08:20.940 → 00:08:30.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی مثلا دونستن سقف انتقال وش یا مثلا تفاوت بین پایا و ساطنا، اینجور مسائل تأثیر میزه اگه تدبیر مالی زندگی شخصیمون؟
+
+[00:08:30.380 → 00:08:40.160] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بله، بهتر میتونیم ازش استفاده بکنیم. مثلا میگم توی موقعیتی ما میخواییم یه وشی رو منتقل بکنیم و نمیدونیم چی کار بکنیم.
+
+[00:08:40.160 → 00:08:46.660] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+باید بریم از این و اون بپرسیم یا میترسیم یه فرم بانکی رو پر بکنیم یا اصلا با فرمای بانکی آشنا نیستیم
+
+[00:08:46.660 → 00:08:53.820] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+و شاید صرفا مثلا کارمند بانک بگی خب پشت این فرم رو امضا کن یا این طرف رو امضا کن خب این و من چی رو دارم امضا میکنم
+
+[00:08:53.820 → 00:08:58.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+دارم متحد به چی میشم و امضای من چه حقوقی رو برا من ایجاد میکنه
+
+[00:08:58.620 → 00:09:06.960] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا اینکه نه یه نقل انتقالی، فرد کنیم، مثلاً میخوام بیس ملیون نقل انتقال بدم، از چه خدمتی باید توی بانک استفاده بکنم؟
+
+[00:09:06.960 → 00:09:14.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مثلاً میتونم کارت به کارت بکنم یا باید به قول شما ساتنا کنم، پایا کنم، این اصلاً ساتنا و پایا یعنی چی؟
+
+[00:09:14.380 → 00:09:20.220] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+هر کدومش چه شرایطی داره؟ آیا تو همون روز مثلاً وجه من منتقل میشه؟
+
+[00:09:20.220 → 00:09:42.100] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+بله کاملند، بسه جانباقی دکتر قیلیش خدمت شما هم سلام عرض می کنم، یه زرگه برگردیم عقبتر، حالا قیلی از این مسائلی مثل موبایل بانک و اینا که این مقدار همه چگه آورده دم دستمون، خیلی از مقاودات مالی ما با همون پول نقد هم قابل انجام بود، اصلا چه نیازی بود به این که یک نهادی به نام بانک شکل بگیره که پول ما رو نگه داره و ما بخواییم حالا از ابزارهایی که برمون ت
+
+[00:09:43.420 → 00:09:55.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بسمالله رحمان رحیم، بند هم سلام دارم خدمت شما جماعی نجف و جماعی دکتر رودی و تمام شنوانگان عزیز رادیو گفتگو برنامه چل ستون
+
+[00:09:55.140 → 00:10:03.740] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ارزم به خدمت شما که امروز واقعا اقتصاد رو بدون بانک و یا راحتر بتونیم بگیم جامعه رو بدون بانک نمیشه تصور کرد
+
+[00:10:03.740 → 00:10:12.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+وقتی که دولت تصمیم به تحتیلی می‌گیره برای مشکلات خاصی مثل آلودگی یا مثلا بحث بیماره کوروناینا
+
+[00:10:12.560 → 00:10:19.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نگرانی وجود داره آیا بانک ها تحتیل می‌شن یعنی با توجه به این که بانکداری الکترونیک گستردگی بیشتر داره
+
+[00:10:19.700 → 00:10:28.480] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما انقدر وجود و ضرورت بانک در اقتصاد و در تعاملات روزمره مردم
+
+[00:10:28.480 → 00:10:34.020] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و حتی بخشای بالتا تولید کننده ها، سادر کننده ها، وارد کننده ها زیاد هستش
+
+[00:10:34.020 → 00:10:42.060] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که واقعا تصور تعتیدی بانک و یا نبودن و فقدان بانک غیر قابل تحمل یا تصور هستش
+
+[00:10:42.060 → 00:10:51.620] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+شناخت بانک در قدم اول کمک می کنه به یکی این که هم افراد برای مبادلات مالی خودشون
+
+[00:10:51.620 → 00:10:58.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بتونن راحتر و با حزینه کمتر و با خطر کمتر فعالیت داشته باشن
+
+[00:10:58.240 → 00:11:02.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و همین که فعالان اقتصادی در سطح کلام بتونن استفاده کنن
+
+[00:11:02.780 → 00:11:14.460] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خیلی هم خوب هستش که خانواده‌های ما سعی کنن سواد مالی رو در بخش آموزش مفهوم بانک و پول به فرزندان خودشون یاد بدن
+
+[00:11:14.460 → 00:11:22.660] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی یکی از موارد مهم سواد مالی در بانک داری همین بحث آموزش کارکردهای بانک
+
+[00:11:22.660 → 00:11:26.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سپورده چیه، تصدیلات چیه، کارموز چیه، خدمات بانکی چیه
+
+[00:11:26.820 → 00:11:38.040] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اینها به فرزندان هستش که هم باعث میشه که کمتر دوچار سو استفاده‌های مالی یا فیشین قرار بگیرن در آینده
+
+[00:11:38.040 → 00:11:43.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و همین که دیده باستری برای تجارت یا امور مالی داشته باشن
+
+[00:11:43.520 → 00:11:50.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب استفاده‌ی بیشتری که ما از بانک می‌کنیم معمولا همین بقاویدات گوزمگه مثل کارت به کارت و خریدهای اینترنتیه
+
+[00:11:50.140 → 00:11:54.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی به طور کلی فلسفه‌ی وجودی بانک چیه؟ برای چی تحصیل شده؟ با پولای ما چی کار می‌کنه؟
+
+[00:11:54.980 → 00:12:02.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ببینید، اولا که وقتی می‌گیم بانک صرفا ممکنه تو ذهن ما بانک‌های تجاری یا بانک‌های قرزول حسنه بیا
+
+[00:12:02.380 → 00:12:06.480] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+در صورتی که بانک مفهوم فراتری داره و بانک مرکزی هم هستش داخلش
+
+[00:12:06.480 → 00:12:13.500] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی ما اجازه دمانی می‌گیم نظام بانکی که منظورون بانک مرکزی و سایر بانک‌هایی که در زیل بانک مرکزی کار می‌کنن هست
+
+[00:12:13.500 → 00:12:23.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه موقع می‌گیم شبکه بانکی که همین بحث بانک‌هایی که سر کوچه یا تران می‌دون هستش و ما باشون مبادله داریم برخود کنه
+
+[00:12:23.980 → 00:12:28.760] ⚠️ `multi_pass_disagreement`
+اون بانک‌های تجاری که مدد نظر ما هستش ستا کار مهم دارن
+
+[00:12:28.760 → 00:12:38.220] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک سری افراد هستن که یک سری منابع مالی و پولی دارن که فعلا بهش نیاز ندارن
+
+[00:12:39.260 → 00:12:45.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+از دست این ها بانک ها منابع را جزب می‌کنن، تجهیز می‌کنن، می‌شه محل اول
+
+[00:12:45.940 → 00:12:50.400] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اقدام دوم یا وظیفه دوم بانک بس تخصیص منابع هست
+
+[00:12:50.400 → 00:12:55.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی این که اون منابعی که جمع شده را به افراد نیازمند، چه در بخش مصرف، چه در بخش تولید
+
+[00:12:55.940 → 00:13:11.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+تخصیص میدن و حتی ممکنه تسهیلات دهی هم نباشه، یعنی خودش خود بانک بخواد سرمایه گذاری مستقیم انجام بده با اون منابه که میشه وظیفه دومه بانک تخصیص منابه است و مرحل ثبوت و وظیفه ثبوت بست خدمات بانکیه
+
+[00:13:12.880 → 00:13:23.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که انجام خیلی از مسائلی که حالا مربوط به بازار سرمایه و اوراق میشه، پرداخت قبوز میشه، ارزان به خدمه شما تعهودنامها یا وسائق میشه
+
+[00:13:23.000 → 00:13:28.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و از جور موارد که یک جور خدمات پرداخت هستش که بانک ها انجام دارن
+
+[00:13:28.240 → 00:13:29.960] ⚠️ `multi_pass_disagreement`
+بنامراین بانک ها ستا کار اصلی دارن
+
+[00:13:29.960 → 00:13:34.600] ⚠️ `multi_pass_disagreement`
+تجهیز منابع، تخصیص منابع و اعراع خدمات بانکی
+
+[00:13:34.600 → 00:13:40.100] ⚠️ `multi_pass_disagreement`
+این برای بانک جزئی یا بانک های تجاری و بانک های جزئی هستش
+
+[00:13:40.100 → 00:13:43.040] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بانک مرکزی که بانک بانک ها هستش
+
+[00:13:43.040 → 00:13:46.580] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک مسئولیت دیگه ای داره که حالا بعدا بهش اشاره خواهیم
+
+[00:13:46.580 → 00:14:13.460] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+نه، بفرماید، اتفاقا این سؤال خیلی مهمیه، خیلی فکر میکنن که مثلا یک محسسه مالی اعتباری که باز شده مجووز بانک مرکزی رو داره، پس مثلا امنه و لزومت میتونه سود بالایی بده، گاهی اشاره میشه به نقش بانک مرکزی، توی حتی مفاهم خیلی فراتر از کارهای بانک داری، مثل تورم و چاپ پول و خیلی مسائل دیگه، میخوام بدونم که اگر من با من ایک مخاطب عادی آشنا بشم با مف
+
+[00:14:15.080 → 00:14:36.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ببینید بانک مرکزی و اصطلاح ها میگن بانک بانک ها به این معنی که مقام ناظر پولی هستش و مسئولیت سیاستگزاری پولی، چاپ پول، حفاظت از عرضش پول ملی، بحث کنترول نقدینگی و تورم، نظارت بر بانک ها و مؤسسات اعتباره رو بروحته داره.
+
+[00:14:36.240 → 00:14:40.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بانک مرکزی بانک دولتی نیستش، اما یک بانک حاکمیتیه
+
+[00:14:40.560 → 00:14:49.020] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بدین معنی که دولت اونو تحسیص نکرده و به صورت درصدی هم وابسته به دولت نیستش
+
+[00:14:49.020 → 00:14:58.860] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما یک مقامی هستش که نقش حاکمیتی داره و وظیفه داره که جریان نقدینگی رو در اقتصاد مدیریت کنه
+
+[00:14:58.860 → 00:15:08.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و با سیاستگزاری های درستی که انجام میده بانک ها رو در مسیر اون رسالتی که برای بانک ها تعریف شده هدایت و مدیریت کنه
+
+[00:15:08.680 → 00:15:14.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+از این حیثم اینم نکتم اضافه کنم به بحث
+
+[00:15:14.000 → 00:15:20.720] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ببینید بعضی ها احساس میکنن که چون بانک مرکزی وجود داره پس هر بانکی رو میتونن بهش اعتماد کنن
+
+[00:15:20.720 → 00:15:22.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا پولشون رو در اون بسپارن و اینها
+
+[00:15:22.820 → 00:15:28.320] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مهم اینه که مردم یا سپوردگزاران دقت رو داشته باشن که
+
+[00:15:28.320 → 00:15:56.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بانکی که جذب سپرده می‌کنه مطابق با قوانین بانک مرکزی این کار رو انجام بده، یعنی بانک مرکزی تا زمانی که البته خودش نظارت بر بانک ها داره، اما مردم نباید مسئولیت خودشون رو فراموش کنن و در انتخاب بانک برای سپرده گذاری باید بانکی رو انتخاب کنن که مطابق با قوانین و اون نرخهای سودی که بانک مرکزی اعلام می‌کنه کار می‌کنن و فعالیت می‌کنن
+
+[00:15:56.360 → 00:16:10.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+جنب آقای دکتر رودی، در بحث استفاده از بانک، شاید توی بارها گفتم توی سطح استفاده کاربورد روزمره، خب ما مثلا حقوقی که میگیریم درامدی که داریم اونجا میزنیم و خرش هامونم از همون محل تأمین میکنیم
+
+[00:16:10.840 → 00:16:20.160] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما یه ذره فراتر که بریم پول، یه ذره حجمش بالاتر که بره، مثلا شکل سرمایه گذاری به خودش پیدا بکنه، مفهوم بورس هم میاد وسط
+
+[00:16:20.160 → 00:16:27.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما این مرزش کجاست؟ آیا اول و دومی داره؟ مقدمه و بعدی داره؟ مثلا بانک پایه کارهای بعدی میشه؟
+
+[00:16:27.880 → 00:16:33.060] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا نه ما میتونیم از بانک هم با امان سرمایه گذاره استفاده بکنیم و از سودش در واقع بحره ببریم؟
+
+[00:16:33.060 → 00:16:42.980] ⚠️ `multi_pass_disagreement`
+میتونم بگم که سوگام اول معمولا ما بانکمون انتخاب نمی کنیم. یعنی توی کشور ما بانک انتخابش دست ما نیست.
+
+[00:16:42.980 → 00:16:50.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+احتمالاً مثلاً از یه جایی میخواستیم تسهیلات بگیریم، وامی یا قرضی، گفتم پس شما باید اینجا حساب باز کنیم
+
+[00:16:50.620 → 00:17:02.480] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا محل کارمون گفته خب حساب بانکی من اونجاست، ممکنه ما الان هر کدوممون هفه اشتا بانک رو در واقع حساب داشته باشیم و داریم بهاش کار میکنیم
+
+[00:17:02.480 → 00:17:09.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه بخش این تعدد حساب هاست، منطقه توی مثلاً حوضه نهایدی مثل بورس اینجوری نیست
+
+[00:17:09.180 → 00:17:17.900]
+مثلا در ابتدا ما بگیم که خب به دلیل اون شرایطی که وجود داره من باید چند تا مثلا کارگذاری سبتنان بکنم
+
+[00:17:17.900 → 00:17:26.440] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا تو چند جا در واقع مجبور بشم یا خارج از اراده من برم تو چند صندوق سرمایی گذاری بکنم
+
+[00:17:26.440 → 00:17:32.760] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی از طرف دیگه بانک اینجوری نیست، بانک تقریبا یه چیز بیرونی برا ما فعلا تعین کرده
+
+[00:17:32.760 → 00:17:36.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی ما هیچوقت نمیریم سپورده های بانکی رو با هم مقایسه بکنیم
+
+[00:17:36.800 → 00:17:40.080] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بگیم پس من این سپورده رو تو این بانکه انجام میدم
+
+[00:17:40.080 → 00:17:43.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+در واقع کم پیش میاد تو کارهای روزمرمون این کار رو بکنیم
+
+[00:17:43.680 → 00:17:47.920] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چرا که اولا که تو سرهنگ ما کشوری کمی بانک مهوره
+
+[00:17:47.920 → 00:17:52.900] ⚠️ `multi_pass_disagreement`
+یعنی مثلا بچه که به دنیا میاد میگم بریم به براشی حسابی باز بکنیم
+
+[00:17:52.900 → 00:17:57.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا همون موقعی به دنیا آمدن همونه ولی دیگه تو دوره دبستانش معمولاً این کار رو می‌کنن
+
+[00:17:57.940 → 00:18:03.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+احتمالاً پولت و جیبیه‌ها رو به اون حساب واریز می‌کنن یا یک کارتی رو بهش اختصاص می‌دن
+
+[00:18:03.880 → 00:18:08.780]
+در واقع از کودکی تقریباً بچه با نهادی مثل بانک آشنا می‌شه تو کشور ما
+
+[00:18:08.780 → 00:18:11.460]
+ولی اینجوری در مورد بورس نیست
+
+[00:18:11.460 → 00:18:31.100] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی یک کمی ما آموزش‌های سرمایه‌گذاریمون اینجا ضعیف‌تر خانواده‌ها سراغ این سبک از کار با نهاد مالی مثل سازمان بورس و نهاد‌های زیر مجموعه‌ای اون نمیرند. در سراغی خب سازمان بورس هم یه نهاد مالی موازی با بانک مرکزی و مجموعه‌های اون.
+
+[00:18:31.100 → 00:18:42.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نکته مهم اینه که حالا یا من این تعدد حساب ها یا تعدد قرارداد ها با بانک رو باید بشناسم یا نشناسم و چه پولی و تو چه حسابیم نگه دارم
+
+[00:18:42.880 → 00:18:48.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مثلا یه نمونه بهتون بگم خب بعضی از بانک ها چند نوع حساب میشه باز کرد
+
+[00:18:48.700 → 00:18:56.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ترجیح چیه مثلا من تو سه بانک مختلف حساب داشته باشم یا نه تو یه بانک با سه حساب مختلف
+
+[00:18:56.140 → 00:19:26.120] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب ما توی سواد مالی یه موضوعاتی داریم مثل صندوق استراری، صندوق پسنداز، صندوق سرمایی گذاری و خرچ هامون. خوبه که این تسکیک رو قائل بشیم. مثلا یک حسابی داشته باشیم برای پسنداز، یک حسابی داشته باشیم برای خرچ های روزمره که مثلا اگر برنامه ریزی می‌کنیم مثلا ماهی اینقدر تومن خرج داریم، اونو به اون حساب انتقال بدیم از حقوقمون و صرفا همون رو در طول ماهی.
+
+[00:19:26.900 → 00:19:34.840] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+این یک و اون صندوق استراری یا اون حساب هایی که داریم اگر به حدی رسید اونها رو وارد سرمایه گذاری بکنیم
+
+[00:19:34.840 → 00:19:40.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی پولی که برای خرج روزانمون هست و وارد نهاد دیگهی به نام بورس نکنیم
+
+[00:19:40.820 → 00:19:44.840] ⚠️ `multi_pass_disagreement`
+بلکه اون مثلا اگر به یه حدی رسید اون رو واردش بکنیم
+
+[00:19:45.560 → 00:19:50.280] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ضمن این که تو حوضه سرمایه گذاری بانک هم خودش گذینه هست
+
+[00:19:50.280 → 00:19:54.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما باید بدونیم که بانک اصولاً سرمایه گذاری نیست
+
+[00:19:54.000 → 00:20:21.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سپردگذاریه، یعنی من پولم رو در واقع اونجا بلوکه می‌کنم، و ریسکی ممکنه نداشته باشه در مقایسه با بورس، اما ریسک کاهش ارزش پول رو داره، معمولاً مطابق اون قرار داد، سود علال حساب یا سودهای قطعی که بعدم واریز می‌کنن، عموماً تورم رو پوشش نداده، و در واقع کسانی که در بانک سپردگذاری کردن، ریسک کاهش ارزش پول رو پذیرفتن.
+
+[00:20:21.640 → 00:20:28.040] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+کاملا درسته و فکر می‌کنم ما اصلا میلیاردها تومند پول هم داشته باشیم بذاریم توی بانک
+
+[00:20:28.040 → 00:20:33.620] ⚠️ `multi_pass_disagreement`
+باز هم مالکه هیچ بخشی از اون بانک نمی‌شیم و به قول شما یه سپردگذاریه، یه جور مستعجریه
+
+[00:20:33.620 → 00:20:39.380] ⚠️ `multi_pass_disagreement`
+ولی توی بورس حد اقل مقدار پول رو هم که وارد می‌کنیم ما مالکیت داریم
+
+[00:20:39.380 → 00:20:43.780] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+به یه بخشی از اون شرکتی که توش سرمانی گذاری کردیم در واقع
+
+[00:20:43.780 → 00:21:01.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بله، البته این به این معنا نیست که بورس بهتر از بانکه، بلکه باید کارکردهای هر دوتا رو بدونیم، یعنی اونجا کارکرد سعمایه گذاری با ریسکای بالاتر داره، اینجا کارکرد سپرده گذاری داره، امومن برای استفاده از خدمات مالی ما داریم ازش بهرمند میشیم
+
+[00:21:01.780 → 00:21:07.500] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و اگر تأمین مالی رو میخوایم از بانک انجام بدیم، باید کاملا آگاهانه باشه که
+
+[00:21:07.500 → 00:21:12.740] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+آقای دکتر قیلیش انشاءالله توضیح میدن که بلاخره هر عقدی، هر تحصیلاتی
+
+[00:21:12.740 → 00:21:17.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اصلا کاری هم به قبر و قیامت و حلیت و حرمتش نداریم
+
+[00:21:17.380 → 00:21:24.540] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+به هر حال این اگر اون رو هم کنار بذاریم، به هر حال این یه تعهدات و حقوقی رو برای ما ایجاد میکنه
+
+[00:21:24.540 → 00:21:27.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+وقتی ما پای اون مثلا تحصیلات رو امضا میکنیم
+
+[00:21:27.520 → 00:21:33.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و ممکنه خروج از اون هم پیگیری قانونی داشته باشه، هم ما مجرم شناخته بشیم
+
+[00:21:33.820 → 00:21:38.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا فارق از این که با توجه به اقودی که تو بانک داری اسلامی هم ترایی شده
+
+[00:21:38.300 → 00:21:40.180] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+ممکنه حلیتش هم جلی سوال بریم
+
+[00:21:40.180 → 00:21:42.600] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+تقسیم بنده قشنگی داشتن تا زمین حساب ها
+
+[00:21:42.600 → 00:21:48.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بینید ما برای کسایی که استفاده از حساب های بانکی متحدد دارن
+
+[00:21:48.000 → 00:21:52.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه تعبیری داریم منون حساب گرم و سرد، یا مثلاً کارت بانکی سرد و گرم
+
+[00:21:53.350 → 00:22:01.860] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+به این معنی که افراد باید سعی کنن، اون پول امدهشونی که سعی میخواد کنن سرمی گذاری کنن و از اون یه سود سپورت خوبی در بیارن
+
+[00:22:01.860 → 00:22:06.840] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+اونو در یک حساب سردی بذارن به این معنی که اون کارت بانکی رو کمتر استفاده می کنن
+
+[00:22:06.840 → 00:22:13.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی برای خریدهای روزمره یا برای معاملات کوچک خیلی از اون استفاده می کنن
+
+[00:22:13.780 → 00:22:40.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک کارتی هست که بعضاً به اینترنت متصل نیست، یعنی حسابی هست که شما حتی روش رمز دوبوم اینترنت هم نمیگیرین برای حالا بحث امنیتیش و اینها، یک حسابی که جدا باشه، اما حساب یک کارتی که معمولاً خریدهای روزمره از سوپری از این مروبر انجام میدن یک گردش های خیلی کوچک و زیاد دارن یعنی واریزی و پرداختی های بسیار زیاد دارن، یک حسابی هم با یک سپورده بسیار پا
+
+[00:22:42.140 → 00:22:55.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+برای این که با اون بتونن اینترنت کار پرداختی هاشون رو انجام بدن، این تفکیق باعث میشه که هم فرد بتونه مدیریت بهتری روی منابش داشته باشه، بتونه بفهمه که دخل و خرجش به چه میزا موده
+
+[00:22:55.880 → 00:23:05.020] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و همین که از اون فیشینگ و یا تخلفات مالی و بانکی که اتفاق میفته در امان باشه، این تفکیقی خیلی خوبه که کمک میکنه به مردم
+
+[00:23:05.020 → 00:23:11.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که بتونن، اصلا یکی از فواید سواد مالی در زمین بانک ها همینه که این نکات رو احساس کنن
+
+[00:23:11.800 → 00:23:18.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که اولا که نیاز نیست که هر کسی ده تا کارت بانکی با خودش داشته باشه با رمزهای مختلف و اینا
+
+[00:23:18.180 → 00:23:20.740] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نمایتا دو تا ستا کارت بانکی باشه داشته باشه
+
+[00:23:20.740 → 00:23:26.200] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+همینطور یکی سرده که گرد که بتونه که هم راحت مبادلات مالش رو انجام بده
+
+[00:23:26.200 → 00:23:32.100] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+هم خطر سرقت انترنتی یا اینجور چیزاش هم به شدت بیاد پاییم
+
+[00:23:32.100 → 00:23:34.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اتفاقیم همگاهستا بود با سوالی که میخواستم بپرسم
+
+[00:23:34.560 → 00:23:37.580] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این که من الان نقطه یک میخواهم برام بانک حساب باز بکنم
+
+[00:23:37.580 → 00:23:40.220] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+الان هم متحجه شدم که شما فهمدین دو سه نوع حساب داشته باشیم
+
+[00:23:40.220 → 00:23:44.600] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سردگرم اینا ولی با عبارتی مثل حساب قرزلحسنه میخوای
+
+[00:23:44.600 → 00:23:47.200] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا کتاه مدت یا من بیان مدت یا جاری فالان
+
+[00:23:47.780 → 00:23:52.640] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+به خصوص اون حالت قرزالحسنه و کتاه مدد، این هم خیلی مشابهه همه
+
+[00:23:52.640 → 00:23:55.920] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+من از بانک میپسم که اینا فرقش چه میگه اون روش سود میاد، اون نمیاد
+
+[00:23:55.920 → 00:23:58.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب معلومه میگه اونی بیاد که مثلا روش سود میاد
+
+[00:23:58.300 → 00:24:03.580] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا اونه که جوایز بارکشی داره جایزه که حالا ما هم تو دور برگه همون ندیدیم کسی برنده شده باشه
+
+[00:24:03.580 → 00:24:05.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+در این زمینه توضیح میفرمیم
+
+[00:24:05.360 → 00:24:13.600] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ارزم خدمشون به این طبق قانون عملیات بانکی بدون ربا، ما دو تا سپورده کلان داریم، سپورده پسنداز و سپورده های مدت دار، سرمایه گذاری مدت دار
+
+[00:24:13.600 → 00:24:17.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سپورده پسنداز خودش دو نوع میشه، سپورده قرزل حسنه و جاری
+
+[00:24:17.780 → 00:24:27.320] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سپورده جاری عموماً ما با سپورده هایی که روش دست چک میگیریم میشهستیمش، گرچه سپورده های جاری بدون دست چک هم بعضاً وجود داره
+
+[00:24:27.320 → 00:24:32.600] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بنابراین وقتی ما می‌گیم سپورده پسنداز سپورده‌ی هستش که هیچگونه سودی بهش تعلق نمی‌گیره
+
+[00:24:32.600 → 00:24:38.340] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چه از نوع سپورده‌ی جاری که دست چهی روش می‌گیرن؟ چه از نوع سپورده‌ی غرزالحسنه؟
+
+[00:24:38.340 → 00:24:43.720] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+فلسفه‌ی گذاشتن سپورده‌ی پسنداز غرزالحسنه در قانون عملت بانک بدون روای این بود
+
+[00:24:43.720 → 00:24:49.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که منابع به عنوان غرزالحسنه جزب بشه و به عنوان غرزالحسنه هم تخصیص داده بشه
+
+[00:24:49.560 → 00:24:55.480] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما خب یه ایرادی که وجود داشتیم بود که این منابع به مالکیت بانک در میان
+
+[00:24:55.480 → 00:25:01.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی به عنوان که وکالت برای غرزالحسنه باشه اشتباهن تملیک به بانک ها میشود
+
+[00:25:01.700 → 00:25:07.660] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که حالا دوستان سعی دارن در مجلس این بخش رو اصلاح کنن و سپرده غرزالحسنه
+
+[00:25:07.660 → 00:25:13.160] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بانک ها وکیل بشن در پرداخت غرزالحسنه یعنی به مالکیت بانک دیگه در نیاد
+
+[00:25:13.160 → 00:25:20.160] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+کسی که اونجا سفرد قرزلحسنه می‌ذاره، حتماً و تماماً به تسهیلات قرزلحسنه‌ای برسه
+
+[00:25:20.160 → 00:25:27.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی قرزلحسنه‌هایی که ما در بانک می‌ذاریم، لزومن مورد استفاده قرزلحسنه قرار نمی‌گیرم
+
+[00:25:27.640 → 00:25:35.040] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+فعلاً لحاظ قانونی، بله چون به مالکت بانک درمیاد، گرچه بانک ها گفته شده که باید اینا در زمین قرزلحسنه به کار ببرن
+
+[00:25:35.040 → 00:25:42.100] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی لحظه حقوقی چون به مالکت بانک در میاد، خب بانک ها ممکنه اینا ببرن تصدیلات سوده هم بدن
+
+[00:25:42.100 → 00:25:47.180] ⚠️ `multi_pass_disagreement`
+دستایت که در بخش تجهیزشون هیچ سودی به سپردگوزار پرداخت نمیشه
+
+[00:25:47.180 → 00:25:52.020] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بنابراین دستای اول که سودی به سپردگوزار پرداخت نمیشه، سپردهای پس اندازه
+
+[00:25:52.020 → 00:25:54.320] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+دونو جاری و غرزالحسانه
+
+[00:25:55.040 → 00:26:00.460] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سپورده های سرمانگذاری مدت دار که حالا هم کتاه مدت داریم هم بلند مدت سود بهش پرداخت میشه
+
+[00:26:00.460 → 00:26:05.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+کتاه مدت مد نظرم بود که زیر شیش ماه شما باید پولتون رو نگه دارید
+
+[00:26:05.140 → 00:26:09.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و بلند مدت به این معنی که حداقل مثلا شیش ماه یک سال، دو سال یا پنگ سال نگه دارید
+
+[00:26:09.980 → 00:26:16.040] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+و بنامارین نرخهای سود سپورده ها متفاوت و به صورت حالا زنجیره ای افضایش پیدا می کست
+
+[00:26:16.040 → 00:26:27.280] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مسلمان سختی که شما باید سه سال پولتون رو در بانک می‌گذاشتید و دست بهش نمی‌زدید، سود سالانه سپرداشم بالتر تعییم شد نسبت به اون سپرده کتا مدت
+
+[00:26:27.280 → 00:26:38.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما در شرایط فعیلی سپرده‌هایی که بعضانمون رو کتا مدت باز می‌شه، این ویژگی رو دارن که شما با کارت آبربانکتون هر لحظه که بخواد دوباره می‌تونین ازش برداش کنین
+
+[00:26:38.520 → 00:26:43.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی دوباره یک جور سپرده جاری یا یک جور سپرده پسنداز داره میشه
+
+[00:26:43.980 → 00:26:49.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+در ساعتی که یک پرداخت سوده حالا حد درقل ده دوازد درصدی هم طبیعتاً داره
+
+[00:26:49.680 → 00:26:57.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بنابراین خیلی مرز مشخصی الان بین سپرده غرزالحسنهی و سپرده های کتا مدت به این معنا وجود نداره
+
+[00:26:57.140 → 00:27:00.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما برای کسی که میخواد پول بانک ببره سپرده
+
+[00:27:00.640 → 00:27:10.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اگر این که میخواد از منابعی که در بانک میذاره، سود خوبی داشته باشه، سود خوب به این معنی که نسبت به سایر سودهای بانکی
+
+[00:27:10.300 → 00:27:19.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خوب باشه، بعد طبیعتاً سپورده های یک سال به بالا باز کنه، به این معنی که تا یک سال حق برداشته پولشو از بانکی نداره
+
+[00:27:19.140 → 00:27:23.500] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و اگر بخواد برداشت کنه اون نرخ سود و با یک نرخ سود پایین تر باشه حساب میکنن
+
+[00:27:23.500 → 00:27:34.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما نه، اگه می‌خواد یک حسابی واقع کنه که صرفاً حقوقش در اون واریز بشه، پرداخت‌های روزانه شو داشته باشه، می‌دونه از سپورده‌های کتاح مدد یا غرز‌الحسنه استفاده کنه
+
+[00:27:34.640 → 00:27:40.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و چنانچه که می‌خواد روی این حساب دست چک داشته باشه، بس طراغ سپورده‌های جاری بره
+
+[00:27:40.180 → 00:27:42.900] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بسیار قلی یک می‌ان برنامه می‌شنبیم و برمی‌گردیم
+
+[00:27:45.870 → 00:27:47.350]
+چهل ستون
+
+[00:27:47.350 → 00:27:51.910] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+فقرت یک در وارد خونه ای ما میشه، ایمان از در دیگه خارج میشه
+
+[00:27:51.910 → 00:27:55.510] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+چهلستون، ستونهای اقتصاد خانوادی
+
+[00:27:55.510 → 00:27:59.170] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا من میخوام که همه خواستاهای بچه هم رو برورده بکنم
+
+[00:27:59.170 → 00:28:01.310] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چیزی تو دل بچه هم نمونه
+
+[00:28:01.310 → 00:28:04.830]
+نصری باورها این مودلی خانواده ها ممکنه داشته باشن
+
+[00:28:09.090 → 00:28:15.730] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خیلی وقتا مشکلات ملیشتی مخصوصا در شرط اقتصادی فعیلی باعث کار کردن اجباری بچه هم میشه
+
+[00:28:18.530 → 00:28:25.450] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این میزان توجه به پول یا تآغاز نداره با فرهنگ من با اون چیزهایی که حتی توی دینمون توصیه شده
+
+[00:28:25.450 → 00:28:28.530] ⚠️ `multi_pass_disagreement`
+ما نمیگیم این سواد مالی اصل زندگیه
+
+[00:28:28.530 → 00:28:35.850] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بلکه میگیم به میزانی باید بهش پتر دادیم که بتونه خدمت مناسبی به سایر و حوضه های زندگیمون داشته باشه
+
+[00:28:48.710 → 00:28:52.090]
+سواد مالی در زندگی را با ما بیانده
+
+[00:29:00.440 → 00:29:01.480]
+چهل ستون
+
+[00:29:02.860 → 00:29:14.100] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+همچنان شنونده چهلستون هستید، میتونید سوالات و پیشنهاداتتون رو با شماره پیامک سی هزار ده سی و پنج، شماره تماسه سد و شست و دو و ویب سایت رادیو گفتگو داتای آر با ما درمیون بذارید.
+
+[00:29:14.160 → 00:29:22.080] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پیشنهاد میکنم با نصب برنامه ایران صدار و یه گوشی موبایلتون همیشه و همه جا با همه شبک های رادیوی رو در دستگرست داشته باشید.
+
+[00:29:22.080 → 00:29:38.160] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+جنب آقای دکتر بودی، در لبلای صحبت‌هاتون این بود که بانک یکی از کاربوردهاش گرفتن وام و تسهیلات هست که البته بین اینا هم ظاهرن تفاوت‌هایی وجود داره از مزاربه فهمودین و انواع دیگه
+
+[00:29:38.160 → 00:29:48.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اصلا به طور کلی من میخوام بدونم که این وام‌های بانکی که رایجه دوی کشور، من به عنوان یک شخص، یک خانواده خوبه بگیرم، خوبه استفاده بکنم یا نه؟
+
+[00:29:48.640 → 00:30:16.860] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+در باره قرض گرفتن، آموزه‌ی سواد مالی، گذینه‌ی اولش اینه که شما هیچ وقت خودت رو به دهکار نکن، حالا چه از شخص دیگه یا از بانک، میگه کار کن و درامت کسب کن و در سطح اقتصادی که داری خودت رو به دهکار نکن، چون به دهکاری یعنی درامت آینده رو میخوری، خب درامت آینده وقتی سرف بشه برای امروزت چی میونه، مگر این که بخواید کالای سرمایه‌ی بخری یا اون رو سرما
+
+[00:30:16.860 → 00:30:46.840] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+سرمایی گذاری بکنی، در واقع اونجا باید حساب بکنی که آیا حزینه مالی این بدهی که من ایجاد می‌کنم بیشتر از اون بازدهی سرمایی است یا کم‌تر؟ اگر بازدهی سرمایی گذاری بیشتر بود، خب توجیح مالی داره که من این قرض رو بگیرم یا در واقع خودم رو بدهکار بکنم. پس این از جهت کلیش راجب قرض گرفتن و بدهی خوب و بدهی بد. بدهی خوب اونه که بری وارد کالای سرمایی
+
+[00:30:46.860 → 00:30:56.860] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سمایهی و در واقع سمایه گذاریش بکنی، به دهیه بعد اینه که مصرفش بکنی، یعنی خرج روزمرت بشه، اونو هم از درامد آینده
+
+[00:30:56.860 → 00:31:03.960] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا بانک میاد به ما یه سری امکانات میده، میگه اگر خواستی تأمین مالی بکنی من چند تا گذینه پیش رو دارم
+
+[00:31:03.960 → 00:31:09.420]
+ما در اسطلاح سواد مالی سنو در واقع به دهکار شدن داریم
+
+[00:31:09.420 → 00:31:13.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یکی قرط الحسنه است که هیچ هزینه مالی نداره
+
+[00:31:13.240 → 00:31:20.500] ⚠️ `multi_pass_disagreement`
+همون چیزی رو که دریافت می‌کنی در یه موعد مقرری همون رو باید پس بدی
+
+[00:31:20.500 → 00:31:28.760] ⚠️ `multi_pass_disagreement`
+یه اسطلاح دیگه‌ای داریم وام که در شرایط فعلی بهش کارموز تعلق می‌گیره
+
+[00:31:28.760 → 00:31:34.260] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی به هر حال اون نهاد مالی داره، یه سری کارمند‌ها داره، یه سری حزینه‌هایی داره
+
+[00:31:34.260 → 00:31:40.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+موزد اون کاری رو که داره انجام می‌ده با عنوان یک درصدی از اون وام از شما می‌گیره
+
+[00:31:40.620 → 00:31:50.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پس یک قرز که هیچ حزینه مالی نداره، دو وام که یک حزینه مالی داره تحت عنوان کارموز و ثومیش تسهیلاته
+
+[00:31:50.880 → 00:31:56.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این تسهیلات هیچ ربطی به اون مکانیزم‌های قرز و وام نداره
+
+[00:31:57.320 → 00:32:04.120] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+تسهیلات اصلا یه عقد دیگه یه یعنی ممکنه شما داری مشارکت می‌کنی، وکالت می‌گیری
+
+[00:32:04.120 → 00:32:09.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این تسهیلات اصلا مثل این نیست که بگیم که خب من رفتم از بانک قرز می‌گیرم
+
+[00:32:09.560 → 00:32:37.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نرخ بحرش هم مثلاً 20 درصده. واقعاً اینجوری نیست. تقیق قراردادی با بانک و تقیق شرایطی شما مثلاً فرض کنید که انگار یه چیزی رو در واقع بانک برای شما نقدم میخره و به شما نسیه میفروشه. خب این مکانیزم مثلاً مکانیزمی نیست که بگیم که این قرض گرفته شده مثلاً یه بحره پرداخت شده. این تفاوت فروش نقد و مثلاً خرید نقد و فروش نسیه است.
+
+[00:32:37.820 → 00:32:47.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مونتا ممکنه با درست بیان بشه، این بیان با درست به این معنی نیست که خب حالا در اصطلاح بگیم ربا شد
+
+[00:32:47.820 → 00:32:56.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا این نرخ بحریه، البته توی جامعه یا حتی توی خود کارکنان عزیز بانک ممکنه این اصطلاحات به دقت استفاده نشه
+
+[00:32:56.880 → 00:33:02.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و مردم هم اینقدر آگاهی نداشته باشن که به دقت این اصطلاحات رو استفاده بکنن
+
+[00:33:02.240 → 00:33:08.500] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما این سنو تأمین مالی وجود داره، آقای دکتر قیلش بهتر از من توضیح خواهند داد
+
+[00:33:08.500 → 00:33:17.120] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی این سنو تأمین مالی ما باید باش آشنا باشیم چون هر کدوم از این تأمین های مالی و بدهکار شدن در اصطلاح عرفیش
+
+[00:33:17.120 → 00:33:19.480] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه سری حقوق و تعهداتی داره
+
+[00:33:19.480 → 00:33:24.100] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مثلا اگر من در اصطلاح تسهیلات خود رو بگیرم
+
+[00:33:25.280 → 00:33:29.920] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+قانونم و شرعن اجازه ندارم مثلا برم خونم و باش تعمیر بکنم
+
+[00:33:29.920 → 00:33:57.600] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+این خلاف قانونی و خلاف شرعی می‌شه، حالا بگیم که نمان پول و بانکو به هر حال پست می‌دم، نمی‌خوام می‌گم فقط این موضوع در استلامال قبر و قیامت، اتفاقاً اینجا برای امر دنیایی هم استفاده می‌شه و این اقود به گونه‌ی تر راهی شده که بخش کاغذی اقتصاد کچکتر بشه و بخش واقعی اقتصاد بزرگ‌تر بشه، اون بخش تحصیلات در واقع عرض می‌کنم و هدف‌گذاری که این تحصیلات د
+
+[00:33:57.600 → 00:34:16.020] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+من جلاتر دوستم از آقای دکتر غیلیش بپرسم که چه انواعی وام و تسهیلات وجود داره با تجربه توضیحاتی که آقای دکتر غیلی گفتن، اما قبلش میخوام یه از یه ابحامی صحبت کنم که بر من شکلی گرفت. شما فهموندین بانک یکی از کارش تخصیص منابعه که یا به مصرف میرسه یا به تولید؟
+
+[00:34:16.020 → 00:34:27.540] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+توی بحث تولید منی به ذهنم می‌رسه که خب شرکت‌های تولیدی توی بورس خیلی راحت‌تر می‌تونن تأمین مالی بکنن یا حالا جنوب هم شاید فکر می‌کنم راحت‌تر ولی احساس می‌کنم مکانیزم خیلی درست و اصولی هست
+
+[00:34:27.540 → 00:34:36.460] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+توی بحث مصرف هم که آقای دکتر رودی می‌گه اگر وام را داره می‌گیره که مصرفش بکنی حزینه بشه این خوردن درامد آینده است و کار درستی نیست
+
+[00:34:36.460 → 00:34:40.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مگه همین که به برش توی کار سرمایه گذاری که بتونی ازش یک آیدی داشته باشی
+
+[00:34:40.680 → 00:34:42.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب دوباره بازمم می‌گوستم به بورس
+
+[00:34:42.800 → 00:34:47.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+می‌خوابینم این چه ساز و کاری دار که بعد وارده انواع تسهیلات و وام کارش
+
+[00:34:47.300 → 00:34:51.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+عرضم به خدمه شما که بینید وقتی یک تولید کننده
+
+[00:34:51.240 → 00:34:53.900] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سراغ بانک می‌ره برای اینکه ازش تسهیلات بگیره
+
+[00:34:53.900 → 00:34:56.320] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+من خیلی با کلمه وام موافق نیستم
+
+[00:34:56.320 → 00:35:00.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چون احساس بکنم وام ترجمه برای تسلیلات قرزه
+
+[00:35:00.800 → 00:35:05.160] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+و طبیعت ما هر تسلیلاتی که روش قراره سودپرداخ خونیم
+
+[00:35:05.160 → 00:35:07.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بهش باید تسلیلات بگیم، وام نباید بگیم
+
+[00:35:07.940 → 00:35:11.660] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چون وام برگردون کرمه لونه و معمولاً برای قرز به کار میره
+
+[00:35:11.660 → 00:35:16.120] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مثلا این استلاح وام جواله، وام مرابعه اینا اشتباهه
+
+[00:35:16.120 → 00:35:18.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+تسلیلات مرابعه اینا
+
+[00:35:18.140 → 00:35:19.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا یه تفاوتهایی داره
+
+[00:35:19.680 → 00:35:29.340] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ببینید بورس نیاز به ته شدن یک سری مراحل اداری و مالی داره که برای خیلی طولید کننده های کچیک به صرفه نیست، امکان ورود ندارد
+
+[00:35:29.340 → 00:35:37.720] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مثلا یک طولید کننده ای که صد تا دیویس تا سی صد تا کارمان داره، این طبیعتاً ورودش به بورس خیلی منطقی نیست شده
+
+[00:35:37.720 → 00:35:40.600] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+اما الاز قانونی ها خیلی ها امکانش برایش وجود ندارد شد
+
+[00:35:40.600 → 00:35:47.460] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بورس بیشه بسید شرکت‌های بزرگ که نیاز به جذب منابع یا تأمین منابع بزرگ دارن خوبه
+
+[00:35:47.460 → 00:35:55.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بنابراین اقتصاد‌هایی که بانک مهور هستن معمولاً راحت‌تر می‌تونن از سیستم بانکی تأمین مالی کنه
+
+[00:35:55.680 → 00:35:58.360] ⚠️ `multi_pass_disagreement`
+یعنی بورس ما این شکلیه یا کلن تو دنیا همیشه؟
+
+[00:35:58.360 → 00:36:03.340] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+معمولاً در دنیا این طوریه که البته خب عمق مالی اقتصاد‌ها هم مهمه
+
+[00:36:03.340 → 00:36:06.840] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما در اقتصاد خودمون اقتصادمون بانک مهوره
+
+[00:36:06.840 → 00:36:14.780] ⚠️ `multi_pass_disagreement`
+یعنی روش تأمین منابع مالی برای بنگاه تولید از طریق بانک راحتر و سریتر انجام میشه
+
+[00:36:14.780 → 00:36:19.480] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مگر این که اون بنگاه بتونه خودشو بورسی کنه و بتونه تأمین مالی کنه
+
+[00:36:19.480 → 00:36:24.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که حالا در این یک سال گذشته هم تحرکات خیلی خوبی در بازار سرمای اتفاق افتاده
+
+[00:36:24.640 → 00:36:29.660] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و این چشمنداز هستش که حتی تولید کنند های متوسط هم بتونن مراجعه کنه
+
+[00:36:29.660 → 00:36:34.440] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و از طریقه بورس و فروش سهان ارزم به خدمه شما که تأمین مالی کنند
+
+[00:36:34.440 → 00:36:39.020] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+در زمینه این نکتهی که فرموندن که بدهی اگر حالا به صورت مصرف باشه یا تولید باشه
+
+[00:36:39.020 → 00:36:41.240] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+یک کدوم بدهی خوب هست و بدهی برد هست ببینید
+
+[00:36:41.240 → 00:36:45.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+در اقتصادهایی که تورم دارن همه جور تصدیلات گرفتن منفع
+
+[00:36:45.700 → 00:36:47.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حتی باسه این که مصرف باشه
+
+[00:36:47.780 → 00:36:51.440] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+شما وقتی تصدیلات مصرفی میگیری یا باسه درمان میگیری
+
+[00:36:51.440 → 00:37:02.840] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بنابراین یعنی برای این که بخواید از پول آینده تون استفاده کنید، همین الان دارید یک منابعی رو میگیرید که در آینده پرداخت کنید
+
+[00:37:02.840 → 00:37:09.580] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+تصفیلات درمان یا تصفیلات آموزشی هستش یا سفرهای تفریحی هست یا زیارتی هستش، انواع اقصام اینها
+
+[00:37:09.580 → 00:37:18.200] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+وقتی که شما در یک اقتصاد با تورم و واجه هستید، طبیعتا گرفتن تصفیلات با نرخواه زیر بیس در سل به نفع هستش
+
+[00:37:18.200 → 00:37:30.280] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی طبیعتاً در منطق و فرهنگ حالا اقتصاد اسلامی ما خیلی مدیون شدن، عرضش نیستش و به یک نوعی کراحت هم داره قرض گرفتن
+
+[00:37:30.280 → 00:37:36.280] ⚠️ `multi_pass_disagreement`
+خصوان زمانی که آدم وقتی نیازم نداشته باشه یا خیلی استراری توش وجود نداشته باشه
+
+[00:37:36.280 → 00:37:39.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اگر دوست داشته باشید من یک اشاره به انواع تحصیلات داشته باشم
+
+[00:37:39.780 → 00:37:41.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بله، بله، حتما، نبفهمم
+
+[00:37:44.620 → 00:37:55.100] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+بین قرض، قرض الحسنه و اون قرضی که کار موزده، در واقع کسر میشه یا پرداخت میشه، این اصطلاح خاصی داره به کار ببریم؟
+
+[00:37:55.100 → 00:38:03.120] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی ما توی سواد مالی اون بخش رو بهش میگیم وام، یعنی اون چیزی که من باید یه پولی اضافه‌تر پرداخت میکنم یا اون بخش کم میشه
+
+[00:38:03.120 → 00:38:08.040] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ببینید تصدیلات دو نوعه، که وام یک بخشی از این قرار میگره
+
+[00:38:08.040 → 00:38:12.480] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+یه تحصیلات این استش که شما هیچ سودی پرداخت نمی کنید، فقط کارمزد می دید
+
+[00:38:13.100 → 00:38:18.020] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+کارمزد هم معمولاً چار درصد و به کم تر، یعنی سه درصد دو درصد هست
+
+[00:38:18.020 → 00:38:26.200] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مثل تحصیلات قرض الحسنه، شما اگر چار درصد پرداخت می کنید، اینو شنوندگانه از دیدم حتماً دقیقه داشته باشن
+
+[00:38:26.200 → 00:38:31.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سود قرض الحسنه نمیدید چون قرض سود نداره، سودش ربا حساب می شه
+
+[00:38:31.140 → 00:38:34.600] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ماهیت عقد قرض اینه که هیچ سودی نباید داشته باشه
+
+[00:38:34.600 → 00:38:37.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پس اون چهار درصده که بانک از ما اضافه میگیره چیه؟
+
+[00:38:37.520 → 00:38:38.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اون کارموز خدماته
+
+[00:38:38.800 → 00:38:41.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اون پول کارمندی که تو شعبه میشینه
+
+[00:38:41.240 → 00:38:43.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اون پول سیستمه الکترونیکی که برای شما
+
+[00:38:43.620 → 00:38:46.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ارزم خدمه شمایی که تصویه میکنه
+
+[00:38:46.360 → 00:38:49.260] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اقصاد و پرداخت میکنه کارموزهای بانکی حساب میشه
+
+[00:38:49.260 → 00:38:59.780] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+شکر درصده؟ خب یک درصدی از حجم تسطیلاتی که به شما پرداخت میشه دیگه، حالا به وضع یک ملیون توم قرض و حسن نمیده، یکی ست ملیون امیده، پنجام ملیون امیده، یک درصدی نسبت به اون
+
+[00:39:00.260 → 00:39:09.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+گرچه روی همین عددش هم بحث هستش که حالا کارموز باید روی حجم شه اینها بحث استخراج حزینه های بانکی هستش که حالا خیلی بهش ورود نمی کنه
+
+[00:39:09.360 → 00:39:27.960] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما نوع دوم تسهیلات تسهیلات انتفاییه، یعنی که سود داره، مثل تسهیلات جعاله، تسهیلات جعاله یه جور ارائه خدماته، یعنی وقتی شما میخواید، حتی تشریه تک تک اینه خودش یک برنامه مفصل میخواد، شاید به این سرعت گفتن برای شنمندگان هم یکم سخت باشه
+
+[00:39:27.960 → 00:39:34.540] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+من به عنوان یک شرکت تولیدی کچیک شما فهمودین که برای مقدونیست بگرم بورس میگرم از بانک تعمیر مالی میکرم
+
+[00:39:39.380 → 00:39:56.660] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ببینید بستگی به نوع نیازتون داره، اگر که بحثتون بحث خرید جهیزی، بحثای حزینه های آموزش، حزینه های درمان، این ها هست، این ها معمولاً از خدمات تصدیلات قرز الحسن استفاده میشه که هیچ سودی روش پرداخت نمیشه
+
+[00:39:56.660 → 00:40:02.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و معمولاً بانک ها هم کمک میکنن اینجور نیازها رو که اگر شناسایی بشه میتونن بهش تصدیلات بدن
+
+[00:40:02.380 → 00:40:07.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک موقع از شما میخواد تعمیر مسکر انجام بده یعنی یک خدمتی رو میخواد خریداری کنید
+
+[00:40:07.800 → 00:40:13.080] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+برای خرید خدمت ممنون از جواله استفاده می کند مثل تصدیلات جواله ی تعمیر مسکر
+
+[00:40:13.080 → 00:40:18.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما بعضی ما شما میخواد یک خدروی بخرید یعنی بست تعمیر نیست، بازسازی نیستش
+
+[00:40:18.940 → 00:40:21.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خدرو میخواد بخرید، مسکر میخواد بخرید
+
+[00:40:21.680 → 00:40:24.220] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این از تصدیلات مرابعه استفاده میشه
+
+[00:40:24.220 → 00:40:34.200] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+مرابعه یک حالت پیشرفته از فروش اقصادیه، یک حالت یک فرمت کامل تر از فروش اقصادیه
+
+[00:40:34.200 → 00:40:43.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+شما اگر میخواید خریدی انجام بدید چه از نوع حال کالای حتی در نوع خدمات میتونید از تصدیلات مرابعه استفاده کنید
+
+[00:40:43.380 → 00:40:47.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اگر هم یک پروژه اقتصادی دارید مثل یک تولید کنندهی هستید که مثلا میخواید
+
+[00:40:47.680 → 00:40:52.740] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+یک تولید کننده نستاجی هستید، میخواید کاری انجام بدهید، میتوند تصدیلات مشارکت هم استفاده کنید
+
+[00:40:52.740 → 00:40:58.400] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی بانک رو در سود و زیان اون فرایند اقتصادی که میخواید همراه میکنید
+
+[00:40:58.400 → 00:41:06.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و نصاد به اون پرداخت میموند که گرچه برخی از بانکهای ما تصدیلات مشارکتی هم با نوعی خصود ثابت به افراد پرداخت میکنند
+
+[00:41:06.940 → 00:41:12.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که این هم اشتباه هستش و به یک نوعی میشه گفت ممنوع هستش
+
+[00:41:12.240 → 00:41:19.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چون تسهیلات مشارکت اینه که شما در انتهای کار حساب کنید که چقدر زیان شده و بانک در اون شراکت داشته باشه
+
+[00:41:19.300 → 00:41:26.780]
+بنابراین هر کدوم از تسهیلات بانکی، جواله، اجاره، مرابعه، مشارکت، قرص
+
+[00:41:26.780 → 00:41:32.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که هر کدوم حقوقی برای تسهیلات گیرنده و یک سری تکالیف برای تسهیلات گیرنده داره
+
+[00:41:32.780 → 00:41:35.380] ⚠️ `multi_pass_disagreement`
+و حالا در این برنامه خیلی فرصتش نیست
+
+[00:41:35.380 → 00:41:41.660] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+انشاءالله در یک فرصت مختصی ما این توفیق رو داشته باشیم خدمت شنمندگان بخواییم اینها رو تک تک باز کنیم
+
+[00:41:41.660 → 00:41:47.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+هر کدوم از اینها یک نوع نیاز رو برطرف میکنه و اگر فرد یک نیاز علفی داشته باشه
+
+[00:41:47.180 → 00:41:57.160] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما بره تصدیلات از نوع نیاز ب بگیره حتی لحاظ شرعی هم تصرف در اون پولی که از بانک گرفته ممنوعیت ها و محدودیت هایی داره
+
+[00:41:57.160 → 00:42:24.540] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بنابراین بهتره که متناسب با اون نیاز افراد مراجعه کنند، تسهیلات خاصه اون رو بگیرند، از یک سندوش هم ما باید بگیم مسئولیت سنگین با مردم نیستش، با خود بانک ها هستش، که انقدر تنوع تسهیلات، یا به اسطلاح میگن مثل رستوران، منوی تسهیلات متنوع جلو مشتری باشه که مشتری متناسب با نیاز خودش اون تسهیلات رو بگیر از بانک و به صورت شرعی و صحیحی منابع بانک رو استفاده کنه
+
+[00:42:24.540 → 00:42:29.280] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اتفاقا همینه میخواستم بپرسم، من میگم بانک مراجعه میکنم برای هر نیاز من که وام نمیده
+
+[00:42:29.280 → 00:42:32.860] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اون الان که من دوتا وام فعال دارم، حالا تصحیلات فعال دارم، این و این
+
+[00:42:32.860 → 00:42:36.400] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بعد من میبینم خب من در هر سویت الان میخواهم مثلا خونه بخرم
+
+[00:42:36.400 → 00:42:40.100] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+برای متاسفانه، متاسفانه این مشکل وجود داره
+
+[00:42:40.100 → 00:42:45.160] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی بعض این موقع شما یک بیمار دارید و بعد عمل جراحی فوری انجام بشه
+
+[00:42:45.160 → 00:42:50.040] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مراجعه می‌کنید، بانک ممکنه شما می‌گه بیاد من تصفیلات جاله تعمیر و مسکن بهت بدم
+
+[00:42:50.040 → 00:42:53.860] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب این لحاظ بانکتاری اسلامی با محدودیت‌های مواجهه
+
+[00:42:53.860 → 00:42:57.920] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی ما باید سیستم نظام بانکیمون رو به قدری گسترده کنی
+
+[00:42:57.920 → 00:43:02.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+همون اصطلاها که گفتم منوی تصحیلات انقدر متنوع باشه جوله مشتری
+
+[00:43:02.360 → 00:43:06.220] ⚠️ `multi_pass_disagreement`
+که مشتری دقیقا همون نیازی که داره رو تصحیلات بگیره
+
+[00:43:06.220 → 00:43:12.580] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و این بزرگتری مشکلش بیشه به سمت نظام بانکی ما برمیگرده تا به سمت مشتریان
+
+[00:43:12.580 → 00:43:21.480] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی خب توصیه میشه که مردم تصدیلاتی که میگیرن ها طبق قراردادشون مصرف کنن و در شاخه دیگری استفاده نکنن
+
+[00:43:21.480 → 00:43:23.840] ⚠️ `low_word_confidence, multi_pass_disagreement`
+بله ما چکم از شما، جانب اقید بودی بسن
+
+[00:43:23.840 → 00:43:30.600] ⚠️ `multi_pass_disagreement`
+بله من یه نکتهی داشتم، این که حالا مطابق با اون کمیته فقهی که در بانکی مرکزی هست
+
+[00:43:30.600 → 00:43:44.220] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+یه اقودی تر راهی شده و اون شبکه بانکی موظف هم از اون پیروی بکنند. و می‌گیم مردم هم آگاه باشند با همون نیت و در همون مورد از تسهیلات استفاده بکنند.
+
+[00:43:44.800 → 00:43:51.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+آلا شما به عنوان کسی که بیرون از این ماجره به عنوان یک پجوهشگر حوضه بانکی و اقتصادی،
+
+[00:43:51.180 → 00:44:01.340] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بخواستم ازتون بپرسم که خب در مکتوب و حالت تراهی شده به فرض این که مورد توافق و شرعی و قانونی هم هست
+
+[00:44:01.340 → 00:44:06.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما تو واقعیت چقدر بانک ها دارن اینو اجرا می‌کنن؟
+
+[00:44:06.380 → 00:44:12.260] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی مثلا وقتی می‌گه سود سپردهی مثلا کتاه مدت علال حساب واریز می‌شه
+
+[00:44:12.260 → 00:44:17.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+آیا واقعا یه روزی حساب می‌کنن و قطعی و کم و زیاد بکنن؟
+
+[00:44:17.180 → 00:44:42.280] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این از طرف بانک و از طرف مردم هم چقدر مردم آشناهن یعنی چقدر این تجروه وجود داره که آیا این تسهیلاتی که گرفته شده واقعا در موردش مصرف شده و تو همون میکانیزم بوده یا اصلا افراد آگاه بودن آیا پجوش های متعالیدی که این هر دو طرف ماجره رو نشون بده داریم و مثلا وجود داره که در واقع یه جورایی سواد مالی مردم رو در حوضه بانک میسنجه
+
+[00:44:42.280 → 00:45:07.420] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+بله، دکتر داشته باشیم، این که بخواییم ادعا کنیم که هم در بخش پرداخت سود علال حساب به صورت اون نکته دقیقی که در قانون بهش اشاره شده و رعایت اصل وکالت نزده بانک ها و هم در بخش تسهیلات، اگر این ادار داشته باشیم، به صورت کامل در نظام بانک کشور ما اجرام میشه، خب دور از پذیرش هستش
+
+[00:45:07.420 → 00:45:23.760] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما در سالهای اخیر فعالیت های خیلی خوبی از بود نظارت شده که اگر یک بانکی فراتر از سود علل حساب در پایان سال مالی سودی رو کسب کرد، از لحاظ قانونی باید موابط تفاوتش رو به افراد بپردازه
+
+[00:45:23.760 → 00:45:27.760] ⚠️ `multi_pass_disagreement`
+مثلا میگم اگر سود بانکی پونزه در سطح هستش این علل حسابه
+
+[00:45:27.760 → 00:45:36.220] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+به این معنی که بانک وکیله، مالک نیستش، وکیل هستش، سپرده افراد و سپرده گزاران رو جزب میکنه
+
+[00:45:36.220 → 00:45:42.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+با اونها یا تخصیص منابع از نوع تسهیلات به مردم می‌ده یا تو سرمانگذاری مستقیم یا بنگاهداری می‌کنه
+
+[00:45:42.880 → 00:45:50.120] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+با منابعی که خود بانک هم میاره از جانب سهم داران، یعنی به صورت مشایی اینها را استفاده می‌کنه
+
+[00:45:50.580 → 00:45:54.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا در انتهای سال مالی، حساب می‌کنم اینه این شده 17 درصد صود اومارده
+
+[00:45:54.980 → 00:46:01.100] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+15 درصدش که ماهانه حالا به صورت، یعنی صود سالانه به صورت ماه، ماهانه پرداخت کرده
+
+[00:46:01.100 → 00:46:03.600] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اون دو درصد موظف هستش که بانک بپردازه
+
+[00:46:03.600 → 00:46:09.340] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما اگه زیر پونزه درصد بانک سوداوری داشت، از اون منابع، مثلا سیزه درصد داشت
+
+[00:46:09.340 → 00:46:13.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بانک معمولاً اینجا اون دو درصد رو هبه می‌کنه
+
+[00:46:13.140 → 00:46:16.720] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی میگه آقا من درسته، آقای سپورده گذار، خانوم سپورده گذار
+
+[00:46:16.720 → 00:46:20.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+شما پولی که نزده من گذاشتی، سیزه درصد بیشتر سود نتونستم ازش انجام بدم
+
+[00:46:20.980 → 00:46:28.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا یا وکیل خوبی نبودن باست شما، یا شرایط اقتصادی به یه نحوی بود که نشد، حالا به هر دلیل سیزد درصد من
+
+[00:46:28.380 → 00:46:32.120] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+من این وقت نمیان بگم دو درصدی که به دادم بیا برگردون اضافه
+
+[00:46:32.120 → 00:46:38.280] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+معمولا از جیب سحامدارای از جیب منامه بانکی به جیب سپوردگزاران حبه میشه
+
+[00:46:38.280 → 00:46:40.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا آیا بانکا این رعایت میکنن یا نه؟
+
+[00:46:40.880 → 00:46:45.960] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اولاً که باید بیم که این طوری نیستش که ما بگیم اکثر بانک ها بالای پونزه درصد میارن و یه مازادی میارن
+
+[00:46:45.960 → 00:46:56.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+با توجه به متلابات محوقی که وجود داره در نظام بانکیه ما و بسط تصدیلات تکلیفی و اینها معمولاً کمتر از این پونزه درصد هم درمیارن بلکه بایی چیز مجیب بذارن
+
+[00:46:56.000 → 00:46:59.020] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما خیلی از بانکا هم هستش که بالا 15 درست در میارند
+
+[00:46:59.020 → 00:47:03.840] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+موردهای بسیار زیادی هم وجود داشتی که بانکا ما به تفاوتش رو به سپورد گزاران پرداخت کرد
+
+[00:47:03.840 → 00:47:06.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خیلی ممنونم متاسفانه به پایان برنامه نزدیک شدیم
+
+[00:47:06.780 → 00:47:09.460] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+میخوام از شما آقای دکتر رودی خواهش کنم که
+
+[00:47:09.460 → 00:47:11.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک موضوعی رو خیلی کتاه توضیح بدین ما
+
+[00:47:11.560 → 00:47:15.400] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+توی سواد مالی یک مبحث خیلی جذابی داریم تحت امانه الگوهای خرید
+
+[00:47:15.400 → 00:47:20.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و یکی از الگوهای خرید نادرستی که در سبک زندگی مالی وجود داره
+
+[00:47:20.640 → 00:47:24.260] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+الگوهای خرید ناشی از تبلیغات بازاری آبانه است
+
+[00:47:24.260 → 00:47:26.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی مثلا ما وارده یک فروشگاهی میشیم
+
+[00:47:26.560 → 00:47:29.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+میگه که اگه دوتا به خریصه بومیش رایگان میبری
+
+[00:47:29.000 → 00:47:32.440] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا اگر این محصول ببری فقط تا 24 ساعت برنده اینوان فلا میشی
+
+[00:47:32.440 → 00:47:36.020] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+قرعه کشی داره و ما رو تحریک میکنه که یک تصمیمی بگیریم
+
+[00:47:36.020 → 00:47:39.260] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+قبل از اون روش آگاهی نداشتیم و هیچ برناماریزی نداشتیم
+
+[00:47:39.260 → 00:47:42.260] ⚠️ `multi_pass_disagreement`
+میخوان در مورد این شیطنتی شاید بتونم بگم
+
+[00:47:42.260 → 00:47:43.960] ⚠️ `multi_pass_disagreement`
+شیطنتی که بانکا انجام بیدن
+
+[00:47:43.960 → 00:47:47.480] ⚠️ `multi_pass_disagreement`
+باز روی همین بحث جوائزشون یا انقدر تراکنش
+
+[00:47:47.480 → 00:47:50.120] ⚠️ `multi_pass_disagreement`
+اگه داشته باشی به اینجا میرسی باشگاه مشتریان داری
+
+[00:47:50.120 → 00:47:52.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+من به عنوان یک فرد توی خانواده
+
+[00:47:52.180 → 00:47:54.720] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چقدر باید تحت تحصیل این مسئله قرار بگیرم
+
+[00:47:54.720 → 00:47:57.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+شون گاهی اتفاقا فکر میکنم به نفعه
+
+[00:47:57.680 → 00:48:02.440] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی خب من اگر خرید بکنم بذار از این کارت بخارم که درستادش هم برگرده به حسابم
+
+[00:48:02.440 → 00:48:04.120] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا نه داگم گول میخواگم
+
+[00:48:05.240 → 00:48:13.500] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ببینید الگوهای بازاریابانه خرید در واقع ما پیشنادم این بوده که در سواد مالی ازش سر بپیچید
+
+[00:48:13.500 → 00:48:18.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی مطبعا باشید که این شانس دوباره میاد در خونه شما رو میزنه
+
+[00:48:18.240 → 00:48:19.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اینجوری نیست که بره
+
+[00:48:19.300 → 00:48:25.340] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اصلا کار بازاریابا اینه که تک تک خونه‌های مردم رو بزنن و این محصول رو بهشون معرفی بکنن
+
+[00:48:25.340 → 00:48:29.340] ⚠️ `multi_pass_disagreement`
+حالا چه این در حوضه‌ی بانکی باشه یا در حوضه‌ی کالا باشه
+
+[00:48:29.340 → 00:48:35.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پس ما سرپیچی از این الگو رو پیشنهاد می‌کنیم تو سواد مالی
+
+[00:48:35.140 → 00:48:44.540] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+می‌گیم نه باید در واقع تصمیم شما متأثر از این الگو‌های حیجانی یا در واقع تحریک احساسات باشه
+
+[00:48:44.540 → 00:49:07.860] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+الان می‌تونه حتی جایزه باشه یا امتیاز باشه یا باشگاه مشتریان باشه چون به هر حال نفعی که اون طرف مقابل می‌بره همواره بیشتر از نفعیه که فرد استفاده کننده می‌بره ولی اون این کارو انجام نمی‌داد اون هزینه‌های تبلیغاتش هم وارده ترازنامه‌ش می‌شه و به هر حال سودش رو در نهایت شناسایی خواهد کرد
+
+[00:49:07.860 → 00:49:13.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما یه نکته یه مهم دیگه که جدیدن تو کشور ایجاد شده کارت اعتباریه
+
+[00:49:13.520 → 00:49:23.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما توی سواد مالی میگیم که نسیه نخرید، درامد آینده است، خودتون رو به دهکار نکنید، خوردن از درامد آینده است
+
+[00:49:23.980 → 00:49:28.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و این که شما رو نگرام می‌کنه چجوری باید پرداخت بکنید
+
+[00:49:28.300 → 00:49:37.740] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+البته عقدی که روی این تراحی شده بر کارتای اعتباری قطعا متفاوت با اون چیزیه که قرد و سودیه که در خارج از کشور وجود داره
+
+[00:49:37.740 → 00:49:43.100] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما به هر حال شما باید این پولو از آینده پرداخت بکنی
+
+[00:49:43.100 → 00:49:46.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی همون شرایط بدهکار شدن رو در کارتای اعتباری هم داری
+
+[00:49:46.800 → 00:49:51.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این نیست که مثلا اول ماه بری اعتباری خرید بکنی باید دیگه ببخشن بهت
+
+[00:49:51.180 → 00:49:58.440] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نه این رو باید در ماهای آینده پرداخت بکنی و همون ویژگی هایی که در بدهکار شدن هست در این هم هست
+
+[00:49:58.440 → 00:50:07.040] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خوردن در آمد آینده، نگرانی از باسپرداخت، ناتوانی در باسپرداخت، اواقع بردم باسپرداخت، همه این رو شاملش میشه
+
+[00:50:07.040 → 00:50:16.960] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بنابراین حتی کارت های اعتباری هم که الان در واقع داره رواش پیدا می‌کنن رو باید یک کمی با نگاه بدبینی بهش نگاه کرد و زیاد سمتش نره
+
+[00:50:21.180 → 00:50:51.080] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نظرهای دکتر رودی بسیار معافق هستم که بانک ها در ارائه خدماتشون و در اون وکالتی که از سپوردگزاران هستن خدمات متنوه ارائه کنن ولی تا زمانی که بانک متحده به اون حرفاش هستش و متحد به قولهای هستش که داده و طبق قانون رفتار میکنه هیچ ایرادی نداره هرچی متنوه تر خدمات بهتر سریتر و مطمئن تر بهتر انواع اقسام ترهای نقرهی تلائی اینها بذارن چون رفاه مصرف کنند
+
+[00:50:51.080 → 00:51:12.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+رفاه سپوردگوزا و رفاه مشتری بانک بالتر میره، هرچی که در راستای قوانی و در راستای کمک به ثبات اقتصادی و جلو گیره از بحران اقتصادی باشه، ولی رفاه مصرف کننده و مشتری رو بالا ببره، پذیرفته هستش و من بسیار استقبال میکنم که بانک های اتفاقا ترهاشون رو متنبله تر کنند.
+
+[00:51:12.180 → 00:51:34.060] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+بله کاملا درست هست، فکر می‌کنم مرزش اینجاست که باید ببینیم اون هدف و دلیلی که ما رفتیم بانک که یک کاری رو انجام بدیم، یک حسابی رو باز بکنیم چی بوده، بعد ببینیم اون ترهی که بانک داره داره کمک می‌کنه به این هدف من یا نه؟ داره من رو دور می‌کنیم ببینید توی هدف دیگه که در واقع خودش هست، از این جهت بود که باید موازب باشیم، فکر می‌کنم
+
+[00:51:34.060 → 00:51:44.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب، به پایان برنامه چهلستون رسیدیم، در این قسمت گفتگو کردیم درباره بانک، انواع حسابها، وامها، تحصیلات و نقشی که بانک در زندگی شخصی ما داره
+
+[00:51:44.880 → 00:51:53.440] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+از آقای دکتر کمیل رودی، ممنونم که در استودیو حضور داشتید و همچنین جناب آقای دکتر وحاب قیلیج، کارشناس و پجورشگر حوضه بانک
+
+[00:51:53.440 → 00:51:59.580] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این برنامه توسط گوگوه اقتصاد رادیو گفتگو با حمایت علمی اکادمی حوش مالی تحیه شده
+
+[00:51:59.580 → 00:52:07.920] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+بنده حادی نجف، به اتفاق سایی را همکارانم، تحیه کننده سرکا خانوم آغازاده، صدا بردا خانوم ایسازاده و همه هنگی خانوم محسنزاده
+
+[00:52:07.920 → 00:52:10.780]
+از شما شنونده‌های عزیز چهل ستون خدافزی می‌کنن

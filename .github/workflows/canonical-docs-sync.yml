@@ -1,0 +1,139 @@
+name: Canonical Markdown output sync
+run-name: Canonical Markdown output sync ${{ github.run_id }}
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/canonical-docs-sync.yml'
+      - 'outputs/chehelstoun/**'
+      - 'outputs/mizan/**'
+      - 'outputs/voice-260817-165035/**'
+      - 'outputs/ketab-baz/**'
+      - 'outputs/finup/**'
+      - 'outputs/bankmellatt/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: canonical-markdown-output-sync
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Rebuild human-readable canonical outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import shutil
+
+          outputs = Path('outputs')
+          finalized = outputs / 'finalized'
+          ready = outputs / 'review-ready'
+          managed = {'chehelstoun','mizan','voice-260817-165035','ketab-baz','finup','bankmellatt'}
+
+          for root in (finalized, ready):
+              if root.exists():
+                  shutil.rmtree(root)
+              root.mkdir(parents=True, exist_ok=True)
+
+          def scoped(base: Path) -> bool:
+              try:
+                  rel = base.relative_to(outputs)
+              except ValueError:
+                  return False
+              return bool(rel.parts) and rel.parts[0] in managed
+
+          def copy(src: Path, dst: Path):
+              if src.is_file():
+                  dst.parent.mkdir(parents=True, exist_ok=True)
+                  shutil.copy2(src, dst)
+                  return True
+              return False
+
+          final_items = []
+          ready_items = []
+
+          # Finalized: explicit review was applied and promoted final transcript exists.
+          for final_md in sorted(outputs.glob('**/final/transcript.final.md')):
+              if 'finalized' in final_md.parts or 'review-ready' in final_md.parts:
+                  continue
+              base = final_md.parent.parent
+              if not scoped(base):
+                  continue
+              final_txt = base / 'final/transcript.final.txt'
+              verified = (base / 'human/verification.json').is_file() or (base / 'review/chatgpt-corrections.json').is_file()
+              if not final_txt.is_file() or not verified:
+                  continue
+              rel = base.relative_to(outputs)
+              dest = finalized / rel
+              dest.mkdir(parents=True, exist_ok=True)
+              copy(final_md, dest / 'transcript.md')
+              copy(final_txt, dest / 'transcript.txt')
+              copy(base / 'delivery/transcript.timestamped.md', dest / 'transcript.timestamped.md')
+              copy(base / 'review/review.md', dest / 'review.md')
+              final_items.append(str(rel))
+
+          # Review-ready: readable transcript + readable review package exist, but final review has not been promoted.
+          for review_md in sorted(outputs.glob('**/review/review.md')):
+              if 'finalized' in review_md.parts or 'review-ready' in review_md.parts:
+                  continue
+              base = review_md.parent.parent
+              if not scoped(base):
+                  continue
+              if (base / 'human/verification.json').is_file() or (base / 'review/chatgpt-corrections.json').is_file():
+                  continue
+              if not (base / 'delivery/transcript.md').is_file() or not (base / 'delivery/transcript.txt').is_file():
+                  continue
+              rel = base.relative_to(outputs)
+              dest = ready / rel
+              dest.mkdir(parents=True, exist_ok=True)
+              copy(base / 'delivery/transcript.md', dest / 'transcript.md')
+              copy(base / 'delivery/transcript.txt', dest / 'transcript.txt')
+              copy(base / 'delivery/transcript.timestamped.md', dest / 'transcript.timestamped.md')
+              copy(review_md, dest / 'review.md')
+              ready_items.append(str(rel))
+
+          status = ['# Output Status', '', f'- Finalized: **{len(final_items)}**', f'- Review-ready: **{len(ready_items)}**', '', '## Finalized']
+          status += [f'- `{x}`' for x in final_items] or ['- none']
+          status += ['', '## Review-ready']
+          status += [f'- `{x}`' for x in ready_items] or ['- none']
+          (outputs / 'STATUS.md').write_text('\n'.join(status) + '\n', encoding='utf-8')
+
+          readme = '''# Outputs\n\nبرای استفاده روزمره فقط این دو مسیر را نگاه کنید:\n\n- `outputs/finalized/` — خروجی‌های Review‌شده و نهایی.\n- `outputs/review-ready/` — خروجی‌های آماده‌ی Review نهایی.\n\nداخل هر پوشه‌ی مصرفی فقط فایل‌های خواندنی نگه داشته می‌شوند:\n\n- `transcript.md`\n- `transcript.txt`\n- `transcript.timestamped.md`\n- `review.md`\n\nJSON و فایل‌های فنی فقط در مسیر اصلی هر Job برای Audit/Resume باقی می‌مانند.\nوضعیت کلی: `outputs/STATUS.md`\n'''
+          (outputs / 'README.md').write_text(readme, encoding='utf-8')
+          PY
+
+          git rm -f outputs/canonical-status.json 2>/dev/null || true
+
+      - name: Commit canonical readable outputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A outputs/finalized outputs/review-ready outputs/README.md outputs/STATUS.md outputs/canonical-status.json
+          if git diff --cached --quiet; then
+            echo 'No canonical changes.'
+            exit 0
+          fi
+          git commit -m 'Normalize canonical outputs to Markdown and text'
+          for attempt in 1 2 3 4 5 6; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep $((attempt * 3))
+          done
+          exit 1

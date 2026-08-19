@@ -11,11 +11,8 @@ on:
       - 'outputs/ketab-baz/**'
       - 'outputs/mizan/**'
       - 'outputs/finup/**'
+      - 'outputs/voice-260817-165035/**'
       - 'outputs/bankmellatt/**'
-      - 'outputs/sherakat/**'
-      - 'outputs/sharakat/**'
-      - 'outputs/sharekat/**'
-      - 'outputs/partnership/**'
   workflow_dispatch:
 
 permissions:
@@ -79,6 +76,7 @@ jobs:
           test -s 'copy/کتاب باز.md'
           test -s 'copy/میزان.md'
           test -s 'copy/فناپ.md'
+          test -s 'copy/شراکت.md'
           for f in copy/*.md; do
             grep -q '^\- \*\*مدت‌زمان کل:\*\*' "$f"
             grep -q '^\- \*\*صفحه/فید منبع:\*\*' "$f"

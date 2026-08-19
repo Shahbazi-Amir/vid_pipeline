@@ -136,11 +136,11 @@ jobs:
               if unresolved:
                   raise RuntimeError(f'{ep}: unresolved required items: {unresolved[:5]}')
 
-              subprocess.run(['git','add',str(out_path)],check=True)
+              subprocess.run(['git','add','-f',str(out_path)],check=True)
               subprocess.run(['git','commit','-m',f'Apply ChatGPT review to Chehelstoun {ep}'],check=True)
               subprocess.run(['git','pull','--rebase','origin','main'],check=True)
               subprocess.run(['git','push','origin','HEAD:main'],check=True)
               print(f'COMMITTED {ep} items={len(items)}')
           PY
 
-# trigger 2026-08-19
+# fixed ignored outputs 2026-08-19T06:00Z

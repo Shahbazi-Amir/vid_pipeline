@@ -1,0 +1,214 @@
+name: Recover Mizan and Ketab Baz
+run-name: Recover Mizan and Ketab Baz ${{ github.run_id }}
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/recover-mizan-ketab-push.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  PROFILE: balanced
+  LANGUAGE: fa
+  AUDIO_PROFILE: safe
+  VID_PIPELINE_ACCURACY_MODE: balanced
+  CHEHELSTOUN_TAG: chehelstoun-archive-v1
+  BOOK_TAG: ketab-baz-s05e68-komeil-roudi
+  MIZAN_ASSET: -3178952013450502399_40155051444622.mp3
+  KETAB_ASSET: KetabBaz_S05E68_Komeil_Roudi.mp3
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.assets.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Resolve exact release assets
+        id: assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh api "repos/${GITHUB_REPOSITORY}/releases/tags/${CHEHELSTOUN_TAG}" > /tmp/cheh.json
+          gh api "repos/${GITHUB_REPOSITORY}/releases/tags/${BOOK_TAG}" > /tmp/book.json
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          cheh=json.loads(Path('/tmp/cheh.json').read_text())
+          book=json.loads(Path('/tmp/book.json').read_text())
+          def exact(rel,name):
+              found=[a for a in rel.get('assets',[]) if a.get('name')==name]
+              if len(found)!=1: raise SystemExit(f'Expected exactly one asset {name!r}, found {len(found)}')
+              return found[0]
+          m=exact(cheh,os.environ['MIZAN_ASSET']); k=exact(book,os.environ['KETAB_ASSET'])
+          tasks=[
+            {'kind':'mizan','display':'میزان','title':'میزان','dest':'outputs/mizan/01','name':m['name'],'url':m['browser_download_url'],'size':m['size'],'release_tag':cheh['tag_name'],'hotwords':'میزان، کمیل رودی، دکتر کمیل رودی، سواد مالی'},
+            {'kind':'ketab-baz','display':'کتاب‌باز','title':'کتاب‌باز - کمیل رودی','dest':'outputs/ketab-baz/01','name':k['name'],'url':k['browser_download_url'],'size':k['size'],'release_tag':book['tag_name'],'hotwords':'کتاب باز، کتاب‌باز، کمیل رودی، دکتر کمیل رودی، سروش صحت'},
+          ]
+          compact=json.dumps({'include':tasks},ensure_ascii=False,separators=(',',':'))
+          with open(os.environ['GITHUB_OUTPUT'],'a',encoding='utf-8') as f:
+              f.write('matrix<<EOF\n'+compact+'\nEOF\n')
+          PY
+
+      - name: Record recovery run
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p ops/media-recovery
+          printf '{"run_id":"%s","url":"https://github.com/%s/actions/runs/%s"}\n' "$GITHUB_RUN_ID" "$GITHUB_REPOSITORY" "$GITHUB_RUN_ID" > ops/media-recovery/latest-run.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add ops/media-recovery/latest-run.json
+          git commit -m "Record Mizan Ketab recovery run ${GITHUB_RUN_ID}" || exit 0
+          for attempt in 1 2 3 4 5 6; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep $((attempt*3))
+          done
+          exit 1
+
+  recover:
+    needs: prepare
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      KIND: ${{ matrix.kind }}
+      DISPLAY: ${{ matrix.display }}
+      TITLE: ${{ matrix.title }}
+      DEST: ${{ matrix.dest }}
+      ASSET_NAME: ${{ matrix.name }}
+      ASSET_URL: ${{ matrix.url }}
+      ASSET_SIZE: ${{ matrix.size }}
+      HOTWORDS: ${{ matrix.hotwords }}
+      RELEASE_TAG: ${{ matrix.release_tag }}
+      VID_PIPELINE_ASR_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/asr
+      HF_HOME: ${{ github.workspace }}/.cache/huggingface
+      HF_HUB_CACHE: ${{ github.workspace }}/.cache/huggingface/hub
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Skip if already recovered
+        id: existing
+        shell: bash
+        run: |
+          set -euo pipefail
+          git pull --ff-only origin main
+          if [[ -s "$DEST/delivery/transcript.txt" && -s "$DEST/review/assistant-review-package.json" && -s "$DEST/pre_review/transcript.pre-review.json" && -s "$DEST/accuracy/transcript.consensus.json" ]]; then
+            echo 'skip=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'skip=false' >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-python@v5
+        if: steps.existing.outputs.skip != 'true'
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - uses: actions/cache@v4
+        if: steps.existing.outputs.skip != 'true'
+        with:
+          path: ${{ env.VID_PIPELINE_ASR_CACHE }}
+          key: asr-${{ runner.os }}-py311-faster-whisper-1.2.1-large-v3-turbo-v1
+
+      - name: Install worker
+        if: steps.existing.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg curl rsync
+          python -m pip install --upgrade pip
+          pip install -e '.[worker]'
+
+      - name: Download exact media safely
+        if: steps.existing.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          ext="${ASSET_NAME##*.}"; [[ "$ext" != "$ASSET_NAME" ]] || ext=media
+          mkdir -p "/tmp/recover-${KIND}-input" "/tmp/recover-${KIND}-runtime"
+          input="/tmp/recover-${KIND}-input/input.${ext}"
+          curl -fL --retry 5 --retry-all-errors --connect-timeout 30 --max-time 1800 "$ASSET_URL" -o "$input"
+          test "$(stat -c %s "$input")" -eq "$ASSET_SIZE"
+          ffprobe -v error -select_streams a:0 -show_entries stream=codec_name -of default=nw=1:nk=1 "$input" | grep -q .
+          echo "input=$input" >> "$GITHUB_ENV"
+
+      - name: Run Persian ASR and review preparation
+        if: steps.existing.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          vid-pipeline run-file "$input" \
+            --name "$KIND" --output-root "/tmp/recover-${KIND}-runtime" \
+            --profile "$PROFILE" --language "$LANGUAGE" --device cpu --compute-type int8 --audio-profile "$AUDIO_PROFILE" \
+            --hotwords "$HOTWORDS" --title "$TITLE" --program "$DISPLAY" --speaker "دکتر کمیل رودی" \
+            --source-url "$ASSET_URL" --no-editorial
+
+      - name: Persist without generated archive
+        if: steps.existing.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          job_dir=$(find "/tmp/recover-${KIND}-runtime" -mindepth 1 -maxdepth 1 -type d -name "${KIND}-*" -print -quit)
+          test -n "$job_dir"
+          test -s "$job_dir/delivery/transcript.txt"
+          test -s "$job_dir/review/assistant-review-package.json"
+          rm -rf "$DEST"; mkdir -p "$DEST"
+          for d in delivery pre_review accuracy review raw machine final; do
+            if [[ -d "$job_dir/$d" ]]; then
+              mkdir -p "$DEST/$d"
+              rsync -a --exclude 'clips/' --exclude 'review-package.zip' --exclude '*.mp3' --exclude '*.m4a' --exclude '*.wav' --exclude '*.flac' --exclude '*.aac' --exclude '*.ogg' --exclude '*.opus' --exclude '*.mp4' --exclude '*.mkv' --exclude '*.mov' --exclude '*.webm' --exclude '*.avi' --exclude '*.m4v' "$job_dir/$d/" "$DEST/$d/"
+            fi
+          done
+          rm -f "$DEST/final/review-package.zip"
+          [[ -f "$job_dir/result.json" ]] && cp "$job_dir/result.json" "$DEST/result.json"
+          [[ -f "$job_dir/source.json" ]] && cp "$job_dir/source.json" "$DEST/source.json"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          d=Path(os.environ['DEST'])
+          (d/'metadata.json').write_text(json.dumps({'collection':os.environ['DISPLAY'],'asset_name':os.environ['ASSET_NAME'],'source_release_tag':os.environ['RELEASE_TAG'],'source_url':os.environ['ASSET_URL'],'profile':os.environ['PROFILE'],'asr_model':'large-v3-turbo','language':os.environ['LANGUAGE'],'audio_profile':os.environ['AUDIO_PROFILE'],'accuracy_mode':os.environ['VID_PIPELINE_ACCURACY_MODE'],'editorial':False,'chatgpt_review_ready':True,'review_clips_committed':False,'pipeline_run_id':os.environ['GITHUB_RUN_ID'],'recovery_reason':'exclude_oversized_review_archive'},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+
+      - name: Commit and push independently
+        if: steps.existing.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f "$DEST/final/review-package.zip"
+          oversized=$(find "$DEST" -type f -size +95M -print -quit)
+          if [[ -n "$oversized" ]]; then echo "::error::Oversized output remains: $oversized"; exit 1; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f "$DEST"
+          git diff --cached --quiet && exit 0
+          git commit -m "Recover ${DISPLAY} transcript without oversized archive"
+          for attempt in 1 2 3 4 5 6 7 8 9 10; do
+            if ! git pull --rebase origin main; then git rebase --abort || true; exit 1; fi
+            if git push origin HEAD:main; then exit 0; fi
+            sleep $((attempt*4))
+          done
+          exit 1
+
+      - name: Cleanup
+        if: always()
+        shell: bash
+        run: rm -rf "/tmp/recover-${KIND}-input" "/tmp/recover-${KIND}-runtime"

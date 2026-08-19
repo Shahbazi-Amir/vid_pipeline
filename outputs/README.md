@@ -1,9 +1,16 @@
-# Canonical outputs
+# Outputs
 
 برای استفاده روزمره فقط این دو مسیر را نگاه کنید:
 
-- `outputs/finalized/` — فقط خروجی‌هایی که Review واقعی شده‌اند و Final transcript دارند.
-- `outputs/review-ready/` — پردازش و Review Package کامل است، ولی Review نهایی هنوز انجام نشده.
+- `outputs/finalized/` — خروجی‌های Review‌شده و نهایی.
+- `outputs/review-ready/` — خروجی‌های آماده‌ی Review نهایی.
 
-مسیرهای قدیمی هر Collection برای Audit/Resume نگه داشته شده‌اند و حذف نشده‌اند.
-مرجع وضعیت ماشینی: `outputs/canonical-status.json`.
+داخل هر پوشه‌ی مصرفی فقط این فایل‌های خواندنی هستند:
+
+- `transcript.md`
+- `transcript.txt`
+- `transcript.timestamped.md`
+- `review.md`
+
+JSON و فایل‌های فنی فقط در مسیر اصلی هر Job برای Audit/Resume باقی می‌مانند.
+وضعیت کلی: `outputs/STATUS.md`

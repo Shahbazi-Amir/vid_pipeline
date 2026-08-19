@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "aa08bebbdd0feb3da9fd46c1b1116df5baa48708ee5cbe2455e6c21607dcb1bf",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 20.4,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 20.06,
+        "text": "رئیس کتاب، یه فرایند داره ناشعر، خب مثلا می‌گی آقا نوشته رو به من بده، ویراستار دارم، تراح دارن، بعد مثلا تراها جلد درم، مثلا این تراه رو صفه بنده، بعد مسلا میره",
+        "avg_logprob": -0.2912109120159733,
+        "compression_ratio": 1.7852760736196318,
+        "no_speech_prob": 4.2138173506067744e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.22,
+            "word": " رئیس",
+            "probability": 0.47639192861970514
+          },
+          {
+            "start": 0.22,
+            "end": 0.94,
+            "word": " کتاب،",
+            "probability": 0.7281289529055357
+          },
+          {
+            "start": 0.94,
+            "end": 3.64,
+            "word": " یه",
+            "probability": 0.9046403765678406
+          },
+          {
+            "start": 3.64,
+            "end": 4.6,
+            "word": " فرایند",
+            "probability": 0.9080827683210373
+          },
+          {
+            "start": 4.6,
+            "end": 4.86,
+            "word": " داره",
+            "probability": 0.958745539188385
+          },
+          {
+            "start": 4.86,
+            "end": 5.76,
+            "word": " ناشعر،",
+            "probability": 0.7043501377105713
+          },
+          {
+            "start": 5.76,
+            "end": 6.46,
+            "word": " خب",
+            "probability": 0.7862154543399811
+          },
+          {
+            "start": 6.46,
+            "end": 7.42,
+            "word": " مثلا",
+            "probability": 0.848621279001236
+          },
+          {
+            "start": 7.42,
+            "end": 7.66,
+            "word": " می‌گی",
+            "probability": 0.5724347438663244
+          },
+          {
+            "start": 7.66,
+            "end": 7.88,
+            "word": " آقا",
+            "probability": 0.8911807735761007
+          },
+          {
+            "start": 7.88,
+            "end": 8.36,
+            "word": " نوشته",
+            "probability": 0.8303473964333534
+          },
+          {
+            "start": 8.36,
+            "end": 8.52,
+            "word": " رو",
+            "probability": 0.7248342782258987
+          },
+          {
+            "start": 8.52,
+            "end": 8.64,
+            "word": " به",
+            "probability": 0.9726430773735046
+          },
+          {
+            "start": 8.64,
+            "end": 8.84,
+            "word": " من",
+            "probability": 0.9829766750335693
+          },
+          {
+            "start": 8.84,
+            "end": 9.52,
+            "word": " بده،",
+            "probability": 0.8230836788813273
+          },
+          {
+            "start": 9.52,
+            "end": 10.64,
+            "word": " ویراستار",
+            "probability": 0.9228095531463623
+          },
+          {
+            "start": 10.64,
+            "end": 11.8,
+            "word": " دارم،",
+            "probability": 0.9697485566139221
+          },
+          {
+            "start": 11.8,
+            "end": 12.44,
+            "word": " تراح",
+            "probability": 0.683536966641744
+          },
+          {
+            "start": 12.44,
+            "end": 13.36,
+            "word": " دارن،",
+            "probability": 0.7123941873287549
+          },
+          {
+            "start": 13.36,
+            "end": 13.72,
+            "word": " بعد",
+            "probability": 0.869353711605072
+          },
+          {
+            "start": 13.72,
+            "end": 14.32,
+            "word": " مثلا",
+            "probability": 0.9027353525161743
+          },
+          {
+            "start": 14.32,
+            "end": 14.88,
+            "word": " تراها",
+            "probability": 0.632271574693732
+          },
+          {
+            "start": 14.88,
+            "end": 15.44,
+            "word": " جلد",
+            "probability": 0.8795428474744161
+          },
+          {
+            "start": 15.44,
+            "end": 16.06,
+            "word": " درم،",
+            "probability": 0.6088541944336612
+          },
+          {
+            "start": 16.06,
+            "end": 16.22,
+            "word": " مثلا",
+            "probability": 0.8359964489936829
+          },
+          {
+            "start": 16.22,
+            "end": 16.38,
+            "word": " این",
+            "probability": 0.9491018354892731
+          },
+          {
+            "start": 16.38,
+            "end": 16.84,
+            "word": " تراه",
+            "probability": 0.6650615930557251
+          },
+          {
+            "start": 16.84,
+            "end": 16.9,
+            "word": " رو",
+            "probability": 0.7020726501941681
+          },
+          {
+            "start": 16.9,
+            "end": 17.32,
+            "word": " صفه",
+            "probability": 0.8393214146296183
+          },
+          {
+            "start": 17.32,
+            "end": 18.42,
+            "word": " بنده،",
+            "probability": 0.8486488610506058
+          },
+          {
+            "start": 18.42,
+            "end": 19.06,
+            "word": " بعد",
+            "probability": 0.9888482093811035
+          },
+          {
+            "start": 19.06,
+            "end": 19.48,
+            "word": " مسلا",
+            "probability": 0.4957487346837297
+          },
+          {
+            "start": 19.48,
+            "end": 20.06,
+            "word": " میره",
+            "probability": 0.8598157366116842
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "89f945f4d282eacbdd32605d426628a528d8f6cf3324bc92deac4aa5b013a34b",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.8,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.78,
+        "text": "نگم آقا چون، من یک کاری دارم میکنم، مثلا من کارشناسه، منابع انسانی.",
+        "avg_logprob": -0.28039233684539794,
+        "compression_ratio": 1.2736842105263158,
+        "no_speech_prob": 4.877274695225253e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.24,
+            "word": " نگم",
+            "probability": 0.38812049726645154
+          },
+          {
+            "start": 0.24,
+            "end": 0.46,
+            "word": " آقا",
+            "probability": 0.8919209043184916
+          },
+          {
+            "start": 0.46,
+            "end": 0.94,
+            "word": " چون،",
+            "probability": 0.5901987279454867
+          },
+          {
+            "start": 0.94,
+            "end": 1.1,
+            "word": " من",
+            "probability": 0.9575058221817017
+          },
+          {
+            "start": 1.1,
+            "end": 1.3,
+            "word": " یک",
+            "probability": 0.9382534623146057
+          },
+          {
+            "start": 1.3,
+            "end": 1.62,
+            "word": " کاری",
+            "probability": 0.9797613422075907
+          },
+          {
+            "start": 1.62,
+            "end": 1.96,
+            "word": " دارم",
+            "probability": 0.9828162988026937
+          },
+          {
+            "start": 1.96,
+            "end": 2.6,
+            "word": " میکنم،",
+            "probability": 0.7614853084087372
+          },
+          {
+            "start": 2.6,
+            "end": 2.94,
+            "word": " مثلا",
+            "probability": 0.9840545058250427
+          },
+          {
+            "start": 2.94,
+            "end": 3.32,
+            "word": " من",
+            "probability": 0.6791898012161255
+          },
+          {
+            "start": 3.32,
+            "end": 6.26,
+            "word": " کارشناسه،",
+            "probability": 0.7156226549829755
+          },
+          {
+            "start": 6.26,
+            "end": 7.0,
+            "word": " منابع",
+            "probability": 0.8908557891845703
+          },
+          {
+            "start": 7.0,
+            "end": 7.78,
+            "word": " انسانی.",
+            "probability": 0.9841464906930923
+          }
+        ]
+      }
+    ]
+  }
+}

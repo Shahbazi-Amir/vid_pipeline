@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "a236c1f266b994bb33ccc761b4d71c3e1f9a8d1166fb3f59b9677448737a7e3a",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.66,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.48,
+        "text": "کسی می‌گه آقا کارشون اصلا من رو باید ثانی، تو بیا شعری که بزارت نسج و میگه نا آقام، آنکر بر.",
+        "avg_logprob": -0.6468368049651857,
+        "compression_ratio": 1.3225806451612903,
+        "no_speech_prob": 5.237783540223973e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.4,
+            "word": " کسی",
+            "probability": 0.7091446320215861
+          },
+          {
+            "start": 0.4,
+            "end": 0.7,
+            "word": " می‌گه",
+            "probability": 0.68746193125844
+          },
+          {
+            "start": 0.7,
+            "end": 0.92,
+            "word": " آقا",
+            "probability": 0.7732018629709879
+          },
+          {
+            "start": 0.92,
+            "end": 1.38,
+            "word": " کارشون",
+            "probability": 0.7042698785662651
+          },
+          {
+            "start": 1.38,
+            "end": 1.58,
+            "word": " اصلا",
+            "probability": 0.5297307670116425
+          },
+          {
+            "start": 1.58,
+            "end": 1.74,
+            "word": " من",
+            "probability": 0.7612295746803284
+          },
+          {
+            "start": 1.74,
+            "end": 1.88,
+            "word": " رو",
+            "probability": 0.6184440106153488
+          },
+          {
+            "start": 1.88,
+            "end": 2.14,
+            "word": " باید",
+            "probability": 0.6089357361197472
+          },
+          {
+            "start": 2.14,
+            "end": 3.3,
+            "word": " ثانی،",
+            "probability": 0.5066707914229482
+          },
+          {
+            "start": 3.3,
+            "end": 3.4,
+            "word": " تو",
+            "probability": 0.9764946103096008
+          },
+          {
+            "start": 3.4,
+            "end": 3.68,
+            "word": " بیا",
+            "probability": 0.4016052633523941
+          },
+          {
+            "start": 3.68,
+            "end": 4.34,
+            "word": " شعری",
+            "probability": 0.6747141977151235
+          },
+          {
+            "start": 4.34,
+            "end": 4.54,
+            "word": " که",
+            "probability": 0.9333516359329224
+          },
+          {
+            "start": 4.54,
+            "end": 5.7,
+            "word": " بزارت",
+            "probability": 0.5300075858831406
+          },
+          {
+            "start": 5.7,
+            "end": 6.14,
+            "word": " نسج",
+            "probability": 0.6973194281260172
+          },
+          {
+            "start": 6.14,
+            "end": 6.46,
+            "word": " و",
+            "probability": 0.2772678732872009
+          },
+          {
+            "start": 6.46,
+            "end": 7.32,
+            "word": " میگه",
+            "probability": 0.5494750837484995
+          },
+          {
+            "start": 7.32,
+            "end": 7.52,
+            "word": " نا",
+            "probability": 0.766029953956604
+          },
+          {
+            "start": 7.52,
+            "end": 7.86,
+            "word": " آقام،",
+            "probability": 0.48143290216103196
+          },
+          {
+            "start": 7.86,
+            "end": 8.16,
+            "word": " آنکر",
+            "probability": 0.5457788780331612
+          },
+          {
+            "start": 8.16,
+            "end": 8.48,
+            "word": " بر.",
+            "probability": 0.48227351903915405
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "9c4ae4d26ae96bacd316a11c6d6b4767ba688d783ec2d7765008fd4819ce886f",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.68,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.68,
+        "text": "اینجا مضایه‌ها و نگرداشش بهتره، مثلا عربی‌ها بیش می‌کنن یا آموزه‌ش رو توثه اول، خب؟",
+        "avg_logprob": -0.478660132064194,
+        "compression_ratio": 1.3448275862068966,
+        "no_speech_prob": 4.06028904942346e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.62,
+            "word": " اینجا",
+            "probability": 0.726840365678072
+          },
+          {
+            "start": 0.62,
+            "end": 1.18,
+            "word": " مضایه‌ها",
+            "probability": 0.6523408825908389
+          },
+          {
+            "start": 1.18,
+            "end": 1.36,
+            "word": " و",
+            "probability": 0.5951513051986694
+          },
+          {
+            "start": 1.36,
+            "end": 1.98,
+            "word": " نگرداشش",
+            "probability": 0.707984355588754
+          },
+          {
+            "start": 1.98,
+            "end": 2.56,
+            "word": " بهتره،",
+            "probability": 0.515823021531105
+          },
+          {
+            "start": 2.56,
+            "end": 2.84,
+            "word": " مثلا",
+            "probability": 0.9386884272098541
+          },
+          {
+            "start": 2.84,
+            "end": 3.4,
+            "word": " عربی‌ها",
+            "probability": 0.6165503665804863
+          },
+          {
+            "start": 3.4,
+            "end": 3.6,
+            "word": " بیش",
+            "probability": 0.8792130748430887
+          },
+          {
+            "start": 3.6,
+            "end": 4.22,
+            "word": " می‌کنن",
+            "probability": 0.8224189162254334
+          },
+          {
+            "start": 4.22,
+            "end": 5.46,
+            "word": " یا",
+            "probability": 0.8571117520332336
+          },
+          {
+            "start": 5.46,
+            "end": 6.04,
+            "word": " آموزه‌ش",
+            "probability": 0.8585931701319558
+          },
+          {
+            "start": 6.04,
+            "end": 6.12,
+            "word": " رو",
+            "probability": 0.6012177467346191
+          },
+          {
+            "start": 6.12,
+            "end": 6.52,
+            "word": " توثه",
+            "probability": 0.6179160277048746
+          },
+          {
+            "start": 6.52,
+            "end": 7.12,
+            "word": " اول،",
+            "probability": 0.35649504760901135
+          },
+          {
+            "start": 7.12,
+            "end": 7.68,
+            "word": " خب؟",
+            "probability": 0.6901369492212931
+          }
+        ]
+      }
+    ]
+  }
+}

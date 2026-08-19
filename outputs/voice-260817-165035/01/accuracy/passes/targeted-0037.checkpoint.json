@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "7978abf9302d67dfd58998654c94105354b7f5a08946a6a7dc1868b240dea396",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.72,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 12.1,
+        "text": "آره، آرآه، می‌خوام بگم این خیلی محتوایی، حالا وقتی مهتوای از این فراین قوی تر میشه. چیه؟",
+        "avg_logprob": -0.34419727558270097,
+        "compression_ratio": 1.3793103448275863,
+        "no_speech_prob": 3.917782487317112e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 1.72,
+            "word": " آره،",
+            "probability": 0.5345938038080931
+          },
+          {
+            "start": 1.72,
+            "end": 3.18,
+            "word": " آرآه،",
+            "probability": 0.5375718043263381
+          },
+          {
+            "start": 3.18,
+            "end": 3.66,
+            "word": " می‌خوام",
+            "probability": 0.5535210743546486
+          },
+          {
+            "start": 3.66,
+            "end": 4.26,
+            "word": " بگم",
+            "probability": 0.6707081298033396
+          },
+          {
+            "start": 4.26,
+            "end": 5.12,
+            "word": " این",
+            "probability": 0.6624637246131897
+          },
+          {
+            "start": 5.12,
+            "end": 5.82,
+            "word": " خیلی",
+            "probability": 0.972817674279213
+          },
+          {
+            "start": 5.82,
+            "end": 7.0,
+            "word": " محتوایی،",
+            "probability": 0.7312363684177399
+          },
+          {
+            "start": 7.0,
+            "end": 7.18,
+            "word": " حالا",
+            "probability": 0.9322541554768881
+          },
+          {
+            "start": 7.18,
+            "end": 7.4,
+            "word": " وقتی",
+            "probability": 0.9181177218755087
+          },
+          {
+            "start": 7.4,
+            "end": 8.16,
+            "word": " مهتوای",
+            "probability": 0.6507071996573359
+          },
+          {
+            "start": 8.16,
+            "end": 8.38,
+            "word": " از",
+            "probability": 0.49897390929982066
+          },
+          {
+            "start": 8.38,
+            "end": 8.46,
+            "word": " این",
+            "probability": 0.956587553024292
+          },
+          {
+            "start": 8.46,
+            "end": 9.02,
+            "word": " فراین",
+            "probability": 0.9169654647509257
+          },
+          {
+            "start": 9.02,
+            "end": 9.54,
+            "word": " قوی",
+            "probability": 0.9582446614901224
+          },
+          {
+            "start": 9.54,
+            "end": 9.84,
+            "word": " تر",
+            "probability": 0.8225235641002655
+          },
+          {
+            "start": 9.84,
+            "end": 10.28,
+            "word": " میشه.",
+            "probability": 0.8997435172398885
+          },
+          {
+            "start": 10.98,
+            "end": 12.1,
+            "word": " چیه؟",
+            "probability": 0.9408305436372757
+          }
+        ]
+      }
+    ]
+  }
+}

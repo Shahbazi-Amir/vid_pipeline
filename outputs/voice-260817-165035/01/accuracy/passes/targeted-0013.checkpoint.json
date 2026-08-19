@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "c977d8cec64722c6d651da1a2e13b12a6cef52b56b65ed84995a0c42865197bd",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.82,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.8,
+        "text": "یا آموزه‌ش رو توسع هم است. خب؟ می‌گم این فرایندی‌ها، تو هر سازمانی بری هم اون فراينده. این ما می‌شونم کاشناسا من رو بنسانی.",
+        "avg_logprob": -0.42683467608463915,
+        "compression_ratio": 1.5555555555555556,
+        "no_speech_prob": 4.017052523952458e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.28,
+            "word": " یا",
+            "probability": 0.9528919458389282
+          },
+          {
+            "start": 0.28,
+            "end": 0.84,
+            "word": " آموزه‌ش",
+            "probability": 0.7546180486679077
+          },
+          {
+            "start": 0.84,
+            "end": 0.94,
+            "word": " رو",
+            "probability": 0.6095016598701477
+          },
+          {
+            "start": 0.94,
+            "end": 1.36,
+            "word": " توسع",
+            "probability": 0.7491086920102438
+          },
+          {
+            "start": 1.36,
+            "end": 1.52,
+            "word": " هم",
+            "probability": 0.5168635547161102
+          },
+          {
+            "start": 1.52,
+            "end": 1.78,
+            "word": " است.",
+            "probability": 0.15076889097690582
+          },
+          {
+            "start": 2.22,
+            "end": 2.82,
+            "word": " خب؟",
+            "probability": 0.5317483246326447
+          },
+          {
+            "start": 2.82,
+            "end": 4.0,
+            "word": " می‌گم",
+            "probability": 0.6408728510141373
+          },
+          {
+            "start": 4.0,
+            "end": 4.16,
+            "word": " این",
+            "probability": 0.9114983081817627
+          },
+          {
+            "start": 4.16,
+            "end": 6.12,
+            "word": " فرایندی‌ها،",
+            "probability": 0.8062236066907644
+          },
+          {
+            "start": 6.12,
+            "end": 6.56,
+            "word": " تو",
+            "probability": 0.9880046248435974
+          },
+          {
+            "start": 6.56,
+            "end": 6.96,
+            "word": " هر",
+            "probability": 0.9821409285068512
+          },
+          {
+            "start": 6.96,
+            "end": 7.78,
+            "word": " سازمانی",
+            "probability": 0.9757397890090942
+          },
+          {
+            "start": 7.78,
+            "end": 8.0,
+            "word": " بری",
+            "probability": 0.8498930037021637
+          },
+          {
+            "start": 8.0,
+            "end": 8.3,
+            "word": " هم",
+            "probability": 0.7461378127336502
+          },
+          {
+            "start": 8.3,
+            "end": 8.46,
+            "word": " اون",
+            "probability": 0.45259230128431227
+          },
+          {
+            "start": 8.46,
+            "end": 9.26,
+            "word": " فراينده.",
+            "probability": 0.7500021904357709
+          },
+          {
+            "start": 9.56,
+            "end": 10.16,
+            "word": " این",
+            "probability": 0.3927871808409691
+          },
+          {
+            "start": 10.16,
+            "end": 10.26,
+            "word": " ما",
+            "probability": 0.38551047444343567
+          },
+          {
+            "start": 10.26,
+            "end": 10.56,
+            "word": " می‌شونم",
+            "probability": 0.8178909182548523
+          },
+          {
+            "start": 10.56,
+            "end": 11.08,
+            "word": " کاشناسا",
+            "probability": 0.5726262748241424
+          },
+          {
+            "start": 11.08,
+            "end": 11.2,
+            "word": " من",
+            "probability": 0.9212072491645813
+          },
+          {
+            "start": 11.2,
+            "end": 11.3,
+            "word": " رو",
+            "probability": 0.9366865456104279
+          },
+          {
+            "start": 11.3,
+            "end": 11.8,
+            "word": " بنسانی.",
+            "probability": 0.8734395354986191
+          }
+        ]
+      }
+    ]
+  }
+}

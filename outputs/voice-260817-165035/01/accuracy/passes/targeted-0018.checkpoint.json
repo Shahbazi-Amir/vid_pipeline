@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "ab99414b9bb683a268fc8b9bd9a243dd1a5d1a096f7f3a270e03217a1132d37b",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.0,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.98,
+        "text": "و داره خونم باشم، همینی. ولی یک چیلی مثادیقش فرق می‌کنه. یعنی اون که من اونجا اجرا می‌‌کند.",
+        "avg_logprob": -0.3805255377665162,
+        "compression_ratio": 1.3865546218487395,
+        "no_speech_prob": 3.342940924078164e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.68,
+            "word": " و",
+            "probability": 0.692010760307312
+          },
+          {
+            "start": 0.68,
+            "end": 0.98,
+            "word": " داره",
+            "probability": 0.6596397459506989
+          },
+          {
+            "start": 0.98,
+            "end": 1.3,
+            "word": " خونم",
+            "probability": 0.7684728503227234
+          },
+          {
+            "start": 1.3,
+            "end": 1.72,
+            "word": " باشم،",
+            "probability": 0.6967670656740665
+          },
+          {
+            "start": 1.72,
+            "end": 2.16,
+            "word": " همینی.",
+            "probability": 0.6049874648451805
+          },
+          {
+            "start": 2.54,
+            "end": 3.18,
+            "word": " ولی",
+            "probability": 0.9808570146560669
+          },
+          {
+            "start": 3.18,
+            "end": 3.36,
+            "word": " یک",
+            "probability": 0.6922657787799835
+          },
+          {
+            "start": 3.36,
+            "end": 3.58,
+            "word": " چیلی",
+            "probability": 0.6357979718595743
+          },
+          {
+            "start": 3.58,
+            "end": 4.52,
+            "word": " مثادیقش",
+            "probability": 0.7626005013783773
+          },
+          {
+            "start": 4.52,
+            "end": 4.98,
+            "word": " فرق",
+            "probability": 0.9599272608757019
+          },
+          {
+            "start": 4.98,
+            "end": 5.5,
+            "word": " می‌کنه.",
+            "probability": 0.6478235378861428
+          },
+          {
+            "start": 5.68,
+            "end": 6.32,
+            "word": " یعنی",
+            "probability": 0.9944970309734344
+          },
+          {
+            "start": 6.32,
+            "end": 6.5,
+            "word": " اون",
+            "probability": 0.8045856654644012
+          },
+          {
+            "start": 6.5,
+            "end": 6.72,
+            "word": " که",
+            "probability": 0.6268350332975388
+          },
+          {
+            "start": 6.72,
+            "end": 6.82,
+            "word": " من",
+            "probability": 0.774544894695282
+          },
+          {
+            "start": 6.82,
+            "end": 7.1,
+            "word": " اونجا",
+            "probability": 0.9103430956602097
+          },
+          {
+            "start": 7.1,
+            "end": 7.66,
+            "word": " اجرا",
+            "probability": 0.9695669611295065
+          },
+          {
+            "start": 7.66,
+            "end": 7.98,
+            "word": " می‌‌کند.",
+            "probability": 0.5920110152335838
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,4721 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-19T00:37:41.340779+00:00",
+  "config": {
+    "confidence_threshold": 0.68,
+    "segment_logprob_threshold": -0.85,
+    "no_speech_threshold": 0.5,
+    "clip_context_seconds": 3.0,
+    "extract_clips": true,
+    "retranscribe_model": "",
+    "retranscribe_device": "cpu",
+    "retranscribe_compute_type": "int8",
+    "retranscribe_beam_size": 8,
+    "paragraph_words": 90
+  },
+  "items": [
+    {
+      "id": "segment-0001",
+      "segment_id": 1,
+      "segment_index": 0,
+      "start": 2.96,
+      "end": 6.66,
+      "source_text": "نسبت خودم و شرکتم دوزیف بدم",
+      "proposed_text": "نسبت خودم و شرکتم دوزیف بدم",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2493,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.7227,
+      "minimum_word_confidence": 0.4442,
+      "low_confidence_words": [
+        {
+          "word": "نسبت",
+          "start": 2.96,
+          "end": 4.04,
+          "probability": 0.5054
+        },
+        {
+          "word": "و",
+          "start": 4.6,
+          "end": 4.76,
+          "probability": 0.4442
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0001.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0002",
+      "segment_id": 2,
+      "segment_index": 1,
+      "start": 6.66,
+      "end": 11.22,
+      "source_text": "بعد بگم کجا به من حال نداد",
+      "proposed_text": "بعد بگم کجا به من حال نداد",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2493,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.7976,
+      "minimum_word_confidence": 0.5068,
+      "low_confidence_words": [
+        {
+          "word": "بعد",
+          "start": 6.66,
+          "end": 7.6,
+          "probability": 0.5068
+        },
+        {
+          "word": "بگم",
+          "start": 7.6,
+          "end": 7.9,
+          "probability": 0.6791
+        },
+        {
+          "word": "به",
+          "start": 8.38,
+          "end": 9.0,
+          "probability": 0.5971
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0002.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0003",
+      "segment_id": 3,
+      "segment_index": 2,
+      "start": 13.66,
+      "end": 16.5,
+      "source_text": "میگم آقا چون من یک کاری دارم میکنم",
+      "proposed_text": "میگم آقا چون من یک کاری دارم میکنم",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "number_or_percentage",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2493,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8687,
+      "minimum_word_confidence": 0.7048,
+      "low_confidence_words": [],
+      "numbers": [
+        "یک"
+      ],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0003.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0004",
+      "segment_id": 4,
+      "segment_index": 3,
+      "start": 16.5,
+      "end": 19.3,
+      "source_text": "مثلا من کارشناسه",
+      "proposed_text": "مثلا من کارشناسه",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2493,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.9055,
+      "minimum_word_confidence": 0.8857,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0004.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0005",
+      "segment_id": 5,
+      "segment_index": 4,
+      "start": 19.3,
+      "end": 22.0,
+      "source_text": "منابع انسانیم",
+      "proposed_text": "منابع انسانیم",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2493,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.9318,
+      "minimum_word_confidence": 0.9007,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0005.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0006",
+      "segment_id": 6,
+      "segment_index": 5,
+      "start": 23.8,
+      "end": 26.6,
+      "source_text": "این هم یک فرایندی داره",
+      "proposed_text": "این هم یک فرایندی داره",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "number_or_percentage",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2493,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8314,
+      "minimum_word_confidence": 0.6703,
+      "low_confidence_words": [
+        {
+          "word": "یک",
+          "start": 24.98,
+          "end": 25.12,
+          "probability": 0.6703
+        }
+      ],
+      "numbers": [
+        "یک"
+      ],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0006.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0007",
+      "segment_id": 7,
+      "segment_index": 6,
+      "start": 28.62,
+      "end": 39.14,
+      "source_text": "درسته، مثلا میگه جذب و نگهداری، عرضیابی و توسعه، نمیدونم، رفاهیات و خدمات و یه سری فراینت ها داره دیگه",
+      "proposed_text": "درسته، مثلا میگه جذب و نگهداری، عرضیابی و توسعه، نمیدونم، رفاهیات و خدمات و یه سری فراینت ها داره دیگه",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.1883,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8195,
+      "minimum_word_confidence": 0.3229,
+      "low_confidence_words": [
+        {
+          "word": "و",
+          "start": 37.2,
+          "end": 37.3,
+          "probability": 0.3229
+        },
+        {
+          "word": "یه",
+          "start": 37.3,
+          "end": 37.4,
+          "probability": 0.5239
+        },
+        {
+          "word": "سری",
+          "start": 37.4,
+          "end": 37.66,
+          "probability": 0.5239
+        },
+        {
+          "word": "فراینت",
+          "start": 37.66,
+          "end": 38.26,
+          "probability": 0.6461
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0007.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0008",
+      "segment_id": 8,
+      "segment_index": 7,
+      "start": 39.14,
+      "end": 45.8,
+      "source_text": "مثلا جذب و تأمین، نگهداری مثلا حقوق و دست مزده",
+      "proposed_text": "مثلا جذب و تأمین، نگهداری مثلا حقوق و دست مزده",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.1883,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8781,
+      "minimum_word_confidence": 0.7228,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0008.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0009",
+      "segment_id": 9,
+      "segment_index": 8,
+      "start": 47.0,
+      "end": 51.68,
+      "source_text": "نگهداری مثلا یه جور بهش مذایان میاد، باعث میشه طرف اینجا بمونه",
+      "proposed_text": "نگهداری مثلا یه جور بهش مذایان میاد، باعث میشه طرف اینجا بمونه",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.1883,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8793,
+      "minimum_word_confidence": 0.4761,
+      "low_confidence_words": [
+        {
+          "word": "میاد،",
+          "start": 49.46,
+          "end": 49.8,
+          "probability": 0.4761
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0009.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0010",
+      "segment_id": 10,
+      "segment_index": 9,
+      "start": 52.56,
+      "end": 57.6,
+      "source_text": "یعنی یه حقوق دیگه هم یه جایی بهش میدن نمیده، اینجا مذایان و نگهداشش بهتره",
+      "proposed_text": "یعنی یه حقوق دیگه هم یه جایی بهش میدن نمیده، اینجا مذایان و نگهداشش بهتره",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.1883,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.9039,
+      "minimum_word_confidence": 0.747,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0010.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0011",
+      "segment_id": 11,
+      "segment_index": 10,
+      "start": 57.6,
+      "end": 62.28,
+      "source_text": "مثلا ارضیابیش میکنن یا آموزش رو توسعه هم هستن",
+      "proposed_text": "مثلا ارضیابیش میکنن یا آموزش رو توسعه هم هستن",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2854,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.7909,
+      "minimum_word_confidence": 0.4505,
+      "low_confidence_words": [
+        {
+          "word": "توسعه",
+          "start": 61.18,
+          "end": 61.74,
+          "probability": 0.6122
+        },
+        {
+          "word": "هستن",
+          "start": 61.82,
+          "end": 62.28,
+          "probability": 0.4505
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0011.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0012",
+      "segment_id": 12,
+      "segment_index": 11,
+      "start": 62.28,
+      "end": 62.78,
+      "source_text": "خب؟",
+      "proposed_text": "خب؟",
+      "required": true,
+      "reasons": [
+        "low_consensus_confidence",
+        "low_word_confidence",
+        "multi_pass_disagreement"
+      ],
+      "avg_logprob": -0.2854,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.5712,
+      "minimum_word_confidence": 0.5712,
+      "low_confidence_words": [
+        {
+          "word": "خب؟",
+          "start": 62.28,
+          "end": 62.78,
+          "probability": 0.5712
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0012.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0013",
+      "segment_id": 13,
+      "segment_index": 12,
+      "start": 62.78,
+      "end": 69.6,
+      "source_text": "میگم این فرایندی ها تو هر سازمانی بری هم این فراینده",
+      "proposed_text": "میگم این فرایندی ها تو هر سازمانی بری هم این فراینده",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2854,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8976,
+      "minimum_word_confidence": 0.555,
+      "low_confidence_words": [
+        {
+          "word": "میگم",
+          "start": 62.78,
+          "end": 64.26,
+          "probability": 0.555
+        },
+        {
+          "word": "این",
+          "start": 68.58,
+          "end": 68.74,
+          "probability": 0.6498
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0013.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0014",
+      "segment_id": 14,
+      "segment_index": 13,
+      "start": 69.6,
+      "end": 72.22,
+      "source_text": "یعنی ما میشونم کارشانس من رو به انسانیه",
+      "proposed_text": "یعنی ما میشونم کارشانس من رو به انسانیه",
+      "required": true,
+      "reasons": [
+        "low_consensus_confidence",
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2854,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.6041,
+      "minimum_word_confidence": 0.2978,
+      "low_confidence_words": [
+        {
+          "word": "ما",
+          "start": 70.44,
+          "end": 70.54,
+          "probability": 0.2978
+        },
+        {
+          "word": "میشونم",
+          "start": 70.54,
+          "end": 70.86,
+          "probability": 0.6667
+        },
+        {
+          "word": "کارشانس",
+          "start": 70.86,
+          "end": 71.3,
+          "probability": 0.6617
+        },
+        {
+          "word": "من",
+          "start": 71.3,
+          "end": 71.42,
+          "probability": 0.3921
+        },
+        {
+          "word": "به",
+          "start": 71.56,
+          "end": 71.66,
+          "probability": 0.4475
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0014.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0015",
+      "segment_id": 15,
+      "segment_index": 14,
+      "start": 72.22,
+      "end": 74.46,
+      "source_text": "شرکت نفتم باشم همینه",
+      "proposed_text": "شرکت نفتم باشم همینه",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2854,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.9753,
+      "minimum_word_confidence": 0.9437,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0015.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0016",
+      "segment_id": 16,
+      "segment_index": 15,
+      "start": 74.46,
+      "end": 78.54,
+      "source_text": "مؤسسه امین میزم هم باشم همینه",
+      "proposed_text": "مؤسسه امین میزم هم باشم همینه",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2854,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.843,
+      "minimum_word_confidence": 0.5421,
+      "low_confidence_words": [
+        {
+          "word": "میزم",
+          "start": 76.7,
+          "end": 77.26,
+          "probability": 0.5421
+        },
+        {
+          "word": "هم",
+          "start": 77.26,
+          "end": 77.38,
+          "probability": 0.6599
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0016.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0017",
+      "segment_id": 17,
+      "segment_index": 16,
+      "start": 78.54,
+      "end": 80.96,
+      "source_text": "وزارتخون هم باشم همینه",
+      "proposed_text": "وزارتخون هم باشم همینه",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2854,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8339,
+      "minimum_word_confidence": 0.6618,
+      "low_confidence_words": [
+        {
+          "word": "هم",
+          "start": 79.66,
+          "end": 79.8,
+          "probability": 0.6618
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0017.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0018",
+      "segment_id": 18,
+      "segment_index": 17,
+      "start": 80.96,
+      "end": 83.96,
+      "source_text": "ولی یه سری مسادیقش فرق میکنه",
+      "proposed_text": "ولی یه سری مسادیقش فرق میکنه",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2854,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.9424,
+      "minimum_word_confidence": 0.8556,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0018.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0019",
+      "segment_id": 19,
+      "segment_index": 18,
+      "start": 83.96,
+      "end": 87.94,
+      "source_text": "یعنی اونی که من اجرا میکنم تو شرکت نفت",
+      "proposed_text": "یعنی اونی که من اجرا میکنم تو شرکت نفت",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2874,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8447,
+      "minimum_word_confidence": 0.7347,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0019.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0020",
+      "segment_id": 20,
+      "segment_index": 19,
+      "start": 87.94,
+      "end": 92.18,
+      "source_text": "با اینی که مثلا از سه نفر داره خب خیلی صحب میکنه دیگه",
+      "proposed_text": "با اینی که مثلا از سه نفر داره خب خیلی صحب میکنه دیگه",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "number_or_percentage",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2874,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.7978,
+      "minimum_word_confidence": 0.3794,
+      "low_confidence_words": [
+        {
+          "word": "اینی",
+          "start": 88.88,
+          "end": 89.04,
+          "probability": 0.3794
+        },
+        {
+          "word": "صحب",
+          "start": 90.96,
+          "end": 91.38,
+          "probability": 0.6172
+        }
+      ],
+      "numbers": [
+        "سه"
+      ],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0020.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0021",
+      "segment_id": 21,
+      "segment_index": 20,
+      "start": 92.18,
+      "end": 96.26,
+      "source_text": "یعنی این یکمی مصداقی تره",
+      "proposed_text": "یعنی این یکمی مصداقی تره",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2874,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8555,
+      "minimum_word_confidence": 0.6006,
+      "low_confidence_words": [
+        {
+          "word": "این",
+          "start": 92.96,
+          "end": 93.1,
+          "probability": 0.6006
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0021.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0022",
+      "segment_id": 22,
+      "segment_index": 21,
+      "start": 96.96,
+      "end": 101.3,
+      "source_text": "حالا جب اینجا، آیه مثلا کسی میگه آقا کارشون اصلا من رو باید سانی",
+      "proposed_text": "حالا جب اینجا، آیه مثلا کسی میگه آقا کارشون اصلا من رو باید سانی",
+      "required": true,
+      "reasons": [
+        "low_consensus_confidence",
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2874,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.6764,
+      "minimum_word_confidence": 0.3666,
+      "low_confidence_words": [
+        {
+          "word": "جب",
+          "start": 97.6,
+          "end": 97.82,
+          "probability": 0.4221
+        },
+        {
+          "word": "آیه",
+          "start": 98.36,
+          "end": 98.5,
+          "probability": 0.565
+        },
+        {
+          "word": "اصلا",
+          "start": 100.18,
+          "end": 100.28,
+          "probability": 0.3666
+        },
+        {
+          "word": "من",
+          "start": 100.28,
+          "end": 100.52,
+          "probability": 0.481
+        },
+        {
+          "word": "رو",
+          "start": 100.52,
+          "end": 100.68,
+          "probability": 0.5365
+        },
+        {
+          "word": "باید",
+          "start": 100.68,
+          "end": 100.94,
+          "probability": 0.4543
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0022.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0023",
+      "segment_id": 23,
+      "segment_index": 22,
+      "start": 101.3,
+      "end": 104.96,
+      "source_text": "تو مثلا بیا شریکه مثلا وزارت نفتشو",
+      "proposed_text": "تو مثلا بیا شریکه مثلا وزارت نفتشو",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2874,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8403,
+      "minimum_word_confidence": 0.7492,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0023.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0024",
+      "segment_id": 24,
+      "segment_index": 23,
+      "start": 105.82,
+      "end": 110.36,
+      "source_text": "میگه نا آقا که دارم مای پنجا تومن میدم، مای سی تومن میدم",
+      "proposed_text": "میگه نا آقا که دارم مای پنجا تومن میدم، مای سی تومن میدم",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "number_or_percentage",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2874,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8271,
+      "minimum_word_confidence": 0.4166,
+      "low_confidence_words": [
+        {
+          "word": "میگه",
+          "start": 105.82,
+          "end": 106.12,
+          "probability": 0.6636
+        },
+        {
+          "word": "که",
+          "start": 106.54,
+          "end": 107.02,
+          "probability": 0.4166
+        }
+      ],
+      "numbers": [
+        "سی"
+      ],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0024.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0025",
+      "segment_id": 25,
+      "segment_index": 24,
+      "start": 110.36,
+      "end": 121.3,
+      "source_text": "چون این فرایندش مشخصه ولی حتما تو چیزایی یاد میگیری تو شرکت نفت کارشناس منو به انسانی باشی؟",
+      "proposed_text": "چون این فرایندش مشخصه ولی حتما تو چیزایی یاد میگیری تو شرکت نفت کارشناس منو به انسانی باشی؟",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2014,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.882,
+      "minimum_word_confidence": 0.5499,
+      "low_confidence_words": [
+        {
+          "word": "تو",
+          "start": 118.14,
+          "end": 118.28,
+          "probability": 0.6278
+        },
+        {
+          "word": "منو",
+          "start": 119.76,
+          "end": 120.08,
+          "probability": 0.5499
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0025.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0026",
+      "segment_id": 26,
+      "segment_index": 25,
+      "start": 121.3,
+      "end": 134.0,
+      "source_text": "خیلی فرق میکنه تا مثلا توی مثلا قابار فروشی درست مصادقش یعنی اون محتوی آله یعنی اون چیزی که تو یاده میگیری برای توه",
+      "proposed_text": "خیلی فرق میکنه تا مثلا توی مثلا قابار فروشی درست مصادقش یعنی اون محتوی آله یعنی اون چیزی که تو یاده میگیری برای توه",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2014,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8615,
+      "minimum_word_confidence": 0.2734,
+      "low_confidence_words": [
+        {
+          "word": "قابار",
+          "start": 124.32,
+          "end": 124.98,
+          "probability": 0.3686
+        },
+        {
+          "word": "آله",
+          "start": 130.32,
+          "end": 131.2,
+          "probability": 0.2734
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0026.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0027",
+      "segment_id": 27,
+      "segment_index": 26,
+      "start": 136.9,
+      "end": 140.02,
+      "source_text": "کارشناس محراب انسانی، شرکت ملی نفت ایرانم",
+      "proposed_text": "کارشناس محراب انسانی، شرکت ملی نفت ایرانم",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.3263,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.7477,
+      "minimum_word_confidence": 0.4052,
+      "low_confidence_words": [
+        {
+          "word": "کارشناس",
+          "start": 136.9,
+          "end": 137.62,
+          "probability": 0.6081
+        },
+        {
+          "word": "محراب",
+          "start": 137.62,
+          "end": 137.96,
+          "probability": 0.4052
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0027.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0028",
+      "segment_id": 28,
+      "segment_index": 27,
+      "start": 140.02,
+      "end": 151.26,
+      "source_text": "اصلا یک فرق میکنه، اگه کارشناس محراب انسانی، پخش تخم موقع در میدان ولی ازرم",
+      "proposed_text": "اصلا یک فرق میکنه، اگه کارشناس محراب انسانی، پخش تخم موقع در میدان ولی ازرم",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "number_or_percentage",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.3263,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.7642,
+      "minimum_word_confidence": 0.4747,
+      "low_confidence_words": [
+        {
+          "word": "اصلا",
+          "start": 140.02,
+          "end": 140.94,
+          "probability": 0.6263
+        },
+        {
+          "word": "یک",
+          "start": 140.94,
+          "end": 141.06,
+          "probability": 0.6363
+        },
+        {
+          "word": "میکنه،",
+          "start": 141.46,
+          "end": 141.96,
+          "probability": 0.5565
+        },
+        {
+          "word": "تخم",
+          "start": 148.7,
+          "end": 149.06,
+          "probability": 0.6196
+        },
+        {
+          "word": "موقع",
+          "start": 149.06,
+          "end": 149.52,
+          "probability": 0.4747
+        },
+        {
+          "word": "ازرم",
+          "start": 150.9,
+          "end": 151.26,
+          "probability": 0.5974
+        }
+      ],
+      "numbers": [
+        "یک"
+      ],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0028.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0029",
+      "segment_id": 29,
+      "segment_index": 28,
+      "start": 151.26,
+      "end": 152.5,
+      "source_text": "یعنی چیز خیلی پیچید",
+      "proposed_text": "یعنی چیز خیلی پیچید",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.3263,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8129,
+      "minimum_word_confidence": 0.7353,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0029.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0030",
+      "segment_id": 30,
+      "segment_index": 29,
+      "start": 153.4,
+      "end": 155.58,
+      "source_text": "پس این دو تا دیگه تمامل",
+      "proposed_text": "پس این دو تا دیگه تمامل",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "number_or_percentage",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.3263,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.7179,
+      "minimum_word_confidence": 0.5433,
+      "low_confidence_words": [
+        {
+          "word": "پس",
+          "start": 153.4,
+          "end": 154.12,
+          "probability": 0.5433
+        },
+        {
+          "word": "دیگه",
+          "start": 154.72,
+          "end": 154.96,
+          "probability": 0.6542
+        },
+        {
+          "word": "تمامل",
+          "start": 154.96,
+          "end": 155.58,
+          "probability": 0.5447
+        }
+      ],
+      "numbers": [
+        "دو"
+      ],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0030.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0031",
+      "segment_id": 31,
+      "segment_index": 30,
+      "start": 155.58,
+      "end": 160.1,
+      "source_text": "میگو پس تو این فراینده هر جام من دستان برای گیرم بولو بگیم",
+      "proposed_text": "میگو پس تو این فراینده هر جام من دستان برای گیرم بولو بگیم",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.3263,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.7451,
+      "minimum_word_confidence": 0.5012,
+      "low_confidence_words": [
+        {
+          "word": "میگو",
+          "start": 155.58,
+          "end": 156.72,
+          "probability": 0.5596
+        },
+        {
+          "word": "پس",
+          "start": 156.72,
+          "end": 156.94,
+          "probability": 0.651
+        },
+        {
+          "word": "جام",
+          "start": 158.56,
+          "end": 158.76,
+          "probability": 0.5986
+        },
+        {
+          "word": "من",
+          "start": 158.76,
+          "end": 158.9,
+          "probability": 0.5012
+        },
+        {
+          "word": "بولو",
+          "start": 159.68,
+          "end": 159.9,
+          "probability": 0.5369
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0031.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0032",
+      "segment_id": 32,
+      "segment_index": 31,
+      "start": 160.1,
+      "end": 162.16,
+      "source_text": "من کارشناس محراب انسانی هم میفهمم",
+      "proposed_text": "من کارشناس محراب انسانی هم میفهمم",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.3263,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.7685,
+      "minimum_word_confidence": 0.1774,
+      "low_confidence_words": [
+        {
+          "word": "من",
+          "start": 160.1,
+          "end": 160.24,
+          "probability": 0.1774
+        },
+        {
+          "word": "هم",
+          "start": 161.46,
+          "end": 161.6,
+          "probability": 0.6444
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0032.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0033",
+      "segment_id": 33,
+      "segment_index": 32,
+      "start": 162.16,
+      "end": 173.16,
+      "source_text": "ولی این موقع هایی هست محوا می‌چربه به فراین یعنی مثلا من می‌گم من سواد مالیه با اموزش می‌دارم",
+      "proposed_text": "ولی این موقع هایی هست محوا می‌چربه به فراین یعنی مثلا من می‌گم من سواد مالیه با اموزش می‌دارم",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.1991,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8129,
+      "minimum_word_confidence": 0.6356,
+      "low_confidence_words": [
+        {
+          "word": "محوا",
+          "start": 164.56,
+          "end": 165.52,
+          "probability": 0.678
+        },
+        {
+          "word": "من",
+          "start": 169.38,
+          "end": 169.62,
+          "probability": 0.6356
+        },
+        {
+          "word": "سواد",
+          "start": 170.34,
+          "end": 170.9,
+          "probability": 0.6615
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0033.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0034",
+      "segment_id": 34,
+      "segment_index": 33,
+      "start": 173.8,
+      "end": 180.02,
+      "source_text": "بعد می‌گم خب سواد مالی اصلا چی هست؟ می‌گه اصلا ما نداریم مثلا تو بانک بگیم سواد مالی، تو بورس بگیم",
+      "proposed_text": "بعد می‌گم خب سواد مالی اصلا چی هست؟ می‌گه اصلا ما نداریم مثلا تو بانک بگیم سواد مالی، تو بورس بگیم",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.1991,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8435,
+      "minimum_word_confidence": 0.2893,
+      "low_confidence_words": [
+        {
+          "word": "بعد",
+          "start": 173.8,
+          "end": 174.12,
+          "probability": 0.6769
+        },
+        {
+          "word": "تو",
+          "start": 177.22,
+          "end": 177.5,
+          "probability": 0.2893
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0034.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0035",
+      "segment_id": 35,
+      "segment_index": 34,
+      "start": 180.02,
+      "end": 188.1,
+      "source_text": "ما کارشناسی سرمایه‌گذاری داریم، کارشناسی معاملگر داریم، بلی کارشناس سواد مالی که تحالا نداشتیم مثلا می‌گه تو",
+      "proposed_text": "ما کارشناسی سرمایه‌گذاری داریم، کارشناسی معاملگر داریم، بلی کارشناس سواد مالی که تحالا نداشتیم مثلا می‌گه تو",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.1991,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8792,
+      "minimum_word_confidence": 0.5365,
+      "low_confidence_words": [
+        {
+          "word": "بلی",
+          "start": 184.08,
+          "end": 185.12,
+          "probability": 0.5365
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0035.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0036",
+      "segment_id": 36,
+      "segment_index": 35,
+      "start": 188.1,
+      "end": 195.84,
+      "source_text": "همون قضایه که میگید که سه گروه نباید سواد مالی درس بدن، یک گروه باید سواد مالی",
+      "proposed_text": "همون قضایه که میگید که سه گروه نباید سواد مالی درس بدن، یک گروه باید سواد مالی",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "number_or_percentage",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2389,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8129,
+      "minimum_word_confidence": 0.3752,
+      "low_confidence_words": [
+        {
+          "word": "همون",
+          "start": 188.1,
+          "end": 188.84,
+          "probability": 0.4944
+        },
+        {
+          "word": "سواد",
+          "start": 193.04,
+          "end": 193.42,
+          "probability": 0.3752
+        },
+        {
+          "word": "بدن،",
+          "start": 194.04,
+          "end": 194.58,
+          "probability": 0.479
+        },
+        {
+          "word": "یک",
+          "start": 194.58,
+          "end": 194.78,
+          "probability": 0.5419
+        }
+      ],
+      "numbers": [
+        "سه",
+        "یک"
+      ],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0036.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0037",
+      "segment_id": 37,
+      "segment_index": 36,
+      "start": 195.84,
+      "end": 203.56,
+      "source_text": "آره، آره، میخوام میگم این خیلی محتویه، حالا وقتی محتویه از این فراین قوی تر میشه",
+      "proposed_text": "آره، آره، میخوام میگم این خیلی محتویه، حالا وقتی محتویه از این فراین قوی تر میشه",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement"
+      ],
+      "avg_logprob": -0.2389,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8383,
+      "minimum_word_confidence": 0.5146,
+      "low_confidence_words": [
+        {
+          "word": "آره،",
+          "start": 195.84,
+          "end": 196.28,
+          "probability": 0.5146
+        },
+        {
+          "word": "میگم",
+          "start": 196.98,
+          "end": 197.64,
+          "probability": 0.5753
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0037.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0038",
+      "segment_id": 38,
+      "segment_index": 37,
+      "start": 204.52,
+      "end": 208.68,
+      "source_text": "چیه؟ آنها دارم مثالشون میتنم، بریم تو مرحله بر",
+      "proposed_text": "چیه؟ آنها دارم مثالشون میتنم، بریم تو مرحله بر",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2389,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8036,
+      "minimum_word_confidence": 0.534,
+      "low_confidence_words": [
+        {
+          "word": "آنها",
+          "start": 205.4,
+          "end": 206.18,
+          "probability": 0.534
+        },
+        {
+          "word": "میتنم،",
+          "start": 207.02,
+          "end": 207.58,
+          "probability": 0.6304
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0038.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0039",
+      "segment_id": 39,
+      "segment_index": 38,
+      "start": 208.68,
+      "end": 213.92,
+      "source_text": "میگم که مثل چی؟ مثل تعلیف کتاب",
+      "proposed_text": "میگم که مثل چی؟ مثل تعلیف کتاب",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2389,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.9324,
+      "minimum_word_confidence": 0.7157,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0039.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0040",
+      "segment_id": 40,
+      "segment_index": 39,
+      "start": 215.6,
+      "end": 231.0,
+      "source_text": "یه فرایند داره ناشه، خب مثلا میگه آقا نوشتر رو به من بده، ویراستار دارم، تراح دارم، بعد مثلا تراح جلد دارم، مثلا این تراح و صفه بنده",
+      "proposed_text": "یه فرایند داره ناشه، خب مثلا میگه آقا نوشتر رو به من بده، ویراستار دارم، تراح دارم، بعد مثلا تراح جلد دارم، مثلا این تراح و صفه بنده",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2201,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8503,
+      "minimum_word_confidence": 0.4022,
+      "low_confidence_words": [
+        {
+          "word": "یه",
+          "start": 215.6,
+          "end": 216.72,
+          "probability": 0.5302
+        },
+        {
+          "word": "ناشه،",
+          "start": 217.94,
+          "end": 218.74,
+          "probability": 0.6439
+        },
+        {
+          "word": "تراح",
+          "start": 224.9,
+          "end": 225.52,
+          "probability": 0.6521
+        },
+        {
+          "word": "و",
+          "start": 229.94,
+          "end": 230.0,
+          "probability": 0.4022
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0040.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0041",
+      "segment_id": 41,
+      "segment_index": 40,
+      "start": 231.0,
+      "end": 249.02,
+      "source_text": "بعد مثلا میره چاپ و نش رو مثلا توزی میگه تو اگه مثلا یه فرایندی داره، اگه آشبازی چاپ کنی همین فراینده، قرآنم چاپ کنی همین فراینده، همین کار رو حد میکن",
+      "proposed_text": "بعد مثلا میره چاپ و نش رو مثلا توزی میگه تو اگه مثلا یه فرایندی داره، اگه آشبازی چاپ کنی همین فراینده، قرآنم چاپ کنی همین فراینده، همین کار رو حد میکن",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2166,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8761,
+      "minimum_word_confidence": 0.2609,
+      "low_confidence_words": [
+        {
+          "word": "رو",
+          "start": 248.5,
+          "end": 248.58,
+          "probability": 0.6532
+        },
+        {
+          "word": "حد",
+          "start": 248.58,
+          "end": 248.7,
+          "probability": 0.2609
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0041.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0042",
+      "segment_id": 42,
+      "segment_index": 41,
+      "start": 249.02,
+      "end": 267.02,
+      "source_text": "باید میگه ولی محتوا خیلی خوب فرق کنم مثلا اون کتاب بنویسیم مثلا آیتولو خامنه ای یا باید میسیم کمیل رودی خوب رو فرق رو جده یک کتاب بنویسه مثلا کتاب خوبی نشدش از پنک میلیون جا به جا میشه",
+      "proposed_text": "باید میگه ولی محتوا خیلی خوب فرق کنم مثلا اون کتاب بنویسیم مثلا آیتولو خامنه ای یا باید میسیم کمیل رودی خوب رو فرق رو جده یک کتاب بنویسه مثلا کتاب خوبی نشدش از پنک میلیون جا به جا میشه",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "number_or_percentage",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2607,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8212,
+      "minimum_word_confidence": 0.5065,
+      "low_confidence_words": [
+        {
+          "word": "فرق",
+          "start": 252.14,
+          "end": 252.7,
+          "probability": 0.6597
+        },
+        {
+          "word": "اون",
+          "start": 253.3,
+          "end": 253.44,
+          "probability": 0.6744
+        },
+        {
+          "word": "ای",
+          "start": 255.76,
+          "end": 256.02,
+          "probability": 0.5275
+        },
+        {
+          "word": "کمیل",
+          "start": 257.38,
+          "end": 257.82,
+          "probability": 0.5065
+        },
+        {
+          "word": "رودی",
+          "start": 257.82,
+          "end": 258.2,
+          "probability": 0.6533
+        },
+        {
+          "word": "رو",
+          "start": 258.4,
+          "end": 258.52,
+          "probability": 0.6694
+        },
+        {
+          "word": "جده",
+          "start": 259.6,
+          "end": 259.94,
+          "probability": 0.6308
+        },
+        {
+          "word": "یک",
+          "start": 259.94,
+          "end": 260.16,
+          "probability": 0.6621
+        }
+      ],
+      "numbers": [
+        "یک",
+        "میلیون"
+      ],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0042.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0043",
+      "segment_id": 43,
+      "segment_index": 42,
+      "start": 267.02,
+      "end": 271.32,
+      "source_text": "میدونی فرق چه برسه یکی خودش کتاب نوشته باشه",
+      "proposed_text": "میدونی فرق چه برسه یکی خودش کتاب نوشته باشه",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2607,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8586,
+      "minimum_word_confidence": 0.621,
+      "low_confidence_words": [
+        {
+          "word": "میدونی",
+          "start": 267.02,
+          "end": 267.76,
+          "probability": 0.621
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0043.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0044",
+      "segment_id": 44,
+      "segment_index": 43,
+      "start": 271.32,
+      "end": 279.5,
+      "source_text": "حالا میگم اینجایی که اون محتویه، اینجا وقت میشه شراکت معنادار میشه با سازمان",
+      "proposed_text": "حالا میگم اینجایی که اون محتویه، اینجا وقت میشه شراکت معنادار میشه با سازمان",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.177,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8516,
+      "minimum_word_confidence": 0.6781,
+      "low_confidence_words": [
+        {
+          "word": "اون",
+          "start": 272.68,
+          "end": 272.82,
+          "probability": 0.6781
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0044.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0045",
+      "segment_id": 45,
+      "segment_index": 44,
+      "start": 279.5,
+      "end": 291.08,
+      "source_text": "یعنی چون میشی شریک تجاری اون سازمان، تو اینجا شریک تجاری نیستی، محتوی مهم، تو بهت خیلی اضافه میشه کارشناس معنوزانی نفت باشی",
+      "proposed_text": "یعنی چون میشی شریک تجاری اون سازمان، تو اینجا شریک تجاری نیستی، محتوی مهم، تو بهت خیلی اضافه میشه کارشناس معنوزانی نفت باشی",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.177,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8845,
+      "minimum_word_confidence": 0.5938,
+      "low_confidence_words": [
+        {
+          "word": "مهم،",
+          "start": 286.22,
+          "end": 286.94,
+          "probability": 0.6799
+        },
+        {
+          "word": "معنوزانی",
+          "start": 289.12,
+          "end": 290.22,
+          "probability": 0.5938
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0045.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0046",
+      "segment_id": 46,
+      "segment_index": 45,
+      "start": 291.08,
+      "end": 299.14,
+      "source_text": "ولی انقدر مهم نیست به مسابقهی که مثلا توی یک محتوی مثلا یک کتاب میتونه داشته باشی",
+      "proposed_text": "ولی انقدر مهم نیست به مسابقهی که مثلا توی یک محتوی مثلا یک کتاب میتونه داشته باشی",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "number_or_percentage",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.177,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8974,
+      "minimum_word_confidence": 0.6663,
+      "low_confidence_words": [
+        {
+          "word": "مسابقهی",
+          "start": 293.26,
+          "end": 294.54,
+          "probability": 0.6663
+        },
+        {
+          "word": "باشی",
+          "start": 298.92,
+          "end": 299.14,
+          "probability": 0.6755
+        }
+      ],
+      "numbers": [
+        "یک",
+        "یک"
+      ],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0046.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0047",
+      "segment_id": 47,
+      "segment_index": 46,
+      "start": 299.14,
+      "end": 308.16,
+      "source_text": "خب پاسخ اون جامعه ی تعلیف کتاب چی بوده؟ مثلا گفته آقا، مثلا پونزه درصد",
+      "proposed_text": "خب پاسخ اون جامعه ی تعلیف کتاب چی بوده؟ مثلا گفته آقا، مثلا پونزه درصد",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.1652,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8383,
+      "minimum_word_confidence": 0.2655,
+      "low_confidence_words": [
+        {
+          "word": "ی",
+          "start": 302.94,
+          "end": 303.06,
+          "probability": 0.2655
+        },
+        {
+          "word": "آقا،",
+          "start": 306.44,
+          "end": 306.78,
+          "probability": 0.5391
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0047.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0048",
+      "segment_id": 48,
+      "segment_index": 47,
+      "start": 309.6,
+      "end": 319.64,
+      "source_text": "چجوری گفته؟ گفته این من سی و پنج درصد حضینه ی تولیدمه، پونزه درصد سود خودمه، این پنجه درصد",
+      "proposed_text": "چجوری گفته؟ گفته این من سی و پنج درصد حضینه ی تولیدمه، پونزه درصد سود خودمه، این پنجه درصد",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "number_or_percentage",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.1652,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8874,
+      "minimum_word_confidence": 0.3655,
+      "low_confidence_words": [
+        {
+          "word": "ی",
+          "start": 313.86,
+          "end": 313.9,
+          "probability": 0.3655
+        }
+      ],
+      "numbers": [
+        "سی",
+        "پنج درصد"
+      ],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0048.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0049",
+      "segment_id": 49,
+      "segment_index": 48,
+      "start": 319.64,
+      "end": 325.66,
+      "source_text": "سی و پنج درصد توضیح کننده است، این تموم شده است، پونزه درصد برای تو میبود",
+      "proposed_text": "سی و پنج درصد توضیح کننده است، این تموم شده است، پونزه درصد برای تو میبود",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "number_or_percentage",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.1652,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8989,
+      "minimum_word_confidence": 0.5783,
+      "low_confidence_words": [
+        {
+          "word": "است،",
+          "start": 322.32,
+          "end": 322.48,
+          "probability": 0.618
+        },
+        {
+          "word": "است،",
+          "start": 323.24,
+          "end": 323.72,
+          "probability": 0.5783
+        }
+      ],
+      "numbers": [
+        "سی",
+        "پنج درصد"
+      ],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0049.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0050",
+      "segment_id": 50,
+      "segment_index": 49,
+      "start": 327.04,
+      "end": 332.94,
+      "source_text": "یعنی میشه توضیح که مثلا بیس درصد جایی تخفیص میده، پونزر درصد باز براش میمونه",
+      "proposed_text": "یعنی میشه توضیح که مثلا بیس درصد جایی تخفیص میده، پونزر درصد باز براش میمونه",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.1509,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8552,
+      "minimum_word_confidence": 0.6526,
+      "low_confidence_words": [
+        {
+          "word": "بیس",
+          "start": 329.6,
+          "end": 329.9,
+          "probability": 0.6526
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0050.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0051",
+      "segment_id": 51,
+      "segment_index": 50,
+      "start": 332.94,
+      "end": 340.68,
+      "source_text": "پونزر درصد سود ناشره، سی و پنج درصد اصلا هزینه طولیده یعنی هزینه خرید کاغذ و فلان رو اینه",
+      "proposed_text": "پونزر درصد سود ناشره، سی و پنج درصد اصلا هزینه طولیده یعنی هزینه خرید کاغذ و فلان رو اینه",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "number_or_percentage",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.1509,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.9012,
+      "minimum_word_confidence": 0.7524,
+      "low_confidence_words": [],
+      "numbers": [
+        "سی",
+        "پنج درصد"
+      ],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0051.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0052",
+      "segment_id": 52,
+      "segment_index": 51,
+      "start": 340.68,
+      "end": 345.54,
+      "source_text": "میگه تا هشتاد و پنج درصد من اینا رو میگیرم، پونزر درصد به طوله",
+      "proposed_text": "میگه تا هشتاد و پنج درصد من اینا رو میگیرم، پونزر درصد به طوله",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "number_or_percentage",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.1509,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8939,
+      "minimum_word_confidence": 0.7124,
+      "low_confidence_words": [],
+      "numbers": [
+        "هشتاد",
+        "پنج درصد"
+      ],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0052.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0053",
+      "segment_id": 53,
+      "segment_index": 52,
+      "start": 345.54,
+      "end": 348.84,
+      "source_text": "پس این میشه رو فاز مشارکت تو جایی که محتواله",
+      "proposed_text": "پس این میشه رو فاز مشارکت تو جایی که محتواله",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.1509,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.9225,
+      "minimum_word_confidence": 0.7968,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0053.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0054",
+      "segment_id": 54,
+      "segment_index": 53,
+      "start": 348.84,
+      "end": 351.78,
+      "source_text": "حالا فارس که مثلا آقای خامنه ایه",
+      "proposed_text": "حالا فارس که مثلا آقای خامنه ایه",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "person_or_title",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.1509,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8007,
+      "minimum_word_confidence": 0.5956,
+      "low_confidence_words": [
+        {
+          "word": "فارس",
+          "start": 349.76,
+          "end": 350.1,
+          "probability": 0.5956
+        },
+        {
+          "word": "که",
+          "start": 350.1,
+          "end": 350.22,
+          "probability": 0.596
+        }
+      ],
+      "numbers": [],
+      "names": [
+        "خامنه ایه"
+      ],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0054.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0055",
+      "segment_id": 55,
+      "segment_index": 54,
+      "start": 351.78,
+      "end": 359.26,
+      "source_text": "میاد باید نشتی صحبت میکنه و میگه تو داشت من به مهد اینکه بگم این نسخه اولش پنج ملیون میفروشه",
+      "proposed_text": "میاد باید نشتی صحبت میکنه و میگه تو داشت من به مهد اینکه بگم این نسخه اولش پنج ملیون میفروشه",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "number_or_percentage",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2177,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8335,
+      "minimum_word_confidence": 0.3714,
+      "low_confidence_words": [
+        {
+          "word": "و",
+          "start": 354.28,
+          "end": 354.34,
+          "probability": 0.4649
+        },
+        {
+          "word": "تو",
+          "start": 354.48,
+          "end": 354.64,
+          "probability": 0.3714
+        },
+        {
+          "word": "پنج",
+          "start": 357.42,
+          "end": 357.98,
+          "probability": 0.6436
+        }
+      ],
+      "numbers": [
+        "پنج"
+      ],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0055.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0056",
+      "segment_id": 56,
+      "segment_index": 55,
+      "start": 359.26,
+      "end": 362.16,
+      "source_text": "این سود پونزه درصد تو خیلیه",
+      "proposed_text": "این سود پونزه درصد تو خیلیه",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2177,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8967,
+      "minimum_word_confidence": 0.7815,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0056.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0057",
+      "segment_id": 57,
+      "segment_index": 56,
+      "start": 362.16,
+      "end": 369.44,
+      "source_text": "تو پنج درصد هم ببری مبلغیش از پونزه درصد های کتاب دیگه هم بالاتره",
+      "proposed_text": "تو پنج درصد هم ببری مبلغیش از پونزه درصد های کتاب دیگه هم بالاتره",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "number_or_percentage",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2177,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.9614,
+      "minimum_word_confidence": 0.8783,
+      "low_confidence_words": [],
+      "numbers": [
+        "پنج درصد"
+      ],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0057.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0058",
+      "segment_id": 58,
+      "segment_index": 57,
+      "start": 369.44,
+      "end": 373.68,
+      "source_text": "درصدی کمتره و اون مبلغیش چون نشرش براتره",
+      "proposed_text": "درصدی کمتره و اون مبلغیش چون نشرش براتره",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2177,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.7693,
+      "minimum_word_confidence": 0.2399,
+      "low_confidence_words": [
+        {
+          "word": "و",
+          "start": 371.28,
+          "end": 371.36,
+          "probability": 0.2399
+        },
+        {
+          "word": "براتره",
+          "start": 373.16,
+          "end": 373.68,
+          "probability": 0.6561
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0058.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0059",
+      "segment_id": 59,
+      "segment_index": 58,
+      "start": 373.68,
+      "end": 376.26,
+      "source_text": "بنابراین اینجا پنج درصد، اینجا بیسی پنج درصد",
+      "proposed_text": "بنابراین اینجا پنج درصد، اینجا بیسی پنج درصد",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "number_or_percentage",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2177,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8932,
+      "minimum_word_confidence": 0.6994,
+      "low_confidence_words": [],
+      "numbers": [
+        "پنج",
+        "پنج درصد"
+      ],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0059.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0060",
+      "segment_id": 60,
+      "segment_index": 59,
+      "start": 377.8,
+      "end": 379.42,
+      "source_text": "این میشه فرقا",
+      "proposed_text": "این میشه فرقا",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement"
+      ],
+      "avg_logprob": -0.2177,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8517,
+      "minimum_word_confidence": 0.6966,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0060.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0061",
+      "segment_id": 61,
+      "segment_index": 60,
+      "start": 380.48,
+      "end": 400.32,
+      "source_text": "حالا دعوه ها سره چیه؟ مثلا برا خود من میگم اصداد ببین تا ساختاری مثلا شما میگه آقا من برنامه مینویسم این ور بهش کتاب میدم اون ور بهش حوش مصنوعی مثلا جواب میده",
+      "proposed_text": "حالا دعوه ها سره چیه؟ مثلا برا خود من میگم اصداد ببین تا ساختاری مثلا شما میگه آقا من برنامه مینویسم این ور بهش کتاب میدم اون ور بهش حوش مصنوعی مثلا جواب میده",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.1999,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.9106,
+      "minimum_word_confidence": 0.6165,
+      "low_confidence_words": [
+        {
+          "word": "اصداد",
+          "start": 385.66,
+          "end": 386.3,
+          "probability": 0.6165
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0061.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0062",
+      "segment_id": 62,
+      "segment_index": 61,
+      "start": 400.32,
+      "end": 403.06,
+      "source_text": "مثلا میگه از کتاب کمیل رودی شوارد",
+      "proposed_text": "مثلا میگه از کتاب کمیل رودی شوارد",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.1721,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.7476,
+      "minimum_word_confidence": 0.5435,
+      "low_confidence_words": [
+        {
+          "word": "مثلا",
+          "start": 400.32,
+          "end": 400.88,
+          "probability": 0.6104
+        },
+        {
+          "word": "کمیل",
+          "start": 401.72,
+          "end": 402.22,
+          "probability": 0.5435
+        },
+        {
+          "word": "شوارد",
+          "start": 402.5,
+          "end": 403.06,
+          "probability": 0.6723
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0062.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0063",
+      "segment_id": 63,
+      "segment_index": 62,
+      "start": 403.9,
+      "end": 406.14,
+      "source_text": "اصلا نمیخواد بخونی، فقط بکرد",
+      "proposed_text": "اصلا نمیخواد بخونی، فقط بکرد",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.1721,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8642,
+      "minimum_word_confidence": 0.7232,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0063.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0064",
+      "segment_id": 64,
+      "segment_index": 63,
+      "start": 406.14,
+      "end": 413.34,
+      "source_text": "میگم خب این فرایند، این فرایند تو کتاب آشبازی هم تو تولید بکنی؟ آره من این فرایند برای یه مدت ازت میخرم",
+      "proposed_text": "میگم خب این فرایند، این فرایند تو کتاب آشبازی هم تو تولید بکنی؟ آره من این فرایند برای یه مدت ازت میخرم",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.1721,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8732,
+      "minimum_word_confidence": 0.4631,
+      "low_confidence_words": [
+        {
+          "word": "تو",
+          "start": 408.68,
+          "end": 408.74,
+          "probability": 0.4631
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0064.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0065",
+      "segment_id": 65,
+      "segment_index": 64,
+      "start": 413.34,
+      "end": 416.7,
+      "source_text": "ولی محتوائی نیست که",
+      "proposed_text": "ولی محتوائی نیست که",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.1721,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.9452,
+      "minimum_word_confidence": 0.812,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0065.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0066",
+      "segment_id": 66,
+      "segment_index": 65,
+      "start": 416.7,
+      "end": 422.36,
+      "source_text": "این اینم اگر باشه من میتونم از یک کارشناس نشق اینم بخرم",
+      "proposed_text": "این اینم اگر باشه من میتونم از یک کارشناس نشق اینم بخرم",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "number_or_percentage",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.1721,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8993,
+      "minimum_word_confidence": 0.5599,
+      "low_confidence_words": [
+        {
+          "word": "اینم",
+          "start": 417.26,
+          "end": 417.72,
+          "probability": 0.5599
+        }
+      ],
+      "numbers": [
+        "یک"
+      ],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0066.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0067",
+      "segment_id": 67,
+      "segment_index": 66,
+      "start": 422.36,
+      "end": 424.24,
+      "source_text": "ولی باز محتوائی نیست",
+      "proposed_text": "ولی باز محتوائی نیست",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.1721,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.9854,
+      "minimum_word_confidence": 0.9561,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0067.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0068",
+      "segment_id": 68,
+      "segment_index": 67,
+      "start": 424.24,
+      "end": 426.92,
+      "source_text": "میگم محتوائی چجوری میشه؟ میگم باشه",
+      "proposed_text": "میگم محتوائی چجوری میشه؟ میگم باشه",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement"
+      ],
+      "avg_logprob": -0.1721,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.9326,
+      "minimum_word_confidence": 0.7627,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0068.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0069",
+      "segment_id": 69,
+      "segment_index": 68,
+      "start": 426.92,
+      "end": 433.52,
+      "source_text": "تو الان چون کتاب مثلا سواد مالی نوشتی اینقدر میشه",
+      "proposed_text": "تو الان چون کتاب مثلا سواد مالی نوشتی اینقدر میشه",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement"
+      ],
+      "avg_logprob": -0.2072,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8938,
+      "minimum_word_confidence": 0.6914,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0069.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0070",
+      "segment_id": 70,
+      "segment_index": 69,
+      "start": 434.3,
+      "end": 439.44,
+      "source_text": "حالا من هر سامن با شرکت همین بگفتم بگو تو که کارشون از سواد مالی اصلا نداری",
+      "proposed_text": "حالا من هر سامن با شرکت همین بگفتم بگو تو که کارشون از سواد مالی اصلا نداری",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement"
+      ],
+      "avg_logprob": -0.2072,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8147,
+      "minimum_word_confidence": 0.3921,
+      "low_confidence_words": [
+        {
+          "word": "هر",
+          "start": 435.38,
+          "end": 435.66,
+          "probability": 0.5614
+        },
+        {
+          "word": "سامن",
+          "start": 435.66,
+          "end": 435.86,
+          "probability": 0.5758
+        },
+        {
+          "word": "همین",
+          "start": 436.44,
+          "end": 436.7,
+          "probability": 0.591
+        },
+        {
+          "word": "بگو",
+          "start": 437.1,
+          "end": 437.26,
+          "probability": 0.3921
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0070.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0071",
+      "segment_id": 71,
+      "segment_index": 70,
+      "start": 439.44,
+      "end": 443.78,
+      "source_text": "تو مثلا نمیتونی داران تجربه مو میگم",
+      "proposed_text": "تو مثلا نمیتونی داران تجربه مو میگم",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement"
+      ],
+      "avg_logprob": -0.2072,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8705,
+      "minimum_word_confidence": 0.4185,
+      "low_confidence_words": [
+        {
+          "word": "مو",
+          "start": 443.34,
+          "end": 443.52,
+          "probability": 0.4185
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0071.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0072",
+      "segment_id": 72,
+      "segment_index": 71,
+      "start": 443.78,
+      "end": 447.0,
+      "source_text": "نمیتونی چیز بزنی، آگهی بزنی بگیم",
+      "proposed_text": "نمیتونی چیز بزنی، آگهی بزنی بگیم",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement"
+      ],
+      "avg_logprob": -0.2072,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8877,
+      "minimum_word_confidence": 0.7776,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0072.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0073",
+      "segment_id": 73,
+      "segment_index": 72,
+      "start": 447.0,
+      "end": 449.76,
+      "source_text": "ما یا مدیر آکادمی یا حوش مالی میخوانم",
+      "proposed_text": "ما یا مدیر آکادمی یا حوش مالی میخوانم",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement"
+      ],
+      "avg_logprob": -0.2072,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.7722,
+      "minimum_word_confidence": 0.3271,
+      "low_confidence_words": [
+        {
+          "word": "ما",
+          "start": 447.0,
+          "end": 447.1,
+          "probability": 0.3271
+        },
+        {
+          "word": "یا",
+          "start": 448.58,
+          "end": 448.66,
+          "probability": 0.5569
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0073.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0074",
+      "segment_id": 74,
+      "segment_index": 73,
+      "start": 449.76,
+      "end": 453.9,
+      "source_text": "چون اصلا آکادمی حوش مالی رو من تأسیس گره این محتقایی موضوع",
+      "proposed_text": "چون اصلا آکادمی حوش مالی رو من تأسیس گره این محتقایی موضوع",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement"
+      ],
+      "avg_logprob": -0.2072,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8959,
+      "minimum_word_confidence": 0.5448,
+      "low_confidence_words": [
+        {
+          "word": "گره",
+          "start": 451.86,
+          "end": 452.14,
+          "probability": 0.5448
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0074.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0075",
+      "segment_id": 75,
+      "segment_index": 74,
+      "start": 455.52,
+      "end": 459.02,
+      "source_text": "بنابراین نمیتونی فرایندی باهاش برخورد بکنی",
+      "proposed_text": "بنابراین نمیتونی فرایندی باهاش برخورد بکنی",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement"
+      ],
+      "avg_logprob": -0.2388,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8189,
+      "minimum_word_confidence": 0.7008,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0075.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0076",
+      "segment_id": 76,
+      "segment_index": 75,
+      "start": 459.02,
+      "end": 460.18,
+      "source_text": "درست",
+      "proposed_text": "درست",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement"
+      ],
+      "avg_logprob": -0.2388,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.7346,
+      "minimum_word_confidence": 0.7346,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0076.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0077",
+      "segment_id": 77,
+      "segment_index": 76,
+      "start": 460.18,
+      "end": 462.22,
+      "source_text": "این فضای فرایندی",
+      "proposed_text": "این فضای فرایندی",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement"
+      ],
+      "avg_logprob": -0.2388,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8125,
+      "minimum_word_confidence": 0.7172,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0077.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0078",
+      "segment_id": 78,
+      "segment_index": 77,
+      "start": 462.66,
+      "end": 466.56,
+      "source_text": "حالا میگم ممکنه یکی اصلا یه خلق فرایندی داشته باشه",
+      "proposed_text": "حالا میگم ممکنه یکی اصلا یه خلق فرایندی داشته باشه",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2388,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8683,
+      "minimum_word_confidence": 0.6702,
+      "low_confidence_words": [
+        {
+          "word": "یه",
+          "start": 464.52,
+          "end": 464.7,
+          "probability": 0.6702
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0078.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0079",
+      "segment_id": 79,
+      "segment_index": 78,
+      "start": 466.56,
+      "end": 469.1,
+      "source_text": "میگم اون خلق فراینده برا خودشه",
+      "proposed_text": "میگم اون خلق فراینده برا خودشه",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2388,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8735,
+      "minimum_word_confidence": 0.7008,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0079.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0080",
+      "segment_id": 80,
+      "segment_index": 79,
+      "start": 469.1,
+      "end": 473.22,
+      "source_text": "میدیم اصلا فرض کن من این جای فراینده من رو به انسانی تراحی بکنم",
+      "proposed_text": "میدیم اصلا فرض کن من این جای فراینده من رو به انسانی تراحی بکنم",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2388,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8457,
+      "minimum_word_confidence": 0.4982,
+      "low_confidence_words": [
+        {
+          "word": "میدیم",
+          "start": 469.1,
+          "end": 469.96,
+          "probability": 0.5203
+        },
+        {
+          "word": "من",
+          "start": 470.62,
+          "end": 470.78,
+          "probability": 0.4982
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0080.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0081",
+      "segment_id": 81,
+      "segment_index": 80,
+      "start": 474.38,
+      "end": 476.6,
+      "source_text": "بعد از شرکت نفت بیام برون",
+      "proposed_text": "بعد از شرکت نفت بیام برون",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2388,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8902,
+      "minimum_word_confidence": 0.7203,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0081.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0082",
+      "segment_id": 82,
+      "segment_index": 81,
+      "start": 476.6,
+      "end": 478.38,
+      "source_text": "برونم شرکت فولاد",
+      "proposed_text": "برونم شرکت فولاد",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2388,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8649,
+      "minimum_word_confidence": 0.7052,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0082.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0083",
+      "segment_id": 83,
+      "segment_index": 82,
+      "start": 478.9,
+      "end": 482.08,
+      "source_text": "اون نمیتونه برون میگم آقا این فراینده تو فولاد نبر",
+      "proposed_text": "اون نمیتونه برون میگم آقا این فراینده تو فولاد نبر",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2388,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8518,
+      "minimum_word_confidence": 0.6244,
+      "low_confidence_words": [
+        {
+          "word": "میگم",
+          "start": 480.16,
+          "end": 480.3,
+          "probability": 0.6244
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0083.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0084",
+      "segment_id": 84,
+      "segment_index": 83,
+      "start": 482.08,
+      "end": 485.9,
+      "source_text": "من محتواشو، مصادقشو نمیتونم، حالا نمیتونم اینکه ببین",
+      "proposed_text": "من محتواشو، مصادقشو نمیتونم، حالا نمیتونم اینکه ببین",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.1989,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8111,
+      "minimum_word_confidence": 0.5023,
+      "low_confidence_words": [
+        {
+          "word": "من",
+          "start": 482.08,
+          "end": 482.34,
+          "probability": 0.5023
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0084.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0085",
+      "segment_id": 85,
+      "segment_index": 84,
+      "start": 485.9,
+      "end": 496.86,
+      "source_text": "اگر میخوای یه نفر اخراج بکنی، اول تذکر و شفایی، بعد تذکر و شفایی، یه نامه کتبی که اشاره شده با اون تذکر و شفایی",
+      "proposed_text": "اگر میخوای یه نفر اخراج بکنی، اول تذکر و شفایی، بعد تذکر و شفایی، یه نامه کتبی که اشاره شده با اون تذکر و شفایی",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.1989,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8962,
+      "minimum_word_confidence": 0.3894,
+      "low_confidence_words": [
+        {
+          "word": "و",
+          "start": 489.26,
+          "end": 489.32,
+          "probability": 0.3894
+        },
+        {
+          "word": "با",
+          "start": 495.58,
+          "end": 495.68,
+          "probability": 0.6783
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0085.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0086",
+      "segment_id": 86,
+      "segment_index": 85,
+      "start": 496.86,
+      "end": 502.08,
+      "source_text": "بعد یه سوره جلسه یه دعوا، بعد کومیته یه اندواتی، بعد فلان بعد میتونی راحت اخراجش بکنیم",
+      "proposed_text": "بعد یه سوره جلسه یه دعوا، بعد کومیته یه اندواتی، بعد فلان بعد میتونی راحت اخراجش بکنیم",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.1989,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.7606,
+      "minimum_word_confidence": 0.4592,
+      "low_confidence_words": [
+        {
+          "word": "بعد",
+          "start": 496.86,
+          "end": 497.04,
+          "probability": 0.5709
+        },
+        {
+          "word": "سوره",
+          "start": 497.24,
+          "end": 497.56,
+          "probability": 0.6394
+        },
+        {
+          "word": "دعوا،",
+          "start": 498.18,
+          "end": 498.7,
+          "probability": 0.6707
+        },
+        {
+          "word": "اندواتی،",
+          "start": 499.42,
+          "end": 499.84,
+          "probability": 0.6462
+        },
+        {
+          "word": "بعد",
+          "start": 499.84,
+          "end": 499.98,
+          "probability": 0.5658
+        },
+        {
+          "word": "بعد",
+          "start": 500.3,
+          "end": 500.44,
+          "probability": 0.4592
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0086.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0087",
+      "segment_id": 87,
+      "segment_index": 86,
+      "start": 502.82,
+      "end": 511.16,
+      "source_text": "اینو میتونم جایی دیگه اجرامو کنم ولی نمیتونم بگم حسن آقا رو با خودم میبرم چون حسن آقا مثلا تو این فراین بود اصلا یه این کمپذیر نیست",
+      "proposed_text": "اینو میتونم جایی دیگه اجرامو کنم ولی نمیتونم بگم حسن آقا رو با خودم میبرم چون حسن آقا مثلا تو این فراین بود اصلا یه این کمپذیر نیست",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement"
+      ],
+      "avg_logprob": -0.2032,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8528,
+      "minimum_word_confidence": 0.6228,
+      "low_confidence_words": [
+        {
+          "word": "اجرامو",
+          "start": 504.16,
+          "end": 504.64,
+          "probability": 0.6238
+        },
+        {
+          "word": "با",
+          "start": 506.62,
+          "end": 506.82,
+          "probability": 0.6375
+        },
+        {
+          "word": "اصلا",
+          "start": 509.58,
+          "end": 509.78,
+          "probability": 0.6228
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0087.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0088",
+      "segment_id": 88,
+      "segment_index": 87,
+      "start": 511.16,
+      "end": 523.24,
+      "source_text": "این چی میگم؟ پس فرایندم اینجا حتی اگه تو خلقی داشته باشی اونم برا تو یک حق ایجاد میکنه همچنان که اینجا تو فرایند تو محتوی حق ایجاد میکنه",
+      "proposed_text": "این چی میگم؟ پس فرایندم اینجا حتی اگه تو خلقی داشته باشی اونم برا تو یک حق ایجاد میکنه همچنان که اینجا تو فرایند تو محتوی حق ایجاد میکنه",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "number_or_percentage",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2032,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8916,
+      "minimum_word_confidence": 0.2966,
+      "low_confidence_words": [
+        {
+          "word": "این",
+          "start": 511.16,
+          "end": 511.8,
+          "probability": 0.2966
+        },
+        {
+          "word": "تو",
+          "start": 516.56,
+          "end": 516.82,
+          "probability": 0.5389
+        }
+      ],
+      "numbers": [
+        "یک"
+      ],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0088.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0089",
+      "segment_id": 89,
+      "segment_index": 88,
+      "start": 523.24,
+      "end": 537.14,
+      "source_text": "ولی خیلی بستگی داره مثلا من به آقا چیز آقای قدیانی گفتم آقا بیا ما محتوی رو تولید آنی کتاب های مقا قدیانی دیگه اون درشد و پنجه",
+      "proposed_text": "ولی خیلی بستگی داره مثلا من به آقا چیز آقای قدیانی گفتم آقا بیا ما محتوی رو تولید آنی کتاب های مقا قدیانی دیگه اون درشد و پنجه",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "person_or_title",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.3151,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8032,
+      "minimum_word_confidence": 0.2157,
+      "low_confidence_words": [
+        {
+          "word": "آنی",
+          "start": 534.36,
+          "end": 534.5,
+          "probability": 0.4537
+        },
+        {
+          "word": "مقا",
+          "start": 534.92,
+          "end": 535.12,
+          "probability": 0.5433
+        },
+        {
+          "word": "اون",
+          "start": 536.04,
+          "end": 536.2,
+          "probability": 0.6306
+        },
+        {
+          "word": "درشد",
+          "start": 536.2,
+          "end": 536.6,
+          "probability": 0.3815
+        },
+        {
+          "word": "و",
+          "start": 536.6,
+          "end": 536.68,
+          "probability": 0.2157
+        }
+      ],
+      "numbers": [],
+      "names": [
+        "قدیانی گفتم آقا بیا"
+      ],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0089.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0090",
+      "segment_id": 90,
+      "segment_index": 89,
+      "start": 537.14,
+      "end": 545.54,
+      "source_text": "میگم آقا محتوی با ما و من حق رو تعلیص بده اما قرارداد اون مقا قدیانی اصلا همین",
+      "proposed_text": "میگم آقا محتوی با ما و من حق رو تعلیص بده اما قرارداد اون مقا قدیانی اصلا همین",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.3151,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8169,
+      "minimum_word_confidence": 0.4287,
+      "low_confidence_words": [
+        {
+          "word": "و",
+          "start": 538.54,
+          "end": 539.6,
+          "probability": 0.6058
+        },
+        {
+          "word": "اما",
+          "start": 542.6,
+          "end": 543.6,
+          "probability": 0.4287
+        },
+        {
+          "word": "اون",
+          "start": 544.22,
+          "end": 544.38,
+          "probability": 0.5949
+        },
+        {
+          "word": "مقا",
+          "start": 544.38,
+          "end": 544.68,
+          "probability": 0.6431
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0090.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0091",
+      "segment_id": 91,
+      "segment_index": 90,
+      "start": 545.54,
+      "end": 548.12,
+      "source_text": "پونزر درس ها درم اونو چقدر میده؟",
+      "proposed_text": "پونزر درس ها درم اونو چقدر میده؟",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.3151,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.682,
+      "minimum_word_confidence": 0.3133,
+      "low_confidence_words": [
+        {
+          "word": "ها",
+          "start": 546.62,
+          "end": 546.7,
+          "probability": 0.3639
+        },
+        {
+          "word": "درم",
+          "start": 546.7,
+          "end": 546.8,
+          "probability": 0.3133
+        },
+        {
+          "word": "اونو",
+          "start": 546.8,
+          "end": 546.92,
+          "probability": 0.6271
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0091.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0092",
+      "segment_id": 92,
+      "segment_index": 91,
+      "start": 549.43,
+      "end": 551.35,
+      "source_text": "میکنم، هفت درس هست",
+      "proposed_text": "میکنم، هفت درس هست",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "number_or_percentage",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.3151,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.737,
+      "minimum_word_confidence": 0.3421,
+      "low_confidence_words": [
+        {
+          "word": "میکنم،",
+          "start": 549.43,
+          "end": 550.51,
+          "probability": 0.3421
+        }
+      ],
+      "numbers": [
+        "هفت"
+      ],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0092.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0093",
+      "segment_id": 93,
+      "segment_index": 92,
+      "start": 551.35,
+      "end": 552.89,
+      "source_text": "پنگ درس هست",
+      "proposed_text": "پنگ درس هست",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement"
+      ],
+      "avg_logprob": -0.3151,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8162,
+      "minimum_word_confidence": 0.6162,
+      "low_confidence_words": [
+        {
+          "word": "پنگ",
+          "start": 551.35,
+          "end": 551.91,
+          "probability": 0.6162
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0093.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0094",
+      "segment_id": 94,
+      "segment_index": 93,
+      "start": 554.55,
+      "end": 557.63,
+      "source_text": "میگه آره کارتون هم خوب، ببخشید من قدیانیم رو",
+      "proposed_text": "میگه آره کارتون هم خوب، ببخشید من قدیانیم رو",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement"
+      ],
+      "avg_logprob": -0.2317,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.7341,
+      "minimum_word_confidence": 0.541,
+      "low_confidence_words": [
+        {
+          "word": "میگه",
+          "start": 554.55,
+          "end": 554.87,
+          "probability": 0.6565
+        },
+        {
+          "word": "هم",
+          "start": 555.61,
+          "end": 555.75,
+          "probability": 0.6722
+        },
+        {
+          "word": "خوب،",
+          "start": 555.75,
+          "end": 556.09,
+          "probability": 0.6731
+        },
+        {
+          "word": "ببخشید",
+          "start": 556.09,
+          "end": 556.59,
+          "probability": 0.541
+        },
+        {
+          "word": "رو",
+          "start": 557.45,
+          "end": 557.63,
+          "probability": 0.6088
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0094.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0095",
+      "segment_id": 95,
+      "segment_index": 94,
+      "start": 558.49,
+      "end": 560.87,
+      "source_text": "چون تو قدیانیه فروش میره",
+      "proposed_text": "چون تو قدیانیه فروش میره",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement"
+      ],
+      "avg_logprob": -0.2317,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.9439,
+      "minimum_word_confidence": 0.87,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0095.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0096",
+      "segment_id": 96,
+      "segment_index": 95,
+      "start": 561.41,
+      "end": 564.49,
+      "source_text": "تو بری با مثلا انتشارت گنجش قرار دازم",
+      "proposed_text": "تو بری با مثلا انتشارت گنجش قرار دازم",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement"
+      ],
+      "avg_logprob": -0.2317,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8079,
+      "minimum_word_confidence": 0.4266,
+      "low_confidence_words": [
+        {
+          "word": "دازم",
+          "start": 564.19,
+          "end": 564.49,
+          "probability": 0.4266
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0096.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0097",
+      "segment_id": 97,
+      "segment_index": 96,
+      "start": 564.49,
+      "end": 567.29,
+      "source_text": "اصلا کسی نمیدونو گنجش که اصلا هست یا نیست",
+      "proposed_text": "اصلا کسی نمیدونو گنجش که اصلا هست یا نیست",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2317,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8427,
+      "minimum_word_confidence": 0.3881,
+      "low_confidence_words": [
+        {
+          "word": "اصلا",
+          "start": 564.49,
+          "end": 564.75,
+          "probability": 0.3881
+        },
+        {
+          "word": "که",
+          "start": 566.01,
+          "end": 566.17,
+          "probability": 0.6505
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0097.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0098",
+      "segment_id": 98,
+      "segment_index": 97,
+      "start": 567.29,
+      "end": 569.85,
+      "source_text": "تو داری سوا رو بعد پنجاه سال من میشی",
+      "proposed_text": "تو داری سوا رو بعد پنجاه سال من میشی",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "number_or_percentage",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2317,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8699,
+      "minimum_word_confidence": 0.5236,
+      "low_confidence_words": [
+        {
+          "word": "سوا",
+          "start": 567.71,
+          "end": 568.13,
+          "probability": 0.5236
+        }
+      ],
+      "numbers": [
+        "پنجاه"
+      ],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0098.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0099",
+      "segment_id": 99,
+      "segment_index": 98,
+      "start": 569.85,
+      "end": 572.71,
+      "source_text": "برابر این ما این پونزر درست هست، آره هست پونزر درست هست",
+      "proposed_text": "برابر این ما این پونزر درست هست، آره هست پونزر درست هست",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2317,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.7621,
+      "minimum_word_confidence": 0.0945,
+      "low_confidence_words": [
+        {
+          "word": "ما",
+          "start": 570.61,
+          "end": 570.71,
+          "probability": 0.0945
+        },
+        {
+          "word": "هست،",
+          "start": 571.41,
+          "end": 571.41,
+          "probability": 0.5353
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0099.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0100",
+      "segment_id": 100,
+      "segment_index": 99,
+      "start": 572.71,
+      "end": 573.69,
+      "source_text": "ولی آمد نمیدم",
+      "proposed_text": "ولی آمد نمیدم",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2317,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8179,
+      "minimum_word_confidence": 0.6428,
+      "low_confidence_words": [
+        {
+          "word": "آمد",
+          "start": 572.91,
+          "end": 573.13,
+          "probability": 0.6428
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0100.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0101",
+      "segment_id": 101,
+      "segment_index": 100,
+      "start": 574.49,
+      "end": 576.45,
+      "source_text": "ما دهن خود اون رو صاف کردیم",
+      "proposed_text": "ما دهن خود اون رو صاف کردیم",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2317,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8697,
+      "minimum_word_confidence": 0.679,
+      "low_confidence_words": [
+        {
+          "word": "صاف",
+          "start": 575.77,
+          "end": 576.05,
+          "probability": 0.679
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0101.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0102",
+      "segment_id": 102,
+      "segment_index": 101,
+      "start": 576.45,
+      "end": 579.33,
+      "source_text": "مثلا رفتیم ترجامه فلان محتوه رو آمده کردیم",
+      "proposed_text": "مثلا رفتیم ترجامه فلان محتوه رو آمده کردیم",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2317,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8488,
+      "minimum_word_confidence": 0.7004,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0102.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0103",
+      "segment_id": 103,
+      "segment_index": 102,
+      "start": 579.33,
+      "end": 581.91,
+      "source_text": "دکتر کمیل حق و تعلیف همون داره زنون پنگ درصد میده",
+      "proposed_text": "دکتر کمیل حق و تعلیف همون داره زنون پنگ درصد میده",
+      "required": true,
+      "reasons": [
+        "low_consensus_confidence",
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "person_or_title",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2041,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.6026,
+      "minimum_word_confidence": 0.0507,
+      "low_confidence_words": [
+        {
+          "word": "دکتر",
+          "start": 579.33,
+          "end": 579.33,
+          "probability": 0.0507
+        },
+        {
+          "word": "کمیل",
+          "start": 579.33,
+          "end": 579.35,
+          "probability": 0.0776
+        },
+        {
+          "word": "همون",
+          "start": 580.17,
+          "end": 580.35,
+          "probability": 0.6373
+        },
+        {
+          "word": "زنون",
+          "start": 580.55,
+          "end": 580.93,
+          "probability": 0.3406
+        },
+        {
+          "word": "پنگ",
+          "start": 580.93,
+          "end": 581.19,
+          "probability": 0.6304
+        }
+      ],
+      "numbers": [],
+      "names": [
+        "کمیل حق و تعلیف"
+      ],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0103.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0104",
+      "segment_id": 104,
+      "segment_index": 103,
+      "start": 581.91,
+      "end": 587.73,
+      "source_text": "میدونه میگم خیلی باز معلفه های دیگهی روش از ذر بذاره",
+      "proposed_text": "میدونه میگم خیلی باز معلفه های دیگهی روش از ذر بذاره",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2041,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8191,
+      "minimum_word_confidence": 0.6144,
+      "low_confidence_words": [
+        {
+          "word": "ذر",
+          "start": 587.27,
+          "end": 587.43,
+          "probability": 0.6144
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0104.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0105",
+      "segment_id": 105,
+      "segment_index": 104,
+      "start": 587.73,
+      "end": 589.47,
+      "source_text": "این فضایی بود که",
+      "proposed_text": "این فضایی بود که",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2041,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.9548,
+      "minimum_word_confidence": 0.852,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0105.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0106",
+      "segment_id": 106,
+      "segment_index": 105,
+      "start": 589.47,
+      "end": 592.51,
+      "source_text": "حالا من خودم تو تجربه خودم",
+      "proposed_text": "حالا من خودم تو تجربه خودم",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2041,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.9441,
+      "minimum_word_confidence": 0.823,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0106.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0107",
+      "segment_id": 107,
+      "segment_index": 106,
+      "start": 593.49,
+      "end": 597.27,
+      "source_text": "نگاه شرکت این شکلی شده بود",
+      "proposed_text": "نگاه شرکت این شکلی شده بود",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2041,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.9904,
+      "minimum_word_confidence": 0.9786,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0107.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0108",
+      "segment_id": 108,
+      "segment_index": 107,
+      "start": 599.17,
+      "end": 605.4,
+      "source_text": "و با این که من توی بیزنس دیگه خب انجام دادم",
+      "proposed_text": "و با این که من توی بیزنس دیگه خب انجام دادم",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2041,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.9107,
+      "minimum_word_confidence": 0.6527,
+      "low_confidence_words": [
+        {
+          "word": "و",
+          "start": 599.17,
+          "end": 599.85,
+          "probability": 0.6527
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0108.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0109",
+      "segment_id": 109,
+      "segment_index": 108,
+      "start": 605.4,
+      "end": 607.06,
+      "source_text": "بیزنس دیگه من اینو گرفتم",
+      "proposed_text": "بیزنس دیگه من اینو گرفتم",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2041,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.9753,
+      "minimum_word_confidence": 0.949,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0109.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0110",
+      "segment_id": 110,
+      "segment_index": 109,
+      "start": 607.06,
+      "end": 610.92,
+      "source_text": "و میگم آقا اصلا دوره آمودشکیل هرچی دیگه",
+      "proposed_text": "و میگم آقا اصلا دوره آمودشکیل هرچی دیگه",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2041,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8933,
+      "minimum_word_confidence": 0.662,
+      "low_confidence_words": [
+        {
+          "word": "آمودشکیل",
+          "start": 609.44,
+          "end": 610.32,
+          "probability": 0.662
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0110.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0111",
+      "segment_id": 111,
+      "segment_index": 110,
+      "start": 610.92,
+      "end": 617.3,
+      "source_text": "اینی که محتوی و مهوره راحت میشه اینو داد یعنی چیز عجیبی هم نیست",
+      "proposed_text": "اینی که محتوی و مهوره راحت میشه اینو داد یعنی چیز عجیبی هم نیست",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.1939,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.9164,
+      "minimum_word_confidence": 0.7,
+      "low_confidence_words": [],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0111.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0112",
+      "segment_id": 112,
+      "segment_index": 111,
+      "start": 617.92,
+      "end": 623.9,
+      "source_text": "بعد میگه خب اقوه من مثلا چی؟ تا طب اونم حالا به یه دلائلی من به نظر من کفایت نمیکرد دیگه",
+      "proposed_text": "بعد میگه خب اقوه من مثلا چی؟ تا طب اونم حالا به یه دلائلی من به نظر من کفایت نمیکرد دیگه",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.1939,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.7684,
+      "minimum_word_confidence": 0.4112,
+      "low_confidence_words": [
+        {
+          "word": "بعد",
+          "start": 617.92,
+          "end": 618.3,
+          "probability": 0.4112
+        },
+        {
+          "word": "اقوه",
+          "start": 618.76,
+          "end": 618.94,
+          "probability": 0.5964
+        },
+        {
+          "word": "تا",
+          "start": 619.9,
+          "end": 620.02,
+          "probability": 0.5176
+        },
+        {
+          "word": "طب",
+          "start": 620.02,
+          "end": 620.18,
+          "probability": 0.5257
+        },
+        {
+          "word": "به",
+          "start": 620.64,
+          "end": 620.74,
+          "probability": 0.6192
+        },
+        {
+          "word": "من",
+          "start": 621.34,
+          "end": 621.48,
+          "probability": 0.4382
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0112.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0113",
+      "segment_id": 113,
+      "segment_index": 112,
+      "start": 623.9,
+      "end": 630.64,
+      "source_text": "حالا من میدونم مثلا من تا یه ده سال یعنی بهشونم گستم من میپذیرم که اینجا رشد کردم",
+      "proposed_text": "حالا من میدونم مثلا من تا یه ده سال یعنی بهشونم گستم من میپذیرم که اینجا رشد کردم",
+      "required": true,
+      "reasons": [
+        "multi_pass_disagreement",
+        "number_or_percentage",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.1939,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.9253,
+      "minimum_word_confidence": 0.6908,
+      "low_confidence_words": [],
+      "numbers": [
+        "ده"
+      ],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0113.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0114",
+      "segment_id": 114,
+      "segment_index": 113,
+      "start": 632.64,
+      "end": 637.08,
+      "source_text": "ولی به این معنی نیست که اینجا بمونم، میتونم برم یه جای دیگه گل بدم",
+      "proposed_text": "ولی به این معنی نیست که اینجا بمونم، میتونم برم یه جای دیگه گل بدم",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.1939,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.9154,
+      "minimum_word_confidence": 0.5837,
+      "low_confidence_words": [
+        {
+          "word": "ولی",
+          "start": 632.64,
+          "end": 633.2,
+          "probability": 0.5837
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0114.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0115",
+      "segment_id": 115,
+      "segment_index": 114,
+      "start": 637.08,
+      "end": 643.74,
+      "source_text": "چون شما قرار دار دوی سالانه مثلاً با من دارید و عجیبی هم نید، شما میتونی بگی نه",
+      "proposed_text": "چون شما قرار دار دوی سالانه مثلاً با من دارید و عجیبی هم نید، شما میتونی بگی نه",
+      "required": true,
+      "reasons": [
+        "arabic_or_quranic_phrase",
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "number_or_percentage",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2793,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.7316,
+      "minimum_word_confidence": 0.0892,
+      "low_confidence_words": [
+        {
+          "word": "چون",
+          "start": 637.08,
+          "end": 637.74,
+          "probability": 0.6131
+        },
+        {
+          "word": "دار",
+          "start": 638.44,
+          "end": 638.56,
+          "probability": 0.5959
+        },
+        {
+          "word": "دوی",
+          "start": 638.56,
+          "end": 638.76,
+          "probability": 0.4247
+        },
+        {
+          "word": "با",
+          "start": 639.64,
+          "end": 639.82,
+          "probability": 0.6316
+        },
+        {
+          "word": "و",
+          "start": 640.34,
+          "end": 640.58,
+          "probability": 0.0892
+        },
+        {
+          "word": "نید،",
+          "start": 641.88,
+          "end": 642.06,
+          "probability": 0.3753
+        }
+      ],
+      "numbers": [
+        "نه"
+      ],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0115.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0116",
+      "segment_id": 116,
+      "segment_index": 115,
+      "start": 643.74,
+      "end": 650.44,
+      "source_text": "ولی این فضایه، من میتونم این فرایند رو با خودم ببرم، میتونم محتوی رو با خودم ببرم",
+      "proposed_text": "ولی این فضایه، من میتونم این فرایند رو با خودم ببرم، میتونم محتوی رو با خودم ببرم",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2793,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.9067,
+      "minimum_word_confidence": 0.5962,
+      "low_confidence_words": [
+        {
+          "word": "فضایه،",
+          "start": 645.02,
+          "end": 645.72,
+          "probability": 0.5962
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0116.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0117",
+      "segment_id": 117,
+      "segment_index": 116,
+      "start": 651.32,
+      "end": 655.1,
+      "source_text": "مگر اینکه وارد یه مثلاً شراکت میشه",
+      "proposed_text": "مگر اینکه وارد یه مثلاً شراکت میشه",
+      "required": true,
+      "reasons": [
+        "arabic_or_quranic_phrase",
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2793,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.7705,
+      "minimum_word_confidence": 0.5477,
+      "low_confidence_words": [
+        {
+          "word": "یه",
+          "start": 653.12,
+          "end": 653.38,
+          "probability": 0.5477
+        },
+        {
+          "word": "مثلاً",
+          "start": 653.38,
+          "end": 653.78,
+          "probability": 0.5749
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0117.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0118",
+      "segment_id": 118,
+      "segment_index": 117,
+      "start": 655.1,
+      "end": 658.24,
+      "source_text": "الان واضح بود دفتانهش؟",
+      "proposed_text": "الان واضح بود دفتانهش؟",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2793,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8645,
+      "minimum_word_confidence": 0.6579,
+      "low_confidence_words": [
+        {
+          "word": "دفتانهش؟",
+          "start": 657.26,
+          "end": 658.24,
+          "probability": 0.6579
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0118.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0119",
+      "segment_id": 119,
+      "segment_index": 118,
+      "start": 658.24,
+      "end": 659.22,
+      "source_text": "من واضح بود دارم",
+      "proposed_text": "من واضح بود دارم",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2793,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.8046,
+      "minimum_word_confidence": 0.5587,
+      "low_confidence_words": [
+        {
+          "word": "من",
+          "start": 658.24,
+          "end": 658.28,
+          "probability": 0.5587
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0119.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0120",
+      "segment_id": 120,
+      "segment_index": 119,
+      "start": 661.7,
+      "end": 668.08,
+      "source_text": "ولی خب، درصدش رو میزانه از سرگذاریش رو اینکه چیجوری برسیش کنیم",
+      "proposed_text": "ولی خب، درصدش رو میزانه از سرگذاریش رو اینکه چیجوری برسیش کنیم",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.2793,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.7951,
+      "minimum_word_confidence": 0.6089,
+      "low_confidence_words": [
+        {
+          "word": "رو",
+          "start": 663.96,
+          "end": 664.06,
+          "probability": 0.6089
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0120.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0121",
+      "segment_id": 121,
+      "segment_index": 120,
+      "start": 668.08,
+      "end": 673.72,
+      "source_text": "توی هر کاری، آره، خیلی فرق میکنه، مثلا من میگم که ببین من",
+      "proposed_text": "توی هر کاری، آره، خیلی فرق میکنه، مثلا من میگم که ببین من",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.384,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.7717,
+      "minimum_word_confidence": 0.519,
+      "low_confidence_words": [
+        {
+          "word": "توی",
+          "start": 668.08,
+          "end": 668.28,
+          "probability": 0.6223
+        },
+        {
+          "word": "آره،",
+          "start": 670.06,
+          "end": 670.56,
+          "probability": 0.519
+        },
+        {
+          "word": "فرق",
+          "start": 670.82,
+          "end": 671.14,
+          "probability": 0.655
+        },
+        {
+          "word": "میکنه،",
+          "start": 671.14,
+          "end": 671.56,
+          "probability": 0.5964
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0121.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0122",
+      "segment_id": 122,
+      "segment_index": 121,
+      "start": 674.92,
+      "end": 683.22,
+      "source_text": "ببین من، حساب کردم ها، تو این مثلا حق و تعلیش ما تو بار اولی کتاب سواد مالی",
+      "proposed_text": "ببین من، حساب کردم ها، تو این مثلا حق و تعلیش ما تو بار اولی کتاب سواد مالی",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement"
+      ],
+      "avg_logprob": -0.384,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.7864,
+      "minimum_word_confidence": 0.4333,
+      "low_confidence_words": [
+        {
+          "word": "من،",
+          "start": 675.62,
+          "end": 676.2,
+          "probability": 0.6077
+        },
+        {
+          "word": "ها،",
+          "start": 677.54,
+          "end": 677.98,
+          "probability": 0.4333
+        },
+        {
+          "word": "سواد",
+          "start": 682.28,
+          "end": 682.74,
+          "probability": 0.6556
+        },
+        {
+          "word": "مالی",
+          "start": 682.74,
+          "end": 683.22,
+          "probability": 0.6533
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0122.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0123",
+      "segment_id": 123,
+      "segment_index": 122,
+      "start": 685.0,
+      "end": 688.52,
+      "source_text": "حالا اینا رو ضبط هم داره میکنیم، چیز که مخواه خاموشش",
+      "proposed_text": "حالا اینا رو ضبط هم داره میکنیم، چیز که مخواه خاموشش",
+      "required": true,
+      "reasons": [
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.384,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.7373,
+      "minimum_word_confidence": 0.563,
+      "low_confidence_words": [
+        {
+          "word": "هم",
+          "start": 686.3,
+          "end": 686.4,
+          "probability": 0.6496
+        },
+        {
+          "word": "که",
+          "start": 687.4,
+          "end": 687.48,
+          "probability": 0.563
+        },
+        {
+          "word": "مخواه",
+          "start": 687.48,
+          "end": 687.78,
+          "probability": 0.6147
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0123.wav",
+      "retranscription": null
+    },
+    {
+      "id": "segment-0124",
+      "segment_id": 124,
+      "segment_index": 123,
+      "start": 690.45,
+      "end": 691.77,
+      "source_text": "نه، حوجه هم از تو این",
+      "proposed_text": "نه، حوجه هم از تو این",
+      "required": true,
+      "reasons": [
+        "low_consensus_confidence",
+        "low_word_confidence",
+        "multi_pass_disagreement",
+        "protected_name_or_number_disagreement"
+      ],
+      "avg_logprob": -0.384,
+      "no_speech_probability": 0.0,
+      "mean_word_confidence": 0.5884,
+      "minimum_word_confidence": 0.4003,
+      "low_confidence_words": [
+        {
+          "word": "نه،",
+          "start": 690.45,
+          "end": 690.93,
+          "probability": 0.4837
+        },
+        {
+          "word": "حوجه",
+          "start": 690.93,
+          "end": 691.29,
+          "probability": 0.4003
+        },
+        {
+          "word": "هم",
+          "start": 691.29,
+          "end": 691.37,
+          "probability": 0.6146
+        },
+        {
+          "word": "از",
+          "start": 691.37,
+          "end": 691.49,
+          "probability": 0.6539
+        },
+        {
+          "word": "این",
+          "start": 691.61,
+          "end": 691.77,
+          "probability": 0.5987
+        }
+      ],
+      "numbers": [],
+      "names": [],
+      "glossary_suggestions": [],
+      "decision": "pending",
+      "replacement": "",
+      "clip": "clips/segment-0124.wav",
+      "retranscription": null
+    }
+  ]
+}

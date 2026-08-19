@@ -1,0 +1,248 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "ce4db9dff157a004ed2bd258e12adbb5cc8605899ad00091b6a34a15ff683b24",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 15.94,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 15.92,
+        "text": "دارم مای پنجا تومن میدم، مای سی تومر میدم. چون این فرایندش و مشخصه. ولی حتما تو چیزها یاد می‌گیری؟ تو شرکت نفت کار شناس من رو به انسانی باشی؟ خیلی فعق می‌کند تا مثلا توی",
+        "avg_logprob": -0.24531209179498617,
+        "compression_ratio": 1.6557377049180328,
+        "no_speech_prob": 3.6207073450533755e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.34,
+            "word": " دارم",
+            "probability": 0.6635042826334635
+          },
+          {
+            "start": 0.34,
+            "end": 0.44,
+            "word": " مای",
+            "probability": 0.7760914266109467
+          },
+          {
+            "start": 0.44,
+            "end": 0.86,
+            "word": " پنجا",
+            "probability": 0.7087083756923676
+          },
+          {
+            "start": 0.86,
+            "end": 1.14,
+            "word": " تومن",
+            "probability": 0.8246983488400778
+          },
+          {
+            "start": 1.14,
+            "end": 1.48,
+            "word": " میدم،",
+            "probability": 0.697128047545751
+          },
+          {
+            "start": 1.48,
+            "end": 1.6,
+            "word": " مای",
+            "probability": 0.9791020750999451
+          },
+          {
+            "start": 1.6,
+            "end": 1.82,
+            "word": " سی",
+            "probability": 0.9669006168842316
+          },
+          {
+            "start": 1.82,
+            "end": 2.12,
+            "word": " تومر",
+            "probability": 0.664458526201391
+          },
+          {
+            "start": 2.12,
+            "end": 2.5,
+            "word": " میدم.",
+            "probability": 0.9719364643096924
+          },
+          {
+            "start": 2.72,
+            "end": 3.36,
+            "word": " چون",
+            "probability": 0.9666131734848022
+          },
+          {
+            "start": 3.36,
+            "end": 3.76,
+            "word": " این",
+            "probability": 0.937845915555954
+          },
+          {
+            "start": 3.76,
+            "end": 5.24,
+            "word": " فرایندش",
+            "probability": 0.9778708338737487
+          },
+          {
+            "start": 5.24,
+            "end": 5.86,
+            "word": " و",
+            "probability": 0.42986395955085754
+          },
+          {
+            "start": 5.86,
+            "end": 7.64,
+            "word": " مشخصه.",
+            "probability": 0.9508471637964249
+          },
+          {
+            "start": 7.94,
+            "end": 8.6,
+            "word": " ولی",
+            "probability": 0.9902525544166565
+          },
+          {
+            "start": 8.6,
+            "end": 9.02,
+            "word": " حتما",
+            "probability": 0.9728267192840576
+          },
+          {
+            "start": 9.02,
+            "end": 9.2,
+            "word": " تو",
+            "probability": 0.8948288559913635
+          },
+          {
+            "start": 9.2,
+            "end": 9.58,
+            "word": " چیزها",
+            "probability": 0.7907978743314743
+          },
+          {
+            "start": 9.58,
+            "end": 9.98,
+            "word": " یاد",
+            "probability": 0.6040004417300224
+          },
+          {
+            "start": 9.98,
+            "end": 10.36,
+            "word": " می‌گیری؟",
+            "probability": 0.7457772508884469
+          },
+          {
+            "start": 10.36,
+            "end": 10.42,
+            "word": " تو",
+            "probability": 0.9314759373664856
+          },
+          {
+            "start": 10.42,
+            "end": 10.92,
+            "word": " شرکت",
+            "probability": 0.9076844602823257
+          },
+          {
+            "start": 10.92,
+            "end": 11.36,
+            "word": " نفت",
+            "probability": 0.9716089169184366
+          },
+          {
+            "start": 11.36,
+            "end": 11.58,
+            "word": " کار",
+            "probability": 0.9624362885951996
+          },
+          {
+            "start": 11.58,
+            "end": 11.9,
+            "word": " شناس",
+            "probability": 0.6099365452925364
+          },
+          {
+            "start": 11.9,
+            "end": 12.06,
+            "word": " من",
+            "probability": 0.45004627108573914
+          },
+          {
+            "start": 12.06,
+            "end": 12.26,
+            "word": " رو",
+            "probability": 0.7095650136470795
+          },
+          {
+            "start": 12.26,
+            "end": 12.32,
+            "word": " به",
+            "probability": 0.9951578974723816
+          },
+          {
+            "start": 12.32,
+            "end": 12.72,
+            "word": " انسانی",
+            "probability": 0.9753709584474564
+          },
+          {
+            "start": 12.72,
+            "end": 13.46,
+            "word": " باشی؟",
+            "probability": 0.9829381704330444
+          },
+          {
+            "start": 13.46,
+            "end": 14.36,
+            "word": " خیلی",
+            "probability": 0.9879760593175888
+          },
+          {
+            "start": 14.36,
+            "end": 14.72,
+            "word": " فعق",
+            "probability": 0.6823460310697556
+          },
+          {
+            "start": 14.72,
+            "end": 15.08,
+            "word": " می‌کند",
+            "probability": 0.7583466619253159
+          },
+          {
+            "start": 15.08,
+            "end": 15.34,
+            "word": " تا",
+            "probability": 0.8889569044113159
+          },
+          {
+            "start": 15.34,
+            "end": 15.72,
+            "word": " مثلا",
+            "probability": 0.9587786793708801
+          },
+          {
+            "start": 15.72,
+            "end": 15.92,
+            "word": " توی",
+            "probability": 0.7816593050956726
+          }
+        ]
+      }
+    ]
+  }
+}

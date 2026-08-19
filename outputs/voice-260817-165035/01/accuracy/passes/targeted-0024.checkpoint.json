@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "2fd574f23fe88848c228a6b6fa07059d645ce2f866801325a5b83e087c157896",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.54,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.42,
+        "text": "بزنم وزارت نسج و درام مای پنجا تومن میدم، مای سی تومان میدم. چون این فراینده",
+        "avg_logprob": -0.47795291822783803,
+        "compression_ratio": 1.402061855670103,
+        "no_speech_prob": 4.907470541049008e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.48,
+            "word": " بزنم",
+            "probability": 0.3855311069637537
+          },
+          {
+            "start": 0.48,
+            "end": 1.16,
+            "word": " وزارت",
+            "probability": 0.772343598306179
+          },
+          {
+            "start": 1.16,
+            "end": 1.62,
+            "word": " نسج",
+            "probability": 0.8225305875142416
+          },
+          {
+            "start": 1.62,
+            "end": 2.04,
+            "word": " و",
+            "probability": 0.6194842457771301
+          },
+          {
+            "start": 2.04,
+            "end": 4.86,
+            "word": " درام",
+            "probability": 0.34488875915606815
+          },
+          {
+            "start": 4.86,
+            "end": 4.98,
+            "word": " مای",
+            "probability": 0.5779075771570206
+          },
+          {
+            "start": 4.98,
+            "end": 5.42,
+            "word": " پنجا",
+            "probability": 0.7199351117014885
+          },
+          {
+            "start": 5.42,
+            "end": 5.68,
+            "word": " تومن",
+            "probability": 0.8187813957532247
+          },
+          {
+            "start": 5.68,
+            "end": 6.02,
+            "word": " میدم،",
+            "probability": 0.6709068069855372
+          },
+          {
+            "start": 6.02,
+            "end": 6.14,
+            "word": " مای",
+            "probability": 0.9629887938499451
+          },
+          {
+            "start": 6.14,
+            "end": 6.38,
+            "word": " سی",
+            "probability": 0.9607976675033569
+          },
+          {
+            "start": 6.38,
+            "end": 6.68,
+            "word": " تومان",
+            "probability": 0.662427180854138
+          },
+          {
+            "start": 6.68,
+            "end": 7.04,
+            "word": " میدم.",
+            "probability": 0.9802411794662476
+          },
+          {
+            "start": 7.24,
+            "end": 7.9,
+            "word": " چون",
+            "probability": 0.9630984365940094
+          },
+          {
+            "start": 7.9,
+            "end": 8.28,
+            "word": " این",
+            "probability": 0.9751560986042023
+          },
+          {
+            "start": 8.28,
+            "end": 9.42,
+            "word": " فراینده",
+            "probability": 0.9208176851272583
+          }
+        ]
+      }
+    ]
+  }
+}

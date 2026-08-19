@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "c5527a3b820addae7cd68efd2547e5f2cb4032b5323e76f82a1efa4ec20fa09d",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.68,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.66,
+        "text": "حقوق دست مزد، نگهتاری مثلا یه جور بهش مذایان می‌آین باعث می‌شه طرف اینجا بمونه. یعنی یه حقق دیگه هم یه‌جای",
+        "avg_logprob": -0.34346210151105316,
+        "compression_ratio": 1.4264705882352942,
+        "no_speech_prob": 4.460677105466715e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.24,
+            "word": " حقوق",
+            "probability": 0.8023506502310435
+          },
+          {
+            "start": 0.24,
+            "end": 0.62,
+            "word": " دست",
+            "probability": 0.7354465126991272
+          },
+          {
+            "start": 0.62,
+            "end": 1.5,
+            "word": " مزد،",
+            "probability": 0.47437714971601963
+          },
+          {
+            "start": 1.5,
+            "end": 3.22,
+            "word": " نگهتاری",
+            "probability": 0.8735475540161133
+          },
+          {
+            "start": 3.22,
+            "end": 3.58,
+            "word": " مثلا",
+            "probability": 0.9135506451129913
+          },
+          {
+            "start": 3.58,
+            "end": 3.98,
+            "word": " یه",
+            "probability": 0.7756765782833099
+          },
+          {
+            "start": 3.98,
+            "end": 4.1,
+            "word": " جور",
+            "probability": 0.9116411209106445
+          },
+          {
+            "start": 4.1,
+            "end": 4.28,
+            "word": " بهش",
+            "probability": 0.8317969143390656
+          },
+          {
+            "start": 4.28,
+            "end": 4.98,
+            "word": " مذایان",
+            "probability": 0.7268110886216164
+          },
+          {
+            "start": 4.98,
+            "end": 5.4,
+            "word": " می‌آین",
+            "probability": 0.5123761922121048
+          },
+          {
+            "start": 5.4,
+            "end": 5.82,
+            "word": " باعث",
+            "probability": 0.9211719234784445
+          },
+          {
+            "start": 5.82,
+            "end": 6.0,
+            "word": " می‌شه",
+            "probability": 0.9250497817993164
+          },
+          {
+            "start": 6.0,
+            "end": 6.22,
+            "word": " طرف",
+            "probability": 0.5191029384732246
+          },
+          {
+            "start": 6.22,
+            "end": 6.54,
+            "word": " اینجا",
+            "probability": 0.9273015260696411
+          },
+          {
+            "start": 6.54,
+            "end": 7.26,
+            "word": " بمونه.",
+            "probability": 0.980623796582222
+          },
+          {
+            "start": 7.74,
+            "end": 8.46,
+            "word": " یعنی",
+            "probability": 0.9780092239379883
+          },
+          {
+            "start": 8.46,
+            "end": 8.54,
+            "word": " یه",
+            "probability": 0.8375337421894073
+          },
+          {
+            "start": 8.54,
+            "end": 8.84,
+            "word": " حقق",
+            "probability": 0.6652191678294912
+          },
+          {
+            "start": 8.84,
+            "end": 9.22,
+            "word": " دیگه",
+            "probability": 0.7516381442546844
+          },
+          {
+            "start": 9.22,
+            "end": 9.3,
+            "word": " هم",
+            "probability": 0.917542576789856
+          },
+          {
+            "start": 9.3,
+            "end": 9.66,
+            "word": " یه‌جای",
+            "probability": 0.7885093729322156
+          }
+        ]
+      }
+    ]
+  }
+}

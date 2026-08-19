@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "39dcf18e849223a350697a35259a4543b7fb6d69931da22a34f858ee5942df42",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.08,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.04,
+        "text": "سه نفر داره خب خیلی فهم میکنه دیگه، یعنی یک کمی مصداقی‌تره، حالا اینجا آیا مثلا",
+        "avg_logprob": -0.3570616250408107,
+        "compression_ratio": 1.2972972972972974,
+        "no_speech_prob": 4.2737527405911635e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.24,
+            "word": " سه",
+            "probability": 0.6950981020927429
+          },
+          {
+            "start": 0.24,
+            "end": 0.6,
+            "word": " نفر",
+            "probability": 0.9526929457982382
+          },
+          {
+            "start": 0.6,
+            "end": 0.76,
+            "word": " داره",
+            "probability": 0.7651516199111938
+          },
+          {
+            "start": 0.76,
+            "end": 0.98,
+            "word": " خب",
+            "probability": 0.8275920450687408
+          },
+          {
+            "start": 0.98,
+            "end": 1.32,
+            "word": " خیلی",
+            "probability": 0.9890909940004349
+          },
+          {
+            "start": 1.32,
+            "end": 1.7,
+            "word": " فهم",
+            "probability": 0.5238950848579407
+          },
+          {
+            "start": 1.7,
+            "end": 2.14,
+            "word": " میکنه",
+            "probability": 0.8143341690301895
+          },
+          {
+            "start": 2.14,
+            "end": 2.66,
+            "word": " دیگه،",
+            "probability": 0.7419576680287718
+          },
+          {
+            "start": 2.66,
+            "end": 3.28,
+            "word": " یعنی",
+            "probability": 0.9879684895277023
+          },
+          {
+            "start": 3.28,
+            "end": 3.6,
+            "word": " یک",
+            "probability": 0.8133434951305389
+          },
+          {
+            "start": 3.6,
+            "end": 4.04,
+            "word": " کمی",
+            "probability": 0.5462453862031301
+          },
+          {
+            "start": 4.04,
+            "end": 6.66,
+            "word": " مصداقی‌تره،",
+            "probability": 0.7503548599779606
+          },
+          {
+            "start": 6.66,
+            "end": 7.94,
+            "word": " حالا",
+            "probability": 0.7666376829147339
+          },
+          {
+            "start": 7.94,
+            "end": 8.58,
+            "word": " اینجا",
+            "probability": 0.7306591905653477
+          },
+          {
+            "start": 8.58,
+            "end": 8.82,
+            "word": " آیا",
+            "probability": 0.3687971904873848
+          },
+          {
+            "start": 8.82,
+            "end": 9.04,
+            "word": " مثلا",
+            "probability": 0.6955826282501221
+          }
+        ]
+      }
+    ]
+  }
+}

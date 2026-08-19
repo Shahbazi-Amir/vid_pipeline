@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "0ecdde088d07762e1d8af88211a96f981a1cb5dcc84496de63e96b4d59ecc62e",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.84,
+    "segments": [
+      {
+        "id": 1,
+        "start": 2.3400000000000003,
+        "end": 7.82,
+        "text": "می‌گه بابا چون من یک کاری دارم میکنم، مثلا من کار شناستم.",
+        "avg_logprob": -0.3753333000673188,
+        "compression_ratio": 1.197674418604651,
+        "no_speech_prob": 4.678754050857492e-10,
+        "words": [
+          {
+            "start": 2.3400000000000003,
+            "end": 3.04,
+            "word": " می‌گه",
+            "probability": 0.4675236698240042
+          },
+          {
+            "start": 3.04,
+            "end": 3.3,
+            "word": " بابا",
+            "probability": 0.6111616343259811
+          },
+          {
+            "start": 3.3,
+            "end": 3.58,
+            "word": " چون",
+            "probability": 0.7461976110935211
+          },
+          {
+            "start": 3.58,
+            "end": 3.94,
+            "word": " من",
+            "probability": 0.6025742292404175
+          },
+          {
+            "start": 3.94,
+            "end": 4.16,
+            "word": " یک",
+            "probability": 0.878361701965332
+          },
+          {
+            "start": 4.16,
+            "end": 4.46,
+            "word": " کاری",
+            "probability": 0.969282845656077
+          },
+          {
+            "start": 4.46,
+            "end": 4.8,
+            "word": " دارم",
+            "probability": 0.9811358253161112
+          },
+          {
+            "start": 4.8,
+            "end": 5.46,
+            "word": " میکنم،",
+            "probability": 0.6425923217087984
+          },
+          {
+            "start": 5.46,
+            "end": 5.8,
+            "word": " مثلا",
+            "probability": 0.985311359167099
+          },
+          {
+            "start": 5.8,
+            "end": 6.16,
+            "word": " من",
+            "probability": 0.768639862537384
+          },
+          {
+            "start": 6.16,
+            "end": 7.44,
+            "word": " کار",
+            "probability": 0.8968777060508728
+          },
+          {
+            "start": 7.44,
+            "end": 7.82,
+            "word": " شناستم.",
+            "probability": 0.6094228178262711
+          }
+        ]
+      }
+    ]
+  }
+}

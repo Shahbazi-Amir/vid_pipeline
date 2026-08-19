@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "587b40c3a082f9542a8d949c449241cc7d3ecfce3f72bf5ee016cd3ad67f1c46",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.7,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.68,
+        "text": "سلام، من کاش ناسه، من آبه انسانیم، حال.",
+        "avg_logprob": -0.5776173793352567,
+        "compression_ratio": 1.0606060606060606,
+        "no_speech_prob": 4.0811145574082275e-09,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.54,
+            "word": " سلام،",
+            "probability": 0.3312428252150615
+          },
+          {
+            "start": 0.54,
+            "end": 1.12,
+            "word": " من",
+            "probability": 0.5745383501052856
+          },
+          {
+            "start": 1.12,
+            "end": 1.84,
+            "word": " کاش",
+            "probability": 0.6661641597747803
+          },
+          {
+            "start": 1.84,
+            "end": 2.74,
+            "word": " ناسه،",
+            "probability": 0.458136361092329
+          },
+          {
+            "start": 2.74,
+            "end": 3.68,
+            "word": " من",
+            "probability": 0.9450246691703796
+          },
+          {
+            "start": 3.68,
+            "end": 4.18,
+            "word": " آبه",
+            "probability": 0.7257915039857229
+          },
+          {
+            "start": 4.18,
+            "end": 5.28,
+            "word": " انسانیم،",
+            "probability": 0.8007152502735456
+          },
+          {
+            "start": 5.28,
+            "end": 6.68,
+            "word": " حال.",
+            "probability": 0.27545347064733505
+          }
+        ]
+      }
+    ]
+  }
+}

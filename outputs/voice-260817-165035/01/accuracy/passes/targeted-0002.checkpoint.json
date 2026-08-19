@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "276d5cc689cfcdd9011f747b6fd40fd03c7d07e8f84b665c27fda43c5b194855",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.56,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.2,
+        "text": "خودم و شرکتمون دوزی بدهم، بعد بگیم کجا مثلا به من حال نداد؟",
+        "avg_logprob": -0.3758763042656151,
+        "compression_ratio": 1.2045454545454546,
+        "no_speech_prob": 3.665020509302508e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.44,
+            "word": " خودم",
+            "probability": 0.8003612955411276
+          },
+          {
+            "start": 0.44,
+            "end": 0.56,
+            "word": " و",
+            "probability": 0.3206183910369873
+          },
+          {
+            "start": 0.56,
+            "end": 1.62,
+            "word": " شرکتمون",
+            "probability": 0.736605030298233
+          },
+          {
+            "start": 1.62,
+            "end": 2.0,
+            "word": " دوزی",
+            "probability": 0.8996749222278595
+          },
+          {
+            "start": 2.0,
+            "end": 2.78,
+            "word": " بدهم،",
+            "probability": 0.13655422472705445
+          },
+          {
+            "start": 2.78,
+            "end": 3.44,
+            "word": " بعد",
+            "probability": 0.7069706320762634
+          },
+          {
+            "start": 3.44,
+            "end": 3.74,
+            "word": " بگیم",
+            "probability": 0.6643623635172844
+          },
+          {
+            "start": 3.74,
+            "end": 4.26,
+            "word": " کجا",
+            "probability": 0.9588251312573751
+          },
+          {
+            "start": 4.26,
+            "end": 4.62,
+            "word": " مثلا",
+            "probability": 0.8978302478790283
+          },
+          {
+            "start": 4.62,
+            "end": 4.86,
+            "word": " به",
+            "probability": 0.9190075397491455
+          },
+          {
+            "start": 4.86,
+            "end": 5.2,
+            "word": " من",
+            "probability": 0.9928261041641235
+          },
+          {
+            "start": 5.2,
+            "end": 5.92,
+            "word": " حال",
+            "probability": 0.9689077436923981
+          },
+          {
+            "start": 5.92,
+            "end": 7.2,
+            "word": " نداد؟",
+            "probability": 0.8079962655901909
+          }
+        ]
+      }
+    ]
+  }
+}

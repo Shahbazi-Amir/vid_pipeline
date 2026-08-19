@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "ab1adb713ef08b924ce419a421b9ebb4a1fcff7135a0e7d920277e1ba8048341",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.8,
+    "segments": [
+      {
+        "id": 1,
+        "start": 3.1000000000000005,
+        "end": 5.0,
+        "text": "این هم یه فرایندی داره.",
+        "avg_logprob": -0.5800035231643252,
+        "compression_ratio": 0.8723404255319149,
+        "no_speech_prob": 4.965987621119439e-10,
+        "words": [
+          {
+            "start": 3.1000000000000005,
+            "end": 3.6,
+            "word": " این",
+            "probability": 0.6036017090082169
+          },
+          {
+            "start": 3.6,
+            "end": 3.7,
+            "word": " هم",
+            "probability": 0.7197497487068176
+          },
+          {
+            "start": 3.7,
+            "end": 3.86,
+            "word": " یه",
+            "probability": 0.8389778137207031
+          },
+          {
+            "start": 3.86,
+            "end": 4.66,
+            "word": " فرایندی",
+            "probability": 0.7811835050582886
+          },
+          {
+            "start": 4.66,
+            "end": 5.0,
+            "word": " داره.",
+            "probability": 0.8850887815157572
+          }
+        ]
+      }
+    ]
+  }
+}

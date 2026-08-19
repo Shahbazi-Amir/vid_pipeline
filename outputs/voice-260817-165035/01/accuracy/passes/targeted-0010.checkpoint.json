@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "d085831be5c803f9370c5e0042f3ebab1139930a5d08f786638e73e7177dc83c",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.04,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.22,
+        "text": "باید می‌شه طرف اینجا بمونه. یعنی حقوق دیگر هم یه جایی بهش می‌دن نمی‌رو. می‌گه این‌جا مضایا و نگاه‌تاشش برتره. مثلا، عربی‌ها بیش می کنن.",
+        "avg_logprob": -0.35398040507969103,
+        "compression_ratio": 1.5660377358490567,
+        "no_speech_prob": 3.3379268793432004e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.24,
+            "word": " باید",
+            "probability": 0.6759424209594727
+          },
+          {
+            "start": 0.24,
+            "end": 0.44,
+            "word": " می‌شه",
+            "probability": 0.7115194033831358
+          },
+          {
+            "start": 0.44,
+            "end": 0.68,
+            "word": " طرف",
+            "probability": 0.8196313083171844
+          },
+          {
+            "start": 0.68,
+            "end": 0.98,
+            "word": " اینجا",
+            "probability": 0.9219532012939453
+          },
+          {
+            "start": 0.98,
+            "end": 1.64,
+            "word": " بمونه.",
+            "probability": 0.9349281936883926
+          },
+          {
+            "start": 2.42,
+            "end": 2.9,
+            "word": " یعنی",
+            "probability": 0.9936289191246033
+          },
+          {
+            "start": 2.9,
+            "end": 3.3,
+            "word": " حقوق",
+            "probability": 0.8344952265421549
+          },
+          {
+            "start": 3.3,
+            "end": 3.68,
+            "word": " دیگر",
+            "probability": 0.8327352181077003
+          },
+          {
+            "start": 3.68,
+            "end": 3.76,
+            "word": " هم",
+            "probability": 0.595888540148735
+          },
+          {
+            "start": 3.76,
+            "end": 3.94,
+            "word": " یه",
+            "probability": 0.8193440437316895
+          },
+          {
+            "start": 3.94,
+            "end": 4.18,
+            "word": " جایی",
+            "probability": 0.9466293454170227
+          },
+          {
+            "start": 4.18,
+            "end": 4.48,
+            "word": " بهش",
+            "probability": 0.9785450100898743
+          },
+          {
+            "start": 4.48,
+            "end": 4.86,
+            "word": " می‌دن",
+            "probability": 0.8855874836444855
+          },
+          {
+            "start": 4.86,
+            "end": 5.26,
+            "word": " نمی‌رو.",
+            "probability": 0.7588857173919678
+          },
+          {
+            "start": 5.32,
+            "end": 5.44,
+            "word": " می‌گه",
+            "probability": 0.6916250586509705
+          },
+          {
+            "start": 5.44,
+            "end": 5.66,
+            "word": " این‌جا",
+            "probability": 0.7554528422653675
+          },
+          {
+            "start": 5.66,
+            "end": 6.14,
+            "word": " مضایا",
+            "probability": 0.5800448209047318
+          },
+          {
+            "start": 6.14,
+            "end": 6.38,
+            "word": " و",
+            "probability": 0.4407537579536438
+          },
+          {
+            "start": 6.38,
+            "end": 7.1,
+            "word": " نگاه‌تاشش",
+            "probability": 0.5263078063726425
+          },
+          {
+            "start": 7.1,
+            "end": 7.56,
+            "word": " برتره.",
+            "probability": 0.4634972494095564
+          },
+          {
+            "start": 7.6,
+            "end": 7.92,
+            "word": " مثلا،",
+            "probability": 0.5858855297168096
+          },
+          {
+            "start": 7.92,
+            "end": 8.46,
+            "word": " عربی‌ها",
+            "probability": 0.6910377822816371
+          },
+          {
+            "start": 8.46,
+            "end": 8.64,
+            "word": " بیش",
+            "probability": 0.9212883512179056
+          },
+          {
+            "start": 8.64,
+            "end": 8.76,
+            "word": " می",
+            "probability": 0.8618543148040771
+          },
+          {
+            "start": 8.76,
+            "end": 9.22,
+            "word": " کنن.",
+            "probability": 0.5662248355802149
+          }
+        ]
+      }
+    ]
+  }
+}

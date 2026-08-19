@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "a4fcf6dcf40c0cf187344fa749edac50c89dba311596441a5d3a532d7d1390b5",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.16,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.14,
+        "text": "سراین قوی‌تر میشه. چیه؟ آلا دارم مثالشون می‌دنم، بگیریم تو مرحله بعد. می‌گم که مثل چی؟",
+        "avg_logprob": -0.3871905181942315,
+        "compression_ratio": 1.3057851239669422,
+        "no_speech_prob": 5.328715246832871e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.36,
+            "word": " سراین",
+            "probability": 0.46199242025613785
+          },
+          {
+            "start": 0.36,
+            "end": 1.16,
+            "word": " قوی‌تر",
+            "probability": 0.8158424546321233
+          },
+          {
+            "start": 1.16,
+            "end": 1.62,
+            "word": " میشه.",
+            "probability": 0.7239589045445124
+          },
+          {
+            "start": 2.52,
+            "end": 3.4,
+            "word": " چیه؟",
+            "probability": 0.8589625954627991
+          },
+          {
+            "start": 3.4,
+            "end": 4.14,
+            "word": " آلا",
+            "probability": 0.18551314622163773
+          },
+          {
+            "start": 4.14,
+            "end": 4.4,
+            "word": " دارم",
+            "probability": 0.8620231747627258
+          },
+          {
+            "start": 4.4,
+            "end": 5.02,
+            "word": " مثالشون",
+            "probability": 0.8361638784408569
+          },
+          {
+            "start": 5.02,
+            "end": 5.54,
+            "word": " می‌دنم،",
+            "probability": 0.5666379456718763
+          },
+          {
+            "start": 5.54,
+            "end": 5.86,
+            "word": " بگیریم",
+            "probability": 0.5382489249110222
+          },
+          {
+            "start": 5.86,
+            "end": 5.94,
+            "word": " تو",
+            "probability": 0.8711499571800232
+          },
+          {
+            "start": 5.94,
+            "end": 6.42,
+            "word": " مرحله",
+            "probability": 0.8455800414085388
+          },
+          {
+            "start": 6.42,
+            "end": 6.66,
+            "word": " بعد.",
+            "probability": 0.18944470584392548
+          },
+          {
+            "start": 7.08,
+            "end": 7.7,
+            "word": " می‌گم",
+            "probability": 0.8716951608657837
+          },
+          {
+            "start": 7.7,
+            "end": 8.1,
+            "word": " که",
+            "probability": 0.934766948223114
+          },
+          {
+            "start": 8.1,
+            "end": 8.78,
+            "word": " مثل",
+            "probability": 0.9089441001415253
+          },
+          {
+            "start": 8.78,
+            "end": 9.14,
+            "word": " چی؟",
+            "probability": 0.7859504818916321
+          }
+        ]
+      }
+    ]
+  }
+}

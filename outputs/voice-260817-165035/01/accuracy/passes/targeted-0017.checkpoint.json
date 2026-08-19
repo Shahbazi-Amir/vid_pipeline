@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "6982704a4d6630b1656efec053c994e819d3d7db4cf47a2307995f474bc98462",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.42,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.4,
+        "text": "هسته امین میزم باشم همینه، وزارتخون هم بشم همنه. ولی یه سری مسادیقش فرق میده.",
+        "avg_logprob": -0.517410768652862,
+        "compression_ratio": 1.393939393939394,
+        "no_speech_prob": 4.5635409340327726e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.14,
+            "word": " هسته",
+            "probability": 0.36515893538792926
+          },
+          {
+            "start": 0.14,
+            "end": 0.66,
+            "word": " امین",
+            "probability": 0.7900035182634989
+          },
+          {
+            "start": 0.66,
+            "end": 1.2,
+            "word": " میزم",
+            "probability": 0.5562008817990621
+          },
+          {
+            "start": 1.2,
+            "end": 1.72,
+            "word": " باشم",
+            "probability": 0.7582647005716959
+          },
+          {
+            "start": 1.72,
+            "end": 2.58,
+            "word": " همینه،",
+            "probability": 0.7490807674825192
+          },
+          {
+            "start": 2.58,
+            "end": 3.62,
+            "word": " وزارتخون",
+            "probability": 0.8964853485425314
+          },
+          {
+            "start": 3.62,
+            "end": 3.76,
+            "word": " هم",
+            "probability": 0.5705239027738571
+          },
+          {
+            "start": 3.76,
+            "end": 4.12,
+            "word": " بشم",
+            "probability": 0.6399769677470127
+          },
+          {
+            "start": 4.12,
+            "end": 4.66,
+            "word": " همنه.",
+            "probability": 0.380243970391651
+          },
+          {
+            "start": 4.84,
+            "end": 5.62,
+            "word": " ولی",
+            "probability": 0.9660165011882782
+          },
+          {
+            "start": 5.62,
+            "end": 5.78,
+            "word": " یه",
+            "probability": 0.6496181786060333
+          },
+          {
+            "start": 5.78,
+            "end": 5.9,
+            "word": " سری",
+            "probability": 0.7331290543079376
+          },
+          {
+            "start": 5.9,
+            "end": 6.94,
+            "word": " مسادیقش",
+            "probability": 0.8458325982093811
+          },
+          {
+            "start": 6.94,
+            "end": 7.4,
+            "word": " فرق",
+            "probability": 0.9635700980822245
+          },
+          {
+            "start": 7.4,
+            "end": 7.4,
+            "word": " میده.",
+            "probability": 0.3570026357968648
+          }
+        ]
+      }
+    ]
+  }
+}

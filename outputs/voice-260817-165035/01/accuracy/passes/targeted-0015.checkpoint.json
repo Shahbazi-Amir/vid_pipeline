@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "6b01ca146540203f616b626f1aeac4f7979ed9e24d3bb655f3702ef210b12dfd",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.24,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.22,
+        "text": "به نومی شو کارش راست من رو بنسانیه، شرکت نفتم باشم همینه، مؤسسه امینمه",
+        "avg_logprob": -0.45728847931842415,
+        "compression_ratio": 1.3368421052631578,
+        "no_speech_prob": 8.144293017764426e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.66,
+            "word": " به",
+            "probability": 0.1528855264186859
+          },
+          {
+            "start": 0.66,
+            "end": 0.88,
+            "word": " نومی",
+            "probability": 0.53537717461586
+          },
+          {
+            "start": 0.88,
+            "end": 1.08,
+            "word": " شو",
+            "probability": 0.34297702461481094
+          },
+          {
+            "start": 1.08,
+            "end": 1.4,
+            "word": " کارش",
+            "probability": 0.7281112472216288
+          },
+          {
+            "start": 1.4,
+            "end": 1.58,
+            "word": " راست",
+            "probability": 0.5288540224234263
+          },
+          {
+            "start": 1.58,
+            "end": 1.7,
+            "word": " من",
+            "probability": 0.5176172852516174
+          },
+          {
+            "start": 1.7,
+            "end": 1.88,
+            "word": " رو",
+            "probability": 0.8074580729007721
+          },
+          {
+            "start": 1.88,
+            "end": 2.6,
+            "word": " بنسانیه،",
+            "probability": 0.5656979108850161
+          },
+          {
+            "start": 2.6,
+            "end": 3.16,
+            "word": " شرکت",
+            "probability": 0.8871507346630096
+          },
+          {
+            "start": 3.16,
+            "end": 3.7,
+            "word": " نفتم",
+            "probability": 0.8909504612286886
+          },
+          {
+            "start": 3.7,
+            "end": 4.1,
+            "word": " باشم",
+            "probability": 0.920163889726003
+          },
+          {
+            "start": 4.1,
+            "end": 5.8,
+            "word": " همینه،",
+            "probability": 0.7674813032150268
+          },
+          {
+            "start": 5.8,
+            "end": 6.4,
+            "word": " مؤسسه",
+            "probability": 0.9595125198364258
+          },
+          {
+            "start": 6.4,
+            "end": 7.22,
+            "word": " امینمه",
+            "probability": 0.7122345268726349
+          }
+        ]
+      }
+    ]
+  }
+}

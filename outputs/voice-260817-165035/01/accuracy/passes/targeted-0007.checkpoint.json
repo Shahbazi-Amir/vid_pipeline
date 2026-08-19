@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "a8d4ab4917e797ffdc9c3740e9b5d1684d04890534fa1fb8e9daea4e21c4f8e5",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 15.52,
+    "segments": [
+      {
+        "id": 1,
+        "start": 2.7199999999999993,
+        "end": 15.5,
+        "text": "درسته، مثلا می‌گه جذب و نگهداری، ارضیابی و توسع، نمی‌دونم، رفاهیات و خدمات و یعنی سری فرایانت ها داره دیگه. مثلا جذb و تعمیم",
+        "avg_logprob": -0.2906849302706264,
+        "compression_ratio": 1.5517241379310345,
+        "no_speech_prob": 3.5790262420398733e-10,
+        "words": [
+          {
+            "start": 2.7199999999999993,
+            "end": 3.52,
+            "word": " درسته،",
+            "probability": 0.7416247844696044
+          },
+          {
+            "start": 3.52,
+            "end": 3.8,
+            "word": " مثلا",
+            "probability": 0.9661427140235901
+          },
+          {
+            "start": 3.8,
+            "end": 4.04,
+            "word": " می‌گه",
+            "probability": 0.6846647497732192
+          },
+          {
+            "start": 4.04,
+            "end": 4.44,
+            "word": " جذب",
+            "probability": 0.9473339915275574
+          },
+          {
+            "start": 4.44,
+            "end": 4.52,
+            "word": " و",
+            "probability": 0.9530580043792725
+          },
+          {
+            "start": 4.52,
+            "end": 5.7,
+            "word": " نگهداری،",
+            "probability": 0.9286254133496966
+          },
+          {
+            "start": 5.7,
+            "end": 6.74,
+            "word": " ارضیابی",
+            "probability": 0.8169937252998352
+          },
+          {
+            "start": 6.74,
+            "end": 6.82,
+            "word": " و",
+            "probability": 0.9743472933769226
+          },
+          {
+            "start": 6.82,
+            "end": 8.08,
+            "word": " توسع،",
+            "probability": 0.7108149752020836
+          },
+          {
+            "start": 8.08,
+            "end": 9.5,
+            "word": " نمی‌دونم،",
+            "probability": 0.8880592845380306
+          },
+          {
+            "start": 9.5,
+            "end": 10.36,
+            "word": " رفاهیات",
+            "probability": 0.9822970509529114
+          },
+          {
+            "start": 10.36,
+            "end": 10.46,
+            "word": " و",
+            "probability": 0.9890300631523132
+          },
+          {
+            "start": 10.46,
+            "end": 11.1,
+            "word": " خدمات",
+            "probability": 0.9814600348472595
+          },
+          {
+            "start": 11.1,
+            "end": 11.18,
+            "word": " و",
+            "probability": 0.6830828785896301
+          },
+          {
+            "start": 11.18,
+            "end": 11.32,
+            "word": " یعنی",
+            "probability": 0.6162358671426773
+          },
+          {
+            "start": 11.32,
+            "end": 11.54,
+            "word": " سری",
+            "probability": 0.5061369985342026
+          },
+          {
+            "start": 11.54,
+            "end": 12.22,
+            "word": " فرایانت",
+            "probability": 0.6217631340026856
+          },
+          {
+            "start": 12.22,
+            "end": 12.32,
+            "word": " ها",
+            "probability": 0.6190650761127472
+          },
+          {
+            "start": 12.32,
+            "end": 12.62,
+            "word": " داره",
+            "probability": 0.9415242075920105
+          },
+          {
+            "start": 12.62,
+            "end": 13.04,
+            "word": " دیگه.",
+            "probability": 0.8237015008926392
+          },
+          {
+            "start": 13.28,
+            "end": 14.08,
+            "word": " مثلا",
+            "probability": 0.9804008305072784
+          },
+          {
+            "start": 14.08,
+            "end": 14.82,
+            "word": " جذb",
+            "probability": 0.624954630092058
+          },
+          {
+            "start": 14.82,
+            "end": 15.04,
+            "word": " و",
+            "probability": 0.9804732799530029
+          },
+          {
+            "start": 15.04,
+            "end": 15.5,
+            "word": " تعمیم",
+            "probability": 0.7194119319319725
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "9bc67a73cc8fecdc83039c118486418d7126212c92ae8e7bc8780da63196e287",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.18,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.16,
+        "text": "یعنی این سیبه خیلی پوچید. خب پس این دوتار یه تعمالی روزه. می‌گو پس تو این فراهی نیست؟",
+        "avg_logprob": -0.556474456191063,
+        "compression_ratio": 1.3217391304347825,
+        "no_speech_prob": 3.9245234839668797e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.56,
+            "word": " یعنی",
+            "probability": 0.5913537163287401
+          },
+          {
+            "start": 0.56,
+            "end": 0.72,
+            "word": " این",
+            "probability": 0.487068273127079
+          },
+          {
+            "start": 0.72,
+            "end": 0.9,
+            "word": " سیبه",
+            "probability": 0.5891642719507217
+          },
+          {
+            "start": 0.9,
+            "end": 1.14,
+            "word": " خیلی",
+            "probability": 0.9706419855356216
+          },
+          {
+            "start": 1.14,
+            "end": 1.64,
+            "word": " پوچید.",
+            "probability": 0.7562933802604676
+          },
+          {
+            "start": 2.5,
+            "end": 3.02,
+            "word": " خب",
+            "probability": 0.8338632583618164
+          },
+          {
+            "start": 3.02,
+            "end": 3.24,
+            "word": " پس",
+            "probability": 0.9402259588241577
+          },
+          {
+            "start": 3.24,
+            "end": 3.44,
+            "word": " این",
+            "probability": 0.9864902794361115
+          },
+          {
+            "start": 3.44,
+            "end": 3.88,
+            "word": " دوتار",
+            "probability": 0.5141109476486841
+          },
+          {
+            "start": 3.88,
+            "end": 4.14,
+            "word": " یه",
+            "probability": 0.8953632414340973
+          },
+          {
+            "start": 4.14,
+            "end": 4.66,
+            "word": " تعمالی",
+            "probability": 0.6888578534126282
+          },
+          {
+            "start": 4.66,
+            "end": 4.96,
+            "word": " روزه.",
+            "probability": 0.5037910901010036
+          },
+          {
+            "start": 5.32,
+            "end": 5.84,
+            "word": " می‌گو",
+            "probability": 0.4940491020679474
+          },
+          {
+            "start": 5.84,
+            "end": 6.04,
+            "word": " پس",
+            "probability": 0.9319011270999908
+          },
+          {
+            "start": 6.04,
+            "end": 6.16,
+            "word": " تو",
+            "probability": 0.9296878576278687
+          },
+          {
+            "start": 6.16,
+            "end": 6.7,
+            "word": " این",
+            "probability": 0.9267248809337616
+          },
+          {
+            "start": 6.7,
+            "end": 7.16,
+            "word": " فراهی",
+            "probability": 0.6566299870610237
+          },
+          {
+            "start": 7.16,
+            "end": 7.16,
+            "word": " نیست؟",
+            "probability": 0.28671935200691223
+          }
+        ]
+      }
+    ]
+  }
+}

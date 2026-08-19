@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "2b94bcf0154d94b648e2ca4a96429a2469b9a6520d095a9d47f255cf64591e5f",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.62,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.28,
+        "text": "هر سازمانی بری هم این فراینده. به نومی شما کاش راسو منو بینسونیه، شلکت نفتم باشم همینه.",
+        "avg_logprob": -0.4146720819305955,
+        "compression_ratio": 1.471698113207547,
+        "no_speech_prob": 4.559904953627125e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.16,
+            "word": " هر",
+            "probability": 0.6608323305845261
+          },
+          {
+            "start": 0.16,
+            "end": 0.96,
+            "word": " سازمانی",
+            "probability": 0.9760628342628479
+          },
+          {
+            "start": 0.96,
+            "end": 1.18,
+            "word": " بری",
+            "probability": 0.9168058633804321
+          },
+          {
+            "start": 1.18,
+            "end": 1.5,
+            "word": " هم",
+            "probability": 0.9447521269321442
+          },
+          {
+            "start": 1.5,
+            "end": 1.64,
+            "word": " این",
+            "probability": 0.714812159538269
+          },
+          {
+            "start": 1.64,
+            "end": 2.5,
+            "word": " فراینده.",
+            "probability": 0.9584280252456665
+          },
+          {
+            "start": 2.64,
+            "end": 3.28,
+            "word": " به",
+            "probability": 0.2149171382188797
+          },
+          {
+            "start": 3.28,
+            "end": 3.48,
+            "word": " نومی",
+            "probability": 0.579316109418869
+          },
+          {
+            "start": 3.48,
+            "end": 3.72,
+            "word": " شما",
+            "probability": 0.4359973520040512
+          },
+          {
+            "start": 3.72,
+            "end": 3.96,
+            "word": " کاش",
+            "probability": 0.6917165517807007
+          },
+          {
+            "start": 3.96,
+            "end": 4.28,
+            "word": " راسو",
+            "probability": 0.3711267908414205
+          },
+          {
+            "start": 4.28,
+            "end": 4.46,
+            "word": " منو",
+            "probability": 0.6378394663333893
+          },
+          {
+            "start": 4.46,
+            "end": 5.28,
+            "word": " بینسونیه،",
+            "probability": 0.6065355954425675
+          },
+          {
+            "start": 5.28,
+            "end": 5.78,
+            "word": " شلکت",
+            "probability": 0.8010673522949219
+          },
+          {
+            "start": 5.78,
+            "end": 6.32,
+            "word": " نفتم",
+            "probability": 0.866140345732371
+          },
+          {
+            "start": 6.32,
+            "end": 6.72,
+            "word": " باشم",
+            "probability": 0.7788901329040527
+          },
+          {
+            "start": 6.72,
+            "end": 7.28,
+            "word": " همینه.",
+            "probability": 0.9676163792610168
+          }
+        ]
+      }
+    ]
+  }
+}

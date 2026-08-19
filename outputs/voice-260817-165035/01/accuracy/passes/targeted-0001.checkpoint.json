@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "88cc0718816e6252693f98e0814e16ff6dceae1f9cedb0f39b98dd2b626cc4e8",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.7,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.0,
+        "text": "باید من به نسبت خودم و شرکتمون دوزیح بدن، بعد بگم کجا مثلا؟",
+        "avg_logprob": -0.5023432725515121,
+        "compression_ratio": 1.1910112359550562,
+        "no_speech_prob": 6.140318253855526e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 1.78,
+            "word": " باید",
+            "probability": 0.5816059950739145
+          },
+          {
+            "start": 1.78,
+            "end": 1.84,
+            "word": " من",
+            "probability": 0.1977318525314331
+          },
+          {
+            "start": 1.84,
+            "end": 2.04,
+            "word": " به",
+            "probability": 0.5134890079498291
+          },
+          {
+            "start": 2.04,
+            "end": 3.58,
+            "word": " نسبت",
+            "probability": 0.6147119104862213
+          },
+          {
+            "start": 3.58,
+            "end": 4.14,
+            "word": " خودم",
+            "probability": 0.940598706404368
+          },
+          {
+            "start": 4.14,
+            "end": 4.26,
+            "word": " و",
+            "probability": 0.5935762524604797
+          },
+          {
+            "start": 4.26,
+            "end": 5.32,
+            "word": " شرکتمون",
+            "probability": 0.7331701755523682
+          },
+          {
+            "start": 5.32,
+            "end": 5.78,
+            "word": " دوزیح",
+            "probability": 0.7237031042575837
+          },
+          {
+            "start": 5.78,
+            "end": 6.52,
+            "word": " بدن،",
+            "probability": 0.4630821915343404
+          },
+          {
+            "start": 6.52,
+            "end": 7.14,
+            "word": " بعد",
+            "probability": 0.7832348942756653
+          },
+          {
+            "start": 7.14,
+            "end": 7.44,
+            "word": " بگم",
+            "probability": 0.7604027589162191
+          },
+          {
+            "start": 7.44,
+            "end": 7.94,
+            "word": " کجا",
+            "probability": 0.9433027108510336
+          },
+          {
+            "start": 7.94,
+            "end": 8.5,
+            "word": " مثلا؟",
+            "probability": 0.6046977167328199
+          }
+        ]
+      }
+    ]
+  }
+}

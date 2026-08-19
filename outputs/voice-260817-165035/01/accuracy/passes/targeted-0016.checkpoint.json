@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "db8ca5668d6322c3aa670c033a09afa8e05a225c46aeec6a92340fac11f04436",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.08,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.2,
+        "text": "شرکت نفتم باشم همینه، مؤسسه امین میزم باشیم همنه، وزارت خونم بشیم.",
+        "avg_logprob": -0.27724859665851204,
+        "compression_ratio": 1.3636363636363635,
+        "no_speech_prob": 5.649143375308086e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.94,
+            "word": " شرکت",
+            "probability": 0.7916325852274895
+          },
+          {
+            "start": 0.94,
+            "end": 1.46,
+            "word": " نفتم",
+            "probability": 0.8164027829964956
+          },
+          {
+            "start": 1.46,
+            "end": 1.86,
+            "word": " باشم",
+            "probability": 0.964686930179596
+          },
+          {
+            "start": 1.86,
+            "end": 2.82,
+            "word": " همینه،",
+            "probability": 0.8194005012512207
+          },
+          {
+            "start": 2.82,
+            "end": 4.18,
+            "word": " مؤسسه",
+            "probability": 0.9494343161582947
+          },
+          {
+            "start": 4.18,
+            "end": 4.74,
+            "word": " امین",
+            "probability": 0.9385624130566915
+          },
+          {
+            "start": 4.74,
+            "end": 5.3,
+            "word": " میزم",
+            "probability": 0.7193871239821116
+          },
+          {
+            "start": 5.3,
+            "end": 5.82,
+            "word": " باشیم",
+            "probability": 0.6254469006962609
+          },
+          {
+            "start": 5.82,
+            "end": 6.7,
+            "word": " همنه،",
+            "probability": 0.5838827084808145
+          },
+          {
+            "start": 6.7,
+            "end": 7.5,
+            "word": " وزارت",
+            "probability": 0.9692486375570297
+          },
+          {
+            "start": 7.5,
+            "end": 7.82,
+            "word": " خونم",
+            "probability": 0.5680088798205057
+          },
+          {
+            "start": 7.82,
+            "end": 8.2,
+            "word": " بشیم.",
+            "probability": 0.707175568677485
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "816b5d5fdf8379ae4c7bf20b4133eae64e17f913d72d9ee9463c26b49abb3a31",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 5.5,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 5.42,
+        "text": "یا آموزش رو توصیل باید. خب، می‌دام این فرایه",
+        "avg_logprob": -0.6425950737560496,
+        "compression_ratio": 1.0389610389610389,
+        "no_speech_prob": 5.351878384907138e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.78,
+            "word": " یا",
+            "probability": 0.9321692585945129
+          },
+          {
+            "start": 0.78,
+            "end": 1.32,
+            "word": " آموزش",
+            "probability": 0.9140840768814087
+          },
+          {
+            "start": 1.32,
+            "end": 1.46,
+            "word": " رو",
+            "probability": 0.5609349012374878
+          },
+          {
+            "start": 1.46,
+            "end": 1.98,
+            "word": " توصیل",
+            "probability": 0.449021240696311
+          },
+          {
+            "start": 1.98,
+            "end": 2.3,
+            "word": " باید.",
+            "probability": 0.6264113821089268
+          },
+          {
+            "start": 3.36,
+            "end": 4.2,
+            "word": " خب،",
+            "probability": 0.3426971212029457
+          },
+          {
+            "start": 4.2,
+            "end": 4.5,
+            "word": " می‌دام",
+            "probability": 0.4247289374470711
+          },
+          {
+            "start": 4.5,
+            "end": 4.64,
+            "word": " این",
+            "probability": 0.8258238732814789
+          },
+          {
+            "start": 4.64,
+            "end": 5.42,
+            "word": " فرایه",
+            "probability": 0.6944989487528801
+          }
+        ]
+      }
+    ]
+  }
+}

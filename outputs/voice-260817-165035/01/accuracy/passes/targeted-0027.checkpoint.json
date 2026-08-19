@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "9fb8760e1b1937bb4846e7ff03e2f9ac967c0075370cd912e9a8295ee154ecdf",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.12,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.7,
+        "end": 8.1,
+        "text": "تو می‌تونه یک جا بری بگی اخو من کارشناس مربع استان، این شرکت ملی نفت اگرانم، اصلا یک فرق میکنند، اگه مثلا",
+        "avg_logprob": -0.4719398747319761,
+        "compression_ratio": 1.4615384615384615,
+        "no_speech_prob": 6.823616671702837e-10,
+        "words": [
+          {
+            "start": 0.7,
+            "end": 1.32,
+            "word": " تو",
+            "probability": 0.17618225514888763
+          },
+          {
+            "start": 1.32,
+            "end": 1.68,
+            "word": " می‌تونه",
+            "probability": 0.5948412522673607
+          },
+          {
+            "start": 1.68,
+            "end": 1.84,
+            "word": " یک",
+            "probability": 0.5639312714338303
+          },
+          {
+            "start": 1.84,
+            "end": 1.98,
+            "word": " جا",
+            "probability": 0.5572668761014938
+          },
+          {
+            "start": 1.98,
+            "end": 2.04,
+            "word": " بری",
+            "probability": 0.7190412878990173
+          },
+          {
+            "start": 2.04,
+            "end": 2.24,
+            "word": " بگی",
+            "probability": 0.9245943824450175
+          },
+          {
+            "start": 2.24,
+            "end": 2.52,
+            "word": " اخو",
+            "probability": 0.43252914895613986
+          },
+          {
+            "start": 2.52,
+            "end": 2.7,
+            "word": " من",
+            "probability": 0.8948364853858948
+          },
+          {
+            "start": 2.7,
+            "end": 3.22,
+            "word": " کارشناس",
+            "probability": 0.6753810852766037
+          },
+          {
+            "start": 3.22,
+            "end": 3.6,
+            "word": " مربع",
+            "probability": 0.3281836857398351
+          },
+          {
+            "start": 3.6,
+            "end": 3.9,
+            "word": " استان،",
+            "probability": 0.24125803634524345
+          },
+          {
+            "start": 3.9,
+            "end": 3.98,
+            "word": " این",
+            "probability": 0.8223654925823212
+          },
+          {
+            "start": 3.98,
+            "end": 4.34,
+            "word": " شرکت",
+            "probability": 0.9378840774297714
+          },
+          {
+            "start": 4.34,
+            "end": 4.66,
+            "word": " ملی",
+            "probability": 0.7289132624864578
+          },
+          {
+            "start": 4.66,
+            "end": 5.08,
+            "word": " نفت",
+            "probability": 0.8911601503690084
+          },
+          {
+            "start": 5.08,
+            "end": 5.84,
+            "word": " اگرانم،",
+            "probability": 0.5741176890830199
+          },
+          {
+            "start": 5.84,
+            "end": 6.56,
+            "word": " اصلا",
+            "probability": 0.9198160767555237
+          },
+          {
+            "start": 6.56,
+            "end": 6.68,
+            "word": " یک",
+            "probability": 0.5813464522361755
+          },
+          {
+            "start": 6.68,
+            "end": 7.06,
+            "word": " فرق",
+            "probability": 0.8357304732004801
+          },
+          {
+            "start": 7.06,
+            "end": 7.56,
+            "word": " میکنند،",
+            "probability": 0.5400284349918365
+          },
+          {
+            "start": 7.56,
+            "end": 7.82,
+            "word": " اگه",
+            "probability": 0.8085816701253256
+          },
+          {
+            "start": 7.82,
+            "end": 8.1,
+            "word": " مثلا",
+            "probability": 0.8381348848342896
+          }
+        ]
+      }
+    ]
+  }
+}

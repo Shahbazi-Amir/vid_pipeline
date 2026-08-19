@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "fc7c10f7c0518cdb7c7e92318c4b310dfae649f72c44a21d22170107eceac388",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.34,
+    "segments": [
+      {
+        "id": 1,
+        "start": 2.020000000000002,
+        "end": 9.32,
+        "text": "مصداقی‌تره. حالا نگم اینجا، آیا مثلا کسی میگه آقا کارشون است من و انسانی، تو مثلا بیا شعری که مثلا هم",
+        "avg_logprob": -0.4442785741790893,
+        "compression_ratio": 1.4108527131782946,
+        "no_speech_prob": 5.003685243920586e-10,
+        "words": [
+          {
+            "start": 2.020000000000002,
+            "end": 2.600000000000001,
+            "word": " مصداقی‌تره.",
+            "probability": 0.7809235329429308
+          },
+          {
+            "start": 2.600000000000001,
+            "end": 3.18,
+            "word": " حالا",
+            "probability": 0.933010200659434
+          },
+          {
+            "start": 3.18,
+            "end": 3.38,
+            "word": " نگم",
+            "probability": 0.40385329475005466
+          },
+          {
+            "start": 3.38,
+            "end": 3.88,
+            "word": " اینجا،",
+            "probability": 0.7700393781065941
+          },
+          {
+            "start": 3.88,
+            "end": 4.02,
+            "word": " آیا",
+            "probability": 0.5100015476346016
+          },
+          {
+            "start": 4.02,
+            "end": 4.38,
+            "word": " مثلا",
+            "probability": 0.7244430482387543
+          },
+          {
+            "start": 4.38,
+            "end": 4.72,
+            "word": " کسی",
+            "probability": 0.9463948210080465
+          },
+          {
+            "start": 4.72,
+            "end": 5.0,
+            "word": " میگه",
+            "probability": 0.9261041482289633
+          },
+          {
+            "start": 5.0,
+            "end": 5.22,
+            "word": " آقا",
+            "probability": 0.6927476127942404
+          },
+          {
+            "start": 5.22,
+            "end": 5.72,
+            "word": " کارشون",
+            "probability": 0.7532231360673904
+          },
+          {
+            "start": 5.72,
+            "end": 5.84,
+            "word": " است",
+            "probability": 0.26343250274658203
+          },
+          {
+            "start": 5.84,
+            "end": 6.06,
+            "word": " من",
+            "probability": 0.6034870743751526
+          },
+          {
+            "start": 6.06,
+            "end": 6.2,
+            "word": " و",
+            "probability": 0.19509094953536987
+          },
+          {
+            "start": 6.2,
+            "end": 7.18,
+            "word": " انسانی،",
+            "probability": 0.6849827289581298
+          },
+          {
+            "start": 7.18,
+            "end": 7.74,
+            "word": " تو",
+            "probability": 0.9633938074111938
+          },
+          {
+            "start": 7.74,
+            "end": 8.08,
+            "word": " مثلا",
+            "probability": 0.8882815539836884
+          },
+          {
+            "start": 8.08,
+            "end": 8.26,
+            "word": " بیا",
+            "probability": 0.5296587347984314
+          },
+          {
+            "start": 8.26,
+            "end": 8.68,
+            "word": " شعری",
+            "probability": 0.5071354458729426
+          },
+          {
+            "start": 8.68,
+            "end": 8.88,
+            "word": " که",
+            "probability": 0.7354603707790375
+          },
+          {
+            "start": 8.88,
+            "end": 9.18,
+            "word": " مثلا",
+            "probability": 0.8331208527088165
+          },
+          {
+            "start": 9.18,
+            "end": 9.32,
+            "word": " هم",
+            "probability": 0.6675195246934891
+          }
+        ]
+      }
+    ]
+  }
+}

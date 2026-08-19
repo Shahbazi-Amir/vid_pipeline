@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "9f16b5e90e7fd2b9bc777939b331c0a2f4468451c0b81fa35c3e4d3441e3c207",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.06,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.96,
+        "text": "این فراینده هر جمعا دستان بارا گیرم بلو بگیم، من کارش نسو من رو به انسانی هم می‌فهمن. ولی این موقعهایی هست.",
+        "avg_logprob": -0.41523065992764063,
+        "compression_ratio": 1.443609022556391,
+        "no_speech_prob": 3.310680340984362e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.0,
+            "word": " این",
+            "probability": 0.46397318691015244
+          },
+          {
+            "start": 0.0,
+            "end": 0.56,
+            "word": " فراینده",
+            "probability": 0.7927377223968506
+          },
+          {
+            "start": 0.56,
+            "end": 1.0,
+            "word": " هر",
+            "probability": 0.8881903290748596
+          },
+          {
+            "start": 1.0,
+            "end": 1.26,
+            "word": " جمعا",
+            "probability": 0.6685997471213341
+          },
+          {
+            "start": 1.26,
+            "end": 1.62,
+            "word": " دستان",
+            "probability": 0.7238348325093588
+          },
+          {
+            "start": 1.62,
+            "end": 1.82,
+            "word": " بارا",
+            "probability": 0.5539536476135254
+          },
+          {
+            "start": 1.82,
+            "end": 2.08,
+            "word": " گیرم",
+            "probability": 0.9242146611213684
+          },
+          {
+            "start": 2.08,
+            "end": 2.28,
+            "word": " بلو",
+            "probability": 0.5316667258739471
+          },
+          {
+            "start": 2.28,
+            "end": 2.66,
+            "word": " بگیم،",
+            "probability": 0.710947883874178
+          },
+          {
+            "start": 2.66,
+            "end": 2.66,
+            "word": " من",
+            "probability": 0.9185563921928406
+          },
+          {
+            "start": 2.66,
+            "end": 2.96,
+            "word": " کارش",
+            "probability": 0.9175718625386556
+          },
+          {
+            "start": 2.96,
+            "end": 3.14,
+            "word": " نسو",
+            "probability": 0.2913469324509303
+          },
+          {
+            "start": 3.14,
+            "end": 3.34,
+            "word": " من",
+            "probability": 0.6649888157844543
+          },
+          {
+            "start": 3.34,
+            "end": 3.46,
+            "word": " رو",
+            "probability": 0.821273535490036
+          },
+          {
+            "start": 3.46,
+            "end": 3.52,
+            "word": " به",
+            "probability": 0.9802123308181763
+          },
+          {
+            "start": 3.52,
+            "end": 3.86,
+            "word": " انسانی",
+            "probability": 0.9260079115629196
+          },
+          {
+            "start": 3.86,
+            "end": 4.04,
+            "word": " هم",
+            "probability": 0.7250082045793533
+          },
+          {
+            "start": 4.04,
+            "end": 4.6,
+            "word": " می‌فهمن.",
+            "probability": 0.5899948567152024
+          },
+          {
+            "start": 5.22,
+            "end": 5.72,
+            "word": " ولی",
+            "probability": 0.8435655534267426
+          },
+          {
+            "start": 5.72,
+            "end": 5.86,
+            "word": " این",
+            "probability": 0.8326416015625
+          },
+          {
+            "start": 5.86,
+            "end": 6.72,
+            "word": " موقعهایی",
+            "probability": 0.799335112174352
+          },
+          {
+            "start": 6.72,
+            "end": 6.96,
+            "word": " هست.",
+            "probability": 0.9841681718826294
+          }
+        ]
+      }
+    ]
+  }
+}

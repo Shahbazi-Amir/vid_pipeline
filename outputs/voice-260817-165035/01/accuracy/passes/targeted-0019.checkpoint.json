@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "5e722e80a5f9c7a07e2a9da9bfec8020e222821a1f7e6ac478b327b978faa601",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.98,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.96,
+        "text": "یعنی یه سری مثادیرش فرق می‌کنه، یعني اون این که من اونجا اجرا میکنم تو شرکت نفت با اینی که مثلا از 3 نفر دارم",
+        "avg_logprob": -0.30671807419922614,
+        "compression_ratio": 1.4586466165413534,
+        "no_speech_prob": 3.9885381108994977e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.16,
+            "word": " یعنی",
+            "probability": 0.7374892458319664
+          },
+          {
+            "start": 0.16,
+            "end": 0.34,
+            "word": " یه",
+            "probability": 0.5403322726488113
+          },
+          {
+            "start": 0.34,
+            "end": 0.48,
+            "word": " سری",
+            "probability": 0.5830435752868652
+          },
+          {
+            "start": 0.48,
+            "end": 1.52,
+            "word": " مثادیرش",
+            "probability": 0.7477512836456299
+          },
+          {
+            "start": 1.52,
+            "end": 1.98,
+            "word": " فرق",
+            "probability": 0.9456540942192078
+          },
+          {
+            "start": 1.98,
+            "end": 2.62,
+            "word": " می‌کنه،",
+            "probability": 0.550783607798318
+          },
+          {
+            "start": 2.62,
+            "end": 3.3,
+            "word": " یعني",
+            "probability": 0.65439496562855
+          },
+          {
+            "start": 3.3,
+            "end": 3.5,
+            "word": " اون",
+            "probability": 0.7075594663619995
+          },
+          {
+            "start": 3.5,
+            "end": 3.56,
+            "word": " این",
+            "probability": 0.7388305068016052
+          },
+          {
+            "start": 3.56,
+            "end": 3.68,
+            "word": " که",
+            "probability": 0.7436111569404602
+          },
+          {
+            "start": 3.68,
+            "end": 3.82,
+            "word": " من",
+            "probability": 0.7360880374908447
+          },
+          {
+            "start": 3.82,
+            "end": 4.1,
+            "word": " اونجا",
+            "probability": 0.7746319323778152
+          },
+          {
+            "start": 4.1,
+            "end": 4.64,
+            "word": " اجرا",
+            "probability": 0.9567479888598124
+          },
+          {
+            "start": 4.64,
+            "end": 5.18,
+            "word": " میکنم",
+            "probability": 0.7529671229422092
+          },
+          {
+            "start": 5.18,
+            "end": 5.3,
+            "word": " تو",
+            "probability": 0.9342034459114075
+          },
+          {
+            "start": 5.3,
+            "end": 5.84,
+            "word": " شرکت",
+            "probability": 0.9824037700891495
+          },
+          {
+            "start": 5.84,
+            "end": 6.5,
+            "word": " نفت",
+            "probability": 0.9549779891967773
+          },
+          {
+            "start": 6.5,
+            "end": 7.44,
+            "word": " با",
+            "probability": 0.857473224401474
+          },
+          {
+            "start": 7.44,
+            "end": 7.58,
+            "word": " اینی",
+            "probability": 0.7113735328118006
+          },
+          {
+            "start": 7.58,
+            "end": 7.78,
+            "word": " که",
+            "probability": 0.9874926507472992
+          },
+          {
+            "start": 7.78,
+            "end": 8.02,
+            "word": " مثلا",
+            "probability": 0.9593928754329681
+          },
+          {
+            "start": 8.02,
+            "end": 8.2,
+            "word": " از",
+            "probability": 0.8954608142375946
+          },
+          {
+            "start": 8.2,
+            "end": 8.42,
+            "word": " 3",
+            "probability": 0.3476337790489197
+          },
+          {
+            "start": 8.42,
+            "end": 8.82,
+            "word": " نفر",
+            "probability": 0.9461870789527893
+          },
+          {
+            "start": 8.82,
+            "end": 8.96,
+            "word": " دارم",
+            "probability": 0.9285175204277039
+          }
+        ]
+      }
+    ]
+  }
+}

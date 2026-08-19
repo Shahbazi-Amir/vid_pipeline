@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "75fc65180ecf69c79f1d079c5da829ba6605d880de508049f49bacc946f91c7a",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 13.08,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 12.64,
+        "text": "ما تو بانک بگیم ثواده مالی، تو بورس بگم، ما کارشناس سرمایه گذری داریم، کار شناس معاملگر دارم، ولی کار‌شناست ثوادمالی که تحالا نداشتیم مثلا می‌گید تو همون قضایه که می‌کید کرده.",
+        "avg_logprob": -0.3266329469933974,
+        "compression_ratio": 1.7833333333333334,
+        "no_speech_prob": 4.2416867240824274e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.0,
+            "word": " ما",
+            "probability": 0.32672250270843506
+          },
+          {
+            "start": 0.0,
+            "end": 0.0,
+            "word": " تو",
+            "probability": 0.3727806508541107
+          },
+          {
+            "start": 0.0,
+            "end": 0.4,
+            "word": " بانک",
+            "probability": 0.8971718152364095
+          },
+          {
+            "start": 0.4,
+            "end": 0.7,
+            "word": " بگیم",
+            "probability": 0.9580140262842178
+          },
+          {
+            "start": 0.7,
+            "end": 1.2,
+            "word": " ثواده",
+            "probability": 0.6405530050396919
+          },
+          {
+            "start": 1.2,
+            "end": 1.74,
+            "word": " مالی،",
+            "probability": 0.7916254103183746
+          },
+          {
+            "start": 1.74,
+            "end": 1.86,
+            "word": " تو",
+            "probability": 0.9380051493644714
+          },
+          {
+            "start": 1.86,
+            "end": 2.22,
+            "word": " بورس",
+            "probability": 0.9204135139783224
+          },
+          {
+            "start": 2.22,
+            "end": 2.6,
+            "word": " بگم،",
+            "probability": 0.5112161152355839
+          },
+          {
+            "start": 2.6,
+            "end": 3.06,
+            "word": " ما",
+            "probability": 0.9861847758293152
+          },
+          {
+            "start": 3.06,
+            "end": 3.76,
+            "word": " کارشناس",
+            "probability": 0.9838543176651001
+          },
+          {
+            "start": 3.76,
+            "end": 4.3,
+            "word": " سرمایه",
+            "probability": 0.7610753953456879
+          },
+          {
+            "start": 4.3,
+            "end": 4.62,
+            "word": " گذری",
+            "probability": 0.5850492815176646
+          },
+          {
+            "start": 4.62,
+            "end": 5.08,
+            "word": " داریم،",
+            "probability": 0.8669173061847687
+          },
+          {
+            "start": 5.08,
+            "end": 5.26,
+            "word": " کار",
+            "probability": 0.9578297734260559
+          },
+          {
+            "start": 5.26,
+            "end": 5.5,
+            "word": " شناس",
+            "probability": 0.6650980825846394
+          },
+          {
+            "start": 5.5,
+            "end": 6.26,
+            "word": " معاملگر",
+            "probability": 0.9033147096633911
+          },
+          {
+            "start": 6.26,
+            "end": 6.56,
+            "word": " دارم،",
+            "probability": 0.5981563471723348
+          },
+          {
+            "start": 6.56,
+            "end": 7.68,
+            "word": " ولی",
+            "probability": 0.5561501681804657
+          },
+          {
+            "start": 7.68,
+            "end": 8.4,
+            "word": " کار‌شناست",
+            "probability": 0.64695611896362
+          },
+          {
+            "start": 8.4,
+            "end": 9.16,
+            "word": " ثوادمالی",
+            "probability": 0.7784821899491362
+          },
+          {
+            "start": 9.16,
+            "end": 9.28,
+            "word": " که",
+            "probability": 0.9519991278648376
+          },
+          {
+            "start": 9.28,
+            "end": 9.58,
+            "word": " تحالا",
+            "probability": 0.622699711471796
+          },
+          {
+            "start": 9.58,
+            "end": 10.04,
+            "word": " نداشتیم",
+            "probability": 0.9773464302221934
+          },
+          {
+            "start": 10.04,
+            "end": 10.26,
+            "word": " مثلا",
+            "probability": 0.6419819742441177
+          },
+          {
+            "start": 10.26,
+            "end": 10.44,
+            "word": " می‌گید",
+            "probability": 0.5456235706806183
+          },
+          {
+            "start": 10.44,
+            "end": 10.58,
+            "word": " تو",
+            "probability": 0.6464617252349854
+          },
+          {
+            "start": 10.58,
+            "end": 11.34,
+            "word": " همون",
+            "probability": 0.6681239604949951
+          },
+          {
+            "start": 11.34,
+            "end": 11.78,
+            "word": " قضایه",
+            "probability": 0.8064783394336701
+          },
+          {
+            "start": 11.78,
+            "end": 11.92,
+            "word": " که",
+            "probability": 0.9476319253444672
+          },
+          {
+            "start": 11.92,
+            "end": 12.22,
+            "word": " می‌کید",
+            "probability": 0.7324560359120369
+          },
+          {
+            "start": 12.22,
+            "end": 12.64,
+            "word": " کرده.",
+            "probability": 0.865116814772288
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "4cd91f57a9ea6f57bf2771bfa1ed2c833582a70733b7ac64fd2b9d7f69eed907",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.24,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.74,
+        "text": "دارم مثالشو می‌زنم، بینیم تو مرحله بعد. می‌گم که مثل چیز؟ مثل تعلیف کتاب.",
+        "avg_logprob": -0.3198831811243174,
+        "compression_ratio": 1.2547169811320755,
+        "no_speech_prob": 3.901977074782792e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.24,
+            "word": " دارم",
+            "probability": 0.6116873423258463
+          },
+          {
+            "start": 0.24,
+            "end": 0.84,
+            "word": " مثالشو",
+            "probability": 0.8490102961659431
+          },
+          {
+            "start": 0.84,
+            "end": 1.38,
+            "word": " می‌زنم،",
+            "probability": 0.5605845811466376
+          },
+          {
+            "start": 1.38,
+            "end": 1.7,
+            "word": " بینیم",
+            "probability": 0.7555092573165894
+          },
+          {
+            "start": 1.7,
+            "end": 1.78,
+            "word": " تو",
+            "probability": 0.7296740412712097
+          },
+          {
+            "start": 1.78,
+            "end": 2.26,
+            "word": " مرحله",
+            "probability": 0.9448753148317337
+          },
+          {
+            "start": 2.26,
+            "end": 2.48,
+            "word": " بعد.",
+            "probability": 0.07651688158512115
+          },
+          {
+            "start": 2.82,
+            "end": 3.54,
+            "word": " می‌گم",
+            "probability": 0.919002965092659
+          },
+          {
+            "start": 3.54,
+            "end": 3.94,
+            "word": " که",
+            "probability": 0.9545053243637085
+          },
+          {
+            "start": 3.94,
+            "end": 4.62,
+            "word": " مثل",
+            "probability": 0.9405964612960815
+          },
+          {
+            "start": 4.62,
+            "end": 5.6,
+            "word": " چیز؟",
+            "probability": 0.8146016150712967
+          },
+          {
+            "start": 5.6,
+            "end": 6.48,
+            "word": " مثل",
+            "probability": 0.9681621491909027
+          },
+          {
+            "start": 6.48,
+            "end": 7.14,
+            "word": " تعلیف",
+            "probability": 0.9226033091545105
+          },
+          {
+            "start": 7.14,
+            "end": 7.74,
+            "word": " کتاب.",
+            "probability": 0.9869429270426432
+          }
+        ]
+      }
+    ]
+  }
+}

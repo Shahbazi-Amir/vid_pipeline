@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "4b503c6485f8175c652bcbcd8c06ab5f3c5d19d9397ef48e31c32d82bf19c89e",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 16.0,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 15.98,
+        "text": "آن بولو بگیم من کارش ناسه من رو به انسانی هم می‌فهمن. ولی این موقعهایی هست محوا می‌چربه به فرایند. یعنی مثلا من می‌گم من ثواده‌مالیه با آمزش می‌دهن. بعد می‌کم خب ثوادمالی اصلا چی؟",
+        "avg_logprob": -0.3883886087153639,
+        "compression_ratio": 1.7486631016042782,
+        "no_speech_prob": 3.978041229757423e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.0,
+            "word": " آن",
+            "probability": 0.33958848426118493
+          },
+          {
+            "start": 0.0,
+            "end": 0.24,
+            "word": " بولو",
+            "probability": 0.5044790903727213
+          },
+          {
+            "start": 0.24,
+            "end": 0.46,
+            "word": " بگیم",
+            "probability": 0.8209937065839767
+          },
+          {
+            "start": 0.46,
+            "end": 0.58,
+            "word": " من",
+            "probability": 0.4307716190814972
+          },
+          {
+            "start": 0.58,
+            "end": 0.9,
+            "word": " کارش",
+            "probability": 0.9038958549499512
+          },
+          {
+            "start": 0.9,
+            "end": 1.12,
+            "word": " ناسه",
+            "probability": 0.40382393697897595
+          },
+          {
+            "start": 1.12,
+            "end": 1.28,
+            "word": " من",
+            "probability": 0.8187165856361389
+          },
+          {
+            "start": 1.28,
+            "end": 1.4,
+            "word": " رو",
+            "probability": 0.922571986913681
+          },
+          {
+            "start": 1.4,
+            "end": 1.46,
+            "word": " به",
+            "probability": 0.9482972621917725
+          },
+          {
+            "start": 1.46,
+            "end": 1.82,
+            "word": " انسانی",
+            "probability": 0.9913451075553894
+          },
+          {
+            "start": 1.82,
+            "end": 1.96,
+            "word": " هم",
+            "probability": 0.6928766518831253
+          },
+          {
+            "start": 1.96,
+            "end": 2.54,
+            "word": " می‌فهمن.",
+            "probability": 0.7118400692939758
+          },
+          {
+            "start": 3.0,
+            "end": 3.64,
+            "word": " ولی",
+            "probability": 0.9737892150878906
+          },
+          {
+            "start": 3.64,
+            "end": 3.82,
+            "word": " این",
+            "probability": 0.6507271230220795
+          },
+          {
+            "start": 3.82,
+            "end": 4.64,
+            "word": " موقعهایی",
+            "probability": 0.8599228709936142
+          },
+          {
+            "start": 4.64,
+            "end": 4.9,
+            "word": " هست",
+            "probability": 0.898994654417038
+          },
+          {
+            "start": 4.9,
+            "end": 5.9,
+            "word": " محوا",
+            "probability": 0.5982026110092798
+          },
+          {
+            "start": 5.9,
+            "end": 7.1,
+            "word": " می‌چربه",
+            "probability": 0.9492814898490906
+          },
+          {
+            "start": 7.1,
+            "end": 7.2,
+            "word": " به",
+            "probability": 0.9740695357322693
+          },
+          {
+            "start": 7.2,
+            "end": 8.08,
+            "word": " فرایند.",
+            "probability": 0.7102574333548546
+          },
+          {
+            "start": 8.68,
+            "end": 9.32,
+            "word": " یعنی",
+            "probability": 0.9858638197183609
+          },
+          {
+            "start": 9.32,
+            "end": 9.72,
+            "word": " مثلا",
+            "probability": 0.9659812450408936
+          },
+          {
+            "start": 9.72,
+            "end": 9.98,
+            "word": " من",
+            "probability": 0.5666297674179077
+          },
+          {
+            "start": 9.98,
+            "end": 10.48,
+            "word": " می‌گم",
+            "probability": 0.9209658950567245
+          },
+          {
+            "start": 10.48,
+            "end": 10.68,
+            "word": " من",
+            "probability": 0.8226580619812012
+          },
+          {
+            "start": 10.68,
+            "end": 11.9,
+            "word": " ثواده‌مالیه",
+            "probability": 0.7628142933050791
+          },
+          {
+            "start": 11.9,
+            "end": 12.54,
+            "word": " با",
+            "probability": 0.7739534080028534
+          },
+          {
+            "start": 12.54,
+            "end": 12.92,
+            "word": " آمزش",
+            "probability": 0.4739149622619152
+          },
+          {
+            "start": 12.92,
+            "end": 13.38,
+            "word": " می‌دهن.",
+            "probability": 0.7318041324615479
+          },
+          {
+            "start": 13.92,
+            "end": 14.46,
+            "word": " بعد",
+            "probability": 0.7252007126808167
+          },
+          {
+            "start": 14.46,
+            "end": 14.76,
+            "word": " می‌کم",
+            "probability": 0.7189066058490425
+          },
+          {
+            "start": 14.76,
+            "end": 14.86,
+            "word": " خب",
+            "probability": 0.6844313144683838
+          },
+          {
+            "start": 14.86,
+            "end": 15.46,
+            "word": " ثوادمالی",
+            "probability": 0.7714491497725249
+          },
+          {
+            "start": 15.46,
+            "end": 15.66,
+            "word": " اصلا",
+            "probability": 0.7244725525379181
+          },
+          {
+            "start": 15.66,
+            "end": 15.98,
+            "word": " چی؟",
+            "probability": 0.523841455578804
+          }
+        ]
+      }
+    ]
+  }
+}

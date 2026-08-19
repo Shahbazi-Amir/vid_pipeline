@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "1e2808fdf9923946f36ff47865ef271e932ff6a4d042903ba1bd4fc569fe0666",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.74,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 12.72,
+        "text": "ماشناس ثواد مالی که تا الان نداشتیم، مثلا میگه تو. همون قضایه که میگید که سه گروه نباید ثوادمالی درس بدن، آره آرآره. آرره، میخوام میکرد؟ آر را میخواه میکنم.",
+        "avg_logprob": -0.5223506466250554,
+        "compression_ratio": 1.7391304347826086,
+        "no_speech_prob": 4.2863423921346566e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.32,
+            "word": " ماشناس",
+            "probability": 0.3897633273154497
+          },
+          {
+            "start": 0.32,
+            "end": 0.76,
+            "word": " ثواد",
+            "probability": 0.6747947409749031
+          },
+          {
+            "start": 0.76,
+            "end": 1.08,
+            "word": " مالی",
+            "probability": 0.9607074856758118
+          },
+          {
+            "start": 1.08,
+            "end": 1.2,
+            "word": " که",
+            "probability": 0.9451054334640503
+          },
+          {
+            "start": 1.2,
+            "end": 1.34,
+            "word": " تا",
+            "probability": 0.4608009457588196
+          },
+          {
+            "start": 1.34,
+            "end": 1.48,
+            "word": " الان",
+            "probability": 0.6152176409959793
+          },
+          {
+            "start": 1.48,
+            "end": 2.04,
+            "word": " نداشتیم،",
+            "probability": 0.7790955379605293
+          },
+          {
+            "start": 2.04,
+            "end": 2.18,
+            "word": " مثلا",
+            "probability": 0.9555827379226685
+          },
+          {
+            "start": 2.18,
+            "end": 2.36,
+            "word": " میگه",
+            "probability": 0.6288939019044241
+          },
+          {
+            "start": 2.36,
+            "end": 2.5,
+            "word": " تو.",
+            "probability": 0.8568211197853088
+          },
+          {
+            "start": 2.74,
+            "end": 3.26,
+            "word": " همون",
+            "probability": 0.7704736987749735
+          },
+          {
+            "start": 3.26,
+            "end": 3.68,
+            "word": " قضایه",
+            "probability": 0.9181356191635132
+          },
+          {
+            "start": 3.68,
+            "end": 3.84,
+            "word": " که",
+            "probability": 0.9272608160972595
+          },
+          {
+            "start": 3.84,
+            "end": 4.16,
+            "word": " میگید",
+            "probability": 0.7528517693281174
+          },
+          {
+            "start": 4.16,
+            "end": 5.1,
+            "word": " که",
+            "probability": 0.9575904011726379
+          },
+          {
+            "start": 5.1,
+            "end": 6.46,
+            "word": " سه",
+            "probability": 0.8384983241558075
+          },
+          {
+            "start": 6.46,
+            "end": 6.76,
+            "word": " گروه",
+            "probability": 0.9902573823928833
+          },
+          {
+            "start": 6.76,
+            "end": 7.44,
+            "word": " نباید",
+            "probability": 0.9002611637115479
+          },
+          {
+            "start": 7.44,
+            "end": 8.1,
+            "word": " ثوادمالی",
+            "probability": 0.6770836599636822
+          },
+          {
+            "start": 8.1,
+            "end": 8.44,
+            "word": " درس",
+            "probability": 0.9256206552187601
+          },
+          {
+            "start": 8.44,
+            "end": 8.8,
+            "word": " بدن،",
+            "probability": 0.49295612672964734
+          },
+          {
+            "start": 8.8,
+            "end": 9.02,
+            "word": " آره",
+            "probability": 0.7072553634643555
+          },
+          {
+            "start": 9.02,
+            "end": 10.3,
+            "word": " آرآره.",
+            "probability": 0.6843276160701256
+          },
+          {
+            "start": 10.3,
+            "end": 10.88,
+            "word": " آرره،",
+            "probability": 0.48256314123282207
+          },
+          {
+            "start": 10.88,
+            "end": 11.46,
+            "word": " میخوام",
+            "probability": 0.6330280676484108
+          },
+          {
+            "start": 11.46,
+            "end": 12.08,
+            "word": " میکرد؟",
+            "probability": 0.5291322201490403
+          },
+          {
+            "start": 12.08,
+            "end": 12.26,
+            "word": " آر",
+            "probability": 0.9498277008533478
+          },
+          {
+            "start": 12.26,
+            "end": 12.3,
+            "word": " را",
+            "probability": 0.12492167501477525
+          },
+          {
+            "start": 12.3,
+            "end": 12.54,
+            "word": " میخواه",
+            "probability": 0.455962635576725
+          },
+          {
+            "start": 12.54,
+            "end": 12.72,
+            "word": " میکنم.",
+            "probability": 0.38044345658272505
+          }
+        ]
+      }
+    ]
+  }
+}

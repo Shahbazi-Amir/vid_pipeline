@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "human_review_required",
+  "generated_at": "2026-08-19T00:37:41.354853+00:00",
+  "job_root": "/tmp/voice-260817-165035-runtime/voice-260817-165035-99a66291",
+  "segment_count": 124,
+  "review_item_count": 124,
+  "required_item_count": 124,
+  "external_reference_used": false,
+  "quality_source": "/tmp/voice-260817-165035-runtime/voice-260817-165035-99a66291/accuracy/transcript.consensus.json",
+  "source_files": {
+    "raw_json": "/tmp/voice-260817-165035-runtime/voice-260817-165035-99a66291/raw/transcript.raw.json",
+    "machine_text": "/tmp/voice-260817-165035-runtime/voice-260817-165035-99a66291/machine/transcript.machine.txt",
+    "final_text": "/tmp/voice-260817-165035-runtime/voice-260817-165035-99a66291/final/transcript.final.txt",
+    "audio": "/tmp/voice-260817-165035-runtime/voice-260817-165035-99a66291/audio/audio-16k-mono.wav"
+  },
+  "source_sha256": {
+    "raw_json": "8384b137f57aea6747b73bccf14b5a6146548450c92673f9026975128ac55efe",
+    "machine_text": "93cf06728b218f19dce529165d483daff58873d680eb9f065894e43ff7a3d567",
+    "final_text": "93cf06728b218f19dce529165d483daff58873d680eb9f065894e43ff7a3d567"
+  },
+  "files": {
+    "manifest": "/tmp/voice-260817-165035-runtime/voice-260817-165035-99a66291/review/manifest.json",
+    "uncertain_spans": "/tmp/voice-260817-165035-runtime/voice-260817-165035-99a66291/review/uncertain-spans.json",
+    "editorial_audit": "/tmp/voice-260817-165035-runtime/voice-260817-165035-99a66291/review/editorial-audit.json",
+    "assistant_package": "/tmp/voice-260817-165035-runtime/voice-260817-165035-99a66291/review/assistant-review-package.json",
+    "quality_report": "/tmp/voice-260817-165035-runtime/voice-260817-165035-99a66291/review/quality-report.json",
+    "review_srt": "/tmp/voice-260817-165035-runtime/voice-260817-165035-99a66291/review/transcript.review.srt",
+    "review_vtt": "/tmp/voice-260817-165035-runtime/voice-260817-165035-99a66291/review/transcript.review.vtt",
+    "review_markdown": "/tmp/voice-260817-165035-runtime/voice-260817-165035-99a66291/review/review.md",
+    "review_html": "/tmp/voice-260817-165035-runtime/voice-260817-165035-99a66291/review/review.html",
+    "corrections_template": "/tmp/voice-260817-165035-runtime/voice-260817-165035-99a66291/review/corrections.template.json",
+    "review_archive": "/tmp/voice-260817-165035-runtime/voice-260817-165035-99a66291/final/review-package.zip"
+  },
+  "warnings": []
+}

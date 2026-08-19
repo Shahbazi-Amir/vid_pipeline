@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "db9d6c0f20d59cc1486af4877e7adb1e61fbe7627342aecdb0dbf860a603a2f4",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.52,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.49999999999999867,
+        "end": 9.08,
+        "text": "خب، پس این دو طال یه تمام‌های هست. می‌گو پس تو این فراینده، هر جان من دستان بارا گیرم بلو بگیم، من کارش نصف من رو به انسانیم می‌فهمن.",
+        "avg_logprob": -0.4018336711894898,
+        "compression_ratio": 1.604026845637584,
+        "no_speech_prob": 3.483593136177632e-10,
+        "words": [
+          {
+            "start": 0.49999999999999867,
+            "end": 0.94,
+            "word": " خب،",
+            "probability": 0.4177424410978953
+          },
+          {
+            "start": 0.94,
+            "end": 1.06,
+            "word": " پس",
+            "probability": 0.8303248584270477
+          },
+          {
+            "start": 1.06,
+            "end": 1.28,
+            "word": " این",
+            "probability": 0.9611039459705353
+          },
+          {
+            "start": 1.28,
+            "end": 1.54,
+            "word": " دو",
+            "probability": 0.7916357815265656
+          },
+          {
+            "start": 1.54,
+            "end": 1.7,
+            "word": " طال",
+            "probability": 0.411375492811203
+          },
+          {
+            "start": 1.7,
+            "end": 1.96,
+            "word": " یه",
+            "probability": 0.8003338277339935
+          },
+          {
+            "start": 1.96,
+            "end": 2.48,
+            "word": " تمام‌های",
+            "probability": 0.526811585505493
+          },
+          {
+            "start": 2.48,
+            "end": 2.66,
+            "word": " هست.",
+            "probability": 0.5033261217176914
+          },
+          {
+            "start": 3.22,
+            "end": 3.66,
+            "word": " می‌گو",
+            "probability": 0.6662210300564766
+          },
+          {
+            "start": 3.66,
+            "end": 3.86,
+            "word": " پس",
+            "probability": 0.7884812951087952
+          },
+          {
+            "start": 3.86,
+            "end": 3.98,
+            "word": " تو",
+            "probability": 0.9033936262130737
+          },
+          {
+            "start": 3.98,
+            "end": 4.52,
+            "word": " این",
+            "probability": 0.8950850367546082
+          },
+          {
+            "start": 4.52,
+            "end": 5.14,
+            "word": " فراینده،",
+            "probability": 0.7047757009665171
+          },
+          {
+            "start": 5.14,
+            "end": 5.5,
+            "word": " هر",
+            "probability": 0.9362205266952515
+          },
+          {
+            "start": 5.5,
+            "end": 5.7,
+            "word": " جان",
+            "probability": 0.4617997407913208
+          },
+          {
+            "start": 5.7,
+            "end": 5.8,
+            "word": " من",
+            "probability": 0.9022977352142334
+          },
+          {
+            "start": 5.8,
+            "end": 6.14,
+            "word": " دستان",
+            "probability": 0.8130544622739156
+          },
+          {
+            "start": 6.14,
+            "end": 6.36,
+            "word": " بارا",
+            "probability": 0.6601898769537607
+          },
+          {
+            "start": 6.36,
+            "end": 6.6,
+            "word": " گیرم",
+            "probability": 0.9636619687080383
+          },
+          {
+            "start": 6.6,
+            "end": 6.82,
+            "word": " بلو",
+            "probability": 0.6136388381322225
+          },
+          {
+            "start": 6.82,
+            "end": 7.06,
+            "word": " بگیم،",
+            "probability": 0.6695504546165466
+          },
+          {
+            "start": 7.06,
+            "end": 7.16,
+            "word": " من",
+            "probability": 0.9071654677391052
+          },
+          {
+            "start": 7.16,
+            "end": 7.46,
+            "word": " کارش",
+            "probability": 0.8297392725944519
+          },
+          {
+            "start": 7.46,
+            "end": 7.68,
+            "word": " نصف",
+            "probability": 0.33880998690923053
+          },
+          {
+            "start": 7.68,
+            "end": 7.86,
+            "word": " من",
+            "probability": 0.7435380816459656
+          },
+          {
+            "start": 7.86,
+            "end": 7.98,
+            "word": " رو",
+            "probability": 0.8011827170848846
+          },
+          {
+            "start": 7.98,
+            "end": 8.04,
+            "word": " به",
+            "probability": 0.9073489308357239
+          },
+          {
+            "start": 8.04,
+            "end": 8.52,
+            "word": " انسانیم",
+            "probability": 0.9101505160331727
+          },
+          {
+            "start": 8.52,
+            "end": 9.08,
+            "word": " می‌فهمن.",
+            "probability": 0.8634267449378967
+          }
+        ]
+      }
+    ]
+  }
+}

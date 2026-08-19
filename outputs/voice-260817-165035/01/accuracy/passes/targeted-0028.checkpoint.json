@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "cf31369321b6852b214081edd04b031b208e1e1929a200e3153225b044702cff",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 16.24,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 14.98,
+        "text": "منابع انسانی، شرکت ملی نفت ایران هم. اصلا این فرق می‌کنه تو اگه مثلا من کارشون است مناوع انثانیه، مثلا پخش تخم و موق در میدان ولی ازرم. یعنی یه چیز خیلی پیچید.",
+        "avg_logprob": -0.3903531550236468,
+        "compression_ratio": 1.595505617977528,
+        "no_speech_prob": 3.71911890173493e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.42,
+            "word": " منابع",
+            "probability": 0.5213469583541155
+          },
+          {
+            "start": 0.42,
+            "end": 0.84,
+            "word": " انسانی،",
+            "probability": 0.8022489085793495
+          },
+          {
+            "start": 0.84,
+            "end": 1.22,
+            "word": " شرکت",
+            "probability": 0.8281648457050323
+          },
+          {
+            "start": 1.22,
+            "end": 1.54,
+            "word": " ملی",
+            "probability": 0.9358336528142294
+          },
+          {
+            "start": 1.54,
+            "end": 1.96,
+            "word": " نفت",
+            "probability": 0.9125633835792542
+          },
+          {
+            "start": 1.96,
+            "end": 2.34,
+            "word": " ایران",
+            "probability": 0.9580391496419907
+          },
+          {
+            "start": 2.34,
+            "end": 2.54,
+            "word": " هم.",
+            "probability": 0.5546726286411285
+          },
+          {
+            "start": 2.76,
+            "end": 3.42,
+            "word": " اصلا",
+            "probability": 0.8727408647537231
+          },
+          {
+            "start": 3.42,
+            "end": 3.54,
+            "word": " این",
+            "probability": 0.703635573387146
+          },
+          {
+            "start": 3.54,
+            "end": 3.94,
+            "word": " فرق",
+            "probability": 0.8462447126706442
+          },
+          {
+            "start": 3.94,
+            "end": 4.34,
+            "word": " می‌کنه",
+            "probability": 0.42784479521214963
+          },
+          {
+            "start": 4.34,
+            "end": 4.46,
+            "word": " تو",
+            "probability": 0.35399919748306274
+          },
+          {
+            "start": 4.46,
+            "end": 4.7,
+            "word": " اگه",
+            "probability": 0.8538127541542053
+          },
+          {
+            "start": 4.7,
+            "end": 5.02,
+            "word": " مثلا",
+            "probability": 0.6975379437208176
+          },
+          {
+            "start": 5.02,
+            "end": 5.28,
+            "word": " من",
+            "probability": 0.6140181422233582
+          },
+          {
+            "start": 5.28,
+            "end": 6.12,
+            "word": " کارشون",
+            "probability": 0.7862658202648163
+          },
+          {
+            "start": 6.12,
+            "end": 6.26,
+            "word": " است",
+            "probability": 0.2490341067314148
+          },
+          {
+            "start": 6.26,
+            "end": 6.8,
+            "word": " مناوع",
+            "probability": 0.5229806987626944
+          },
+          {
+            "start": 6.8,
+            "end": 7.96,
+            "word": " انثانیه،",
+            "probability": 0.6510475293762283
+          },
+          {
+            "start": 7.96,
+            "end": 10.86,
+            "word": " مثلا",
+            "probability": 0.9403228759765625
+          },
+          {
+            "start": 10.86,
+            "end": 11.18,
+            "word": " پخش",
+            "probability": 0.9926254947980245
+          },
+          {
+            "start": 11.18,
+            "end": 11.54,
+            "word": " تخم",
+            "probability": 0.615813543399175
+          },
+          {
+            "start": 11.54,
+            "end": 11.64,
+            "word": " و",
+            "probability": 0.6081371307373047
+          },
+          {
+            "start": 11.64,
+            "end": 11.9,
+            "word": " موق",
+            "probability": 0.6417692005634308
+          },
+          {
+            "start": 11.9,
+            "end": 12.58,
+            "word": " در",
+            "probability": 0.9297478795051575
+          },
+          {
+            "start": 12.58,
+            "end": 13.02,
+            "word": " میدان",
+            "probability": 0.9720558126767477
+          },
+          {
+            "start": 13.02,
+            "end": 13.4,
+            "word": " ولی",
+            "probability": 0.8819387853145599
+          },
+          {
+            "start": 13.4,
+            "end": 13.74,
+            "word": " ازرم.",
+            "probability": 0.6934126764535904
+          },
+          {
+            "start": 13.74,
+            "end": 13.96,
+            "word": " یعنی",
+            "probability": 0.8852444738149643
+          },
+          {
+            "start": 13.96,
+            "end": 14.08,
+            "word": " یه",
+            "probability": 0.41119803488254547
+          },
+          {
+            "start": 14.08,
+            "end": 14.22,
+            "word": " چیز",
+            "probability": 0.8357754945755005
+          },
+          {
+            "start": 14.22,
+            "end": 14.5,
+            "word": " خیلی",
+            "probability": 0.8708066344261169
+          },
+          {
+            "start": 14.5,
+            "end": 14.98,
+            "word": " پیچید.",
+            "probability": 0.7806611061096191
+          }
+        ]
+      }
+    ]
+  }
+}

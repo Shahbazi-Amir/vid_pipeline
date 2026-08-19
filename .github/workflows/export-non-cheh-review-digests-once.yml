@@ -1,0 +1,98 @@
+name: Export non-Chehelstoun review digests once
+run-name: Export non-Chehelstoun review digests ${{ github.run_id }}
+
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/export-non-cheh-review-digests-once.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Export substantive uncertain items with context
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, re, shutil
+          from pathlib import Path
+
+          out=Path('ops/non-cheh-review-digests')
+          shutil.rmtree(out, ignore_errors=True)
+          out.mkdir(parents=True, exist_ok=True)
+
+          roots=[]
+          fixed=[
+              ('ketab-baz',Path('outputs/ketab-baz/01')),
+              ('mizan',Path('outputs/mizan/01')),
+              ('sherakat',Path('outputs/voice-260817-165035/01')),
+          ]
+          roots.extend(fixed)
+          fin=Path('outputs/finup')
+          if fin.is_dir():
+              for p in sorted(x for x in fin.iterdir() if x.is_dir()): roots.append((f'finup--{p.name}',p))
+          bank=Path('outputs/bankmellatt')
+          if bank.is_dir():
+              for p in sorted((x for x in bank.iterdir() if x.is_dir()), key=lambda x:int(x.name) if x.name.isdigit() else 999): roots.append((f'bankmellatt--{p.name}',p))
+
+          index=[]
+          norm=lambda s:' '.join(str(s or '').split())
+          for slug,root in roots:
+              u=root/'review/uncertain-spans.json'
+              pkg=root/'review/assistant-review-package.json'
+              tmpl=root/'review/corrections.template.json'
+              if not (u.is_file() and pkg.is_file() and tmpl.is_file()):
+                  continue
+              uncertain=json.loads(u.read_text(encoding='utf-8'))
+              package=json.loads(pkg.read_text(encoding='utf-8'))
+              segs=[]
+              for ch in package.get('chunks') or []:
+                  segs.extend(ch.get('segments') or [])
+              byid={int(s['segment_id']):s for s in segs if s.get('segment_id') is not None}
+              substantive=[]
+              for it in uncertain.get('items') or []:
+                  if not it.get('required',True): continue
+                  if norm(it.get('source_text')) == norm(it.get('proposed_text')): continue
+                  substantive.append(it)
+              lines=[f'# Review digest: {slug}','',f'- root: `{root}`',f'- substantive_required_count: **{len(substantive)}**','']
+              for n,it in enumerate(substantive,1):
+                  sid=int(it['segment_id'])
+                  prev=byid.get(sid-1,{}).get('text','')
+                  cur=byid.get(sid,{}).get('text','')
+                  nxt=byid.get(sid+1,{}).get('text','')
+                  lines += [
+                      f'## {n}. {it.get("id")} / segment {sid}',
+                      f'- time: `{it.get("start")}` → `{it.get("end")}`',
+                      f'- reasons: `{", ".join(it.get("reasons") or [])}`',
+                      f'- source: {it.get("source_text") or ""}',
+                      f'- proposed: {it.get("proposed_text") or ""}',
+                      f'- previous context: {prev}',
+                      f'- package current: {cur}',
+                      f'- next context: {nxt}',
+                      '',
+                  ]
+              path=out/f'{slug}.md'
+              path.write_text('\n'.join(lines)+'\n',encoding='utf-8')
+              index.append((slug,str(root),len(substantive)))
+          (out/'INDEX.md').write_text('# Non-Chehelstoun review digests\n\n'+''.join(f'- `{s}` — `{r}` — substantive: **{n}**\n' for s,r,n in index),encoding='utf-8')
+          print(index)
+          PY
+      - name: Commit digests
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f ops/non-cheh-review-digests
+          git commit -m 'Export non-Chehelstoun review digests' || exit 0
+          for attempt in 1 2 3 4 5; do git pull --rebase origin main && git push origin HEAD:main && exit 0; sleep $((attempt*3)); done
+          exit 1

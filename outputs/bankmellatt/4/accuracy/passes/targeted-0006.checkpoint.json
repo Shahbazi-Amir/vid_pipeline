@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "342583e06af51143c01e98255c60e252d444521d6955fa1979ea9bc608d3a8da",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.62,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 5.98,
+        "text": "ما همیشه بهش امید می‌دین. ما می‌گیم که نه، لندگی بالا و پایین داره.",
+        "avg_logprob": -0.14866760081571082,
+        "compression_ratio": 1.2736842105263158,
+        "no_speech_prob": 2.163186990644661e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.68,
+            "word": " ما",
+            "probability": 0.9879608750343323
+          },
+          {
+            "start": 0.68,
+            "end": 1.4,
+            "word": " همیشه",
+            "probability": 0.9992446780204773
+          },
+          {
+            "start": 1.4,
+            "end": 1.68,
+            "word": " بهش",
+            "probability": 0.9981063902378082
+          },
+          {
+            "start": 1.68,
+            "end": 2.14,
+            "word": " امید",
+            "probability": 0.9991983026266098
+          },
+          {
+            "start": 2.14,
+            "end": 2.46,
+            "word": " می‌دین.",
+            "probability": 0.6498792753263842
+          },
+          {
+            "start": 2.72,
+            "end": 3.24,
+            "word": " ما",
+            "probability": 0.9512421488761902
+          },
+          {
+            "start": 3.24,
+            "end": 3.56,
+            "word": " می‌گیم",
+            "probability": 0.9808722972869873
+          },
+          {
+            "start": 3.56,
+            "end": 3.72,
+            "word": " که",
+            "probability": 0.9717989861965179
+          },
+          {
+            "start": 3.72,
+            "end": 4.44,
+            "word": " نه،",
+            "probability": 0.7456694841384888
+          },
+          {
+            "start": 4.44,
+            "end": 4.88,
+            "word": " لندگی",
+            "probability": 0.8548322767019272
+          },
+          {
+            "start": 4.88,
+            "end": 5.14,
+            "word": " بالا",
+            "probability": 0.8968247175216675
+          },
+          {
+            "start": 5.14,
+            "end": 5.24,
+            "word": " و",
+            "probability": 0.9202106595039368
+          },
+          {
+            "start": 5.24,
+            "end": 5.58,
+            "word": " پایین",
+            "probability": 0.9844522178173065
+          },
+          {
+            "start": 5.58,
+            "end": 5.98,
+            "word": " داره.",
+            "probability": 0.9723701278368632
+          }
+        ]
+      }
+    ]
+  }
+}

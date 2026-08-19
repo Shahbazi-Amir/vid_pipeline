@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "633c5b1f4c6f3de8abc36d7447565ac3179809a2a54c0c7a077a69f6038f3e8d",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.92,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.3,
+        "text": "چیزهایی که نمی‌خواستیم حضینه بکنیم، یا آگاه‌های ک من که تو این حوضه ن می‌خوستم حظینه کنم، چرا انقدر حضیه کردم تو اِن رد؟",
+        "avg_logprob": -0.28948931105253173,
+        "compression_ratio": 1.5492957746478873,
+        "no_speech_prob": 2.671239618390331e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.54,
+            "word": " چیزهایی",
+            "probability": 0.8384309460719427
+          },
+          {
+            "start": 0.54,
+            "end": 0.88,
+            "word": " که",
+            "probability": 0.9896563589572906
+          },
+          {
+            "start": 0.88,
+            "end": 1.58,
+            "word": " نمی‌خواستیم",
+            "probability": 0.8752070295094099
+          },
+          {
+            "start": 1.58,
+            "end": 2.02,
+            "word": " حضینه",
+            "probability": 0.8152289092540741
+          },
+          {
+            "start": 2.02,
+            "end": 2.56,
+            "word": " بکنیم،",
+            "probability": 0.8010993842035532
+          },
+          {
+            "start": 2.56,
+            "end": 2.68,
+            "word": " یا",
+            "probability": 0.9636370539665222
+          },
+          {
+            "start": 2.68,
+            "end": 3.16,
+            "word": " آگاه‌های",
+            "probability": 0.9476583302021027
+          },
+          {
+            "start": 3.16,
+            "end": 3.32,
+            "word": " ک",
+            "probability": 0.19419953227043152
+          },
+          {
+            "start": 3.32,
+            "end": 3.52,
+            "word": " من",
+            "probability": 0.000634554133284837
+          },
+          {
+            "start": 3.52,
+            "end": 3.74,
+            "word": " که",
+            "probability": 0.9581749439239502
+          },
+          {
+            "start": 3.74,
+            "end": 3.76,
+            "word": " تو",
+            "probability": 0.9323105812072754
+          },
+          {
+            "start": 3.76,
+            "end": 3.9,
+            "word": " این",
+            "probability": 0.9253883957862854
+          },
+          {
+            "start": 3.9,
+            "end": 4.2,
+            "word": " حوضه",
+            "probability": 0.88252392411232
+          },
+          {
+            "start": 4.2,
+            "end": 4.26,
+            "word": " ن",
+            "probability": 0.9317324161529541
+          },
+          {
+            "start": 4.26,
+            "end": 4.72,
+            "word": " می‌خوستم",
+            "probability": 0.6359798378301397
+          },
+          {
+            "start": 4.72,
+            "end": 5.1,
+            "word": " حظینه",
+            "probability": 0.7404780304859742
+          },
+          {
+            "start": 5.1,
+            "end": 5.5,
+            "word": " کنم،",
+            "probability": 0.5632300702854991
+          },
+          {
+            "start": 5.5,
+            "end": 5.7,
+            "word": " چرا",
+            "probability": 0.9593307375907898
+          },
+          {
+            "start": 5.7,
+            "end": 6.04,
+            "word": " انقدر",
+            "probability": 0.8530412117640177
+          },
+          {
+            "start": 6.04,
+            "end": 6.32,
+            "word": " حضیه",
+            "probability": 0.619761446636403
+          },
+          {
+            "start": 6.32,
+            "end": 6.8,
+            "word": " کردم",
+            "probability": 0.9067241251468658
+          },
+          {
+            "start": 6.8,
+            "end": 6.94,
+            "word": " تو",
+            "probability": 0.9025253653526306
+          },
+          {
+            "start": 6.94,
+            "end": 7.18,
+            "word": " اِن",
+            "probability": 0.6309424842474982
+          },
+          {
+            "start": 7.18,
+            "end": 7.3,
+            "word": " رد؟",
+            "probability": 0.34658407792449
+          }
+        ]
+      }
+    ]
+  }
+}

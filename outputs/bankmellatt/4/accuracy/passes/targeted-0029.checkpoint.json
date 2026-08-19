@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "c75fec5a2cdccbc9cc8258d0135de45851d731b60a938a6679b9cc6a0a8534cb",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.56,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.44,
+        "text": "برگریم همون اوله بحث، ما می‌خواستیم که حزینه‌ها کاهش بیا بکنه که بیاد در سطح در آمد. حالا ممکن است حزینا‌ها",
+        "avg_logprob": -0.2442469204941841,
+        "compression_ratio": 1.4848484848484849,
+        "no_speech_prob": 2.4660853914504344e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 1.36,
+            "word": " برگریم",
+            "probability": 0.9150395154953003
+          },
+          {
+            "start": 1.36,
+            "end": 1.58,
+            "word": " همون",
+            "probability": 0.9353326757748922
+          },
+          {
+            "start": 1.58,
+            "end": 2.16,
+            "word": " اوله",
+            "probability": 0.8570262988408407
+          },
+          {
+            "start": 2.16,
+            "end": 2.6,
+            "word": " بحث،",
+            "probability": 0.543787392321974
+          },
+          {
+            "start": 2.6,
+            "end": 2.68,
+            "word": " ما",
+            "probability": 0.9736551642417908
+          },
+          {
+            "start": 2.68,
+            "end": 3.18,
+            "word": " می‌خواستیم",
+            "probability": 0.8145933979789594
+          },
+          {
+            "start": 3.18,
+            "end": 3.4,
+            "word": " که",
+            "probability": 0.9934390187263489
+          },
+          {
+            "start": 3.4,
+            "end": 3.76,
+            "word": " حزینه‌ها",
+            "probability": 0.7881972789764404
+          },
+          {
+            "start": 3.76,
+            "end": 4.18,
+            "word": " کاهش",
+            "probability": 0.9313794573148092
+          },
+          {
+            "start": 4.18,
+            "end": 4.44,
+            "word": " بیا",
+            "probability": 0.6419018507003784
+          },
+          {
+            "start": 4.44,
+            "end": 4.94,
+            "word": " بکنه",
+            "probability": 0.9586931765079498
+          },
+          {
+            "start": 4.94,
+            "end": 5.24,
+            "word": " که",
+            "probability": 0.9790478348731995
+          },
+          {
+            "start": 5.24,
+            "end": 5.78,
+            "word": " بیاد",
+            "probability": 0.982107917467753
+          },
+          {
+            "start": 5.78,
+            "end": 6.12,
+            "word": " در",
+            "probability": 0.9757960140705109
+          },
+          {
+            "start": 6.12,
+            "end": 6.48,
+            "word": " سطح",
+            "probability": 0.964664896329244
+          },
+          {
+            "start": 6.48,
+            "end": 6.76,
+            "word": " در",
+            "probability": 0.9863753914833069
+          },
+          {
+            "start": 6.76,
+            "end": 7.06,
+            "word": " آمد.",
+            "probability": 0.8873666723569235
+          },
+          {
+            "start": 7.48,
+            "end": 8.2,
+            "word": " حالا",
+            "probability": 0.9768641193707784
+          },
+          {
+            "start": 8.2,
+            "end": 8.62,
+            "word": " ممکن",
+            "probability": 0.9788472801446915
+          },
+          {
+            "start": 8.62,
+            "end": 8.7,
+            "word": " است",
+            "probability": 0.004157086834311485
+          },
+          {
+            "start": 8.7,
+            "end": 9.44,
+            "word": " حزینا‌ها",
+            "probability": 0.5199352343721936
+          }
+        ]
+      }
+    ]
+  }
+}

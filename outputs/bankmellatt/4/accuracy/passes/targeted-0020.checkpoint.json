@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "9ae6457cb456ca21716591bfa719d7d7046c1bacf4dafb5c4d2e8dfe36879686",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.08,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.46,
+        "text": "نام‌ها، نمی‌دونم، فاکتور‌ها همه اینا توی پوشه‌ای که اصناد مالی‌مون هست قرار دادیم.",
+        "avg_logprob": -0.2457176201045513,
+        "compression_ratio": 1.368421052631579,
+        "no_speech_prob": 3.001765502830267e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 1.42,
+            "word": " نام‌ها،",
+            "probability": 0.34324711679364556
+          },
+          {
+            "start": 1.42,
+            "end": 2.62,
+            "word": " نمی‌دونم،",
+            "probability": 0.8298220857977867
+          },
+          {
+            "start": 2.62,
+            "end": 3.34,
+            "word": " فاکتور‌ها",
+            "probability": 0.8805991751807076
+          },
+          {
+            "start": 3.34,
+            "end": 3.82,
+            "word": " همه",
+            "probability": 0.896455983320872
+          },
+          {
+            "start": 3.82,
+            "end": 3.98,
+            "word": " اینا",
+            "probability": 0.7601948380470276
+          },
+          {
+            "start": 3.98,
+            "end": 4.22,
+            "word": " توی",
+            "probability": 0.8922458589076996
+          },
+          {
+            "start": 4.22,
+            "end": 4.84,
+            "word": " پوشه‌ای",
+            "probability": 0.9211849570274353
+          },
+          {
+            "start": 4.84,
+            "end": 5.2,
+            "word": " که",
+            "probability": 0.9133187532424927
+          },
+          {
+            "start": 5.2,
+            "end": 5.82,
+            "word": " اصناد",
+            "probability": 0.8888107091188431
+          },
+          {
+            "start": 5.82,
+            "end": 6.34,
+            "word": " مالی‌مون",
+            "probability": 0.9015193283557892
+          },
+          {
+            "start": 6.34,
+            "end": 6.64,
+            "word": " هست",
+            "probability": 0.9370667636394501
+          },
+          {
+            "start": 6.64,
+            "end": 7.06,
+            "word": " قرار",
+            "probability": 0.9026248653729757
+          },
+          {
+            "start": 7.06,
+            "end": 8.46,
+            "word": " دادیم.",
+            "probability": 0.9250336140394211
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "6b7a0f609276d28980a737ce30cbb259c56a1c4025bdc36431e8599294b8fb3f",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.82,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.74,
+        "text": "اینجا ها حزینه هامو کاهش بدم در حالی که روی کیفیت زندگیم هیچ اثری نداره. یعنی این کاهاش حزینا منجر نمیشه که",
+        "avg_logprob": -0.19758072696827553,
+        "compression_ratio": 1.5,
+        "no_speech_prob": 2.174325303139213e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.48,
+            "word": " اینجا",
+            "probability": 0.9151584506034851
+          },
+          {
+            "start": 0.48,
+            "end": 0.8,
+            "word": " ها",
+            "probability": 0.8802784979343414
+          },
+          {
+            "start": 0.8,
+            "end": 1.5,
+            "word": " حزینه",
+            "probability": 0.768408328294754
+          },
+          {
+            "start": 1.5,
+            "end": 1.72,
+            "word": " هامو",
+            "probability": 0.7607686519622803
+          },
+          {
+            "start": 1.72,
+            "end": 2.18,
+            "word": " کاهش",
+            "probability": 0.9929521083831787
+          },
+          {
+            "start": 2.18,
+            "end": 2.5,
+            "word": " بدم",
+            "probability": 0.9535121321678162
+          },
+          {
+            "start": 2.5,
+            "end": 2.82,
+            "word": " در",
+            "probability": 0.9973072111606598
+          },
+          {
+            "start": 2.82,
+            "end": 3.06,
+            "word": " حالی",
+            "probability": 0.9875366886456808
+          },
+          {
+            "start": 3.06,
+            "end": 3.22,
+            "word": " که",
+            "probability": 0.9994435906410217
+          },
+          {
+            "start": 3.22,
+            "end": 3.42,
+            "word": " روی",
+            "probability": 0.9581692417462667
+          },
+          {
+            "start": 3.42,
+            "end": 3.96,
+            "word": " کیفیت",
+            "probability": 0.99247145652771
+          },
+          {
+            "start": 3.96,
+            "end": 4.48,
+            "word": " زندگیم",
+            "probability": 0.949936819076538
+          },
+          {
+            "start": 4.48,
+            "end": 4.66,
+            "word": " هیچ",
+            "probability": 0.9966476162274679
+          },
+          {
+            "start": 4.66,
+            "end": 5.12,
+            "word": " اثری",
+            "probability": 0.9881687760353088
+          },
+          {
+            "start": 5.12,
+            "end": 6.34,
+            "word": " نداره.",
+            "probability": 0.9990286380052567
+          },
+          {
+            "start": 6.38,
+            "end": 6.62,
+            "word": " یعنی",
+            "probability": 0.9988511055707932
+          },
+          {
+            "start": 6.62,
+            "end": 6.66,
+            "word": " این",
+            "probability": 0.9767789542675018
+          },
+          {
+            "start": 6.66,
+            "end": 7.14,
+            "word": " کاهاش",
+            "probability": 0.6659064730053311
+          },
+          {
+            "start": 7.14,
+            "end": 7.64,
+            "word": " حزینا",
+            "probability": 0.5643782357619784
+          },
+          {
+            "start": 7.64,
+            "end": 8.12,
+            "word": " منجر",
+            "probability": 0.9309271772702535
+          },
+          {
+            "start": 8.12,
+            "end": 8.6,
+            "word": " نمیشه",
+            "probability": 0.9650325417518616
+          },
+          {
+            "start": 8.6,
+            "end": 8.74,
+            "word": " که",
+            "probability": 0.994274228811264
+          }
+        ]
+      }
+    ]
+  }
+}

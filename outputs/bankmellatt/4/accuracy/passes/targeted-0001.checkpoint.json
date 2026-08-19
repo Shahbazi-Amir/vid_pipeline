@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "46d977717161f3811a962896c5b07c8278d17b1117a354535ce4f188113c117e",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.78,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.76,
+        "text": "وقتی یه نفر میاد پیش ما و به ما میگه که یک کار اشتباهی کرده یا یه خطایی کردم یا تو مدیری",
+        "avg_logprob": -0.0806748667465789,
+        "compression_ratio": 1.4485981308411215,
+        "no_speech_prob": 2.5031296480015897e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.5,
+            "word": " وقتی",
+            "probability": 0.9964994192123413
+          },
+          {
+            "start": 0.5,
+            "end": 0.64,
+            "word": " یه",
+            "probability": 0.9567674398422241
+          },
+          {
+            "start": 0.64,
+            "end": 0.9,
+            "word": " نفر",
+            "probability": 0.9964207410812378
+          },
+          {
+            "start": 0.9,
+            "end": 1.1,
+            "word": " میاد",
+            "probability": 0.9891581237316132
+          },
+          {
+            "start": 1.1,
+            "end": 1.4,
+            "word": " پیش",
+            "probability": 0.9997932116190592
+          },
+          {
+            "start": 1.4,
+            "end": 1.68,
+            "word": " ما",
+            "probability": 0.9954517483711243
+          },
+          {
+            "start": 1.68,
+            "end": 2.06,
+            "word": " و",
+            "probability": 0.9964519739151001
+          },
+          {
+            "start": 2.06,
+            "end": 2.24,
+            "word": " به",
+            "probability": 0.9967582821846008
+          },
+          {
+            "start": 2.24,
+            "end": 2.4,
+            "word": " ما",
+            "probability": 0.9994163513183594
+          },
+          {
+            "start": 2.4,
+            "end": 2.7,
+            "word": " میگه",
+            "probability": 0.9906870126724243
+          },
+          {
+            "start": 2.7,
+            "end": 2.9,
+            "word": " که",
+            "probability": 0.9991035759449005
+          },
+          {
+            "start": 2.9,
+            "end": 3.08,
+            "word": " یک",
+            "probability": 0.5628691241145134
+          },
+          {
+            "start": 3.08,
+            "end": 3.22,
+            "word": " کار",
+            "probability": 0.9933083355426788
+          },
+          {
+            "start": 3.22,
+            "end": 3.84,
+            "word": " اشتباهی",
+            "probability": 0.9912924567858378
+          },
+          {
+            "start": 3.84,
+            "end": 4.28,
+            "word": " کرده",
+            "probability": 0.9549121856689453
+          },
+          {
+            "start": 4.28,
+            "end": 4.86,
+            "word": " یا",
+            "probability": 0.9902631044387817
+          },
+          {
+            "start": 4.86,
+            "end": 5.02,
+            "word": " یه",
+            "probability": 0.9044235646724701
+          },
+          {
+            "start": 5.02,
+            "end": 5.6,
+            "word": " خطایی",
+            "probability": 0.9834956765174866
+          },
+          {
+            "start": 5.6,
+            "end": 5.96,
+            "word": " کردم",
+            "probability": 0.48913454613648355
+          },
+          {
+            "start": 5.96,
+            "end": 6.24,
+            "word": " یا",
+            "probability": 0.9897353053092957
+          },
+          {
+            "start": 6.24,
+            "end": 6.34,
+            "word": " تو",
+            "probability": 0.9850580096244812
+          },
+          {
+            "start": 6.34,
+            "end": 6.76,
+            "word": " مدیری",
+            "probability": 0.9351816028356552
+          }
+        ]
+      }
+    ]
+  }
+}

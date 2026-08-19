@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "ea42fa436ba2099deda52e9abb23b274eef2827c494afce5b946dacab7c6556d",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.48,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 12.46,
+        "text": "مالی‌مون هست، قرار دادیم. خب، وقتی می‌نویسیم، احتمالاً مواجه شدیم با این چیزهایی که نمی‌خواستیم حضینه بکنیم یا آگاهی‌های ک من که تو این حوضه ن می‌خوستم حظینه",
+        "avg_logprob": -0.19946549169041894,
+        "compression_ratio": 1.6820809248554913,
+        "no_speech_prob": 2.561559853120343e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.44,
+            "word": " مالی‌مون",
+            "probability": 0.7853194011646943
+          },
+          {
+            "start": 0.44,
+            "end": 0.84,
+            "word": " هست،",
+            "probability": 0.6880729695161184
+          },
+          {
+            "start": 0.84,
+            "end": 1.16,
+            "word": " قرار",
+            "probability": 0.9946158528327942
+          },
+          {
+            "start": 1.16,
+            "end": 1.76,
+            "word": " دادیم.",
+            "probability": 0.9569900631904602
+          },
+          {
+            "start": 2.5,
+            "end": 3.26,
+            "word": " خب،",
+            "probability": 0.8234721024831136
+          },
+          {
+            "start": 3.26,
+            "end": 3.92,
+            "word": " وقتی",
+            "probability": 0.9922703504562378
+          },
+          {
+            "start": 3.92,
+            "end": 5.14,
+            "word": " می‌نویسیم،",
+            "probability": 0.8930225405428145
+          },
+          {
+            "start": 5.14,
+            "end": 6.28,
+            "word": " احتمالاً",
+            "probability": 0.8987426261107127
+          },
+          {
+            "start": 6.28,
+            "end": 6.66,
+            "word": " مواجه",
+            "probability": 0.9403762966394424
+          },
+          {
+            "start": 6.66,
+            "end": 7.04,
+            "word": " شدیم",
+            "probability": 0.9737945795059204
+          },
+          {
+            "start": 7.04,
+            "end": 7.3,
+            "word": " با",
+            "probability": 0.9887583255767822
+          },
+          {
+            "start": 7.3,
+            "end": 7.42,
+            "word": " این",
+            "probability": 0.9895821213722229
+          },
+          {
+            "start": 7.42,
+            "end": 8.02,
+            "word": " چیزهایی",
+            "probability": 0.9618017176787058
+          },
+          {
+            "start": 8.02,
+            "end": 8.28,
+            "word": " که",
+            "probability": 0.9889976978302002
+          },
+          {
+            "start": 8.28,
+            "end": 9.06,
+            "word": " نمی‌خواستیم",
+            "probability": 0.9591550363434685
+          },
+          {
+            "start": 9.06,
+            "end": 9.5,
+            "word": " حضینه",
+            "probability": 0.7015796452760696
+          },
+          {
+            "start": 9.5,
+            "end": 9.98,
+            "word": " بکنیم",
+            "probability": 0.9711490035057068
+          },
+          {
+            "start": 9.98,
+            "end": 10.16,
+            "word": " یا",
+            "probability": 0.8790067434310913
+          },
+          {
+            "start": 10.16,
+            "end": 10.68,
+            "word": " آگاهی‌های",
+            "probability": 0.8958746918610164
+          },
+          {
+            "start": 10.68,
+            "end": 10.8,
+            "word": " ک",
+            "probability": 0.05760427191853523
+          },
+          {
+            "start": 10.8,
+            "end": 11.0,
+            "word": " من",
+            "probability": 0.0004798389272764325
+          },
+          {
+            "start": 11.0,
+            "end": 11.22,
+            "word": " که",
+            "probability": 0.9636923968791962
+          },
+          {
+            "start": 11.22,
+            "end": 11.24,
+            "word": " تو",
+            "probability": 0.9520938992500305
+          },
+          {
+            "start": 11.24,
+            "end": 11.4,
+            "word": " این",
+            "probability": 0.8534430265426636
+          },
+          {
+            "start": 11.4,
+            "end": 11.68,
+            "word": " حوضه",
+            "probability": 0.8446841686964035
+          },
+          {
+            "start": 11.68,
+            "end": 11.74,
+            "word": " ن",
+            "probability": 0.9609525203704834
+          },
+          {
+            "start": 11.74,
+            "end": 12.2,
+            "word": " می‌خوستم",
+            "probability": 0.6425830693624448
+          },
+          {
+            "start": 12.2,
+            "end": 12.46,
+            "word": " حظینه",
+            "probability": 0.7239061265427154
+          }
+        ]
+      }
+    ]
+  }
+}

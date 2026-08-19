@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "232e34b3a881525ecadeb7d6136d1b2f89be76b5e8e50b5be60c5a0c76c8b671",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.08,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.0,
+        "text": "چرا ما باید حزینه هامون رو کاهش بدیم؟ برگریم همون اول بحث، ما می‌خواستیم که حزیناها کاهیش بیا بکنه",
+        "avg_logprob": -0.24532080430250902,
+        "compression_ratio": 1.4672131147540983,
+        "no_speech_prob": 2.876574534127485e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.12,
+            "word": " چرا",
+            "probability": 0.5682745277881622
+          },
+          {
+            "start": 0.12,
+            "end": 0.3,
+            "word": " ما",
+            "probability": 0.9834806323051453
+          },
+          {
+            "start": 0.3,
+            "end": 0.64,
+            "word": " باید",
+            "probability": 0.990981936454773
+          },
+          {
+            "start": 0.64,
+            "end": 1.12,
+            "word": " حزینه",
+            "probability": 0.6594327166676521
+          },
+          {
+            "start": 1.12,
+            "end": 1.38,
+            "word": " هامون",
+            "probability": 0.769779791434606
+          },
+          {
+            "start": 1.38,
+            "end": 1.52,
+            "word": " رو",
+            "probability": 0.7383264303207397
+          },
+          {
+            "start": 1.52,
+            "end": 1.88,
+            "word": " کاهش",
+            "probability": 0.9823842446009318
+          },
+          {
+            "start": 1.88,
+            "end": 2.5,
+            "word": " بدیم؟",
+            "probability": 0.9351260513067245
+          },
+          {
+            "start": 2.5,
+            "end": 3.42,
+            "word": " برگریم",
+            "probability": 0.915725302696228
+          },
+          {
+            "start": 3.42,
+            "end": 3.66,
+            "word": " همون",
+            "probability": 0.9748234351476034
+          },
+          {
+            "start": 3.66,
+            "end": 4.12,
+            "word": " اول",
+            "probability": 0.9869574010372162
+          },
+          {
+            "start": 4.12,
+            "end": 4.7,
+            "word": " بحث،",
+            "probability": 0.4693886796012521
+          },
+          {
+            "start": 4.7,
+            "end": 4.76,
+            "word": " ما",
+            "probability": 0.9614096879959106
+          },
+          {
+            "start": 4.76,
+            "end": 5.26,
+            "word": " می‌خواستیم",
+            "probability": 0.8236229373807353
+          },
+          {
+            "start": 5.26,
+            "end": 5.42,
+            "word": " که",
+            "probability": 0.9907715618610382
+          },
+          {
+            "start": 5.42,
+            "end": 5.84,
+            "word": " حزیناها",
+            "probability": 0.6271068652160465
+          },
+          {
+            "start": 5.84,
+            "end": 6.26,
+            "word": " کاهیش",
+            "probability": 0.680126920240582
+          },
+          {
+            "start": 6.26,
+            "end": 6.52,
+            "word": " بیا",
+            "probability": 0.631506621837616
+          },
+          {
+            "start": 6.52,
+            "end": 7.0,
+            "word": " بکنه",
+            "probability": 0.9428649544715881
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "9265ea788af12c9bcb856441db688f9dd3adb2947ed7e914074d8649decd3f55",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.4,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.38,
+        "text": "اشکال نداره، اشتباه کردی، بلنش رو ادامه بده. اشگالی ندره، ضعیف داری عمل می‌کنی، می‌تونی قوی تر باشی.",
+        "avg_logprob": -0.1568201339408143,
+        "compression_ratio": 1.4409448818897639,
+        "no_speech_prob": 2.608360194500392e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.04,
+            "word": " اشکال",
+            "probability": 0.8995455205440521
+          },
+          {
+            "start": 0.04,
+            "end": 0.54,
+            "word": " نداره،",
+            "probability": 0.8049375891685486
+          },
+          {
+            "start": 0.54,
+            "end": 0.96,
+            "word": " اشتباه",
+            "probability": 0.9933768033981323
+          },
+          {
+            "start": 0.96,
+            "end": 1.38,
+            "word": " کردی،",
+            "probability": 0.8394272476434708
+          },
+          {
+            "start": 1.38,
+            "end": 1.76,
+            "word": " بلنش",
+            "probability": 0.8790382742881775
+          },
+          {
+            "start": 1.76,
+            "end": 1.86,
+            "word": " رو",
+            "probability": 0.8808954656124115
+          },
+          {
+            "start": 1.86,
+            "end": 2.2,
+            "word": " ادامه",
+            "probability": 0.99529829621315
+          },
+          {
+            "start": 2.2,
+            "end": 2.48,
+            "word": " بده.",
+            "probability": 0.9887793958187103
+          },
+          {
+            "start": 2.92,
+            "end": 3.52,
+            "word": " اشگالی",
+            "probability": 0.7596020342316478
+          },
+          {
+            "start": 3.52,
+            "end": 3.98,
+            "word": " ندره،",
+            "probability": 0.7574361763196066
+          },
+          {
+            "start": 3.98,
+            "end": 4.28,
+            "word": " ضعیف",
+            "probability": 0.9702088087797165
+          },
+          {
+            "start": 4.28,
+            "end": 4.5,
+            "word": " داری",
+            "probability": 0.9879388610521952
+          },
+          {
+            "start": 4.5,
+            "end": 4.8,
+            "word": " عمل",
+            "probability": 0.9123041033744812
+          },
+          {
+            "start": 4.8,
+            "end": 5.24,
+            "word": " می‌کنی،",
+            "probability": 0.6640684952338537
+          },
+          {
+            "start": 5.24,
+            "end": 5.54,
+            "word": " می‌تونی",
+            "probability": 0.846726906299591
+          },
+          {
+            "start": 5.54,
+            "end": 5.94,
+            "word": " قوی",
+            "probability": 0.9870083928108215
+          },
+          {
+            "start": 5.94,
+            "end": 6.18,
+            "word": " تر",
+            "probability": 0.7019114792346954
+          },
+          {
+            "start": 6.18,
+            "end": 6.38,
+            "word": " باشی.",
+            "probability": 0.8814921975135803
+          }
+        ]
+      }
+    ]
+  }
+}

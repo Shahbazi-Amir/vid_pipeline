@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "985fb87d9cbd21d790b9b99648a51d95aa70d216dae70e44526dc31230221363",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.22,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.2,
+        "text": "اول سهم خودمون رو برمیداریم. سهمه خود مون چیه؟ در اسطلاح سه تا صندوقه که ما به محض اینکه در آمد رو کردیم،",
+        "avg_logprob": -0.2577480414084026,
+        "compression_ratio": 1.4609375,
+        "no_speech_prob": 2.9130378664810053e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.72,
+            "word": " اول",
+            "probability": 0.7873093485832214
+          },
+          {
+            "start": 0.72,
+            "end": 1.1,
+            "word": " سهم",
+            "probability": 0.7620440125465393
+          },
+          {
+            "start": 1.1,
+            "end": 1.66,
+            "word": " خودمون",
+            "probability": 0.9965350180864334
+          },
+          {
+            "start": 1.66,
+            "end": 1.78,
+            "word": " رو",
+            "probability": 0.9478563368320465
+          },
+          {
+            "start": 1.78,
+            "end": 2.54,
+            "word": " برمیداریم.",
+            "probability": 0.9477866441011429
+          },
+          {
+            "start": 3.34,
+            "end": 4.1,
+            "word": " سهمه",
+            "probability": 0.6621839204332597
+          },
+          {
+            "start": 4.1,
+            "end": 4.28,
+            "word": " خود",
+            "probability": 0.9996557533740997
+          },
+          {
+            "start": 4.28,
+            "end": 4.5,
+            "word": " مون",
+            "probability": 0.497898187575629
+          },
+          {
+            "start": 4.5,
+            "end": 5.12,
+            "word": " چیه؟",
+            "probability": 0.9963429123163223
+          },
+          {
+            "start": 5.12,
+            "end": 5.92,
+            "word": " در",
+            "probability": 0.9988106191158295
+          },
+          {
+            "start": 5.92,
+            "end": 6.56,
+            "word": " اسطلاح",
+            "probability": 0.9138816148042679
+          },
+          {
+            "start": 6.56,
+            "end": 6.94,
+            "word": " سه",
+            "probability": 0.7408203482627869
+          },
+          {
+            "start": 6.94,
+            "end": 7.06,
+            "word": " تا",
+            "probability": 0.9984805285930634
+          },
+          {
+            "start": 7.06,
+            "end": 7.74,
+            "word": " صندوقه",
+            "probability": 0.983254536986351
+          },
+          {
+            "start": 7.74,
+            "end": 8.48,
+            "word": " که",
+            "probability": 0.857573539018631
+          },
+          {
+            "start": 8.48,
+            "end": 8.56,
+            "word": " ما",
+            "probability": 0.9989902377128601
+          },
+          {
+            "start": 8.56,
+            "end": 8.7,
+            "word": " به",
+            "probability": 0.9972227811813354
+          },
+          {
+            "start": 8.7,
+            "end": 9.08,
+            "word": " محض",
+            "probability": 0.8559072613716125
+          },
+          {
+            "start": 9.08,
+            "end": 9.36,
+            "word": " اینکه",
+            "probability": 0.7530899383127689
+          },
+          {
+            "start": 9.36,
+            "end": 9.62,
+            "word": " در",
+            "probability": 0.9986567795276642
+          },
+          {
+            "start": 9.62,
+            "end": 9.96,
+            "word": " آمد",
+            "probability": 0.9079132080078125
+          },
+          {
+            "start": 9.96,
+            "end": 10.14,
+            "word": " رو",
+            "probability": 0.9916486442089081
+          },
+          {
+            "start": 10.14,
+            "end": 10.2,
+            "word": " کردیم،",
+            "probability": 0.5911440894007682
+          }
+        ]
+      }
+    ]
+  }
+}

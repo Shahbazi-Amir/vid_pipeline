@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "d9789fb948094551ac4ce4dd0c45785f25e31ae182ce551ff2397461086e9599",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.08,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 12.06,
+        "text": "می‌تونه قوی‌تر باشی، یاد بگیری، ما به دیگران معمولاً امید می‌دیم، به اون‌ها انرژی می‌دایم تا زندگی‌شون رو به خوبی ادامه بدن. اما معملاً این کار رو با خودمون نمی‌کن.",
+        "avg_logprob": -0.24567591105032405,
+        "compression_ratio": 1.7572254335260116,
+        "no_speech_prob": 2.512674235344292e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.26,
+            "word": " می‌تونه",
+            "probability": 0.5007742427289485
+          },
+          {
+            "start": 0.26,
+            "end": 0.86,
+            "word": " قوی‌تر",
+            "probability": 0.9839233259359995
+          },
+          {
+            "start": 0.86,
+            "end": 1.4,
+            "word": " باشی،",
+            "probability": 0.794764831662178
+          },
+          {
+            "start": 1.4,
+            "end": 2.1,
+            "word": " یاد",
+            "probability": 0.9923824071884155
+          },
+          {
+            "start": 2.1,
+            "end": 2.72,
+            "word": " بگیری،",
+            "probability": 0.8096196442842484
+          },
+          {
+            "start": 2.72,
+            "end": 3.12,
+            "word": " ما",
+            "probability": 0.9899795055389404
+          },
+          {
+            "start": 3.12,
+            "end": 3.28,
+            "word": " به",
+            "probability": 0.5070928931236267
+          },
+          {
+            "start": 3.28,
+            "end": 3.92,
+            "word": " دیگران",
+            "probability": 0.9853042960166931
+          },
+          {
+            "start": 3.92,
+            "end": 5.1,
+            "word": " معمولاً",
+            "probability": 0.8856783986091614
+          },
+          {
+            "start": 5.1,
+            "end": 5.54,
+            "word": " امید",
+            "probability": 0.9924415647983551
+          },
+          {
+            "start": 5.54,
+            "end": 6.08,
+            "word": " می‌دیم،",
+            "probability": 0.8836280703544617
+          },
+          {
+            "start": 6.08,
+            "end": 6.18,
+            "word": " به",
+            "probability": 0.9672305583953857
+          },
+          {
+            "start": 6.18,
+            "end": 6.48,
+            "word": " اون‌ها",
+            "probability": 0.8437904864549637
+          },
+          {
+            "start": 6.48,
+            "end": 7.06,
+            "word": " انرژی",
+            "probability": 0.976786470413208
+          },
+          {
+            "start": 7.06,
+            "end": 7.38,
+            "word": " می‌دایم",
+            "probability": 0.6961887086741626
+          },
+          {
+            "start": 7.38,
+            "end": 7.58,
+            "word": " تا",
+            "probability": 0.9416698217391968
+          },
+          {
+            "start": 7.58,
+            "end": 8.24,
+            "word": " زندگی‌شون",
+            "probability": 0.9453726155417306
+          },
+          {
+            "start": 8.24,
+            "end": 8.3,
+            "word": " رو",
+            "probability": 0.8090039789676666
+          },
+          {
+            "start": 8.3,
+            "end": 8.42,
+            "word": " به",
+            "probability": 0.9874699711799622
+          },
+          {
+            "start": 8.42,
+            "end": 8.86,
+            "word": " خوبی",
+            "probability": 0.9898673295974731
+          },
+          {
+            "start": 8.86,
+            "end": 9.26,
+            "word": " ادامه",
+            "probability": 0.9245601296424866
+          },
+          {
+            "start": 9.26,
+            "end": 9.6,
+            "word": " بدن.",
+            "probability": 0.8190942108631134
+          },
+          {
+            "start": 9.88,
+            "end": 10.42,
+            "word": " اما",
+            "probability": 0.9805353581905365
+          },
+          {
+            "start": 10.42,
+            "end": 11.06,
+            "word": " معملاً",
+            "probability": 0.7041231338662328
+          },
+          {
+            "start": 11.06,
+            "end": 11.24,
+            "word": " این",
+            "probability": 0.9791053235530853
+          },
+          {
+            "start": 11.24,
+            "end": 11.4,
+            "word": " کار",
+            "probability": 0.7507240772247314
+          },
+          {
+            "start": 11.4,
+            "end": 11.48,
+            "word": " رو",
+            "probability": 0.8698507845401764
+          },
+          {
+            "start": 11.48,
+            "end": 11.56,
+            "word": " با",
+            "probability": 0.5657695829868317
+          },
+          {
+            "start": 11.56,
+            "end": 11.98,
+            "word": " خودمون",
+            "probability": 0.9834514111280441
+          },
+          {
+            "start": 11.98,
+            "end": 12.06,
+            "word": " نمی‌کن.",
+            "probability": 0.5619629497329394
+          }
+        ]
+      }
+    ]
+  }
+}

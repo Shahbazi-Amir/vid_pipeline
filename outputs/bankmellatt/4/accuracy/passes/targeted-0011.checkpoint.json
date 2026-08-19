@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "727e0e28d48bcb81521c31249c0613a4807a93a19963727dcd6ca2a5a197d0eb",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.28,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.26,
+        "text": "بلندش رو ادامه بده، اشکالی نداره، ضعیف داری عمل می‌کنی، می‌تونه قوی‌تر باشی، یاد بگی.",
+        "avg_logprob": -0.17065506620753196,
+        "compression_ratio": 1.3504273504273505,
+        "no_speech_prob": 2.6551613685477093e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.38,
+            "word": " بلندش",
+            "probability": 0.8208605349063873
+          },
+          {
+            "start": 0.38,
+            "end": 0.48,
+            "word": " رو",
+            "probability": 0.7743332982063293
+          },
+          {
+            "start": 0.48,
+            "end": 0.78,
+            "word": " ادامه",
+            "probability": 0.9975800812244415
+          },
+          {
+            "start": 0.78,
+            "end": 1.26,
+            "word": " بده،",
+            "probability": 0.6676104978347818
+          },
+          {
+            "start": 1.26,
+            "end": 2.1,
+            "word": " اشکالی",
+            "probability": 0.9715077400207519
+          },
+          {
+            "start": 2.1,
+            "end": 2.58,
+            "word": " نداره،",
+            "probability": 0.9045119047164917
+          },
+          {
+            "start": 2.58,
+            "end": 2.88,
+            "word": " ضعیف",
+            "probability": 0.9679801017045975
+          },
+          {
+            "start": 2.88,
+            "end": 3.1,
+            "word": " داری",
+            "probability": 0.9776888092358907
+          },
+          {
+            "start": 3.1,
+            "end": 3.4,
+            "word": " عمل",
+            "probability": 0.966420590877533
+          },
+          {
+            "start": 3.4,
+            "end": 3.86,
+            "word": " می‌کنی،",
+            "probability": 0.6104143299162388
+          },
+          {
+            "start": 3.86,
+            "end": 4.14,
+            "word": " می‌تونه",
+            "probability": 0.8990377426147461
+          },
+          {
+            "start": 4.14,
+            "end": 4.76,
+            "word": " قوی‌تر",
+            "probability": 0.9078003317117691
+          },
+          {
+            "start": 4.76,
+            "end": 5.44,
+            "word": " باشی،",
+            "probability": 0.9305127859115601
+          },
+          {
+            "start": 5.44,
+            "end": 6.0,
+            "word": " یاد",
+            "probability": 0.9947609901428223
+          },
+          {
+            "start": 6.0,
+            "end": 6.26,
+            "word": " بگی.",
+            "probability": 0.9866846601168314
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "82b01b3d3a53449c332dbaebf36d0179f006aa9d2751775128debcf5a009d182",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.08,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 5.6,
+        "text": "که نه، لندگی بالا و پایین داره. اشکال نداره، اشتباه کردی بلنج رو ادامه بده.",
+        "avg_logprob": -0.19107118417631905,
+        "compression_ratio": 1.3673469387755102,
+        "no_speech_prob": 2.702721102476602e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.24,
+            "word": " که",
+            "probability": 0.7685757279396057
+          },
+          {
+            "start": 0.24,
+            "end": 0.94,
+            "word": " نه،",
+            "probability": 0.7701566418011984
+          },
+          {
+            "start": 0.94,
+            "end": 1.38,
+            "word": " لندگی",
+            "probability": 0.8706062734127045
+          },
+          {
+            "start": 1.38,
+            "end": 1.64,
+            "word": " بالا",
+            "probability": 0.8525905013084412
+          },
+          {
+            "start": 1.64,
+            "end": 1.74,
+            "word": " و",
+            "probability": 0.9649943709373474
+          },
+          {
+            "start": 1.74,
+            "end": 2.08,
+            "word": " پایین",
+            "probability": 0.9918097853660583
+          },
+          {
+            "start": 2.08,
+            "end": 2.5,
+            "word": " داره.",
+            "probability": 0.9863837560017904
+          },
+          {
+            "start": 2.62,
+            "end": 3.18,
+            "word": " اشکال",
+            "probability": 0.9862488210201263
+          },
+          {
+            "start": 3.18,
+            "end": 3.64,
+            "word": " نداره،",
+            "probability": 0.822286331653595
+          },
+          {
+            "start": 3.64,
+            "end": 4.08,
+            "word": " اشتباه",
+            "probability": 0.9962717175483704
+          },
+          {
+            "start": 4.08,
+            "end": 4.44,
+            "word": " کردی",
+            "probability": 0.987591008345286
+          },
+          {
+            "start": 4.44,
+            "end": 4.88,
+            "word": " بلنج",
+            "probability": 0.5553196929395199
+          },
+          {
+            "start": 4.88,
+            "end": 4.98,
+            "word": " رو",
+            "probability": 0.8285126686096191
+          },
+          {
+            "start": 4.98,
+            "end": 5.32,
+            "word": " ادامه",
+            "probability": 0.9967274963855743
+          },
+          {
+            "start": 5.32,
+            "end": 5.6,
+            "word": " بده.",
+            "probability": 0.9959767460823059
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "ef1b5db9c55bcc751dfc423ba70f65fd6a41a16f7849b0246b4951aa3b3fb8c3",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.46,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.3,
+        "text": "می‌خواییم به خودمون پرداخت داشته باشیم. ببینید ما همیشه تو حزینه‌هایی که نوشتیم دادیم بخوراکی، دادین به",
+        "avg_logprob": -0.19417976199741094,
+        "compression_ratio": 1.5039370078740157,
+        "no_speech_prob": 2.086380374022312e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.24,
+            "word": " می‌خواییم",
+            "probability": 0.659410680511168
+          },
+          {
+            "start": 0.24,
+            "end": 0.38,
+            "word": " به",
+            "probability": 0.9660491943359375
+          },
+          {
+            "start": 0.38,
+            "end": 0.94,
+            "word": " خودمون",
+            "probability": 0.9852672517299652
+          },
+          {
+            "start": 0.94,
+            "end": 1.72,
+            "word": " پرداخت",
+            "probability": 0.9893017768859863
+          },
+          {
+            "start": 1.72,
+            "end": 2.06,
+            "word": " داشته",
+            "probability": 0.9904989997545878
+          },
+          {
+            "start": 2.06,
+            "end": 2.52,
+            "word": " باشیم.",
+            "probability": 0.9565929770469666
+          },
+          {
+            "start": 2.64,
+            "end": 3.34,
+            "word": " ببینید",
+            "probability": 0.9767717719078064
+          },
+          {
+            "start": 3.34,
+            "end": 3.58,
+            "word": " ما",
+            "probability": 0.8321094512939453
+          },
+          {
+            "start": 3.58,
+            "end": 4.38,
+            "word": " همیشه",
+            "probability": 0.9742156386375427
+          },
+          {
+            "start": 4.38,
+            "end": 5.42,
+            "word": " تو",
+            "probability": 0.9665987491607666
+          },
+          {
+            "start": 5.42,
+            "end": 6.14,
+            "word": " حزینه‌هایی",
+            "probability": 0.7920479066669941
+          },
+          {
+            "start": 6.14,
+            "end": 6.24,
+            "word": " که",
+            "probability": 0.9742833971977234
+          },
+          {
+            "start": 6.24,
+            "end": 6.98,
+            "word": " نوشتیم",
+            "probability": 0.9902822077274323
+          },
+          {
+            "start": 6.98,
+            "end": 7.8,
+            "word": " دادیم",
+            "probability": 0.967030480504036
+          },
+          {
+            "start": 7.8,
+            "end": 8.74,
+            "word": " بخوراکی،",
+            "probability": 0.7062702096133892
+          },
+          {
+            "start": 8.74,
+            "end": 9.1,
+            "word": " دادین",
+            "probability": 0.6399598498828709
+          },
+          {
+            "start": 9.1,
+            "end": 9.3,
+            "word": " به",
+            "probability": 0.8166325688362122
+          }
+        ]
+      }
+    ]
+  }
+}

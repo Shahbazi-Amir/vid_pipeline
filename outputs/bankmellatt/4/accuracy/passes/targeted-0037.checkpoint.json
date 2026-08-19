@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "39d54d67badf9098ddd19b31bfc2bd978e3b864e332b5a9297510cd0fd2da757",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.18,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.16,
+        "text": "به جای که صرف اون حزینه‌ها بکنیم، اول صحم خودمون رو بر می‌داریم. صحمه خود‌مون چیه؟",
+        "avg_logprob": -0.23560113672699248,
+        "compression_ratio": 1.3727272727272728,
+        "no_speech_prob": 2.4319121716409597e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.22,
+            "word": " به",
+            "probability": 0.8653700351715088
+          },
+          {
+            "start": 0.22,
+            "end": 0.44,
+            "word": " جای",
+            "probability": 0.9703119993209839
+          },
+          {
+            "start": 0.44,
+            "end": 0.74,
+            "word": " که",
+            "probability": 0.572242796421051
+          },
+          {
+            "start": 0.74,
+            "end": 1.16,
+            "word": " صرف",
+            "probability": 0.8614333868026733
+          },
+          {
+            "start": 1.16,
+            "end": 1.38,
+            "word": " اون",
+            "probability": 0.9883385002613068
+          },
+          {
+            "start": 1.38,
+            "end": 1.96,
+            "word": " حزینه‌ها",
+            "probability": 0.7285747895172486
+          },
+          {
+            "start": 1.96,
+            "end": 2.64,
+            "word": " بکنیم،",
+            "probability": 0.8545917794108391
+          },
+          {
+            "start": 2.64,
+            "end": 2.92,
+            "word": " اول",
+            "probability": 0.9941298365592957
+          },
+          {
+            "start": 2.92,
+            "end": 3.26,
+            "word": " صحم",
+            "probability": 0.69216388463974
+          },
+          {
+            "start": 3.26,
+            "end": 3.82,
+            "word": " خودمون",
+            "probability": 0.9703413844108582
+          },
+          {
+            "start": 3.82,
+            "end": 3.96,
+            "word": " رو",
+            "probability": 0.9074871242046356
+          },
+          {
+            "start": 3.96,
+            "end": 4.2,
+            "word": " بر",
+            "probability": 0.993703693151474
+          },
+          {
+            "start": 4.2,
+            "end": 4.74,
+            "word": " می‌داریم.",
+            "probability": 0.8334973206122717
+          },
+          {
+            "start": 5.42,
+            "end": 6.26,
+            "word": " صحمه",
+            "probability": 0.6634933101789405
+          },
+          {
+            "start": 6.26,
+            "end": 6.7,
+            "word": " خود‌مون",
+            "probability": 0.7022732584737241
+          },
+          {
+            "start": 6.7,
+            "end": 7.16,
+            "word": " چیه؟",
+            "probability": 0.9710033088922501
+          }
+        ]
+      }
+    ]
+  }
+}

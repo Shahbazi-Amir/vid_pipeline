@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "c21db4903e1fa4aa7b92b6d609f99919fcce6781fb7da2f443f833608b07e320",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.58,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.56,
+        "text": "بیشتر از این بتونه کاهش بیدا کنه. از انجا ما یک کاری می‌خواییم بکنیم. اولی که در آمد رو کست",
+        "avg_logprob": -0.18319374180975415,
+        "compression_ratio": 1.35,
+        "no_speech_prob": 2.473474203235071e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.48,
+            "word": " بیشتر",
+            "probability": 0.8507731318473816
+          },
+          {
+            "start": 0.48,
+            "end": 0.68,
+            "word": " از",
+            "probability": 0.9994096159934998
+          },
+          {
+            "start": 0.68,
+            "end": 0.8,
+            "word": " این",
+            "probability": 0.9971739947795868
+          },
+          {
+            "start": 0.8,
+            "end": 1.28,
+            "word": " بتونه",
+            "probability": 0.9756596088409424
+          },
+          {
+            "start": 1.28,
+            "end": 1.64,
+            "word": " کاهش",
+            "probability": 0.9153810540835062
+          },
+          {
+            "start": 1.64,
+            "end": 1.98,
+            "word": " بیدا",
+            "probability": 0.9026726682980856
+          },
+          {
+            "start": 1.98,
+            "end": 2.5,
+            "word": " کنه.",
+            "probability": 0.6829923763871193
+          },
+          {
+            "start": 2.58,
+            "end": 3.24,
+            "word": " از",
+            "probability": 0.9989195466041565
+          },
+          {
+            "start": 3.24,
+            "end": 3.74,
+            "word": " انجا",
+            "probability": 0.66189723436158
+          },
+          {
+            "start": 3.74,
+            "end": 4.5,
+            "word": " ما",
+            "probability": 0.9928441643714905
+          },
+          {
+            "start": 4.5,
+            "end": 4.76,
+            "word": " یک",
+            "probability": 0.9869949817657471
+          },
+          {
+            "start": 4.76,
+            "end": 5.16,
+            "word": " کاری",
+            "probability": 0.9992186427116394
+          },
+          {
+            "start": 5.16,
+            "end": 5.54,
+            "word": " می‌خواییم",
+            "probability": 0.8473962720849418
+          },
+          {
+            "start": 5.54,
+            "end": 6.1,
+            "word": " بکنیم.",
+            "probability": 0.9907415390014649
+          },
+          {
+            "start": 6.6,
+            "end": 7.1,
+            "word": " اولی",
+            "probability": 0.9457421700159708
+          },
+          {
+            "start": 7.1,
+            "end": 7.34,
+            "word": " که",
+            "probability": 0.9600186347961426
+          },
+          {
+            "start": 7.34,
+            "end": 7.62,
+            "word": " در",
+            "probability": 0.998270571231842
+          },
+          {
+            "start": 7.62,
+            "end": 8.04,
+            "word": " آمد",
+            "probability": 0.7337686469157537
+          },
+          {
+            "start": 8.04,
+            "end": 8.26,
+            "word": " رو",
+            "probability": 0.970482587814331
+          },
+          {
+            "start": 8.26,
+            "end": 8.56,
+            "word": " کست",
+            "probability": 0.6523620635271072
+          }
+        ]
+      }
+    ]
+  }
+}

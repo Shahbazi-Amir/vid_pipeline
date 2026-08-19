@@ -1,0 +1,236 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "d522c384ea11dd387693ddce7be3ccff76dbe96768517896186bb4bc69d54053",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 16.36,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 16.34,
+        "text": "نقض، توزه‌ی خلاکی، نمیدونم رسطوران. و این به ما یک نکات، یک پالس‌ها یک علائمی می‌فرسته که من می‌تونم اینجا ها حزینه‌ها مو کاهش بدم در حالی که روی کیفیت زندگیم هیچ اصل می‌کنم.",
+        "avg_logprob": -0.3029868070935381,
+        "compression_ratio": 1.6528497409326426,
+        "no_speech_prob": 2.9847141425065615e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.44,
+            "word": " نقض،",
+            "probability": 0.4606715589761734
+          },
+          {
+            "start": 0.44,
+            "end": 0.82,
+            "word": " توزه‌ی",
+            "probability": 0.5868138942401856
+          },
+          {
+            "start": 0.82,
+            "end": 1.44,
+            "word": " خلاکی،",
+            "probability": 0.8134858012199402
+          },
+          {
+            "start": 1.44,
+            "end": 1.9,
+            "word": " نمیدونم",
+            "probability": 0.8779922525087992
+          },
+          {
+            "start": 1.9,
+            "end": 2.52,
+            "word": " رسطوران.",
+            "probability": 0.840484082698822
+          },
+          {
+            "start": 3.12,
+            "end": 3.88,
+            "word": " و",
+            "probability": 0.9101006388664246
+          },
+          {
+            "start": 3.88,
+            "end": 4.14,
+            "word": " این",
+            "probability": 0.9891791939735413
+          },
+          {
+            "start": 4.14,
+            "end": 4.32,
+            "word": " به",
+            "probability": 0.9942263960838318
+          },
+          {
+            "start": 4.32,
+            "end": 4.64,
+            "word": " ما",
+            "probability": 0.9922171831130981
+          },
+          {
+            "start": 4.64,
+            "end": 5.72,
+            "word": " یک",
+            "probability": 0.9698596298694611
+          },
+          {
+            "start": 5.72,
+            "end": 7.96,
+            "word": " نکات،",
+            "probability": 0.85763780772686
+          },
+          {
+            "start": 7.96,
+            "end": 8.1,
+            "word": " یک",
+            "probability": 0.9306789338588715
+          },
+          {
+            "start": 8.1,
+            "end": 8.9,
+            "word": " پالس‌ها",
+            "probability": 0.9090117931365966
+          },
+          {
+            "start": 8.9,
+            "end": 9.46,
+            "word": " یک",
+            "probability": 0.6934844702482224
+          },
+          {
+            "start": 9.46,
+            "end": 10.14,
+            "word": " علائمی",
+            "probability": 0.7169367969036102
+          },
+          {
+            "start": 10.14,
+            "end": 10.66,
+            "word": " می‌فرسته",
+            "probability": 0.8658678829669952
+          },
+          {
+            "start": 10.66,
+            "end": 10.84,
+            "word": " که",
+            "probability": 0.9894835650920868
+          },
+          {
+            "start": 10.84,
+            "end": 10.98,
+            "word": " من",
+            "probability": 0.9679861664772034
+          },
+          {
+            "start": 10.98,
+            "end": 11.38,
+            "word": " می‌تونم",
+            "probability": 0.9450888991355896
+          },
+          {
+            "start": 11.38,
+            "end": 11.84,
+            "word": " اینجا",
+            "probability": 0.8411417156457901
+          },
+          {
+            "start": 11.84,
+            "end": 12.14,
+            "word": " ها",
+            "probability": 0.7425707429647446
+          },
+          {
+            "start": 12.14,
+            "end": 12.94,
+            "word": " حزینه‌ها",
+            "probability": 0.7499788204828898
+          },
+          {
+            "start": 12.94,
+            "end": 13.1,
+            "word": " مو",
+            "probability": 0.4945691265165806
+          },
+          {
+            "start": 13.1,
+            "end": 13.54,
+            "word": " کاهش",
+            "probability": 0.9799647529919943
+          },
+          {
+            "start": 13.54,
+            "end": 13.86,
+            "word": " بدم",
+            "probability": 0.830379992723465
+          },
+          {
+            "start": 13.86,
+            "end": 14.2,
+            "word": " در",
+            "probability": 0.9347052872180939
+          },
+          {
+            "start": 14.2,
+            "end": 14.44,
+            "word": " حالی",
+            "probability": 0.9226560393969218
+          },
+          {
+            "start": 14.44,
+            "end": 14.58,
+            "word": " که",
+            "probability": 0.966754138469696
+          },
+          {
+            "start": 14.58,
+            "end": 14.76,
+            "word": " روی",
+            "probability": 0.9433396458625793
+          },
+          {
+            "start": 14.76,
+            "end": 15.32,
+            "word": " کیفیت",
+            "probability": 0.9719951003789902
+          },
+          {
+            "start": 15.32,
+            "end": 15.84,
+            "word": " زندگیم",
+            "probability": 0.9200594902038575
+          },
+          {
+            "start": 15.84,
+            "end": 16.04,
+            "word": " هیچ",
+            "probability": 0.9761545658111572
+          },
+          {
+            "start": 16.04,
+            "end": 16.28,
+            "word": " اصل",
+            "probability": 0.8875488638877869
+          },
+          {
+            "start": 16.28,
+            "end": 16.34,
+            "word": " می‌کنم.",
+            "probability": 0.5357405625283718
+          }
+        ]
+      }
+    ]
+  }
+}

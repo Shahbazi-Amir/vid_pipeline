@@ -1,0 +1,241 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "a0ac8ec1ede4ae495d2ff03bf7048f49b556e54d9b5a99d7d4e15af593c91d58",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.56,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.26,
+        "text": "آیایی که من که تو این حوضه نمی‌خواستم حضینه بکنم؟ چرا انقدر حضیه کردم؟ تو اون ردیف، تو اين سرفست، مثلا تو حوزه همللق، تو حوله خوراکی، نماندونم رسطوران؟",
+        "avg_logprob": -0.3336450508662632,
+        "compression_ratio": 1.6836158192090396,
+        "no_speech_prob": 2.7694344040263275e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.36,
+            "word": " آیایی",
+            "probability": 0.6687233150005341
+          },
+          {
+            "start": 0.36,
+            "end": 0.46,
+            "word": " که",
+            "probability": 0.9713763892650604
+          },
+          {
+            "start": 0.46,
+            "end": 0.6,
+            "word": " من",
+            "probability": 0.9984789490699768
+          },
+          {
+            "start": 0.6,
+            "end": 0.8,
+            "word": " که",
+            "probability": 0.9982865452766418
+          },
+          {
+            "start": 0.8,
+            "end": 0.86,
+            "word": " تو",
+            "probability": 0.9889125823974609
+          },
+          {
+            "start": 0.86,
+            "end": 0.98,
+            "word": " این",
+            "probability": 0.9098932445049286
+          },
+          {
+            "start": 0.98,
+            "end": 1.28,
+            "word": " حوضه",
+            "probability": 0.9542328268289566
+          },
+          {
+            "start": 1.28,
+            "end": 1.82,
+            "word": " نمی‌خواستم",
+            "probability": 0.8644898570346413
+          },
+          {
+            "start": 1.82,
+            "end": 2.22,
+            "word": " حضینه",
+            "probability": 0.8782441765069962
+          },
+          {
+            "start": 2.22,
+            "end": 2.58,
+            "word": " بکنم؟",
+            "probability": 0.7413946211338043
+          },
+          {
+            "start": 2.58,
+            "end": 2.78,
+            "word": " چرا",
+            "probability": 0.9251947402954102
+          },
+          {
+            "start": 2.78,
+            "end": 3.12,
+            "word": " انقدر",
+            "probability": 0.8955347537994385
+          },
+          {
+            "start": 3.12,
+            "end": 3.42,
+            "word": " حضیه",
+            "probability": 0.6556626403762493
+          },
+          {
+            "start": 3.42,
+            "end": 3.98,
+            "word": " کردم؟",
+            "probability": 0.7316573858261108
+          },
+          {
+            "start": 3.98,
+            "end": 4.02,
+            "word": " تو",
+            "probability": 0.9773255586624146
+          },
+          {
+            "start": 4.02,
+            "end": 4.24,
+            "word": " اون",
+            "probability": 0.46638864561828086
+          },
+          {
+            "start": 4.24,
+            "end": 5.42,
+            "word": " ردیف،",
+            "probability": 0.8591872692108155
+          },
+          {
+            "start": 5.42,
+            "end": 5.48,
+            "word": " تو",
+            "probability": 0.9121922850608826
+          },
+          {
+            "start": 5.48,
+            "end": 5.62,
+            "word": " اين",
+            "probability": 0.48040617784135975
+          },
+          {
+            "start": 5.62,
+            "end": 6.44,
+            "word": " سرفست،",
+            "probability": 0.6944074407219887
+          },
+          {
+            "start": 6.44,
+            "end": 6.68,
+            "word": " مثلا",
+            "probability": 0.9434762597084045
+          },
+          {
+            "start": 6.68,
+            "end": 6.88,
+            "word": " تو",
+            "probability": 0.8005437850952148
+          },
+          {
+            "start": 6.88,
+            "end": 7.18,
+            "word": " حوزه",
+            "probability": 0.723334023845382
+          },
+          {
+            "start": 7.18,
+            "end": 7.96,
+            "word": " همللق،",
+            "probability": 0.6286323070526123
+          },
+          {
+            "start": 7.96,
+            "end": 8.04,
+            "word": " تو",
+            "probability": 0.8718632459640503
+          },
+          {
+            "start": 8.04,
+            "end": 8.32,
+            "word": " حوله",
+            "probability": 0.49734825485696393
+          },
+          {
+            "start": 8.32,
+            "end": 9.08,
+            "word": " خوراکی،",
+            "probability": 0.7645789881547292
+          },
+          {
+            "start": 9.08,
+            "end": 9.46,
+            "word": " نماندونم",
+            "probability": 0.542397115069131
+          },
+          {
+            "start": 9.46,
+            "end": 10.26,
+            "word": " رسطوران؟",
+            "probability": 0.740082785487175
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 10.860000000000001,
+        "end": 12.38,
+        "text": "و این به ما...",
+        "avg_logprob": -0.3336450508662632,
+        "compression_ratio": 1.6836158192090396,
+        "no_speech_prob": 2.7694344040263275e-10,
+        "words": [
+          {
+            "start": 10.860000000000001,
+            "end": 11.46,
+            "word": " و",
+            "probability": 0.9368748664855957
+          },
+          {
+            "start": 11.46,
+            "end": 11.7,
+            "word": " این",
+            "probability": 0.9851856827735901
+          },
+          {
+            "start": 11.7,
+            "end": 11.88,
+            "word": " به",
+            "probability": 0.9921239018440247
+          },
+          {
+            "start": 11.88,
+            "end": 12.38,
+            "word": " ما...",
+            "probability": 0.7090003788471222
+          }
+        ]
+      }
+    ]
+  }
+}

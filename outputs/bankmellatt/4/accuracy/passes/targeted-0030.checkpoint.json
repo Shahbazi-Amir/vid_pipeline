@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "e8bdc460a22bb2a64391a38b252e13f0ffe7a5ec2365aa61cfd470b54c8b0118",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.06,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.04,
+        "text": "که بیاد در سطح در آمد. حالا ممکنه هزینه‌ها بیشتر از این بتونه کاهش بیدا بکنند. از انجا ما یک کار",
+        "avg_logprob": -0.2225248594627236,
+        "compression_ratio": 1.425,
+        "no_speech_prob": 2.9124447298300993e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.64,
+            "word": " که",
+            "probability": 0.5956452861428261
+          },
+          {
+            "start": 0.64,
+            "end": 1.22,
+            "word": " بیاد",
+            "probability": 0.9927186965942383
+          },
+          {
+            "start": 1.22,
+            "end": 1.56,
+            "word": " در",
+            "probability": 0.9989603757858276
+          },
+          {
+            "start": 1.56,
+            "end": 1.92,
+            "word": " سطح",
+            "probability": 0.9780542850494385
+          },
+          {
+            "start": 1.92,
+            "end": 2.2,
+            "word": " در",
+            "probability": 0.9976648092269897
+          },
+          {
+            "start": 2.2,
+            "end": 2.5,
+            "word": " آمد.",
+            "probability": 0.8423347473144531
+          },
+          {
+            "start": 2.92,
+            "end": 3.64,
+            "word": " حالا",
+            "probability": 0.9936104615529379
+          },
+          {
+            "start": 3.64,
+            "end": 4.16,
+            "word": " ممکنه",
+            "probability": 0.9970492124557495
+          },
+          {
+            "start": 4.16,
+            "end": 4.88,
+            "word": " هزینه‌ها",
+            "probability": 0.6915887901559472
+          },
+          {
+            "start": 4.88,
+            "end": 5.54,
+            "word": " بیشتر",
+            "probability": 0.9948130130767823
+          },
+          {
+            "start": 5.54,
+            "end": 5.76,
+            "word": " از",
+            "probability": 0.9976153075695038
+          },
+          {
+            "start": 5.76,
+            "end": 5.88,
+            "word": " این",
+            "probability": 0.9847384393215179
+          },
+          {
+            "start": 5.88,
+            "end": 6.34,
+            "word": " بتونه",
+            "probability": 0.9667373299598694
+          },
+          {
+            "start": 6.34,
+            "end": 6.7,
+            "word": " کاهش",
+            "probability": 0.8861387372016907
+          },
+          {
+            "start": 6.7,
+            "end": 7.04,
+            "word": " بیدا",
+            "probability": 0.8948832154273987
+          },
+          {
+            "start": 7.04,
+            "end": 7.52,
+            "word": " بکنند.",
+            "probability": 0.6832122653650003
+          },
+          {
+            "start": 8.06,
+            "end": 8.3,
+            "word": " از",
+            "probability": 0.9860725402832031
+          },
+          {
+            "start": 8.3,
+            "end": 8.86,
+            "word": " انجا",
+            "probability": 0.6585905230604112
+          },
+          {
+            "start": 8.86,
+            "end": 9.56,
+            "word": " ما",
+            "probability": 0.9465634226799011
+          },
+          {
+            "start": 9.56,
+            "end": 9.84,
+            "word": " یک",
+            "probability": 0.9624729156494141
+          },
+          {
+            "start": 9.84,
+            "end": 10.04,
+            "word": " کار",
+            "probability": 0.9079789817333221
+          }
+        ]
+      }
+    ]
+  }
+}

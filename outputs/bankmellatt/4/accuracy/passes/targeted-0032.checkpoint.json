@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "583ca195daa43f5d684a25eb2805755143443eb81cbcc7a213c7761cfaf07507",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.34,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.84,
+        "text": "ما یک کاری می‌خواییم بکنیم. اولی که درامت رو کسب می‌کنین، می‌ خوایم به خودمون پرداخت داشته باشیم",
+        "avg_logprob": -0.1660251160720726,
+        "compression_ratio": 1.5606060606060606,
+        "no_speech_prob": 2.0419356483447615e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.92,
+            "word": " ما",
+            "probability": 0.9879105091094971
+          },
+          {
+            "start": 0.92,
+            "end": 1.2,
+            "word": " یک",
+            "probability": 0.9511101245880127
+          },
+          {
+            "start": 1.2,
+            "end": 1.58,
+            "word": " کاری",
+            "probability": 0.9992883602778116
+          },
+          {
+            "start": 1.58,
+            "end": 1.96,
+            "word": " می‌خواییم",
+            "probability": 0.8364275480520779
+          },
+          {
+            "start": 1.96,
+            "end": 2.54,
+            "word": " بکنیم.",
+            "probability": 0.9890094757080078
+          },
+          {
+            "start": 2.72,
+            "end": 3.52,
+            "word": " اولی",
+            "probability": 0.9471685489018759
+          },
+          {
+            "start": 3.52,
+            "end": 3.72,
+            "word": " که",
+            "probability": 0.9726561009883881
+          },
+          {
+            "start": 3.72,
+            "end": 4.46,
+            "word": " درامت",
+            "probability": 0.8748392313718796
+          },
+          {
+            "start": 4.46,
+            "end": 4.68,
+            "word": " رو",
+            "probability": 0.9684782326221466
+          },
+          {
+            "start": 4.68,
+            "end": 5.1,
+            "word": " کسب",
+            "probability": 0.6928703188896179
+          },
+          {
+            "start": 5.1,
+            "end": 6.3,
+            "word": " می‌کنین،",
+            "probability": 0.6804068280034699
+          },
+          {
+            "start": 6.3,
+            "end": 7.38,
+            "word": " می‌",
+            "probability": 0.9863168895244598
+          },
+          {
+            "start": 7.38,
+            "end": 7.56,
+            "word": " خوایم",
+            "probability": 0.4165588486357592
+          },
+          {
+            "start": 7.56,
+            "end": 7.72,
+            "word": " به",
+            "probability": 0.98142009973526
+          },
+          {
+            "start": 7.72,
+            "end": 8.28,
+            "word": " خودمون",
+            "probability": 0.9943529218435287
+          },
+          {
+            "start": 8.28,
+            "end": 9.06,
+            "word": " پرداخت",
+            "probability": 0.9962042093276977
+          },
+          {
+            "start": 9.06,
+            "end": 9.4,
+            "word": " داشته",
+            "probability": 0.9916876753171285
+          },
+          {
+            "start": 9.4,
+            "end": 9.84,
+            "word": " باشیم",
+            "probability": 0.9701067060232162
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 9.84,
+        "end": 11.6,
+        "text": "ببینید ما همیشه",
+        "avg_logprob": -0.1660251160720726,
+        "compression_ratio": 1.5606060606060606,
+        "no_speech_prob": 2.0419356483447615e-10,
+        "words": [
+          {
+            "start": 9.84,
+            "end": 10.68,
+            "word": " ببینید",
+            "probability": 0.8114543795585633
+          },
+          {
+            "start": 10.68,
+            "end": 10.92,
+            "word": " ما",
+            "probability": 0.750822901725769
+          },
+          {
+            "start": 10.92,
+            "end": 11.6,
+            "word": " همیشه",
+            "probability": 0.9057093501091004
+          }
+        ]
+      }
+    ]
+  }
+}

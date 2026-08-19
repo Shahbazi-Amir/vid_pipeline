@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "b3ed8f3fb019c73957fd29d11c6c9686d99f852e63f079423abff82f42c90d2f",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.44,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.42,
+        "text": "داره کجدار و مریض پیش میره. ما همیشه بهش امید می‌دین. ما می‌گیم که نه، زندگی با",
+        "avg_logprob": -0.19037754860791292,
+        "compression_ratio": 1.3786407766990292,
+        "no_speech_prob": 2.3385876568582376e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.52,
+            "word": " داره",
+            "probability": 0.9853322307268778
+          },
+          {
+            "start": 0.52,
+            "end": 1.02,
+            "word": " کجدار",
+            "probability": 0.9839557707309723
+          },
+          {
+            "start": 1.02,
+            "end": 1.16,
+            "word": " و",
+            "probability": 0.9835397005081177
+          },
+          {
+            "start": 1.16,
+            "end": 1.64,
+            "word": " مریض",
+            "probability": 0.97835240761439
+          },
+          {
+            "start": 1.64,
+            "end": 2.12,
+            "word": " پیش",
+            "probability": 0.9986909230550131
+          },
+          {
+            "start": 2.12,
+            "end": 2.52,
+            "word": " میره.",
+            "probability": 0.9820321798324585
+          },
+          {
+            "start": 2.62,
+            "end": 3.12,
+            "word": " ما",
+            "probability": 0.9951903820037842
+          },
+          {
+            "start": 3.12,
+            "end": 3.84,
+            "word": " همیشه",
+            "probability": 0.9993292808532714
+          },
+          {
+            "start": 3.84,
+            "end": 4.12,
+            "word": " بهش",
+            "probability": 0.9988551437854767
+          },
+          {
+            "start": 4.12,
+            "end": 4.58,
+            "word": " امید",
+            "probability": 0.9992512762546539
+          },
+          {
+            "start": 4.58,
+            "end": 4.9,
+            "word": " می‌دین.",
+            "probability": 0.6477074240210641
+          },
+          {
+            "start": 5.3,
+            "end": 5.68,
+            "word": " ما",
+            "probability": 0.9771040081977844
+          },
+          {
+            "start": 5.68,
+            "end": 6.0,
+            "word": " می‌گیم",
+            "probability": 0.9853918790817261
+          },
+          {
+            "start": 6.0,
+            "end": 6.16,
+            "word": " که",
+            "probability": 0.98441281914711
+          },
+          {
+            "start": 6.16,
+            "end": 6.86,
+            "word": " نه،",
+            "probability": 0.7002386401096979
+          },
+          {
+            "start": 6.86,
+            "end": 7.32,
+            "word": " زندگی",
+            "probability": 0.8373482376337051
+          },
+          {
+            "start": 7.32,
+            "end": 7.42,
+            "word": " با",
+            "probability": 0.9146992564201355
+          }
+        ]
+      }
+    ]
+  }
+}

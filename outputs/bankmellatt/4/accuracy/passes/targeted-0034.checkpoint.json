@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "f1fcf58b8260af6e2a0e9152b1b4d2bab93e12439e8a042faa7cfe9c760546a4",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.22,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 12.14,
+        "text": "تو هزینه‌هایی که نوشتیم دادیم به خوراکی، دادین به همن و نقل، ددین به رستوران، یه سری هزینا‌ها رو دادم رفته. یک استراتژی هست",
+        "avg_logprob": -0.19862283784896134,
+        "compression_ratio": 1.635036496350365,
+        "no_speech_prob": 2.903251805630447e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.96,
+            "word": " تو",
+            "probability": 0.9840976595878601
+          },
+          {
+            "start": 0.96,
+            "end": 1.68,
+            "word": " هزینه‌هایی",
+            "probability": 0.8163538816734217
+          },
+          {
+            "start": 1.68,
+            "end": 1.78,
+            "word": " که",
+            "probability": 0.9918653070926666
+          },
+          {
+            "start": 1.78,
+            "end": 2.5,
+            "word": " نوشتیم",
+            "probability": 0.9943627814451853
+          },
+          {
+            "start": 2.5,
+            "end": 3.34,
+            "word": " دادیم",
+            "probability": 0.9646773487329483
+          },
+          {
+            "start": 3.34,
+            "end": 3.46,
+            "word": " به",
+            "probability": 0.995265007019043
+          },
+          {
+            "start": 3.46,
+            "end": 4.32,
+            "word": " خوراکی،",
+            "probability": 0.9347910483678182
+          },
+          {
+            "start": 4.32,
+            "end": 4.64,
+            "word": " دادین",
+            "probability": 0.5511017102592936
+          },
+          {
+            "start": 4.64,
+            "end": 4.88,
+            "word": " به",
+            "probability": 0.9965271353721619
+          },
+          {
+            "start": 4.88,
+            "end": 5.68,
+            "word": " همن",
+            "probability": 0.725963681936264
+          },
+          {
+            "start": 5.68,
+            "end": 5.8,
+            "word": " و",
+            "probability": 0.8307367563247681
+          },
+          {
+            "start": 5.8,
+            "end": 6.4,
+            "word": " نقل،",
+            "probability": 0.9762924462556839
+          },
+          {
+            "start": 6.4,
+            "end": 6.68,
+            "word": " ددین",
+            "probability": 0.43279499612011324
+          },
+          {
+            "start": 6.68,
+            "end": 6.86,
+            "word": " به",
+            "probability": 0.9986477494239807
+          },
+          {
+            "start": 6.86,
+            "end": 7.8,
+            "word": " رستوران،",
+            "probability": 0.7214863657951355
+          },
+          {
+            "start": 7.8,
+            "end": 7.96,
+            "word": " یه",
+            "probability": 0.78813636302948
+          },
+          {
+            "start": 7.96,
+            "end": 8.12,
+            "word": " سری",
+            "probability": 0.9694758653640747
+          },
+          {
+            "start": 8.12,
+            "end": 8.72,
+            "word": " هزینا‌ها",
+            "probability": 0.7085562970508666
+          },
+          {
+            "start": 8.72,
+            "end": 8.86,
+            "word": " رو",
+            "probability": 0.9352810382843018
+          },
+          {
+            "start": 8.86,
+            "end": 9.18,
+            "word": " دادم",
+            "probability": 0.6589027263301735
+          },
+          {
+            "start": 9.18,
+            "end": 9.72,
+            "word": " رفته.",
+            "probability": 0.9956093827883402
+          },
+          {
+            "start": 10.4,
+            "end": 11.08,
+            "word": " یک",
+            "probability": 0.9898945689201355
+          },
+          {
+            "start": 11.08,
+            "end": 11.84,
+            "word": " استراتژی",
+            "probability": 0.8903868397076925
+          },
+          {
+            "start": 11.84,
+            "end": 12.14,
+            "word": " هست",
+            "probability": 0.9767092168331146
+          }
+        ]
+      }
+    ]
+  }
+}

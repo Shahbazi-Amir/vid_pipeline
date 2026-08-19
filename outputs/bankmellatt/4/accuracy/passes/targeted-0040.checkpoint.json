@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "d9659a89c9aad119c9db96f45eea91d5ddfcb997f0abdba935f8652b75a8703d",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 14.58,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 12.1,
+        "text": "خودمون بر می‌داریم، یک تحت عنوان صندوق پسنداز، دو صندق افتراری، سه صندگ یاری دیگران.",
+        "avg_logprob": -0.16761957553395054,
+        "compression_ratio": 1.3391304347826087,
+        "no_speech_prob": 2.786818276145908e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.5,
+            "word": " خودمون",
+            "probability": 0.8338707908987999
+          },
+          {
+            "start": 0.5,
+            "end": 0.78,
+            "word": " بر",
+            "probability": 0.9991592764854431
+          },
+          {
+            "start": 0.78,
+            "end": 1.64,
+            "word": " می‌داریم،",
+            "probability": 0.6043964485039136
+          },
+          {
+            "start": 1.64,
+            "end": 3.24,
+            "word": " یک",
+            "probability": 0.9543149173259735
+          },
+          {
+            "start": 3.24,
+            "end": 4.32,
+            "word": " تحت",
+            "probability": 0.6666723787784576
+          },
+          {
+            "start": 4.32,
+            "end": 4.68,
+            "word": " عنوان",
+            "probability": 0.9064515034357706
+          },
+          {
+            "start": 4.68,
+            "end": 5.14,
+            "word": " صندوق",
+            "probability": 0.9800993402798971
+          },
+          {
+            "start": 5.14,
+            "end": 6.36,
+            "word": " پسنداز،",
+            "probability": 0.9052685379981995
+          },
+          {
+            "start": 6.36,
+            "end": 7.44,
+            "word": " دو",
+            "probability": 0.9894754588603973
+          },
+          {
+            "start": 7.44,
+            "end": 8.18,
+            "word": " صندق",
+            "probability": 0.6335032995557413
+          },
+          {
+            "start": 8.18,
+            "end": 9.7,
+            "word": " افتراری،",
+            "probability": 0.9607520869800023
+          },
+          {
+            "start": 9.7,
+            "end": 10.46,
+            "word": " سه",
+            "probability": 0.9609542489051819
+          },
+          {
+            "start": 10.46,
+            "end": 11.0,
+            "word": " صندگ",
+            "probability": 0.6592116742200839
+          },
+          {
+            "start": 11.0,
+            "end": 11.4,
+            "word": " یاری",
+            "probability": 0.9935805797576904
+          },
+          {
+            "start": 11.4,
+            "end": 12.1,
+            "word": " دیگران.",
+            "probability": 0.9939174771308898
+          }
+        ]
+      }
+    ]
+  }
+}

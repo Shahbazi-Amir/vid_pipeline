@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "b4066a2dc2a8d580d98340e4bd6e34d3e2bc441d23a0a944cd47442eb2d5a6ef",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.82,
+    "segments": [
+      {
+        "id": 1,
+        "start": 1.7999999999999994,
+        "end": 9.8,
+        "text": "سلام، تا اینجا پیش رفتیم که تو سه ماه اول حزینه هامون رو نوشتید و اصلاح",
+        "avg_logprob": -0.26136729182029256,
+        "compression_ratio": 1.3229166666666667,
+        "no_speech_prob": 4.970476807919511e-10,
+        "words": [
+          {
+            "start": 1.7999999999999994,
+            "end": 2.5599999999999996,
+            "word": " سلام،",
+            "probability": 0.623211403687795
+          },
+          {
+            "start": 2.5599999999999996,
+            "end": 3.32,
+            "word": " تا",
+            "probability": 0.9927625358104706
+          },
+          {
+            "start": 3.32,
+            "end": 3.48,
+            "word": " اینجا",
+            "probability": 0.9978488087654114
+          },
+          {
+            "start": 3.48,
+            "end": 3.72,
+            "word": " پیش",
+            "probability": 0.9988454778989156
+          },
+          {
+            "start": 3.72,
+            "end": 4.2,
+            "word": " رفتیم",
+            "probability": 0.9733179211616516
+          },
+          {
+            "start": 4.2,
+            "end": 4.38,
+            "word": " که",
+            "probability": 0.9923215508460999
+          },
+          {
+            "start": 4.38,
+            "end": 4.48,
+            "word": " تو",
+            "probability": 0.8923046588897705
+          },
+          {
+            "start": 4.48,
+            "end": 4.76,
+            "word": " سه",
+            "probability": 0.9094512462615967
+          },
+          {
+            "start": 4.76,
+            "end": 4.92,
+            "word": " ماه",
+            "probability": 0.9917856156826019
+          },
+          {
+            "start": 4.92,
+            "end": 5.46,
+            "word": " اول",
+            "probability": 0.9699319005012512
+          },
+          {
+            "start": 5.46,
+            "end": 6.06,
+            "word": " حزینه",
+            "probability": 0.7391608878970146
+          },
+          {
+            "start": 6.06,
+            "end": 6.34,
+            "word": " هامون",
+            "probability": 0.7968309223651886
+          },
+          {
+            "start": 6.34,
+            "end": 6.48,
+            "word": " رو",
+            "probability": 0.8427251577377319
+          },
+          {
+            "start": 6.48,
+            "end": 7.32,
+            "word": " نوشتید",
+            "probability": 0.8293193931943582
+          },
+          {
+            "start": 7.32,
+            "end": 8.8,
+            "word": " و",
+            "probability": 0.579746663570404
+          },
+          {
+            "start": 8.8,
+            "end": 9.8,
+            "word": " اصلاح",
+            "probability": 0.7047560885548592
+          }
+        ]
+      }
+    ]
+  }
+}

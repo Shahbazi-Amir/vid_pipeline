@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "b0987ee3825c3a0e25b41729d7c48505d82fae8519287b576e447f7a7f55e792",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.7,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.36,
+        "text": "یه اول به خودت بپرداز. پس ما اولی که در آمد رو کست می‌کنیم، به جایین که سرف اون حزینه‌ها بکنم، اول سهم خودمون رو بر می‌داریم.",
+        "avg_logprob": -0.17704200599251724,
+        "compression_ratio": 1.6304347826086956,
+        "no_speech_prob": 1.7298794341424895e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.68,
+            "word": " یه",
+            "probability": 0.8662076592445374
+          },
+          {
+            "start": 0.68,
+            "end": 1.28,
+            "word": " اول",
+            "probability": 0.9968084394931793
+          },
+          {
+            "start": 1.28,
+            "end": 1.46,
+            "word": " به",
+            "probability": 0.9991359114646912
+          },
+          {
+            "start": 1.46,
+            "end": 1.82,
+            "word": " خودت",
+            "probability": 0.9994563261667887
+          },
+          {
+            "start": 1.82,
+            "end": 2.5,
+            "word": " بپرداز.",
+            "probability": 0.9111524105072022
+          },
+          {
+            "start": 2.68,
+            "end": 3.28,
+            "word": " پس",
+            "probability": 0.9988535940647125
+          },
+          {
+            "start": 3.28,
+            "end": 3.4,
+            "word": " ما",
+            "probability": 0.9991216063499451
+          },
+          {
+            "start": 3.4,
+            "end": 3.96,
+            "word": " اولی",
+            "probability": 0.9993783235549927
+          },
+          {
+            "start": 3.96,
+            "end": 4.1,
+            "word": " که",
+            "probability": 0.9989503026008606
+          },
+          {
+            "start": 4.1,
+            "end": 4.36,
+            "word": " در",
+            "probability": 0.9995149374008179
+          },
+          {
+            "start": 4.36,
+            "end": 4.68,
+            "word": " آمد",
+            "probability": 0.822067528963089
+          },
+          {
+            "start": 4.68,
+            "end": 4.82,
+            "word": " رو",
+            "probability": 0.9837032556533813
+          },
+          {
+            "start": 4.82,
+            "end": 5.22,
+            "word": " کست",
+            "probability": 0.8844314217567444
+          },
+          {
+            "start": 5.22,
+            "end": 5.82,
+            "word": " می‌کنیم،",
+            "probability": 0.6240915394654232
+          },
+          {
+            "start": 5.82,
+            "end": 5.92,
+            "word": " به",
+            "probability": 0.9094439148902893
+          },
+          {
+            "start": 5.92,
+            "end": 6.22,
+            "word": " جایین",
+            "probability": 0.7725038565695286
+          },
+          {
+            "start": 6.22,
+            "end": 6.38,
+            "word": " که",
+            "probability": 0.9709838032722473
+          },
+          {
+            "start": 6.38,
+            "end": 6.84,
+            "word": " سرف",
+            "probability": 0.7483569383621216
+          },
+          {
+            "start": 6.84,
+            "end": 7.08,
+            "word": " اون",
+            "probability": 0.9353034496307373
+          },
+          {
+            "start": 7.08,
+            "end": 7.72,
+            "word": " حزینه‌ها",
+            "probability": 0.8685628175735474
+          },
+          {
+            "start": 7.72,
+            "end": 8.28,
+            "word": " بکنم،",
+            "probability": 0.7273811945546186
+          },
+          {
+            "start": 8.28,
+            "end": 8.62,
+            "word": " اول",
+            "probability": 0.9985888302326202
+          },
+          {
+            "start": 8.62,
+            "end": 8.98,
+            "word": " سهم",
+            "probability": 0.7389995753765106
+          },
+          {
+            "start": 8.98,
+            "end": 9.54,
+            "word": " خودمون",
+            "probability": 0.9911813884973526
+          },
+          {
+            "start": 9.54,
+            "end": 9.68,
+            "word": " رو",
+            "probability": 0.9899839460849762
+          },
+          {
+            "start": 9.68,
+            "end": 9.9,
+            "word": " بر",
+            "probability": 0.9971728622913361
+          },
+          {
+            "start": 9.9,
+            "end": 10.36,
+            "word": " می‌داریم.",
+            "probability": 0.9186988373597463
+          }
+        ]
+      }
+    ]
+  }
+}

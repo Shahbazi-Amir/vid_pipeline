@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "2cc1387736dc69a692f9a8a36bbbabf3a9ff3c336cf276bae16bf4224300c735",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.78,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.66,
+        "text": "یا تو مدیریت مالی زندگیش یک کمی داره کجدار و مریض پیش میره. ما همیشه بهش امید می‌دین.",
+        "avg_logprob": -0.11863896048675149,
+        "compression_ratio": 1.3693693693693694,
+        "no_speech_prob": 2.089444034458765e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.46,
+            "word": " یا",
+            "probability": 0.9759975075721741
+          },
+          {
+            "start": 0.46,
+            "end": 0.56,
+            "word": " تو",
+            "probability": 0.9866618514060974
+          },
+          {
+            "start": 0.56,
+            "end": 1.2,
+            "word": " مدیریت",
+            "probability": 0.9537368059158325
+          },
+          {
+            "start": 1.2,
+            "end": 1.6,
+            "word": " مالی",
+            "probability": 0.9992364247639974
+          },
+          {
+            "start": 1.6,
+            "end": 2.5,
+            "word": " زندگیش",
+            "probability": 0.9927655458450317
+          },
+          {
+            "start": 2.5,
+            "end": 4.0,
+            "word": " یک",
+            "probability": 0.8196828365325928
+          },
+          {
+            "start": 4.0,
+            "end": 4.72,
+            "word": " کمی",
+            "probability": 0.996204137802124
+          },
+          {
+            "start": 4.72,
+            "end": 5.3,
+            "word": " داره",
+            "probability": 0.9876981377601624
+          },
+          {
+            "start": 5.3,
+            "end": 5.82,
+            "word": " کجدار",
+            "probability": 0.9870033860206604
+          },
+          {
+            "start": 5.82,
+            "end": 5.92,
+            "word": " و",
+            "probability": 0.9892333745956421
+          },
+          {
+            "start": 5.92,
+            "end": 6.42,
+            "word": " مریض",
+            "probability": 0.9970174233118693
+          },
+          {
+            "start": 6.42,
+            "end": 6.9,
+            "word": " پیش",
+            "probability": 0.9995054602622986
+          },
+          {
+            "start": 6.9,
+            "end": 7.32,
+            "word": " میره.",
+            "probability": 0.9745615522066752
+          },
+          {
+            "start": 7.44,
+            "end": 7.9,
+            "word": " ما",
+            "probability": 0.9954995512962341
+          },
+          {
+            "start": 7.9,
+            "end": 8.62,
+            "word": " همیشه",
+            "probability": 0.9993885517120361
+          },
+          {
+            "start": 8.62,
+            "end": 8.9,
+            "word": " بهش",
+            "probability": 0.998907059431076
+          },
+          {
+            "start": 8.9,
+            "end": 9.36,
+            "word": " امید",
+            "probability": 0.9990519881248474
+          },
+          {
+            "start": 9.36,
+            "end": 9.66,
+            "word": " می‌دین.",
+            "probability": 0.7188993238378316
+          }
+        ]
+      }
+    ]
+  }
+}

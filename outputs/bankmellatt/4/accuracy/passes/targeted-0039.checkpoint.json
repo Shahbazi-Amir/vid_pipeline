@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "08731ade4a516b89b4749d0ac96963d87ede48334255b57cbc273dd48f6897a0",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.58,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.1,
+        "text": "در اسطلاح سه تا صندوقه که ما به محض اینکه درامد رو کست می‌کنیم، درصدی از این درآمد را برای خودمون بر می‌داریم.",
+        "avg_logprob": -0.12855246957195432,
+        "compression_ratio": 1.4962406015037595,
+        "no_speech_prob": 2.326412951170198e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.7,
+            "word": " در",
+            "probability": 0.9984512627124786
+          },
+          {
+            "start": 0.7,
+            "end": 1.32,
+            "word": " اسطلاح",
+            "probability": 0.855819933116436
+          },
+          {
+            "start": 1.32,
+            "end": 1.72,
+            "word": " سه",
+            "probability": 0.6601307392120361
+          },
+          {
+            "start": 1.72,
+            "end": 1.86,
+            "word": " تا",
+            "probability": 0.9990642368793488
+          },
+          {
+            "start": 1.86,
+            "end": 2.52,
+            "word": " صندوقه",
+            "probability": 0.9770485758781433
+          },
+          {
+            "start": 2.52,
+            "end": 3.24,
+            "word": " که",
+            "probability": 0.9848830699920654
+          },
+          {
+            "start": 3.24,
+            "end": 3.34,
+            "word": " ما",
+            "probability": 0.9996163845062256
+          },
+          {
+            "start": 3.34,
+            "end": 3.48,
+            "word": " به",
+            "probability": 0.9993743300437927
+          },
+          {
+            "start": 3.48,
+            "end": 3.84,
+            "word": " محض",
+            "probability": 0.9101992249488831
+          },
+          {
+            "start": 3.84,
+            "end": 4.14,
+            "word": " اینکه",
+            "probability": 0.7557173892855644
+          },
+          {
+            "start": 4.14,
+            "end": 4.74,
+            "word": " درامد",
+            "probability": 0.835885263979435
+          },
+          {
+            "start": 4.74,
+            "end": 4.9,
+            "word": " رو",
+            "probability": 0.9746258556842804
+          },
+          {
+            "start": 4.9,
+            "end": 5.32,
+            "word": " کست",
+            "probability": 0.8638010323047638
+          },
+          {
+            "start": 5.32,
+            "end": 6.34,
+            "word": " می‌کنیم،",
+            "probability": 0.6187314110575244
+          },
+          {
+            "start": 6.34,
+            "end": 7.38,
+            "word": " درصدی",
+            "probability": 0.9610251665115357
+          },
+          {
+            "start": 7.38,
+            "end": 7.56,
+            "word": " از",
+            "probability": 0.9939787089824677
+          },
+          {
+            "start": 7.56,
+            "end": 7.62,
+            "word": " این",
+            "probability": 0.9996422529220581
+          },
+          {
+            "start": 7.62,
+            "end": 8.22,
+            "word": " درآمد",
+            "probability": 0.8263774754062373
+          },
+          {
+            "start": 8.22,
+            "end": 8.34,
+            "word": " را",
+            "probability": 0.5025690768379718
+          },
+          {
+            "start": 8.34,
+            "end": 8.7,
+            "word": " برای",
+            "probability": 0.9985715548197428
+          },
+          {
+            "start": 8.7,
+            "end": 9.24,
+            "word": " خودمون",
+            "probability": 0.998672753572464
+          },
+          {
+            "start": 9.24,
+            "end": 9.52,
+            "word": " بر",
+            "probability": 0.9992053210735321
+          },
+          {
+            "start": 9.52,
+            "end": 10.1,
+            "word": " می‌داریم.",
+            "probability": 0.9219241837660471
+          }
+        ]
+      }
+    ]
+  }
+}

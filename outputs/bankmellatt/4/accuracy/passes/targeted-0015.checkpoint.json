@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "612c849939d1d2ee617a2a07a79670083915b2eefd7d0273c40fa0bdc61e2a21",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.06,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 5.36,
+        "text": "می‌دهیم تا زندگیشون رو به خوبی ادامه بدن، اما معمولاً این کار رو با خودمون نمی‌کن.",
+        "avg_logprob": -0.20204797254077025,
+        "compression_ratio": 1.3043478260869565,
+        "no_speech_prob": 1.882745626069493e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.3,
+            "word": " می‌دهیم",
+            "probability": 0.6599829358359178
+          },
+          {
+            "start": 0.3,
+            "end": 0.52,
+            "word": " تا",
+            "probability": 0.9760028421878815
+          },
+          {
+            "start": 0.52,
+            "end": 1.16,
+            "word": " زندگیشون",
+            "probability": 0.9225474993387858
+          },
+          {
+            "start": 1.16,
+            "end": 1.24,
+            "word": " رو",
+            "probability": 0.7673856317996979
+          },
+          {
+            "start": 1.24,
+            "end": 1.34,
+            "word": " به",
+            "probability": 0.9928659200668335
+          },
+          {
+            "start": 1.34,
+            "end": 1.78,
+            "word": " خوبی",
+            "probability": 0.9960729479789734
+          },
+          {
+            "start": 1.78,
+            "end": 2.18,
+            "word": " ادامه",
+            "probability": 0.9718846827745438
+          },
+          {
+            "start": 2.18,
+            "end": 2.7,
+            "word": " بدن،",
+            "probability": 0.6380478118856748
+          },
+          {
+            "start": 2.7,
+            "end": 3.36,
+            "word": " اما",
+            "probability": 0.9925538003444672
+          },
+          {
+            "start": 3.36,
+            "end": 4.0,
+            "word": " معمولاً",
+            "probability": 0.8890235781669616
+          },
+          {
+            "start": 4.0,
+            "end": 4.16,
+            "word": " این",
+            "probability": 0.9816064834594727
+          },
+          {
+            "start": 4.16,
+            "end": 4.34,
+            "word": " کار",
+            "probability": 0.9708785712718964
+          },
+          {
+            "start": 4.34,
+            "end": 4.4,
+            "word": " رو",
+            "probability": 0.8084461390972137
+          },
+          {
+            "start": 4.4,
+            "end": 4.5,
+            "word": " با",
+            "probability": 0.6829493641853333
+          },
+          {
+            "start": 4.5,
+            "end": 4.88,
+            "word": " خودمون",
+            "probability": 0.9939305484294891
+          },
+          {
+            "start": 4.88,
+            "end": 5.36,
+            "word": " نمی‌کن.",
+            "probability": 0.9617189665635427
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "9414760a5d564eb6fda8db223379e755cbafcbfa339917489579e472e49c5e0a",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.04,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.02,
+        "text": "بندگی بالا و پایین داره، اشکال نداره اشتباه کردی، بلنش رو ادامه بده. اشگالی ندره، ضعیف داری عمل می‌کنی.",
+        "avg_logprob": -0.2708947625878739,
+        "compression_ratio": 1.4609375,
+        "no_speech_prob": 3.5128139286300097e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.3,
+            "word": " بندگی",
+            "probability": 0.5390101913362741
+          },
+          {
+            "start": 0.3,
+            "end": 0.5,
+            "word": " بالا",
+            "probability": 0.7942531406879425
+          },
+          {
+            "start": 0.5,
+            "end": 0.68,
+            "word": " و",
+            "probability": 0.9352836608886719
+          },
+          {
+            "start": 0.68,
+            "end": 1.0,
+            "word": " پایین",
+            "probability": 0.981607049703598
+          },
+          {
+            "start": 1.0,
+            "end": 1.52,
+            "word": " داره،",
+            "probability": 0.7478734785690904
+          },
+          {
+            "start": 1.52,
+            "end": 2.1,
+            "word": " اشکال",
+            "probability": 0.9861731976270676
+          },
+          {
+            "start": 2.1,
+            "end": 2.5,
+            "word": " نداره",
+            "probability": 0.9853039979934692
+          },
+          {
+            "start": 2.5,
+            "end": 3.0,
+            "word": " اشتباه",
+            "probability": 0.9516786932945251
+          },
+          {
+            "start": 3.0,
+            "end": 3.42,
+            "word": " کردی،",
+            "probability": 0.8023529201745987
+          },
+          {
+            "start": 3.42,
+            "end": 3.8,
+            "word": " بلنش",
+            "probability": 0.8338831663131714
+          },
+          {
+            "start": 3.8,
+            "end": 3.92,
+            "word": " رو",
+            "probability": 0.8468677699565887
+          },
+          {
+            "start": 3.92,
+            "end": 4.24,
+            "word": " ادامه",
+            "probability": 0.9953901171684265
+          },
+          {
+            "start": 4.24,
+            "end": 4.54,
+            "word": " بده.",
+            "probability": 0.9932953715324402
+          },
+          {
+            "start": 4.92,
+            "end": 5.56,
+            "word": " اشگالی",
+            "probability": 0.7796392360236496
+          },
+          {
+            "start": 5.56,
+            "end": 6.0,
+            "word": " ندره،",
+            "probability": 0.7222551211423707
+          },
+          {
+            "start": 6.0,
+            "end": 6.32,
+            "word": " ضعیف",
+            "probability": 0.9759048223495483
+          },
+          {
+            "start": 6.32,
+            "end": 6.54,
+            "word": " داری",
+            "probability": 0.9931353131930033
+          },
+          {
+            "start": 6.54,
+            "end": 6.86,
+            "word": " عمل",
+            "probability": 0.9552149772644043
+          },
+          {
+            "start": 6.86,
+            "end": 7.02,
+            "word": " می‌کنی.",
+            "probability": 0.5821168713271618
+          }
+        ]
+      }
+    ]
+  }
+}

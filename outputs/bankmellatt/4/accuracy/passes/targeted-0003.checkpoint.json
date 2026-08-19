@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "e1aa8a4fd6d758c613a42bdd1455f764313d56e3d103bc16321444296abb63b2",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.3,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.26,
+        "text": "اعدباهی کرده یا یک خطایی کردم یا تو مدیریت مالی زندگیش یک کمی...",
+        "avg_logprob": -0.19588347219608046,
+        "compression_ratio": 1.2417582417582418,
+        "no_speech_prob": 2.4078750104905566e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.36,
+            "word": " اعدباهی",
+            "probability": 0.5890224629663863
+          },
+          {
+            "start": 0.36,
+            "end": 0.8,
+            "word": " کرده",
+            "probability": 0.9055294394493103
+          },
+          {
+            "start": 0.8,
+            "end": 1.4,
+            "word": " یا",
+            "probability": 0.9526527225971222
+          },
+          {
+            "start": 1.4,
+            "end": 1.56,
+            "word": " یک",
+            "probability": 0.5724058896303177
+          },
+          {
+            "start": 1.56,
+            "end": 2.1,
+            "word": " خطایی",
+            "probability": 0.9809271693229675
+          },
+          {
+            "start": 2.1,
+            "end": 2.48,
+            "word": " کردم",
+            "probability": 0.4970776012996794
+          },
+          {
+            "start": 2.48,
+            "end": 2.76,
+            "word": " یا",
+            "probability": 0.9808904230594635
+          },
+          {
+            "start": 2.76,
+            "end": 2.86,
+            "word": " تو",
+            "probability": 0.9918915033340454
+          },
+          {
+            "start": 2.86,
+            "end": 3.5,
+            "word": " مدیریت",
+            "probability": 0.96799556016922
+          },
+          {
+            "start": 3.5,
+            "end": 3.9,
+            "word": " مالی",
+            "probability": 0.999580999215444
+          },
+          {
+            "start": 3.9,
+            "end": 4.8,
+            "word": " زندگیش",
+            "probability": 0.9932440876960754
+          },
+          {
+            "start": 4.8,
+            "end": 6.3,
+            "word": " یک",
+            "probability": 0.9246955811977386
+          },
+          {
+            "start": 6.3,
+            "end": 7.26,
+            "word": " کمی...",
+            "probability": 0.8922779858112335
+          }
+        ]
+      }
+    ]
+  }
+}

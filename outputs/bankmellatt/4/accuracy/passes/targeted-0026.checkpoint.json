@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "a3098a641630a7595e6b110134bec6da6ae747de932d3faa3bbca5f576389486",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.62,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.6,
+        "text": "قیفیت زندگیم هیچ اثری نداره، یعنی این کاهش حزینه منجر نمی‌شه که کیفیات زندهگی منم کاهاش بیدا با کنه. خب چرا ما باید حزینا هم",
+        "avg_logprob": -0.2776896000601525,
+        "compression_ratio": 1.6,
+        "no_speech_prob": 3.1458421978491913e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.14,
+            "word": " قیفیت",
+            "probability": 0.7858063697814941
+          },
+          {
+            "start": 0.14,
+            "end": 0.66,
+            "word": " زندگیم",
+            "probability": 0.882666391134262
+          },
+          {
+            "start": 0.66,
+            "end": 0.84,
+            "word": " هیچ",
+            "probability": 0.9846537113189697
+          },
+          {
+            "start": 0.84,
+            "end": 1.32,
+            "word": " اثری",
+            "probability": 0.970527191956838
+          },
+          {
+            "start": 1.32,
+            "end": 2.56,
+            "word": " نداره،",
+            "probability": 0.7963472090661525
+          },
+          {
+            "start": 2.56,
+            "end": 2.8,
+            "word": " یعنی",
+            "probability": 0.988048642873764
+          },
+          {
+            "start": 2.8,
+            "end": 2.86,
+            "word": " این",
+            "probability": 0.8185505568981171
+          },
+          {
+            "start": 2.86,
+            "end": 3.32,
+            "word": " کاهش",
+            "probability": 0.9680753151575724
+          },
+          {
+            "start": 3.32,
+            "end": 3.9,
+            "word": " حزینه",
+            "probability": 0.8664192110300064
+          },
+          {
+            "start": 3.9,
+            "end": 4.3,
+            "word": " منجر",
+            "probability": 0.9289006193478903
+          },
+          {
+            "start": 4.3,
+            "end": 4.76,
+            "word": " نمی‌شه",
+            "probability": 0.815475564605246
+          },
+          {
+            "start": 4.76,
+            "end": 5.6,
+            "word": " که",
+            "probability": 0.980372428894043
+          },
+          {
+            "start": 5.6,
+            "end": 6.16,
+            "word": " کیفیات",
+            "probability": 0.6054985685914289
+          },
+          {
+            "start": 6.16,
+            "end": 6.66,
+            "word": " زندهگی",
+            "probability": 0.6817602118797368
+          },
+          {
+            "start": 6.66,
+            "end": 6.92,
+            "word": " منم",
+            "probability": 0.7624658942222595
+          },
+          {
+            "start": 6.92,
+            "end": 7.34,
+            "word": " کاهاش",
+            "probability": 0.634090037017207
+          },
+          {
+            "start": 7.34,
+            "end": 7.68,
+            "word": " بیدا",
+            "probability": 0.7859399120012919
+          },
+          {
+            "start": 7.68,
+            "end": 7.84,
+            "word": " با",
+            "probability": 0.643267959356308
+          },
+          {
+            "start": 7.84,
+            "end": 8.16,
+            "word": " کنه.",
+            "probability": 0.9301408131917318
+          },
+          {
+            "start": 8.24,
+            "end": 9.06,
+            "word": " خب",
+            "probability": 0.8969032764434814
+          },
+          {
+            "start": 9.06,
+            "end": 9.54,
+            "word": " چرا",
+            "probability": 0.856057345867157
+          },
+          {
+            "start": 9.54,
+            "end": 9.74,
+            "word": " ما",
+            "probability": 0.9720700979232788
+          },
+          {
+            "start": 9.74,
+            "end": 10.06,
+            "word": " باید",
+            "probability": 0.9734531342983246
+          },
+          {
+            "start": 10.06,
+            "end": 10.5,
+            "word": " حزینا",
+            "probability": 0.6597190680913627
+          },
+          {
+            "start": 10.5,
+            "end": 10.6,
+            "word": " هم",
+            "probability": 0.6847226321697235
+          }
+        ]
+      }
+    ]
+  }
+}

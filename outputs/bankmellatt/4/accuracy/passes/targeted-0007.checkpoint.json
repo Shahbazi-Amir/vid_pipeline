@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "854e25a17f46082a3bbc740e6eb51a3ea874db169c7f9b58582bfe6d1cc0708a",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.88,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.86,
+        "text": "هیچ امید می‌دین. ما می‌گیم که نه، زندگی بالا و پایین داره. اشکال نداره، اشتباه کردی بلنش رو از",
+        "avg_logprob": -0.26547368277202954,
+        "compression_ratio": 1.4406779661016949,
+        "no_speech_prob": 3.12587900008765e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.1,
+            "word": " هیچ",
+            "probability": 0.4002271518111229
+          },
+          {
+            "start": 0.1,
+            "end": 0.5,
+            "word": " امید",
+            "probability": 0.987246572971344
+          },
+          {
+            "start": 0.5,
+            "end": 0.84,
+            "word": " می‌دین.",
+            "probability": 0.6954518288839608
+          },
+          {
+            "start": 1.04,
+            "end": 1.62,
+            "word": " ما",
+            "probability": 0.952540934085846
+          },
+          {
+            "start": 1.62,
+            "end": 1.92,
+            "word": " می‌گیم",
+            "probability": 0.9702000379562378
+          },
+          {
+            "start": 1.92,
+            "end": 2.1,
+            "word": " که",
+            "probability": 0.9775280058383942
+          },
+          {
+            "start": 2.1,
+            "end": 2.82,
+            "word": " نه،",
+            "probability": 0.7245909670988718
+          },
+          {
+            "start": 2.82,
+            "end": 3.26,
+            "word": " زندگی",
+            "probability": 0.9140852093696594
+          },
+          {
+            "start": 3.26,
+            "end": 3.52,
+            "word": " بالا",
+            "probability": 0.8146522343158722
+          },
+          {
+            "start": 3.52,
+            "end": 3.62,
+            "word": " و",
+            "probability": 0.9520778059959412
+          },
+          {
+            "start": 3.62,
+            "end": 3.96,
+            "word": " پایین",
+            "probability": 0.9872630536556244
+          },
+          {
+            "start": 3.96,
+            "end": 4.38,
+            "word": " داره.",
+            "probability": 0.9732123613357544
+          },
+          {
+            "start": 4.62,
+            "end": 5.06,
+            "word": " اشکال",
+            "probability": 0.9720406979322433
+          },
+          {
+            "start": 5.06,
+            "end": 5.52,
+            "word": " نداره،",
+            "probability": 0.8112667798995972
+          },
+          {
+            "start": 5.52,
+            "end": 5.96,
+            "word": " اشتباه",
+            "probability": 0.9933799266815185
+          },
+          {
+            "start": 5.96,
+            "end": 6.32,
+            "word": " کردی",
+            "probability": 0.9826185504595438
+          },
+          {
+            "start": 6.32,
+            "end": 6.76,
+            "word": " بلنش",
+            "probability": 0.7774919420480728
+          },
+          {
+            "start": 6.76,
+            "end": 6.86,
+            "word": " رو",
+            "probability": 0.4836013689637184
+          },
+          {
+            "start": 6.86,
+            "end": 6.86,
+            "word": " از",
+            "probability": 0.44010747969150543
+          }
+        ]
+      }
+    ]
+  }
+}

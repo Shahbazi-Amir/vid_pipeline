@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "255c08ce11eb94243a91520b996c9a9e5a1d654cbd255763c7504fecec723c39",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.2,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.18,
+        "text": "دوران، یه سری هزینه‌ها رو دادیم رفته. یک استراتژی هست میگه اول به خودت بپرداز. پس ما اولی که در آمد رو کردیم",
+        "avg_logprob": -0.15432393466922598,
+        "compression_ratio": 1.4296296296296296,
+        "no_speech_prob": 2.5001478665132026e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.54,
+            "word": " دوران،",
+            "probability": 0.7174655981361866
+          },
+          {
+            "start": 0.54,
+            "end": 0.74,
+            "word": " یه",
+            "probability": 0.9787410795688629
+          },
+          {
+            "start": 0.74,
+            "end": 0.9,
+            "word": " سری",
+            "probability": 0.9887133240699768
+          },
+          {
+            "start": 0.9,
+            "end": 1.5,
+            "word": " هزینه‌ها",
+            "probability": 0.78173560804377
+          },
+          {
+            "start": 1.5,
+            "end": 1.66,
+            "word": " رو",
+            "probability": 0.949841171503067
+          },
+          {
+            "start": 1.66,
+            "end": 1.98,
+            "word": " دادیم",
+            "probability": 0.9936718493700027
+          },
+          {
+            "start": 1.98,
+            "end": 2.5,
+            "word": " رفته.",
+            "probability": 0.9747427304585775
+          },
+          {
+            "start": 3.18,
+            "end": 3.86,
+            "word": " یک",
+            "probability": 0.9873904585838318
+          },
+          {
+            "start": 3.86,
+            "end": 4.62,
+            "word": " استراتژی",
+            "probability": 0.9092667698860168
+          },
+          {
+            "start": 4.62,
+            "end": 4.96,
+            "word": " هست",
+            "probability": 0.9531152844429016
+          },
+          {
+            "start": 4.96,
+            "end": 5.5,
+            "word": " میگه",
+            "probability": 0.7913265228271484
+          },
+          {
+            "start": 5.5,
+            "end": 6.5,
+            "word": " اول",
+            "probability": 0.8688744306564331
+          },
+          {
+            "start": 6.5,
+            "end": 6.64,
+            "word": " به",
+            "probability": 0.9884815216064453
+          },
+          {
+            "start": 6.64,
+            "end": 7.0,
+            "word": " خودت",
+            "probability": 0.9909578561782837
+          },
+          {
+            "start": 7.0,
+            "end": 7.7,
+            "word": " بپرداز.",
+            "probability": 0.8904918193817138
+          },
+          {
+            "start": 7.9,
+            "end": 8.48,
+            "word": " پس",
+            "probability": 0.9816358387470245
+          },
+          {
+            "start": 8.48,
+            "end": 8.62,
+            "word": " ما",
+            "probability": 0.9911866784095764
+          },
+          {
+            "start": 8.62,
+            "end": 9.16,
+            "word": " اولی",
+            "probability": 0.9840221007664999
+          },
+          {
+            "start": 9.16,
+            "end": 9.3,
+            "word": " که",
+            "probability": 0.9796526730060577
+          },
+          {
+            "start": 9.3,
+            "end": 9.56,
+            "word": " در",
+            "probability": 0.9928101003170013
+          },
+          {
+            "start": 9.56,
+            "end": 9.88,
+            "word": " آمد",
+            "probability": 0.9091159105300903
+          },
+          {
+            "start": 9.88,
+            "end": 10.04,
+            "word": " رو",
+            "probability": 0.954028308391571
+          },
+          {
+            "start": 10.04,
+            "end": 10.18,
+            "word": " کردیم",
+            "probability": 0.8375214487314224
+          }
+        ]
+      }
+    ]
+  }
+}

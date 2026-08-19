@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "06f64fb59068cf053a79331edc3e39b370afdd65ebb1187f02805adf43166fba",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.1,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.68,
+        "text": "بل حزینه‌ها مون رو نوشتیم و اصناد پشتبان این حزینه‌ ها، مدارکش رو جمعوری کردیم، ومانتنامه‌‌ها،",
+        "avg_logprob": -0.2821386184011187,
+        "compression_ratio": 1.4508196721311475,
+        "no_speech_prob": 3.0889302227166127e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.16,
+            "word": " بل",
+            "probability": 0.2971712276339531
+          },
+          {
+            "start": 0.16,
+            "end": 0.76,
+            "word": " حزینه‌ها",
+            "probability": 0.6802358874119818
+          },
+          {
+            "start": 0.76,
+            "end": 0.98,
+            "word": " مون",
+            "probability": 0.6144968122243881
+          },
+          {
+            "start": 0.98,
+            "end": 1.12,
+            "word": " رو",
+            "probability": 0.8802909851074219
+          },
+          {
+            "start": 1.12,
+            "end": 1.98,
+            "word": " نوشتیم",
+            "probability": 0.9885643124580383
+          },
+          {
+            "start": 1.98,
+            "end": 3.5,
+            "word": " و",
+            "probability": 0.9287605285644531
+          },
+          {
+            "start": 3.5,
+            "end": 4.78,
+            "word": " اصناد",
+            "probability": 0.9392929375171661
+          },
+          {
+            "start": 4.78,
+            "end": 5.58,
+            "word": " پشتبان",
+            "probability": 0.7900451514404268
+          },
+          {
+            "start": 5.58,
+            "end": 5.78,
+            "word": " این",
+            "probability": 0.9705137610435486
+          },
+          {
+            "start": 5.78,
+            "end": 6.4,
+            "word": " حزینه‌",
+            "probability": 0.6929908373082677
+          },
+          {
+            "start": 6.4,
+            "end": 6.56,
+            "word": " ها،",
+            "probability": 0.4587206164918219
+          },
+          {
+            "start": 6.56,
+            "end": 7.28,
+            "word": " مدارکش",
+            "probability": 0.9649556040763855
+          },
+          {
+            "start": 7.28,
+            "end": 7.42,
+            "word": " رو",
+            "probability": 0.9638670682907104
+          },
+          {
+            "start": 7.42,
+            "end": 8.04,
+            "word": " جمعوری",
+            "probability": 0.8878242135047912
+          },
+          {
+            "start": 8.04,
+            "end": 8.7,
+            "word": " کردیم،",
+            "probability": 0.9187376141548157
+          },
+          {
+            "start": 8.7,
+            "end": 10.68,
+            "word": " ومانتنامه‌‌ها،",
+            "probability": 0.7792494524778291
+          }
+        ]
+      }
+    ]
+  }
+}

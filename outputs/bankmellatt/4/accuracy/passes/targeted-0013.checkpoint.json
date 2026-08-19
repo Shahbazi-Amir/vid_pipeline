@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "05c3f3089b0a6fdfa435ec77b30fea1290c69573bfcb11b04ac3e5366ab1a232",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.3,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.28,
+        "text": "زعیف داری عمل می‌کنی، می‌تونه قوی‌تر باشی، یاد بگیری، ما و دیگران معمولاً",
+        "avg_logprob": -0.2025517996114034,
+        "compression_ratio": 1.3431372549019607,
+        "no_speech_prob": 3.0941318951427377e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.3,
+            "word": " زعیف",
+            "probability": 0.8199904263019562
+          },
+          {
+            "start": 0.3,
+            "end": 0.5,
+            "word": " داری",
+            "probability": 0.9786697626113892
+          },
+          {
+            "start": 0.5,
+            "end": 0.8,
+            "word": " عمل",
+            "probability": 0.974420040845871
+          },
+          {
+            "start": 0.8,
+            "end": 1.26,
+            "word": " می‌کنی،",
+            "probability": 0.5372248624141017
+          },
+          {
+            "start": 1.26,
+            "end": 1.54,
+            "word": " می‌تونه",
+            "probability": 0.8882789850234986
+          },
+          {
+            "start": 1.54,
+            "end": 2.16,
+            "word": " قوی‌تر",
+            "probability": 0.9291666348775228
+          },
+          {
+            "start": 2.16,
+            "end": 2.76,
+            "word": " باشی،",
+            "probability": 0.8684406578540802
+          },
+          {
+            "start": 2.76,
+            "end": 3.4,
+            "word": " یاد",
+            "probability": 0.9936871826648712
+          },
+          {
+            "start": 3.4,
+            "end": 4.02,
+            "word": " بگیری،",
+            "probability": 0.8363626778125763
+          },
+          {
+            "start": 4.02,
+            "end": 4.42,
+            "word": " ما",
+            "probability": 0.9848848581314087
+          },
+          {
+            "start": 4.42,
+            "end": 4.58,
+            "word": " و",
+            "probability": 0.5695709586143494
+          },
+          {
+            "start": 4.58,
+            "end": 5.22,
+            "word": " دیگران",
+            "probability": 0.9931618094444274
+          },
+          {
+            "start": 5.22,
+            "end": 6.28,
+            "word": " معمولاً",
+            "probability": 0.7927565455436707
+          }
+        ]
+      }
+    ]
+  }
+}

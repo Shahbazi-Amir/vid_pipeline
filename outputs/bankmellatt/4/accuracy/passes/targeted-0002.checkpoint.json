@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "2762628eb60f19ec72dc0c6ec6ca33ce13b8abac9d7e8cbc73605c1484c9ee93",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.7,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.5,
+        "text": "و به ما می‌گه که یک کار اشتباهی کرده یا یک خطایی کردم یا تو مدیریت مالی زندگیش",
+        "avg_logprob": -0.1421643145955526,
+        "compression_ratio": 1.3725490196078431,
+        "no_speech_prob": 2.1759784252228798e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.28,
+            "word": " و",
+            "probability": 0.997397780418396
+          },
+          {
+            "start": 0.28,
+            "end": 0.46,
+            "word": " به",
+            "probability": 0.990957498550415
+          },
+          {
+            "start": 0.46,
+            "end": 0.62,
+            "word": " ما",
+            "probability": 0.998315691947937
+          },
+          {
+            "start": 0.62,
+            "end": 0.92,
+            "word": " می‌گه",
+            "probability": 0.7399082994961645
+          },
+          {
+            "start": 0.92,
+            "end": 1.12,
+            "word": " که",
+            "probability": 0.9873730838298798
+          },
+          {
+            "start": 1.12,
+            "end": 1.3,
+            "word": " یک",
+            "probability": 0.7607458829879761
+          },
+          {
+            "start": 1.3,
+            "end": 1.44,
+            "word": " کار",
+            "probability": 0.9955021440982819
+          },
+          {
+            "start": 1.44,
+            "end": 2.06,
+            "word": " اشتباهی",
+            "probability": 0.9904575049877167
+          },
+          {
+            "start": 2.06,
+            "end": 2.52,
+            "word": " کرده",
+            "probability": 0.8537214199701945
+          },
+          {
+            "start": 2.52,
+            "end": 3.08,
+            "word": " یا",
+            "probability": 0.9724596738815308
+          },
+          {
+            "start": 3.08,
+            "end": 3.24,
+            "word": " یک",
+            "probability": 0.8830448985099792
+          },
+          {
+            "start": 3.24,
+            "end": 3.84,
+            "word": " خطایی",
+            "probability": 0.9115049004554748
+          },
+          {
+            "start": 3.84,
+            "end": 4.18,
+            "word": " کردم",
+            "probability": 0.4985916688165162
+          },
+          {
+            "start": 4.18,
+            "end": 4.46,
+            "word": " یا",
+            "probability": 0.9705112874507904
+          },
+          {
+            "start": 4.46,
+            "end": 4.56,
+            "word": " تو",
+            "probability": 0.9928054213523865
+          },
+          {
+            "start": 4.56,
+            "end": 5.2,
+            "word": " مدیریت",
+            "probability": 0.9648482918739318
+          },
+          {
+            "start": 5.2,
+            "end": 5.6,
+            "word": " مالی",
+            "probability": 0.9990421930948893
+          },
+          {
+            "start": 5.6,
+            "end": 6.5,
+            "word": " زندگیش",
+            "probability": 0.9851001262664795
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "1858e772c95ec26f2c5eb420f9fb2559778f68801a47d83c1a013492336ecd14",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.8,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.38,
+        "text": "کیفیت زندگی منم کاهش بیدا بکنه. خب، چرا ما باید هزینه‌ها مون رو کاه ش بدیم؟ برگردیم همون اول بعض.",
+        "avg_logprob": -0.2301493241931453,
+        "compression_ratio": 1.380952380952381,
+        "no_speech_prob": 1.9278488527785242e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.54,
+            "word": " کیفیت",
+            "probability": 0.8992967307567596
+          },
+          {
+            "start": 0.54,
+            "end": 1.04,
+            "word": " زندگی",
+            "probability": 0.9991301745176315
+          },
+          {
+            "start": 1.04,
+            "end": 1.3,
+            "word": " منم",
+            "probability": 0.851302444934845
+          },
+          {
+            "start": 1.3,
+            "end": 1.74,
+            "word": " کاهش",
+            "probability": 0.9918468395868937
+          },
+          {
+            "start": 1.74,
+            "end": 2.06,
+            "word": " بیدا",
+            "probability": 0.8049070636431376
+          },
+          {
+            "start": 2.06,
+            "end": 2.54,
+            "word": " بکنه.",
+            "probability": 0.9053721278905869
+          },
+          {
+            "start": 2.92,
+            "end": 3.58,
+            "word": " خب،",
+            "probability": 0.7091718216737112
+          },
+          {
+            "start": 3.58,
+            "end": 3.92,
+            "word": " چرا",
+            "probability": 0.9976894557476044
+          },
+          {
+            "start": 3.92,
+            "end": 4.12,
+            "word": " ما",
+            "probability": 0.9989123344421387
+          },
+          {
+            "start": 4.12,
+            "end": 4.44,
+            "word": " باید",
+            "probability": 0.9976766854524612
+          },
+          {
+            "start": 4.44,
+            "end": 4.98,
+            "word": " هزینه‌ها",
+            "probability": 0.724695967316317
+          },
+          {
+            "start": 4.98,
+            "end": 5.18,
+            "word": " مون",
+            "probability": 0.5256651379168034
+          },
+          {
+            "start": 5.18,
+            "end": 5.32,
+            "word": " رو",
+            "probability": 0.6258659809827805
+          },
+          {
+            "start": 5.32,
+            "end": 5.54,
+            "word": " کاه",
+            "probability": 0.9958858489990234
+          },
+          {
+            "start": 5.54,
+            "end": 5.68,
+            "word": " ش",
+            "probability": 0.00016369603690691292
+          },
+          {
+            "start": 5.68,
+            "end": 6.4,
+            "word": " بدیم؟",
+            "probability": 0.9506382793188095
+          },
+          {
+            "start": 6.4,
+            "end": 7.22,
+            "word": " برگردیم",
+            "probability": 0.9733760612351554
+          },
+          {
+            "start": 7.22,
+            "end": 7.46,
+            "word": " همون",
+            "probability": 0.9720073541005453
+          },
+          {
+            "start": 7.46,
+            "end": 7.92,
+            "word": " اول",
+            "probability": 0.9865126013755798
+          },
+          {
+            "start": 7.92,
+            "end": 8.38,
+            "word": " بعض.",
+            "probability": 0.44227030128240585
+          }
+        ]
+      }
+    ]
+  }
+}

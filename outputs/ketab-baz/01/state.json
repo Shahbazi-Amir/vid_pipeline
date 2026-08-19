@@ -1,0 +1,109 @@
+{
+  "schema_version": 2,
+  "updated_at": "2026-08-19T19:24:10.284184+00:00",
+  "stages": {
+    "source": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "download": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "audio": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "transcribe": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "accuracy": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "pre_review": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "clean": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "editorial": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "finalize_machine": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "review": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "export": {
+      "status": "completed",
+      "updated_at": "2026-08-19T19:24:10.284158+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/ketab-baz/01/delivery/transcript.md",
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/ketab-baz/01/delivery/transcript.txt",
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/ketab-baz/01/delivery/transcript.timestamped.md"
+      ],
+      "details": {
+        "status": "completed",
+        "timestamp_source": "/home/runner/work/vid_pipeline/vid_pipeline/outputs/ketab-baz/01/human/verification.json",
+        "final_outputs": {
+          "markdown": "/home/runner/work/vid_pipeline/vid_pipeline/outputs/ketab-baz/01/delivery/transcript.md",
+          "text": "/home/runner/work/vid_pipeline/vid_pipeline/outputs/ketab-baz/01/delivery/transcript.txt",
+          "timestamped_markdown": "/home/runner/work/vid_pipeline/vid_pipeline/outputs/ketab-baz/01/delivery/transcript.timestamped.md"
+        },
+        "exported_speakers": [],
+        "exported_effective_speakers": [],
+        "exported_effective_speaker_count": 0,
+        "source_provenance": {
+          "original_download_url": "",
+          "source_page_url": "",
+          "archive_url": "https://github.com/Shahbazi-Amir/vid_pipeline/releases/download/ketab-baz-s05e68-komeil-roudi/KetabBaz_S05E68_Komeil_Roudi.mp3"
+        },
+        "export_seconds": 0.02735,
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/ketab-baz/01/delivery/transcript.md": "79ba2786801f6d205950e500453d27de0588e105236fb38ad30768f72cc2b784",
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/ketab-baz/01/delivery/transcript.txt": "70632644067d2533389a44769f2b02da111301ab7f2a9a0b2f1a64db36b58970",
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/ketab-baz/01/delivery/transcript.timestamped.md": "01336ee08e28ee93f2b2bffa06e879a0398b6fa82bcf2bdf8d39e29c7514e55f"
+        }
+      },
+      "error": ""
+    }
+  }
+}

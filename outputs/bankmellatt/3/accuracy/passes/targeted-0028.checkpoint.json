@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "f967488f89de57c4023c58d850961fe7a65edadd9f160cf8697e7c43a2e27f5b",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.36,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.34,
+        "text": "احساس فشار می‌کنه تو زندگی یعنی حزینه‌ها از درامتاش بیشتره. وقتی مثلا دولت می‌گه مردم تحت",
+        "avg_logprob": -0.18064350866880574,
+        "compression_ratio": 1.3414634146341464,
+        "no_speech_prob": 2.434708268328478e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.82,
+            "word": " احساس",
+            "probability": 0.9274162501096725
+          },
+          {
+            "start": 0.82,
+            "end": 1.48,
+            "word": " فشار",
+            "probability": 0.9986158013343811
+          },
+          {
+            "start": 1.48,
+            "end": 1.92,
+            "word": " می‌کنه",
+            "probability": 0.6112303078174591
+          },
+          {
+            "start": 1.92,
+            "end": 1.98,
+            "word": " تو",
+            "probability": 0.9380181431770325
+          },
+          {
+            "start": 1.98,
+            "end": 2.5,
+            "word": " زندگی",
+            "probability": 0.9817620515823364
+          },
+          {
+            "start": 2.5,
+            "end": 2.82,
+            "word": " یعنی",
+            "probability": 0.9700332432985306
+          },
+          {
+            "start": 2.82,
+            "end": 3.48,
+            "word": " حزینه‌ها",
+            "probability": 0.8375801046689352
+          },
+          {
+            "start": 3.48,
+            "end": 3.76,
+            "word": " از",
+            "probability": 0.6752083152532578
+          },
+          {
+            "start": 3.76,
+            "end": 4.28,
+            "word": " درامتاش",
+            "probability": 0.7866868108510972
+          },
+          {
+            "start": 4.28,
+            "end": 4.92,
+            "word": " بیشتره.",
+            "probability": 0.9634448289871216
+          },
+          {
+            "start": 5.0,
+            "end": 5.54,
+            "word": " وقتی",
+            "probability": 0.9835344950358073
+          },
+          {
+            "start": 5.54,
+            "end": 5.82,
+            "word": " مثلا",
+            "probability": 0.9705222249031067
+          },
+          {
+            "start": 5.82,
+            "end": 6.32,
+            "word": " دولت",
+            "probability": 0.9701580802599589
+          },
+          {
+            "start": 6.32,
+            "end": 6.6,
+            "word": " می‌گه",
+            "probability": 0.9451313614845276
+          },
+          {
+            "start": 6.6,
+            "end": 6.98,
+            "word": " مردم",
+            "probability": 0.9621908664703369
+          },
+          {
+            "start": 6.98,
+            "end": 7.34,
+            "word": " تحت",
+            "probability": 0.9214255809783936
+          }
+        ]
+      }
+    ]
+  }
+}

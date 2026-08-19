@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "cab4a8fe1ecddf1a2679d6ade2aaae1416ac53626c045cb635dec2ef2adeb7d1",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.6,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.3,
+        "text": "ما به این فکر می‌کنیم که درامت ما کافی نیست، پول‌های من برای زندگی من کافي نیسد و این تلقی درستیه.",
+        "avg_logprob": -0.21701795049011707,
+        "compression_ratio": 1.4390243902439024,
+        "no_speech_prob": 2.6415672427226866e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.08,
+            "word": " ما",
+            "probability": 0.049366097897291183
+          },
+          {
+            "start": 0.08,
+            "end": 0.34,
+            "word": " به",
+            "probability": 0.29503726959228516
+          },
+          {
+            "start": 0.34,
+            "end": 0.5,
+            "word": " این",
+            "probability": 0.9851009547710419
+          },
+          {
+            "start": 0.5,
+            "end": 0.82,
+            "word": " فکر",
+            "probability": 0.9939122398694357
+          },
+          {
+            "start": 0.82,
+            "end": 1.12,
+            "word": " می‌کنیم",
+            "probability": 0.7304841130971909
+          },
+          {
+            "start": 1.12,
+            "end": 1.24,
+            "word": " که",
+            "probability": 0.975966066122055
+          },
+          {
+            "start": 1.24,
+            "end": 1.68,
+            "word": " درامت",
+            "probability": 0.8773406147956848
+          },
+          {
+            "start": 1.68,
+            "end": 1.84,
+            "word": " ما",
+            "probability": 0.9905491471290588
+          },
+          {
+            "start": 1.84,
+            "end": 2.26,
+            "word": " کافی",
+            "probability": 0.9933443268140157
+          },
+          {
+            "start": 2.26,
+            "end": 2.74,
+            "word": " نیست،",
+            "probability": 0.7565055303275585
+          },
+          {
+            "start": 2.74,
+            "end": 3.78,
+            "word": " پول‌های",
+            "probability": 0.9134417772293091
+          },
+          {
+            "start": 3.78,
+            "end": 4.04,
+            "word": " من",
+            "probability": 0.9780822992324829
+          },
+          {
+            "start": 4.04,
+            "end": 4.48,
+            "word": " برای",
+            "probability": 0.9812233646710714
+          },
+          {
+            "start": 4.48,
+            "end": 5.06,
+            "word": " زندگی",
+            "probability": 0.9959519505500793
+          },
+          {
+            "start": 5.06,
+            "end": 5.3,
+            "word": " من",
+            "probability": 0.928951621055603
+          },
+          {
+            "start": 5.3,
+            "end": 5.82,
+            "word": " کافي",
+            "probability": 0.6628158714568902
+          },
+          {
+            "start": 5.82,
+            "end": 6.44,
+            "word": " نیسد",
+            "probability": 0.6035574390843976
+          },
+          {
+            "start": 6.44,
+            "end": 6.6,
+            "word": " و",
+            "probability": 0.834795355796814
+          },
+          {
+            "start": 6.6,
+            "end": 6.76,
+            "word": " این",
+            "probability": 0.9950231909751892
+          },
+          {
+            "start": 6.76,
+            "end": 7.46,
+            "word": " تلقی",
+            "probability": 0.9308120310306549
+          },
+          {
+            "start": 7.46,
+            "end": 8.3,
+            "word": " درستیه.",
+            "probability": 0.9615545272827148
+          }
+        ]
+      }
+    ]
+  }
+}

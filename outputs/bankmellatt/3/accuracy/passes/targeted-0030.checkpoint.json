@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "926f809017a91e49fa66d45ac1404a1a72eed5450c234fea0593abdecf65e3c1",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.04,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.02,
+        "text": "فشار اقتصادی هستن یعنی چی؟ یعني حضینه‌های زندگی بالاتر از در آمده‌شونه. به میزانی که این فاصله بیشتر باشه،",
+        "avg_logprob": -0.17320824248923194,
+        "compression_ratio": 1.3928571428571428,
+        "no_speech_prob": 2.482245797796878e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.6,
+            "word": " فشار",
+            "probability": 0.8206777572631836
+          },
+          {
+            "start": 0.6,
+            "end": 1.28,
+            "word": " اقتصادی",
+            "probability": 0.9991083025932312
+          },
+          {
+            "start": 1.28,
+            "end": 1.78,
+            "word": " هستن",
+            "probability": 0.9560858805974325
+          },
+          {
+            "start": 1.78,
+            "end": 2.06,
+            "word": " یعنی",
+            "probability": 0.972666323184967
+          },
+          {
+            "start": 2.06,
+            "end": 2.48,
+            "word": " چی؟",
+            "probability": 0.9618538022041321
+          },
+          {
+            "start": 2.48,
+            "end": 3.06,
+            "word": " یعني",
+            "probability": 0.6637662234837384
+          },
+          {
+            "start": 3.06,
+            "end": 3.82,
+            "word": " حضینه‌های",
+            "probability": 0.7343889985765729
+          },
+          {
+            "start": 3.82,
+            "end": 4.26,
+            "word": " زندگی",
+            "probability": 0.9961394816637039
+          },
+          {
+            "start": 4.26,
+            "end": 4.72,
+            "word": " بالاتر",
+            "probability": 0.8473182121912638
+          },
+          {
+            "start": 4.72,
+            "end": 4.84,
+            "word": " از",
+            "probability": 0.9971261620521545
+          },
+          {
+            "start": 4.84,
+            "end": 5.04,
+            "word": " در",
+            "probability": 0.9929145276546478
+          },
+          {
+            "start": 5.04,
+            "end": 5.56,
+            "word": " آمده‌شونه.",
+            "probability": 0.8548109605908394
+          },
+          {
+            "start": 5.64,
+            "end": 5.82,
+            "word": " به",
+            "probability": 0.9842118620872498
+          },
+          {
+            "start": 5.82,
+            "end": 6.42,
+            "word": " میزانی",
+            "probability": 0.9142487049102783
+          },
+          {
+            "start": 6.42,
+            "end": 6.58,
+            "word": " که",
+            "probability": 0.956329345703125
+          },
+          {
+            "start": 6.58,
+            "end": 6.68,
+            "word": " این",
+            "probability": 0.9873251914978027
+          },
+          {
+            "start": 6.68,
+            "end": 7.2,
+            "word": " فاصله",
+            "probability": 0.9944366216659546
+          },
+          {
+            "start": 7.2,
+            "end": 7.7,
+            "word": " بیشتر",
+            "probability": 0.9486873030662537
+          },
+          {
+            "start": 7.7,
+            "end": 8.02,
+            "word": " باشه،",
+            "probability": 0.7876539267599583
+          }
+        ]
+      }
+    ]
+  }
+}

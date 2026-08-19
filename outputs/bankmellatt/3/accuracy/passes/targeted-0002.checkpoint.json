@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "148a19ab7db5f18484d21b5956b147c2b68316d8a088c9e842a9cdbaa827b94a",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 13.12,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 13.1,
+        "text": "اقتصادی خیلی به همون فشار میاد. اقصاد عقب افتاده، پول مدرسه یه بچه، حسرت یه رستوران یا یه سفر خانوادگی به دلمون نیمونه. همه اینها یه نگره",
+        "avg_logprob": -0.15429149843428447,
+        "compression_ratio": 1.651006711409396,
+        "no_speech_prob": 2.239449736762822e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.72,
+            "word": " اقتصادی",
+            "probability": 0.9503483057022095
+          },
+          {
+            "start": 0.72,
+            "end": 1.42,
+            "word": " خیلی",
+            "probability": 0.9930904358625412
+          },
+          {
+            "start": 1.42,
+            "end": 1.5,
+            "word": " به",
+            "probability": 0.9859468340873718
+          },
+          {
+            "start": 1.5,
+            "end": 1.8,
+            "word": " همون",
+            "probability": 0.9788665374120077
+          },
+          {
+            "start": 1.8,
+            "end": 2.22,
+            "word": " فشار",
+            "probability": 0.996224025885264
+          },
+          {
+            "start": 2.22,
+            "end": 2.52,
+            "word": " میاد.",
+            "probability": 0.9678024649620056
+          },
+          {
+            "start": 2.62,
+            "end": 3.12,
+            "word": " اقصاد",
+            "probability": 0.9226110875606537
+          },
+          {
+            "start": 3.12,
+            "end": 3.56,
+            "word": " عقب",
+            "probability": 0.7818641165892283
+          },
+          {
+            "start": 3.56,
+            "end": 4.54,
+            "word": " افتاده،",
+            "probability": 0.8922007977962494
+          },
+          {
+            "start": 4.54,
+            "end": 5.3,
+            "word": " پول",
+            "probability": 0.9989881813526154
+          },
+          {
+            "start": 5.3,
+            "end": 5.88,
+            "word": " مدرسه",
+            "probability": 0.999415910243988
+          },
+          {
+            "start": 5.88,
+            "end": 6.04,
+            "word": " یه",
+            "probability": 0.9378030598163605
+          },
+          {
+            "start": 6.04,
+            "end": 7.04,
+            "word": " بچه،",
+            "probability": 0.9966849088668823
+          },
+          {
+            "start": 7.04,
+            "end": 7.5,
+            "word": " حسرت",
+            "probability": 0.9365761478741964
+          },
+          {
+            "start": 7.5,
+            "end": 7.8,
+            "word": " یه",
+            "probability": 0.9984153211116791
+          },
+          {
+            "start": 7.8,
+            "end": 8.46,
+            "word": " رستوران",
+            "probability": 0.9075077176094055
+          },
+          {
+            "start": 8.46,
+            "end": 8.66,
+            "word": " یا",
+            "probability": 0.9717808365821838
+          },
+          {
+            "start": 8.66,
+            "end": 8.8,
+            "word": " یه",
+            "probability": 0.9943393766880035
+          },
+          {
+            "start": 8.8,
+            "end": 9.14,
+            "word": " سفر",
+            "probability": 0.9969096183776855
+          },
+          {
+            "start": 9.14,
+            "end": 9.76,
+            "word": " خانوادگی",
+            "probability": 0.996457556883494
+          },
+          {
+            "start": 9.76,
+            "end": 9.86,
+            "word": " به",
+            "probability": 0.9971713423728943
+          },
+          {
+            "start": 9.86,
+            "end": 10.24,
+            "word": " دلمون",
+            "probability": 0.8869462609291077
+          },
+          {
+            "start": 10.24,
+            "end": 10.6,
+            "word": " نیمونه.",
+            "probability": 0.8790295243263244
+          },
+          {
+            "start": 10.94,
+            "end": 11.68,
+            "word": " همه",
+            "probability": 0.9976553718249003
+          },
+          {
+            "start": 11.68,
+            "end": 12.32,
+            "word": " اینها",
+            "probability": 0.8370682597160339
+          },
+          {
+            "start": 12.32,
+            "end": 12.7,
+            "word": " یه",
+            "probability": 0.9940889477729797
+          },
+          {
+            "start": 12.7,
+            "end": 13.1,
+            "word": " نگره",
+            "probability": 0.8040299192070961
+          }
+        ]
+      }
+    ]
+  }
+}

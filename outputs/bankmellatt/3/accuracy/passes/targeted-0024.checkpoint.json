@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "7da2016e3fcba55d4cdb483dca56e43dc1880c95c189937cff905d8f838d6633",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.34,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.32,
+        "text": "که حزینه‌ها مون نمی‌دونیم چجوریه، قرض می‌گیریم و می‌دوانیم که بدهکاریم. می‌‌دنیم بده‌کارم یعنی چی؟ یعني حزينه‌هامون",
+        "avg_logprob": -0.324150723147105,
+        "compression_ratio": 1.6616541353383458,
+        "no_speech_prob": 3.1346616968797036e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.46,
+            "word": " که",
+            "probability": 0.49049817863851786
+          },
+          {
+            "start": 0.46,
+            "end": 1.0,
+            "word": " حزینه‌ها",
+            "probability": 0.6698840999354919
+          },
+          {
+            "start": 1.0,
+            "end": 1.16,
+            "word": " مون",
+            "probability": 0.5512643307447433
+          },
+          {
+            "start": 1.16,
+            "end": 1.76,
+            "word": " نمی‌دونیم",
+            "probability": 0.945189580321312
+          },
+          {
+            "start": 1.76,
+            "end": 2.76,
+            "word": " چجوریه،",
+            "probability": 0.8037107214331627
+          },
+          {
+            "start": 2.76,
+            "end": 3.56,
+            "word": " قرض",
+            "probability": 0.9285781383514404
+          },
+          {
+            "start": 3.56,
+            "end": 4.22,
+            "word": " می‌گیریم",
+            "probability": 0.9716096520423889
+          },
+          {
+            "start": 4.22,
+            "end": 4.48,
+            "word": " و",
+            "probability": 0.9493369460105896
+          },
+          {
+            "start": 4.48,
+            "end": 4.92,
+            "word": " می‌دوانیم",
+            "probability": 0.7822867597652865
+          },
+          {
+            "start": 4.92,
+            "end": 5.06,
+            "word": " که",
+            "probability": 0.9693638980388641
+          },
+          {
+            "start": 5.06,
+            "end": 5.88,
+            "word": " بدهکاریم.",
+            "probability": 0.8907220363616943
+          },
+          {
+            "start": 6.0,
+            "end": 6.42,
+            "word": " می‌‌دنیم",
+            "probability": 0.6948248639237136
+          },
+          {
+            "start": 6.42,
+            "end": 7.06,
+            "word": " بده‌کارم",
+            "probability": 0.6309423688605117
+          },
+          {
+            "start": 7.06,
+            "end": 7.3,
+            "word": " یعنی",
+            "probability": 0.9539957642555237
+          },
+          {
+            "start": 7.3,
+            "end": 7.52,
+            "word": " چی؟",
+            "probability": 0.8791956901550293
+          },
+          {
+            "start": 7.52,
+            "end": 7.68,
+            "word": " یعني",
+            "probability": 0.6431659025499054
+          },
+          {
+            "start": 7.68,
+            "end": 8.32,
+            "word": " حزينه‌هامون",
+            "probability": 0.652461313206004
+          }
+        ]
+      }
+    ]
+  }
+}

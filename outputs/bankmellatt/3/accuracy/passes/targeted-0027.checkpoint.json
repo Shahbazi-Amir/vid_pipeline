@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "04284574d1223bff0314752df7fcf9280f2f3e1139ff44290ce841296d8827be",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.06,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.84,
+        "text": "درامت و بهش می‌گم فشار زندگی. یعنی وقتی آدم احساس فشّار می‌کنه تو زنده‌گی، یعني حزینه‌هاش از درآمتش بیشتره.",
+        "avg_logprob": -0.22692978057341698,
+        "compression_ratio": 1.4042553191489362,
+        "no_speech_prob": 3.165317730147166e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.46,
+            "word": " درامت",
+            "probability": 0.5809401199221611
+          },
+          {
+            "start": 0.46,
+            "end": 0.54,
+            "word": " و",
+            "probability": 0.7434290051460266
+          },
+          {
+            "start": 0.54,
+            "end": 1.18,
+            "word": " بهش",
+            "probability": 0.9789079129695892
+          },
+          {
+            "start": 1.18,
+            "end": 1.44,
+            "word": " می‌گم",
+            "probability": 0.5451281713321805
+          },
+          {
+            "start": 1.44,
+            "end": 1.9,
+            "word": " فشار",
+            "probability": 0.9341376821200053
+          },
+          {
+            "start": 1.9,
+            "end": 2.54,
+            "word": " زندگی.",
+            "probability": 0.9950210154056549
+          },
+          {
+            "start": 2.66,
+            "end": 3.58,
+            "word": " یعنی",
+            "probability": 0.9874528348445892
+          },
+          {
+            "start": 3.58,
+            "end": 3.94,
+            "word": " وقتی",
+            "probability": 0.9858762820561727
+          },
+          {
+            "start": 3.94,
+            "end": 4.1,
+            "word": " آدم",
+            "probability": 0.9928740859031677
+          },
+          {
+            "start": 4.1,
+            "end": 4.88,
+            "word": " احساس",
+            "probability": 0.995645135641098
+          },
+          {
+            "start": 4.88,
+            "end": 5.54,
+            "word": " فشّار",
+            "probability": 0.7449732629302162
+          },
+          {
+            "start": 5.54,
+            "end": 5.98,
+            "word": " می‌کنه",
+            "probability": 0.9272361755371094
+          },
+          {
+            "start": 5.98,
+            "end": 6.04,
+            "word": " تو",
+            "probability": 0.9461812376976013
+          },
+          {
+            "start": 6.04,
+            "end": 6.64,
+            "word": " زنده‌گی،",
+            "probability": 0.6660091002995614
+          },
+          {
+            "start": 6.64,
+            "end": 6.84,
+            "word": " یعني",
+            "probability": 0.6432429446928533
+          },
+          {
+            "start": 6.84,
+            "end": 7.66,
+            "word": " حزینه‌هاش",
+            "probability": 0.9148088097572327
+          },
+          {
+            "start": 7.66,
+            "end": 7.82,
+            "word": " از",
+            "probability": 0.968106597661972
+          },
+          {
+            "start": 7.82,
+            "end": 8.34,
+            "word": " درآمتش",
+            "probability": 0.7552396984371755
+          },
+          {
+            "start": 8.34,
+            "end": 8.84,
+            "word": " بیشتره.",
+            "probability": 0.9645159542560577
+          }
+        ]
+      }
+    ]
+  }
+}

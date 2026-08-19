@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "c18d157cb5b7ecde8861a22ed9ec55fe6d91ea2e24653914cad8ed33ecdffc91",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.16,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.14,
+        "text": "چجوری در آمده منو افضایش بدیم؟ اولا این که افتاییش در اومد معمولا خیلی سخته. یعنی ما باید حتما یه محای...",
+        "avg_logprob": -0.315011522769928,
+        "compression_ratio": 1.4307692307692308,
+        "no_speech_prob": 1.8154161507411004e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.72,
+            "word": " چجوری",
+            "probability": 0.927569106221199
+          },
+          {
+            "start": 0.72,
+            "end": 0.94,
+            "word": " در",
+            "probability": 0.9934800267219543
+          },
+          {
+            "start": 0.94,
+            "end": 1.24,
+            "word": " آمده",
+            "probability": 0.6186936870217323
+          },
+          {
+            "start": 1.24,
+            "end": 1.36,
+            "word": " منو",
+            "probability": 0.7132436335086823
+          },
+          {
+            "start": 1.36,
+            "end": 1.82,
+            "word": " افضایش",
+            "probability": 0.9189221560955048
+          },
+          {
+            "start": 1.82,
+            "end": 2.48,
+            "word": " بدیم؟",
+            "probability": 0.8470635116100311
+          },
+          {
+            "start": 2.48,
+            "end": 3.2,
+            "word": " اولا",
+            "probability": 0.9613442222277323
+          },
+          {
+            "start": 3.2,
+            "end": 3.22,
+            "word": " این",
+            "probability": 0.9174623489379883
+          },
+          {
+            "start": 3.22,
+            "end": 3.42,
+            "word": " که",
+            "probability": 0.8815860748291016
+          },
+          {
+            "start": 3.42,
+            "end": 3.92,
+            "word": " افتاییش",
+            "probability": 0.6371682627193097
+          },
+          {
+            "start": 3.92,
+            "end": 4.16,
+            "word": " در",
+            "probability": 0.9978072941303253
+          },
+          {
+            "start": 4.16,
+            "end": 4.32,
+            "word": " اومد",
+            "probability": 0.626666950682799
+          },
+          {
+            "start": 4.32,
+            "end": 4.78,
+            "word": " معمولا",
+            "probability": 0.9318247735500336
+          },
+          {
+            "start": 4.78,
+            "end": 5.04,
+            "word": " خیلی",
+            "probability": 0.9858571439981461
+          },
+          {
+            "start": 5.04,
+            "end": 5.66,
+            "word": " سخته.",
+            "probability": 0.9976918697357178
+          },
+          {
+            "start": 6.04,
+            "end": 6.6,
+            "word": " یعنی",
+            "probability": 0.9976425468921661
+          },
+          {
+            "start": 6.6,
+            "end": 6.86,
+            "word": " ما",
+            "probability": 0.9991036057472229
+          },
+          {
+            "start": 6.86,
+            "end": 7.36,
+            "word": " باید",
+            "probability": 0.9985052943229675
+          },
+          {
+            "start": 7.36,
+            "end": 7.7,
+            "word": " حتما",
+            "probability": 0.965907096862793
+          },
+          {
+            "start": 7.7,
+            "end": 7.88,
+            "word": " یه",
+            "probability": 0.9846276044845581
+          },
+          {
+            "start": 7.88,
+            "end": 8.14,
+            "word": " محای...",
+            "probability": 0.5390448957681656
+          }
+        ]
+      }
+    ]
+  }
+}

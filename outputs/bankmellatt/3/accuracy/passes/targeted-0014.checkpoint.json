@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "bb14a63c4eb0def15976954d8e4b4847c87b4885779b48d1d2ae893de2483e2c",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.54,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.42,
+        "text": "کجا و چه جوری داریم حضینه می‌کنیم؟ این باعث می‌شه که وقتی می‌خواییم فکر بکنم که درامد و حضینا هم رو به تعادل برسونیم، می‌گیم درآمد ما کافی نیست.",
+        "avg_logprob": -0.14276116892695426,
+        "compression_ratio": 1.6134969325153374,
+        "no_speech_prob": 2.172050456161756e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.46,
+            "word": " کجا",
+            "probability": 0.9752763907114664
+          },
+          {
+            "start": 0.46,
+            "end": 0.64,
+            "word": " و",
+            "probability": 0.9982922673225403
+          },
+          {
+            "start": 0.64,
+            "end": 0.96,
+            "word": " چه",
+            "probability": 0.5695628672838211
+          },
+          {
+            "start": 0.96,
+            "end": 1.18,
+            "word": " جوری",
+            "probability": 0.9961932698885599
+          },
+          {
+            "start": 1.18,
+            "end": 1.48,
+            "word": " داریم",
+            "probability": 0.9992425590753555
+          },
+          {
+            "start": 1.48,
+            "end": 1.92,
+            "word": " حضینه",
+            "probability": 0.8949957191944122
+          },
+          {
+            "start": 1.92,
+            "end": 2.62,
+            "word": " می‌کنیم؟",
+            "probability": 0.7284004001745156
+          },
+          {
+            "start": 2.62,
+            "end": 3.06,
+            "word": " این",
+            "probability": 0.9928991198539734
+          },
+          {
+            "start": 3.06,
+            "end": 3.44,
+            "word": " باعث",
+            "probability": 0.9976163705190023
+          },
+          {
+            "start": 3.44,
+            "end": 3.68,
+            "word": " می‌شه",
+            "probability": 0.959222599864006
+          },
+          {
+            "start": 3.68,
+            "end": 3.84,
+            "word": " که",
+            "probability": 0.9866151511669159
+          },
+          {
+            "start": 3.84,
+            "end": 4.2,
+            "word": " وقتی",
+            "probability": 0.9968980352083842
+          },
+          {
+            "start": 4.2,
+            "end": 4.58,
+            "word": " می‌خواییم",
+            "probability": 0.961691004889352
+          },
+          {
+            "start": 4.58,
+            "end": 4.98,
+            "word": " فکر",
+            "probability": 0.9948340257008871
+          },
+          {
+            "start": 4.98,
+            "end": 5.42,
+            "word": " بکنم",
+            "probability": 0.7303613870535628
+          },
+          {
+            "start": 5.42,
+            "end": 6.22,
+            "word": " که",
+            "probability": 0.9818626344203949
+          },
+          {
+            "start": 6.22,
+            "end": 6.94,
+            "word": " درامد",
+            "probability": 0.8320432901382446
+          },
+          {
+            "start": 6.94,
+            "end": 7.04,
+            "word": " و",
+            "probability": 0.9803401827812195
+          },
+          {
+            "start": 7.04,
+            "end": 7.46,
+            "word": " حضینا",
+            "probability": 0.6831469088792801
+          },
+          {
+            "start": 7.46,
+            "end": 7.66,
+            "word": " هم",
+            "probability": 0.7544071972370148
+          },
+          {
+            "start": 7.66,
+            "end": 7.78,
+            "word": " رو",
+            "probability": 0.5610290020704269
+          },
+          {
+            "start": 7.78,
+            "end": 7.86,
+            "word": " به",
+            "probability": 0.9938817024230957
+          },
+          {
+            "start": 7.86,
+            "end": 8.32,
+            "word": " تعادل",
+            "probability": 0.811123381058375
+          },
+          {
+            "start": 8.32,
+            "end": 9.42,
+            "word": " برسونیم،",
+            "probability": 0.8461066835692951
+          },
+          {
+            "start": 9.42,
+            "end": 9.68,
+            "word": " می‌گیم",
+            "probability": 0.9850854277610779
+          },
+          {
+            "start": 9.68,
+            "end": 10.36,
+            "word": " درآمد",
+            "probability": 0.8178895375846574
+          },
+          {
+            "start": 10.36,
+            "end": 10.54,
+            "word": " ما",
+            "probability": 0.9924973249435425
+          },
+          {
+            "start": 10.54,
+            "end": 11.08,
+            "word": " کافی",
+            "probability": 0.9929162263870239
+          },
+          {
+            "start": 11.08,
+            "end": 11.42,
+            "word": " نیست.",
+            "probability": 0.9954174359639486
+          }
+        ]
+      }
+    ]
+  }
+}

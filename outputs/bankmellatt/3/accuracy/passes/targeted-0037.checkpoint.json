@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "100960a542e4eff8dc4b5680e9b7a2eb064e616da5060882d60f02d8552fc554",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.5,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.48,
+        "text": "این که افضایش درامت معمولا خیلی سخته. یعنی ما باید حتما یه محارت جدیدی پیدا بکنیم یا از این محات‌ها همون به شیوه‌ی جددیه.",
+        "avg_logprob": -0.21820123202499303,
+        "compression_ratio": 1.5,
+        "no_speech_prob": 2.1702184493932464e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.08,
+            "word": " این",
+            "probability": 0.8017043173313141
+          },
+          {
+            "start": 0.08,
+            "end": 0.3,
+            "word": " که",
+            "probability": 0.9080376923084259
+          },
+          {
+            "start": 0.3,
+            "end": 0.76,
+            "word": " افضایش",
+            "probability": 0.9260544975598654
+          },
+          {
+            "start": 0.76,
+            "end": 1.16,
+            "word": " درامت",
+            "probability": 0.8817447274923325
+          },
+          {
+            "start": 1.16,
+            "end": 1.62,
+            "word": " معمولا",
+            "probability": 0.9505337029695511
+          },
+          {
+            "start": 1.62,
+            "end": 1.9,
+            "word": " خیلی",
+            "probability": 0.9639150351285934
+          },
+          {
+            "start": 1.9,
+            "end": 2.48,
+            "word": " سخته.",
+            "probability": 0.9971150755882263
+          },
+          {
+            "start": 2.64,
+            "end": 3.44,
+            "word": " یعنی",
+            "probability": 0.9980379939079285
+          },
+          {
+            "start": 3.44,
+            "end": 3.72,
+            "word": " ما",
+            "probability": 0.9992849230766296
+          },
+          {
+            "start": 3.72,
+            "end": 4.2,
+            "word": " باید",
+            "probability": 0.9988163858652115
+          },
+          {
+            "start": 4.2,
+            "end": 4.54,
+            "word": " حتما",
+            "probability": 0.9827290376027426
+          },
+          {
+            "start": 4.54,
+            "end": 4.72,
+            "word": " یه",
+            "probability": 0.9796568155288696
+          },
+          {
+            "start": 4.72,
+            "end": 5.3,
+            "word": " محارت",
+            "probability": 0.9345067739486694
+          },
+          {
+            "start": 5.3,
+            "end": 5.96,
+            "word": " جدیدی",
+            "probability": 0.9997663259506225
+          },
+          {
+            "start": 5.96,
+            "end": 6.52,
+            "word": " پیدا",
+            "probability": 0.9988376696904501
+          },
+          {
+            "start": 6.52,
+            "end": 7.02,
+            "word": " بکنیم",
+            "probability": 0.9980262994766236
+          },
+          {
+            "start": 7.02,
+            "end": 7.22,
+            "word": " یا",
+            "probability": 0.8954455852508545
+          },
+          {
+            "start": 7.22,
+            "end": 7.4,
+            "word": " از",
+            "probability": 0.9984460771083832
+          },
+          {
+            "start": 7.4,
+            "end": 7.48,
+            "word": " این",
+            "probability": 0.999168187379837
+          },
+          {
+            "start": 7.48,
+            "end": 8.2,
+            "word": " محات‌ها",
+            "probability": 0.5262335588164205
+          },
+          {
+            "start": 8.2,
+            "end": 8.38,
+            "word": " همون",
+            "probability": 0.7462415397167206
+          },
+          {
+            "start": 8.38,
+            "end": 8.54,
+            "word": " به",
+            "probability": 0.9913418889045715
+          },
+          {
+            "start": 8.54,
+            "end": 8.96,
+            "word": " شیوه‌ی",
+            "probability": 0.9154760638872782
+          },
+          {
+            "start": 8.96,
+            "end": 9.48,
+            "word": " جددیه.",
+            "probability": 0.6949514243518934
+          }
+        ]
+      }
+    ]
+  }
+}

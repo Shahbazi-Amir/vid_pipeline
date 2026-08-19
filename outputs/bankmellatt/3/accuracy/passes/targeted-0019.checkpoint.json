@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "598e9eb11e3f7a2b1b81ac11411400fd4a39e2f6a1ed2e7a462364ce0914b1c1",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.88,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.86,
+        "text": "پول های معمولی و سالمی باشیم، همه من به این فکر می‌کنیم که درامد ما کافی نیست. پولهای من برای زندگی",
+        "avg_logprob": -0.1725317897304656,
+        "compression_ratio": 1.424,
+        "no_speech_prob": 2.1454896192985018e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.12,
+            "word": " پول",
+            "probability": 0.5854474827647209
+          },
+          {
+            "start": 0.12,
+            "end": 0.2,
+            "word": " های",
+            "probability": 0.9123818874359131
+          },
+          {
+            "start": 0.2,
+            "end": 0.94,
+            "word": " معمولی",
+            "probability": 0.7648014482110739
+          },
+          {
+            "start": 0.94,
+            "end": 1.2,
+            "word": " و",
+            "probability": 0.9972655773162842
+          },
+          {
+            "start": 1.2,
+            "end": 1.94,
+            "word": " سالمی",
+            "probability": 0.9475148717562357
+          },
+          {
+            "start": 1.94,
+            "end": 2.62,
+            "word": " باشیم،",
+            "probability": 0.8039587695151568
+          },
+          {
+            "start": 2.62,
+            "end": 3.02,
+            "word": " همه",
+            "probability": 0.7851613660653433
+          },
+          {
+            "start": 3.02,
+            "end": 3.1,
+            "word": " من",
+            "probability": 0.506273627281189
+          },
+          {
+            "start": 3.1,
+            "end": 3.26,
+            "word": " به",
+            "probability": 0.9629256725311279
+          },
+          {
+            "start": 3.26,
+            "end": 3.38,
+            "word": " این",
+            "probability": 0.9988320171833038
+          },
+          {
+            "start": 3.38,
+            "end": 3.68,
+            "word": " فکر",
+            "probability": 0.9987630844116211
+          },
+          {
+            "start": 3.68,
+            "end": 4.0,
+            "word": " می‌کنیم",
+            "probability": 0.7181703625246882
+          },
+          {
+            "start": 4.0,
+            "end": 4.12,
+            "word": " که",
+            "probability": 0.9911618530750275
+          },
+          {
+            "start": 4.12,
+            "end": 4.56,
+            "word": " درامد",
+            "probability": 0.8645772486925125
+          },
+          {
+            "start": 4.56,
+            "end": 4.7,
+            "word": " ما",
+            "probability": 0.9702629446983337
+          },
+          {
+            "start": 4.7,
+            "end": 5.14,
+            "word": " کافی",
+            "probability": 0.9957246780395508
+          },
+          {
+            "start": 5.14,
+            "end": 5.42,
+            "word": " نیست.",
+            "probability": 0.9974538485209147
+          },
+          {
+            "start": 6.08,
+            "end": 6.66,
+            "word": " پولهای",
+            "probability": 0.7897821441292763
+          },
+          {
+            "start": 6.66,
+            "end": 6.9,
+            "word": " من",
+            "probability": 0.9943736791610718
+          },
+          {
+            "start": 6.9,
+            "end": 7.38,
+            "word": " برای",
+            "probability": 0.9951336781183878
+          },
+          {
+            "start": 7.38,
+            "end": 7.86,
+            "word": " زندگی",
+            "probability": 0.9970165640115738
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "f9fd889d86d8d37e14bd12caad3f7cf2d796938dd6c24ba8eba2ce40f2cf149e",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.32,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.92,
+        "text": "یا یه سفر خانوادگی به دلمون می‌مونه. همه اینها یه نگرانی‌ها و یک وضعیت آشوبناکی تو ذهن ما ایجاد می‌کنه. این فشار زندگی چیه؟",
+        "avg_logprob": -0.154697734907449,
+        "compression_ratio": 1.5033557046979866,
+        "no_speech_prob": 2.0642672293735842e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.54,
+            "word": " یا",
+            "probability": 0.5884037911891937
+          },
+          {
+            "start": 0.54,
+            "end": 0.68,
+            "word": " یه",
+            "probability": 0.6713574230670929
+          },
+          {
+            "start": 0.68,
+            "end": 1.02,
+            "word": " سفر",
+            "probability": 0.9642360011736552
+          },
+          {
+            "start": 1.02,
+            "end": 1.64,
+            "word": " خانوادگی",
+            "probability": 0.9932540456453959
+          },
+          {
+            "start": 1.64,
+            "end": 1.74,
+            "word": " به",
+            "probability": 0.9919062852859497
+          },
+          {
+            "start": 1.74,
+            "end": 2.12,
+            "word": " دلمون",
+            "probability": 0.8319392402966818
+          },
+          {
+            "start": 2.12,
+            "end": 2.5,
+            "word": " می‌مونه.",
+            "probability": 0.7166310679167509
+          },
+          {
+            "start": 2.8,
+            "end": 3.56,
+            "word": " همه",
+            "probability": 0.9947388966878256
+          },
+          {
+            "start": 3.56,
+            "end": 4.18,
+            "word": " اینها",
+            "probability": 0.6482613484064738
+          },
+          {
+            "start": 4.18,
+            "end": 4.58,
+            "word": " یه",
+            "probability": 0.9033758044242859
+          },
+          {
+            "start": 4.58,
+            "end": 5.52,
+            "word": " نگرانی‌ها",
+            "probability": 0.9562882270131793
+          },
+          {
+            "start": 5.52,
+            "end": 5.84,
+            "word": " و",
+            "probability": 0.9663310647010803
+          },
+          {
+            "start": 5.84,
+            "end": 6.08,
+            "word": " یک",
+            "probability": 0.9771088361740112
+          },
+          {
+            "start": 6.08,
+            "end": 6.52,
+            "word": " وضعیت",
+            "probability": 0.8462836503982544
+          },
+          {
+            "start": 6.52,
+            "end": 7.46,
+            "word": " آشوبناکی",
+            "probability": 0.9135410189628601
+          },
+          {
+            "start": 7.46,
+            "end": 7.56,
+            "word": " تو",
+            "probability": 0.9498287439346313
+          },
+          {
+            "start": 7.56,
+            "end": 7.86,
+            "word": " ذهن",
+            "probability": 0.9180047512054443
+          },
+          {
+            "start": 7.86,
+            "end": 8.0,
+            "word": " ما",
+            "probability": 0.9593992233276367
+          },
+          {
+            "start": 8.0,
+            "end": 8.36,
+            "word": " ایجاد",
+            "probability": 0.9857109785079956
+          },
+          {
+            "start": 8.36,
+            "end": 8.82,
+            "word": " می‌کنه.",
+            "probability": 0.9646697163581848
+          },
+          {
+            "start": 9.02,
+            "end": 9.4,
+            "word": " این",
+            "probability": 0.9919717311859131
+          },
+          {
+            "start": 9.4,
+            "end": 9.84,
+            "word": " فشار",
+            "probability": 0.9947759707768759
+          },
+          {
+            "start": 9.84,
+            "end": 10.34,
+            "word": " زندگی",
+            "probability": 0.9956831634044647
+          },
+          {
+            "start": 10.34,
+            "end": 10.92,
+            "word": " چیه؟",
+            "probability": 0.9653033018112183
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "5461c60bb16acd2597c5f62c9b7df49e6456698d54938acf2250ba87950e8b2d",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.3,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.28,
+        "text": "ما بیش نسبت به حزینه‌ها مون ناغاهیم، نمی‌دونیم کجا و چجوری داریم حضینه می‌کنیم. این باعث می‌شه که وقتی می‌خواییم فکر",
+        "avg_logprob": -0.13476827998220184,
+        "compression_ratio": 1.5104895104895104,
+        "no_speech_prob": 2.121385428432987e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.1,
+            "word": " ما",
+            "probability": 0.4843498468399048
+          },
+          {
+            "start": 0.1,
+            "end": 0.36,
+            "word": " بیش",
+            "probability": 0.998799463113149
+          },
+          {
+            "start": 0.36,
+            "end": 0.74,
+            "word": " نسبت",
+            "probability": 0.8860329389572144
+          },
+          {
+            "start": 0.74,
+            "end": 0.88,
+            "word": " به",
+            "probability": 0.9995081424713135
+          },
+          {
+            "start": 0.88,
+            "end": 1.48,
+            "word": " حزینه‌ها",
+            "probability": 0.6510282874417802
+          },
+          {
+            "start": 1.48,
+            "end": 1.7,
+            "word": " مون",
+            "probability": 0.5099883005023003
+          },
+          {
+            "start": 1.7,
+            "end": 2.6,
+            "word": " ناغاهیم،",
+            "probability": 0.7771576760070664
+          },
+          {
+            "start": 2.6,
+            "end": 3.22,
+            "word": " نمی‌دونیم",
+            "probability": 0.9892382249236107
+          },
+          {
+            "start": 3.22,
+            "end": 3.76,
+            "word": " کجا",
+            "probability": 0.9847407142321268
+          },
+          {
+            "start": 3.76,
+            "end": 3.94,
+            "word": " و",
+            "probability": 0.987963080406189
+          },
+          {
+            "start": 3.94,
+            "end": 4.5,
+            "word": " چجوری",
+            "probability": 0.8829730600118637
+          },
+          {
+            "start": 4.5,
+            "end": 4.78,
+            "word": " داریم",
+            "probability": 0.9888146221637726
+          },
+          {
+            "start": 4.78,
+            "end": 5.22,
+            "word": " حضینه",
+            "probability": 0.7618992868810892
+          },
+          {
+            "start": 5.22,
+            "end": 5.84,
+            "word": " می‌کنیم.",
+            "probability": 0.9339948693911234
+          },
+          {
+            "start": 5.96,
+            "end": 6.36,
+            "word": " این",
+            "probability": 0.9897143840789795
+          },
+          {
+            "start": 6.36,
+            "end": 6.74,
+            "word": " باعث",
+            "probability": 0.9900046388308207
+          },
+          {
+            "start": 6.74,
+            "end": 6.98,
+            "word": " می‌شه",
+            "probability": 0.973642960190773
+          },
+          {
+            "start": 6.98,
+            "end": 7.16,
+            "word": " که",
+            "probability": 0.985780656337738
+          },
+          {
+            "start": 7.16,
+            "end": 7.52,
+            "word": " وقتی",
+            "probability": 0.9949796994527181
+          },
+          {
+            "start": 7.52,
+            "end": 7.88,
+            "word": " می‌خواییم",
+            "probability": 0.9757554531097412
+          },
+          {
+            "start": 7.88,
+            "end": 8.28,
+            "word": " فکر",
+            "probability": 0.9761563738187155
+          }
+        ]
+      }
+    ]
+  }
+}

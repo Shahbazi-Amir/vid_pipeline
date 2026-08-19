@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "2e4e6b1b26173fd0f4d5419288081ee8cc3e6ed6eb5d0dfa41543e270959278d",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.9,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.88,
+        "text": "خب ما نسبت به درامتمون که آگاهی داریم، معمولا ماها که حقوق بگیر هستیم می‌دونیم چقدر درآمت دارین، بنابراین به اولین چیزی که فکر می‌کنیم",
+        "avg_logprob": -0.16502502950077708,
+        "compression_ratio": 1.6291390728476822,
+        "no_speech_prob": 1.819952938353353e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.2,
+            "word": " خب",
+            "probability": 0.9820311367511749
+          },
+          {
+            "start": 0.2,
+            "end": 0.34,
+            "word": " ما",
+            "probability": 0.9850620031356812
+          },
+          {
+            "start": 0.34,
+            "end": 0.76,
+            "word": " نسبت",
+            "probability": 0.9959779580434164
+          },
+          {
+            "start": 0.76,
+            "end": 0.86,
+            "word": " به",
+            "probability": 0.9993544220924377
+          },
+          {
+            "start": 0.86,
+            "end": 1.58,
+            "word": " درامتمون",
+            "probability": 0.8582521259784699
+          },
+          {
+            "start": 1.58,
+            "end": 1.74,
+            "word": " که",
+            "probability": 0.9996538758277893
+          },
+          {
+            "start": 1.74,
+            "end": 2.14,
+            "word": " آگاهی",
+            "probability": 0.9907936006784439
+          },
+          {
+            "start": 2.14,
+            "end": 2.68,
+            "word": " داریم،",
+            "probability": 0.8038900151848793
+          },
+          {
+            "start": 2.68,
+            "end": 3.46,
+            "word": " معمولا",
+            "probability": 0.9810258597135544
+          },
+          {
+            "start": 3.46,
+            "end": 3.8,
+            "word": " ماها",
+            "probability": 0.8653829097747803
+          },
+          {
+            "start": 3.8,
+            "end": 4.0,
+            "word": " که",
+            "probability": 0.9719631671905518
+          },
+          {
+            "start": 4.0,
+            "end": 4.32,
+            "word": " حقوق",
+            "probability": 0.9988505045572916
+          },
+          {
+            "start": 4.32,
+            "end": 4.66,
+            "word": " بگیر",
+            "probability": 0.9504287242889404
+          },
+          {
+            "start": 4.66,
+            "end": 4.98,
+            "word": " هستیم",
+            "probability": 0.942609116435051
+          },
+          {
+            "start": 4.98,
+            "end": 5.34,
+            "word": " می‌دونیم",
+            "probability": 0.7922096153876433
+          },
+          {
+            "start": 5.34,
+            "end": 5.68,
+            "word": " چقدر",
+            "probability": 0.9948694904645284
+          },
+          {
+            "start": 5.68,
+            "end": 6.14,
+            "word": " درآمت",
+            "probability": 0.8084324851806741
+          },
+          {
+            "start": 6.14,
+            "end": 6.52,
+            "word": " دارین،",
+            "probability": 0.5128290327411378
+          },
+          {
+            "start": 6.52,
+            "end": 7.34,
+            "word": " بنابراین",
+            "probability": 0.9466474413871765
+          },
+          {
+            "start": 7.34,
+            "end": 7.46,
+            "word": " به",
+            "probability": 0.991327702999115
+          },
+          {
+            "start": 7.46,
+            "end": 7.96,
+            "word": " اولین",
+            "probability": 0.9898904959360758
+          },
+          {
+            "start": 7.96,
+            "end": 8.26,
+            "word": " چیزی",
+            "probability": 0.9969073534011841
+          },
+          {
+            "start": 8.26,
+            "end": 8.4,
+            "word": " که",
+            "probability": 0.9961819350719452
+          },
+          {
+            "start": 8.4,
+            "end": 8.66,
+            "word": " فکر",
+            "probability": 0.9941980044047037
+          },
+          {
+            "start": 8.66,
+            "end": 8.88,
+            "word": " می‌کنیم",
+            "probability": 0.94134521484375
+          }
+        ]
+      }
+    ]
+  }
+}

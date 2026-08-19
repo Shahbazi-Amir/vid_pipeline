@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "787135edb710bf6274ee2115cd615014fa865dee0b98e63a375e58217d1647dc",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.84,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.82,
+        "text": "می‌گیم درآمت ما کافی نیست. من باید در آمتمو بیشتر بکنم. یعنی این فاصله درامت و حزینه",
+        "avg_logprob": -0.1919042428985971,
+        "compression_ratio": 1.3017241379310345,
+        "no_speech_prob": 2.3090777900858228e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.72,
+            "word": " می‌گیم",
+            "probability": 0.750054181739688
+          },
+          {
+            "start": 0.72,
+            "end": 1.4,
+            "word": " درآمت",
+            "probability": 0.7490333567063013
+          },
+          {
+            "start": 1.4,
+            "end": 1.6,
+            "word": " ما",
+            "probability": 0.9817366600036621
+          },
+          {
+            "start": 1.6,
+            "end": 2.12,
+            "word": " کافی",
+            "probability": 0.994560976823171
+          },
+          {
+            "start": 2.12,
+            "end": 2.5,
+            "word": " نیست.",
+            "probability": 0.9977510174115499
+          },
+          {
+            "start": 2.66,
+            "end": 3.36,
+            "word": " من",
+            "probability": 0.9776496887207031
+          },
+          {
+            "start": 3.36,
+            "end": 3.72,
+            "word": " باید",
+            "probability": 0.9956821203231812
+          },
+          {
+            "start": 3.72,
+            "end": 4.06,
+            "word": " در",
+            "probability": 0.9971510767936707
+          },
+          {
+            "start": 4.06,
+            "end": 4.5,
+            "word": " آمتمو",
+            "probability": 0.5803787005133927
+          },
+          {
+            "start": 4.5,
+            "end": 4.92,
+            "word": " بیشتر",
+            "probability": 0.995733630657196
+          },
+          {
+            "start": 4.92,
+            "end": 5.34,
+            "word": " بکنم.",
+            "probability": 0.9833371341228485
+          },
+          {
+            "start": 5.52,
+            "end": 5.92,
+            "word": " یعنی",
+            "probability": 0.996493473649025
+          },
+          {
+            "start": 5.92,
+            "end": 6.02,
+            "word": " این",
+            "probability": 0.9596681296825409
+          },
+          {
+            "start": 6.02,
+            "end": 6.7,
+            "word": " فاصله",
+            "probability": 0.995061993598938
+          },
+          {
+            "start": 6.7,
+            "end": 7.38,
+            "word": " درامت",
+            "probability": 0.5724156373180449
+          },
+          {
+            "start": 7.38,
+            "end": 7.46,
+            "word": " و",
+            "probability": 0.9869379997253418
+          },
+          {
+            "start": 7.46,
+            "end": 7.82,
+            "word": " حزینه",
+            "probability": 0.8059080094099045
+          }
+        ]
+      }
+    ]
+  }
+}

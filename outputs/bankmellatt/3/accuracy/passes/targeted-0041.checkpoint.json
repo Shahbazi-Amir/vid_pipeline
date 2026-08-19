@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "22e9b02ce79a60155cbb88648af5b3215a27a653f57405dd68781fb75900203c",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.52,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.5,
+        "text": "بکنم، یه دو سه ماهی فعالیت بکرنم. ببینم که کجا می‌تونم یک کار جدید، یک فعائلیت جدهی آغاز بکنام ک برا من درامت داشته باشه. چجوری می‌طونم از این محارت‌ها؟",
+        "avg_logprob": -0.22473718438829696,
+        "compression_ratio": 1.5953757225433527,
+        "no_speech_prob": 2.975286961248713e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.58,
+            "word": " بکنم،",
+            "probability": 0.4368633136153221
+          },
+          {
+            "start": 0.58,
+            "end": 0.74,
+            "word": " یه",
+            "probability": 0.9614399075508118
+          },
+          {
+            "start": 0.74,
+            "end": 0.92,
+            "word": " دو",
+            "probability": 0.9453368186950684
+          },
+          {
+            "start": 0.92,
+            "end": 1.1,
+            "word": " سه",
+            "probability": 0.7569584250450134
+          },
+          {
+            "start": 1.1,
+            "end": 1.3,
+            "word": " ماهی",
+            "probability": 0.9974255164464315
+          },
+          {
+            "start": 1.3,
+            "end": 1.96,
+            "word": " فعالیت",
+            "probability": 0.9988688707351685
+          },
+          {
+            "start": 1.96,
+            "end": 2.54,
+            "word": " بکرنم.",
+            "probability": 0.7951980997313512
+          },
+          {
+            "start": 2.64,
+            "end": 3.32,
+            "word": " ببینم",
+            "probability": 0.9981301128864288
+          },
+          {
+            "start": 3.32,
+            "end": 3.5,
+            "word": " که",
+            "probability": 0.9696597456932068
+          },
+          {
+            "start": 3.5,
+            "end": 3.92,
+            "word": " کجا",
+            "probability": 0.9966098467508951
+          },
+          {
+            "start": 3.92,
+            "end": 4.44,
+            "word": " می‌تونم",
+            "probability": 0.785083308047615
+          },
+          {
+            "start": 4.44,
+            "end": 4.78,
+            "word": " یک",
+            "probability": 0.9245662689208984
+          },
+          {
+            "start": 4.78,
+            "end": 5.12,
+            "word": " کار",
+            "probability": 0.9939727187156677
+          },
+          {
+            "start": 5.12,
+            "end": 5.82,
+            "word": " جدید،",
+            "probability": 0.8725706338882446
+          },
+          {
+            "start": 5.82,
+            "end": 5.92,
+            "word": " یک",
+            "probability": 0.9917878806591034
+          },
+          {
+            "start": 5.92,
+            "end": 6.48,
+            "word": " فعائلیت",
+            "probability": 0.819326568804172
+          },
+          {
+            "start": 6.48,
+            "end": 6.86,
+            "word": " جدهی",
+            "probability": 0.6949016897051479
+          },
+          {
+            "start": 6.86,
+            "end": 7.16,
+            "word": " آغاز",
+            "probability": 0.9792337417602539
+          },
+          {
+            "start": 7.16,
+            "end": 7.5,
+            "word": " بکنام",
+            "probability": 0.7440389618132031
+          },
+          {
+            "start": 7.5,
+            "end": 7.56,
+            "word": " ک",
+            "probability": 0.9888340830802917
+          },
+          {
+            "start": 7.56,
+            "end": 7.76,
+            "word": " برا",
+            "probability": 0.4917797694233741
+          },
+          {
+            "start": 7.76,
+            "end": 7.88,
+            "word": " من",
+            "probability": 0.40679505467414856
+          },
+          {
+            "start": 7.88,
+            "end": 8.36,
+            "word": " درامت",
+            "probability": 0.9887039512395859
+          },
+          {
+            "start": 8.36,
+            "end": 8.66,
+            "word": " داشته",
+            "probability": 0.9980006416638693
+          },
+          {
+            "start": 8.66,
+            "end": 9.04,
+            "word": " باشه.",
+            "probability": 0.9975670576095581
+          },
+          {
+            "start": 9.5,
+            "end": 10.18,
+            "word": " چجوری",
+            "probability": 0.9489913433790207
+          },
+          {
+            "start": 10.18,
+            "end": 10.56,
+            "word": " می‌طونم",
+            "probability": 0.7818286033492768
+          },
+          {
+            "start": 10.56,
+            "end": 10.72,
+            "word": " از",
+            "probability": 0.9943337738513947
+          },
+          {
+            "start": 10.72,
+            "end": 10.78,
+            "word": " این",
+            "probability": 0.9971607029438019
+          },
+          {
+            "start": 10.78,
+            "end": 11.5,
+            "word": " محارت‌ها؟",
+            "probability": 0.7872996500560215
+          }
+        ]
+      }
+    ]
+  }
+}

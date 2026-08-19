@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "850baf5b7a57fea09745b3d2488d3b5f9c19a1bd3275ef16083847917ea38170",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.42,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.4,
+        "text": "درامد و حزینه هم رو به تعدل برسونیم، می‌گیم درآمد ما کافی نیست. من باید در آمدمو بیشتر بودم.",
+        "avg_logprob": -0.20777768145004907,
+        "compression_ratio": 1.375,
+        "no_speech_prob": 2.3172855301289985e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.4,
+            "word": " درامد",
+            "probability": 0.8638678342103958
+          },
+          {
+            "start": 0.4,
+            "end": 0.5,
+            "word": " و",
+            "probability": 0.9295728802680969
+          },
+          {
+            "start": 0.5,
+            "end": 0.98,
+            "word": " حزینه",
+            "probability": 0.7869729399681091
+          },
+          {
+            "start": 0.98,
+            "end": 1.12,
+            "word": " هم",
+            "probability": 0.9182295203208923
+          },
+          {
+            "start": 1.12,
+            "end": 1.24,
+            "word": " رو",
+            "probability": 0.556918628513813
+          },
+          {
+            "start": 1.24,
+            "end": 1.36,
+            "word": " به",
+            "probability": 0.9990326166152954
+          },
+          {
+            "start": 1.36,
+            "end": 1.78,
+            "word": " تعدل",
+            "probability": 0.8322805364926656
+          },
+          {
+            "start": 1.78,
+            "end": 2.68,
+            "word": " برسونیم،",
+            "probability": 0.8494293045784745
+          },
+          {
+            "start": 2.68,
+            "end": 3.14,
+            "word": " می‌گیم",
+            "probability": 0.7919646248221397
+          },
+          {
+            "start": 3.14,
+            "end": 3.82,
+            "word": " درآمد",
+            "probability": 0.8038614442727218
+          },
+          {
+            "start": 3.82,
+            "end": 4.0,
+            "word": " ما",
+            "probability": 0.9544463753700256
+          },
+          {
+            "start": 4.0,
+            "end": 4.54,
+            "word": " کافی",
+            "probability": 0.9946512381235758
+          },
+          {
+            "start": 4.54,
+            "end": 4.94,
+            "word": " نیست.",
+            "probability": 0.9981220960617065
+          },
+          {
+            "start": 5.14,
+            "end": 5.78,
+            "word": " من",
+            "probability": 0.9841492772102356
+          },
+          {
+            "start": 5.78,
+            "end": 6.14,
+            "word": " باید",
+            "probability": 0.9972242563962936
+          },
+          {
+            "start": 6.14,
+            "end": 6.48,
+            "word": " در",
+            "probability": 0.9966826438903809
+          },
+          {
+            "start": 6.48,
+            "end": 6.92,
+            "word": " آمدمو",
+            "probability": 0.41278115985915065
+          },
+          {
+            "start": 6.92,
+            "end": 7.34,
+            "word": " بیشتر",
+            "probability": 0.9967995882034302
+          },
+          {
+            "start": 7.34,
+            "end": 7.4,
+            "word": " بودم.",
+            "probability": 0.5520307024319967
+          }
+        ]
+      }
+    ]
+  }
+}

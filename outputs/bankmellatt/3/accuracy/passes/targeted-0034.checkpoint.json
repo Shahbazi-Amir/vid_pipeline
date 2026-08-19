@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "e0ffbd7306fa9ce3581e92d3f3271e5a57e74e1669d2dfc8c0b56de0ca0bebb6",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.5,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.02,
+        "text": "که حقوق به گیر هستیم، می‌دونیم چقدر درامت داریم. بنابراین به اولین چیزی که فکر می‌کنیم اینه که درآمدمون رو افضایش بدیم",
+        "avg_logprob": -0.19122473895549774,
+        "compression_ratio": 1.5273972602739727,
+        "no_speech_prob": 1.9295695596888152e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.1,
+            "word": " که",
+            "probability": 0.5155045799911022
+          },
+          {
+            "start": 0.1,
+            "end": 0.42,
+            "word": " حقوق",
+            "probability": 0.9978684584299723
+          },
+          {
+            "start": 0.42,
+            "end": 0.56,
+            "word": " به",
+            "probability": 0.5747015476226807
+          },
+          {
+            "start": 0.56,
+            "end": 0.76,
+            "word": " گیر",
+            "probability": 0.9939907987912496
+          },
+          {
+            "start": 0.76,
+            "end": 1.16,
+            "word": " هستیم،",
+            "probability": 0.7183414623141289
+          },
+          {
+            "start": 1.16,
+            "end": 1.44,
+            "word": " می‌دونیم",
+            "probability": 0.8308058129623532
+          },
+          {
+            "start": 1.44,
+            "end": 1.76,
+            "word": " چقدر",
+            "probability": 0.9910310308138529
+          },
+          {
+            "start": 1.76,
+            "end": 2.24,
+            "word": " درامت",
+            "probability": 0.9585022926330566
+          },
+          {
+            "start": 2.24,
+            "end": 2.5,
+            "word": " داریم.",
+            "probability": 0.9800122231245041
+          },
+          {
+            "start": 2.88,
+            "end": 3.44,
+            "word": " بنابراین",
+            "probability": 0.9808903336524963
+          },
+          {
+            "start": 3.44,
+            "end": 3.56,
+            "word": " به",
+            "probability": 0.9764354825019836
+          },
+          {
+            "start": 3.56,
+            "end": 4.06,
+            "word": " اولین",
+            "probability": 0.982479453086853
+          },
+          {
+            "start": 4.06,
+            "end": 4.34,
+            "word": " چیزی",
+            "probability": 0.994784027338028
+          },
+          {
+            "start": 4.34,
+            "end": 4.5,
+            "word": " که",
+            "probability": 0.9931259155273438
+          },
+          {
+            "start": 4.5,
+            "end": 4.76,
+            "word": " فکر",
+            "probability": 0.9939438899358114
+          },
+          {
+            "start": 4.76,
+            "end": 5.1,
+            "word": " می‌کنیم",
+            "probability": 0.9528065721193949
+          },
+          {
+            "start": 5.1,
+            "end": 5.24,
+            "word": " اینه",
+            "probability": 0.9173499743143717
+          },
+          {
+            "start": 5.24,
+            "end": 5.38,
+            "word": " که",
+            "probability": 0.979233980178833
+          },
+          {
+            "start": 5.38,
+            "end": 6.08,
+            "word": " درآمدمون",
+            "probability": 0.7424062194435724
+          },
+          {
+            "start": 6.08,
+            "end": 6.2,
+            "word": " رو",
+            "probability": 0.5704290568828583
+          },
+          {
+            "start": 6.2,
+            "end": 6.62,
+            "word": " افضایش",
+            "probability": 0.9405355354150137
+          },
+          {
+            "start": 6.62,
+            "end": 7.02,
+            "word": " بدیم",
+            "probability": 0.9097561240196228
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 8.26,
+        "end": 8.82,
+        "text": "خوب",
+        "avg_logprob": -0.19122473895549774,
+        "compression_ratio": 1.5273972602739727,
+        "no_speech_prob": 1.9295695596888152e-10,
+        "words": [
+          {
+            "start": 8.26,
+            "end": 8.82,
+            "word": " خوب",
+            "probability": 0.33922959864139557
+          }
+        ]
+      }
+    ]
+  }
+}

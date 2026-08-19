@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "f7cb3f6160bd1d7c8da4b2e5b4be47e48cb74809f07c4cd5da11c4e754b35e4e",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.52,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.5,
+        "text": "یعنی حزینه‌های زندگی بالاتر از درامدشونه. به میزانی که این فاصله بیشتر باشه، فشار اقتصاد بر زنده‌گی شما بییش‌تره. خب ما نسبت به درآمد‌مون که آگه هستم.",
+        "avg_logprob": -0.24896450008003457,
+        "compression_ratio": 1.608187134502924,
+        "no_speech_prob": 3.11241032946441e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.1,
+            "word": " یعنی",
+            "probability": 0.7923197448253632
+          },
+          {
+            "start": 0.1,
+            "end": 0.78,
+            "word": " حزینه‌های",
+            "probability": 0.7853173102651324
+          },
+          {
+            "start": 0.78,
+            "end": 1.22,
+            "word": " زندگی",
+            "probability": 0.9955913573503494
+          },
+          {
+            "start": 1.22,
+            "end": 1.68,
+            "word": " بالاتر",
+            "probability": 0.8529590964317322
+          },
+          {
+            "start": 1.68,
+            "end": 1.8,
+            "word": " از",
+            "probability": 0.996447890996933
+          },
+          {
+            "start": 1.8,
+            "end": 2.52,
+            "word": " درامدشونه.",
+            "probability": 0.8683759910719735
+          },
+          {
+            "start": 2.6,
+            "end": 2.76,
+            "word": " به",
+            "probability": 0.9871357083320618
+          },
+          {
+            "start": 2.76,
+            "end": 3.38,
+            "word": " میزانی",
+            "probability": 0.948385015130043
+          },
+          {
+            "start": 3.38,
+            "end": 3.52,
+            "word": " که",
+            "probability": 0.9570815563201904
+          },
+          {
+            "start": 3.52,
+            "end": 3.64,
+            "word": " این",
+            "probability": 0.984500527381897
+          },
+          {
+            "start": 3.64,
+            "end": 4.16,
+            "word": " فاصله",
+            "probability": 0.9950396617253622
+          },
+          {
+            "start": 4.16,
+            "end": 4.66,
+            "word": " بیشتر",
+            "probability": 0.9813778877258301
+          },
+          {
+            "start": 4.66,
+            "end": 5.58,
+            "word": " باشه،",
+            "probability": 0.8482477366924286
+          },
+          {
+            "start": 5.58,
+            "end": 6.14,
+            "word": " فشار",
+            "probability": 0.9732943574587504
+          },
+          {
+            "start": 6.14,
+            "end": 7.36,
+            "word": " اقتصاد",
+            "probability": 0.9957175701856613
+          },
+          {
+            "start": 7.36,
+            "end": 7.6,
+            "word": " بر",
+            "probability": 0.919813483953476
+          },
+          {
+            "start": 7.6,
+            "end": 8.12,
+            "word": " زنده‌گی",
+            "probability": 0.7259753561423471
+          },
+          {
+            "start": 8.12,
+            "end": 8.46,
+            "word": " شما",
+            "probability": 0.9558913707733154
+          },
+          {
+            "start": 8.46,
+            "end": 9.04,
+            "word": " بییش‌تره.",
+            "probability": 0.7406893961888272
+          },
+          {
+            "start": 9.18,
+            "end": 9.82,
+            "word": " خب",
+            "probability": 0.9343887567520142
+          },
+          {
+            "start": 9.82,
+            "end": 9.98,
+            "word": " ما",
+            "probability": 0.8954819440841675
+          },
+          {
+            "start": 9.98,
+            "end": 10.4,
+            "word": " نسبت",
+            "probability": 0.9776841600735983
+          },
+          {
+            "start": 10.4,
+            "end": 10.5,
+            "word": " به",
+            "probability": 0.9825049042701721
+          },
+          {
+            "start": 10.5,
+            "end": 11.24,
+            "word": " درآمد‌مون",
+            "probability": 0.7379792634811666
+          },
+          {
+            "start": 11.24,
+            "end": 11.4,
+            "word": " که",
+            "probability": 0.9536134600639343
+          },
+          {
+            "start": 11.4,
+            "end": 11.5,
+            "word": " آگه",
+            "probability": 0.7078892389933268
+          },
+          {
+            "start": 11.5,
+            "end": 11.5,
+            "word": " هستم.",
+            "probability": 0.23084136843681335
+          }
+        ]
+      }
+    ]
+  }
+}

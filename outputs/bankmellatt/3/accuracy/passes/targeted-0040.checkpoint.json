@@ -1,0 +1,193 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "52290ce3afb02c1fb64860f3a26505d57b195b7f47a8fbb615fd31c5bb57a303",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.4,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 5.14,
+        "text": "من نمی‌تونم در آمدم رو افضایش بدم. باید یه دو سه ماهی کار بکنم، یه",
+        "avg_logprob": -0.17132774825123223,
+        "compression_ratio": 1.5571428571428572,
+        "no_speech_prob": 3.0247429561036654e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.16,
+            "word": " من",
+            "probability": 0.6966885924339294
+          },
+          {
+            "start": 0.16,
+            "end": 0.68,
+            "word": " نمی‌تونم",
+            "probability": 0.8357865531829053
+          },
+          {
+            "start": 0.68,
+            "end": 0.92,
+            "word": " در",
+            "probability": 0.9897821247577667
+          },
+          {
+            "start": 0.92,
+            "end": 1.24,
+            "word": " آمدم",
+            "probability": 0.9570060968399048
+          },
+          {
+            "start": 1.24,
+            "end": 1.52,
+            "word": " رو",
+            "probability": 0.95285364985466
+          },
+          {
+            "start": 1.52,
+            "end": 2.18,
+            "word": " افضایش",
+            "probability": 0.9685375789801279
+          },
+          {
+            "start": 2.18,
+            "end": 2.5,
+            "word": " بدم.",
+            "probability": 0.9848756194114685
+          },
+          {
+            "start": 2.7,
+            "end": 3.2,
+            "word": " باید",
+            "probability": 0.980134978890419
+          },
+          {
+            "start": 3.2,
+            "end": 3.28,
+            "word": " یه",
+            "probability": 0.925977498292923
+          },
+          {
+            "start": 3.28,
+            "end": 3.44,
+            "word": " دو",
+            "probability": 0.950017124414444
+          },
+          {
+            "start": 3.44,
+            "end": 3.64,
+            "word": " سه",
+            "probability": 0.7885904908180237
+          },
+          {
+            "start": 3.64,
+            "end": 3.94,
+            "word": " ماهی",
+            "probability": 0.9900116920471191
+          },
+          {
+            "start": 3.94,
+            "end": 4.32,
+            "word": " کار",
+            "probability": 0.9915697872638702
+          },
+          {
+            "start": 4.32,
+            "end": 5.04,
+            "word": " بکنم،",
+            "probability": 0.8354400277137757
+          },
+          {
+            "start": 5.04,
+            "end": 5.14,
+            "word": " یه",
+            "probability": 0.9951598644256592
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 5.14,
+        "end": 9.38,
+        "text": "دوسته ماهای فعالیت بکرنم. ببینم که کجا می‌توانم یه کار",
+        "avg_logprob": -0.17132774825123223,
+        "compression_ratio": 1.5571428571428572,
+        "no_speech_prob": 3.0247429561036654e-10,
+        "words": [
+          {
+            "start": 5.14,
+            "end": 5.5,
+            "word": " دوسته",
+            "probability": 0.6462999930372462
+          },
+          {
+            "start": 5.5,
+            "end": 5.68,
+            "word": " ماهای",
+            "probability": 0.6628982246329542
+          },
+          {
+            "start": 5.68,
+            "end": 6.36,
+            "word": " فعالیت",
+            "probability": 0.9913206696510315
+          },
+          {
+            "start": 6.36,
+            "end": 6.94,
+            "word": " بکرنم.",
+            "probability": 0.7543959905160591
+          },
+          {
+            "start": 7.08,
+            "end": 7.72,
+            "word": " ببینم",
+            "probability": 0.9941032975912094
+          },
+          {
+            "start": 7.72,
+            "end": 7.9,
+            "word": " که",
+            "probability": 0.9952187836170197
+          },
+          {
+            "start": 7.9,
+            "end": 8.32,
+            "word": " کجا",
+            "probability": 0.9949613412221273
+          },
+          {
+            "start": 8.32,
+            "end": 8.86,
+            "word": " می‌توانم",
+            "probability": 0.8213026545320948
+          },
+          {
+            "start": 8.86,
+            "end": 9.18,
+            "word": " یه",
+            "probability": 0.7364601492881775
+          },
+          {
+            "start": 9.18,
+            "end": 9.38,
+            "word": " کار",
+            "probability": 0.9712325930595398
+          }
+        ]
+      }
+    ]
+  }
+}

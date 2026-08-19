@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "d7da6fe96ef651f866c3d8ffc29388494ab58ebc93fc79eece87ddf63b70a25f",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.14,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.12,
+        "text": "افتایش بدیم. خب، این اول مشکله چجوری در آمد من رو افتهاش بدی؟ اولا این که افضاییش در اومد معمولا خیلی",
+        "avg_logprob": -0.32903206175652105,
+        "compression_ratio": 1.4715447154471544,
+        "no_speech_prob": 2.4950347343732915e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.34,
+            "word": " افتایش",
+            "probability": 0.7095546275377274
+          },
+          {
+            "start": 0.34,
+            "end": 0.78,
+            "word": " بدیم.",
+            "probability": 0.8928961753845215
+          },
+          {
+            "start": 2.5,
+            "end": 3.22,
+            "word": " خب،",
+            "probability": 0.6888025452693304
+          },
+          {
+            "start": 3.22,
+            "end": 4.28,
+            "word": " این",
+            "probability": 0.9995520114898682
+          },
+          {
+            "start": 4.28,
+            "end": 4.76,
+            "word": " اول",
+            "probability": 0.9985574185848236
+          },
+          {
+            "start": 4.76,
+            "end": 5.36,
+            "word": " مشکله",
+            "probability": 0.9935575524965922
+          },
+          {
+            "start": 5.36,
+            "end": 5.88,
+            "word": " چجوری",
+            "probability": 0.7824562937021255
+          },
+          {
+            "start": 5.88,
+            "end": 6.08,
+            "word": " در",
+            "probability": 0.9852524995803833
+          },
+          {
+            "start": 6.08,
+            "end": 6.3,
+            "word": " آمد",
+            "probability": 0.736301968495051
+          },
+          {
+            "start": 6.3,
+            "end": 6.42,
+            "word": " من",
+            "probability": 0.1707523763179779
+          },
+          {
+            "start": 6.42,
+            "end": 6.56,
+            "word": " رو",
+            "probability": 0.6417466402053833
+          },
+          {
+            "start": 6.56,
+            "end": 6.94,
+            "word": " افتهاش",
+            "probability": 0.6595128808567097
+          },
+          {
+            "start": 6.94,
+            "end": 7.44,
+            "word": " بدی؟",
+            "probability": 0.6665646936744452
+          },
+          {
+            "start": 7.44,
+            "end": 8.32,
+            "word": " اولا",
+            "probability": 0.8452916542689005
+          },
+          {
+            "start": 8.32,
+            "end": 8.36,
+            "word": " این",
+            "probability": 0.9189124405384064
+          },
+          {
+            "start": 8.36,
+            "end": 8.56,
+            "word": " که",
+            "probability": 0.9000828862190247
+          },
+          {
+            "start": 8.56,
+            "end": 9.06,
+            "word": " افضاییش",
+            "probability": 0.7097542258395281
+          },
+          {
+            "start": 9.06,
+            "end": 9.3,
+            "word": " در",
+            "probability": 0.9956658184528351
+          },
+          {
+            "start": 9.3,
+            "end": 9.46,
+            "word": " اومد",
+            "probability": 0.6512922535960873
+          },
+          {
+            "start": 9.46,
+            "end": 9.92,
+            "word": " معمولا",
+            "probability": 0.8838909268379211
+          },
+          {
+            "start": 9.92,
+            "end": 10.12,
+            "word": " خیلی",
+            "probability": 0.9738465696573257
+          }
+        ]
+      }
+    ]
+  }
+}

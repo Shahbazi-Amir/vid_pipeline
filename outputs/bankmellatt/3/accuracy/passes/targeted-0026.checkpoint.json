@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "af9d567a5e4d4f0d4b94f5415efe1b0df300868e6eee1ecb3d19c617ce596248",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.32,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.2,
+        "text": "یعنی حزینه‌ها بیشتر از درآمده‌مونه. این فاصله‌ی بی‌شتری حزينه از",
+        "avg_logprob": -0.2921541873146506,
+        "compression_ratio": 1.5,
+        "no_speech_prob": 2.512846319913109e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.44,
+            "word": " یعنی",
+            "probability": 0.8768478780984879
+          },
+          {
+            "start": 0.44,
+            "end": 0.94,
+            "word": " حزینه‌ها",
+            "probability": 0.6939782630652189
+          },
+          {
+            "start": 0.94,
+            "end": 1.48,
+            "word": " بیشتر",
+            "probability": 0.8235780090093613
+          },
+          {
+            "start": 1.48,
+            "end": 1.62,
+            "word": " از",
+            "probability": 0.983691394329071
+          },
+          {
+            "start": 1.62,
+            "end": 2.5,
+            "word": " درآمده‌مونه.",
+            "probability": 0.8205537701194937
+          },
+          {
+            "start": 2.62,
+            "end": 3.3,
+            "word": " این",
+            "probability": 0.9706519842147827
+          },
+          {
+            "start": 3.3,
+            "end": 4.3,
+            "word": " فاصله‌ی",
+            "probability": 0.8544345021247863
+          },
+          {
+            "start": 4.3,
+            "end": 5.44,
+            "word": " بی‌شتری",
+            "probability": 0.8055378412827849
+          },
+          {
+            "start": 5.44,
+            "end": 6.04,
+            "word": " حزينه",
+            "probability": 0.7417811577033717
+          },
+          {
+            "start": 6.04,
+            "end": 6.2,
+            "word": " از",
+            "probability": 0.7722847163677216
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 6.2,
+        "end": 11.2,
+        "text": "در آمد و بهش می‌گم فشار زندگی. یعني وقتی آدم احساس",
+        "avg_logprob": -0.2921541873146506,
+        "compression_ratio": 1.5,
+        "no_speech_prob": 2.512846319913109e-10,
+        "words": [
+          {
+            "start": 6.2,
+            "end": 6.48,
+            "word": " در",
+            "probability": 0.9961271286010742
+          },
+          {
+            "start": 6.48,
+            "end": 6.78,
+            "word": " آمد",
+            "probability": 0.67049958743155
+          },
+          {
+            "start": 6.78,
+            "end": 6.9,
+            "word": " و",
+            "probability": 0.319979727268219
+          },
+          {
+            "start": 6.9,
+            "end": 7.5,
+            "word": " بهش",
+            "probability": 0.9358905851840973
+          },
+          {
+            "start": 7.5,
+            "end": 7.76,
+            "word": " می‌گم",
+            "probability": 0.8518521189689636
+          },
+          {
+            "start": 7.76,
+            "end": 8.24,
+            "word": " فشار",
+            "probability": 0.9650153716405233
+          },
+          {
+            "start": 8.24,
+            "end": 8.84,
+            "word": " زندگی.",
+            "probability": 0.8182359337806702
+          },
+          {
+            "start": 9.14,
+            "end": 9.84,
+            "word": " یعني",
+            "probability": 0.6401461061783872
+          },
+          {
+            "start": 9.84,
+            "end": 10.24,
+            "word": " وقتی",
+            "probability": 0.9644191861152649
+          },
+          {
+            "start": 10.24,
+            "end": 10.42,
+            "word": " آدم",
+            "probability": 0.9727617800235748
+          },
+          {
+            "start": 10.42,
+            "end": 11.2,
+            "word": " احساس",
+            "probability": 0.9836351573467255
+          }
+        ]
+      }
+    ]
+  }
+}

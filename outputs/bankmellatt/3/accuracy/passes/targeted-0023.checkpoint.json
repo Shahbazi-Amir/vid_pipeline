@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "39e32b232259f5ed20e6881f4a7e763f7d0412093ed4ff30457b50b1b7ee5505",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.86,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.84,
+        "text": "راه داره که به این کفایت برسن. خب بنابراین ما وقتی که هزینه‌ها مون نمی‌دونیم چجوریه، قرض می‌گیریم و می‌دوانیم که",
+        "avg_logprob": -0.17472833002868451,
+        "compression_ratio": 1.544776119402985,
+        "no_speech_prob": 2.1558192730974923e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.52,
+            "word": " راه",
+            "probability": 0.9858875274658203
+          },
+          {
+            "start": 0.52,
+            "end": 0.84,
+            "word": " داره",
+            "probability": 0.9993574023246765
+          },
+          {
+            "start": 0.84,
+            "end": 0.98,
+            "word": " که",
+            "probability": 0.9994012415409088
+          },
+          {
+            "start": 0.98,
+            "end": 1.08,
+            "word": " به",
+            "probability": 0.9989932179450989
+          },
+          {
+            "start": 1.08,
+            "end": 1.18,
+            "word": " این",
+            "probability": 0.9996809661388397
+          },
+          {
+            "start": 1.18,
+            "end": 1.86,
+            "word": " کفایت",
+            "probability": 0.9976483345031738
+          },
+          {
+            "start": 1.86,
+            "end": 2.52,
+            "word": " برسن.",
+            "probability": 0.9254602789878845
+          },
+          {
+            "start": 2.98,
+            "end": 3.96,
+            "word": " خب",
+            "probability": 0.9785838425159454
+          },
+          {
+            "start": 3.96,
+            "end": 4.54,
+            "word": " بنابراین",
+            "probability": 0.9738167285919189
+          },
+          {
+            "start": 4.54,
+            "end": 4.78,
+            "word": " ما",
+            "probability": 0.9986334443092346
+          },
+          {
+            "start": 4.78,
+            "end": 5.78,
+            "word": " وقتی",
+            "probability": 0.9930633306503296
+          },
+          {
+            "start": 5.78,
+            "end": 6.24,
+            "word": " که",
+            "probability": 0.9992783069610596
+          },
+          {
+            "start": 6.24,
+            "end": 6.86,
+            "word": " هزینه‌ها",
+            "probability": 0.652793530956842
+          },
+          {
+            "start": 6.86,
+            "end": 7.04,
+            "word": " مون",
+            "probability": 0.6116180866956711
+          },
+          {
+            "start": 7.04,
+            "end": 7.62,
+            "word": " نمی‌دونیم",
+            "probability": 0.9233693033456802
+          },
+          {
+            "start": 7.62,
+            "end": 8.68,
+            "word": " چجوریه،",
+            "probability": 0.7817795301477114
+          },
+          {
+            "start": 8.68,
+            "end": 9.42,
+            "word": " قرض",
+            "probability": 0.947774350643158
+          },
+          {
+            "start": 9.42,
+            "end": 10.08,
+            "word": " می‌گیریم",
+            "probability": 0.9872353672981262
+          },
+          {
+            "start": 10.08,
+            "end": 10.34,
+            "word": " و",
+            "probability": 0.9600783586502075
+          },
+          {
+            "start": 10.34,
+            "end": 10.78,
+            "word": " می‌دوانیم",
+            "probability": 0.7527657593933067
+          },
+          {
+            "start": 10.78,
+            "end": 10.84,
+            "word": " که",
+            "probability": 0.9033268988132477
+          }
+        ]
+      }
+    ]
+  }
+}

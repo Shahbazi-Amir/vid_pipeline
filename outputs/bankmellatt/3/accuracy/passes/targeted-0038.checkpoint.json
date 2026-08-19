@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "999b9d88f59b8850b5a523b72b12a219cc304dc4dd61bcb2299a82cbf5ce428b",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.64,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.62,
+        "text": "یه محارت جدیدی پیدا بکنیم یا از این محرات هامون به شیوه‌ی جددی استفاده بکند. و این سخته، امروز",
+        "avg_logprob": -0.25420015775240384,
+        "compression_ratio": 1.3934426229508197,
+        "no_speech_prob": 2.0806494027691969e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.22,
+            "word": " یه",
+            "probability": 0.8367441296577454
+          },
+          {
+            "start": 0.22,
+            "end": 0.8,
+            "word": " محارت",
+            "probability": 0.8940074145793915
+          },
+          {
+            "start": 0.8,
+            "end": 1.44,
+            "word": " جدیدی",
+            "probability": 0.9997437238693238
+          },
+          {
+            "start": 1.44,
+            "end": 2.02,
+            "word": " پیدا",
+            "probability": 0.9984199603398641
+          },
+          {
+            "start": 2.02,
+            "end": 2.52,
+            "word": " بکنیم",
+            "probability": 0.9968578577041626
+          },
+          {
+            "start": 2.52,
+            "end": 2.72,
+            "word": " یا",
+            "probability": 0.9717295169830322
+          },
+          {
+            "start": 2.72,
+            "end": 2.9,
+            "word": " از",
+            "probability": 0.9979359209537506
+          },
+          {
+            "start": 2.9,
+            "end": 2.98,
+            "word": " این",
+            "probability": 0.9991987347602844
+          },
+          {
+            "start": 2.98,
+            "end": 3.62,
+            "word": " محرات",
+            "probability": 0.5853610156032119
+          },
+          {
+            "start": 3.62,
+            "end": 3.88,
+            "word": " هامون",
+            "probability": 0.7884354392687479
+          },
+          {
+            "start": 3.88,
+            "end": 4.0,
+            "word": " به",
+            "probability": 0.9972700476646423
+          },
+          {
+            "start": 4.0,
+            "end": 4.46,
+            "word": " شیوه‌ی",
+            "probability": 0.8265363232349046
+          },
+          {
+            "start": 4.46,
+            "end": 4.94,
+            "word": " جددی",
+            "probability": 0.7475732156981394
+          },
+          {
+            "start": 4.94,
+            "end": 5.58,
+            "word": " استفاده",
+            "probability": 0.9981804490089417
+          },
+          {
+            "start": 5.58,
+            "end": 5.94,
+            "word": " بکند.",
+            "probability": 0.6236748489318416
+          },
+          {
+            "start": 6.78,
+            "end": 7.16,
+            "word": " و",
+            "probability": 0.7064085602760315
+          },
+          {
+            "start": 7.16,
+            "end": 7.32,
+            "word": " این",
+            "probability": 0.9909909963607788
+          },
+          {
+            "start": 7.32,
+            "end": 8.06,
+            "word": " سخته،",
+            "probability": 0.737810218706727
+          },
+          {
+            "start": 8.06,
+            "end": 8.62,
+            "word": " امروز",
+            "probability": 0.9732550531625748
+          }
+        ]
+      }
+    ]
+  }
+}

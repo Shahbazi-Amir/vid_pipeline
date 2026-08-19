@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "66ce89b4a8a4e141a55d0255cf0c5c8824046e167999adb1f108ab3bd0c95be6",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.51,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.94,
+        "text": "ما مردا تو شرایط بد اقتصادی خیلی به همون فشار میاد، اقصاد عقب افتاده،",
+        "avg_logprob": -0.12557444969813028,
+        "compression_ratio": 1.288659793814433,
+        "no_speech_prob": 2.950654443001355e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.6,
+            "word": " ما",
+            "probability": 0.9700741171836853
+          },
+          {
+            "start": 0.6,
+            "end": 1.14,
+            "word": " مردا",
+            "probability": 0.7707913021246592
+          },
+          {
+            "start": 1.14,
+            "end": 1.54,
+            "word": " تو",
+            "probability": 0.992416501045227
+          },
+          {
+            "start": 1.54,
+            "end": 2.12,
+            "word": " شرایط",
+            "probability": 0.9927110373973846
+          },
+          {
+            "start": 2.12,
+            "end": 2.44,
+            "word": " بد",
+            "probability": 0.9859936237335205
+          },
+          {
+            "start": 2.44,
+            "end": 3.24,
+            "word": " اقتصادی",
+            "probability": 0.9915357947349548
+          },
+          {
+            "start": 3.24,
+            "end": 3.92,
+            "word": " خیلی",
+            "probability": 0.9970062524080276
+          },
+          {
+            "start": 3.92,
+            "end": 4.04,
+            "word": " به",
+            "probability": 0.9853070974349976
+          },
+          {
+            "start": 4.04,
+            "end": 4.32,
+            "word": " همون",
+            "probability": 0.9884265859921774
+          },
+          {
+            "start": 4.32,
+            "end": 4.74,
+            "word": " فشار",
+            "probability": 0.9962537288665771
+          },
+          {
+            "start": 4.74,
+            "end": 5.2,
+            "word": " میاد،",
+            "probability": 0.6788591891527176
+          },
+          {
+            "start": 5.2,
+            "end": 5.64,
+            "word": " اقصاد",
+            "probability": 0.8820438981056213
+          },
+          {
+            "start": 5.64,
+            "end": 6.06,
+            "word": " عقب",
+            "probability": 0.8754931092262268
+          },
+          {
+            "start": 6.06,
+            "end": 6.94,
+            "word": " افتاده،",
+            "probability": 0.9075983365376791
+          }
+        ]
+      }
+    ]
+  }
+}

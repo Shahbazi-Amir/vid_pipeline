@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "001a3bb4575c6c0225f3a29433d42539498452d356bd0e8af8d5cb739578a497",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.48,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.46,
+        "text": "ما معمولاً نسبت به درامتمون آگاهیم، یعنی می‌دونیم که چقدر درآمت داریم. اما کم و بیش نسبه به هزینه‌ها",
+        "avg_logprob": -0.19722562896854737,
+        "compression_ratio": 1.3969465648854962,
+        "no_speech_prob": 2.421044198452904e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.16,
+            "word": " ما",
+            "probability": 0.7945060729980469
+          },
+          {
+            "start": 0.16,
+            "end": 0.64,
+            "word": " معمولاً",
+            "probability": 0.7904042094945908
+          },
+          {
+            "start": 0.64,
+            "end": 0.96,
+            "word": " نسبت",
+            "probability": 0.9920334815979004
+          },
+          {
+            "start": 0.96,
+            "end": 1.06,
+            "word": " به",
+            "probability": 0.9989990592002869
+          },
+          {
+            "start": 1.06,
+            "end": 1.8,
+            "word": " درامتمون",
+            "probability": 0.860887610912323
+          },
+          {
+            "start": 1.8,
+            "end": 2.62,
+            "word": " آگاهیم،",
+            "probability": 0.8319959303286547
+          },
+          {
+            "start": 2.62,
+            "end": 3.28,
+            "word": " یعنی",
+            "probability": 0.9983552545309067
+          },
+          {
+            "start": 3.28,
+            "end": 3.76,
+            "word": " می‌دونیم",
+            "probability": 0.8320769698669513
+          },
+          {
+            "start": 3.76,
+            "end": 3.86,
+            "word": " که",
+            "probability": 0.9523545205593109
+          },
+          {
+            "start": 3.86,
+            "end": 4.2,
+            "word": " چقدر",
+            "probability": 0.9937751491864523
+          },
+          {
+            "start": 4.2,
+            "end": 4.66,
+            "word": " درآمت",
+            "probability": 0.7894020432528729
+          },
+          {
+            "start": 4.66,
+            "end": 5.02,
+            "word": " داریم.",
+            "probability": 0.9879093319177628
+          },
+          {
+            "start": 5.1,
+            "end": 5.6,
+            "word": " اما",
+            "probability": 0.9775040447711945
+          },
+          {
+            "start": 5.6,
+            "end": 6.02,
+            "word": " کم",
+            "probability": 0.9930881857872009
+          },
+          {
+            "start": 6.02,
+            "end": 6.14,
+            "word": " و",
+            "probability": 0.9777764081954956
+          },
+          {
+            "start": 6.14,
+            "end": 6.36,
+            "word": " بیش",
+            "probability": 0.9981896877288818
+          },
+          {
+            "start": 6.36,
+            "end": 6.72,
+            "word": " نسبه",
+            "probability": 0.6366896266505743
+          },
+          {
+            "start": 6.72,
+            "end": 6.88,
+            "word": " به",
+            "probability": 0.9731277227401733
+          },
+          {
+            "start": 6.88,
+            "end": 7.46,
+            "word": " هزینه‌ها",
+            "probability": 0.8214634011189142
+          }
+        ]
+      }
+    ]
+  }
+}

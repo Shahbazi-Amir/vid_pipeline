@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "5d160a2f63ce0ef86c117f3e827f4d3a9f155a075d2622da845a0f857150a8de",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.72,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.7,
+        "text": "امنیت بده و بعد آزادی. خب ما معمولاً نفت به درامتمون آگاهیم، یعنی می‌دونیم که چقدر درآمت داریم.",
+        "avg_logprob": -0.1611472643338717,
+        "compression_ratio": 1.3650793650793651,
+        "no_speech_prob": 2.0379081755450557e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.56,
+            "word": " امنیت",
+            "probability": 0.9161453694105148
+          },
+          {
+            "start": 0.56,
+            "end": 0.9,
+            "word": " بده",
+            "probability": 0.9974798262119293
+          },
+          {
+            "start": 0.9,
+            "end": 1.08,
+            "word": " و",
+            "probability": 0.995503842830658
+          },
+          {
+            "start": 1.08,
+            "end": 1.44,
+            "word": " بعد",
+            "probability": 0.9923926591873169
+          },
+          {
+            "start": 1.44,
+            "end": 2.5,
+            "word": " آزادی.",
+            "probability": 0.9980856776237488
+          },
+          {
+            "start": 3.06,
+            "end": 3.78,
+            "word": " خب",
+            "probability": 0.989359587430954
+          },
+          {
+            "start": 3.78,
+            "end": 3.9,
+            "word": " ما",
+            "probability": 0.9805915951728821
+          },
+          {
+            "start": 3.9,
+            "end": 4.36,
+            "word": " معمولاً",
+            "probability": 0.800481778383255
+          },
+          {
+            "start": 4.36,
+            "end": 4.62,
+            "word": " نفت",
+            "probability": 0.6862540245056152
+          },
+          {
+            "start": 4.62,
+            "end": 4.76,
+            "word": " به",
+            "probability": 0.970676064491272
+          },
+          {
+            "start": 4.76,
+            "end": 5.52,
+            "word": " درامتمون",
+            "probability": 0.8489112436771393
+          },
+          {
+            "start": 5.52,
+            "end": 6.4,
+            "word": " آگاهیم،",
+            "probability": 0.832621885696426
+          },
+          {
+            "start": 6.4,
+            "end": 7.0,
+            "word": " یعنی",
+            "probability": 0.9987758100032806
+          },
+          {
+            "start": 7.0,
+            "end": 7.48,
+            "word": " می‌دونیم",
+            "probability": 0.8303126995451748
+          },
+          {
+            "start": 7.48,
+            "end": 7.58,
+            "word": " که",
+            "probability": 0.968034029006958
+          },
+          {
+            "start": 7.58,
+            "end": 7.9,
+            "word": " چقدر",
+            "probability": 0.9956537087758383
+          },
+          {
+            "start": 7.9,
+            "end": 8.38,
+            "word": " درآمت",
+            "probability": 0.7775813453675559
+          },
+          {
+            "start": 8.38,
+            "end": 8.7,
+            "word": " داریم.",
+            "probability": 0.9895025193691254
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "0ebe2684649324ca9820e65ac432dcd3c1406b4b84a1b69ceb9846023222ccc3",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.98,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.96,
+        "text": "من باید درامتم رو بیشتر بکنم. یعنی این فاصله در آمد و هزینه رو، با بیستر کردن درآمت پرو بکنام. اگر ماها آدم‌های معمول",
+        "avg_logprob": -0.20238476035035688,
+        "compression_ratio": 1.4788732394366197,
+        "no_speech_prob": 2.153870415355641e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.52,
+            "word": " من",
+            "probability": 0.9962676167488098
+          },
+          {
+            "start": 0.52,
+            "end": 0.9,
+            "word": " باید",
+            "probability": 0.999000683426857
+          },
+          {
+            "start": 0.9,
+            "end": 1.52,
+            "word": " درامتم",
+            "probability": 0.8454247117042542
+          },
+          {
+            "start": 1.52,
+            "end": 1.66,
+            "word": " رو",
+            "probability": 0.8112770318984985
+          },
+          {
+            "start": 1.66,
+            "end": 2.08,
+            "word": " بیشتر",
+            "probability": 0.9995733737945557
+          },
+          {
+            "start": 2.08,
+            "end": 2.5,
+            "word": " بکنم.",
+            "probability": 0.996676117181778
+          },
+          {
+            "start": 2.62,
+            "end": 3.08,
+            "word": " یعنی",
+            "probability": 0.9992888271808624
+          },
+          {
+            "start": 3.08,
+            "end": 3.18,
+            "word": " این",
+            "probability": 0.993516355752945
+          },
+          {
+            "start": 3.18,
+            "end": 3.86,
+            "word": " فاصله",
+            "probability": 0.9982688824335734
+          },
+          {
+            "start": 3.86,
+            "end": 4.26,
+            "word": " در",
+            "probability": 0.8901483714580536
+          },
+          {
+            "start": 4.26,
+            "end": 4.54,
+            "word": " آمد",
+            "probability": 0.6612083912332309
+          },
+          {
+            "start": 4.54,
+            "end": 4.64,
+            "word": " و",
+            "probability": 0.9964969754219055
+          },
+          {
+            "start": 4.64,
+            "end": 5.2,
+            "word": " هزینه",
+            "probability": 0.8564410358667374
+          },
+          {
+            "start": 5.2,
+            "end": 5.6,
+            "word": " رو،",
+            "probability": 0.6652393767435569
+          },
+          {
+            "start": 5.6,
+            "end": 6.12,
+            "word": " با",
+            "probability": 0.9966037571430206
+          },
+          {
+            "start": 6.12,
+            "end": 6.82,
+            "word": " بیستر",
+            "probability": 0.7484933709292818
+          },
+          {
+            "start": 6.82,
+            "end": 7.24,
+            "word": " کردن",
+            "probability": 0.997682531674703
+          },
+          {
+            "start": 7.24,
+            "end": 7.84,
+            "word": " درآمت",
+            "probability": 0.7468804377519215
+          },
+          {
+            "start": 7.84,
+            "end": 8.06,
+            "word": " پرو",
+            "probability": 0.4033838100731373
+          },
+          {
+            "start": 8.06,
+            "end": 8.5,
+            "word": " بکنام.",
+            "probability": 0.6864206221107452
+          },
+          {
+            "start": 8.7,
+            "end": 9.36,
+            "word": " اگر",
+            "probability": 0.9921818574269613
+          },
+          {
+            "start": 9.36,
+            "end": 9.74,
+            "word": " ماها",
+            "probability": 0.838233083486557
+          },
+          {
+            "start": 9.74,
+            "end": 10.36,
+            "word": " آدم‌های",
+            "probability": 0.7811229628976435
+          },
+          {
+            "start": 10.36,
+            "end": 10.96,
+            "word": " معمول",
+            "probability": 0.9647087653477987
+          }
+        ]
+      }
+    ]
+  }
+}

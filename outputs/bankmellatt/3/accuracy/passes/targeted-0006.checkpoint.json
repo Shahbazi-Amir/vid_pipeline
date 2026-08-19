@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "6266faa1f76f9b7d3581ff9ebe88a8a356272266b54682b60d10fb589956d545",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.56,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.54,
+        "text": "از این پلهکان توامندی مالی بالا بریم، یعنی اگر تو ناتوانی ملی هستید، یه پله برید بالاتر رو وارده تقلای مولی بشید. اگه تو تقلّای موالی بریدم، بری دقیق فارسی،",
+        "avg_logprob": -0.42120039229299505,
+        "compression_ratio": 1.8193548387096774,
+        "no_speech_prob": 3.648749635765114e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.12,
+            "word": " از",
+            "probability": 0.7793011665344238
+          },
+          {
+            "start": 0.12,
+            "end": 0.16,
+            "word": " این",
+            "probability": 0.9822272658348083
+          },
+          {
+            "start": 0.16,
+            "end": 0.66,
+            "word": " پلهکان",
+            "probability": 0.7931814417243004
+          },
+          {
+            "start": 0.66,
+            "end": 1.38,
+            "word": " توامندی",
+            "probability": 0.8946599364280701
+          },
+          {
+            "start": 1.38,
+            "end": 1.74,
+            "word": " مالی",
+            "probability": 0.9909687439600626
+          },
+          {
+            "start": 1.74,
+            "end": 2.18,
+            "word": " بالا",
+            "probability": 0.9753462672233582
+          },
+          {
+            "start": 2.18,
+            "end": 2.62,
+            "word": " بریم،",
+            "probability": 0.6764155621640384
+          },
+          {
+            "start": 2.62,
+            "end": 3.12,
+            "word": " یعنی",
+            "probability": 0.996289387345314
+          },
+          {
+            "start": 3.12,
+            "end": 3.5,
+            "word": " اگر",
+            "probability": 0.9917862812678019
+          },
+          {
+            "start": 3.5,
+            "end": 3.6,
+            "word": " تو",
+            "probability": 0.96165531873703
+          },
+          {
+            "start": 3.6,
+            "end": 4.32,
+            "word": " ناتوانی",
+            "probability": 0.9188790440559387
+          },
+          {
+            "start": 4.32,
+            "end": 4.7,
+            "word": " ملی",
+            "probability": 0.6627355852882223
+          },
+          {
+            "start": 4.7,
+            "end": 5.26,
+            "word": " هستید،",
+            "probability": 0.671526575088501
+          },
+          {
+            "start": 5.26,
+            "end": 5.46,
+            "word": " یه",
+            "probability": 0.713869109749794
+          },
+          {
+            "start": 5.46,
+            "end": 5.72,
+            "word": " پله",
+            "probability": 0.9958344399929047
+          },
+          {
+            "start": 5.72,
+            "end": 5.94,
+            "word": " برید",
+            "probability": 0.6670111902058125
+          },
+          {
+            "start": 5.94,
+            "end": 6.44,
+            "word": " بالاتر",
+            "probability": 0.7342687050501505
+          },
+          {
+            "start": 6.44,
+            "end": 6.5,
+            "word": " رو",
+            "probability": 0.6402128040790558
+          },
+          {
+            "start": 6.5,
+            "end": 6.78,
+            "word": " وارده",
+            "probability": 0.8533634394407272
+          },
+          {
+            "start": 6.78,
+            "end": 7.32,
+            "word": " تقلای",
+            "probability": 0.9328758269548416
+          },
+          {
+            "start": 7.32,
+            "end": 7.64,
+            "word": " مولی",
+            "probability": 0.6616395789072461
+          },
+          {
+            "start": 7.64,
+            "end": 8.16,
+            "word": " بشید.",
+            "probability": 0.9444403797388077
+          },
+          {
+            "start": 8.38,
+            "end": 9.02,
+            "word": " اگه",
+            "probability": 0.6542845376922438
+          },
+          {
+            "start": 9.02,
+            "end": 9.12,
+            "word": " تو",
+            "probability": 0.9439979195594788
+          },
+          {
+            "start": 9.12,
+            "end": 9.68,
+            "word": " تقلّای",
+            "probability": 0.6771743371306608
+          },
+          {
+            "start": 9.68,
+            "end": 10.08,
+            "word": " موالی",
+            "probability": 0.6416519952763338
+          },
+          {
+            "start": 10.08,
+            "end": 10.26,
+            "word": " بریدم،",
+            "probability": 0.49076779338065535
+          },
+          {
+            "start": 10.26,
+            "end": 10.46,
+            "word": " بری",
+            "probability": 0.7441702783107758
+          },
+          {
+            "start": 10.46,
+            "end": 10.54,
+            "word": " دقیق",
+            "probability": 0.22655182314338163
+          },
+          {
+            "start": 10.54,
+            "end": 10.54,
+            "word": " فارسی،",
+            "probability": 0.021404068311676384
+          }
+        ]
+      }
+    ]
+  }
+}

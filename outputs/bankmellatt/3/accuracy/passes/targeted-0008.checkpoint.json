@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "c89a37926b7d28d9ba4a338d567921e0b9ae56edbda98d838773825f874fa8ca",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.7,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 12.68,
+        "text": "امنیت مالی و بعدشم آزادی مالي. سواد ماله در واقع روی همین به تعادل رسوندن درامد و حزینه استواره، یعنی اول میخواد این تعادله را",
+        "avg_logprob": -0.16572061105619504,
+        "compression_ratio": 1.5985915492957747,
+        "no_speech_prob": 2.1501096736376013e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.46,
+            "word": " امنیت",
+            "probability": 0.9829184859991074
+          },
+          {
+            "start": 0.46,
+            "end": 0.84,
+            "word": " مالی",
+            "probability": 0.9995872179667155
+          },
+          {
+            "start": 0.84,
+            "end": 0.98,
+            "word": " و",
+            "probability": 0.9976929426193237
+          },
+          {
+            "start": 0.98,
+            "end": 1.5,
+            "word": " بعدشم",
+            "probability": 0.8753530581792196
+          },
+          {
+            "start": 1.5,
+            "end": 2.1,
+            "word": " آزادی",
+            "probability": 0.9827958345413208
+          },
+          {
+            "start": 2.1,
+            "end": 2.54,
+            "word": " مالي.",
+            "probability": 0.6660158231749543
+          },
+          {
+            "start": 2.84,
+            "end": 3.78,
+            "word": " سواد",
+            "probability": 0.9269550641377767
+          },
+          {
+            "start": 3.78,
+            "end": 4.16,
+            "word": " ماله",
+            "probability": 0.6656530389936298
+          },
+          {
+            "start": 4.16,
+            "end": 4.46,
+            "word": " در",
+            "probability": 0.9794853925704956
+          },
+          {
+            "start": 4.46,
+            "end": 4.86,
+            "word": " واقع",
+            "probability": 0.9885174036026001
+          },
+          {
+            "start": 4.86,
+            "end": 5.48,
+            "word": " روی",
+            "probability": 0.9827403624852499
+          },
+          {
+            "start": 5.48,
+            "end": 5.96,
+            "word": " همین",
+            "probability": 0.999116857846578
+          },
+          {
+            "start": 5.96,
+            "end": 6.1,
+            "word": " به",
+            "probability": 0.995345413684845
+          },
+          {
+            "start": 6.1,
+            "end": 6.72,
+            "word": " تعادل",
+            "probability": 0.8962016304334005
+          },
+          {
+            "start": 6.72,
+            "end": 7.38,
+            "word": " رسوندن",
+            "probability": 0.9916792869567871
+          },
+          {
+            "start": 7.38,
+            "end": 8.04,
+            "word": " درامد",
+            "probability": 0.950955718755722
+          },
+          {
+            "start": 8.04,
+            "end": 8.14,
+            "word": " و",
+            "probability": 0.998620867729187
+          },
+          {
+            "start": 8.14,
+            "end": 8.98,
+            "word": " حزینه",
+            "probability": 0.9056765735149384
+          },
+          {
+            "start": 8.98,
+            "end": 10.34,
+            "word": " استواره،",
+            "probability": 0.7935965186683461
+          },
+          {
+            "start": 10.34,
+            "end": 10.6,
+            "word": " یعنی",
+            "probability": 0.993663877248764
+          },
+          {
+            "start": 10.6,
+            "end": 11.02,
+            "word": " اول",
+            "probability": 0.9993122518062592
+          },
+          {
+            "start": 11.02,
+            "end": 11.5,
+            "word": " میخواد",
+            "probability": 0.9599133878946304
+          },
+          {
+            "start": 11.5,
+            "end": 11.98,
+            "word": " این",
+            "probability": 0.9934445917606354
+          },
+          {
+            "start": 11.98,
+            "end": 12.62,
+            "word": " تعادله",
+            "probability": 0.7266892244418462
+          },
+          {
+            "start": 12.62,
+            "end": 12.68,
+            "word": " را",
+            "probability": 0.5832570865750313
+          }
+        ]
+      }
+    ]
+  }
+}

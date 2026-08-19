@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "75e72f58673d0b9d5c35b9a946ff8fe8ef8d0111d4a79c06e589d2c9b5e4e8c0",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.6,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.12,
+        "text": "در آمد و هزینه استواره، یعنی اول می‌خواد این تعداله رو برقرار بکنه، بعد به شما امنیت بده و بعد آزادی.",
+        "avg_logprob": -0.21785385464318097,
+        "compression_ratio": 1.4108527131782946,
+        "no_speech_prob": 2.393771014741475e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.06,
+            "word": " در",
+            "probability": 0.5174146927893162
+          },
+          {
+            "start": 0.06,
+            "end": 0.36,
+            "word": " آمد",
+            "probability": 0.7991409103075663
+          },
+          {
+            "start": 0.36,
+            "end": 0.48,
+            "word": " و",
+            "probability": 0.9701588153839111
+          },
+          {
+            "start": 0.48,
+            "end": 1.26,
+            "word": " هزینه",
+            "probability": 0.8984793573617935
+          },
+          {
+            "start": 1.26,
+            "end": 2.6,
+            "word": " استواره،",
+            "probability": 0.7881487235426903
+          },
+          {
+            "start": 2.6,
+            "end": 2.9,
+            "word": " یعنی",
+            "probability": 0.9890805184841156
+          },
+          {
+            "start": 2.9,
+            "end": 3.34,
+            "word": " اول",
+            "probability": 0.9951846897602081
+          },
+          {
+            "start": 3.34,
+            "end": 3.8,
+            "word": " می‌خواد",
+            "probability": 0.7859623547643423
+          },
+          {
+            "start": 3.8,
+            "end": 4.32,
+            "word": " این",
+            "probability": 0.9562279284000397
+          },
+          {
+            "start": 4.32,
+            "end": 5.0,
+            "word": " تعداله",
+            "probability": 0.5619851443916559
+          },
+          {
+            "start": 5.0,
+            "end": 5.1,
+            "word": " رو",
+            "probability": 0.9388309419155121
+          },
+          {
+            "start": 5.1,
+            "end": 5.7,
+            "word": " برقرار",
+            "probability": 0.9973252654075623
+          },
+          {
+            "start": 5.7,
+            "end": 6.44,
+            "word": " بکنه،",
+            "probability": 0.8430334031581879
+          },
+          {
+            "start": 6.44,
+            "end": 6.98,
+            "word": " بعد",
+            "probability": 0.9635158777236938
+          },
+          {
+            "start": 6.98,
+            "end": 7.14,
+            "word": " به",
+            "probability": 0.9618322849273682
+          },
+          {
+            "start": 7.14,
+            "end": 7.44,
+            "word": " شما",
+            "probability": 0.9933627843856812
+          },
+          {
+            "start": 7.44,
+            "end": 8.18,
+            "word": " امنیت",
+            "probability": 0.9912866950035095
+          },
+          {
+            "start": 8.18,
+            "end": 8.5,
+            "word": " بده",
+            "probability": 0.9916363954544067
+          },
+          {
+            "start": 8.5,
+            "end": 8.68,
+            "word": " و",
+            "probability": 0.8762819766998291
+          },
+          {
+            "start": 8.68,
+            "end": 9.04,
+            "word": " بعد",
+            "probability": 0.9731374382972717
+          },
+          {
+            "start": 9.04,
+            "end": 10.12,
+            "word": " آزادی.",
+            "probability": 0.9959805011749268
+          }
+        ]
+      }
+    ]
+  }
+}

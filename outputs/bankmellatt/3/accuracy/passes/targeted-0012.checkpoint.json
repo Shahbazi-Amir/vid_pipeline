@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "26dfb85c7c956c1f41ee0ecc6352dfa080324718f17e5415df1ae299b3bb7038",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.52,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.5,
+        "text": "یعنی می‌دونیم که چقدر درامت داریم، اما کم و بیش نسبت به حضینه‌ها مو ناغاهیم. نمی‌دانیم کوجا و چجوری دارم حضیه‌ایم",
+        "avg_logprob": -0.2822893931541914,
+        "compression_ratio": 1.5255474452554745,
+        "no_speech_prob": 2.3302390572688125e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.8,
+            "word": " یعنی",
+            "probability": 0.9974651336669922
+          },
+          {
+            "start": 0.8,
+            "end": 1.28,
+            "word": " می‌دونیم",
+            "probability": 0.8261721204811087
+          },
+          {
+            "start": 1.28,
+            "end": 1.4,
+            "word": " که",
+            "probability": 0.9678976833820343
+          },
+          {
+            "start": 1.4,
+            "end": 1.72,
+            "word": " چقدر",
+            "probability": 0.9942885438601176
+          },
+          {
+            "start": 1.72,
+            "end": 2.18,
+            "word": " درامت",
+            "probability": 0.9730614721775055
+          },
+          {
+            "start": 2.18,
+            "end": 2.66,
+            "word": " داریم،",
+            "probability": 0.7980931542813778
+          },
+          {
+            "start": 2.66,
+            "end": 3.12,
+            "word": " اما",
+            "probability": 0.9886614978313446
+          },
+          {
+            "start": 3.12,
+            "end": 3.54,
+            "word": " کم",
+            "probability": 0.9938526153564453
+          },
+          {
+            "start": 3.54,
+            "end": 3.66,
+            "word": " و",
+            "probability": 0.9694268107414246
+          },
+          {
+            "start": 3.66,
+            "end": 3.88,
+            "word": " بیش",
+            "probability": 0.9974402189254761
+          },
+          {
+            "start": 3.88,
+            "end": 4.26,
+            "word": " نسبت",
+            "probability": 0.9697677294413248
+          },
+          {
+            "start": 4.26,
+            "end": 4.4,
+            "word": " به",
+            "probability": 0.9962071180343628
+          },
+          {
+            "start": 4.4,
+            "end": 5.0,
+            "word": " حضینه‌ها",
+            "probability": 0.839987576007843
+          },
+          {
+            "start": 5.0,
+            "end": 5.2,
+            "word": " مو",
+            "probability": 0.2290218472480774
+          },
+          {
+            "start": 5.2,
+            "end": 6.02,
+            "word": " ناغاهیم.",
+            "probability": 0.8514864146709442
+          },
+          {
+            "start": 6.1,
+            "end": 6.76,
+            "word": " نمی‌دانیم",
+            "probability": 0.8674581901286729
+          },
+          {
+            "start": 6.76,
+            "end": 7.3,
+            "word": " کوجا",
+            "probability": 0.59378584229853
+          },
+          {
+            "start": 7.3,
+            "end": 7.46,
+            "word": " و",
+            "probability": 0.931312084197998
+          },
+          {
+            "start": 7.46,
+            "end": 8.02,
+            "word": " چجوری",
+            "probability": 0.9020053446292877
+          },
+          {
+            "start": 8.02,
+            "end": 8.28,
+            "word": " دارم",
+            "probability": 0.6567702649626881
+          },
+          {
+            "start": 8.28,
+            "end": 8.5,
+            "word": " حضیه‌ایم",
+            "probability": 0.5454680735711008
+          }
+        ]
+      }
+    ]
+  }
+}

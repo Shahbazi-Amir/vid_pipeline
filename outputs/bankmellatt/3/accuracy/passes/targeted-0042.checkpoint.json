@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "8944cbee44c7df0a0ee112f064bf71f33494cc910be6b849e0b47719dc2476b2",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.62,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.6,
+        "text": "جهدی آغاز بکنم که برا من درامت داشته باشه. چجوری می‌تونم از این محارت‌های فعلیم به سبک جدیدی استفاده بکنام کہ برامن درآمت دشته بشه؟ پس در آمت‌ داشتن معمولاً دوست.",
+        "avg_logprob": -0.23490776920860465,
+        "compression_ratio": 1.6573033707865168,
+        "no_speech_prob": 2.2911422759008815e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.34,
+            "word": " جهدی",
+            "probability": 0.6752393916249275
+          },
+          {
+            "start": 0.34,
+            "end": 0.66,
+            "word": " آغاز",
+            "probability": 0.9874250292778015
+          },
+          {
+            "start": 0.66,
+            "end": 0.96,
+            "word": " بکنم",
+            "probability": 0.996588796377182
+          },
+          {
+            "start": 0.96,
+            "end": 1.08,
+            "word": " که",
+            "probability": 0.9993361830711365
+          },
+          {
+            "start": 1.08,
+            "end": 1.24,
+            "word": " برا",
+            "probability": 0.9646316468715668
+          },
+          {
+            "start": 1.24,
+            "end": 1.36,
+            "word": " من",
+            "probability": 0.2974763512611389
+          },
+          {
+            "start": 1.36,
+            "end": 1.84,
+            "word": " درامت",
+            "probability": 0.9856614172458649
+          },
+          {
+            "start": 1.84,
+            "end": 2.16,
+            "word": " داشته",
+            "probability": 0.9976941545804342
+          },
+          {
+            "start": 2.16,
+            "end": 2.56,
+            "word": " باشه.",
+            "probability": 0.9987456003824869
+          },
+          {
+            "start": 2.96,
+            "end": 3.66,
+            "word": " چجوری",
+            "probability": 0.9007681310176849
+          },
+          {
+            "start": 3.66,
+            "end": 4.04,
+            "word": " می‌تونم",
+            "probability": 0.7880214842618443
+          },
+          {
+            "start": 4.04,
+            "end": 4.2,
+            "word": " از",
+            "probability": 0.9947896599769592
+          },
+          {
+            "start": 4.2,
+            "end": 4.28,
+            "word": " این",
+            "probability": 0.9984183609485626
+          },
+          {
+            "start": 4.28,
+            "end": 5.06,
+            "word": " محارت‌های",
+            "probability": 0.9064125503812518
+          },
+          {
+            "start": 5.06,
+            "end": 5.56,
+            "word": " فعلیم",
+            "probability": 0.8503258228302002
+          },
+          {
+            "start": 5.56,
+            "end": 5.66,
+            "word": " به",
+            "probability": 0.9956920742988586
+          },
+          {
+            "start": 5.66,
+            "end": 6.02,
+            "word": " سبک",
+            "probability": 0.9065660436948141
+          },
+          {
+            "start": 6.02,
+            "end": 6.52,
+            "word": " جدیدی",
+            "probability": 0.9953946709632874
+          },
+          {
+            "start": 6.52,
+            "end": 7.04,
+            "word": " استفاده",
+            "probability": 0.9988986253738403
+          },
+          {
+            "start": 7.04,
+            "end": 7.44,
+            "word": " بکنام",
+            "probability": 0.7402687536623489
+          },
+          {
+            "start": 7.44,
+            "end": 7.58,
+            "word": " کہ",
+            "probability": 0.49817274567237746
+          },
+          {
+            "start": 7.58,
+            "end": 7.92,
+            "word": " برامن",
+            "probability": 0.665998359133179
+          },
+          {
+            "start": 7.92,
+            "end": 8.44,
+            "word": " درآمت",
+            "probability": 0.8088742428517435
+          },
+          {
+            "start": 8.44,
+            "end": 8.78,
+            "word": " دشته",
+            "probability": 0.6661464112500349
+          },
+          {
+            "start": 8.78,
+            "end": 9.24,
+            "word": " بشه؟",
+            "probability": 0.64439732208848
+          },
+          {
+            "start": 9.24,
+            "end": 9.8,
+            "word": " پس",
+            "probability": 0.9709414541721344
+          },
+          {
+            "start": 9.8,
+            "end": 10.1,
+            "word": " در",
+            "probability": 0.9861641526222229
+          },
+          {
+            "start": 10.1,
+            "end": 10.46,
+            "word": " آمت‌",
+            "probability": 0.4253023359924555
+          },
+          {
+            "start": 10.46,
+            "end": 10.84,
+            "word": " داشتن",
+            "probability": 0.9227132499217987
+          },
+          {
+            "start": 10.84,
+            "end": 11.42,
+            "word": " معمولاً",
+            "probability": 0.8254106968641282
+          },
+          {
+            "start": 11.42,
+            "end": 11.6,
+            "word": " دوست.",
+            "probability": 0.6034254829088846
+          }
+        ]
+      }
+    ]
+  }
+}

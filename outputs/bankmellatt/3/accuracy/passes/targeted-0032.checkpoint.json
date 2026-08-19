@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "8b3a7fcea2f146c00df1369424aa4a12696b0675b849f5b8dec448f4b948edbc",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.12,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.1,
+        "text": "اقتصاد بر زندگی شما بیشتره. خب ما نسبت به درامتمون که آگاهی داریم، معمولا ماها که حقوق بگیر هستیم",
+        "avg_logprob": -0.1441282290033996,
+        "compression_ratio": 1.4,
+        "no_speech_prob": 2.3217609779191406e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.84,
+            "word": " اقتصاد",
+            "probability": 0.9958789050579071
+          },
+          {
+            "start": 0.84,
+            "end": 1.08,
+            "word": " بر",
+            "probability": 0.9932534396648407
+          },
+          {
+            "start": 1.08,
+            "end": 1.58,
+            "word": " زندگی",
+            "probability": 0.9929754287004471
+          },
+          {
+            "start": 1.58,
+            "end": 1.92,
+            "word": " شما",
+            "probability": 0.9957381188869476
+          },
+          {
+            "start": 1.92,
+            "end": 2.54,
+            "word": " بیشتره.",
+            "probability": 0.9988064467906952
+          },
+          {
+            "start": 2.66,
+            "end": 3.3,
+            "word": " خب",
+            "probability": 0.98081174492836
+          },
+          {
+            "start": 3.3,
+            "end": 3.46,
+            "word": " ما",
+            "probability": 0.9826979041099548
+          },
+          {
+            "start": 3.46,
+            "end": 3.88,
+            "word": " نسبت",
+            "probability": 0.9945082068443298
+          },
+          {
+            "start": 3.88,
+            "end": 3.98,
+            "word": " به",
+            "probability": 0.9977388381958008
+          },
+          {
+            "start": 3.98,
+            "end": 4.7,
+            "word": " درامتمون",
+            "probability": 0.8396962642669678
+          },
+          {
+            "start": 4.7,
+            "end": 4.88,
+            "word": " که",
+            "probability": 0.9995582699775696
+          },
+          {
+            "start": 4.88,
+            "end": 5.26,
+            "word": " آگاهی",
+            "probability": 0.9869363605976105
+          },
+          {
+            "start": 5.26,
+            "end": 5.78,
+            "word": " داریم،",
+            "probability": 0.8012739306315779
+          },
+          {
+            "start": 5.78,
+            "end": 6.62,
+            "word": " معمولا",
+            "probability": 0.9834654629230499
+          },
+          {
+            "start": 6.62,
+            "end": 6.92,
+            "word": " ماها",
+            "probability": 0.770278662443161
+          },
+          {
+            "start": 6.92,
+            "end": 7.12,
+            "word": " که",
+            "probability": 0.8964682519435883
+          },
+          {
+            "start": 7.12,
+            "end": 7.44,
+            "word": " حقوق",
+            "probability": 0.999181310335795
+          },
+          {
+            "start": 7.44,
+            "end": 7.78,
+            "word": " بگیر",
+            "probability": 0.9231733232736588
+          },
+          {
+            "start": 7.78,
+            "end": 8.1,
+            "word": " هستیم",
+            "probability": 0.9565317034721375
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "6973261d226c12211daf82369e1373e2d95477cbf7554713162114361dc51879",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.9,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.74,
+        "text": "یعنی حزینه‌هاش از درامتش بیشتره. وقتی مثلا دولت میگه مردم تحت فشار اقتصادی هستن، یعني چی؟ یع니 حزينه‌های زندگی بالاتر از",
+        "avg_logprob": -0.20239375255726003,
+        "compression_ratio": 1.4379084967320261,
+        "no_speech_prob": 2.56160703759889e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.48,
+            "word": " یعنی",
+            "probability": 0.9179568588733673
+          },
+          {
+            "start": 0.48,
+            "end": 1.24,
+            "word": " حزینه‌هاش",
+            "probability": 0.7324083309088435
+          },
+          {
+            "start": 1.24,
+            "end": 1.4,
+            "word": " از",
+            "probability": 0.9621659517288208
+          },
+          {
+            "start": 1.4,
+            "end": 1.92,
+            "word": " درامتش",
+            "probability": 0.7804025650024414
+          },
+          {
+            "start": 1.92,
+            "end": 2.48,
+            "word": " بیشتره.",
+            "probability": 0.9803109665711721
+          },
+          {
+            "start": 2.62,
+            "end": 3.18,
+            "word": " وقتی",
+            "probability": 0.9846003254254659
+          },
+          {
+            "start": 3.18,
+            "end": 3.46,
+            "word": " مثلا",
+            "probability": 0.9621213972568512
+          },
+          {
+            "start": 3.46,
+            "end": 3.96,
+            "word": " دولت",
+            "probability": 0.9739845792452494
+          },
+          {
+            "start": 3.96,
+            "end": 4.24,
+            "word": " میگه",
+            "probability": 0.8730390071868896
+          },
+          {
+            "start": 4.24,
+            "end": 4.64,
+            "word": " مردم",
+            "probability": 0.9599411487579346
+          },
+          {
+            "start": 4.64,
+            "end": 4.96,
+            "word": " تحت",
+            "probability": 0.991409569978714
+          },
+          {
+            "start": 4.96,
+            "end": 5.5,
+            "word": " فشار",
+            "probability": 0.9969313144683838
+          },
+          {
+            "start": 5.5,
+            "end": 6.18,
+            "word": " اقتصادی",
+            "probability": 0.9953179001808167
+          },
+          {
+            "start": 6.18,
+            "end": 6.78,
+            "word": " هستن،",
+            "probability": 0.7545691002160311
+          },
+          {
+            "start": 6.78,
+            "end": 6.92,
+            "word": " یعني",
+            "probability": 0.6641691097077759
+          },
+          {
+            "start": 6.92,
+            "end": 7.4,
+            "word": " چی؟",
+            "probability": 0.9487946828206381
+          },
+          {
+            "start": 7.4,
+            "end": 7.94,
+            "word": " یع니",
+            "probability": 0.6546179609552686
+          },
+          {
+            "start": 7.94,
+            "end": 8.72,
+            "word": " حزينه‌های",
+            "probability": 0.837341261628483
+          },
+          {
+            "start": 8.72,
+            "end": 9.16,
+            "word": " زندگی",
+            "probability": 0.993026539683342
+          },
+          {
+            "start": 9.16,
+            "end": 9.62,
+            "word": " بالاتر",
+            "probability": 0.8219747940699259
+          },
+          {
+            "start": 9.62,
+            "end": 9.74,
+            "word": " از",
+            "probability": 0.9835962653160095
+          }
+        ]
+      }
+    ]
+  }
+}

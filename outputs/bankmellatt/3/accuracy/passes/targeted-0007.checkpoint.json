@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "c26db8c3f85e5ea05e57409284cd85e0feac81d1a3162d414b1bd52b8d7c8cac",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.1,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.98,
+        "text": "آله بریم بالاتر و وارده تقلای مالی بشیم. اگر تو تقلّای مالم، بری‌م بالتر به تعادل برسین و بعد امنیت مالي و بعدش هم آزادی ملی. سواد مال در واقع",
+        "avg_logprob": -0.3166311298581687,
+        "compression_ratio": 1.6710526315789473,
+        "no_speech_prob": 2.1018001228334526e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.14,
+            "word": " آله",
+            "probability": 0.007109398080501705
+          },
+          {
+            "start": 0.14,
+            "end": 0.44,
+            "word": " بریم",
+            "probability": 0.9301920533180237
+          },
+          {
+            "start": 0.44,
+            "end": 0.86,
+            "word": " بالاتر",
+            "probability": 0.9383284250895182
+          },
+          {
+            "start": 0.86,
+            "end": 0.92,
+            "word": " و",
+            "probability": 0.95612633228302
+          },
+          {
+            "start": 0.92,
+            "end": 1.22,
+            "word": " وارده",
+            "probability": 0.8976977616548538
+          },
+          {
+            "start": 1.22,
+            "end": 1.76,
+            "word": " تقلای",
+            "probability": 0.9047582596540451
+          },
+          {
+            "start": 1.76,
+            "end": 2.08,
+            "word": " مالی",
+            "probability": 0.9950445493062338
+          },
+          {
+            "start": 2.08,
+            "end": 2.6,
+            "word": " بشیم.",
+            "probability": 0.9472751766443253
+          },
+          {
+            "start": 2.86,
+            "end": 3.5,
+            "word": " اگر",
+            "probability": 0.994524617989858
+          },
+          {
+            "start": 3.5,
+            "end": 3.56,
+            "word": " تو",
+            "probability": 0.9354962706565857
+          },
+          {
+            "start": 3.56,
+            "end": 4.12,
+            "word": " تقلّای",
+            "probability": 0.6644994764161917
+          },
+          {
+            "start": 4.12,
+            "end": 4.68,
+            "word": " مالم،",
+            "probability": 0.35370685924620676
+          },
+          {
+            "start": 4.68,
+            "end": 4.96,
+            "word": " بری‌م",
+            "probability": 0.6240715317362628
+          },
+          {
+            "start": 4.96,
+            "end": 5.5,
+            "word": " بالتر",
+            "probability": 0.6412350522975127
+          },
+          {
+            "start": 5.5,
+            "end": 5.62,
+            "word": " به",
+            "probability": 0.8381624221801758
+          },
+          {
+            "start": 5.62,
+            "end": 6.18,
+            "word": " تعادل",
+            "probability": 0.901335080464681
+          },
+          {
+            "start": 6.18,
+            "end": 6.68,
+            "word": " برسین",
+            "probability": 0.7723319046199322
+          },
+          {
+            "start": 6.68,
+            "end": 6.86,
+            "word": " و",
+            "probability": 0.9381212592124939
+          },
+          {
+            "start": 6.86,
+            "end": 7.1,
+            "word": " بعد",
+            "probability": 0.9560018181800842
+          },
+          {
+            "start": 7.1,
+            "end": 7.56,
+            "word": " امنیت",
+            "probability": 0.9331826865673065
+          },
+          {
+            "start": 7.56,
+            "end": 7.94,
+            "word": " مالي",
+            "probability": 0.6562562333419919
+          },
+          {
+            "start": 7.94,
+            "end": 8.12,
+            "word": " و",
+            "probability": 0.9143466949462891
+          },
+          {
+            "start": 8.12,
+            "end": 8.48,
+            "word": " بعدش",
+            "probability": 0.8730656206607819
+          },
+          {
+            "start": 8.48,
+            "end": 8.62,
+            "word": " هم",
+            "probability": 0.6555710881948471
+          },
+          {
+            "start": 8.62,
+            "end": 9.2,
+            "word": " آزادی",
+            "probability": 0.7916714958846569
+          },
+          {
+            "start": 9.2,
+            "end": 9.62,
+            "word": " ملی.",
+            "probability": 0.6519590904548144
+          },
+          {
+            "start": 10.18,
+            "end": 10.9,
+            "word": " سواد",
+            "probability": 0.8430647055308024
+          },
+          {
+            "start": 10.9,
+            "end": 11.2,
+            "word": " مال",
+            "probability": 0.9845371842384338
+          },
+          {
+            "start": 11.2,
+            "end": 11.56,
+            "word": " در",
+            "probability": 0.49691320454803645
+          },
+          {
+            "start": 11.56,
+            "end": 11.98,
+            "word": " واقع",
+            "probability": 0.9853954712549845
+          }
+        ]
+      }
+    ]
+  }
+}

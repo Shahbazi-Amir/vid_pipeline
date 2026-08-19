@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "d61ec712c08167a0c1e39df2ab7e84f18f56921da0d47aa19c450f077c2eeeeb",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.92,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.9,
+        "text": "عرض می‌گیریم و می‌دونیم که بدهکاریم. می‌‌دوانیم بده‌کارین یعنی چی؟ یعني هز این‌ها بیشتر از در آمده‌مونه. این فاصله‌ی بی‌شتری.",
+        "avg_logprob": -0.33377069569705575,
+        "compression_ratio": 1.6573426573426573,
+        "no_speech_prob": 3.1384370102749415e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.22,
+            "word": " عرض",
+            "probability": 0.6514992415904999
+          },
+          {
+            "start": 0.22,
+            "end": 0.88,
+            "word": " می‌گیریم",
+            "probability": 0.8477756679058075
+          },
+          {
+            "start": 0.88,
+            "end": 1.14,
+            "word": " و",
+            "probability": 0.9605942964553833
+          },
+          {
+            "start": 1.14,
+            "end": 1.58,
+            "word": " می‌دونیم",
+            "probability": 0.9713478783766428
+          },
+          {
+            "start": 1.58,
+            "end": 1.72,
+            "word": " که",
+            "probability": 0.9441411793231964
+          },
+          {
+            "start": 1.72,
+            "end": 2.52,
+            "word": " بدهکاریم.",
+            "probability": 0.848884661992391
+          },
+          {
+            "start": 2.64,
+            "end": 3.08,
+            "word": " می‌‌دوانیم",
+            "probability": 0.7111844755272614
+          },
+          {
+            "start": 3.08,
+            "end": 3.7,
+            "word": " بده‌کارین",
+            "probability": 0.6187790783005767
+          },
+          {
+            "start": 3.7,
+            "end": 3.96,
+            "word": " یعنی",
+            "probability": 0.9512727409601212
+          },
+          {
+            "start": 3.96,
+            "end": 4.18,
+            "word": " چی؟",
+            "probability": 0.6947362820307413
+          },
+          {
+            "start": 4.18,
+            "end": 4.34,
+            "word": " یعني",
+            "probability": 0.648834383697249
+          },
+          {
+            "start": 4.34,
+            "end": 4.6,
+            "word": " هز",
+            "probability": 0.8685280680656433
+          },
+          {
+            "start": 4.6,
+            "end": 4.84,
+            "word": " این‌ها",
+            "probability": 0.6728684976696968
+          },
+          {
+            "start": 4.84,
+            "end": 5.42,
+            "word": " بیشتر",
+            "probability": 0.8098602682352066
+          },
+          {
+            "start": 5.42,
+            "end": 5.54,
+            "word": " از",
+            "probability": 0.9857794642448425
+          },
+          {
+            "start": 5.54,
+            "end": 5.76,
+            "word": " در",
+            "probability": 0.9592592716217041
+          },
+          {
+            "start": 5.76,
+            "end": 6.42,
+            "word": " آمده‌مونه.",
+            "probability": 0.8891041502356529
+          },
+          {
+            "start": 6.7,
+            "end": 7.22,
+            "word": " این",
+            "probability": 0.9635742008686066
+          },
+          {
+            "start": 7.22,
+            "end": 8.26,
+            "word": " فاصله‌ی",
+            "probability": 0.861828625202179
+          },
+          {
+            "start": 8.26,
+            "end": 8.9,
+            "word": " بی‌شتری.",
+            "probability": 0.531004653001825
+          }
+        ]
+      }
+    ]
+  }
+}

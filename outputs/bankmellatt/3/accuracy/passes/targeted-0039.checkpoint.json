@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "a1880d5e3d8ab007cfeabf6ce8d747f5b20e4421ca3b4195de8b0cd51ab3db64",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.06,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.98,
+        "text": "کامون به شیوه‌ی جدیدی استفاده بکنیم. و این سخته، امروز من نمیتونم در آمدم رو افضایش بدم. باید یه دو سه ماهی کار بکرنم.",
+        "avg_logprob": -0.1717544941298933,
+        "compression_ratio": 1.4551724137931035,
+        "no_speech_prob": 1.9296719777628368e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.24,
+            "word": " کامون",
+            "probability": 0.544575081517299
+          },
+          {
+            "start": 0.24,
+            "end": 0.38,
+            "word": " به",
+            "probability": 0.9921852946281433
+          },
+          {
+            "start": 0.38,
+            "end": 0.82,
+            "word": " شیوه‌ی",
+            "probability": 0.8290215398495396
+          },
+          {
+            "start": 0.82,
+            "end": 1.3,
+            "word": " جدیدی",
+            "probability": 0.9960714340209961
+          },
+          {
+            "start": 1.3,
+            "end": 1.94,
+            "word": " استفاده",
+            "probability": 0.9989390820264816
+          },
+          {
+            "start": 1.94,
+            "end": 2.52,
+            "word": " بکنیم.",
+            "probability": 0.9510318279266358
+          },
+          {
+            "start": 2.92,
+            "end": 3.52,
+            "word": " و",
+            "probability": 0.8524488210678101
+          },
+          {
+            "start": 3.52,
+            "end": 3.68,
+            "word": " این",
+            "probability": 0.9934098422527313
+          },
+          {
+            "start": 3.68,
+            "end": 4.42,
+            "word": " سخته،",
+            "probability": 0.7562176585197449
+          },
+          {
+            "start": 4.42,
+            "end": 5.04,
+            "word": " امروز",
+            "probability": 0.9940448701381683
+          },
+          {
+            "start": 5.04,
+            "end": 5.18,
+            "word": " من",
+            "probability": 0.9461638331413269
+          },
+          {
+            "start": 5.18,
+            "end": 5.74,
+            "word": " نمیتونم",
+            "probability": 0.8631504476070404
+          },
+          {
+            "start": 5.74,
+            "end": 5.98,
+            "word": " در",
+            "probability": 0.982612669467926
+          },
+          {
+            "start": 5.98,
+            "end": 6.28,
+            "word": " آمدم",
+            "probability": 0.8671793937683105
+          },
+          {
+            "start": 6.28,
+            "end": 6.58,
+            "word": " رو",
+            "probability": 0.8989885151386261
+          },
+          {
+            "start": 6.58,
+            "end": 7.24,
+            "word": " افضایش",
+            "probability": 0.9656295875708262
+          },
+          {
+            "start": 7.24,
+            "end": 7.56,
+            "word": " بدم.",
+            "probability": 0.9769321084022522
+          },
+          {
+            "start": 7.8,
+            "end": 8.26,
+            "word": " باید",
+            "probability": 0.9430846869945526
+          },
+          {
+            "start": 8.26,
+            "end": 8.34,
+            "word": " یه",
+            "probability": 0.8215977847576141
+          },
+          {
+            "start": 8.34,
+            "end": 8.5,
+            "word": " دو",
+            "probability": 0.9315272569656372
+          },
+          {
+            "start": 8.5,
+            "end": 8.7,
+            "word": " سه",
+            "probability": 0.7273717224597931
+          },
+          {
+            "start": 8.7,
+            "end": 8.98,
+            "word": " ماهی",
+            "probability": 0.9928792516390482
+          },
+          {
+            "start": 8.98,
+            "end": 9.38,
+            "word": " کار",
+            "probability": 0.9876553118228912
+          },
+          {
+            "start": 9.38,
+            "end": 9.98,
+            "word": " بکرنم.",
+            "probability": 0.6689034831011668
+          }
+        ]
+      }
+    ]
+  }
+}

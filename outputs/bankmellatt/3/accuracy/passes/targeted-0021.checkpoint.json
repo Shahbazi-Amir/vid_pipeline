@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "47228e97dde6348f74265d11c15cffff896a167fa8905eed2e2f9f22c35bc7b0",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.46,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.44,
+        "text": "آدام‌های من برای زندگی من کافی نیست و این تلقی درستیه، آدم‌ها معمولا پولشون برا ی زنده‌گیشون کافي نیز و راه داره که به این کفایت بره.",
+        "avg_logprob": -0.21360942617405293,
+        "compression_ratio": 1.6575342465753424,
+        "no_speech_prob": 2.3106812296891377e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.16,
+            "word": " آدام‌های",
+            "probability": 0.4369750954210758
+          },
+          {
+            "start": 0.16,
+            "end": 0.42,
+            "word": " من",
+            "probability": 0.927348792552948
+          },
+          {
+            "start": 0.42,
+            "end": 0.9,
+            "word": " برای",
+            "probability": 0.9696438113848368
+          },
+          {
+            "start": 0.9,
+            "end": 1.46,
+            "word": " زندگی",
+            "probability": 0.9973214715719223
+          },
+          {
+            "start": 1.46,
+            "end": 1.7,
+            "word": " من",
+            "probability": 0.9672942757606506
+          },
+          {
+            "start": 1.7,
+            "end": 2.18,
+            "word": " کافی",
+            "probability": 0.9927121798197428
+          },
+          {
+            "start": 2.18,
+            "end": 2.46,
+            "word": " نیست",
+            "probability": 0.9935687383015951
+          },
+          {
+            "start": 2.46,
+            "end": 3.0,
+            "word": " و",
+            "probability": 0.794526994228363
+          },
+          {
+            "start": 3.0,
+            "end": 3.16,
+            "word": " این",
+            "probability": 0.9931306540966034
+          },
+          {
+            "start": 3.16,
+            "end": 3.86,
+            "word": " تلقی",
+            "probability": 0.9422575235366821
+          },
+          {
+            "start": 3.86,
+            "end": 4.9,
+            "word": " درستیه،",
+            "probability": 0.8235901867349943
+          },
+          {
+            "start": 4.9,
+            "end": 5.84,
+            "word": " آدم‌ها",
+            "probability": 0.9816898703575134
+          },
+          {
+            "start": 5.84,
+            "end": 6.5,
+            "word": " معمولا",
+            "probability": 0.9552121013402939
+          },
+          {
+            "start": 6.5,
+            "end": 7.04,
+            "word": " پولشون",
+            "probability": 0.80387943983078
+          },
+          {
+            "start": 7.04,
+            "end": 7.3,
+            "word": " برا",
+            "probability": 0.9755813181400299
+          },
+          {
+            "start": 7.3,
+            "end": 7.4,
+            "word": " ی",
+            "probability": 0.0003405692696105689
+          },
+          {
+            "start": 7.4,
+            "end": 8.1,
+            "word": " زنده‌گیشون",
+            "probability": 0.7538410297165683
+          },
+          {
+            "start": 8.1,
+            "end": 8.68,
+            "word": " کافي",
+            "probability": 0.6606403871580065
+          },
+          {
+            "start": 8.68,
+            "end": 8.96,
+            "word": " نیز",
+            "probability": 0.6658059956583505
+          },
+          {
+            "start": 8.96,
+            "end": 9.24,
+            "word": " و",
+            "probability": 0.9111722707748413
+          },
+          {
+            "start": 9.24,
+            "end": 9.78,
+            "word": " راه",
+            "probability": 0.9919344782829285
+          },
+          {
+            "start": 9.78,
+            "end": 10.1,
+            "word": " داره",
+            "probability": 0.979612390200297
+          },
+          {
+            "start": 10.1,
+            "end": 10.22,
+            "word": " که",
+            "probability": 0.992378294467926
+          },
+          {
+            "start": 10.22,
+            "end": 10.34,
+            "word": " به",
+            "probability": 0.9828869700431824
+          },
+          {
+            "start": 10.34,
+            "end": 10.44,
+            "word": " این",
+            "probability": 0.9891338050365448
+          },
+          {
+            "start": 10.44,
+            "end": 11.12,
+            "word": " کفایت",
+            "probability": 0.9881019711494445
+          },
+          {
+            "start": 11.12,
+            "end": 11.44,
+            "word": " بره.",
+            "probability": 0.9838211536407471
+          }
+        ]
+      }
+    ]
+  }
+}

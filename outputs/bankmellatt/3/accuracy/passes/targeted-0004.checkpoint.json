@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "adcb57191df8a715f14ea44c966429bb85d767bdaf95a57286cdf6a9ec986cfd",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 14.28,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.94,
+        "text": "حضیت آشوبناکی تو ذهن ما ایجاد می‌کنه. این فشار زندگی چیه؟ و واقعا ماهیت دقیقش چطوریه که ما بتونیم اون رو از رودوش خودمون برداریم؟",
+        "avg_logprob": -0.148710485547781,
+        "compression_ratio": 1.481012658227848,
+        "no_speech_prob": 2.36929059704849e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.18,
+            "word": " حضیت",
+            "probability": 0.4433506317436695
+          },
+          {
+            "start": 0.18,
+            "end": 1.14,
+            "word": " آشوبناکی",
+            "probability": 0.9762751956780752
+          },
+          {
+            "start": 1.14,
+            "end": 1.24,
+            "word": " تو",
+            "probability": 0.9475011825561523
+          },
+          {
+            "start": 1.24,
+            "end": 1.54,
+            "word": " ذهن",
+            "probability": 0.8383362491925558
+          },
+          {
+            "start": 1.54,
+            "end": 1.68,
+            "word": " ما",
+            "probability": 0.992526650428772
+          },
+          {
+            "start": 1.68,
+            "end": 2.04,
+            "word": " ایجاد",
+            "probability": 0.9936814159154892
+          },
+          {
+            "start": 2.04,
+            "end": 2.5,
+            "word": " می‌کنه.",
+            "probability": 0.6885995909571647
+          },
+          {
+            "start": 2.68,
+            "end": 3.08,
+            "word": " این",
+            "probability": 0.9907159209251404
+          },
+          {
+            "start": 3.08,
+            "end": 3.52,
+            "word": " فشار",
+            "probability": 0.9951249361038208
+          },
+          {
+            "start": 3.52,
+            "end": 4.02,
+            "word": " زندگی",
+            "probability": 0.9963941127061844
+          },
+          {
+            "start": 4.02,
+            "end": 4.76,
+            "word": " چیه؟",
+            "probability": 0.9348928928375244
+          },
+          {
+            "start": 4.76,
+            "end": 5.24,
+            "word": " و",
+            "probability": 0.5503765940666199
+          },
+          {
+            "start": 5.24,
+            "end": 6.0,
+            "word": " واقعا",
+            "probability": 0.9932095110416412
+          },
+          {
+            "start": 6.0,
+            "end": 6.9,
+            "word": " ماهیت",
+            "probability": 0.8922411799430847
+          },
+          {
+            "start": 6.9,
+            "end": 7.74,
+            "word": " دقیقش",
+            "probability": 0.9685353398323059
+          },
+          {
+            "start": 7.74,
+            "end": 8.5,
+            "word": " چطوریه",
+            "probability": 0.9879529237747192
+          },
+          {
+            "start": 8.5,
+            "end": 9.1,
+            "word": " که",
+            "probability": 0.970704197883606
+          },
+          {
+            "start": 9.1,
+            "end": 9.18,
+            "word": " ما",
+            "probability": 0.9922680258750916
+          },
+          {
+            "start": 9.18,
+            "end": 9.7,
+            "word": " بتونیم",
+            "probability": 0.9793572574853897
+          },
+          {
+            "start": 9.7,
+            "end": 10.16,
+            "word": " اون",
+            "probability": 0.9752740263938904
+          },
+          {
+            "start": 10.16,
+            "end": 10.28,
+            "word": " رو",
+            "probability": 0.6527927219867706
+          },
+          {
+            "start": 10.28,
+            "end": 10.44,
+            "word": " از",
+            "probability": 0.994534432888031
+          },
+          {
+            "start": 10.44,
+            "end": 10.76,
+            "word": " رودوش",
+            "probability": 0.9146579056978226
+          },
+          {
+            "start": 10.76,
+            "end": 11.2,
+            "word": " خودمون",
+            "probability": 0.9712517857551575
+          },
+          {
+            "start": 11.2,
+            "end": 11.94,
+            "word": " برداریم؟",
+            "probability": 0.8908657687050956
+          }
+        ]
+      }
+    ]
+  }
+}

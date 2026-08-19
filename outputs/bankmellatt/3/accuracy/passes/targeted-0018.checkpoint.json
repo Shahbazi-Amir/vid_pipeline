@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "99abe275f89ede2250c320a0ff26442f34188523843133e13641128dbee5007b",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.18,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.16,
+        "text": "با بیشتر کردن درامت پرو بکنم. اگر ما ها آدم‌های معمولی و سالمی باشیم، همه من به این فکر می‌کنیم که درآمت ما کافی.",
+        "avg_logprob": -0.20737574781690324,
+        "compression_ratio": 1.4926470588235294,
+        "no_speech_prob": 1.9651243132745577e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.38,
+            "word": " با",
+            "probability": 0.49114010168705136
+          },
+          {
+            "start": 0.38,
+            "end": 0.84,
+            "word": " بیشتر",
+            "probability": 0.9853515625
+          },
+          {
+            "start": 0.84,
+            "end": 1.26,
+            "word": " کردن",
+            "probability": 0.999618132909139
+          },
+          {
+            "start": 1.26,
+            "end": 1.86,
+            "word": " درامت",
+            "probability": 0.9775277823209763
+          },
+          {
+            "start": 1.86,
+            "end": 2.08,
+            "word": " پرو",
+            "probability": 0.4968971610069275
+          },
+          {
+            "start": 2.08,
+            "end": 2.52,
+            "word": " بکنم.",
+            "probability": 0.8411985486745834
+          },
+          {
+            "start": 2.72,
+            "end": 3.36,
+            "word": " اگر",
+            "probability": 0.999450147151947
+          },
+          {
+            "start": 3.36,
+            "end": 3.6,
+            "word": " ما",
+            "probability": 0.9877320528030396
+          },
+          {
+            "start": 3.6,
+            "end": 3.82,
+            "word": " ها",
+            "probability": 0.7401090860366821
+          },
+          {
+            "start": 3.82,
+            "end": 4.38,
+            "word": " آدم‌های",
+            "probability": 0.7951392565038986
+          },
+          {
+            "start": 4.38,
+            "end": 5.12,
+            "word": " معمولی",
+            "probability": 0.9947075247764587
+          },
+          {
+            "start": 5.12,
+            "end": 5.4,
+            "word": " و",
+            "probability": 0.9946435689926147
+          },
+          {
+            "start": 5.4,
+            "end": 6.12,
+            "word": " سالمی",
+            "probability": 0.9322780172030131
+          },
+          {
+            "start": 6.12,
+            "end": 6.8,
+            "word": " باشیم،",
+            "probability": 0.836774468421936
+          },
+          {
+            "start": 6.8,
+            "end": 7.2,
+            "word": " همه",
+            "probability": 0.8503572146097819
+          },
+          {
+            "start": 7.2,
+            "end": 7.28,
+            "word": " من",
+            "probability": 0.21806393563747406
+          },
+          {
+            "start": 7.28,
+            "end": 7.44,
+            "word": " به",
+            "probability": 0.9571679830551147
+          },
+          {
+            "start": 7.44,
+            "end": 7.56,
+            "word": " این",
+            "probability": 0.995026707649231
+          },
+          {
+            "start": 7.56,
+            "end": 7.86,
+            "word": " فکر",
+            "probability": 0.9944021304448446
+          },
+          {
+            "start": 7.86,
+            "end": 8.18,
+            "word": " می‌کنیم",
+            "probability": 0.9513513843218485
+          },
+          {
+            "start": 8.18,
+            "end": 8.3,
+            "word": " که",
+            "probability": 0.9894477427005768
+          },
+          {
+            "start": 8.3,
+            "end": 8.74,
+            "word": " درآمت",
+            "probability": 0.7266896870181275
+          },
+          {
+            "start": 8.74,
+            "end": 8.9,
+            "word": " ما",
+            "probability": 0.9896259903907776
+          },
+          {
+            "start": 8.9,
+            "end": 9.16,
+            "word": " کافی.",
+            "probability": 0.8897302349408468
+          }
+        ]
+      }
+    ]
+  }
+}

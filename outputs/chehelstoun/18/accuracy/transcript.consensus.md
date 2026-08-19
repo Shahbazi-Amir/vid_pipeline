@@ -1,0 +1,1125 @@
+# متن اجماعی چندمرحله‌ای
+
+> فقط از کاندیدهای ASR انتخاب شده است.
+
+[00:00:15.980 → 00:01:05.000] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+بنایی سرشده به نر، امارتی افراشده به فکر، خانه ای آکنده از خیر، چهلستون، چهل گفتگو در باره موانی که سواد مالی و تدبیر معیشت خانواده، کاری از رادیو گفتگو و آکادمی حوش مالی
+
+[00:01:05.000 → 00:01:24.830] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+به نام خداوند دانای توانای مهبان، سلام و عرض عدد به شما شنوندگان عزیز رادیو گفتگو با برنامه چهل ستون در خدمت شما هستیم تا در باقی سواد مالی و ستونهایی که بر معیشت و اقتصاد خانواده ما اثر گذاره هست گفتگو کنیم.
+
+[00:01:24.830 → 00:01:52.970] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+بنده حادی نجاف هستم و امروز با موضوع سواد مالی قبل از بازنشستگی، گفتگو میکنم با جنب آقای دکتر کمیل رودی، مدیر آکادمی حوش مالی و مهندس علی علی دوستی، مدیر مسئول نشری راه بوردهای بازنشستگی، شما هم از طریق اپلیکیشن ایران صدا همراه ما باشید و با شما رو پیامک سی هزار ده سی و پنج، شما رو تماسه 162 و ویب سایت رادیو گفتگو داتای آر، نظرات و پیش
+
+[00:02:14.280 → 00:02:21.480] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بیایید برای دقائقی چشمامون رو ببندیم و روزای بازنشستگی خودمون رو تصور کنیم
+
+[00:02:21.480 → 00:02:30.260] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+دیگه لازم نیست صبح زود از خواب بیدار بشیم و از خونه بزنیم بیرون و توی این ترافیک سنگین عمرمون رو تلف کنیم
+
+[00:02:30.260 → 00:02:44.120] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+می‌تونیم تا هر ساعتی که دلمون می‌خواد بخوابیم، بعد پاشیم و پیاد روی و نرمشی بکنیم و نونی بگیریم و بعد صرف صبحانه در کنار خانواده به مطالعه کتاب دلخواه‌مون بپردازیم.
+
+[00:02:44.800 → 00:02:52.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سر شب هم سروسده‌ی بچه‌ها و نوه‌ها من خونه‌ رو پر می‌کنه و نقمه‌ی زندگی رو تو خونه‌مون جاری می‌کنه.
+
+[00:02:52.000 → 00:03:05.400] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اکاش به همین شیرینی باشه، اما جالبه بدونید متوسط حقوق بازنشستگان با حدود سی درصد افزایش در سالی که گذشت، هنوز به چهار میلیون تومن نمیرسه
+
+[00:03:05.400 → 00:03:13.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پولی که جواب خورد و خوراک خانواده رو هم نمیده، چه برسه به این که جاره خونه، شارج و خرج دقادر مون
+
+[00:03:13.780 → 00:03:25.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+جور کردن حزینه ازدواج بچه هم که دیگه کمر شکنه و اگر از خیلی سال قبل برای این روزا پولی کنار نزاشته باشیم، دیگه هیچ کاریش نمیشه کردی
+
+[00:03:26.680 → 00:03:37.680] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+تلخه، اما باید بپذیریم که روز به روز قدرت و توان جسمی ماکاهش بیدا می کنه و در مقابل روز به روز حزینه های زندگی بیشتر و بیشتر می شه
+
+[00:03:37.680 → 00:03:52.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا چشما رو باز کنیم، خیلی بازتر و خوشحال باشیم که همین امروز این واقعیتها رو مرور کردیم و میتونیم با برنامه ریزی مالی دوران بازنشستگی بهتری داشته باشیم
+
+[00:03:52.180 → 00:04:03.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سواد مالی توضیح ها و راهکارهای خیلی مهم و متنوی برای دوران پیش از بازنشستگی داره که هدفش همین علاج واقع پیش از وقوعه
+
+[00:04:03.560 → 00:04:14.160] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سواد مالی پیش از بازنشستگی، یکی از ستونهای چهل ستون سواد مالیه که باید خیلی قبل تر از دوران بازنشستگی به فکرش باشیم
+
+[00:04:14.160 → 00:04:22.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چهل ستون، مجموع گفتگوهای رادیو گفتگو با متخصصان حوضه های مختلف در باره سواد مالیه
+
+[00:04:22.180 → 00:04:24.360] ⚠️ `multi_pass_disagreement`
+به چهل ستون خوش اومدید
+
+[00:04:48.490 → 00:04:57.150] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب در قسمت قبل صحبت کردیم در قبط با بازنشستگی و مسائل مالی که بازنشستگان با اون مواجه هستن
+
+[00:04:57.150 → 00:05:01.950] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نیاز دیدیم که در باقی قبل از بازنشستگی هم گفت‌وگو کنیم
+
+[00:05:01.950 → 00:05:05.490] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مباحثی هست که ما در دوره شاغل بودنمون
+
+[00:05:05.490 → 00:05:07.910] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا چه کارمند باشیم، چه غیر کارمند
+
+[00:05:07.910 → 00:05:11.830] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+باید به اون توجه بکنیم تا دوران بازنشستگی خوبی بوداشته باشیم
+
+[00:05:11.830 → 00:05:15.230] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چونه باقی مهندس علی دوستی خدمت شما سلام عرض می کنم
+
+[00:05:15.230 → 00:05:20.030] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بی مقدمه بفرمیم که اصلا پیش از بازنشستگی باید چی کار کنیم
+
+[00:05:20.030 → 00:05:23.250] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+فکر کنم قبل از این که وارد صحبت شما بشم
+
+[00:05:23.250 → 00:05:26.130] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+میخوایم یه سوال مطرح بکنم
+
+[00:05:27.490 → 00:05:29.170] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بهش نپردازم
+
+[00:05:29.170 → 00:05:34.150] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا توی خلال صحبت شاید بهتر بهش پرداختم
+
+[00:05:34.150 → 00:05:41.350] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+آیا یه کارمند خوب میتونیه باز شسته خوبم باشه؟
+
+[00:05:41.350 → 00:05:42.450]
+یعنی چی؟
+
+[00:05:42.450 → 00:05:47.790] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+برمیگردم به نکته که های دکتر رودی تو برنامه قبل اشاره کردند
+
+[00:05:47.790 → 00:05:50.970] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بحث لذت بردن از کار
+
+[00:05:50.970 → 00:06:05.410] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بعضی وقتا ما ذهنمون، خلقمون، روحیاتمون رو به صورت خیلی خیلی تکبعدی متمرکز میشیم بر کارمون
+
+[00:06:05.410 → 00:06:11.470] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و قاعدتاً تلاش میکنیم به عنوان کارمند خوب وقت زیادی رو توی کار بزنیم
+
+[00:06:11.470 → 00:06:19.370] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+آیا لزومن اگر اون رفتار رو از خودمون نشون بدیم، یه دوران بازشستگی خوب هم برای خودمون تزمین کردیم؟
+
+[00:06:19.370 → 00:06:27.730] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی نباید بیاییم به هواشی یه سری موارد، لاقل از یک مدتی یه توجهاتی بکنیم
+
+[00:06:27.730 → 00:06:39.550] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+از یه مدتی حواسمون باید باشه که باید یه حرکت رو متوقف کنیم یا یه حرکت جدیدی رو آغاز بکنیم
+
+[00:06:40.210 → 00:06:55.190] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اینا رو دارم از این جهت صحبت می‌کنم به واسطه این که خیلی وقتا ما از سازمان‌های بزرگ یا ارگان‌های دولتی خارج که می‌شیم نمی‌تونیم دقیقاً تداوم اون حرکت رو داشته باشیم
+
+[00:06:55.190 → 00:06:58.070] ⚠️ `multi_pass_disagreement`
+حالا می‌خوام به موارد شما بپردازم
+
+[00:06:58.070 → 00:07:03.070] ⚠️ `multi_pass_disagreement`
+این رو اشاره کردم از این جهت که توی ذهن شنوندگان عزیزمون این سؤال به وجود بیاد
+
+[00:07:03.070 → 00:07:08.250] ⚠️ `multi_pass_disagreement`
+و در خلال این صحبت ما دنبال پاسخ دادن به این سؤال ما باشند
+
+[00:07:08.250 → 00:07:12.330] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+انشاءالله سعی می‌کنیم تو انتهای موضوع‌مون جنبندی بکنیم
+
+[00:07:12.330 → 00:07:20.950] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی به تو خلاصه‌تر منظور اینه که ما قبل از بازنشستگی باید به تو موازی به نکات دیگه‌ای هم توجه بکنیم کم‌کم
+
+[00:07:20.950 → 00:07:25.530] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و اونها رو خورد خورد شروع بکنیم که بازنشستگی دفعی مثلا نداشته باشیم؟
+
+[00:07:25.530 → 00:07:30.910] ⚠️ `multi_pass_disagreement`
+بله که خب خیلی از منابع خارجی به عنوان بازنشستگی فازی از اشنام می‌برند
+
+[00:07:30.910 → 00:07:33.490] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سعی میکنیم، امروز خوب بهش پردازیم
+
+[00:07:33.490 → 00:07:39.370] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یکی از نکاتی که باید زمان بازشستگی بهش توجه بکنیم
+
+[00:07:39.370 → 00:07:42.770] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+من اینطور دوست دارم تعبیرش بکنیم که تمیز بازشسته بشم
+
+[00:07:43.590 → 00:07:49.990] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی چی؟ ما ادارت مختلف کار کردیم، بیمه های مختلفی رد کردیم
+
+[00:07:49.990 → 00:07:52.750] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حتی شاید دوتا صندوق بیمه بیمه همون رد شده باشه
+
+[00:07:52.750 → 00:07:55.630] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+همه همون میدونیم ها یه صندوق دیگه میدونیم
+
+[00:07:55.630 → 00:08:05.710] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حواستمون هست که یه جای دیگه صندوق بیمه رد شده ولی اختلاف بین دوتا صندوق بعضی وقتا بیش از ست ملیون تومنه برای جا به جای سوابق اون از اون صندوق به این صندوق
+
+[00:08:05.710 → 00:08:23.090] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+باید تلاش بکنیم توی یک فرایند نسبتاً زمانبری سوابقمون رو تجمیه بکنیم به بیمه های درمانیمون توجه بکنیم و به تعبیری ما فرایند بازشستگی رو تمیز بکنیم
+
+[00:08:23.090 → 00:08:49.590] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+آماده بشیم برای بازشازه، صرفاً به لحاظ قوانین اینجا مد نظرم هست، ما توی فرایند اداری خیلی به سمتی بریم که شست رفته باشه، پرونده شست رفتهی داشته باشه، تو پرانتز یه چیزی ارز بکار خدمتون، این الان یه شعنی داریم، یه جایگاهی داریم، یه قربی داریم، بعضی از قوانین برامون تسهیل شده تره
+
+[00:08:49.590 → 00:08:56.310] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اگر الان بهش توجه بکنیم، این اتفاق بهتریه برامون تا بخواییم بعدن بهش توجه بکنیم
+
+[00:08:56.310 → 00:09:00.230] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پس حواس همون به این باشه که سعی بکنیم تمیز بازشسته بشیم
+
+[00:09:00.230 → 00:09:05.570] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بحث دومی که خوبه بهش اشاره بکنیم، شناخت قوانین و قواعد بازشستگیه
+
+[00:09:06.550 → 00:09:14.730] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی چه در حقیقت چه مذایعی به فرد تعلق میگیره، شرایط بیمش چجور تغییر میکنه
+
+[00:09:14.730 → 00:09:21.210] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+من چی کار بکنم توی این سنوات آخرم که مثلا گروه هم یه جور دیگه محاسبه بشه؟
+
+[00:09:21.210 → 00:09:24.170] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نه حالا لزو من خدایی نکرده سو استفاده از قوانین
+
+[00:09:24.170 → 00:09:30.990] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی من چی کار بکنم که به حقوقی که باید بر موقع بازشستگی بهش دست پیدا بکنم دست پیدا بکنم
+
+[00:09:30.990 → 00:09:35.370] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مثال میزنم من یه جایگاهی رو الان منصوبم توی این جایگاه
+
+[00:09:35.370 → 00:09:41.530] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حکمی که باید داشته باشم لزو من برای اینکه اعمال بشه توی فیش حقوقیم رو
+
+[00:09:41.530 → 00:10:09.710] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+توی اداره بهم دادن، نه بردم منزل بعدن، بعدن خیلی دستفاسی به این حکم توی پروندن برام راحت نیست، برام ببینم فیش حقوقیم دقیقا اون جایگاه الانم اعمال شده، حتی برنامزی بکنم برای رشد سازمانی، متناسق با اون رشد سازمانی به فکر بازشستگی باشم، من شاید مثلا میگم، مثلا میزنم، شاید اگه تلاش بکنم یه مدرک تحصیلی بگیرم، این اتفاق مصبتی توی بازشستگی میفته،
+
+[00:10:09.710 → 00:10:17.590] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+شاید اگه دو سال سنوات آخر خدمت هم رو برم یه جایی، یه سال آخر خدمت هم رو اونجا مشغول بشم، این اتفاق مناسب تری بیفته
+
+[00:10:17.590 → 00:10:25.490] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+شاید اگه جایی شغلی واقعی رو تلاش بکنم، رای زنی بکنم، به دست بیارم، این اتفاق مناسب تری بیارم
+
+[00:10:25.490 → 00:10:30.670] ⚠️ `multi_pass_disagreement`
+پس باید قوانی بازشستگی رو بهش توجه بکنیم و بشنستیم
+
+[00:10:30.670 → 00:10:34.930] ⚠️ `multi_pass_disagreement`
+جدایی از این که گفتیم بیمه اونو تکبیل بکنیم و اتفاقاتی نظیبان
+
+[00:10:34.930 → 00:10:39.010] ⚠️ `multi_pass_disagreement`
+نکته بعدی شناخت مزایه بازشستگیه
+
+[00:10:40.810 → 00:10:48.350] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سازمانه ها نوعاً به افراد یه مزایه میدن به واسطه بازشسته شدنشون
+
+[00:10:48.850 → 00:10:57.270] ⚠️ `multi_pass_disagreement`
+من سفر رایگان، خدمات درمانی، خدمات استرخ، فرض به فهم مزیدی مثل زیافت
+
+[00:10:57.270 → 00:11:05.810] ⚠️ `multi_pass_disagreement`
+یا خیلی اتفاقات دیگه، حتی تحصیلات برای فرزندان، یه مذایی های هر کنون از آزمان ها حسب کار خودشون
+
+[00:11:06.950 → 00:11:13.950] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یکی از اتفاقات با مذایی که میفته، حالا دلائل داره ها که چرا این اتفاق نمیتونه بیفته
+
+[00:11:13.950 → 00:11:19.710] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+باز هستان خیلی وقتا متلع نیستن که میتونن از این مذایی ها استفاده بکنن
+
+[00:11:19.710 → 00:11:22.810] ⚠️ `multi_pass_disagreement`
+اطلاع رسانی خوبی بهشون صورت نمیگیره
+
+[00:11:23.510 → 00:11:26.710] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اسمس میره توجه نمی کنن به خاطر سنشون
+
+[00:11:26.710 → 00:11:36.290] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خیلی شبک‌های اجتماعی ارتباطات خوبی نمی‌تونن بگیرن و خیلی وقتا بازشسته‌ها متلع نیستن از امکاناتی که در اختیارشون قرار می‌گیره
+
+[00:11:36.290 → 00:11:47.210] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+به خصوص تو سازبان‌های بزرگ، تعدد نیروی بازشسته و عدم اترارسانی مناسب، عدم در دسترس بودن دفاتر، دفاتر فیزیکی
+
+[00:11:47.210 → 00:11:59.530] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خیلی وقتا عدم ارتباط گیری مناسب بازشسته با سیستمای رایانهی سبب این میشه که بازشسته اطرار سانی مناسبی نداشته باشه نسبت به موضوع آگاه نشه
+
+[00:11:59.530 → 00:12:06.930] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خیلی خوبه که قبل از بازشستگی حواستمون باشه آقا یه سازمانی هست که ما بازشسته بشید باید به اونجا مراجعه بکنیم
+
+[00:12:06.930 → 00:12:14.570] ⚠️ `multi_pass_disagreement`
+حتی کانون کجاست، ادار کل ما کجاست، باید کجا برم، باید برای درمانم کجا برم
+
+[00:12:14.570 → 00:12:28.630] ⚠️ `multi_pass_disagreement`
+بلاخره باید خوبه که تو زمان بازشستگی یه توجهی بکنم، یه فرصت یه خوب سازمانم باید خودش رو مکلف بکنی دفترچه هایی برای ورود به فضای بازشستگی در اختیار کارکنانشون قرار بدن
+
+[00:12:30.450 → 00:12:34.530] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نکته بعدی، بازشستگی برنام ریزی شده است
+
+[00:12:34.530 → 00:12:38.510] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+من نباید با یک پدیده نابهنگام رو به رو بشم
+
+[00:12:38.510 → 00:12:41.250] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خدایی نکرده سیل که قرار نیست بیاد که
+
+[00:12:41.250 → 00:12:44.190] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+زلزله که نمیشه که نسبت بهش وقوف نداشته باشم
+
+[00:12:44.190 → 00:12:48.650] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+باید بدونم من چهار سال دیگه قرار بازشست بشم
+
+[00:12:48.650 → 00:12:50.410] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پنگ سال دیگه قرار بازشست بشم
+
+[00:12:50.410 → 00:12:54.710] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و از توی یک فرایند پنگ سال خودمون برای اون پدیده آماده بکنم
+
+[00:12:54.710 → 00:13:01.230] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+هم به لحاظ ذهنی، هم به لحاظ موقعیتی، هم به لحاظ تصور کسب و کار
+
+[00:13:01.230 → 00:13:03.430] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+من پنگ سال دیگه کجام؟
+
+[00:13:03.430 → 00:13:05.190] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+فرزندم میخواد اززواج بکنم
+
+[00:13:06.690 → 00:13:10.670] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+احتمالاً باید برای فرزند پسرم یه تأمین مسکنی بکنم
+
+[00:13:11.550 → 00:13:16.530] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+کجا هم من پنج سال دیگه؟ خوب از الان برای این پنج سال دیگه یه فکری بکنم
+
+[00:13:16.530 → 00:13:22.350] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی ما باید با یک فرایند برنامه ریزی شده روبرو بشیم
+
+[00:13:22.350 → 00:13:28.690] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا اون بخشی گفتم که دولت توجه بکنه یا مسئولین هم توجه بکنن چیه؟
+
+[00:13:28.690 → 00:13:33.330] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اونها هم کمک بکنن که ما این بازشستگی رو یه فرایند فازی بکنیم
+
+[00:13:33.330 → 00:14:00.850] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه فرایند جریاندار بکنیم، تدریجی بکنیم، حتی ترویج بکنن این تدریج رو، دوتا اتفاق می‌نفته، من باور می‌کنم که من بازشست قرار بشم، من یه باور باید برای خودم ایجاد بشه، بلاخره باید دل بکنم، بعضی وقتی آدم توی سازمان ها مشاهده می‌کنه، اینا از فضای خوب سازمان ها نه می‌خوام تصور سوه برداشت یا سوه استفاده بشه،
+
+[00:14:00.850 → 00:14:09.050] ⚠️ `multi_pass_disagreement`
+افراد وقتی زمان زیاد بلاخره من دارم بیش از زمانی که با خون و آدم به عنوان شاقل میذارم دارم توی سازبانم میگذارم دیگه
+
+[00:14:09.050 → 00:14:13.610] ⚠️ `multi_pass_disagreement`
+حتی بعض این آدم ها بعضی از فعالیت شخصش رو توی سازبان انجام میدن
+
+[00:14:13.610 → 00:14:16.830] ⚠️ `multi_pass_disagreement`
+ماشین میشورن، بعضی وقتی سازبان ها این شرایط رو فراهم کردن
+
+[00:14:18.610 → 00:14:22.490] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+برای آراشگاهشون سازبان میرن، این همه هست تعلق سازبانی به وجود میاره دیگه
+
+[00:14:22.490 → 00:14:31.390] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+شما بعضی از بازشت سا رو ببینید، کموداشون حتی تا یک سال خالی نمی‌کنن، یعنی این کموده هست، وسائلش اونجا از کجا ببره؟ زندگی کرده اونجا
+
+[00:14:31.390 → 00:14:38.270] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+و حالا شاید خیلی هم با من هم تجربه باشن، من در دوران مدرسه همشه این رو می‌گفتم، مثلا سال تمام می‌شه
+
+[00:14:38.270 → 00:14:45.390] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+من برمی‌گردم به معلم‌های دوران ابتدایی، مثلا سر می‌زنم، ولی تو دوره راه‌نمایی، هیچ موقع هم سر نمی‌زدم
+
+[00:14:45.390 → 00:15:07.030] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+می‌رسیدم در بیرسان می‌گفتم که من بگم به معلوم‌های راه‌نماییم سر بزنم ولی هیچ موقع سر نمی‌زنیم چون آدم کلنا فضاش عوض می‌شه و اگر آماده‌ی این تغییر نباشه خب احترانا با آسیب‌های مواجه می‌شه توی دور بازنشستگی هم احتمالا همینه یعنی ما فکر می‌کنیم که با این همکارانمون تا آخر دیگه قرار باشیم ولی نه واقعاً وقتی بازنشسته می‌شیم اونا هم بازنشسته
+
+[00:15:09.470 → 00:15:16.130]
+این نکته خیلی خوبی اشاره کردید، بیایی ما روابط اونو با آدم ها تعریف بکنیم
+
+[00:15:16.130 → 00:15:25.950] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما ممکنه همسایه خوب داشته باشیم، ولی دوست خوب نباشه ها، ایشون همسایه خیلی خوبه، به هم احترام میذانیم، هم دیگر رو میبینیم
+
+[00:15:25.950 → 00:15:34.630] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حتی احوال همو میپرسیم، توی راه رو، ولی آیه لزومن این میتونه دوست خوبی هم تلقی بشه؟
+
+[00:15:34.630 → 00:16:02.910] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+به معنای دوست رفیق، ما ارتباطمون توی سازمان ها خیلی وقتا ارتباط همکاریه، همکار خوبه، لزوما دوست خوب نیست، این حضور رو یعنی این ارزای نیاز رو با همکارانمون به واسطه ارتباطیمون انجام میدیم، این تعلق و نیاز به ارتباطات اجتماعی رو با ارتباطگیری با همکارانمون برقرار میکنیم
+
+[00:16:02.910 → 00:16:10.410] ⚠️ `multi_pass_disagreement`
+ولی لزومن بعد از بازشستگی شاید از اون حال اون همکار اون خبر هم نگیری ما
+
+[00:16:10.410 → 00:16:14.190] ⚠️ `multi_pass_disagreement`
+میخوام یه خاطره تعریف بکنم شاید جذاب باشه برای تو
+
+[00:16:14.190 → 00:16:20.110] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+به طور اتفاقی از یکی از همکارانمون یه سراغی گرفتم
+
+[00:16:21.310 → 00:16:25.390] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+متوجه شدم یه تفلکس یه بیماری داشت
+
+[00:16:25.390 → 00:16:30.330] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا بعد از بازشستگی دقیقاً با همون مشکلاتی که گفتم روبرو شد
+
+[00:16:30.330 → 00:16:36.910] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی سن بازشستگیش و اینها خب یه خورده بیمارش تشرید شده بود و اتفاقاتی افتدود
+
+[00:16:36.910 → 00:16:44.590] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ایشون حالا شاید خوب نباشه این رو بگم با مطور کار میکرد
+
+[00:16:45.590 → 00:16:57.550] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+متوجه شدم که ایشون تصادفی کرده و سرش آسیب بیده، پاش آسیب بیده و چند ماه خونه نشین بود و خیلی ناراحت شدم
+
+[00:16:57.550 → 00:17:04.930] ⚠️ `multi_pass_disagreement`
+به یه همکار مشترکمون که اتفاقاً ایشون سابقه همکاری قدیمیتری داشت و ارتباطشون قدیمیتر بود
+
+[00:17:04.930 → 00:17:12.290] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و بهش خبر دادم و حتی واسطه نزدیکی من و همکارمون که همکار بودیم
+
+[00:17:12.290 → 00:17:17.390] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا الحمدلله رابطه دوستانهی هم برقرار شده بود بهشون خبر دادم
+
+[00:17:17.390 → 00:17:24.210] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خیلی متأثر شد و گفت خیلی بیمرفتی ما و ما خیلی نه و باید سراغ بگیریم
+
+[00:17:24.210 → 00:17:43.750] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و خیلی چیزهای دیگه از این صحبت‌های رایجی که اتفاق می‌افت. من یه صحبتی رو اونجا با این دوستمون کردم، دوست دارم نقل بکنم، بهشون عرض کردم. گفتم ببینی تا زمانی که ما رابطه همکاری و تبدیل به رابطه دوستی نکنیم، شاید از خودمونم نباید انتظار داشته باشیم این اتفاق بیفته.
+
+[00:17:45.290 → 00:17:57.450] ⚠️ `abnormal_compression_ratio, multi_pass_disagreement, protected_name_or_number_disagreement`
+وقتی که ما محیط کاریمون رو داریم عوض می‌کنیم، محیط کاریمون رو داریم تغییر می‌دیم، محیط زندگیمون رو داریم تغییر می‌دیم، باید خودمون رو برای جامعه پذیری جدید آماده بکنیم
+
+[00:17:57.450 → 00:18:09.050] ⚠️ `abnormal_compression_ratio, multi_pass_disagreement, protected_name_or_number_disagreement`
+این خیلی نشته مهمی‌ها، یعنی ما باید به صورت خداگاهانه خودمون رو برای شرایط پذیرش جامعه فراهم بکنیم
+
+[00:18:09.050 → 00:18:10.850] ⚠️ `abnormal_compression_ratio, multi_pass_disagreement, protected_name_or_number_disagreement`
+شرایط برای خودمون باید فراهم بکنیم
+
+[00:18:10.850 → 00:18:31.770] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی خب تشریحش بکنم، به واسطه خب شهنشینی، خودم از ریشه هامون جدا شدیم، اومدیم درگیر کار شدیم، خب کسب درامت، کسب درامت مستمر، تلاش بیشتر، مشغولیت بیشتر، یه دفعه این تو هرموزه کشیده میشه، بسته کجا بخواید بری؟ همه ارتباطاتی هم که داشتی داره ازت گرفته میشه
+
+[00:18:31.770 → 00:18:42.430] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا اگر مثلا، مثلا عرض می‌کنم، باید اطرافمون، با مسجد اطرافمون، با سرای محله اطرافمون، با جامعه اطرافمون
+
+[00:18:42.430 → 00:18:51.310] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که خب با این ارتباطی زیاد نداشتیم، اگر نتونیم ای ارتباطو برقرار بکنیم، وقتی هم که از تعلق و ریشمون خارج شدیم، اومدیم، توی شهر داریم زندگی می‌کنیم
+
+[00:18:51.310 → 00:18:56.510] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این ارتباطه باید سببی باشه، یعنی ذاتا این ارتباطه نبوده نتونی ارتباطه برقرار بکنیم
+
+[00:18:56.510 → 00:19:02.290] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چی میشه؟ یادمی هستیم که یه جورای دوچار بیهویتی میشین
+
+[00:19:02.290 → 00:19:09.350] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی اون وقت خیلی وقتا نگاهمون باید این باشه که منزلت خودمون رو تعییم بکنیم
+
+[00:19:09.350 → 00:19:15.310] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+آخرین نکتهی که خوبه توی این بحث پیش از بازشستگی باید عرض بکنم
+
+[00:19:16.330 → 00:19:20.450] ⚠️ `abnormal_compression_ratio, multi_pass_disagreement, protected_name_or_number_disagreement`
+برنامه ریزی برای زمان بازشستگیه، یعنی برای بعد از بازشستگیه
+
+[00:19:20.450 → 00:19:23.650] ⚠️ `abnormal_compression_ratio, multi_pass_disagreement`
+از الان فکر کنیم، ما چه تصمیمی داریم؟
+
+[00:19:24.510 → 00:19:28.650] ⚠️ `abnormal_compression_ratio, multi_pass_disagreement`
+تصمیم داریم که شغل داشته باشیم، مطالعه بکنیم
+
+[00:19:29.490 → 00:19:34.590] ⚠️ `abnormal_compression_ratio, multi_pass_disagreement`
+تصمیم داریم که بریم سفر، تصمیم داریم بریم مسافرت، بریم تأمین منابع مالی بکنیم
+
+[00:19:34.590 → 00:19:39.210] ⚠️ `abnormal_compression_ratio, multi_pass_disagreement`
+تصمیم داریم که مطالعه بکنیم، تصمیم داریم ادامه تحصیل بدیم
+
+[00:19:39.210 → 00:19:47.370] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خیلی بزنهای خوبیه، حتی اینجور موارد، من آرزوهایی داشتم برای مطالعه، وقت بذارم، برنامزی بکنم
+
+[00:19:47.370 → 00:19:54.390] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و از الان بدونم که من از ساعت هفته صبح که قبلا دوچار یک نظاممندی اجباری بودم
+
+[00:19:54.390 → 00:19:59.930] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+از ساعت هفته صبح الان ممکنه دیگه اون نظاممندی اجباری نباشه
+
+[00:20:00.910 → 00:20:07.070] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و باید خودم به صورت خداگاهانه برای خودم یه برنامزی داشته باشه
+
+[00:20:07.070 → 00:20:17.670] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+و این مودل شدنیه، یعنی من دوباره برمی گدم به دوران مدرسه، ما همشه می‌گفتیم ایده نوروز که می‌شه، من می‌شینم درسان رو می‌خونم به بقیه دوستان برسم مثلا، و هیچ وقت هم ایش خودم از ما این کار رو نکردیم
+
+[00:20:19.110 → 00:20:25.270] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب من خیلی ممنونم آقای مهندس علی دوستی، من یه جهنبندی بکنم چون مباعث طولانی شد
+
+[00:20:25.270 → 00:20:30.230] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چیزی که من یاد داشت کردم، پنج نکته داشت که ما باید قبل از بازنشستگی برای اون آماده باشیم
+
+[00:20:30.230 → 00:20:34.750] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یکی این که بتونیم تمیز بازنشسته بشیم، فراینت های ادارهی که ممکنه زمان بر باشه
+
+[00:20:34.750 → 00:20:39.290] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب از همین الان شروع کنیم انجام دادن که دیگه دوران بازنشستگی معتل نشیم
+
+[00:20:39.290 → 00:20:44.730] ⚠️ `multi_pass_disagreement`
+قواعد بازنشستگی رو بشناسیم، گاهی شناخت این قواعد بارست می شما بهتر بازنشسته بشیم
+
+[00:20:44.730 → 00:20:52.650] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مزایه بازنشستگی از سازمانمون رو هم بدونیم، از مزایه رفاهی که گرفته تا سفرها و مسائل مختلف
+
+[00:20:52.650 → 00:21:01.350] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+روابطی که دوران همکاری با همکارانمون شکل گرفته، بعضش به همکاری نزدیکتری منجر شده، به دوستی منجر شده
+
+[00:21:01.350 → 00:21:08.210] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اینا رو هم یک باستعریفی داشته باشیم، ببینیم با کدوم از همکارانمون قرار رابطه ادامه دارتری داشته باشیم
+
+[00:21:08.210 → 00:21:21.030] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+در برنامه قبلی هم اتفاقا اشاره کردیم که برای راهندازی کسب و کار خیلی از همکارا با همدیگه شرک میشن در ساعتی که همشون از یک جنسن، یک تجربه مشترک دارن و تجربه مدیرت کسب و کار رو شاید نداشته باشن
+
+[00:21:21.030 → 00:21:25.110]
+و پنجام این بود که برنامه ریزی بکنیم برای بعد از بازنشستگی
+
+[00:21:25.790 → 00:21:30.710] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی از الان برنامه داشته باشیم که من میخوام بازنشسته بشن به طور منظم و جدید
+
+[00:21:30.710 → 00:21:38.890] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مثل یک شغل حتی، یک مشغولیت دیگه، از هفته صبح من پاشم، چه کارهایی انجام بدم، خودم رو به کجا برسوم، چرا؟ چون دوره کتاهی هم نیست
+
+[00:21:38.890 → 00:21:43.010] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+تو برنامه قبل هم گفتیم، ممکنه بیس سال، بیس پنج سال ادامه دار باشه
+
+[00:21:43.010 → 00:21:48.370] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+من اگه اجازه بدید در تکبیل فرمایشوان یه نکته به ذهنم رسیده ارز بکنم
+
+[00:21:48.370 → 00:21:53.350] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اگر ما برای دوران بازشستگی خودون برنوزی نکنیم، براون برنوزی می‌کنند
+
+[00:21:55.370 → 00:22:01.610]
+یعنی می‌شیم نگهدارنده فرزندان، سرویس مدرسه و خیلی اتفاقه
+
+[00:22:01.610 → 00:22:07.530] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نمی‌گه اینه بده‌ها، خیلی وقت‌ها اصلا ارزایه، یه بخشی از ارزایه نیاز یک پدر بزرگه
+
+[00:22:07.530 → 00:22:17.790] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+گذاراندن وقت با نوش، ولی نه این که دائمان در معرض تقاضاهای دیگران قرار بگیریم برای یه همچین مواردی
+
+[00:22:17.790 → 00:22:22.690] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خیلی این نکته مهمیه برای برنامزی، برای گزران وقت زمان بازتستی
+
+[00:22:23.650 → 00:22:27.430]
+خیلی ممنونم از شما، یک میان برنامه بشنویم
+
+[00:22:29.860 → 00:22:31.400]
+چهل ستون
+
+[00:22:31.400 → 00:22:36.000]
+فقرت، یک در وارد خونه ایما میشه، ایما نظر دیگه خارج میشه
+
+[00:22:36.000 → 00:22:39.600]
+چهل ستون، ستونهای اقتصاد خانوادی
+
+[00:22:39.600 → 00:22:43.240]
+یا من میخوام که همه خواسته های بچه هم رو برورده بکنم
+
+[00:22:43.240 → 00:22:45.360]
+چیزی تو دل بچه هم نمونه
+
+[00:22:45.360 → 00:22:48.760] ⚠️ `low_word_confidence`
+نصری باورای این مودلی خانواده ها ممکنه داشته باشه
+
+[00:22:48.760 → 00:22:54.900] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خیلی وقتا مشکلات مریشتی، مخصوصان در شرط اقتصادی فعلی باعث کار کردن اجباری بچه ها میشه
+
+[00:22:54.900 → 00:22:58.020] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پیامت 301035
+
+[00:22:58.020 → 00:23:04.600] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این میزان توجه به پول یا تآغاز نداره با فرهنگ من با چیزهایی که حتی توی دینمون توصیه شده
+
+[00:23:04.600 → 00:23:07.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما نمیگیم این سواد مالی اصل زندگیه
+
+[00:23:07.680 → 00:23:14.900] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بلکه می‌گیم به میزانی باید بهش بپردازیم که بتونه خدمت مناسبه به سایر و حوضه‌های زندگیمون داشته باشه
+
+[00:23:41.940 → 00:23:48.580] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+همچنان شنونده چهلستون هستید می‌تونید سوالات و پیشنهاداتتون رو با شماره پیامک سی هزار ده سی و پنج
+
+[00:23:48.580 → 00:23:53.480] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+شماره تماسه سد و شست و دو و ویبسایت رادیو گفتگو داتای آر با ما درمیون بذارید پیشنهاد می‌کنن
+
+[00:23:53.480 → 00:23:59.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+با نسب اپلیکیشن ایران صداروی موبایلتون، همیشه و همه جا به همه شبکه‌های رادیوی دستگسی داشته باشید
+
+[00:23:59.980 → 00:24:07.660] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ادامه می‌دیم موضوع سواد مالی برای قبل از بازنشستگی، جناب واقعی دکتر کمیل رودی، خدمت شما هم سلام عرض می‌کنم
+
+[00:24:08.380 → 00:24:16.220] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+سؤالی که دارم، دوستانم مفصل در اما داشت صحبت بکنیم، اینه که از نظر مالی ما چطور باید آماده بشیم برای دوران بازنشستگی؟
+
+[00:24:16.220 → 00:24:21.900] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+هر کدوم از ما شغلی داریم و یک درامتی از اون شغل داریم و حالا برای درامه بازنشستگی باید چکار کنیم؟
+
+[00:24:21.900 → 00:24:29.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+در برنامه قبل یادمی که در باره سواد مالی بازنشستگان صحبت کردیم و مدیریت اون دوران
+
+[00:24:29.180 → 00:24:41.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این برنامه خب در باره سواد مالی برای بازنشستگی یعنی چجوری خودمونو آماده بکنیم برای اون دوران که دقالب پنج نکته فرمودن و خیلی هم مهم بود
+
+[00:24:41.680 → 00:24:45.920] ⚠️ `multi_pass_disagreement`
+من صرفاً از منظر مالیش رو میخوام یه تأکیدی بکنم
+
+[00:24:47.300 → 00:24:54.720] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اولین که ما در دوره بازنشستگی ظرفیت درامت داییم اون کاهش پیدا میکنه
+
+[00:24:54.720 → 00:24:59.020] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا چه به صورت فاضی بازنشست بشیم یا یک دفعه بازنشست بشیم
+
+[00:24:59.020 → 00:25:01.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این کاهش درامت رو تجربه میکنیم
+
+[00:25:01.560 → 00:25:07.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما باید محلی برای تأمین این کاهش درامت و پوشش افضایش حضینه هامون داشته باشیم
+
+[00:25:07.640 → 00:25:10.280] ⚠️ `multi_pass_disagreement`
+این محل کجاست؟ سرمایه گذاریه
+
+[00:25:10.280 → 00:25:23.040] ⚠️ `multi_pass_disagreement`
+یعنی من در طول سی سال اول خدمتم باید بخشی از ذرامدم رو به سرمایه گذاری و ترهای در واقع تکمیلی بازنشستگی در واقع اختصاص بدم
+
+[00:25:23.040 → 00:25:33.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی این که یه بخشی از ذرامدم رو همون جوری که تو آموزهای سواد مالی هست میگه صندوق ازتراری داشته باشت، صندوق پسنداز داشته باشت، صندوق کمک به دیگران داشته باشت
+
+[00:25:33.300 → 00:25:49.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اون صندوق پسنداز رو سرمایه گذاری بکنم و حالا توی مثلا بخش مدیریت ریسکو بیمه یه محصولی مثل بیمه عمر رو داشته باشم که میتونه کنار درامد مستمری بازشستگی من قرار بگیره
+
+[00:25:49.620 → 00:26:03.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و اگر بخوام یه شاخص دقیق بگم توی آموزه های سواد مالی اومده که درامد شما ناشی از سرمایه گذاری باید برابر باشه با درامدتون ناشی از شغل
+
+[00:26:03.180 → 00:26:11.600] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی اگر هنگام بازنشستگی من چهار ملیون دارم دریافت می‌کنم، درامت‌های ناشی از سرمایه‌گذاری من باید ماهی چهار ملیون باشه
+
+[00:26:11.600 → 00:26:19.580] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که اینها در واقع نشون می‌ده که من تو دوره سی ساله‌ی اول تونستم سرمایه‌گذار خوبی باشم
+
+[00:26:19.580 → 00:26:26.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پس یکی از موضوعات مهم سرمایه‌گذاریه و البته اون تنوعی که می‌شه تو سبد سرمایه‌گذاری داد
+
+[00:26:26.240 → 00:26:44.100] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که باید به اشتقت کرد چون می‌دونید یکی از خوبی‌های دوره‌ی بازنشستگی اینه که آدم‌ها به همه‌ی ترفند‌های کلاه‌برداری و نمی‌دونم چیز‌ها وارد شدن و بسیار محتاط می‌شن و معمولاً بازنشست‌ها گول نمی‌خورن
+
+[00:26:44.100 → 00:26:50.920] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی توی مطالعات انجام شده توی حوضه کلاه برداری های حوضه سرمایه گذاری
+
+[00:26:50.920 → 00:26:56.380] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+جوانان بیشتر گل خوردن تا پیران، محتاط تر و دقیق تر عمل می کنن
+
+[00:26:56.380 → 00:27:00.540] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما یه نکته منفی هم داره که تو اون دوره ریست بذیر نیستم
+
+[00:27:00.540 → 00:27:04.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بنابراین بازده های بیشتری و نمیتونن از سرمایه گذاریشون داشته باشن
+
+[00:27:04.240 → 00:27:10.980] ⚠️ `multi_pass_disagreement`
+پس اگر بخوام جمع بدی بکنم توی حوضه های سواد مالی
+
+[00:27:10.980 → 00:27:15.780] ⚠️ `multi_pass_disagreement`
+اولین و مهمترین مسئله سواد مالی برای بازنشستگی سرمایی گذارید
+
+[00:27:15.780 → 00:27:18.160] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+دومی مسئله شغله
+
+[00:27:18.160 → 00:27:21.200] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ببینید ما یک کاری رو داریم انجام میدیم
+
+[00:27:21.200 → 00:27:25.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و توی برنامه قبلی در بای بازنشستگانم صحبت شد
+
+[00:27:25.780 → 00:27:28.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که این کار رو ما چه حسی بهش داریم
+
+[00:27:28.680 → 00:27:32.160] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+آیا از اصل لذت میبریم، توامندی در ما ایجاد میکنه
+
+[00:27:32.160 → 00:27:34.860] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+من میخواهم یه استلاحی اینجا به کار ببرم
+
+[00:27:34.860 → 00:27:43.900] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و اون اینه که سی سال اول عمر، سی سال اول عمر کاری ما دوره توامند شدن ماست
+
+[00:27:43.900 → 00:27:51.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و اتفاقان به تعبیر علام جعفری می گفتن تازه آدم از شست سالگی تازه باید آورده بر جامعه داشته باشه
+
+[00:27:51.980 → 00:28:00.660] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+تا شست سالگی داری هی جزد می کنی، اطلاعات، روشها، تکنیکها، مهارتها همه اینا رو جزد می کنی
+
+[00:28:00.660 → 00:28:05.900] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا 60 سالگی باید باید به جامعه پس بدی، همه این چیزهایی رو که به دست بودی
+
+[00:28:05.900 → 00:28:09.860] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما متاسفانی 60 سالگی باید میذاریم کنار، میگه خب تا یه تموم شد
+
+[00:28:09.860 → 00:28:12.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا موقع خوردن اون 30 سال قبلیه
+
+[00:28:12.680 → 00:28:14.700] ⚠️ `multi_pass_disagreement`
+در صورتی که اینجوری نیست
+
+[00:28:14.700 → 00:28:18.620] ⚠️ `multi_pass_disagreement`
+برید مهمترین این دیدگاه رو میخوام به شغل داشته باشیم
+
+[00:28:19.620 → 00:28:26.160] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مهمترین خروجی یک شغل محصولاتی نیست که ما تا یه اون شغل داریم ایجاد میکنیم
+
+[00:28:26.160 → 00:28:28.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا خدماتی نیست که داریم ایجاد می‌کنیم
+
+[00:28:29.700 → 00:28:32.040] ⚠️ `multi_pass_disagreement`
+مهم‌ترین محصول اون شغل خود مایی
+
+[00:28:32.720 → 00:28:35.320] ⚠️ `multi_pass_disagreement`
+ما داریم از خودمون چی می‌سازیم
+
+[00:28:35.320 → 00:28:39.040] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که حالا توی شهست سالگی می‌خواییم ارائش بکنیم
+
+[00:28:39.040 → 00:28:43.260] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی من چه قابلیت‌هایی رو دارم در خودم پرورش می‌دم
+
+[00:28:43.260 → 00:28:45.460] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چه توامندی‌هایی رو دارم پرورش می‌دم
+
+[00:28:45.460 → 00:28:48.500] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اصلا کاری ندارم یعنی سازمان قدر من رو می‌دونه
+
+[00:28:48.500 → 00:28:51.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نمیدونه سازمان فعلی که الان دارم برش کار میکنم
+
+[00:28:51.360 → 00:28:53.940] ⚠️ `multi_pass_disagreement`
+آیا من دارم توامنتر میشم؟
+
+[00:28:53.940 → 00:28:56.080] ⚠️ `multi_pass_disagreement`
+از این سازمان برم بیرون؟
+
+[00:28:56.080 → 00:28:58.400] ⚠️ `multi_pass_disagreement`
+این قابلیت من خریدار داره؟
+
+[00:28:58.400 → 00:29:01.460] ⚠️ `multi_pass_disagreement`
+این توامندی من عرضش ریالی داره؟
+
+[00:29:01.460 → 00:29:03.020] ⚠️ `multi_pass_disagreement`
+به درد جامعه میخوره؟
+
+[00:29:03.620 → 00:29:05.240] ⚠️ `multi_pass_disagreement`
+و حساب کتاب بکنم
+
+[00:29:05.240 → 00:29:10.600] ⚠️ `multi_pass_disagreement`
+حالا میخوام این قابلیتها رو بعد از بازنشستگی به سبک دیگه یعرائه بکنم
+
+[00:29:10.600 → 00:29:12.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اگه تالا سبک استخدامی بوده
+
+[00:29:12.980 → 00:29:15.440] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ممکنه برم تو سبک کارافرینی
+
+[00:29:15.440 → 00:29:21.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اگر تو سبک مثلا کارافرینی بوده برم تو سبک مشاوره یعنی سبک شغلیم رو عوض بکنم
+
+[00:29:21.520 → 00:29:28.340] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بنابراین اون دوره بازنشستگی امتداد فعالیت شغلیم بدونم
+
+[00:29:28.340 → 00:29:31.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ممکنه چند نوع راهکار دیگه هم داشته باشیم
+
+[00:29:31.700 → 00:29:35.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی بگیم که خب حالا من بازنشسته شدم چجوری میتونم ادامه بدم
+
+[00:29:35.560 → 00:29:39.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+فرمودن که این بازنشستگی تدریجی به این فرایند کمک میکنه
+
+[00:29:39.620 → 00:29:44.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی من میتونم تقریبا تو جایگوزین بعدیم یه تجربیاتی رو کست بکنم
+
+[00:29:44.520 → 00:29:48.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی یکی از کارهایی که برای اون دوران باید بکنیم
+
+[00:29:48.140 → 00:29:51.840] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بغیر از این که داریم یک ثبت سرمایه گذاری شکل میدیم
+
+[00:29:51.840 → 00:29:54.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اینه که تکلیف شغلی خودمونم بدونم
+
+[00:29:54.300 → 00:29:58.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حتما یه پیشنهادهایی مشخصی داره که جنابه علی دوستی خواهم فرموند
+
+[00:29:58.380 → 00:30:04.420] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که من توی شغل آیندم به این معناه که اون قابلیت هایی که در تیین سی سال کست کردم
+
+[00:30:04.420 → 00:30:09.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و چجوری به نحو دیگهی به جامعه ارائه بدم که چی کار باید بکنیم
+
+[00:30:10.220 → 00:30:16.060] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+امدتا ممکنه یک بخشیمون به راه حلهای ساده تر بپردازیم
+
+[00:30:16.060 → 00:30:20.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که ممکنه اون حوییت رو از ما بگیره ممکنه آورده ای مالی خوبی نداشته باشه
+
+[00:30:20.940 → 00:30:26.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+باید به یه راه حلی برسیم هم برای ما حوییتی که شغل به ما میداد و بده
+
+[00:30:26.880 → 00:30:29.720] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و همین که بتونه تأمین مالی خوبی داشته باشه
+
+[00:30:29.720 → 00:30:31.220] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بله همه تا کاملا درگست
+
+[00:30:31.220 → 00:30:34.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خیلی از مشاقل خب مثلا ممکنه من یک مغازهی داشته باشم
+
+[00:30:35.460 → 00:30:37.580] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حتی اگر بخوام بازنشسته هم بشن
+
+[00:30:37.580 → 00:30:39.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی تحریف بازنشستگی روش اطلاق بکنیم
+
+[00:30:39.680 → 00:30:42.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بازه هم بلاخره من میتونم برم تو مغازم و همون کار رو ادامه بدم
+
+[00:30:42.780 → 00:30:46.040] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی توی مشاقلی مثل کارمندی
+
+[00:30:46.040 → 00:30:48.860] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+توی مثلا فرض بفنید یک معلم توی مدرسه
+
+[00:30:48.860 → 00:30:56.120] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا بازنشست هایی نیروی مسلح یا اینجور مشاقل وقتی بازنشست میشن کاملا جدا میشن
+
+[00:30:56.120 → 00:31:01.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و خب اینجا خیلی خوبه که در اماده این صحبت بکنیم که خب حالا شغل لردارگان بازنشستگی
+
+[00:31:01.000 → 00:31:05.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چه معنی داره، چه مفهومی داره، چه انواعی داره، جناب علی دوستی ممنون میشم توضیح بفهمه
+
+[00:31:05.520 → 00:31:10.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+توی بازنشستگی دو تا مسئله میتونه مطرح باشه
+
+[00:31:10.380 → 00:31:15.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این که به دنبال اشتقال باشیم یا به دنبال مشغولیت
+
+[00:31:15.300 → 00:31:24.110] ⚠️ `multi_pass_disagreement`
+یا حتی این طور بگم، ما می‌تونیم بخشی از بازشستگی رو با اشتقال شروع بکنیم
+
+[00:31:24.110 → 00:31:28.490] ⚠️ `multi_pass_disagreement`
+مثل کاری تداوام اشتقال باشه و خب منجرم مشغولیت بشه
+
+[00:31:28.490 → 00:31:38.890] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی ضرورتاً مشغولیت فرای از موضوع درامدی می‌تونه موضوع حوییتی منزلتی ارمغان بیاره برامون
+
+[00:31:40.070 → 00:31:44.150] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا این که چه مشاقلی رو می‌تونیم بهش توجه بکنیم
+
+[00:31:44.150 → 00:31:48.890] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اجازه بدین من یه دستبندی پنششگانه دارم، بهش اشاره بکنم
+
+[00:31:48.890 → 00:31:50.470] ⚠️ `multi_pass_disagreement`
+بفرم، خیلی خوب
+
+[00:31:52.290 → 00:32:00.170] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اولین موضوعی که خیلی میتونه به صورت آرمانی به زمه بنده بشتوجه بشه
+
+[00:32:00.170 → 00:32:03.210] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+تداوام کسب و کار شغلی فعلیه
+
+[00:32:04.190 → 00:32:06.070] ⚠️ `low_word_confidence, multi_pass_disagreement`
+تداوام کسب و کار شغلی بود
+
+[00:32:07.130 → 00:32:10.870] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نه به معنای تداوام، خیلی وقتا دقیقا تداوامه
+
+[00:32:10.870 → 00:32:18.350] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خیلی وقتا مشاقل پیرامونی اون موضوعه، مشاقل هلوهوش اون موضوعه
+
+[00:32:18.350 → 00:32:22.970] ⚠️ `multi_pass_disagreement`
+مثلا معلمین عزیزمون میتونم به فعالیت حق و تزویز ادامه بدن
+
+[00:32:23.890 → 00:32:26.650] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ببینید خوب بود به این موضوع اشاره میکردیم
+
+[00:32:26.650 → 00:32:33.510] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما یه فرهنگی رو که خب دوستان سواد مالی هم من دیدم خیلی به این موضوع تأکید میکنن
+
+[00:32:33.510 → 00:32:37.270] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اینه که بستمونه دیگه تا کهی ما کار کنیم
+
+[00:32:37.270 → 00:32:44.670] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه وقت استراحتمونه، تو عدبیاتمون برگردیم، میگه ما دیگه آردامونو بیختیم و علکامونو آویختیم
+
+[00:32:45.270 → 00:32:49.570] ⚠️ `multi_pass_disagreement`
+اگر اولین که باید این کانسپت رو از ذهنمون بکشیم بیرون، چرا؟
+
+[00:32:50.510 → 00:32:54.550] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چرا باید این اتفاق بیفته؟ چرا من باید توی چلحه هی سالگی خونه نشین باشم؟
+
+[00:32:54.550 → 00:32:57.950] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+من تعبیرم از شغلینه، چرا؟ چرا باید این اتفاق بیفته؟
+
+[00:32:59.520 → 00:33:14.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اگر این موضوع رو بتونیم حلش بکنیم، خب باید با توجه برنام رویزی باید ببینیم می‌توانیم، علاقه مند هستیم، با شایستگه‌هایی که توی خودمون روش دادیم، علاقه مندیم که ادامه‌ی اون فعالیت رو بدیم
+
+[00:33:15.520 → 00:33:23.600] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+جناتر یه رده‌ی دیگه‌ی که معمولاً مشکول می‌شیم و اشاره می‌کنم که اون بحث آرمانه، آرمان و آرزوه که خیلی باید مواظبش باشیم
+
+[00:33:23.600 → 00:33:48.320] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+که به اون داریم وارد میشیم، ولی تو این نکته، بحث تداوم کسب کار فعلی، تداوم کسب کار پیرامون شغل فعلی، خیلی نکته مهمیه، برای خیلی از موارد ما میتونیم، به خصوص خوضای متخصص است، کسایی متخصص است، فرد کارمند بوده، مهندس مکانیک بوده، الان میاد بیرون کار مشابهه اونو میکنه، تا الان قطع خود رو میساخته، الان قطع یه چیز دیگه درست میکنه
+
+[00:33:48.320 → 00:33:58.580] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی صرفاً سبک شغلو تغییر بده، استخدامه مثلاً فرض به فرمایید یک جایی بوده، وکیل بوده، الان بیاد به عنوان مشاوره حقوقی کنار یک سازمانی قراره
+
+[00:33:58.580 → 00:34:05.700]
+بله، بله، حالا قواره مشاوره رو با تقسیم بندی آی دکتر من میذارم که الان هنوز داره اون شغل خودش رو روند شغلش رو ادامه میده
+
+[00:34:05.700 → 00:34:11.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا یه آدمیه که سی سال سابقه کار داره و میخواد این کار رو بکنه، همه چماخن کار رو بلده
+
+[00:34:12.900 → 00:34:18.620]
+کارمند اداره مالیات بوده، الان میشه مشاور مالیاتی و خیلی کارهای دیگه
+
+[00:34:18.620 → 00:34:22.740] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این خیلی میتونیم تو حوض متخصصی این مسیر رو میتونه خیلی خوب ادامه بده
+
+[00:34:22.740 → 00:34:30.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+کارمند نیروی انتظامی بوده، افسر انتظامی بوده، الان میشه کارشناست دادگستری
+
+[00:34:30.000 → 00:34:39.320] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+شغلای مشابه، یه نکته تو اینجا هست های نجف های دکتر، اونم اینه که ما معمولاً یه چیزهای کچیکی رو از این تبدیله نمیدونیم
+
+[00:34:39.980 → 00:34:42.960] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+باید اون ندونسته هامون رو بدونیم
+
+[00:34:43.800 → 00:34:45.640] ⚠️ `multi_pass_disagreement`
+این خیلی نکته مهمی ها
+
+[00:34:45.640 → 00:34:52.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک کار رو دیدم، ارتش آمریکا داره، یه سایتی داره، ترجمه محارت شما به بخش سیوی
+
+[00:34:52.000 → 00:34:58.200] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی کسی که میخواد بازشسته بشه، میگه تو تا حالا این چیزها رو بلدیها
+
+[00:34:58.200 → 00:35:03.600] ⚠️ `multi_pass_disagreement`
+این معادل شغل سیویل شماست، از نظامی بودن که مخارجی باید بری تو اینجا
+
+[00:35:04.580 → 00:35:08.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بچه چیزایی رو نمیدونی، البته ندیدم تو اون ساید دقیقا بینشاره بکن
+
+[00:35:08.560 → 00:35:11.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی نزدیکتن شغل سیویل شما رو به شما پیشنهاد میکنه
+
+[00:35:11.880 → 00:35:17.280] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه نوع دیگه از مشاقلی که واقعا میشه این دومی رو توصیح اهم کرد
+
+[00:35:18.180 → 00:35:21.920]
+توصیح کسب و کارهای خانگیه، نه خانوادگی
+
+[00:35:21.920 → 00:35:50.100] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+من خانوادگی رو بعدا یه معقوله دیگهی رو باز میکنم. به خصوص الان تو این بستر کسب و کار مجازی و حالا صفحات انستاگرام و سایتهای فروش و اینها کسب و کار خانگی کسب و کاری که میتونه توی خانه سر و سامان داده بشه با تشتیک مسایی مادر خانواده، دختر خانواده، پسر خانواده و خود بازشسته میتونه خیلی کمک کننده باشه.
+
+[00:35:50.100 → 00:35:51.540]
+این خیلی بستن مناسبیه
+
+[00:35:52.760 → 00:35:59.320] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+از فرض به فرموید مواد قضایی با برند خانگی، خانوادگی، سبزی خوشکو اینها گرفته
+
+[00:35:59.320 → 00:36:04.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+تا نمیدونم قطعات که میشه توی خونه ساخت و خیلی اتفاقات دیگه
+
+[00:36:04.700 → 00:36:10.400] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خیلی ها این بلاخره مهارتهای زیادی رو یه دختر هنرمند توی خونه میتونه توصیه بده
+
+[00:36:10.400 → 00:36:15.940]
+که پدر بتونه کمک کننده باشه برای این که این حلقه عرضش رو تکمیل بکنه
+
+[00:36:15.940 → 00:36:20.380] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+زنجیر عرضش کسب و کار رو تکمیل بکنه و این رو تبدیل بکنه به درامر
+
+[00:36:20.380 → 00:36:24.100] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+شاید توی این حوضه یه حسنهایی داشته باشه ها
+
+[00:36:24.100 → 00:36:28.740] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+توی این که پدر میتونه، فرد بازشسته، حالا پدر یا مادر بازشسته
+
+[00:36:28.740 → 00:36:33.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+میتونه نقش خودش رو توی خونواده تسبیت بکنه برای شرایط جدید، برای حضورش
+
+[00:36:33.980 → 00:36:36.840] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و خیلی این اتفاقات میتونه بهتر بیفته
+
+[00:36:36.840 → 00:36:49.420] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی این مشاقل بعضی وقتا بیشتر جنبه مشغولیتش قویتر از جنبه اشتغال و درامدشه ولی خیلی موضوعات خیلی جذابی میتونه باشه
+
+[00:36:50.020 → 00:36:56.760] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یکی دیگه از موارد که مشاهده میشه رجعت به کسب و کار پدریه یا خانوادگی اجدادیه
+
+[00:36:56.760 → 00:37:08.060] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این هم خیلی مورده، خوبی من دیدم فردی که کارمند مدیر یک اداره بوده برگشته به مثلا کسب و کار اجادشون که یه محسسه آموزشی بوده
+
+[00:37:08.060 → 00:37:12.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پدر به سنی رسیده ایشون بازشست شده برگشته اونجا
+
+[00:37:12.360 → 00:37:18.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حتی فرج به فهمه کسی که کارمند یک سازمانی بوده برگشته به کسب و کار پدرش توی بازار
+
+[00:37:18.800 → 00:37:24.540] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این دوسته تا حسن داره، یه ارسیهی از پدرش به واسط اعتبارش میبره
+
+[00:37:24.540 → 00:37:30.840] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه شناخت از دوری هم داشته با یه همراهی یکی دو ساله میتونه چماخم اون کار رو به دست بیاره
+
+[00:37:30.840 → 00:37:36.400] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و حتی احتمالا به مهاجرت معکوز هم کمک کنه خیلی از ما شاید از شهرهای دیگه اومدیم
+
+[00:37:36.400 → 00:37:42.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خیلی نکته خوبی اشاره کردید من دوست تا نمونه دیدم خیلی جذابه
+
+[00:37:43.060 → 00:37:48.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ببینید یکی از بازگشته به طبیعتمون بر ما جذابه دیگه
+
+[00:37:48.560 → 00:37:51.320] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما محیطای کشاورزی و اینجور چیزها رو خیلی دوست داریم
+
+[00:37:54.540 → 00:38:22.440] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+به مشاقل پدریشون که کشاورزیه، حالا با توجه دانشی که کسب کرده، فرد مثلاً فرد بفرمایید، مهندس سیالات بوده تلاش می‌کنه که دانش سیالاتی خودش رو توی آبیاری اون زمین ارتقاب بده، راندمان رو بالا ببره، فرد رشته دیگه بوده متعالیه می‌کنه، اون حوضر رو بتونه تقویت بکنه، اون هم خیلی خوبه، اون هم به سمت اجزادی، شغل اجزادی و پدریشون رفتن، و هم اتفاق دوم و
+
+[00:38:22.440 → 00:38:31.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+جذابی که میفته برگشتن به اون طبیعت آدم هاسیه، فراغت و لذت دیگهی هم از این اتفاق میتونه آیده اون بازشست بشه
+
+[00:38:31.620 → 00:38:39.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یکی دیگه از مواردی که میشه بهش اشاره کرد، راه اندازی کسب کار جدیده
+
+[00:38:39.980 → 00:38:44.580] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+دوست دستش می‌کنم، این موضوع رو سعی می‌کنم، همش به پردازم
+
+[00:38:46.680 → 00:38:55.480] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یکیش، من آرمان و علاقم یه چیزی بوده، دوست داشتم از دوران جوانی کار رو بکنم، بلاخره توی مسیر دیگهی وارد شدم
+
+[00:38:55.480 → 00:39:02.580] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و حالا رفتم دیگه، خیلی خیلی همیشه تو زهن من بوده ای کاش من اون کار رو می‌کردم
+
+[00:39:02.580 → 00:39:09.160] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ای کاش من از ابتدای کار دیگه، خیلی خیلی دوست دارم، برگردم که اون کار رو بکنم
+
+[00:39:10.690 → 00:39:14.630] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بعضی وقتا اشاره کردیم توی برنامه قبلا بهش
+
+[00:39:14.630 → 00:39:22.150] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یکی از همکارانی که خب هم مقبوله، هم پرتلاشه و شاید معمولا خوش ایده هست
+
+[00:39:22.150 → 00:39:24.810] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ایشون میاد یه ایده کسب و کار رو مطرح میکنه
+
+[00:39:24.810 → 00:39:27.030] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که بیاییم تعاونی تشکیل بدیم شرکت بزنیم
+
+[00:39:27.030 → 00:39:30.350] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خیلی وقتا این دور از محیط کسب و کار خود فرده
+
+[00:39:31.710 → 00:39:34.830] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بعضی وقتا هم این راه اندازیه که به نظر من این
+
+[00:39:34.830 → 00:39:40.710] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+کلن این دستبندی می‌تونه پرمخاطره‌ترین نوع کسب و کار باشه
+
+[00:39:42.150 → 00:39:46.510] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بعضی وقتا هم این راهندازی کسب و کاره با فرزندانه
+
+[00:39:46.510 → 00:39:48.510] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ایدئال‌تری نشینه
+
+[00:39:48.510 → 00:39:57.610] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی تلفیق بین تجربه پدرانه و انگیزه و جنب و جوش فرزند
+
+[00:39:57.610 → 00:39:59.210] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و حتی دانش فرزند
+
+[00:39:59.210 → 00:40:05.010] ⚠️ `multi_pass_disagreement`
+خب این تقسیمندی خیلی جالبه از این جهت که ما داریم برای قبل از بازنشستگین رو حرف میزنیم
+
+[00:40:05.010 → 00:40:08.610] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+گفتیم به یه برنامه ریزی بکنیم، شناختی داشت روشیم از آینده خودمون
+
+[00:40:08.610 → 00:40:12.930] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نه این که به اون موقعش در لحظه یه رو ببینیم خب من چی کافت بکنم
+
+[00:40:12.930 → 00:40:16.570] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+باید به هم کسپکار رو بندازم و هیچ تجربهی هم ندارم، هنوز هیچ مطالعه نکنم
+
+[00:40:16.570 → 00:40:22.570] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی از الان فرصت داریم اگه ده سال مونده به بازنشستگیمون، پونزه سال مونده به بازنشستگیمون شروع کنیم به برنامیزی کردن
+
+[00:40:22.570 → 00:40:30.710] ⚠️ `multi_pass_disagreement`
+یاد بگیریم قلقای اون کسب و کاری که آرمان و آرزوشو داریم و بخواییم اون موقعا بندازیم چه نکاتی داره، چه بیژیگاه داره، بازارش بجاز، محصولش چیه؟
+
+[00:40:30.710 → 00:40:45.770] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بله، بله، خیلی درسته، ما یکی از نکاتی که معمولا توجه نمی کنیم توی کسب و کار بازاره دیگه، که خیلی به درستی هم حضرت حالی اشاره کردین و به قول شما قلق گیری این اتفاق خیلی میتونه نکته مصبتی باشه
+
+[00:40:46.990 → 00:40:55.090] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یکی دیگه از مواردی هم که حالا نوعاً شاید رایج هم باشه مشاقل کم مهارته
+
+[00:40:55.090 → 00:41:02.610] ⚠️ `multi_pass_disagreement`
+که خب ریسک کمتری داره و خیلی وقتا افراد میبینیم که جذب میشن
+
+[00:41:02.610 → 00:41:06.730] ⚠️ `multi_pass_disagreement`
+بعضاً به واسطه اطمینانی که بهشون هست
+
+[00:41:06.730 → 00:41:11.790] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا حالا به واسطه استقلالی که علاقه من هستن بهش داشته باشن
+
+[00:41:16.770 → 00:41:41.170] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+در دوره بازنشستگی، من چیزی که دوست دارم باز بکنم، دوست این گه خوره بیشتر بهش بپرداریم شده که که کنم شما تکمیل به فرمایید من متکلم وحده نباشم اینه که ما تکمیل من خودمو مثال میزنم الان به واسطه روند سازمانی توی دوست تا شغل حضور داشتم مثلا یک کار مشاوره کردم یه مدتی
+
+[00:41:41.170 → 00:41:44.430] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه مدتی فرض بفرم یه مدیریت کردم، یه جای دیگه
+
+[00:41:44.430 → 00:41:48.910] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی الان وقتی که خودم، حالا دو سال آخر که خورده از سازمان دور شدم
+
+[00:41:48.910 → 00:41:53.230] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+امادم دارم کار نسبتا خصوصی می کنم توی سازمان، خیلی کمک کننده بوده ها
+
+[00:41:53.230 → 00:41:58.130] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی وقتی الان خودم نگاه میکنم، این هم برای تک، برای این که هر کدومیش رو بخوام وارد محیط بکنم
+
+[00:41:58.130 → 00:42:00.770] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+احتیاج داره یه تیکه رو تکمیل بکنم
+
+[00:42:00.770 → 00:42:09.530] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+باید فکر بکنم از النام میخوام چی کار بکنم، من 8 سال دیگه خودم بازنشست دارم، دارم با این دید به این موضوع اصلا نگاه میکنم، باید فکر بکنم کجاشو به چست کنم
+
+[00:42:09.530 → 00:42:16.870] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خیلی ممنونم از شما جانبایی دکتر گودی، از منظر سواد مالی بخواییم مباحث بازنشستگی رو جنبندی بکنیم
+
+[00:42:16.870 → 00:42:21.790] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چه پیش از بازنشستگی، چه برای دوگان خود بازنشستگی، چه نکاتی وجود داره؟
+
+[00:42:21.790 → 00:42:40.050] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بله، خب تا یه دو برنامه ما راجع به این موضوع صحبت کردیم، سواد مالی بازنشستگان به ما می‌گفتش که تو موقعیت بازنشستگی درامت‌ها کاهش پیدا می‌کنه، مخارج افضایش پیدا می‌کنه، خانواده‌ی گسترد، شعن اجتماعی که پیدا می‌کنه، درمان‌ها، تفریحات
+
+[00:42:40.050 → 00:42:48.410] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و در این حال باید همه اینها رو مدیریت بکنه، تو بخش مدیریت حزینه‌ها باید بیشتر دقت بکنه
+
+[00:42:48.410 → 00:42:57.530] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما نکته بعدی این بود که سواد مالی برای بازنشستگی، یعنی قبل از بازنشستگی چه کارهای باید بکنیم
+
+[00:42:57.530 → 00:43:02.330] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و مهمترین نکته اینه که این یک بار اتفاق نیفته
+
+[00:43:02.330 → 00:43:06.730] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا آیا باید از ده سال، پونزه سال قبل به این موضوع فکر کرد؟
+
+[00:43:06.730 → 00:43:12.870] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+آیا ما باید یواش یواش کارمند خوب بودن و کنار بذاریم و یک بازنشسته خوب باشیم؟
+
+[00:43:12.870 → 00:43:17.790] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+توصیه میشه که حتی اقل دیگه پنج سال یا سه سال پایانی
+
+[00:43:17.790 → 00:43:26.650] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اون ارقی که نسبت به سازمان داشتیم و میخواستیم خیلی خوب برای سازمان کار بکنیم و کم کم باید این گرهه رو باز بکنیم
+
+[00:43:26.650 → 00:43:31.910] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چون خواهی نخواهی تو پنج سال یا سه سال آینده این رابطه ما قط خواهد شد
+
+[00:43:31.910 → 00:43:37.710] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خودمون بیاییم برای جدا شدن از این سازمان و این شغلمون برنامه ریزی بکنیم
+
+[00:43:37.710 → 00:43:44.430] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مهمترین برنامه ریزی تو این سالهای پایانی برنامه ریزی ادامه شغلمونه
+
+[00:43:44.430 → 00:44:14.130] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که گذینه‌های و جنابا آیالی دوستی فرمودن که چی کار بکنیم که زمنی که می‌تونو از قابلیت‌هامون استفاده بکنیم، سبک شغلی‌مونو عوض بکنیم، مشاقل خانگی راه بندازیم یا به مشاقل در واقع اجدادی‌مون برگردیم یا مهاجرت محکوسی به اون جامعه‌ی قبلی‌ی که ازش اومدیم داشته باشیم، این‌ها می‌تونه مسیر‌هایی رو برای ما باز بکنید تو حوضه‌ی شغلی و نکته‌ی پ
+
+[00:44:14.130 → 00:44:42.610] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بزرگیریم که مهمترین آوردش میتونه تو اون دوره بازنشستگی باشه، ابزارهای مختلفی تو بازار سرمایه و تو بازار بیمه هست، مثلا تو بازار بیمه بیمه عمر گذینه خوبیه، تو بازار سرمایه، صندوقهای سرمایه گذاری با درامت ثابت به صورتی که سود رو دوباره به اون در واقع اصل سرمایه برگردونیم تا بتونیم هم رشد سرمایه رو داشته باشیم، هم از سود مرکب بهره ببریم
+
+[00:44:42.610 → 00:45:08.050] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خیلی ممنونم از شما به پایان برنامه چه ستون رسیدیم، در این قسمت گفت‌وگو کردیم در برای سواد مالی برای قبل از بازنشستگی، از آقای دکتر گودی تشکر میکنم در استودیو حضور داشتید، همچنین شما جنبای مهندس علی دوستی، این برنامه توسط گروه اقتصاد رادیو گفت‌وگو با حمایت علمی اکادمی حوش مالی تحیه شده، بنده هادی نجف، به اتفاق ساییر و همکارانم، ت
+
+[00:45:08.050 → 00:45:15.010] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بردار خانم پوگست کرده و همه هنگی خانم محسن زاده از شما شنوانده های عزیزه برنامه چل ستون خدافزی می‌کنیم

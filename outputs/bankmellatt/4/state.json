@@ -1,0 +1,109 @@
+{
+  "schema_version": 2,
+  "updated_at": "2026-08-19T19:24:27.681211+00:00",
+  "stages": {
+    "source": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "download": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "audio": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "transcribe": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "accuracy": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "pre_review": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "clean": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "editorial": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "finalize_machine": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "review": {
+      "status": "pending",
+      "updated_at": "",
+      "output_paths": [],
+      "details": {},
+      "error": ""
+    },
+    "export": {
+      "status": "completed",
+      "updated_at": "2026-08-19T19:24:27.681185+00:00",
+      "output_paths": [
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/bankmellatt/4/delivery/transcript.md",
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/bankmellatt/4/delivery/transcript.txt",
+        "/home/runner/work/vid_pipeline/vid_pipeline/outputs/bankmellatt/4/delivery/transcript.timestamped.md"
+      ],
+      "details": {
+        "status": "completed",
+        "timestamp_source": "/home/runner/work/vid_pipeline/vid_pipeline/outputs/bankmellatt/4/human/verification.json",
+        "final_outputs": {
+          "markdown": "/home/runner/work/vid_pipeline/vid_pipeline/outputs/bankmellatt/4/delivery/transcript.md",
+          "text": "/home/runner/work/vid_pipeline/vid_pipeline/outputs/bankmellatt/4/delivery/transcript.txt",
+          "timestamped_markdown": "/home/runner/work/vid_pipeline/vid_pipeline/outputs/bankmellatt/4/delivery/transcript.timestamped.md"
+        },
+        "exported_speakers": [],
+        "exported_effective_speakers": [],
+        "exported_effective_speaker_count": 0,
+        "source_provenance": {
+          "original_download_url": "",
+          "source_page_url": "",
+          "archive_url": "https://github.com/Shahbazi-Amir/vid_pipeline/releases/download/bankmellatt/4.mp4"
+        },
+        "export_seconds": 0.014928,
+        "sha256": {
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/bankmellatt/4/delivery/transcript.md": "c55b5aa0ac8cf65c55505f8f59f7507000ced7ab59510f44a76e206a76b83d96",
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/bankmellatt/4/delivery/transcript.txt": "4f635f1c2473fe8d0829fb1db120f54b91cff3d1632612b64d0d9125487031e8",
+          "/home/runner/work/vid_pipeline/vid_pipeline/outputs/bankmellatt/4/delivery/transcript.timestamped.md": "d384d75432756033f2f68b37f7748c905f00488a4302ad6f41f2ed35de413b1b"
+        }
+      },
+      "error": ""
+    }
+  }
+}

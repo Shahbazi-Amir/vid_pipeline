@@ -1,7 +1,7 @@
 # Output Status
 
-- Finalized: **26**
-- Review-ready: **14**
+- Finalized: **27**
+- Review-ready: **15**
 
 ## Finalized
 - `chehelstoun/01`
@@ -30,6 +30,7 @@
 - `chehelstoun/24`
 - `chehelstoun/25`
 - `chehelstoun/26`
+- `chehelstoun/27`
 
 ## Review-ready
 - `bankmellatt/1`
@@ -38,10 +39,11 @@
 - `bankmellatt/5`
 - `bankmellatt/6`
 - `bankmellatt/7`
-- `chehelstoun/27`
 - `chehelstoun/28`
 - `chehelstoun/29`
+- `chehelstoun/31`
 - `chehelstoun/33`
+- `chehelstoun/34`
 - `finup/what_financial_literacy_is_and_what_it_isn_t___komeil_roodi_at_the_21st_finup_ev`
 - `ketab-baz/01`
 - `mizan/01`

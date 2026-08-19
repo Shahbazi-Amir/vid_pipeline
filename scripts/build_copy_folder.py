@@ -44,11 +44,27 @@ def clean_text(value: Any) -> str:
     return re.sub(r"\s+", " ", text)
 
 
+def finalized_path_for(root: Path) -> Path | None:
+    """Return the presentation canonical finalized transcript for an output root."""
+    try:
+        rel = root.relative_to(OUTPUTS)
+    except ValueError:
+        return None
+    if not rel.parts or rel.parts[0] in {"finalized", "review-ready"}:
+        return None
+    candidate = OUTPUTS / "finalized" / rel / "transcript.md"
+    return candidate if candidate.is_file() and candidate.stat().st_size > 0 else None
+
+
 def transcript_for(root: Path) -> tuple[Path | None, str]:
-    candidates = [
+    canonical_final = finalized_path_for(root)
+    candidates = []
+    if canonical_final is not None:
+        candidates.append((canonical_final, "نهایی بازبینی‌شده"))
+    candidates.extend([
         (root / "final" / "transcript.final.md", "نهایی بازبینی‌شده"),
         (root / "delivery" / "transcript.md", "نسخه تحویلی نهایی خط پردازش"),
-    ]
+    ])
     for path, label in candidates:
         if path.is_file() and path.stat().st_size > 0:
             return path, label
@@ -258,9 +274,6 @@ def build(manifest_path: Path | None) -> dict[str, Any]:
     else:
         missing.append(name)
 
-    # The user's Sherakat source is the uploaded Voice.260817_165035.m4a asset.
-    # It already has a canonical transcript under outputs/voice-260817-165035/01;
-    # do not require or invent an outputs/sherakat directory.
     sherakat_root = OUTPUTS / "voice-260817-165035" / "01"
     name = "شراکت.md"
     if write_copy(

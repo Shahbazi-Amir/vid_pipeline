@@ -109,10 +109,8 @@ jobs:
           status += [f'- `{x}`' for x in ready_items] or ['- none']
           (outputs / 'STATUS.md').write_text('\n'.join(status) + '\n', encoding='utf-8')
 
-          readme = '''# Outputs\n\nبرای استفاده روزمره فقط این دو مسیر را نگاه کنید:\n\n- `outputs/finalized/` — خروجی‌های Review‌شده و نهایی.\n- `outputs/review-ready/` — خروجی‌های آماده‌ی Review نهایی.\n\nداخل هر پوشه‌ی مصرفی فقط فایل‌های خواندنی نگه داشته می‌شوند:\n\n- `transcript.md`\n- `transcript.txt`\n- `transcript.timestamped.md`\n- `review.md`\n\nJSON و فایل‌های فنی فقط در مسیر اصلی هر Job برای Audit/Resume باقی می‌مانند.\nوضعیت کلی: `outputs/STATUS.md`\n'''
-          (outputs / 'README.md').write_text(readme, encoding='utf-8')
+          (outputs / 'README.md').write_text('''# Outputs\n\nبرای استفاده روزمره فقط این دو مسیر را نگاه کنید:\n\n- `outputs/finalized/` — خروجی‌های Review‌شده و نهایی.\n- `outputs/review-ready/` — خروجی‌های آماده‌ی Review نهایی.\n\nداخل هر پوشه‌ی مصرفی فقط این فایل‌های خواندنی هستند:\n\n- `transcript.md`\n- `transcript.txt`\n- `transcript.timestamped.md`\n- `review.md`\n\nJSON و فایل‌های فنی فقط در مسیر اصلی هر Job برای Audit/Resume باقی می‌مانند.\nوضعیت کلی: `outputs/STATUS.md`\n''', encoding='utf-8')
           PY
-
           git rm -f outputs/canonical-status.json 2>/dev/null || true
 
       - name: Commit canonical readable outputs
@@ -121,7 +119,8 @@ jobs:
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A outputs/finalized outputs/review-ready outputs/README.md outputs/STATUS.md outputs/canonical-status.json
+          git add -f -A outputs/finalized outputs/review-ready outputs/README.md outputs/STATUS.md
+          git add -u outputs/canonical-status.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo 'No canonical changes.'
             exit 0
@@ -129,11 +128,7 @@ jobs:
           git commit -m 'Normalize canonical outputs to Markdown and text'
           for attempt in 1 2 3 4 5 6; do
             git pull --rebase origin main
-            if git push origin HEAD:main; then
-              exit 0
-            fi
+            if git push origin HEAD:main; then exit 0; fi
             sleep $((attempt * 3))
           done
           exit 1
-
-# canonical-readable-v1

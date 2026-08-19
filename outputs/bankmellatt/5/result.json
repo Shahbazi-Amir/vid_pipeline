@@ -1,11 +1,11 @@
 {
   "schema_version": 5,
-  "status": "human_review_required",
-  "review_status": "human_review_required",
+  "status": "completed",
+  "review_status": "human_verified",
   "job_id": "bankmellatt-ba5cb4bd",
   "source_url": "",
-  "final_markdown": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/final/transcript.final.md",
-  "final_text": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/final/transcript.final.txt",
+  "final_markdown": "outputs/bankmellatt/5/final/transcript.final.md",
+  "final_text": "outputs/bankmellatt/5/final/transcript.final.txt",
   "content_preservation": {
     "accepted": true,
     "source_tokens": 2385,
@@ -33,7 +33,7 @@
   "machine_markdown": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/machine/transcript.machine.md",
   "machine_text": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/machine/transcript.machine.txt",
   "editorial_report": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/final/editorial-report.json",
-  "human_audio_verification": false,
+  "human_audio_verification": true,
   "pre_review_status": "completed",
   "pre_review_manifest": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/pre_review/manifest.json",
   "pre_review_files": {
@@ -48,11 +48,11 @@
   "review_package": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/review/manifest.json",
   "export_status": "completed",
   "final_outputs": {
-    "markdown": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/delivery/transcript.md",
-    "text": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/delivery/transcript.txt",
-    "timestamped_markdown": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/delivery/transcript.timestamped.md"
+    "markdown": "/home/runner/work/vid_pipeline/vid_pipeline/outputs/bankmellatt/5/delivery/transcript.md",
+    "text": "/home/runner/work/vid_pipeline/vid_pipeline/outputs/bankmellatt/5/delivery/transcript.txt",
+    "timestamped_markdown": "/home/runner/work/vid_pipeline/vid_pipeline/outputs/bankmellatt/5/delivery/transcript.timestamped.md"
   },
-  "timestamp_source": "/tmp/bankmellatt-process-1-runtime/bankmellatt-ba5cb4bd/accuracy/transcript.consensus.json",
+  "timestamp_source": "/home/runner/work/vid_pipeline/vid_pipeline/outputs/bankmellatt/5/human/verification.json",
   "exported_speakers": [],
   "exported_effective_speakers": [],
   "exported_effective_speaker_count": 0,
@@ -60,5 +60,9 @@
     "original_download_url": "",
     "source_page_url": "",
     "archive_url": "https://github.com/Shahbazi-Amir/vid_pipeline/releases/download/bankmellatt/5.mp4"
-  }
+  },
+  "human_reviewer": "ChatGPT",
+  "human_verification_report": "outputs/bankmellatt/5/human/verification.json",
+  "final_srt": "outputs/bankmellatt/5/final/transcript.final.srt",
+  "final_vtt": "outputs/bankmellatt/5/final/transcript.final.vtt"
 }

@@ -32,7 +32,16 @@ def clean_text(value: Any) -> str:
     return re.sub(r"\s+", " ", str(value or "").strip())
 
 
+def full_proofread_complete(root: Path) -> bool:
+    """Only an explicit whole-transcript proofread marker can make copy/ final."""
+    marker = root / "review" / "full-proofread.json"
+    data = load_json(marker)
+    return bool(data.get("complete") is True and data.get("reviewer") == "ChatGPT")
+
+
 def finalized_path_for(root: Path) -> Path | None:
+    if not full_proofread_complete(root):
+        return None
     try:
         rel = root.relative_to(OUTPUTS)
     except ValueError:
@@ -44,17 +53,13 @@ def finalized_path_for(root: Path) -> Path | None:
 
 
 def transcript_for(root: Path) -> tuple[Path | None, str]:
-    candidates: list[tuple[Path, str]] = []
     canonical_final = finalized_path_for(root)
     if canonical_final is not None:
-        candidates.append((canonical_final, "نهایی بازبینی‌شده"))
-    candidates.extend([
-        (root / "final" / "transcript.final.md", "نسخه تحویلی خط پردازش"),
-        (root / "delivery" / "transcript.md", "نسخه تحویلی خط پردازش"),
-    ])
-    for path, label in candidates:
+        return canonical_final, "نهایی؛ بازبینی کامل ChatGPT"
+
+    for path in (root / "delivery" / "transcript.md", root / "final" / "transcript.final.md"):
         if path.is_file() and path.stat().st_size > 0:
-            return path, label
+            return path, "نیازمند بازبینی کامل ChatGPT"
     return None, ""
 
 

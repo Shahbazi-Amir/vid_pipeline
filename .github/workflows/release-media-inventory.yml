@@ -1,0 +1,68 @@
+name: Release media inventory
+run-name: Release media inventory ${{ github.run_id }}
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/release-media-inventory.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  BANK_TAG: bankmellatt
+  BOOK_TAG: ketab-baz-s05e68-komeil-roudi
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Read release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p ops/release-inventory
+          gh api "repos/${GITHUB_REPOSITORY}/releases/tags/${BANK_TAG}" > /tmp/bank.json
+          gh api "repos/${GITHUB_REPOSITORY}/releases/tags/${BOOK_TAG}" > /tmp/book.json
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          media_exts={'.mp3','.m4a','.wav','.flac','.aac','.ogg','.opus','.mp4','.mkv','.mov','.webm','.avi','.m4v'}
+          def slim(path):
+              r=json.loads(Path(path).read_text())
+              assets=[]
+              for a in r.get('assets',[]):
+                  ext=Path(a.get('name','')).suffix.lower()
+                  assets.append({
+                      'name':a.get('name'), 'size':a.get('size'), 'content_type':a.get('content_type'),
+                      'browser_download_url':a.get('browser_download_url'), 'created_at':a.get('created_at'),
+                      'is_media':ext in media_exts,
+                  })
+              return {'tag':r.get('tag_name'),'release_name':r.get('name'),'asset_count':len(assets),'media_count':sum(x['is_media'] for x in assets),'assets':assets}
+          out={'schema_version':1,'run_id':os.environ['GITHUB_RUN_ID'],'bankmellatt':slim('/tmp/bank.json'),'book_release':slim('/tmp/book.json')}
+          Path('ops/release-inventory/latest.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(out,ensure_ascii=False,indent=2))
+          PY
+      - name: Commit inventory
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add ops/release-inventory/latest.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Record release media inventory ${GITHUB_RUN_ID}"
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep $((attempt*3))
+          done
+          exit 1

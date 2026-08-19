@@ -73,7 +73,6 @@ jobs:
               return s[:80]
 
           tasks=[]
-          # Mizan from Chehelstoun extras, excluding numbered episodes and Voice.
           extras=[a for a in media_assets(cheh) if not re.match(r'^\d{2}(?:\D|$)',a.get('name','')) and a.get('name') != os.environ['VOICE_ASSET_NAME']]
           named=[a for a in extras if 'mizan' in a.get('name','').lower() or 'میزان' in a.get('name','')]
           if named:
@@ -89,7 +88,6 @@ jobs:
                   'hotwords':'میزان، کمیل رودی، دکتر کمیل رودی، سواد مالی','release_tag':cheh.get('tag_name','')
               })
 
-          # Ketab Baz original + every extra media asset in the same release as Finup.
           for a in media_assets(book):
               name=a['name']
               if name == os.environ['KETAB_BAZ_MAIN_ASSET']:
@@ -106,7 +104,6 @@ jobs:
                       'hotwords':'فیناپ، کمیل رودی، دکتر کمیل رودی، سواد مالی','release_tag':book.get('tag_name','')
                   })
 
-          # All current and future media assets from bankmellatt release.
           for a in sorted(media_assets(bank), key=lambda x:(x.get('created_at',''),x.get('name',''))):
               name=a['name']; slug=safe_slug(name)
               tasks.append({
@@ -115,7 +112,6 @@ jobs:
                   'hotwords':'بانک ملت، کمیل رودی، دکتر کمیل رودی، سواد مالی','release_tag':bank.get('tag_name','')
               })
 
-          # Deduplicate and skip outputs already fully transcript+review-package ready.
           pending=[]; seen=set()
           for t in tasks:
               key=(t['kind'],t['url'])
@@ -286,6 +282,22 @@ jobs:
           (dest/'metadata.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
           PY
 
+      - name: Sync canonical review-ready output
+        if: steps.existing.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          rel="${DEST#outputs/}"
+          canonical="outputs/review-ready/${rel}"
+          rm -rf "$canonical"
+          mkdir -p "$canonical/review"
+          cp "$DEST/delivery/transcript.txt" "$canonical/transcript.txt"
+          [[ -s "$DEST/delivery/transcript.md" ]] && cp "$DEST/delivery/transcript.md" "$canonical/transcript.md"
+          [[ -s "$DEST/delivery/transcript.timestamped.md" ]] && cp "$DEST/delivery/transcript.timestamped.md" "$canonical/transcript.timestamped.md"
+          cp "$DEST/review/assistant-review-package.json" "$canonical/review/assistant-review-package.json"
+          [[ -s "$DEST/source.json" ]] && cp "$DEST/source.json" "$canonical/source.json"
+          [[ -s "$DEST/metadata.json" ]] && cp "$DEST/metadata.json" "$canonical/metadata.json"
+
       - name: Commit output independently with contention retry
         if: steps.existing.outputs.skip != 'true'
         shell: bash
@@ -299,7 +311,9 @@ jobs:
             echo "::error::Refusing to commit oversized generated file: $oversized"
             exit 1
           fi
-          git add -f "$DEST"
+          rel="${DEST#outputs/}"
+          canonical="outputs/review-ready/${rel}"
+          git add -f "$DEST" "$canonical"
           git diff --cached --quiet && exit 0
           git commit -m "Add ${DISPLAY} media transcript: ${ASSET_NAME}"
           for attempt in 1 2 3 4 5 6 7 8; do
@@ -314,3 +328,49 @@ jobs:
         shell: bash
         run: |
           rm -rf "/tmp/${KIND}-${GITHUB_JOB}-${GITHUB_RUN_ATTEMPT}-input" "/tmp/${KIND}-${GITHUB_JOB}-${GITHUB_RUN_ATTEMPT}-runtime"
+
+  refresh-canonical-index:
+    needs: [prepare, process]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Refresh canonical status index
+        shell: bash
+        run: |
+          set -euo pipefail
+          git pull --ff-only origin main
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          outputs=Path('outputs')
+          finalized=[]
+          ready=[]
+          for p in sorted((outputs/'finalized').glob('*/*')) if (outputs/'finalized').exists() else []:
+              if p.is_dir() and (p/'transcript.txt').is_file():
+                  finalized.append(str(p.relative_to(outputs/'finalized')))
+          for p in sorted((outputs/'review-ready').glob('*/*')) if (outputs/'review-ready').exists() else []:
+              if p.is_dir() and (p/'transcript.txt').is_file():
+                  ready.append(str(p.relative_to(outputs/'review-ready')))
+          data={
+            'schema_version':1,
+            'canonical_paths':{'finalized':'outputs/finalized','review_ready':'outputs/review-ready'},
+            'finalized_count':len(finalized),'review_ready_count':len(ready),
+            'finalized':finalized,'review_ready':ready,
+          }
+          (outputs/'canonical-status.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/canonical-status.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Refresh canonical output index"
+          for attempt in 1 2 3 4; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep $((attempt*3))
+          done
+          exit 1

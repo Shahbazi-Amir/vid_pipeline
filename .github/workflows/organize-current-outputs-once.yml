@@ -15,6 +15,7 @@ concurrency:
   group: organize-current-outputs-once
   cancel-in-progress: false
 
+# One-time canonical output organization run.
 jobs:
   organize:
     runs-on: ubuntu-latest
@@ -63,7 +64,6 @@ jobs:
                   return True
               return False
 
-          # Finalized = explicit ChatGPT/human review evidence + promoted final transcript.
           for final_md in sorted(outputs.glob('**/final/transcript.final.md')):
               if 'finalized' in final_md.parts or 'review-ready' in final_md.parts:
                   continue
@@ -87,7 +87,6 @@ jobs:
               copy_if(base / 'metadata.json', dest / 'metadata.json')
               finalized.append(str(rel))
 
-          # Review-ready = ASR + assistant review package exists, but no explicit final review evidence.
           for package in sorted(outputs.glob('**/review/assistant-review-package.json')):
               if 'finalized' in package.parts or 'review-ready' in package.parts:
                   continue
@@ -125,7 +124,6 @@ jobs:
           (outputs / 'canonical-status.json').write_text(
               json.dumps(status, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
           )
-
           readme = '''# Canonical outputs\n\nبرای استفاده روزمره فقط این دو مسیر را نگاه کنید:\n\n- `outputs/finalized/` — فقط خروجی‌هایی که Review واقعی شده‌اند و Final transcript دارند.\n- `outputs/review-ready/` — پردازش و Review Package کامل است، ولی Review نهایی هنوز انجام نشده.\n\nمسیرهای قدیمی هر Collection برای Audit/Resume نگه داشته شده‌اند و حذف نشده‌اند.\nمرجع وضعیت ماشینی: `outputs/canonical-status.json`.\n'''
           (outputs / 'README.md').write_text(readme, encoding='utf-8')
           print(json.dumps(status, ensure_ascii=False, indent=2))

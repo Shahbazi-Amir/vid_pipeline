@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "47cb814211da57da1e4954a0369ebfdee9f050af5f0923b227390137f464fc75",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.02,
+    "segments": [
+      {
+        "id": 1,
+        "start": 4.279999999999999,
+        "end": 12.0,
+        "text": "چه چیزی باعث میشه دانش ما به یک رفتار تبدیل بشه یا چه‌چیز باعظ میشود دانه شما به رفدار تقدیل؟",
+        "avg_logprob": -0.3596370369195938,
+        "compression_ratio": 1.5,
+        "no_speech_prob": 3.6977979012142725e-10,
+        "words": [
+          {
+            "start": 4.279999999999999,
+            "end": 5.08,
+            "word": " چه",
+            "probability": 0.4291501184925437
+          },
+          {
+            "start": 5.08,
+            "end": 5.34,
+            "word": " چیزی",
+            "probability": 0.9870846420526505
+          },
+          {
+            "start": 5.34,
+            "end": 5.76,
+            "word": " باعث",
+            "probability": 0.9935678243637085
+          },
+          {
+            "start": 5.76,
+            "end": 6.0,
+            "word": " میشه",
+            "probability": 0.9624395767847697
+          },
+          {
+            "start": 6.0,
+            "end": 6.54,
+            "word": " دانش",
+            "probability": 0.9862201809883118
+          },
+          {
+            "start": 6.54,
+            "end": 6.8,
+            "word": " ما",
+            "probability": 0.9579581022262573
+          },
+          {
+            "start": 6.8,
+            "end": 7.22,
+            "word": " به",
+            "probability": 0.992554247379303
+          },
+          {
+            "start": 7.22,
+            "end": 7.62,
+            "word": " یک",
+            "probability": 0.8221770823001862
+          },
+          {
+            "start": 7.62,
+            "end": 8.2,
+            "word": " رفتار",
+            "probability": 0.9910504519939423
+          },
+          {
+            "start": 8.2,
+            "end": 8.82,
+            "word": " تبدیل",
+            "probability": 0.9972299784421921
+          },
+          {
+            "start": 8.82,
+            "end": 9.56,
+            "word": " بشه",
+            "probability": 0.9804922143618265
+          },
+          {
+            "start": 9.56,
+            "end": 9.96,
+            "word": " یا",
+            "probability": 0.7292736768722534
+          },
+          {
+            "start": 9.96,
+            "end": 10.38,
+            "word": " چه‌چیز",
+            "probability": 0.7903292166398993
+          },
+          {
+            "start": 10.38,
+            "end": 10.68,
+            "word": " باعظ",
+            "probability": 0.3339587361466935
+          },
+          {
+            "start": 10.68,
+            "end": 10.94,
+            "word": " میشود",
+            "probability": 0.6380874855191602
+          },
+          {
+            "start": 10.94,
+            "end": 11.32,
+            "word": " دانه",
+            "probability": 0.6250631042057648
+          },
+          {
+            "start": 11.32,
+            "end": 11.48,
+            "word": " شما",
+            "probability": 0.6737173348665237
+          },
+          {
+            "start": 11.48,
+            "end": 11.62,
+            "word": " به",
+            "probability": 0.9701213240623474
+          },
+          {
+            "start": 11.62,
+            "end": 12.0,
+            "word": " رفدار",
+            "probability": 0.7438886893578456
+          },
+          {
+            "start": 12.0,
+            "end": 12.0,
+            "word": " تقدیل؟",
+            "probability": 0.5765764612704516
+          }
+        ]
+      }
+    ]
+  }
+}

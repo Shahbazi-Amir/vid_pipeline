@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "5c9cd412d0a61fb2253a548410bffd8c77b5ca7b7f5b4bfb9e2722aa9bdcfb82",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.56,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.9,
+        "text": "درستی برای این بود فراهم بکنه، یک بود از شخصیتش رو ارتقا داده. بود دیگه...",
+        "avg_logprob": -0.14546894851852865,
+        "compression_ratio": 1.3131313131313131,
+        "no_speech_prob": 2.033136714540973e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.54,
+            "word": " درستی",
+            "probability": 0.988965168595314
+          },
+          {
+            "start": 0.54,
+            "end": 0.9,
+            "word": " برای",
+            "probability": 0.9989658991495768
+          },
+          {
+            "start": 0.9,
+            "end": 1.02,
+            "word": " این",
+            "probability": 0.9991506636142731
+          },
+          {
+            "start": 1.02,
+            "end": 1.32,
+            "word": " بود",
+            "probability": 0.9503077864646912
+          },
+          {
+            "start": 1.32,
+            "end": 1.98,
+            "word": " فراهم",
+            "probability": 0.9896687865257263
+          },
+          {
+            "start": 1.98,
+            "end": 2.64,
+            "word": " بکنه،",
+            "probability": 0.7983694970607758
+          },
+          {
+            "start": 2.64,
+            "end": 2.9,
+            "word": " یک",
+            "probability": 0.9991798996925354
+          },
+          {
+            "start": 2.9,
+            "end": 3.22,
+            "word": " بود",
+            "probability": 0.9982926249504089
+          },
+          {
+            "start": 3.22,
+            "end": 3.42,
+            "word": " از",
+            "probability": 0.9996153712272644
+          },
+          {
+            "start": 3.42,
+            "end": 4.24,
+            "word": " شخصیتش",
+            "probability": 0.9992934862772623
+          },
+          {
+            "start": 4.24,
+            "end": 4.84,
+            "word": " رو",
+            "probability": 0.9905813336372375
+          },
+          {
+            "start": 4.84,
+            "end": 5.5,
+            "word": " ارتقا",
+            "probability": 0.846089094877243
+          },
+          {
+            "start": 5.5,
+            "end": 5.84,
+            "word": " داده.",
+            "probability": 0.9895804524421692
+          },
+          {
+            "start": 6.24,
+            "end": 7.14,
+            "word": " بود",
+            "probability": 0.9942544996738434
+          },
+          {
+            "start": 7.14,
+            "end": 7.9,
+            "word": " دیگه...",
+            "probability": 0.8249864101409912
+          }
+        ]
+      }
+    ]
+  }
+}

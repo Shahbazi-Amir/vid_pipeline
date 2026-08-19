@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "8c339f409fbd88e5aa1cca8fdda0513530446af5f5d820197f1e37368d213474",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.82,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.8,
+        "text": "کار آمدی و اثر بخشی یعنی بحروری، یه شخصیت بحریور تو هر دو بعد کار درست و درسطی انجام کار موجود.",
+        "avg_logprob": -0.28046254884629024,
+        "compression_ratio": 1.4695652173913043,
+        "no_speech_prob": 3.0936786465929345e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.54,
+            "word": " کار",
+            "probability": 0.8752588927745819
+          },
+          {
+            "start": 0.54,
+            "end": 0.94,
+            "word": " آمدی",
+            "probability": 0.9007926881313324
+          },
+          {
+            "start": 0.94,
+            "end": 1.06,
+            "word": " و",
+            "probability": 0.9688921570777893
+          },
+          {
+            "start": 1.06,
+            "end": 1.36,
+            "word": " اثر",
+            "probability": 0.9191422462463379
+          },
+          {
+            "start": 1.36,
+            "end": 1.72,
+            "word": " بخشی",
+            "probability": 0.9316150397062302
+          },
+          {
+            "start": 1.72,
+            "end": 1.9,
+            "word": " یعنی",
+            "probability": 0.968289315700531
+          },
+          {
+            "start": 1.9,
+            "end": 2.52,
+            "word": " بحروری،",
+            "probability": 0.6741784363985062
+          },
+          {
+            "start": 2.52,
+            "end": 2.68,
+            "word": " یه",
+            "probability": 0.9279441833496094
+          },
+          {
+            "start": 2.68,
+            "end": 3.26,
+            "word": " شخصیت",
+            "probability": 0.9977114200592041
+          },
+          {
+            "start": 3.26,
+            "end": 3.82,
+            "word": " بحریور",
+            "probability": 0.7229111249907874
+          },
+          {
+            "start": 3.82,
+            "end": 3.98,
+            "word": " تو",
+            "probability": 0.43622833490371704
+          },
+          {
+            "start": 3.98,
+            "end": 4.34,
+            "word": " هر",
+            "probability": 0.9729141294956207
+          },
+          {
+            "start": 4.34,
+            "end": 4.62,
+            "word": " دو",
+            "probability": 0.9383539259433746
+          },
+          {
+            "start": 4.62,
+            "end": 4.88,
+            "word": " بعد",
+            "probability": 0.8821857571601868
+          },
+          {
+            "start": 4.88,
+            "end": 5.74,
+            "word": " کار",
+            "probability": 0.9808779954910278
+          },
+          {
+            "start": 5.74,
+            "end": 6.32,
+            "word": " درست",
+            "probability": 0.9990344643592834
+          },
+          {
+            "start": 6.32,
+            "end": 6.5,
+            "word": " و",
+            "probability": 0.9919325709342957
+          },
+          {
+            "start": 6.5,
+            "end": 7.04,
+            "word": " درسطی",
+            "probability": 0.6066717072466418
+          },
+          {
+            "start": 7.04,
+            "end": 7.62,
+            "word": " انجام",
+            "probability": 0.9860181411107382
+          },
+          {
+            "start": 7.62,
+            "end": 8.14,
+            "word": " کار",
+            "probability": 0.9982911646366119
+          },
+          {
+            "start": 8.14,
+            "end": 8.8,
+            "word": " موجود.",
+            "probability": 0.3760583909849326
+          }
+        ]
+      }
+    ]
+  }
+}

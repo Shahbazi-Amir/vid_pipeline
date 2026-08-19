@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "3d8682fd438402f9bf7769f6c48c0fab8386fbde8a4efeabecd951258127abc0",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.74,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.72,
+        "text": "کار درست رو انجام بیدیم، اثر بخشیم. وقتی اون کار رو به درسطی انجان بیديم، کار آمدید. کارآمدهی و اثر‌بخش یعنی بهروریگش.",
+        "avg_logprob": -0.2871461908022563,
+        "compression_ratio": 1.5661764705882353,
+        "no_speech_prob": 2.6995147783814843e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.2,
+            "word": " کار",
+            "probability": 0.9743152856826782
+          },
+          {
+            "start": 0.2,
+            "end": 0.66,
+            "word": " درست",
+            "probability": 0.9932284156481425
+          },
+          {
+            "start": 0.66,
+            "end": 0.82,
+            "word": " رو",
+            "probability": 0.8093227446079254
+          },
+          {
+            "start": 0.82,
+            "end": 1.24,
+            "word": " انجام",
+            "probability": 0.9981659849484762
+          },
+          {
+            "start": 1.24,
+            "end": 1.58,
+            "word": " بیدیم،",
+            "probability": 0.8023475855588913
+          },
+          {
+            "start": 1.58,
+            "end": 1.84,
+            "word": " اثر",
+            "probability": 0.9358191192150116
+          },
+          {
+            "start": 1.84,
+            "end": 2.5,
+            "word": " بخشیم.",
+            "probability": 0.9807265639305115
+          },
+          {
+            "start": 2.66,
+            "end": 3.34,
+            "word": " وقتی",
+            "probability": 0.9971049030621847
+          },
+          {
+            "start": 3.34,
+            "end": 3.42,
+            "word": " اون",
+            "probability": 0.9930577874183655
+          },
+          {
+            "start": 3.42,
+            "end": 3.76,
+            "word": " کار",
+            "probability": 0.9994818270206451
+          },
+          {
+            "start": 3.76,
+            "end": 3.94,
+            "word": " رو",
+            "probability": 0.998585432767868
+          },
+          {
+            "start": 3.94,
+            "end": 4.06,
+            "word": " به",
+            "probability": 0.9984702467918396
+          },
+          {
+            "start": 4.06,
+            "end": 4.62,
+            "word": " درسطی",
+            "probability": 0.6562417252105661
+          },
+          {
+            "start": 4.62,
+            "end": 5.1,
+            "word": " انجان",
+            "probability": 0.6524881860314053
+          },
+          {
+            "start": 5.1,
+            "end": 5.52,
+            "word": " بیديم،",
+            "probability": 0.7437406513432506
+          },
+          {
+            "start": 5.52,
+            "end": 5.76,
+            "word": " کار",
+            "probability": 0.9989224374294281
+          },
+          {
+            "start": 5.76,
+            "end": 6.2,
+            "word": " آمدید.",
+            "probability": 0.7985306803137064
+          },
+          {
+            "start": 6.32,
+            "end": 7.0,
+            "word": " کارآمدهی",
+            "probability": 0.6519903066946426
+          },
+          {
+            "start": 7.0,
+            "end": 7.1,
+            "word": " و",
+            "probability": 0.9028372168540955
+          },
+          {
+            "start": 7.1,
+            "end": 7.72,
+            "word": " اثر‌بخش",
+            "probability": 0.801713686514025
+          },
+          {
+            "start": 7.72,
+            "end": 7.94,
+            "word": " یعنی",
+            "probability": 0.7496022987179458
+          },
+          {
+            "start": 7.94,
+            "end": 8.72,
+            "word": " بهروریگش.",
+            "probability": 0.6533342475692431
+          }
+        ]
+      }
+    ]
+  }
+}

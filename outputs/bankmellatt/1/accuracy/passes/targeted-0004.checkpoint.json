@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "e82b0b2d4f22558fc4ed27cd646ac9c83b43b7b5ba9b607a8adb940509a33d60",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.12,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 5.34,
+        "text": "از تو مدرسه به شما چی یاد می‌دهن؟ ما می‌موندیم که جواب این سوال رو چجوری باقید.",
+        "avg_logprob": -0.24423728193397876,
+        "compression_ratio": 1.2767857142857142,
+        "no_speech_prob": 2.584440439434843e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.1,
+            "word": " از",
+            "probability": 0.7438904196023941
+          },
+          {
+            "start": 0.1,
+            "end": 0.18,
+            "word": " تو",
+            "probability": 0.8535654544830322
+          },
+          {
+            "start": 0.18,
+            "end": 0.6,
+            "word": " مدرسه",
+            "probability": 0.9550754070281983
+          },
+          {
+            "start": 0.6,
+            "end": 0.68,
+            "word": " به",
+            "probability": 0.9769386649131775
+          },
+          {
+            "start": 0.68,
+            "end": 0.92,
+            "word": " شما",
+            "probability": 0.9988983869552612
+          },
+          {
+            "start": 0.92,
+            "end": 1.16,
+            "word": " چی",
+            "probability": 0.9817247688770294
+          },
+          {
+            "start": 1.16,
+            "end": 1.38,
+            "word": " یاد",
+            "probability": 0.9094445705413818
+          },
+          {
+            "start": 1.38,
+            "end": 2.14,
+            "word": " می‌دهن؟",
+            "probability": 0.6587455061574777
+          },
+          {
+            "start": 2.14,
+            "end": 2.78,
+            "word": " ما",
+            "probability": 0.9297531843185425
+          },
+          {
+            "start": 2.78,
+            "end": 3.52,
+            "word": " می‌موندیم",
+            "probability": 0.9691504069737026
+          },
+          {
+            "start": 3.52,
+            "end": 3.7,
+            "word": " که",
+            "probability": 0.9748433232307434
+          },
+          {
+            "start": 3.7,
+            "end": 4.04,
+            "word": " جواب",
+            "probability": 0.9967910448710123
+          },
+          {
+            "start": 4.04,
+            "end": 4.16,
+            "word": " این",
+            "probability": 0.9759259223937988
+          },
+          {
+            "start": 4.16,
+            "end": 4.4,
+            "word": " سوال",
+            "probability": 0.9132175445556641
+          },
+          {
+            "start": 4.4,
+            "end": 4.48,
+            "word": " رو",
+            "probability": 0.6924213767051697
+          },
+          {
+            "start": 4.48,
+            "end": 4.86,
+            "word": " چجوری",
+            "probability": 0.953223779797554
+          },
+          {
+            "start": 4.86,
+            "end": 5.34,
+            "word": " باقید.",
+            "probability": 0.47026031613349917
+          }
+        ]
+      }
+    ]
+  }
+}

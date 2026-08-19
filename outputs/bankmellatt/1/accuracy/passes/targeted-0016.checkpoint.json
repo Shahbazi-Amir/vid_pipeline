@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "b15454bf39a12ae4dd8bd345345e1b40b84f627b03d5c76b2a6e9fc87f60d248",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.5,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.0,
+        "text": "زندگی، آگاهی از اون درستی کار، آقاهی درسط انجام دادن کارها.",
+        "avg_logprob": -0.2659921529816418,
+        "compression_ratio": 1.244186046511628,
+        "no_speech_prob": 3.081034871676991e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.72,
+            "word": " زندگی،",
+            "probability": 0.7581263929605484
+          },
+          {
+            "start": 0.72,
+            "end": 1.28,
+            "word": " آگاهی",
+            "probability": 0.9946594387292862
+          },
+          {
+            "start": 1.28,
+            "end": 1.46,
+            "word": " از",
+            "probability": 0.9994698464870453
+          },
+          {
+            "start": 1.46,
+            "end": 1.56,
+            "word": " اون",
+            "probability": 0.9841184914112091
+          },
+          {
+            "start": 1.56,
+            "end": 2.06,
+            "word": " درستی",
+            "probability": 0.9974305033683777
+          },
+          {
+            "start": 2.06,
+            "end": 2.58,
+            "word": " کار،",
+            "probability": 0.8143325547377268
+          },
+          {
+            "start": 2.58,
+            "end": 3.16,
+            "word": " آقاهی",
+            "probability": 0.7469982360853464
+          },
+          {
+            "start": 3.16,
+            "end": 4.62,
+            "word": " درسط",
+            "probability": 0.437507214708603
+          },
+          {
+            "start": 4.62,
+            "end": 5.1,
+            "word": " انجام",
+            "probability": 0.9850445787111918
+          },
+          {
+            "start": 5.1,
+            "end": 5.46,
+            "word": " دادن",
+            "probability": 0.9886594216028849
+          },
+          {
+            "start": 5.46,
+            "end": 6.0,
+            "word": " کارها.",
+            "probability": 0.9219047029813131
+          }
+        ]
+      }
+    ]
+  }
+}

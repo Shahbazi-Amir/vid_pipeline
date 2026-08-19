@@ -1,0 +1,283 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "b8bc0664f584ee816552b0e9acdd2d9a7e33a47c116e4e68923b91210c3d342c",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 24.1,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.08,
+        "text": "که آیا من واقعا اونچنان که باید باشم هستم؟ آیا زندگی برای من معنا داره؟ آيا اون کارهایی که",
+        "avg_logprob": -0.2538840731313406,
+        "compression_ratio": 1.9076086956521738,
+        "no_speech_prob": 3.4163791240438e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.3,
+            "word": " که",
+            "probability": 0.7884429693222046
+          },
+          {
+            "start": 0.3,
+            "end": 0.72,
+            "word": " آیا",
+            "probability": 0.9934782087802887
+          },
+          {
+            "start": 0.72,
+            "end": 1.8,
+            "word": " من",
+            "probability": 0.9985211491584778
+          },
+          {
+            "start": 1.8,
+            "end": 2.46,
+            "word": " واقعا",
+            "probability": 0.9992025345563889
+          },
+          {
+            "start": 2.46,
+            "end": 2.96,
+            "word": " اونچنان",
+            "probability": 0.8922820448875427
+          },
+          {
+            "start": 2.96,
+            "end": 3.14,
+            "word": " که",
+            "probability": 0.9964191615581512
+          },
+          {
+            "start": 3.14,
+            "end": 3.58,
+            "word": " باید",
+            "probability": 0.9994647204875946
+          },
+          {
+            "start": 3.58,
+            "end": 4.02,
+            "word": " باشم",
+            "probability": 0.9995219508806864
+          },
+          {
+            "start": 4.02,
+            "end": 4.86,
+            "word": " هستم؟",
+            "probability": 0.8417647927999496
+          },
+          {
+            "start": 4.86,
+            "end": 6.44,
+            "word": " آیا",
+            "probability": 0.9990560412406921
+          },
+          {
+            "start": 6.44,
+            "end": 7.28,
+            "word": " زندگی",
+            "probability": 0.9994517266750336
+          },
+          {
+            "start": 7.28,
+            "end": 7.6,
+            "word": " برای",
+            "probability": 0.9996663133303324
+          },
+          {
+            "start": 7.6,
+            "end": 7.74,
+            "word": " من",
+            "probability": 0.9998050332069397
+          },
+          {
+            "start": 7.74,
+            "end": 8.16,
+            "word": " معنا",
+            "probability": 0.8853356838226318
+          },
+          {
+            "start": 8.16,
+            "end": 8.78,
+            "word": " داره؟",
+            "probability": 0.9785615652799606
+          },
+          {
+            "start": 8.78,
+            "end": 9.02,
+            "word": " آيا",
+            "probability": 0.4997322426761457
+          },
+          {
+            "start": 9.02,
+            "end": 9.16,
+            "word": " اون",
+            "probability": 0.9630825519561768
+          },
+          {
+            "start": 9.16,
+            "end": 9.96,
+            "word": " کارهایی",
+            "probability": 0.9924687743186951
+          },
+          {
+            "start": 9.96,
+            "end": 10.08,
+            "word": " که",
+            "probability": 0.9943336844444275
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 10.08,
+        "end": 24.08,
+        "text": "باایت انجام بدم و انجم میدم؟ آیا این کار ها کار‌های درست و به درسطی انجان میدم، اینها جزو مهم‌ترین سؤال",
+        "avg_logprob": -0.2538840731313406,
+        "compression_ratio": 1.9076086956521738,
+        "no_speech_prob": 3.4163791240438e-10,
+        "words": [
+          {
+            "start": 10.08,
+            "end": 10.56,
+            "word": " باایت",
+            "probability": 0.6004381947217894
+          },
+          {
+            "start": 10.56,
+            "end": 11.16,
+            "word": " انجام",
+            "probability": 0.9992674191792806
+          },
+          {
+            "start": 11.16,
+            "end": 11.44,
+            "word": " بدم",
+            "probability": 0.9972709119319916
+          },
+          {
+            "start": 11.44,
+            "end": 11.56,
+            "word": " و",
+            "probability": 0.9957308173179626
+          },
+          {
+            "start": 11.56,
+            "end": 11.98,
+            "word": " انجم",
+            "probability": 0.6664160214509138
+          },
+          {
+            "start": 11.98,
+            "end": 12.52,
+            "word": " میدم؟",
+            "probability": 0.9952671527862549
+          },
+          {
+            "start": 12.52,
+            "end": 16.3,
+            "word": " آیا",
+            "probability": 0.4785582494684301
+          },
+          {
+            "start": 16.3,
+            "end": 16.4,
+            "word": " این",
+            "probability": 0.5275477170944214
+          },
+          {
+            "start": 16.4,
+            "end": 16.7,
+            "word": " کار",
+            "probability": 0.999724805355072
+          },
+          {
+            "start": 16.7,
+            "end": 16.8,
+            "word": " ها",
+            "probability": 0.5007146687130444
+          },
+          {
+            "start": 16.8,
+            "end": 17.22,
+            "word": " کار‌های",
+            "probability": 0.7710806450419113
+          },
+          {
+            "start": 17.22,
+            "end": 17.72,
+            "word": " درست",
+            "probability": 0.8585907419522604
+          },
+          {
+            "start": 17.72,
+            "end": 18.16,
+            "word": " و",
+            "probability": 0.017445070669054985
+          },
+          {
+            "start": 18.16,
+            "end": 20.18,
+            "word": " به",
+            "probability": 0.980128824710846
+          },
+          {
+            "start": 20.18,
+            "end": 20.6,
+            "word": " درسطی",
+            "probability": 0.7151238757942338
+          },
+          {
+            "start": 20.6,
+            "end": 21.06,
+            "word": " انجان",
+            "probability": 0.659551587208019
+          },
+          {
+            "start": 21.06,
+            "end": 21.52,
+            "word": " میدم،",
+            "probability": 0.6578550073318183
+          },
+          {
+            "start": 21.52,
+            "end": 22.7,
+            "word": " اینها",
+            "probability": 0.7056671877702078
+          },
+          {
+            "start": 22.7,
+            "end": 22.96,
+            "word": " جزو",
+            "probability": 0.7686419685681661
+          },
+          {
+            "start": 22.96,
+            "end": 23.72,
+            "word": " مهم‌ترین",
+            "probability": 0.9194158514340719
+          },
+          {
+            "start": 23.72,
+            "end": 24.08,
+            "word": " سؤال",
+            "probability": 0.7125485291083654
+          }
+        ]
+      }
+    ]
+  }
+}

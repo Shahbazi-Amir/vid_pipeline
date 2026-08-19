@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "1d34315012e65fd444cd5f262f5a8f6ff750dad058275f3b89ed70c10078ad81",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.48,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.02,
+        "text": "برای اون معموریت زندگیش یا بهتر بگیم، براه اون موسیقی زنددگی، بلای او تم زندهگی پیدا بکنه.",
+        "avg_logprob": -0.33602561837150935,
+        "compression_ratio": 1.481818181818182,
+        "no_speech_prob": 3.2629887680712955e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.92,
+            "word": " برای",
+            "probability": 0.7222455640633901
+          },
+          {
+            "start": 0.92,
+            "end": 1.06,
+            "word": " اون",
+            "probability": 0.8687342703342438
+          },
+          {
+            "start": 1.06,
+            "end": 1.82,
+            "word": " معموریت",
+            "probability": 0.7956982553005219
+          },
+          {
+            "start": 1.82,
+            "end": 2.48,
+            "word": " زندگیش",
+            "probability": 0.9861428380012512
+          },
+          {
+            "start": 2.48,
+            "end": 2.68,
+            "word": " یا",
+            "probability": 0.9791513979434967
+          },
+          {
+            "start": 2.68,
+            "end": 3.02,
+            "word": " بهتر",
+            "probability": 0.9990464051564535
+          },
+          {
+            "start": 3.02,
+            "end": 3.36,
+            "word": " بگیم،",
+            "probability": 0.7992647655308247
+          },
+          {
+            "start": 3.36,
+            "end": 3.62,
+            "word": " براه",
+            "probability": 0.6658513846502198
+          },
+          {
+            "start": 3.62,
+            "end": 3.82,
+            "word": " اون",
+            "probability": 0.9907731711864471
+          },
+          {
+            "start": 3.82,
+            "end": 4.46,
+            "word": " موسیقی",
+            "probability": 0.9963797211647034
+          },
+          {
+            "start": 4.46,
+            "end": 5.08,
+            "word": " زنددگی،",
+            "probability": 0.6654620914010062
+          },
+          {
+            "start": 5.08,
+            "end": 5.42,
+            "word": " بلای",
+            "probability": 0.5487535091330452
+          },
+          {
+            "start": 5.42,
+            "end": 5.56,
+            "word": " او",
+            "probability": 0.49250309000490233
+          },
+          {
+            "start": 5.56,
+            "end": 5.84,
+            "word": " تم",
+            "probability": 0.47536763548851013
+          },
+          {
+            "start": 5.84,
+            "end": 6.66,
+            "word": " زندهگی",
+            "probability": 0.7317484399158275
+          },
+          {
+            "start": 6.66,
+            "end": 7.52,
+            "word": " پیدا",
+            "probability": 0.7018342216809591
+          },
+          {
+            "start": 7.52,
+            "end": 8.02,
+            "word": " بکنه.",
+            "probability": 0.9727643430233002
+          }
+        ]
+      }
+    ]
+  }
+}

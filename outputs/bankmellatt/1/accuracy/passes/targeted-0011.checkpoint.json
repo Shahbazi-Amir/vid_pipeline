@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "900fca9aaf8f109b396dbc18264457043526e4b40a199c5f1583055a3d7e9aa5",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 13.3,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.8,
+        "text": "کارهای درست و به درسطی انجام میدم. این‌ها جز مهم‌ترین سوالات بشره، انسان همواره با این بعد معنای زندگی مواجهه.",
+        "avg_logprob": -0.24214694357436636,
+        "compression_ratio": 1.5828220858895705,
+        "no_speech_prob": 3.774248413801473e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.36,
+            "word": " کارهای",
+            "probability": 0.7723023593425751
+          },
+          {
+            "start": 0.36,
+            "end": 0.82,
+            "word": " درست",
+            "probability": 0.997341533501943
+          },
+          {
+            "start": 0.82,
+            "end": 0.96,
+            "word": " و",
+            "probability": 0.9665696620941162
+          },
+          {
+            "start": 0.96,
+            "end": 1.08,
+            "word": " به",
+            "probability": 0.9914389848709106
+          },
+          {
+            "start": 1.08,
+            "end": 1.5,
+            "word": " درسطی",
+            "probability": 0.6127542816684581
+          },
+          {
+            "start": 1.5,
+            "end": 1.96,
+            "word": " انجام",
+            "probability": 0.9930509924888611
+          },
+          {
+            "start": 1.96,
+            "end": 2.26,
+            "word": " میدم.",
+            "probability": 0.8208447992801666
+          },
+          {
+            "start": 2.76,
+            "end": 3.6,
+            "word": " این‌ها",
+            "probability": 0.7433429466327652
+          },
+          {
+            "start": 3.6,
+            "end": 3.84,
+            "word": " جز",
+            "probability": 0.9674797654151917
+          },
+          {
+            "start": 3.84,
+            "end": 4.62,
+            "word": " مهم‌ترین",
+            "probability": 0.9028707643349966
+          },
+          {
+            "start": 4.62,
+            "end": 5.34,
+            "word": " سوالات",
+            "probability": 0.9203668981790543
+          },
+          {
+            "start": 5.34,
+            "end": 6.3,
+            "word": " بشره،",
+            "probability": 0.6932939775288105
+          },
+          {
+            "start": 6.3,
+            "end": 6.72,
+            "word": " انسان",
+            "probability": 0.9941377838452657
+          },
+          {
+            "start": 6.72,
+            "end": 7.42,
+            "word": " همواره",
+            "probability": 0.971185278892517
+          },
+          {
+            "start": 7.42,
+            "end": 7.62,
+            "word": " با",
+            "probability": 0.9815184772014618
+          },
+          {
+            "start": 7.62,
+            "end": 7.74,
+            "word": " این",
+            "probability": 0.9847493767738342
+          },
+          {
+            "start": 7.74,
+            "end": 7.98,
+            "word": " بعد",
+            "probability": 0.5239990949630737
+          },
+          {
+            "start": 7.98,
+            "end": 8.86,
+            "word": " معنای",
+            "probability": 0.9233877460161845
+          },
+          {
+            "start": 8.86,
+            "end": 9.48,
+            "word": " زندگی",
+            "probability": 0.993726372718811
+          },
+          {
+            "start": 9.48,
+            "end": 10.8,
+            "word": " مواجهه.",
+            "probability": 0.9801005482673645
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 11.1,
+        "end": 13.28,
+        "text": "وقتی یک نفر پاسخ‌هایی دُرستی و",
+        "avg_logprob": -0.24214694357436636,
+        "compression_ratio": 1.5828220858895705,
+        "no_speech_prob": 3.774248413801473e-10,
+        "words": [
+          {
+            "start": 11.1,
+            "end": 11.78,
+            "word": " وقتی",
+            "probability": 0.9552939534187317
+          },
+          {
+            "start": 11.78,
+            "end": 11.86,
+            "word": " یک",
+            "probability": 0.600101575255394
+          },
+          {
+            "start": 11.86,
+            "end": 12.1,
+            "word": " نفر",
+            "probability": 0.9392552971839905
+          },
+          {
+            "start": 12.1,
+            "end": 12.74,
+            "word": " پاسخ‌هایی",
+            "probability": 0.8370564830090318
+          },
+          {
+            "start": 12.74,
+            "end": 13.2,
+            "word": " دُرستی",
+            "probability": 0.7776906707207673
+          },
+          {
+            "start": 13.2,
+            "end": 13.28,
+            "word": " و",
+            "probability": 0.323701411485672
+          }
+        ]
+      }
+    ]
+  }
+}

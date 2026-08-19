@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "05911623121944dc345825efa01e99cb29fd0d8800f41f8777bc3fbf9fe8179b",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.5,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.98,
+        "text": "می‌دونیم ورزش کردن خوبه، وردش نمی‌کنیم. یا سیگار کشیدم بده اما سی‌گار میکشیم، البته من سی گار نمیکشم.",
+        "avg_logprob": -0.2497280861290408,
+        "compression_ratio": 1.55,
+        "no_speech_prob": 3.244859658746435e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.34,
+            "word": " می‌دونیم",
+            "probability": 0.788799007733663
+          },
+          {
+            "start": 0.34,
+            "end": 0.74,
+            "word": " ورزش",
+            "probability": 0.9496779143810272
+          },
+          {
+            "start": 0.74,
+            "end": 1.1,
+            "word": " کردن",
+            "probability": 0.9681067069371542
+          },
+          {
+            "start": 1.1,
+            "end": 1.5,
+            "word": " خوبه،",
+            "probability": 0.739100101403892
+          },
+          {
+            "start": 1.5,
+            "end": 1.86,
+            "word": " وردش",
+            "probability": 0.7471985681040678
+          },
+          {
+            "start": 1.86,
+            "end": 2.56,
+            "word": " نمی‌کنیم.",
+            "probability": 0.9430416002869606
+          },
+          {
+            "start": 2.6,
+            "end": 3.2,
+            "word": " یا",
+            "probability": 0.9863383173942566
+          },
+          {
+            "start": 3.2,
+            "end": 3.5,
+            "word": " سیگار",
+            "probability": 0.9332129657268524
+          },
+          {
+            "start": 3.5,
+            "end": 3.98,
+            "word": " کشیدم",
+            "probability": 0.8468082398176193
+          },
+          {
+            "start": 3.98,
+            "end": 4.42,
+            "word": " بده",
+            "probability": 0.7101701200008392
+          },
+          {
+            "start": 4.42,
+            "end": 4.76,
+            "word": " اما",
+            "probability": 0.7250730693340302
+          },
+          {
+            "start": 4.76,
+            "end": 5.3,
+            "word": " سی‌گار",
+            "probability": 0.7754347183741629
+          },
+          {
+            "start": 5.3,
+            "end": 5.68,
+            "word": " میکشیم،",
+            "probability": 0.6794448917110761
+          },
+          {
+            "start": 5.68,
+            "end": 5.86,
+            "word": " البته",
+            "probability": 0.5407321602106094
+          },
+          {
+            "start": 5.86,
+            "end": 6.0,
+            "word": " من",
+            "probability": 0.9484813213348389
+          },
+          {
+            "start": 6.0,
+            "end": 6.24,
+            "word": " سی",
+            "probability": 0.9877743721008301
+          },
+          {
+            "start": 6.24,
+            "end": 6.38,
+            "word": " گار",
+            "probability": 0.4950591502711177
+          },
+          {
+            "start": 6.38,
+            "end": 6.98,
+            "word": " نمیکشم.",
+            "probability": 0.8532454133033752
+          }
+        ]
+      }
+    ]
+  }
+}

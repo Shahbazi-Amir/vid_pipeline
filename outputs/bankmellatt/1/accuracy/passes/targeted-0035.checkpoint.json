@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "e41c219845a2e487d5db4987764bff68f8689ee721e9fe63d91db45e4b46a328",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.34,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.32,
+        "text": "به یک رفتار تبدیل بشه یا چه چیزی باعث می‌شه دانش ما به رفدار تقدیل نشه. اون بود احساسی ماست.",
+        "avg_logprob": -0.21490990138444743,
+        "compression_ratio": 1.3781512605042017,
+        "no_speech_prob": 2.7897026355638843e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.38,
+            "word": " به",
+            "probability": 0.8200241923332214
+          },
+          {
+            "start": 0.38,
+            "end": 0.6,
+            "word": " یک",
+            "probability": 0.9827030301094055
+          },
+          {
+            "start": 0.6,
+            "end": 1.18,
+            "word": " رفتار",
+            "probability": 0.9789027571678162
+          },
+          {
+            "start": 1.18,
+            "end": 1.82,
+            "word": " تبدیل",
+            "probability": 0.9990416318178177
+          },
+          {
+            "start": 1.82,
+            "end": 2.52,
+            "word": " بشه",
+            "probability": 0.9931304852167765
+          },
+          {
+            "start": 2.52,
+            "end": 2.92,
+            "word": " یا",
+            "probability": 0.9691119194030762
+          },
+          {
+            "start": 2.92,
+            "end": 3.12,
+            "word": " چه",
+            "probability": 0.7924445569515228
+          },
+          {
+            "start": 3.12,
+            "end": 3.34,
+            "word": " چیزی",
+            "probability": 0.9406742751598358
+          },
+          {
+            "start": 3.34,
+            "end": 3.68,
+            "word": " باعث",
+            "probability": 0.9928223093350729
+          },
+          {
+            "start": 3.68,
+            "end": 3.92,
+            "word": " می‌شه",
+            "probability": 0.7417678709607571
+          },
+          {
+            "start": 3.92,
+            "end": 4.32,
+            "word": " دانش",
+            "probability": 0.9915345708529154
+          },
+          {
+            "start": 4.32,
+            "end": 4.46,
+            "word": " ما",
+            "probability": 0.8633546829223633
+          },
+          {
+            "start": 4.46,
+            "end": 4.6,
+            "word": " به",
+            "probability": 0.9908097982406616
+          },
+          {
+            "start": 4.6,
+            "end": 4.94,
+            "word": " رفدار",
+            "probability": 0.7490421422617146
+          },
+          {
+            "start": 4.94,
+            "end": 5.36,
+            "word": " تقدیل",
+            "probability": 0.746417838956404
+          },
+          {
+            "start": 5.36,
+            "end": 5.84,
+            "word": " نشه.",
+            "probability": 0.9934810002644857
+          },
+          {
+            "start": 6.18,
+            "end": 6.94,
+            "word": " اون",
+            "probability": 0.974875420331955
+          },
+          {
+            "start": 6.94,
+            "end": 7.16,
+            "word": " بود",
+            "probability": 0.5831783041357994
+          },
+          {
+            "start": 7.16,
+            "end": 7.9,
+            "word": " احساسی",
+            "probability": 0.9173851132392883
+          },
+          {
+            "start": 7.9,
+            "end": 8.32,
+            "word": " ماست.",
+            "probability": 0.8870234787464142
+          }
+        ]
+      }
+    ]
+  }
+}

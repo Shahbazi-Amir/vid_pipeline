@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "bc641c27dab4a10818c1b309d2acb8edae188d21a566e96ed9eeb6140eace974",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.12,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.1,
+        "text": "یه داست می‌داد که مثلاً عرف‌های هرز رو بچینیم، یا اینکه یه سسلی می‌‌دار بریم گلاس بچنیم یا بیل دستمون می‌داد که زمین رو یکمی شخم بزنید و ما نمی‌تونستیم به همون مگفتش.",
+        "avg_logprob": -0.24318116393528486,
+        "compression_ratio": 1.7329545454545454,
+        "no_speech_prob": 2.358406248070821e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.18,
+            "word": " یه",
+            "probability": 0.8377928137779236
+          },
+          {
+            "start": 0.18,
+            "end": 0.44,
+            "word": " داست",
+            "probability": 0.9309295415878296
+          },
+          {
+            "start": 0.44,
+            "end": 0.7,
+            "word": " می‌داد",
+            "probability": 0.8061530515551567
+          },
+          {
+            "start": 0.7,
+            "end": 0.9,
+            "word": " که",
+            "probability": 0.9736909568309784
+          },
+          {
+            "start": 0.9,
+            "end": 1.26,
+            "word": " مثلاً",
+            "probability": 0.7663496534029642
+          },
+          {
+            "start": 1.26,
+            "end": 1.62,
+            "word": " عرف‌های",
+            "probability": 0.7775192186236382
+          },
+          {
+            "start": 1.62,
+            "end": 1.96,
+            "word": " هرز",
+            "probability": 0.750217080116272
+          },
+          {
+            "start": 1.96,
+            "end": 2.02,
+            "word": " رو",
+            "probability": 0.83378866314888
+          },
+          {
+            "start": 2.02,
+            "end": 2.6,
+            "word": " بچینیم،",
+            "probability": 0.8143330321957668
+          },
+          {
+            "start": 2.6,
+            "end": 3.08,
+            "word": " یا",
+            "probability": 0.9697192013263702
+          },
+          {
+            "start": 3.08,
+            "end": 3.24,
+            "word": " اینکه",
+            "probability": 0.8286055773496628
+          },
+          {
+            "start": 3.24,
+            "end": 3.38,
+            "word": " یه",
+            "probability": 0.9662587344646454
+          },
+          {
+            "start": 3.38,
+            "end": 3.78,
+            "word": " سسلی",
+            "probability": 0.8327887207269669
+          },
+          {
+            "start": 3.78,
+            "end": 4.06,
+            "word": " می‌‌دار",
+            "probability": 0.593929802661296
+          },
+          {
+            "start": 4.06,
+            "end": 4.34,
+            "word": " بریم",
+            "probability": 0.7768730918566386
+          },
+          {
+            "start": 4.34,
+            "end": 4.7,
+            "word": " گلاس",
+            "probability": 0.9285767674446106
+          },
+          {
+            "start": 4.7,
+            "end": 5.16,
+            "word": " بچنیم",
+            "probability": 0.7917853029444814
+          },
+          {
+            "start": 5.16,
+            "end": 5.32,
+            "word": " یا",
+            "probability": 0.6846544444561005
+          },
+          {
+            "start": 5.32,
+            "end": 5.68,
+            "word": " بیل",
+            "probability": 0.9060030182202657
+          },
+          {
+            "start": 5.68,
+            "end": 6.2,
+            "word": " دستمون",
+            "probability": 0.7868559509515762
+          },
+          {
+            "start": 6.2,
+            "end": 6.6,
+            "word": " می‌داد",
+            "probability": 0.5716507452889346
+          },
+          {
+            "start": 6.6,
+            "end": 6.76,
+            "word": " که",
+            "probability": 0.9753938317298889
+          },
+          {
+            "start": 6.76,
+            "end": 7.12,
+            "word": " زمین",
+            "probability": 0.992619256178538
+          },
+          {
+            "start": 7.12,
+            "end": 7.24,
+            "word": " رو",
+            "probability": 0.9055322408676147
+          },
+          {
+            "start": 7.24,
+            "end": 7.58,
+            "word": " یکمی",
+            "probability": 0.8832918554544449
+          },
+          {
+            "start": 7.58,
+            "end": 7.94,
+            "word": " شخم",
+            "probability": 0.6388816138108572
+          },
+          {
+            "start": 7.94,
+            "end": 8.62,
+            "word": " بزنید",
+            "probability": 0.7730550453532488
+          },
+          {
+            "start": 8.62,
+            "end": 9.18,
+            "word": " و",
+            "probability": 0.7868248224258423
+          },
+          {
+            "start": 9.18,
+            "end": 9.32,
+            "word": " ما",
+            "probability": 0.8162249326705933
+          },
+          {
+            "start": 9.32,
+            "end": 10.18,
+            "word": " نمی‌تونستیم",
+            "probability": 0.9506813420189751
+          },
+          {
+            "start": 10.18,
+            "end": 10.38,
+            "word": " به",
+            "probability": 0.9446275234222412
+          },
+          {
+            "start": 10.38,
+            "end": 10.62,
+            "word": " همون",
+            "probability": 0.9320260286331177
+          },
+          {
+            "start": 10.62,
+            "end": 11.1,
+            "word": " مگفتش.",
+            "probability": 0.6648310306482017
+          }
+        ]
+      }
+    ]
+  }
+}

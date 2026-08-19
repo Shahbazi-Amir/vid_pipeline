@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "950a627d7e62707b95ba9fa9f7f12ba6548bc64cbdfc11112b03118441c7af77",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.42,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.4,
+        "text": "تو هر دو بعد کار درست و درسی انجام کار موفقه و داناست و می‌دونه چی کار بکنه. این بعد علمی چهار",
+        "avg_logprob": -0.14829875293530917,
+        "compression_ratio": 1.4778761061946903,
+        "no_speech_prob": 1.9381685145702932e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.18,
+            "word": " تو",
+            "probability": 0.971341609954834
+          },
+          {
+            "start": 0.18,
+            "end": 0.52,
+            "word": " هر",
+            "probability": 0.9921442568302155
+          },
+          {
+            "start": 0.52,
+            "end": 0.8,
+            "word": " دو",
+            "probability": 0.9934923052787781
+          },
+          {
+            "start": 0.8,
+            "end": 1.06,
+            "word": " بعد",
+            "probability": 0.9243199825286865
+          },
+          {
+            "start": 1.06,
+            "end": 1.9,
+            "word": " کار",
+            "probability": 0.9884123802185059
+          },
+          {
+            "start": 1.9,
+            "end": 2.5,
+            "word": " درست",
+            "probability": 0.999482254187266
+          },
+          {
+            "start": 2.5,
+            "end": 2.68,
+            "word": " و",
+            "probability": 0.9989774227142334
+          },
+          {
+            "start": 2.68,
+            "end": 3.2,
+            "word": " درسی",
+            "probability": 0.7203008098085775
+          },
+          {
+            "start": 3.2,
+            "end": 3.8,
+            "word": " انجام",
+            "probability": 0.9585249821345011
+          },
+          {
+            "start": 3.8,
+            "end": 4.32,
+            "word": " کار",
+            "probability": 0.9981003403663635
+          },
+          {
+            "start": 4.32,
+            "end": 5.52,
+            "word": " موفقه",
+            "probability": 0.8652275204658508
+          },
+          {
+            "start": 5.52,
+            "end": 5.68,
+            "word": " و",
+            "probability": 0.999500036239624
+          },
+          {
+            "start": 5.68,
+            "end": 6.48,
+            "word": " داناست",
+            "probability": 0.9232338219881058
+          },
+          {
+            "start": 6.48,
+            "end": 6.66,
+            "word": " و",
+            "probability": 0.997832715511322
+          },
+          {
+            "start": 6.66,
+            "end": 7.16,
+            "word": " می‌دونه",
+            "probability": 0.7973637351766228
+          },
+          {
+            "start": 7.16,
+            "end": 7.34,
+            "word": " چی",
+            "probability": 0.9132442474365234
+          },
+          {
+            "start": 7.34,
+            "end": 7.54,
+            "word": " کار",
+            "probability": 0.9987408816814423
+          },
+          {
+            "start": 7.54,
+            "end": 7.92,
+            "word": " بکنه.",
+            "probability": 0.9875096827745438
+          },
+          {
+            "start": 7.98,
+            "end": 8.1,
+            "word": " این",
+            "probability": 0.9900179207324982
+          },
+          {
+            "start": 8.1,
+            "end": 8.34,
+            "word": " بعد",
+            "probability": 0.9170650839805603
+          },
+          {
+            "start": 8.34,
+            "end": 9.5,
+            "word": " علمی",
+            "probability": 0.9726486404736837
+          },
+          {
+            "start": 9.5,
+            "end": 10.4,
+            "word": " چهار",
+            "probability": 0.9507608413696289
+          }
+        ]
+      }
+    ]
+  }
+}

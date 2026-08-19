@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "58c393fd99371cf9a588f02dd41fa2f4ea73f067da19a40683b3b1a6717cba16",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.88,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.86,
+        "text": "بنابراین تبدیل به رست دار نمیشه. اصلا رستدار مبتنی بر دانایی شکل نمیکیره. رستان مبتهنی به یک باور",
+        "avg_logprob": -0.2867065889365745,
+        "compression_ratio": 1.5625,
+        "no_speech_prob": 2.9814620217116783e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 1.12,
+            "word": " بنابراین",
+            "probability": 0.9416584372520447
+          },
+          {
+            "start": 1.12,
+            "end": 1.48,
+            "word": " تبدیل",
+            "probability": 0.9777020961046219
+          },
+          {
+            "start": 1.48,
+            "end": 1.58,
+            "word": " به",
+            "probability": 0.7918393015861511
+          },
+          {
+            "start": 1.58,
+            "end": 1.9,
+            "word": " رست",
+            "probability": 0.8935593962669373
+          },
+          {
+            "start": 1.9,
+            "end": 2.04,
+            "word": " دار",
+            "probability": 0.5829083621501923
+          },
+          {
+            "start": 2.04,
+            "end": 2.48,
+            "word": " نمیشه.",
+            "probability": 0.9096255540847779
+          },
+          {
+            "start": 2.62,
+            "end": 3.1,
+            "word": " اصلا",
+            "probability": 0.9949575265248617
+          },
+          {
+            "start": 3.1,
+            "end": 3.88,
+            "word": " رستدار",
+            "probability": 0.7377367010340095
+          },
+          {
+            "start": 3.88,
+            "end": 4.4,
+            "word": " مبتنی",
+            "probability": 0.9520751118659974
+          },
+          {
+            "start": 4.4,
+            "end": 4.62,
+            "word": " بر",
+            "probability": 0.9743109047412872
+          },
+          {
+            "start": 4.62,
+            "end": 5.32,
+            "word": " دانایی",
+            "probability": 0.9535056829452515
+          },
+          {
+            "start": 5.32,
+            "end": 5.74,
+            "word": " شکل",
+            "probability": 0.9972231586774191
+          },
+          {
+            "start": 5.74,
+            "end": 6.36,
+            "word": " نمیکیره.",
+            "probability": 0.8233386525995835
+          },
+          {
+            "start": 6.64,
+            "end": 7.36,
+            "word": " رستان",
+            "probability": 0.6657865627979239
+          },
+          {
+            "start": 7.36,
+            "end": 7.82,
+            "word": " مبتهنی",
+            "probability": 0.7580660464271205
+          },
+          {
+            "start": 7.82,
+            "end": 7.96,
+            "word": " به",
+            "probability": 0.011894499883055687
+          },
+          {
+            "start": 7.96,
+            "end": 8.24,
+            "word": " یک",
+            "probability": 0.9923427104949951
+          },
+          {
+            "start": 8.24,
+            "end": 8.86,
+            "word": " باور",
+            "probability": 0.9890938798586527
+          }
+        ]
+      }
+    ]
+  }
+}

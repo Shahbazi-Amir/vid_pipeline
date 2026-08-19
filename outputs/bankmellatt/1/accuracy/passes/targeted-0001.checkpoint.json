@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "481b08d7e25b7bdb8bb49494b89a21a407b1dbfc044781829c2b615203fd7b99",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.3,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.28,
+        "text": "وقتی تا به سلا می‌رفتیم باقه پدر بزرگم، اون به ما یه داست می‌داد که مثلاً علف‌های حرض رو بچینیم، یا اینکه یه سسلی می‌داد بریم گلاس بچیم",
+        "avg_logprob": -0.2064781135387635,
+        "compression_ratio": 1.6143790849673203,
+        "no_speech_prob": 3.682090465861876e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.48,
+            "word": " وقتی",
+            "probability": 0.9854967991511027
+          },
+          {
+            "start": 0.48,
+            "end": 0.66,
+            "word": " تا",
+            "probability": 0.9801239967346191
+          },
+          {
+            "start": 0.66,
+            "end": 0.72,
+            "word": " به",
+            "probability": 0.9890602827072144
+          },
+          {
+            "start": 0.72,
+            "end": 0.94,
+            "word": " سلا",
+            "probability": 0.5640992373228073
+          },
+          {
+            "start": 0.94,
+            "end": 1.4,
+            "word": " می‌رفتیم",
+            "probability": 0.8616065556804339
+          },
+          {
+            "start": 1.4,
+            "end": 1.66,
+            "word": " باقه",
+            "probability": 0.7703870236873627
+          },
+          {
+            "start": 1.66,
+            "end": 1.98,
+            "word": " پدر",
+            "probability": 0.9665729800860087
+          },
+          {
+            "start": 1.98,
+            "end": 2.74,
+            "word": " بزرگم،",
+            "probability": 0.8564917345841726
+          },
+          {
+            "start": 2.74,
+            "end": 2.9,
+            "word": " اون",
+            "probability": 0.9221683740615845
+          },
+          {
+            "start": 2.9,
+            "end": 3.02,
+            "word": " به",
+            "probability": 0.9861656427383423
+          },
+          {
+            "start": 3.02,
+            "end": 3.22,
+            "word": " ما",
+            "probability": 0.979850709438324
+          },
+          {
+            "start": 3.22,
+            "end": 3.48,
+            "word": " یه",
+            "probability": 0.9047161042690277
+          },
+          {
+            "start": 3.48,
+            "end": 3.74,
+            "word": " داست",
+            "probability": 0.9674063324928284
+          },
+          {
+            "start": 3.74,
+            "end": 4.0,
+            "word": " می‌داد",
+            "probability": 0.9816684573888779
+          },
+          {
+            "start": 4.0,
+            "end": 4.18,
+            "word": " که",
+            "probability": 0.9912111759185791
+          },
+          {
+            "start": 4.18,
+            "end": 4.52,
+            "word": " مثلاً",
+            "probability": 0.7905383706092834
+          },
+          {
+            "start": 4.52,
+            "end": 4.92,
+            "word": " علف‌های",
+            "probability": 0.8825804948806762
+          },
+          {
+            "start": 4.92,
+            "end": 5.22,
+            "word": " حرض",
+            "probability": 0.6489001363515854
+          },
+          {
+            "start": 5.22,
+            "end": 5.34,
+            "word": " رو",
+            "probability": 0.8782195448875427
+          },
+          {
+            "start": 5.34,
+            "end": 5.9,
+            "word": " بچینیم،",
+            "probability": 0.8306196443736553
+          },
+          {
+            "start": 5.9,
+            "end": 6.38,
+            "word": " یا",
+            "probability": 0.9770904779434204
+          },
+          {
+            "start": 6.38,
+            "end": 6.54,
+            "word": " اینکه",
+            "probability": 0.8992004543542862
+          },
+          {
+            "start": 6.54,
+            "end": 6.68,
+            "word": " یه",
+            "probability": 0.9752807915210724
+          },
+          {
+            "start": 6.68,
+            "end": 7.08,
+            "word": " سسلی",
+            "probability": 0.8021867796778679
+          },
+          {
+            "start": 7.08,
+            "end": 7.4,
+            "word": " می‌داد",
+            "probability": 0.6461609750986099
+          },
+          {
+            "start": 7.4,
+            "end": 7.64,
+            "word": " بریم",
+            "probability": 0.9487928152084351
+          },
+          {
+            "start": 7.64,
+            "end": 7.98,
+            "word": " گلاس",
+            "probability": 0.8291866779327393
+          },
+          {
+            "start": 7.98,
+            "end": 8.28,
+            "word": " بچیم",
+            "probability": 0.6537904981523752
+          }
+        ]
+      }
+    ]
+  }
+}

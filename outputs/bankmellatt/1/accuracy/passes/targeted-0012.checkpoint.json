@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "3030d58d071cf45c84add8990c5506ffde9759e16034c98c200b0e5c5d9961c0",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.36,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.26,
+        "text": "معنای زندگی مواجهه. وقتی یک نفر پاسخهای درستی برای این بود فراهم بکنه، یک بود از شخصیتش رو",
+        "avg_logprob": -0.12319530931211287,
+        "compression_ratio": 1.3846153846153846,
+        "no_speech_prob": 2.0935601863225628e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.56,
+            "word": " معنای",
+            "probability": 0.864907423655192
+          },
+          {
+            "start": 0.56,
+            "end": 1.2,
+            "word": " زندگی",
+            "probability": 0.9993818998336792
+          },
+          {
+            "start": 1.2,
+            "end": 2.52,
+            "word": " مواجهه.",
+            "probability": 0.9945544838905335
+          },
+          {
+            "start": 2.62,
+            "end": 3.48,
+            "word": " وقتی",
+            "probability": 0.9971454739570618
+          },
+          {
+            "start": 3.48,
+            "end": 3.58,
+            "word": " یک",
+            "probability": 0.42682841420173645
+          },
+          {
+            "start": 3.58,
+            "end": 3.8,
+            "word": " نفر",
+            "probability": 0.9752633571624756
+          },
+          {
+            "start": 3.8,
+            "end": 4.38,
+            "word": " پاسخهای",
+            "probability": 0.9490733742713928
+          },
+          {
+            "start": 4.38,
+            "end": 4.9,
+            "word": " درستی",
+            "probability": 0.9921257346868515
+          },
+          {
+            "start": 4.9,
+            "end": 5.26,
+            "word": " برای",
+            "probability": 0.9977041482925415
+          },
+          {
+            "start": 5.26,
+            "end": 5.38,
+            "word": " این",
+            "probability": 0.9992749989032745
+          },
+          {
+            "start": 5.38,
+            "end": 5.68,
+            "word": " بود",
+            "probability": 0.9808792769908905
+          },
+          {
+            "start": 5.68,
+            "end": 6.34,
+            "word": " فراهم",
+            "probability": 0.989713986714681
+          },
+          {
+            "start": 6.34,
+            "end": 7.02,
+            "word": " بکنه،",
+            "probability": 0.86190465092659
+          },
+          {
+            "start": 7.02,
+            "end": 7.26,
+            "word": " یک",
+            "probability": 0.998075544834137
+          },
+          {
+            "start": 7.26,
+            "end": 7.58,
+            "word": " بود",
+            "probability": 0.9978663325309753
+          },
+          {
+            "start": 7.58,
+            "end": 7.78,
+            "word": " از",
+            "probability": 0.99970942735672
+          },
+          {
+            "start": 7.78,
+            "end": 8.6,
+            "word": " شخصیتش",
+            "probability": 0.9994139472643534
+          },
+          {
+            "start": 8.6,
+            "end": 9.26,
+            "word": " رو",
+            "probability": 0.9947627484798431
+          }
+        ]
+      }
+    ]
+  }
+}

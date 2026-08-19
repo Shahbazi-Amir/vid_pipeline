@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "e42730dd9a434626fbc29ab6edd8059a4226f0a2b8f0896a5e4a4b6a34fc26c7",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.96,
+    "segments": [
+      {
+        "id": 1,
+        "start": 2.84,
+        "end": 9.84,
+        "text": "سلام، وقتی ما به شخصیت یک انسان نگاه می‌کنیم و می‌خواییم اون رو بررسی بکنین، می‌تونیم",
+        "avg_logprob": -0.13748523289874448,
+        "compression_ratio": 1.3859649122807018,
+        "no_speech_prob": 2.8895486003932547e-10,
+        "words": [
+          {
+            "start": 2.84,
+            "end": 3.64,
+            "word": " سلام،",
+            "probability": 0.6039312332868576
+          },
+          {
+            "start": 3.64,
+            "end": 4.06,
+            "word": " وقتی",
+            "probability": 0.9981624682744344
+          },
+          {
+            "start": 4.06,
+            "end": 4.22,
+            "word": " ما",
+            "probability": 0.998488187789917
+          },
+          {
+            "start": 4.22,
+            "end": 4.58,
+            "word": " به",
+            "probability": 0.9877932667732239
+          },
+          {
+            "start": 4.58,
+            "end": 5.6,
+            "word": " شخصیت",
+            "probability": 0.9995689392089844
+          },
+          {
+            "start": 5.6,
+            "end": 5.86,
+            "word": " یک",
+            "probability": 0.995995968580246
+          },
+          {
+            "start": 5.86,
+            "end": 6.22,
+            "word": " انسان",
+            "probability": 0.9936007459958395
+          },
+          {
+            "start": 6.22,
+            "end": 6.68,
+            "word": " نگاه",
+            "probability": 0.9986860156059265
+          },
+          {
+            "start": 6.68,
+            "end": 7.48,
+            "word": " می‌کنیم",
+            "probability": 0.737316041563948
+          },
+          {
+            "start": 7.48,
+            "end": 8.02,
+            "word": " و",
+            "probability": 0.9788510799407959
+          },
+          {
+            "start": 8.02,
+            "end": 8.4,
+            "word": " می‌خواییم",
+            "probability": 0.8968829001699176
+          },
+          {
+            "start": 8.4,
+            "end": 8.48,
+            "word": " اون",
+            "probability": 0.9692863523960114
+          },
+          {
+            "start": 8.48,
+            "end": 8.56,
+            "word": " رو",
+            "probability": 0.6661575436592102
+          },
+          {
+            "start": 8.56,
+            "end": 9.02,
+            "word": " بررسی",
+            "probability": 0.987136447429657
+          },
+          {
+            "start": 9.02,
+            "end": 9.5,
+            "word": " بکنین،",
+            "probability": 0.6955780711257831
+          },
+          {
+            "start": 9.5,
+            "end": 9.84,
+            "word": " می‌تونیم",
+            "probability": 0.9756285349527994
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 9.84,
+        "end": 11.58,
+        "text": "چهار ذاویه",
+        "avg_logprob": -0.5584482171318748,
+        "compression_ratio": 0.6785714285714286,
+        "no_speech_prob": 1.3386372010870673e-09,
+        "words": [
+          {
+            "start": 9.84,
+            "end": 10.76,
+            "word": " چهار",
+            "probability": 0.8266005714734396
+          },
+          {
+            "start": 10.76,
+            "end": 11.58,
+            "word": " ذاویه",
+            "probability": 0.8575243532657624
+          }
+        ]
+      }
+    ]
+  }
+}

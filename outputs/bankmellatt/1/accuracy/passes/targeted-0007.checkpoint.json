@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "0e06926261d86a2e03fc74ad1626ca7a2a9c252c354af0552803c48cbbab5488",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.66,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.0,
+        "text": "به مورد بررسی قرار بدیم. ظاویه اول عود معناست، یعنی فرض کنید که",
+        "avg_logprob": -0.27563365035586884,
+        "compression_ratio": 1.2417582417582418,
+        "no_speech_prob": 2.821711475586852e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 1.04,
+            "word": " به",
+            "probability": 0.0019019857281818986
+          },
+          {
+            "start": 1.04,
+            "end": 1.22,
+            "word": " مورد",
+            "probability": 0.9477011561393738
+          },
+          {
+            "start": 1.22,
+            "end": 1.7,
+            "word": " بررسی",
+            "probability": 0.9451737642288208
+          },
+          {
+            "start": 1.7,
+            "end": 2.06,
+            "word": " قرار",
+            "probability": 0.9986766775449117
+          },
+          {
+            "start": 2.06,
+            "end": 2.58,
+            "word": " بدیم.",
+            "probability": 0.9642831087112427
+          },
+          {
+            "start": 3.02,
+            "end": 4.02,
+            "word": " ظاویه",
+            "probability": 0.8442660868167877
+          },
+          {
+            "start": 4.02,
+            "end": 4.8,
+            "word": " اول",
+            "probability": 0.9979742467403412
+          },
+          {
+            "start": 4.8,
+            "end": 5.36,
+            "word": " عود",
+            "probability": 0.7676205635070801
+          },
+          {
+            "start": 5.36,
+            "end": 6.52,
+            "word": " معناست،",
+            "probability": 0.5294265786651522
+          },
+          {
+            "start": 6.52,
+            "end": 7.04,
+            "word": " یعنی",
+            "probability": 0.9986995160579681
+          },
+          {
+            "start": 7.04,
+            "end": 7.34,
+            "word": " فرض",
+            "probability": 0.9880770146846771
+          },
+          {
+            "start": 7.34,
+            "end": 7.74,
+            "word": " کنید",
+            "probability": 0.9979484379291534
+          },
+          {
+            "start": 7.74,
+            "end": 8.0,
+            "word": " که",
+            "probability": 0.9973625540733337
+          }
+        ]
+      }
+    ]
+  }
+}

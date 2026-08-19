@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "41368a7a87921fae1255f473927e4878bc161628a78a0b2f62689f63859ecc47",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.24,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.22,
+        "text": "شخصیتش رو ارتقال داده. باعد دیگه یه شخطیت انسان باعت علمی شه، یعنی آگاهی از اون...",
+        "avg_logprob": -0.26143142735135966,
+        "compression_ratio": 1.3181818181818181,
+        "no_speech_prob": 3.5263419961850673e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.68,
+            "word": " شخصیتش",
+            "probability": 0.9263002872467041
+          },
+          {
+            "start": 0.68,
+            "end": 1.26,
+            "word": " رو",
+            "probability": 0.9562900960445404
+          },
+          {
+            "start": 1.26,
+            "end": 1.96,
+            "word": " ارتقال",
+            "probability": 0.8646542727947235
+          },
+          {
+            "start": 1.96,
+            "end": 2.44,
+            "word": " داده.",
+            "probability": 0.9900757074356079
+          },
+          {
+            "start": 2.44,
+            "end": 3.58,
+            "word": " باعد",
+            "probability": 0.5704184174537659
+          },
+          {
+            "start": 3.58,
+            "end": 4.08,
+            "word": " دیگه",
+            "probability": 0.9402484744787216
+          },
+          {
+            "start": 4.08,
+            "end": 5.04,
+            "word": " یه",
+            "probability": 0.4533025547862053
+          },
+          {
+            "start": 5.04,
+            "end": 5.84,
+            "word": " شخطیت",
+            "probability": 0.7934480522690137
+          },
+          {
+            "start": 5.84,
+            "end": 6.42,
+            "word": " انسان",
+            "probability": 0.9879670739173889
+          },
+          {
+            "start": 6.42,
+            "end": 6.76,
+            "word": " باعت",
+            "probability": 0.6614033056345457
+          },
+          {
+            "start": 6.76,
+            "end": 7.46,
+            "word": " علمی",
+            "probability": 0.9401461482048035
+          },
+          {
+            "start": 7.46,
+            "end": 8.2,
+            "word": " شه،",
+            "probability": 0.4654660504311323
+          },
+          {
+            "start": 8.2,
+            "end": 8.7,
+            "word": " یعنی",
+            "probability": 0.9990192204713821
+          },
+          {
+            "start": 8.7,
+            "end": 9.88,
+            "word": " آگاهی",
+            "probability": 0.9962835758924484
+          },
+          {
+            "start": 9.88,
+            "end": 10.1,
+            "word": " از",
+            "probability": 0.9976880848407745
+          },
+          {
+            "start": 10.1,
+            "end": 10.22,
+            "word": " اون...",
+            "probability": 0.6868463307619095
+          }
+        ]
+      }
+    ]
+  }
+}

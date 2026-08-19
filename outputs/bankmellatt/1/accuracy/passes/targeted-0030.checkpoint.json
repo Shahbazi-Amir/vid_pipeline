@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "32215ead35b565a51dd6c788535e282d92536c5adbc081a8027082e1d7b2e021",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.68,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.66,
+        "text": "آدم‌ها در معرض آموزش قرار می‌گیرند. آمودش پیش‌فردش اینه که وقتی من دانایی بدم، پس طرف محارت هم پیدا می‌کنه. اما این‌گونه نیست. می‌بینیم آمون‌ها",
+        "avg_logprob": -0.2136558404902822,
+        "compression_ratio": 1.592814371257485,
+        "no_speech_prob": 3.410624838107168e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.48,
+            "word": " آدم‌ها",
+            "probability": 0.6319846101105213
+          },
+          {
+            "start": 0.48,
+            "end": 0.7,
+            "word": " در",
+            "probability": 0.9899374842643738
+          },
+          {
+            "start": 0.7,
+            "end": 1.04,
+            "word": " معرض",
+            "probability": 0.9466946721076965
+          },
+          {
+            "start": 1.04,
+            "end": 1.66,
+            "word": " آموزش",
+            "probability": 0.9585310220718384
+          },
+          {
+            "start": 1.66,
+            "end": 2.02,
+            "word": " قرار",
+            "probability": 0.9817022283871969
+          },
+          {
+            "start": 2.02,
+            "end": 2.42,
+            "word": " می‌گیرند.",
+            "probability": 0.8660095433394114
+          },
+          {
+            "start": 2.5,
+            "end": 2.98,
+            "word": " آمودش",
+            "probability": 0.6848318895208649
+          },
+          {
+            "start": 2.98,
+            "end": 3.66,
+            "word": " پیش‌فردش",
+            "probability": 0.8074959069490433
+          },
+          {
+            "start": 3.66,
+            "end": 3.84,
+            "word": " اینه",
+            "probability": 0.8858442306518555
+          },
+          {
+            "start": 3.84,
+            "end": 4.0,
+            "word": " که",
+            "probability": 0.9716334342956543
+          },
+          {
+            "start": 4.0,
+            "end": 4.28,
+            "word": " وقتی",
+            "probability": 0.9715972940127054
+          },
+          {
+            "start": 4.28,
+            "end": 4.46,
+            "word": " من",
+            "probability": 0.962001383304596
+          },
+          {
+            "start": 4.46,
+            "end": 5.2,
+            "word": " دانایی",
+            "probability": 0.9547366261482239
+          },
+          {
+            "start": 5.2,
+            "end": 5.96,
+            "word": " بدم،",
+            "probability": 0.7080474694569906
+          },
+          {
+            "start": 5.96,
+            "end": 6.1,
+            "word": " پس",
+            "probability": 0.9456860721111298
+          },
+          {
+            "start": 6.1,
+            "end": 6.44,
+            "word": " طرف",
+            "probability": 0.9703700542449951
+          },
+          {
+            "start": 6.44,
+            "end": 7.16,
+            "word": " محارت",
+            "probability": 0.8418510258197784
+          },
+          {
+            "start": 7.16,
+            "end": 7.3,
+            "word": " هم",
+            "probability": 0.9691721200942993
+          },
+          {
+            "start": 7.3,
+            "end": 7.66,
+            "word": " پیدا",
+            "probability": 0.996396561463674
+          },
+          {
+            "start": 7.66,
+            "end": 8.18,
+            "word": " می‌کنه.",
+            "probability": 0.9425570011138916
+          },
+          {
+            "start": 8.32,
+            "end": 9.02,
+            "word": " اما",
+            "probability": 0.9751569628715515
+          },
+          {
+            "start": 9.02,
+            "end": 9.46,
+            "word": " این‌گونه",
+            "probability": 0.8861153821150461
+          },
+          {
+            "start": 9.46,
+            "end": 9.76,
+            "word": " نیست.",
+            "probability": 0.9420754114786783
+          },
+          {
+            "start": 9.92,
+            "end": 10.38,
+            "word": " می‌بینیم",
+            "probability": 0.9804362754027048
+          },
+          {
+            "start": 10.38,
+            "end": 10.66,
+            "word": " آمون‌ها",
+            "probability": 0.5661676313728095
+          }
+        ]
+      }
+    ]
+  }
+}

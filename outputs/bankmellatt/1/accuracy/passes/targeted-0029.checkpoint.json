@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "87a5e4578dcaf943357f36af5139fb54e3ca70442eb382b52e65b1d4eb9b8a7c",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.18,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.16,
+        "text": "طبیعی هم هست. چرا؟ پس چرا آدم‌ها در معرض آموزش قرار می‌گیرن؟ آمودش پیش‌فردش اینه که وقتی من دانا...",
+        "avg_logprob": -0.2071362170664703,
+        "compression_ratio": 1.325925925925926,
+        "no_speech_prob": 3.1635541408725487e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.68,
+            "word": " طبیعی",
+            "probability": 0.9925687789916993
+          },
+          {
+            "start": 0.68,
+            "end": 0.88,
+            "word": " هم",
+            "probability": 0.9941114187240601
+          },
+          {
+            "start": 0.88,
+            "end": 1.24,
+            "word": " هست.",
+            "probability": 0.9957531690597534
+          },
+          {
+            "start": 2.46,
+            "end": 3.18,
+            "word": " چرا؟",
+            "probability": 0.9937978585561117
+          },
+          {
+            "start": 3.18,
+            "end": 3.94,
+            "word": " پس",
+            "probability": 0.9923043847084045
+          },
+          {
+            "start": 3.94,
+            "end": 4.22,
+            "word": " چرا",
+            "probability": 0.9986269772052765
+          },
+          {
+            "start": 4.22,
+            "end": 4.66,
+            "word": " آدم‌ها",
+            "probability": 0.7472240412898827
+          },
+          {
+            "start": 4.66,
+            "end": 4.88,
+            "word": " در",
+            "probability": 0.9970913529396057
+          },
+          {
+            "start": 4.88,
+            "end": 5.22,
+            "word": " معرض",
+            "probability": 0.7459959089756012
+          },
+          {
+            "start": 5.22,
+            "end": 5.84,
+            "word": " آموزش",
+            "probability": 0.9755582571029663
+          },
+          {
+            "start": 5.84,
+            "end": 6.2,
+            "word": " قرار",
+            "probability": 0.9959076841672262
+          },
+          {
+            "start": 6.2,
+            "end": 6.64,
+            "word": " می‌گیرن؟",
+            "probability": 0.8957395383289882
+          },
+          {
+            "start": 6.64,
+            "end": 7.16,
+            "word": " آمودش",
+            "probability": 0.7334897416512831
+          },
+          {
+            "start": 7.16,
+            "end": 7.82,
+            "word": " پیش‌فردش",
+            "probability": 0.852774478495121
+          },
+          {
+            "start": 7.82,
+            "end": 8.0,
+            "word": " اینه",
+            "probability": 0.9727034966150919
+          },
+          {
+            "start": 8.0,
+            "end": 8.16,
+            "word": " که",
+            "probability": 0.9821003377437592
+          },
+          {
+            "start": 8.16,
+            "end": 8.46,
+            "word": " وقتی",
+            "probability": 0.9766045610109965
+          },
+          {
+            "start": 8.46,
+            "end": 8.64,
+            "word": " من",
+            "probability": 0.969092607498169
+          },
+          {
+            "start": 8.64,
+            "end": 9.16,
+            "word": " دانا...",
+            "probability": 0.7029001554474235
+          }
+        ]
+      }
+    ]
+  }
+}

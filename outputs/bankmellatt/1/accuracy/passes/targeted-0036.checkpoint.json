@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "92927381140bf7764b6c8150ab65d31e0417a62f5902c716704236c512c039ac",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.46,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.44,
+        "text": "این باعث می‌شه دانش ما به رفتار تبدیل نشه. اون باعت احساسی ماست، یعنی ما وقتی نسبت به در...",
+        "avg_logprob": -0.2829114596048991,
+        "compression_ratio": 1.376068376068376,
+        "no_speech_prob": 2.544435773188525e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.1,
+            "word": " این",
+            "probability": 0.11621146117977332
+          },
+          {
+            "start": 0.1,
+            "end": 0.34,
+            "word": " باعث",
+            "probability": 0.9096547365188599
+          },
+          {
+            "start": 0.34,
+            "end": 0.58,
+            "word": " می‌شه",
+            "probability": 0.7300771827576682
+          },
+          {
+            "start": 0.58,
+            "end": 0.98,
+            "word": " دانش",
+            "probability": 0.9865632653236389
+          },
+          {
+            "start": 0.98,
+            "end": 1.12,
+            "word": " ما",
+            "probability": 0.8990356922149658
+          },
+          {
+            "start": 1.12,
+            "end": 1.26,
+            "word": " به",
+            "probability": 0.9424472451210022
+          },
+          {
+            "start": 1.26,
+            "end": 1.6,
+            "word": " رفتار",
+            "probability": 0.992989793419838
+          },
+          {
+            "start": 1.6,
+            "end": 2.02,
+            "word": " تبدیل",
+            "probability": 0.9600726366043091
+          },
+          {
+            "start": 2.02,
+            "end": 2.5,
+            "word": " نشه.",
+            "probability": 0.9852328101793925
+          },
+          {
+            "start": 3.02,
+            "end": 3.6,
+            "word": " اون",
+            "probability": 0.9686085283756256
+          },
+          {
+            "start": 3.6,
+            "end": 3.84,
+            "word": " باعت",
+            "probability": 0.5538649062315623
+          },
+          {
+            "start": 3.84,
+            "end": 4.56,
+            "word": " احساسی",
+            "probability": 0.985236132144928
+          },
+          {
+            "start": 4.56,
+            "end": 5.56,
+            "word": " ماست،",
+            "probability": 0.5964002187053362
+          },
+          {
+            "start": 5.56,
+            "end": 5.92,
+            "word": " یعنی",
+            "probability": 0.9933812916278839
+          },
+          {
+            "start": 5.92,
+            "end": 6.06,
+            "word": " ما",
+            "probability": 0.984693169593811
+          },
+          {
+            "start": 6.06,
+            "end": 6.58,
+            "word": " وقتی",
+            "probability": 0.9850435654322306
+          },
+          {
+            "start": 6.58,
+            "end": 7.2,
+            "word": " نسبت",
+            "probability": 0.9902544617652893
+          },
+          {
+            "start": 7.2,
+            "end": 7.4,
+            "word": " به",
+            "probability": 0.85127854347229
+          },
+          {
+            "start": 7.4,
+            "end": 7.44,
+            "word": " در...",
+            "probability": 0.2883639670908451
+          }
+        ]
+      }
+    ]
+  }
+}

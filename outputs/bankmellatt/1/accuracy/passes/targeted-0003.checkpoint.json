@@ -1,0 +1,229 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "c88f143df0ab864cadc0c79f392b0873970179e71c0a6d17ab0977faecb6a1a8",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.74,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.36,
+        "text": "همون می‌داد که زمین رو یکمی شخم بزنیم و ما نمی‌تونسیم به همو می‌گفتش که پس تو مدرسه به شما چی یاد می‌دم؟",
+        "avg_logprob": -0.2563836060616435,
+        "compression_ratio": 1.6987179487179487,
+        "no_speech_prob": 2.1942711536659942e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.1,
+            "word": " همون",
+            "probability": 0.58130918815732
+          },
+          {
+            "start": 0.1,
+            "end": 0.46,
+            "word": " می‌داد",
+            "probability": 0.7588998787105083
+          },
+          {
+            "start": 0.46,
+            "end": 0.66,
+            "word": " که",
+            "probability": 0.9824038445949554
+          },
+          {
+            "start": 0.66,
+            "end": 1.0,
+            "word": " زمین",
+            "probability": 0.9851986169815063
+          },
+          {
+            "start": 1.0,
+            "end": 1.12,
+            "word": " رو",
+            "probability": 0.8411831557750702
+          },
+          {
+            "start": 1.12,
+            "end": 1.46,
+            "word": " یکمی",
+            "probability": 0.9313586950302124
+          },
+          {
+            "start": 1.46,
+            "end": 1.82,
+            "word": " شخم",
+            "probability": 0.5264103909333547
+          },
+          {
+            "start": 1.82,
+            "end": 2.5,
+            "word": " بزنیم",
+            "probability": 0.9385702610015869
+          },
+          {
+            "start": 2.5,
+            "end": 3.06,
+            "word": " و",
+            "probability": 0.9106996059417725
+          },
+          {
+            "start": 3.06,
+            "end": 3.22,
+            "word": " ما",
+            "probability": 0.9349142909049988
+          },
+          {
+            "start": 3.22,
+            "end": 4.08,
+            "word": " نمی‌تونسیم",
+            "probability": 0.9078521529833475
+          },
+          {
+            "start": 4.08,
+            "end": 4.26,
+            "word": " به",
+            "probability": 0.9617672562599182
+          },
+          {
+            "start": 4.26,
+            "end": 4.5,
+            "word": " همو",
+            "probability": 0.6575001711025834
+          },
+          {
+            "start": 4.5,
+            "end": 4.98,
+            "word": " می‌گفتش",
+            "probability": 0.9809165994326273
+          },
+          {
+            "start": 4.98,
+            "end": 5.22,
+            "word": " که",
+            "probability": 0.9708470404148102
+          },
+          {
+            "start": 5.22,
+            "end": 5.46,
+            "word": " پس",
+            "probability": 0.9458717405796051
+          },
+          {
+            "start": 5.46,
+            "end": 5.54,
+            "word": " تو",
+            "probability": 0.8692085146903992
+          },
+          {
+            "start": 5.54,
+            "end": 5.96,
+            "word": " مدرسه",
+            "probability": 0.9823909282684327
+          },
+          {
+            "start": 5.96,
+            "end": 6.04,
+            "word": " به",
+            "probability": 0.9677566885948181
+          },
+          {
+            "start": 6.04,
+            "end": 6.26,
+            "word": " شما",
+            "probability": 0.9914021492004395
+          },
+          {
+            "start": 6.26,
+            "end": 6.52,
+            "word": " چی",
+            "probability": 0.9847590923309326
+          },
+          {
+            "start": 6.52,
+            "end": 6.74,
+            "word": " یاد",
+            "probability": 0.960822343826294
+          },
+          {
+            "start": 6.74,
+            "end": 7.36,
+            "word": " می‌دم؟",
+            "probability": 0.7215155903249979
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 8.0,
+        "end": 9.72,
+        "text": "ما می‌موندیم که جواب این سؤال را می‌کند.",
+        "avg_logprob": -0.2563836060616435,
+        "compression_ratio": 1.6987179487179487,
+        "no_speech_prob": 2.1942711536659942e-10,
+        "words": [
+          {
+            "start": 7.9,
+            "end": 8.14,
+            "word": " ما",
+            "probability": 0.9405906796455383
+          },
+          {
+            "start": 8.14,
+            "end": 8.88,
+            "word": " می‌موندیم",
+            "probability": 0.9764038154057094
+          },
+          {
+            "start": 8.88,
+            "end": 9.08,
+            "word": " که",
+            "probability": 0.9862789511680603
+          },
+          {
+            "start": 9.08,
+            "end": 9.4,
+            "word": " جواب",
+            "probability": 0.996052086353302
+          },
+          {
+            "start": 9.4,
+            "end": 9.52,
+            "word": " این",
+            "probability": 0.9609600901603699
+          },
+          {
+            "start": 9.52,
+            "end": 9.72,
+            "word": " سؤال",
+            "probability": 0.7286541958649954
+          },
+          {
+            "start": 9.72,
+            "end": 9.72,
+            "word": " را",
+            "probability": 0.30802497267723083
+          },
+          {
+            "start": 9.72,
+            "end": 9.72,
+            "word": " می‌کند.",
+            "probability": 0.3408176815137267
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "1bd67d8e929650729c2b724382c496a4d6b07b5f8fc19916263782ab039274cf",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.64,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.62,
+        "text": "تو مدیریت هم یه اسطلاحی هست، مثلا می‌گن که وقتی ما کار درست رو انجام می‌دیم اثر بخشیم، وقت اون کار رو به درسی انجا می‌بینیم",
+        "avg_logprob": -0.2517132300596971,
+        "compression_ratio": 1.6,
+        "no_speech_prob": 2.9990904204524327e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.94,
+            "word": " تو",
+            "probability": 0.8938677310943604
+          },
+          {
+            "start": 0.94,
+            "end": 1.5,
+            "word": " مدیریت",
+            "probability": 0.8332617938518524
+          },
+          {
+            "start": 1.5,
+            "end": 1.62,
+            "word": " هم",
+            "probability": 0.9437065720558167
+          },
+          {
+            "start": 1.62,
+            "end": 1.76,
+            "word": " یه",
+            "probability": 0.9408746361732483
+          },
+          {
+            "start": 1.76,
+            "end": 2.24,
+            "word": " اسطلاحی",
+            "probability": 0.8206209897994995
+          },
+          {
+            "start": 2.24,
+            "end": 2.58,
+            "word": " هست،",
+            "probability": 0.657329436391592
+          },
+          {
+            "start": 2.58,
+            "end": 2.92,
+            "word": " مثلا",
+            "probability": 0.9928993880748749
+          },
+          {
+            "start": 2.92,
+            "end": 3.28,
+            "word": " می‌گن",
+            "probability": 0.7201887465780601
+          },
+          {
+            "start": 3.28,
+            "end": 4.02,
+            "word": " که",
+            "probability": 0.9508127272129059
+          },
+          {
+            "start": 4.02,
+            "end": 4.38,
+            "word": " وقتی",
+            "probability": 0.9640175898869833
+          },
+          {
+            "start": 4.38,
+            "end": 4.5,
+            "word": " ما",
+            "probability": 0.9938317537307739
+          },
+          {
+            "start": 4.5,
+            "end": 4.84,
+            "word": " کار",
+            "probability": 0.9923947751522064
+          },
+          {
+            "start": 4.84,
+            "end": 5.32,
+            "word": " درست",
+            "probability": 0.9950087467829386
+          },
+          {
+            "start": 5.32,
+            "end": 5.5,
+            "word": " رو",
+            "probability": 0.9076419770717621
+          },
+          {
+            "start": 5.5,
+            "end": 5.9,
+            "word": " انجام",
+            "probability": 0.9963894685109457
+          },
+          {
+            "start": 5.9,
+            "end": 6.14,
+            "word": " می‌دیم",
+            "probability": 0.9250828862190247
+          },
+          {
+            "start": 6.14,
+            "end": 6.46,
+            "word": " اثر",
+            "probability": 0.718023955821991
+          },
+          {
+            "start": 6.46,
+            "end": 7.3,
+            "word": " بخشیم،",
+            "probability": 0.8551192382971445
+          },
+          {
+            "start": 7.3,
+            "end": 7.88,
+            "word": " وقت",
+            "probability": 0.9933731853961945
+          },
+          {
+            "start": 7.88,
+            "end": 8.06,
+            "word": " اون",
+            "probability": 0.4821208999492228
+          },
+          {
+            "start": 8.06,
+            "end": 8.4,
+            "word": " کار",
+            "probability": 0.9962544739246368
+          },
+          {
+            "start": 8.4,
+            "end": 8.58,
+            "word": " رو",
+            "probability": 0.9881472289562225
+          },
+          {
+            "start": 8.58,
+            "end": 8.7,
+            "word": " به",
+            "probability": 0.9931085109710693
+          },
+          {
+            "start": 8.7,
+            "end": 9.26,
+            "word": " درسی",
+            "probability": 0.6375994344780338
+          },
+          {
+            "start": 9.26,
+            "end": 9.62,
+            "word": " انجا",
+            "probability": 0.6208273814603066
+          },
+          {
+            "start": 9.62,
+            "end": 9.62,
+            "word": " می‌بینیم",
+            "probability": 0.5817654679218928
+          }
+        ]
+      }
+    ]
+  }
+}

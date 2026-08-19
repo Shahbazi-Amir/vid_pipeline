@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "42c73954d82b2be894df715ad0c38433a083d0e409ca690fe96352af5d118637",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.42,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.24,
+        "text": "هیچ تغییری در رفتار صورت نمی‌گیره یا خیلی چیزها رو خودمون می‌دونیم و انجام نمیکنیم. مثلا می‌داونید ورزش کردن خوبه وردش نمکنید. یا سیگار کشیدن بده اما",
+        "avg_logprob": -0.20437702678498768,
+        "compression_ratio": 1.6347305389221556,
+        "no_speech_prob": 3.311221297153111e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.56,
+            "word": " هیچ",
+            "probability": 0.9597419301668803
+          },
+          {
+            "start": 0.56,
+            "end": 1.02,
+            "word": " تغییری",
+            "probability": 0.9468598961830139
+          },
+          {
+            "start": 1.02,
+            "end": 1.22,
+            "word": " در",
+            "probability": 0.9858051240444183
+          },
+          {
+            "start": 1.22,
+            "end": 1.66,
+            "word": " رفتار",
+            "probability": 0.9913874119520187
+          },
+          {
+            "start": 1.66,
+            "end": 2.08,
+            "word": " صورت",
+            "probability": 0.9755845665931702
+          },
+          {
+            "start": 2.08,
+            "end": 2.52,
+            "word": " نمی‌گیره",
+            "probability": 0.7898668618872762
+          },
+          {
+            "start": 2.52,
+            "end": 2.68,
+            "word": " یا",
+            "probability": 0.8009388148784637
+          },
+          {
+            "start": 2.68,
+            "end": 2.92,
+            "word": " خیلی",
+            "probability": 0.9825118482112885
+          },
+          {
+            "start": 2.92,
+            "end": 3.18,
+            "word": " چیزها",
+            "probability": 0.9107183218002319
+          },
+          {
+            "start": 3.18,
+            "end": 3.28,
+            "word": " رو",
+            "probability": 0.9210181534290314
+          },
+          {
+            "start": 3.28,
+            "end": 3.66,
+            "word": " خودمون",
+            "probability": 0.9833248257637024
+          },
+          {
+            "start": 3.66,
+            "end": 4.08,
+            "word": " می‌دونیم",
+            "probability": 0.9759107927481333
+          },
+          {
+            "start": 4.08,
+            "end": 4.08,
+            "word": " و",
+            "probability": 0.9847965240478516
+          },
+          {
+            "start": 4.08,
+            "end": 4.52,
+            "word": " انجام",
+            "probability": 0.9896073540051779
+          },
+          {
+            "start": 4.52,
+            "end": 5.02,
+            "word": " نمیکنیم.",
+            "probability": 0.7963665259497551
+          },
+          {
+            "start": 5.16,
+            "end": 5.38,
+            "word": " مثلا",
+            "probability": 0.9491982460021973
+          },
+          {
+            "start": 5.38,
+            "end": 5.76,
+            "word": " می‌داونید",
+            "probability": 0.6217998946473623
+          },
+          {
+            "start": 5.76,
+            "end": 6.16,
+            "word": " ورزش",
+            "probability": 0.9456480443477631
+          },
+          {
+            "start": 6.16,
+            "end": 6.52,
+            "word": " کردن",
+            "probability": 0.9173132578531901
+          },
+          {
+            "start": 6.52,
+            "end": 6.86,
+            "word": " خوبه",
+            "probability": 0.9374614556630453
+          },
+          {
+            "start": 6.86,
+            "end": 7.28,
+            "word": " وردش",
+            "probability": 0.6598008583969204
+          },
+          {
+            "start": 7.28,
+            "end": 8.26,
+            "word": " نمکنید.",
+            "probability": 0.6623148218495771
+          },
+          {
+            "start": 8.26,
+            "end": 8.62,
+            "word": " یا",
+            "probability": 0.9877850711345673
+          },
+          {
+            "start": 8.62,
+            "end": 8.94,
+            "word": " سیگار",
+            "probability": 0.9631527215242386
+          },
+          {
+            "start": 8.94,
+            "end": 9.42,
+            "word": " کشیدن",
+            "probability": 0.9216069936752319
+          },
+          {
+            "start": 9.42,
+            "end": 9.84,
+            "word": " بده",
+            "probability": 0.9641460478305817
+          },
+          {
+            "start": 9.84,
+            "end": 10.24,
+            "word": " اما",
+            "probability": 0.9258529543876648
+          }
+        ]
+      }
+    ]
+  }
+}

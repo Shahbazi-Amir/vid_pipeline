@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "f2f852bb307681a54584a73f6aace1422159dc4e4e31e1565396f6bf8d09e168",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.52,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.5,
+        "text": "پس طرف محارت هم پیدا می‌کنه. اما این‌گونه نیست. می‌بینیم آموزش می‌دیم ولی هیچ تغییری در رفتار صورت نمی‌گره یا خیلی چیزها رو خودمون می‌‌دونیم و انجام نم‌دهیم.",
+        "avg_logprob": -0.17306418569238335,
+        "compression_ratio": 1.6590909090909092,
+        "no_speech_prob": 2.9733518425167915e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.42,
+            "word": " پس",
+            "probability": 0.931071013212204
+          },
+          {
+            "start": 0.42,
+            "end": 0.76,
+            "word": " طرف",
+            "probability": 0.9816934466362
+          },
+          {
+            "start": 0.76,
+            "end": 1.46,
+            "word": " محارت",
+            "probability": 0.8667021244764328
+          },
+          {
+            "start": 1.46,
+            "end": 1.62,
+            "word": " هم",
+            "probability": 0.9951660633087158
+          },
+          {
+            "start": 1.62,
+            "end": 1.98,
+            "word": " پیدا",
+            "probability": 0.9986769358317057
+          },
+          {
+            "start": 1.98,
+            "end": 2.52,
+            "word": " می‌کنه.",
+            "probability": 0.7511054813861847
+          },
+          {
+            "start": 2.62,
+            "end": 3.34,
+            "word": " اما",
+            "probability": 0.9846162497997284
+          },
+          {
+            "start": 3.34,
+            "end": 3.78,
+            "word": " این‌گونه",
+            "probability": 0.813150962193807
+          },
+          {
+            "start": 3.78,
+            "end": 4.08,
+            "word": " نیست.",
+            "probability": 0.9775707721710205
+          },
+          {
+            "start": 4.2,
+            "end": 4.68,
+            "word": " می‌بینیم",
+            "probability": 0.9853386878967285
+          },
+          {
+            "start": 4.68,
+            "end": 5.32,
+            "word": " آموزش",
+            "probability": 0.9503524541854859
+          },
+          {
+            "start": 5.32,
+            "end": 5.78,
+            "word": " می‌دیم",
+            "probability": 0.9253207802772522
+          },
+          {
+            "start": 5.78,
+            "end": 6.62,
+            "word": " ولی",
+            "probability": 0.9033079743385315
+          },
+          {
+            "start": 6.62,
+            "end": 7.08,
+            "word": " هیچ",
+            "probability": 0.9749071002006531
+          },
+          {
+            "start": 7.08,
+            "end": 7.54,
+            "word": " تغییری",
+            "probability": 0.9001248359680176
+          },
+          {
+            "start": 7.54,
+            "end": 7.76,
+            "word": " در",
+            "probability": 0.9926269352436066
+          },
+          {
+            "start": 7.76,
+            "end": 8.18,
+            "word": " رفتار",
+            "probability": 0.9929013848304749
+          },
+          {
+            "start": 8.18,
+            "end": 8.6,
+            "word": " صورت",
+            "probability": 0.9731131196022034
+          },
+          {
+            "start": 8.6,
+            "end": 9.04,
+            "word": " نمی‌گره",
+            "probability": 0.8458302872521537
+          },
+          {
+            "start": 9.04,
+            "end": 9.2,
+            "word": " یا",
+            "probability": 0.7674084901809692
+          },
+          {
+            "start": 9.2,
+            "end": 9.44,
+            "word": " خیلی",
+            "probability": 0.9893616884946823
+          },
+          {
+            "start": 9.44,
+            "end": 9.7,
+            "word": " چیزها",
+            "probability": 0.8823748677968979
+          },
+          {
+            "start": 9.7,
+            "end": 9.8,
+            "word": " رو",
+            "probability": 0.9566805958747864
+          },
+          {
+            "start": 9.8,
+            "end": 10.18,
+            "word": " خودمون",
+            "probability": 0.9842597991228104
+          },
+          {
+            "start": 10.18,
+            "end": 10.6,
+            "word": " می‌‌دونیم",
+            "probability": 0.8420508556134466
+          },
+          {
+            "start": 10.6,
+            "end": 10.62,
+            "word": " و",
+            "probability": 0.9863125681877136
+          },
+          {
+            "start": 10.62,
+            "end": 11.04,
+            "word": " انجام",
+            "probability": 0.9881936311721802
+          },
+          {
+            "start": 11.04,
+            "end": 11.5,
+            "word": " نم‌دهیم.",
+            "probability": 0.638323255947658
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "80d7e9b8aa01089b915c258bc9ba44458faccbca0d14b355ef23dc5eae14ffc2",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.24,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.22,
+        "text": "رفتار محتنی بر دانایی شکل نمی‌گیره، رفتهار محطنی به یک باور شکر می‌گره. باوور یعنی علم و...",
+        "avg_logprob": -0.2358090922687993,
+        "compression_ratio": 1.4260869565217391,
+        "no_speech_prob": 2.3928667380879176e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.14,
+            "word": " رفتار",
+            "probability": 0.7294009493198246
+          },
+          {
+            "start": 0.14,
+            "end": 0.52,
+            "word": " محتنی",
+            "probability": 0.7229184582829475
+          },
+          {
+            "start": 0.52,
+            "end": 0.74,
+            "word": " بر",
+            "probability": 0.9796890616416931
+          },
+          {
+            "start": 0.74,
+            "end": 1.48,
+            "word": " دانایی",
+            "probability": 0.9295512318611145
+          },
+          {
+            "start": 1.48,
+            "end": 1.86,
+            "word": " شکل",
+            "probability": 0.9982548952102661
+          },
+          {
+            "start": 1.86,
+            "end": 2.62,
+            "word": " نمی‌گیره،",
+            "probability": 0.7815830170487365
+          },
+          {
+            "start": 2.62,
+            "end": 3.52,
+            "word": " رفتهار",
+            "probability": 0.6102692846034188
+          },
+          {
+            "start": 3.52,
+            "end": 3.94,
+            "word": " محطنی",
+            "probability": 0.7324327185051516
+          },
+          {
+            "start": 3.94,
+            "end": 4.08,
+            "word": " به",
+            "probability": 0.016621269285678864
+          },
+          {
+            "start": 4.08,
+            "end": 4.36,
+            "word": " یک",
+            "probability": 0.9777255952358246
+          },
+          {
+            "start": 4.36,
+            "end": 4.98,
+            "word": " باور",
+            "probability": 0.9656159281730652
+          },
+          {
+            "start": 4.98,
+            "end": 5.4,
+            "word": " شکر",
+            "probability": 0.653096748899164
+          },
+          {
+            "start": 5.4,
+            "end": 5.74,
+            "word": " می‌گره.",
+            "probability": 0.7847385419532656
+          },
+          {
+            "start": 5.84,
+            "end": 6.34,
+            "word": " باوور",
+            "probability": 0.579860679430567
+          },
+          {
+            "start": 6.34,
+            "end": 6.84,
+            "word": " یعنی",
+            "probability": 0.9946459531784058
+          },
+          {
+            "start": 6.84,
+            "end": 7.86,
+            "word": " علم",
+            "probability": 0.951652318239212
+          },
+          {
+            "start": 7.86,
+            "end": 8.22,
+            "word": " و...",
+            "probability": 0.49631354957818985
+          }
+        ]
+      }
+    ]
+  }
+}

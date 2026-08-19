@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "2f26b669e656d2d665c3d442f980020aeb950b567c1c0ba59bb9eacd37878344",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.3,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.28,
+        "text": "داناییمون احساسی نداریم، بنابراین تبدیل به رفتار نمی‌شه. اصلاً رفستار مبتنی بر دانه",
+        "avg_logprob": -0.24852590411901473,
+        "compression_ratio": 1.3628318584070795,
+        "no_speech_prob": 3.541717752408857e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.74,
+            "word": " داناییمون",
+            "probability": 0.7271213531494141
+          },
+          {
+            "start": 0.74,
+            "end": 1.58,
+            "word": " احساسی",
+            "probability": 0.993908703327179
+          },
+          {
+            "start": 1.58,
+            "end": 2.72,
+            "word": " نداریم،",
+            "probability": 0.8345535392872989
+          },
+          {
+            "start": 2.72,
+            "end": 3.42,
+            "word": " بنابراین",
+            "probability": 0.973028016090393
+          },
+          {
+            "start": 3.42,
+            "end": 3.78,
+            "word": " تبدیل",
+            "probability": 0.9763842225074768
+          },
+          {
+            "start": 3.78,
+            "end": 3.86,
+            "word": " به",
+            "probability": 0.6587931513786316
+          },
+          {
+            "start": 3.86,
+            "end": 4.32,
+            "word": " رفتار",
+            "probability": 0.8005513921380043
+          },
+          {
+            "start": 4.32,
+            "end": 4.76,
+            "word": " نمی‌شه.",
+            "probability": 0.8102118409782028
+          },
+          {
+            "start": 5.18,
+            "end": 5.54,
+            "word": " اصلاً",
+            "probability": 0.851081483066082
+          },
+          {
+            "start": 5.54,
+            "end": 6.18,
+            "word": " رفستار",
+            "probability": 0.7137801515891624
+          },
+          {
+            "start": 6.18,
+            "end": 6.7,
+            "word": " مبتنی",
+            "probability": 0.9579405426979065
+          },
+          {
+            "start": 6.7,
+            "end": 6.92,
+            "word": " بر",
+            "probability": 0.9422208070755005
+          },
+          {
+            "start": 6.92,
+            "end": 7.28,
+            "word": " دانه",
+            "probability": 0.7027727365493774
+          }
+        ]
+      }
+    ]
+  }
+}

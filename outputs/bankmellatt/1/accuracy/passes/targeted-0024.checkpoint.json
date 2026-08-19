@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "4e08c8e0e0b67edfc614c4ac233216401c6f028d3de07e75d364aa95eb461d4b",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.56,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.06,
+        "text": "چهار نوع تفکر لازم داره، تفاکر خلاق، تثکر سیستمی، تظکر راهبردی و تظاکور انتقادی.",
+        "avg_logprob": -0.23536510689783904,
+        "compression_ratio": 1.4174757281553398,
+        "no_speech_prob": 4.1356812419124367e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.62,
+            "word": " چهار",
+            "probability": 0.963169535001119
+          },
+          {
+            "start": 0.62,
+            "end": 1.1,
+            "word": " نوع",
+            "probability": 0.9813965260982513
+          },
+          {
+            "start": 1.1,
+            "end": 1.84,
+            "word": " تفکر",
+            "probability": 0.9940552413463593
+          },
+          {
+            "start": 1.84,
+            "end": 2.28,
+            "word": " لازم",
+            "probability": 0.9948198795318604
+          },
+          {
+            "start": 2.28,
+            "end": 2.56,
+            "word": " داره،",
+            "probability": 0.7527957707643509
+          },
+          {
+            "start": 2.56,
+            "end": 3.04,
+            "word": " تفاکر",
+            "probability": 0.7989684748579748
+          },
+          {
+            "start": 3.04,
+            "end": 4.08,
+            "word": " خلاق،",
+            "probability": 0.8960028141736984
+          },
+          {
+            "start": 4.08,
+            "end": 5.56,
+            "word": " تثکر",
+            "probability": 0.5214170655439148
+          },
+          {
+            "start": 5.56,
+            "end": 6.54,
+            "word": " سیستمی،",
+            "probability": 0.9954989850521088
+          },
+          {
+            "start": 6.54,
+            "end": 7.06,
+            "word": " تظکر",
+            "probability": 0.6353235452843364
+          },
+          {
+            "start": 7.06,
+            "end": 7.76,
+            "word": " راهبردی",
+            "probability": 0.8703840970993042
+          },
+          {
+            "start": 7.76,
+            "end": 7.86,
+            "word": " و",
+            "probability": 0.9500347971916199
+          },
+          {
+            "start": 7.86,
+            "end": 8.38,
+            "word": " تظاکور",
+            "probability": 0.4951194877095986
+          },
+          {
+            "start": 8.38,
+            "end": 9.06,
+            "word": " انتقادی.",
+            "probability": 0.9979897260665893
+          }
+        ]
+      }
+    ]
+  }
+}

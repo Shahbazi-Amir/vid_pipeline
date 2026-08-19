@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "b7ea90ff152fc765125669489a7f69078c1c9e5aa6022a5dbb1a13d8000d59aa",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 13.88,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 13.86,
+        "text": "تفکر راه بردی و تفاکر انتقادی. این شیوه‌ی اندیشیدن کمک می‌کنه دانش‌های درستی و برای اون معنای زندگیش، براي اون مأموریت زند گیش یا بهتر بگیم، بلای او موسیقی زنگی.",
+        "avg_logprob": -0.19209404982495726,
+        "compression_ratio": 1.7294117647058824,
+        "no_speech_prob": 1.7916901295933485e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.5,
+            "word": " تفکر",
+            "probability": 0.9959698617458344
+          },
+          {
+            "start": 0.5,
+            "end": 0.86,
+            "word": " راه",
+            "probability": 0.9906399548053741
+          },
+          {
+            "start": 0.86,
+            "end": 1.2,
+            "word": " بردی",
+            "probability": 0.8888324499130249
+          },
+          {
+            "start": 1.2,
+            "end": 1.3,
+            "word": " و",
+            "probability": 0.9974349141120911
+          },
+          {
+            "start": 1.3,
+            "end": 1.82,
+            "word": " تفاکر",
+            "probability": 0.7985255136169144
+          },
+          {
+            "start": 1.82,
+            "end": 2.5,
+            "word": " انتقادی.",
+            "probability": 0.9971211552619934
+          },
+          {
+            "start": 2.64,
+            "end": 3.32,
+            "word": " این",
+            "probability": 0.9975943565368652
+          },
+          {
+            "start": 3.32,
+            "end": 3.94,
+            "word": " شیوه‌ی",
+            "probability": 0.8219056250527501
+          },
+          {
+            "start": 3.94,
+            "end": 4.82,
+            "word": " اندیشیدن",
+            "probability": 0.9871390887669155
+          },
+          {
+            "start": 4.82,
+            "end": 5.34,
+            "word": " کمک",
+            "probability": 0.9976526101430258
+          },
+          {
+            "start": 5.34,
+            "end": 5.72,
+            "word": " می‌کنه",
+            "probability": 0.9464729428291321
+          },
+          {
+            "start": 5.72,
+            "end": 6.46,
+            "word": " دانش‌های",
+            "probability": 0.9562763969103495
+          },
+          {
+            "start": 6.46,
+            "end": 7.18,
+            "word": " درستی",
+            "probability": 0.9682757556438446
+          },
+          {
+            "start": 7.18,
+            "end": 7.34,
+            "word": " و",
+            "probability": 0.8420374989509583
+          },
+          {
+            "start": 7.34,
+            "end": 8.18,
+            "word": " برای",
+            "probability": 0.9888109564781189
+          },
+          {
+            "start": 8.18,
+            "end": 8.32,
+            "word": " اون",
+            "probability": 0.9420557916164398
+          },
+          {
+            "start": 8.32,
+            "end": 8.84,
+            "word": " معنای",
+            "probability": 0.9279367725054423
+          },
+          {
+            "start": 8.84,
+            "end": 9.52,
+            "word": " زندگیش،",
+            "probability": 0.9012514849503835
+          },
+          {
+            "start": 9.52,
+            "end": 9.8,
+            "word": " براي",
+            "probability": 0.6634723481474794
+          },
+          {
+            "start": 9.8,
+            "end": 9.94,
+            "word": " اون",
+            "probability": 0.9925752580165863
+          },
+          {
+            "start": 9.94,
+            "end": 10.7,
+            "word": " مأموریت",
+            "probability": 0.8015832689901193
+          },
+          {
+            "start": 10.7,
+            "end": 11.04,
+            "word": " زند",
+            "probability": 0.9904381334781647
+          },
+          {
+            "start": 11.04,
+            "end": 11.38,
+            "word": " گیش",
+            "probability": 0.6630520465184114
+          },
+          {
+            "start": 11.38,
+            "end": 11.56,
+            "word": " یا",
+            "probability": 0.8249185681343079
+          },
+          {
+            "start": 11.56,
+            "end": 11.9,
+            "word": " بهتر",
+            "probability": 0.9939546386400858
+          },
+          {
+            "start": 11.9,
+            "end": 12.22,
+            "word": " بگیم،",
+            "probability": 0.8607336819171906
+          },
+          {
+            "start": 12.22,
+            "end": 12.52,
+            "word": " بلای",
+            "probability": 0.6360259242004153
+          },
+          {
+            "start": 12.52,
+            "end": 12.66,
+            "word": " او",
+            "probability": 0.4970487199607305
+          },
+          {
+            "start": 12.66,
+            "end": 13.34,
+            "word": " موسیقی",
+            "probability": 0.9247549533843994
+          },
+          {
+            "start": 13.34,
+            "end": 13.86,
+            "word": " زنگی.",
+            "probability": 0.7381689230023767
+          }
+        ]
+      }
+    ]
+  }
+}

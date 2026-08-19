@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "53716bf4a32533d1400f0c781a68405635eb6b6c6a0eff9c607269b6e76aa8f8",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.88,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.32,
+        "text": "ما آنچه که می‌دانیم عمل نمی‌کنیم یعنی معمولاً خیلی چیزها رو می‌داونیم و عمل‌نمی کنی، خیله طبیعی هم هست. چرا؟",
+        "avg_logprob": -0.22883669764567643,
+        "compression_ratio": 1.550387596899225,
+        "no_speech_prob": 3.842052231917137e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.28,
+            "word": " ما",
+            "probability": 0.18580159544944763
+          },
+          {
+            "start": 0.28,
+            "end": 0.98,
+            "word": " آنچه",
+            "probability": 0.8335264027118683
+          },
+          {
+            "start": 0.98,
+            "end": 1.12,
+            "word": " که",
+            "probability": 0.987582802772522
+          },
+          {
+            "start": 1.12,
+            "end": 1.52,
+            "word": " می‌دانیم",
+            "probability": 0.8364219653109709
+          },
+          {
+            "start": 1.52,
+            "end": 1.78,
+            "word": " عمل",
+            "probability": 0.9570078253746033
+          },
+          {
+            "start": 1.78,
+            "end": 2.52,
+            "word": " نمی‌کنیم",
+            "probability": 0.9698181673884392
+          },
+          {
+            "start": 2.52,
+            "end": 2.78,
+            "word": " یعنی",
+            "probability": 0.9147944003343582
+          },
+          {
+            "start": 2.78,
+            "end": 3.4,
+            "word": " معمولاً",
+            "probability": 0.8513930201530456
+          },
+          {
+            "start": 3.4,
+            "end": 3.6,
+            "word": " خیلی",
+            "probability": 0.9303926676511765
+          },
+          {
+            "start": 3.6,
+            "end": 3.9,
+            "word": " چیزها",
+            "probability": 0.9040364623069763
+          },
+          {
+            "start": 3.9,
+            "end": 4.04,
+            "word": " رو",
+            "probability": 0.8992761373519897
+          },
+          {
+            "start": 4.04,
+            "end": 4.68,
+            "word": " می‌داونیم",
+            "probability": 0.7664614211923132
+          },
+          {
+            "start": 4.68,
+            "end": 5.12,
+            "word": " و",
+            "probability": 0.9768943190574646
+          },
+          {
+            "start": 5.12,
+            "end": 5.7,
+            "word": " عمل‌نمی",
+            "probability": 0.7369158280392488
+          },
+          {
+            "start": 5.7,
+            "end": 5.9,
+            "word": " کنی،",
+            "probability": 0.4974469052394852
+          },
+          {
+            "start": 5.9,
+            "end": 6.16,
+            "word": " خیله",
+            "probability": 0.6537688363653918
+          },
+          {
+            "start": 6.16,
+            "end": 6.82,
+            "word": " طبیعی",
+            "probability": 0.9858034014701843
+          },
+          {
+            "start": 6.82,
+            "end": 7.04,
+            "word": " هم",
+            "probability": 0.97174471616745
+          },
+          {
+            "start": 7.04,
+            "end": 7.38,
+            "word": " هست.",
+            "probability": 0.900942325592041
+          },
+          {
+            "start": 8.72,
+            "end": 9.32,
+            "word": " چرا؟",
+            "probability": 0.9614588419596354
+          }
+        ]
+      }
+    ]
+  }
+}

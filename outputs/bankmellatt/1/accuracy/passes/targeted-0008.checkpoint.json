@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "03dcfa9f28ea6ddd1ed2263c1e310e1ea58695d5072a58397dc4f4829e4e0530",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.66,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.32,
+        "text": "دقاویه اول عود معناست، یعنی فرض کنید که یک مربعی داریم، این مربح شخصیت یک انسان است.",
+        "avg_logprob": -0.2332230346244678,
+        "compression_ratio": 1.3603603603603605,
+        "no_speech_prob": 3.9015041197743017e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.34,
+            "word": " دقاویه",
+            "probability": 0.5703562026222547
+          },
+          {
+            "start": 0.34,
+            "end": 1.14,
+            "word": " اول",
+            "probability": 0.9806927740573883
+          },
+          {
+            "start": 1.14,
+            "end": 1.7,
+            "word": " عود",
+            "probability": 0.6160492897033691
+          },
+          {
+            "start": 1.7,
+            "end": 2.64,
+            "word": " معناست،",
+            "probability": 0.521908518858254
+          },
+          {
+            "start": 2.64,
+            "end": 3.38,
+            "word": " یعنی",
+            "probability": 0.9883607774972916
+          },
+          {
+            "start": 3.38,
+            "end": 3.68,
+            "word": " فرض",
+            "probability": 0.9750905632972717
+          },
+          {
+            "start": 3.68,
+            "end": 4.06,
+            "word": " کنید",
+            "probability": 0.9933120757341385
+          },
+          {
+            "start": 4.06,
+            "end": 4.3,
+            "word": " که",
+            "probability": 0.9890852570533752
+          },
+          {
+            "start": 4.3,
+            "end": 4.66,
+            "word": " یک",
+            "probability": 0.9621623158454895
+          },
+          {
+            "start": 4.66,
+            "end": 5.42,
+            "word": " مربعی",
+            "probability": 0.9786706417798996
+          },
+          {
+            "start": 5.42,
+            "end": 5.86,
+            "word": " داریم،",
+            "probability": 0.9197037696838379
+          },
+          {
+            "start": 5.86,
+            "end": 5.96,
+            "word": " این",
+            "probability": 0.9902925491333008
+          },
+          {
+            "start": 5.96,
+            "end": 6.62,
+            "word": " مربح",
+            "probability": 0.6624549571618749
+          },
+          {
+            "start": 6.62,
+            "end": 7.42,
+            "word": " شخصیت",
+            "probability": 0.9963525176048279
+          },
+          {
+            "start": 7.42,
+            "end": 7.68,
+            "word": " یک",
+            "probability": 0.9278916120529175
+          },
+          {
+            "start": 7.68,
+            "end": 8.18,
+            "word": " انسان",
+            "probability": 0.9855501055717468
+          },
+          {
+            "start": 8.18,
+            "end": 8.32,
+            "word": " است.",
+            "probability": 0.09288451075553894
+          }
+        ]
+      }
+    ]
+  }
+}

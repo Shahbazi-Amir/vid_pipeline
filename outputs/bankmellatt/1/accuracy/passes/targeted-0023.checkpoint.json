@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "4d93912be6af74e939f5c19d27a0d9b20c93def95b9f7a3f301a881ef2c4292f",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.56,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.42,
+        "text": "و داناست و می‌دونه چی کار بکنه. این بود علمی چهار نوع تفکر لازم داره، تفاکر خلاق.",
+        "avg_logprob": -0.2097208938815377,
+        "compression_ratio": 1.3181818181818181,
+        "no_speech_prob": 2.625183403992537e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.26,
+            "word": " و",
+            "probability": 0.963330090045929
+          },
+          {
+            "start": 0.26,
+            "end": 1.06,
+            "word": " داناست",
+            "probability": 0.9017660915851593
+          },
+          {
+            "start": 1.06,
+            "end": 1.22,
+            "word": " و",
+            "probability": 0.9926239252090454
+          },
+          {
+            "start": 1.22,
+            "end": 1.74,
+            "word": " می‌دونه",
+            "probability": 0.7960624314844609
+          },
+          {
+            "start": 1.74,
+            "end": 1.92,
+            "word": " چی",
+            "probability": 0.8572952151298523
+          },
+          {
+            "start": 1.92,
+            "end": 2.12,
+            "word": " کار",
+            "probability": 0.9967784881591797
+          },
+          {
+            "start": 2.12,
+            "end": 2.5,
+            "word": " بکنه.",
+            "probability": 0.9771223813295364
+          },
+          {
+            "start": 2.56,
+            "end": 2.68,
+            "word": " این",
+            "probability": 0.9811640381813049
+          },
+          {
+            "start": 2.68,
+            "end": 2.96,
+            "word": " بود",
+            "probability": 0.6025614142417908
+          },
+          {
+            "start": 2.96,
+            "end": 3.7,
+            "word": " علمی",
+            "probability": 0.8815809686978658
+          },
+          {
+            "start": 3.7,
+            "end": 5.18,
+            "word": " چهار",
+            "probability": 0.9762877821922302
+          },
+          {
+            "start": 5.18,
+            "end": 5.7,
+            "word": " نوع",
+            "probability": 0.9909618198871613
+          },
+          {
+            "start": 5.7,
+            "end": 6.42,
+            "word": " تفکر",
+            "probability": 0.9879232197999954
+          },
+          {
+            "start": 6.42,
+            "end": 6.84,
+            "word": " لازم",
+            "probability": 0.992957353591919
+          },
+          {
+            "start": 6.84,
+            "end": 7.1,
+            "word": " داره،",
+            "probability": 0.7412089519202709
+          },
+          {
+            "start": 7.1,
+            "end": 7.6,
+            "word": " تفاکر",
+            "probability": 0.7970577707746997
+          },
+          {
+            "start": 7.6,
+            "end": 8.42,
+            "word": " خلاق.",
+            "probability": 0.8674057523409525
+          }
+        ]
+      }
+    ]
+  }
+}

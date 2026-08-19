@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "09ffbd4bfe29f1674b5764932c0d57ca33e0027442e09243e098aa30a9ada709",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.3,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.2,
+        "text": "کار رو به درستی انجام بدیم، کار آمدیم. کارآمده از سربخشی یعنی بحروری، یه شخصیت بحریور تو هر دو بعد",
+        "avg_logprob": -0.2567419247592197,
+        "compression_ratio": 1.4666666666666666,
+        "no_speech_prob": 2.5569943384873284e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.1,
+            "word": " کار",
+            "probability": 0.5031679384410381
+          },
+          {
+            "start": 0.1,
+            "end": 0.22,
+            "word": " رو",
+            "probability": 0.5087661370635033
+          },
+          {
+            "start": 0.22,
+            "end": 0.32,
+            "word": " به",
+            "probability": 0.9966568946838379
+          },
+          {
+            "start": 0.32,
+            "end": 0.88,
+            "word": " درستی",
+            "probability": 0.9969816952943802
+          },
+          {
+            "start": 0.88,
+            "end": 1.38,
+            "word": " انجام",
+            "probability": 0.9976019064585367
+          },
+          {
+            "start": 1.38,
+            "end": 1.74,
+            "word": " بدیم،",
+            "probability": 0.5719470353797078
+          },
+          {
+            "start": 1.74,
+            "end": 2.02,
+            "word": " کار",
+            "probability": 0.9933749735355377
+          },
+          {
+            "start": 2.02,
+            "end": 2.52,
+            "word": " آمدیم.",
+            "probability": 0.991823148727417
+          },
+          {
+            "start": 2.6,
+            "end": 3.24,
+            "word": " کارآمده",
+            "probability": 0.7062330946459302
+          },
+          {
+            "start": 3.24,
+            "end": 3.56,
+            "word": " از",
+            "probability": 0.5438396781682968
+          },
+          {
+            "start": 3.56,
+            "end": 4.02,
+            "word": " سربخشی",
+            "probability": 0.7641554474830627
+          },
+          {
+            "start": 4.02,
+            "end": 4.2,
+            "word": " یعنی",
+            "probability": 0.9276739805936813
+          },
+          {
+            "start": 4.2,
+            "end": 4.82,
+            "word": " بحروری،",
+            "probability": 0.6781611753006777
+          },
+          {
+            "start": 4.82,
+            "end": 4.98,
+            "word": " یه",
+            "probability": 0.8454487323760986
+          },
+          {
+            "start": 4.98,
+            "end": 5.56,
+            "word": " شخصیت",
+            "probability": 0.9953368425369262
+          },
+          {
+            "start": 5.56,
+            "end": 6.12,
+            "word": " بحریور",
+            "probability": 0.6845311296347063
+          },
+          {
+            "start": 6.12,
+            "end": 6.28,
+            "word": " تو",
+            "probability": 0.5422118902206421
+          },
+          {
+            "start": 6.28,
+            "end": 6.64,
+            "word": " هر",
+            "probability": 0.9711121916770935
+          },
+          {
+            "start": 6.64,
+            "end": 6.94,
+            "word": " دو",
+            "probability": 0.9568278193473816
+          },
+          {
+            "start": 6.94,
+            "end": 7.2,
+            "word": " بعد",
+            "probability": 0.8434140682220459
+          }
+        ]
+      }
+    ]
+  }
+}

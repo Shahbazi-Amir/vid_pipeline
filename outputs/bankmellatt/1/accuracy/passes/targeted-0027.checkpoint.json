@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "24627bdfa46354e205616d81ce82948d8430b3519eadd5bdc0af7a4e1efdb958",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.16,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.84,
+        "text": "اون تم زندگیش پیدا بکنه. خب، لزومه ما آنچه که می‌دانیم عمل نمی‌کنیم یعنی معمولاً خیلی چیزها رو می‌داونیم.",
+        "avg_logprob": -0.19261972149213155,
+        "compression_ratio": 1.4621212121212122,
+        "no_speech_prob": 2.534434329071189e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.16,
+            "word": " اون",
+            "probability": 0.7492267489433289
+          },
+          {
+            "start": 0.16,
+            "end": 0.4,
+            "word": " تم",
+            "probability": 0.5229214429855347
+          },
+          {
+            "start": 0.4,
+            "end": 1.22,
+            "word": " زندگیش",
+            "probability": 0.9962764382362366
+          },
+          {
+            "start": 1.22,
+            "end": 2.04,
+            "word": " پیدا",
+            "probability": 0.998372217019399
+          },
+          {
+            "start": 2.04,
+            "end": 2.54,
+            "word": " بکنه.",
+            "probability": 0.9882436096668243
+          },
+          {
+            "start": 3.34,
+            "end": 3.94,
+            "word": " خب،",
+            "probability": 0.685867374142011
+          },
+          {
+            "start": 3.94,
+            "end": 4.32,
+            "word": " لزومه",
+            "probability": 0.7317942678928375
+          },
+          {
+            "start": 4.32,
+            "end": 4.5,
+            "word": " ما",
+            "probability": 0.9873720407485962
+          },
+          {
+            "start": 4.5,
+            "end": 5.14,
+            "word": " آنچه",
+            "probability": 0.9138797670602798
+          },
+          {
+            "start": 5.14,
+            "end": 5.28,
+            "word": " که",
+            "probability": 0.9978532195091248
+          },
+          {
+            "start": 5.28,
+            "end": 5.68,
+            "word": " می‌دانیم",
+            "probability": 0.8370003687838713
+          },
+          {
+            "start": 5.68,
+            "end": 5.96,
+            "word": " عمل",
+            "probability": 0.9551084935665131
+          },
+          {
+            "start": 5.96,
+            "end": 6.66,
+            "word": " نمی‌کنیم",
+            "probability": 0.9780785068869591
+          },
+          {
+            "start": 6.66,
+            "end": 6.94,
+            "word": " یعنی",
+            "probability": 0.8716469034552574
+          },
+          {
+            "start": 6.94,
+            "end": 7.6,
+            "word": " معمولاً",
+            "probability": 0.8735537052154541
+          },
+          {
+            "start": 7.6,
+            "end": 7.76,
+            "word": " خیلی",
+            "probability": 0.9790102690458298
+          },
+          {
+            "start": 7.76,
+            "end": 8.06,
+            "word": " چیزها",
+            "probability": 0.9134512543678284
+          },
+          {
+            "start": 8.06,
+            "end": 8.2,
+            "word": " رو",
+            "probability": 0.9678754210472107
+          },
+          {
+            "start": 8.2,
+            "end": 8.84,
+            "word": " می‌داونیم.",
+            "probability": 0.7875974094883228
+          }
+        ]
+      }
+    ]
+  }
+}

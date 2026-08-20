@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "a3963cd1c59e04abbc42f63bd85b1dca451e2438fcb869438316396f214eacdb",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.9,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 5.88,
+        "text": "خواهیم آینده‌ای که این همه براش برنامه داریم و یه پولی هم از اونجا، یه منبعی هست اون‌جا وردنیم",
+        "avg_logprob": -0.214930885975514,
+        "compression_ratio": 1.6566265060240963,
+        "no_speech_prob": 2.8409311014776506e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.2,
+            "word": " خواهیم",
+            "probability": 0.7548377647995949
+          },
+          {
+            "start": 0.2,
+            "end": 0.78,
+            "word": " آینده‌ای",
+            "probability": 0.828452735341021
+          },
+          {
+            "start": 0.78,
+            "end": 0.94,
+            "word": " که",
+            "probability": 0.906897783279419
+          },
+          {
+            "start": 0.94,
+            "end": 1.04,
+            "word": " این",
+            "probability": 0.817635178565979
+          },
+          {
+            "start": 1.04,
+            "end": 1.26,
+            "word": " همه",
+            "probability": 0.9608477751413981
+          },
+          {
+            "start": 1.26,
+            "end": 1.52,
+            "word": " براش",
+            "probability": 0.9093999663988749
+          },
+          {
+            "start": 1.52,
+            "end": 2.16,
+            "word": " برنامه",
+            "probability": 0.9923996329307556
+          },
+          {
+            "start": 2.16,
+            "end": 2.5,
+            "word": " داریم",
+            "probability": 0.8909318149089813
+          },
+          {
+            "start": 2.5,
+            "end": 2.62,
+            "word": " و",
+            "probability": 0.5527794361114502
+          },
+          {
+            "start": 2.62,
+            "end": 3.16,
+            "word": " یه",
+            "probability": 0.9032159745693207
+          },
+          {
+            "start": 3.16,
+            "end": 3.48,
+            "word": " پولی",
+            "probability": 0.9676953156789144
+          },
+          {
+            "start": 3.48,
+            "end": 3.66,
+            "word": " هم",
+            "probability": 0.8548151552677155
+          },
+          {
+            "start": 3.66,
+            "end": 3.82,
+            "word": " از",
+            "probability": 0.9806835353374481
+          },
+          {
+            "start": 3.82,
+            "end": 4.1,
+            "word": " اونجا،",
+            "probability": 0.8147763848304749
+          },
+          {
+            "start": 4.1,
+            "end": 4.28,
+            "word": " یه",
+            "probability": 0.9778608679771423
+          },
+          {
+            "start": 4.28,
+            "end": 4.82,
+            "word": " منبعی",
+            "probability": 0.9877603650093079
+          },
+          {
+            "start": 4.82,
+            "end": 5.0,
+            "word": " هست",
+            "probability": 0.4847299507819116
+          },
+          {
+            "start": 5.0,
+            "end": 5.32,
+            "word": " اون‌جا",
+            "probability": 0.546950223762542
+          },
+          {
+            "start": 5.32,
+            "end": 5.88,
+            "word": " وردنیم",
+            "probability": 0.8741092681884766
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 5.88,
+        "end": 10.88,
+        "text": "و بیایم در زمان حال خرجش بکنید. حتی بسیاری از برنامه‌های",
+        "avg_logprob": -0.214930885975514,
+        "compression_ratio": 1.6566265060240963,
+        "no_speech_prob": 2.8409311014776506e-10,
+        "words": [
+          {
+            "start": 5.88,
+            "end": 5.98,
+            "word": " و",
+            "probability": 0.9795297980308533
+          },
+          {
+            "start": 5.98,
+            "end": 6.22,
+            "word": " بیایم",
+            "probability": 0.6871800944209099
+          },
+          {
+            "start": 6.22,
+            "end": 6.42,
+            "word": " در",
+            "probability": 0.9502182602882385
+          },
+          {
+            "start": 6.42,
+            "end": 6.78,
+            "word": " زمان",
+            "probability": 0.9729577302932739
+          },
+          {
+            "start": 6.78,
+            "end": 7.12,
+            "word": " حال",
+            "probability": 0.8994715511798859
+          },
+          {
+            "start": 7.12,
+            "end": 8.02,
+            "word": " خرجش",
+            "probability": 0.9842978318532308
+          },
+          {
+            "start": 8.02,
+            "end": 8.88,
+            "word": " بکنید.",
+            "probability": 0.7633539538830518
+          },
+          {
+            "start": 9.0,
+            "end": 9.6,
+            "word": " حتی",
+            "probability": 0.9623623887697855
+          },
+          {
+            "start": 9.6,
+            "end": 10.22,
+            "word": " بسیاری",
+            "probability": 0.9807923436164856
+          },
+          {
+            "start": 10.22,
+            "end": 10.34,
+            "word": " از",
+            "probability": 0.9891060888767242
+          },
+          {
+            "start": 10.34,
+            "end": 10.88,
+            "word": " برنامه‌های",
+            "probability": 0.7454276064454461
+          }
+        ]
+      }
+    ]
+  }
+}

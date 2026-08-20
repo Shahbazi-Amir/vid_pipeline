@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "43c7d63b93365170f30089d35d4918a2c0d5cccfdada1dad28f22030e9faea45",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.56,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.0,
+        "text": "از بدهی بهت پیشنهاد می‌ده و حتی انجامنی هست، انجمن بدهکاران گمنام ماننده الکولی‌های گم نام. در دوازده قدم افراد...",
+        "avg_logprob": -0.21074811167813637,
+        "compression_ratio": 1.5220588235294117,
+        "no_speech_prob": 2.737502724503571e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.22,
+            "word": " از",
+            "probability": 0.926523357629776
+          },
+          {
+            "start": 0.22,
+            "end": 0.74,
+            "word": " بدهی",
+            "probability": 0.9844452341397604
+          },
+          {
+            "start": 0.74,
+            "end": 1.62,
+            "word": " بهت",
+            "probability": 0.9792843461036682
+          },
+          {
+            "start": 1.62,
+            "end": 2.24,
+            "word": " پیشنهاد",
+            "probability": 0.977103590965271
+          },
+          {
+            "start": 2.24,
+            "end": 2.52,
+            "word": " می‌ده",
+            "probability": 0.745714580596541
+          },
+          {
+            "start": 2.52,
+            "end": 2.62,
+            "word": " و",
+            "probability": 0.7657492160797119
+          },
+          {
+            "start": 2.62,
+            "end": 2.86,
+            "word": " حتی",
+            "probability": 0.9835201700528463
+          },
+          {
+            "start": 2.86,
+            "end": 3.56,
+            "word": " انجامنی",
+            "probability": 0.9208891987800598
+          },
+          {
+            "start": 3.56,
+            "end": 3.94,
+            "word": " هست،",
+            "probability": 0.6885224431753159
+          },
+          {
+            "start": 3.94,
+            "end": 4.42,
+            "word": " انجمن",
+            "probability": 0.6649782999884337
+          },
+          {
+            "start": 4.42,
+            "end": 5.3,
+            "word": " بدهکاران",
+            "probability": 0.9627772808074951
+          },
+          {
+            "start": 5.3,
+            "end": 6.1,
+            "word": " گمنام",
+            "probability": 0.9505065381526947
+          },
+          {
+            "start": 6.1,
+            "end": 6.8,
+            "word": " ماننده",
+            "probability": 0.8055160343647003
+          },
+          {
+            "start": 6.8,
+            "end": 7.42,
+            "word": " الکولی‌های",
+            "probability": 0.927849360874721
+          },
+          {
+            "start": 7.42,
+            "end": 7.7,
+            "word": " گم",
+            "probability": 0.9563465118408203
+          },
+          {
+            "start": 7.7,
+            "end": 8.08,
+            "word": " نام.",
+            "probability": 0.49669160426128656
+          },
+          {
+            "start": 8.22,
+            "end": 8.6,
+            "word": " در",
+            "probability": 0.9875019192695618
+          },
+          {
+            "start": 8.6,
+            "end": 9.3,
+            "word": " دوازده",
+            "probability": 0.9486710548400878
+          },
+          {
+            "start": 9.3,
+            "end": 9.88,
+            "word": " قدم",
+            "probability": 0.9928270280361176
+          },
+          {
+            "start": 9.88,
+            "end": 10.4,
+            "word": " افراد...",
+            "probability": 0.76232980042696
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "be9245ba6a0b578a501a6e1b858eb0be76cdeda39c5a39ba7a3678aea9d38d8e",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.28,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.18,
+        "text": "لزومن یک مفهوم دینی هم نیست. البته رنگ دینه هم داره این قناعت کردن. اما واقعا اینه که سروت",
+        "avg_logprob": -0.252736729280702,
+        "compression_ratio": 1.415929203539823,
+        "no_speech_prob": 3.742911813819916e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.9,
+            "word": " لزومن",
+            "probability": 0.6540230959653854
+          },
+          {
+            "start": 0.9,
+            "end": 1.06,
+            "word": " یک",
+            "probability": 0.9760767817497253
+          },
+          {
+            "start": 1.06,
+            "end": 1.46,
+            "word": " مفهوم",
+            "probability": 0.996207594871521
+          },
+          {
+            "start": 1.46,
+            "end": 1.98,
+            "word": " دینی",
+            "probability": 0.9893295367558798
+          },
+          {
+            "start": 1.98,
+            "end": 2.18,
+            "word": " هم",
+            "probability": 0.9728011190891266
+          },
+          {
+            "start": 2.18,
+            "end": 2.5,
+            "word": " نیست.",
+            "probability": 0.9984897971153259
+          },
+          {
+            "start": 2.74,
+            "end": 3.38,
+            "word": " البته",
+            "probability": 0.9956264495849609
+          },
+          {
+            "start": 3.38,
+            "end": 3.7,
+            "word": " رنگ",
+            "probability": 0.9967800776163737
+          },
+          {
+            "start": 3.7,
+            "end": 4.08,
+            "word": " دینه",
+            "probability": 0.6605825946996143
+          },
+          {
+            "start": 4.08,
+            "end": 4.28,
+            "word": " هم",
+            "probability": 0.9702870547771454
+          },
+          {
+            "start": 4.28,
+            "end": 4.56,
+            "word": " داره",
+            "probability": 0.971029539903005
+          },
+          {
+            "start": 4.56,
+            "end": 4.7,
+            "word": " این",
+            "probability": 0.8964976966381073
+          },
+          {
+            "start": 4.7,
+            "end": 5.26,
+            "word": " قناعت",
+            "probability": 0.9426989555358887
+          },
+          {
+            "start": 5.26,
+            "end": 5.78,
+            "word": " کردن.",
+            "probability": 0.8851797978083292
+          },
+          {
+            "start": 6.0,
+            "end": 6.64,
+            "word": " اما",
+            "probability": 0.9928098320960999
+          },
+          {
+            "start": 6.64,
+            "end": 7.22,
+            "word": " واقعا",
+            "probability": 0.9979833364486694
+          },
+          {
+            "start": 7.22,
+            "end": 7.44,
+            "word": " اینه",
+            "probability": 0.9279927611351013
+          },
+          {
+            "start": 7.44,
+            "end": 7.62,
+            "word": " که",
+            "probability": 0.9958496987819672
+          },
+          {
+            "start": 7.62,
+            "end": 8.18,
+            "word": " سروت",
+            "probability": 0.8742226163546244
+          }
+        ]
+      }
+    ]
+  }
+}

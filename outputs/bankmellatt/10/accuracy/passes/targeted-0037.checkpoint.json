@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "6899cc00f13730ae76efd3cfb3da411bb2c98c94fbe7f8f8894647ce8f12cb0e",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.34,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 12.32,
+        "text": "کنیم که بلاخره یه روزی بهش برسیم. به این سبر به معنای قناعت کردن، یک مفهوم جهانیه، لزومن یک دینی هم نیست. البته رنگ دینه هم داره این قناعه.",
+        "avg_logprob": -0.28745251697498364,
+        "compression_ratio": 1.6466666666666667,
+        "no_speech_prob": 3.437626017177564e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.2,
+            "word": " کنیم",
+            "probability": 0.48912424594163895
+          },
+          {
+            "start": 0.2,
+            "end": 0.7,
+            "word": " که",
+            "probability": 0.9803106188774109
+          },
+          {
+            "start": 0.7,
+            "end": 1.2,
+            "word": " بلاخره",
+            "probability": 0.8669795632362366
+          },
+          {
+            "start": 1.2,
+            "end": 1.36,
+            "word": " یه",
+            "probability": 0.9750077724456787
+          },
+          {
+            "start": 1.36,
+            "end": 1.58,
+            "word": " روزی",
+            "probability": 0.9980725944042206
+          },
+          {
+            "start": 1.58,
+            "end": 1.86,
+            "word": " بهش",
+            "probability": 0.9965910613536835
+          },
+          {
+            "start": 1.86,
+            "end": 2.52,
+            "word": " برسیم.",
+            "probability": 0.9945523977279663
+          },
+          {
+            "start": 2.62,
+            "end": 2.94,
+            "word": " به",
+            "probability": 0.63862144947052
+          },
+          {
+            "start": 2.94,
+            "end": 3.18,
+            "word": " این",
+            "probability": 0.9853946268558502
+          },
+          {
+            "start": 3.18,
+            "end": 3.94,
+            "word": " سبر",
+            "probability": 0.8083861768245697
+          },
+          {
+            "start": 3.94,
+            "end": 4.1,
+            "word": " به",
+            "probability": 0.8335043787956238
+          },
+          {
+            "start": 4.1,
+            "end": 4.58,
+            "word": " معنای",
+            "probability": 0.9180815021197001
+          },
+          {
+            "start": 4.58,
+            "end": 5.3,
+            "word": " قناعت",
+            "probability": 0.9675085743268331
+          },
+          {
+            "start": 5.3,
+            "end": 6.06,
+            "word": " کردن،",
+            "probability": 0.7523909853771329
+          },
+          {
+            "start": 6.06,
+            "end": 6.26,
+            "word": " یک",
+            "probability": 0.9709555804729462
+          },
+          {
+            "start": 6.26,
+            "end": 6.88,
+            "word": " مفهوم",
+            "probability": 0.9971264153718948
+          },
+          {
+            "start": 6.88,
+            "end": 7.82,
+            "word": " جهانیه،",
+            "probability": 0.8928535977999369
+          },
+          {
+            "start": 7.82,
+            "end": 8.24,
+            "word": " لزومن",
+            "probability": 0.6923022568225861
+          },
+          {
+            "start": 8.24,
+            "end": 8.4,
+            "word": " یک",
+            "probability": 0.9854386746883392
+          },
+          {
+            "start": 8.4,
+            "end": 9.3,
+            "word": " دینی",
+            "probability": 0.6561733008129522
+          },
+          {
+            "start": 9.3,
+            "end": 9.52,
+            "word": " هم",
+            "probability": 0.8719803392887115
+          },
+          {
+            "start": 9.52,
+            "end": 9.84,
+            "word": " نیست.",
+            "probability": 0.9973339239756266
+          },
+          {
+            "start": 10.08,
+            "end": 10.72,
+            "word": " البته",
+            "probability": 0.990824431180954
+          },
+          {
+            "start": 10.72,
+            "end": 11.04,
+            "word": " رنگ",
+            "probability": 0.9886514743169149
+          },
+          {
+            "start": 11.04,
+            "end": 11.42,
+            "word": " دینه",
+            "probability": 0.6416592929939119
+          },
+          {
+            "start": 11.42,
+            "end": 11.6,
+            "word": " هم",
+            "probability": 0.9399279057979584
+          },
+          {
+            "start": 11.6,
+            "end": 11.9,
+            "word": " داره",
+            "probability": 0.97035284837087
+          },
+          {
+            "start": 11.9,
+            "end": 12.04,
+            "word": " این",
+            "probability": 0.7488086521625519
+          },
+          {
+            "start": 12.04,
+            "end": 12.32,
+            "word": " قناعه.",
+            "probability": 0.6338589563965797
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "1f6627462cc5f62986959fba58b15c5bf637cfe1c890378d092623fa5098ae38",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.48,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.46,
+        "text": "صورت رنگ دینی هم داره این قناعت کردن، اما واقعاً اینه که سروت در قناعته، سبر به این معنی که به آنچو که داریم بسیاره",
+        "avg_logprob": -0.3167011556593147,
+        "compression_ratio": 1.609375,
+        "no_speech_prob": 2.8240421112712966e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.08,
+            "word": " صورت",
+            "probability": 0.3982243898014228
+          },
+          {
+            "start": 0.08,
+            "end": 0.42,
+            "word": " رنگ",
+            "probability": 0.7459527353445689
+          },
+          {
+            "start": 0.42,
+            "end": 0.8,
+            "word": " دینی",
+            "probability": 0.9927011529604594
+          },
+          {
+            "start": 0.8,
+            "end": 1.0,
+            "word": " هم",
+            "probability": 0.9619576632976532
+          },
+          {
+            "start": 1.0,
+            "end": 1.3,
+            "word": " داره",
+            "probability": 0.9899243513743082
+          },
+          {
+            "start": 1.3,
+            "end": 1.42,
+            "word": " این",
+            "probability": 0.9455853402614594
+          },
+          {
+            "start": 1.42,
+            "end": 1.98,
+            "word": " قناعت",
+            "probability": 0.9634297291437784
+          },
+          {
+            "start": 1.98,
+            "end": 2.68,
+            "word": " کردن،",
+            "probability": 0.7039945761207491
+          },
+          {
+            "start": 2.68,
+            "end": 3.36,
+            "word": " اما",
+            "probability": 0.9913266897201538
+          },
+          {
+            "start": 3.36,
+            "end": 4.02,
+            "word": " واقعاً",
+            "probability": 0.8265966504812241
+          },
+          {
+            "start": 4.02,
+            "end": 4.16,
+            "word": " اینه",
+            "probability": 0.9879968365033468
+          },
+          {
+            "start": 4.16,
+            "end": 4.32,
+            "word": " که",
+            "probability": 0.9939505755901337
+          },
+          {
+            "start": 4.32,
+            "end": 4.92,
+            "word": " سروت",
+            "probability": 0.796893040339152
+          },
+          {
+            "start": 4.92,
+            "end": 5.16,
+            "word": " در",
+            "probability": 0.9936786890029907
+          },
+          {
+            "start": 5.16,
+            "end": 6.06,
+            "word": " قناعته،",
+            "probability": 0.6631314486265183
+          },
+          {
+            "start": 6.06,
+            "end": 6.44,
+            "word": " سبر",
+            "probability": 0.7461637556552887
+          },
+          {
+            "start": 6.44,
+            "end": 6.58,
+            "word": " به",
+            "probability": 0.8737916946411133
+          },
+          {
+            "start": 6.58,
+            "end": 6.72,
+            "word": " این",
+            "probability": 0.9877976477146149
+          },
+          {
+            "start": 6.72,
+            "end": 7.04,
+            "word": " معنی",
+            "probability": 0.8140666882197062
+          },
+          {
+            "start": 7.04,
+            "end": 7.22,
+            "word": " که",
+            "probability": 0.8563515543937683
+          },
+          {
+            "start": 7.22,
+            "end": 7.34,
+            "word": " به",
+            "probability": 0.7785363793373108
+          },
+          {
+            "start": 7.34,
+            "end": 7.8,
+            "word": " آنچو",
+            "probability": 0.6831807196140289
+          },
+          {
+            "start": 7.8,
+            "end": 7.94,
+            "word": " که",
+            "probability": 0.9579611420631409
+          },
+          {
+            "start": 7.94,
+            "end": 8.3,
+            "word": " داریم",
+            "probability": 0.9744775742292404
+          },
+          {
+            "start": 8.3,
+            "end": 8.46,
+            "word": " بسیاره",
+            "probability": 0.5417468279600144
+          }
+        ]
+      }
+    ]
+  }
+}

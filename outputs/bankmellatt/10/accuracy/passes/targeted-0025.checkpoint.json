@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "07f0fa804435118506a18843d330bea92e33ffeb21e0e2edc91a2722bf97a0c5",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.36,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 12.0,
+        "text": "با رحای از بدهی آغاز میشه، یعنی برنامه‌ی که مشاور به شما پیشنهاد میده که ابتدا قرض گرفتن رو متوقف کنیم، یا اگر اعتیاد به قرض",
+        "avg_logprob": -0.16880215195620932,
+        "compression_ratio": 1.5238095238095237,
+        "no_speech_prob": 2.879870231176085e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.48,
+            "word": " با",
+            "probability": 0.9392640888690948
+          },
+          {
+            "start": 0.48,
+            "end": 1.04,
+            "word": " رحای",
+            "probability": 0.9103543758392334
+          },
+          {
+            "start": 1.04,
+            "end": 1.24,
+            "word": " از",
+            "probability": 0.7528456151485443
+          },
+          {
+            "start": 1.24,
+            "end": 1.66,
+            "word": " بدهی",
+            "probability": 0.9827321966489156
+          },
+          {
+            "start": 1.66,
+            "end": 2.1,
+            "word": " آغاز",
+            "probability": 0.9794342915217081
+          },
+          {
+            "start": 2.1,
+            "end": 2.64,
+            "word": " میشه،",
+            "probability": 0.7040393755887635
+          },
+          {
+            "start": 2.64,
+            "end": 3.48,
+            "word": " یعنی",
+            "probability": 0.9978702664375305
+          },
+          {
+            "start": 3.48,
+            "end": 4.34,
+            "word": " برنامه‌ی",
+            "probability": 0.7845780349203518
+          },
+          {
+            "start": 4.34,
+            "end": 4.5,
+            "word": " که",
+            "probability": 0.9849598407745361
+          },
+          {
+            "start": 4.5,
+            "end": 5.16,
+            "word": " مشاور",
+            "probability": 0.9951250950495402
+          },
+          {
+            "start": 5.16,
+            "end": 5.82,
+            "word": " به",
+            "probability": 0.912636399269104
+          },
+          {
+            "start": 5.82,
+            "end": 6.12,
+            "word": " شما",
+            "probability": 0.9960053265094757
+          },
+          {
+            "start": 6.12,
+            "end": 6.94,
+            "word": " پیشنهاد",
+            "probability": 0.958268811305364
+          },
+          {
+            "start": 6.94,
+            "end": 7.2,
+            "word": " میده",
+            "probability": 0.8242071072260538
+          },
+          {
+            "start": 7.2,
+            "end": 7.38,
+            "word": " که",
+            "probability": 0.7116366177797318
+          },
+          {
+            "start": 7.38,
+            "end": 7.82,
+            "word": " ابتدا",
+            "probability": 0.9936939279238383
+          },
+          {
+            "start": 7.82,
+            "end": 8.22,
+            "word": " قرض",
+            "probability": 0.9215340912342072
+          },
+          {
+            "start": 8.22,
+            "end": 8.74,
+            "word": " گرفتن",
+            "probability": 0.9871856123209
+          },
+          {
+            "start": 8.74,
+            "end": 8.9,
+            "word": " رو",
+            "probability": 0.8855378925800323
+          },
+          {
+            "start": 8.9,
+            "end": 9.52,
+            "word": " متوقف",
+            "probability": 0.9946759343147278
+          },
+          {
+            "start": 9.52,
+            "end": 10.1,
+            "word": " کنیم،",
+            "probability": 0.752712345123291
+          },
+          {
+            "start": 10.1,
+            "end": 10.64,
+            "word": " یا",
+            "probability": 0.9883034527301788
+          },
+          {
+            "start": 10.64,
+            "end": 10.92,
+            "word": " اگر",
+            "probability": 0.9944663246472677
+          },
+          {
+            "start": 10.92,
+            "end": 11.52,
+            "word": " اعتیاد",
+            "probability": 0.9637938439846039
+          },
+          {
+            "start": 11.52,
+            "end": 11.66,
+            "word": " به",
+            "probability": 0.8474549055099487
+          },
+          {
+            "start": 11.66,
+            "end": 12.0,
+            "word": " قرض",
+            "probability": 0.9969431757926941
+          }
+        ]
+      }
+    ]
+  }
+}

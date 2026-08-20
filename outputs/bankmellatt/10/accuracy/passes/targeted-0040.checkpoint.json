@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "b3b8dc79a4c1f9657f71c96c03815330af26aef6364f124eb3d81120cbc73b6b",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.1,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.06,
+        "text": "واقعاً اینه که سروت در قناعته. سبر به این معنی که به آن چیکه داریم بسنده بکنیم. ببینید، دو تا فلسفه",
+        "avg_logprob": -0.19945239319520838,
+        "compression_ratio": 1.4666666666666666,
+        "no_speech_prob": 2.3256553627337695e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.54,
+            "word": " واقعاً",
+            "probability": 0.7103319853544235
+          },
+          {
+            "start": 0.54,
+            "end": 0.68,
+            "word": " اینه",
+            "probability": 0.9977027972539266
+          },
+          {
+            "start": 0.68,
+            "end": 0.86,
+            "word": " که",
+            "probability": 0.9993660151958466
+          },
+          {
+            "start": 0.86,
+            "end": 1.42,
+            "word": " سروت",
+            "probability": 0.8509856661160787
+          },
+          {
+            "start": 1.42,
+            "end": 1.68,
+            "word": " در",
+            "probability": 0.9996815025806427
+          },
+          {
+            "start": 1.68,
+            "end": 2.5,
+            "word": " قناعته.",
+            "probability": 0.9648803621530533
+          },
+          {
+            "start": 2.58,
+            "end": 2.94,
+            "word": " سبر",
+            "probability": 0.9323097765445709
+          },
+          {
+            "start": 2.94,
+            "end": 3.08,
+            "word": " به",
+            "probability": 0.5794259309768677
+          },
+          {
+            "start": 3.08,
+            "end": 3.22,
+            "word": " این",
+            "probability": 0.9989899396896362
+          },
+          {
+            "start": 3.22,
+            "end": 3.56,
+            "word": " معنی",
+            "probability": 0.8565211892127991
+          },
+          {
+            "start": 3.56,
+            "end": 3.74,
+            "word": " که",
+            "probability": 0.9098363816738129
+          },
+          {
+            "start": 3.74,
+            "end": 3.86,
+            "word": " به",
+            "probability": 0.9277569055557251
+          },
+          {
+            "start": 3.86,
+            "end": 4.08,
+            "word": " آن",
+            "probability": 0.9927341938018799
+          },
+          {
+            "start": 4.08,
+            "end": 4.42,
+            "word": " چیکه",
+            "probability": 0.5258802721897761
+          },
+          {
+            "start": 4.42,
+            "end": 4.82,
+            "word": " داریم",
+            "probability": 0.9923092126846313
+          },
+          {
+            "start": 4.82,
+            "end": 5.4,
+            "word": " بسنده",
+            "probability": 0.997246503829956
+          },
+          {
+            "start": 5.4,
+            "end": 5.92,
+            "word": " بکنیم.",
+            "probability": 0.9882604122161865
+          },
+          {
+            "start": 7.12,
+            "end": 7.8,
+            "word": " ببینید،",
+            "probability": 0.8364174564679464
+          },
+          {
+            "start": 7.8,
+            "end": 8.34,
+            "word": " دو",
+            "probability": 0.7958432137966156
+          },
+          {
+            "start": 8.34,
+            "end": 8.48,
+            "word": " تا",
+            "probability": 0.9986478686332703
+          },
+          {
+            "start": 8.48,
+            "end": 9.06,
+            "word": " فلسفه",
+            "probability": 0.8799646854400635
+          }
+        ]
+      }
+    ]
+  }
+}

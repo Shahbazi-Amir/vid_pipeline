@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "ed94f1613666a6f702a7dd6e8ab93fee2a5f4115173b7ce05e0302e7191673d9",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.12,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.1,
+        "text": "مهمترین موضوعات فواده مالیه که چطور امکان داره ک بخواهیم آینده‌ای که این همه براش برنامه داریمون یه پولی هم از اونجا، یه منبعی هست.",
+        "avg_logprob": -0.16881019886997012,
+        "compression_ratio": 1.5454545454545454,
+        "no_speech_prob": 5.141364001204352e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.56,
+            "word": " مهمترین",
+            "probability": 0.8595539629459381
+          },
+          {
+            "start": 0.56,
+            "end": 1.3,
+            "word": " موضوعات",
+            "probability": 0.998634934425354
+          },
+          {
+            "start": 1.3,
+            "end": 2.08,
+            "word": " فواده",
+            "probability": 0.6713623460382223
+          },
+          {
+            "start": 2.08,
+            "end": 2.5,
+            "word": " مالیه",
+            "probability": 0.959041029214859
+          },
+          {
+            "start": 2.5,
+            "end": 2.72,
+            "word": " که",
+            "probability": 0.993232399225235
+          },
+          {
+            "start": 2.72,
+            "end": 3.2,
+            "word": " چطور",
+            "probability": 0.9981130758921305
+          },
+          {
+            "start": 3.2,
+            "end": 3.64,
+            "word": " امکان",
+            "probability": 0.9984521865844727
+          },
+          {
+            "start": 3.64,
+            "end": 3.92,
+            "word": " داره",
+            "probability": 0.9961046377817789
+          },
+          {
+            "start": 3.92,
+            "end": 4.04,
+            "word": " ک",
+            "probability": 0.9971867203712463
+          },
+          {
+            "start": 4.04,
+            "end": 5.32,
+            "word": " بخواهیم",
+            "probability": 0.7910794101744614
+          },
+          {
+            "start": 5.32,
+            "end": 5.9,
+            "word": " آینده‌ای",
+            "probability": 0.8347804974764585
+          },
+          {
+            "start": 5.9,
+            "end": 6.06,
+            "word": " که",
+            "probability": 0.976823091506958
+          },
+          {
+            "start": 6.06,
+            "end": 6.16,
+            "word": " این",
+            "probability": 0.9374331831932068
+          },
+          {
+            "start": 6.16,
+            "end": 6.38,
+            "word": " همه",
+            "probability": 0.9878630836804708
+          },
+          {
+            "start": 6.38,
+            "end": 6.62,
+            "word": " براش",
+            "probability": 0.9490764737129211
+          },
+          {
+            "start": 6.62,
+            "end": 7.28,
+            "word": " برنامه",
+            "probability": 0.9950589656829834
+          },
+          {
+            "start": 7.28,
+            "end": 7.74,
+            "word": " داریمون",
+            "probability": 0.8135906100273133
+          },
+          {
+            "start": 7.74,
+            "end": 8.28,
+            "word": " یه",
+            "probability": 0.874253898859024
+          },
+          {
+            "start": 8.28,
+            "end": 8.62,
+            "word": " پولی",
+            "probability": 0.9882579843203226
+          },
+          {
+            "start": 8.62,
+            "end": 8.78,
+            "word": " هم",
+            "probability": 0.8750851452350616
+          },
+          {
+            "start": 8.78,
+            "end": 8.92,
+            "word": " از",
+            "probability": 0.9676613211631775
+          },
+          {
+            "start": 8.92,
+            "end": 9.22,
+            "word": " اونجا،",
+            "probability": 0.836451780796051
+          },
+          {
+            "start": 9.22,
+            "end": 9.4,
+            "word": " یه",
+            "probability": 0.996279239654541
+          },
+          {
+            "start": 9.4,
+            "end": 9.94,
+            "word": " منبعی",
+            "probability": 0.9906710386276245
+          },
+          {
+            "start": 9.94,
+            "end": 10.1,
+            "word": " هست.",
+            "probability": 0.47025473619578406
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "ba7a89ec2843558067b8373a8baa020b0455f4d4fb3fa1f4b02dcfe0af9cce29",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.38,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.36,
+        "text": "که با هم دربارش صحبت کردیم، پولمون رو از امروز می‌فرستیم به آینده. ولی در قرض داریم از آن...",
+        "avg_logprob": -0.25448130936391894,
+        "compression_ratio": 1.3252032520325203,
+        "no_speech_prob": 2.395824094669763e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.6,
+            "word": " که",
+            "probability": 0.5891038030385971
+          },
+          {
+            "start": 0.6,
+            "end": 0.86,
+            "word": " با",
+            "probability": 0.9684486985206604
+          },
+          {
+            "start": 0.86,
+            "end": 1.0,
+            "word": " هم",
+            "probability": 0.9846753776073456
+          },
+          {
+            "start": 1.0,
+            "end": 1.52,
+            "word": " دربارش",
+            "probability": 0.9067955613136292
+          },
+          {
+            "start": 1.52,
+            "end": 2.04,
+            "word": " صحبت",
+            "probability": 0.9914286136627197
+          },
+          {
+            "start": 2.04,
+            "end": 2.58,
+            "word": " کردیم،",
+            "probability": 0.8045330740511417
+          },
+          {
+            "start": 2.58,
+            "end": 3.34,
+            "word": " پولمون",
+            "probability": 0.934347465634346
+          },
+          {
+            "start": 3.34,
+            "end": 3.7,
+            "word": " رو",
+            "probability": 0.9184961318969727
+          },
+          {
+            "start": 3.7,
+            "end": 3.94,
+            "word": " از",
+            "probability": 0.9942652881145477
+          },
+          {
+            "start": 3.94,
+            "end": 4.42,
+            "word": " امروز",
+            "probability": 0.9971173256635666
+          },
+          {
+            "start": 4.42,
+            "end": 5.0,
+            "word": " می‌فرستیم",
+            "probability": 0.7687965341444526
+          },
+          {
+            "start": 5.0,
+            "end": 5.12,
+            "word": " به",
+            "probability": 0.9874451160430908
+          },
+          {
+            "start": 5.12,
+            "end": 5.86,
+            "word": " آینده.",
+            "probability": 0.9964060932397842
+          },
+          {
+            "start": 6.18,
+            "end": 7.1,
+            "word": " ولی",
+            "probability": 0.9838707447052002
+          },
+          {
+            "start": 7.1,
+            "end": 7.34,
+            "word": " در",
+            "probability": 0.9854362607002258
+          },
+          {
+            "start": 7.34,
+            "end": 7.8,
+            "word": " قرض",
+            "probability": 0.9114696681499481
+          },
+          {
+            "start": 7.8,
+            "end": 8.18,
+            "word": " داریم",
+            "probability": 0.9837594330310822
+          },
+          {
+            "start": 8.18,
+            "end": 8.36,
+            "word": " از",
+            "probability": 0.9537617564201355
+          },
+          {
+            "start": 8.36,
+            "end": 8.36,
+            "word": " آن...",
+            "probability": 0.33247899636626244
+          }
+        ]
+      }
+    ]
+  }
+}

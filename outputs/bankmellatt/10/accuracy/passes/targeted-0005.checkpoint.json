@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "3847a07dc3dc6f79d373cb9f733f9654c858835c89e494f283269b5257e129f8",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.64,
+    "segments": [
+      {
+        "id": 1,
+        "start": 3.0199999999999996,
+        "end": 8.14,
+        "text": "سلام، خوش اومدیم به هفته چهارم از برنامه آموزشی سواد مالی.",
+        "avg_logprob": -0.11189861843983333,
+        "compression_ratio": 1.1931818181818181,
+        "no_speech_prob": 3.679036519876888e-10,
+        "words": [
+          {
+            "start": 3.0199999999999996,
+            "end": 3.92,
+            "word": " سلام،",
+            "probability": 0.46841015418370563
+          },
+          {
+            "start": 3.92,
+            "end": 4.12,
+            "word": " خوش",
+            "probability": 0.9963641166687012
+          },
+          {
+            "start": 4.12,
+            "end": 4.46,
+            "word": " اومدیم",
+            "probability": 0.9794975519180298
+          },
+          {
+            "start": 4.46,
+            "end": 4.58,
+            "word": " به",
+            "probability": 0.9972508549690247
+          },
+          {
+            "start": 4.58,
+            "end": 4.82,
+            "word": " هفته",
+            "probability": 0.9962646166483561
+          },
+          {
+            "start": 4.82,
+            "end": 5.6,
+            "word": " چهارم",
+            "probability": 0.9362526535987854
+          },
+          {
+            "start": 5.6,
+            "end": 6.14,
+            "word": " از",
+            "probability": 0.997193306684494
+          },
+          {
+            "start": 6.14,
+            "end": 6.7,
+            "word": " برنامه",
+            "probability": 0.9995493173599244
+          },
+          {
+            "start": 6.7,
+            "end": 7.24,
+            "word": " آموزشی",
+            "probability": 0.9645899732907613
+          },
+          {
+            "start": 7.24,
+            "end": 7.68,
+            "word": " سواد",
+            "probability": 0.9187090198198954
+          },
+          {
+            "start": 7.68,
+            "end": 8.14,
+            "word": " مالی.",
+            "probability": 0.994722843170166
+          }
+        ]
+      }
+    ]
+  }
+}

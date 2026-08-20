@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "2179d97790110a084a9a565289e3daed9ad05f1af13e038faa4235ab879a73a5",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.76,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.3,
+        "text": "پله امنیت مالی وایسیم، با پسندازهای کتاه مدت و بلند مدد و سرمایه گذاری بریم رو آزادی مالي بیستیم.",
+        "avg_logprob": -0.1519873604845645,
+        "compression_ratio": 1.4462809917355373,
+        "no_speech_prob": 2.0104429232503662e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.58,
+            "word": " پله",
+            "probability": 0.9666112661361694
+          },
+          {
+            "start": 0.58,
+            "end": 1.5,
+            "word": " امنیت",
+            "probability": 0.977963924407959
+          },
+          {
+            "start": 1.5,
+            "end": 1.92,
+            "word": " مالی",
+            "probability": 0.9994115432103475
+          },
+          {
+            "start": 1.92,
+            "end": 2.66,
+            "word": " وایسیم،",
+            "probability": 0.7679076098526517
+          },
+          {
+            "start": 2.66,
+            "end": 3.56,
+            "word": " با",
+            "probability": 0.9989223182201385
+          },
+          {
+            "start": 3.56,
+            "end": 4.7,
+            "word": " پسندازهای",
+            "probability": 0.8187249004840851
+          },
+          {
+            "start": 4.7,
+            "end": 5.16,
+            "word": " کتاه",
+            "probability": 0.8499191602071127
+          },
+          {
+            "start": 5.16,
+            "end": 5.54,
+            "word": " مدت",
+            "probability": 0.9940111041069031
+          },
+          {
+            "start": 5.54,
+            "end": 5.64,
+            "word": " و",
+            "probability": 0.9980636239051819
+          },
+          {
+            "start": 5.64,
+            "end": 6.0,
+            "word": " بلند",
+            "probability": 0.9894857207934061
+          },
+          {
+            "start": 6.0,
+            "end": 6.34,
+            "word": " مدد",
+            "probability": 0.6615381222800352
+          },
+          {
+            "start": 6.34,
+            "end": 6.5,
+            "word": " و",
+            "probability": 0.8672536611557007
+          },
+          {
+            "start": 6.5,
+            "end": 7.12,
+            "word": " سرمایه",
+            "probability": 0.9968876719474793
+          },
+          {
+            "start": 7.12,
+            "end": 7.5,
+            "word": " گذاری",
+            "probability": 0.9934756457805634
+          },
+          {
+            "start": 7.5,
+            "end": 7.76,
+            "word": " بریم",
+            "probability": 0.9913739562034607
+          },
+          {
+            "start": 7.76,
+            "end": 7.88,
+            "word": " رو",
+            "probability": 0.9920664727687836
+          },
+          {
+            "start": 7.88,
+            "end": 8.44,
+            "word": " آزادی",
+            "probability": 0.9839822351932526
+          },
+          {
+            "start": 8.44,
+            "end": 9.58,
+            "word": " مالي",
+            "probability": 0.6661716290236654
+          },
+          {
+            "start": 9.58,
+            "end": 10.3,
+            "word": " بیستیم.",
+            "probability": 0.9538927555084229
+          }
+        ]
+      }
+    ]
+  }
+}

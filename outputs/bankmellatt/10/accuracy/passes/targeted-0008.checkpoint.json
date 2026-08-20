@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "0e23a0f9f401e30d475673e82f5ba19853df281fb5290bc94d881ecdbc9e9200",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.52,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.5,
+        "text": "و یک ویژگی‌های خاصی داره. ببینید ما در پسنداز که با هم دربارش صحبت کردیم، پولمون رو از امروز میفرسیم.",
+        "avg_logprob": -0.1106574549857113,
+        "compression_ratio": 1.378787878787879,
+        "no_speech_prob": 2.1018087270618935e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.66,
+            "word": " و",
+            "probability": 0.9772936701774597
+          },
+          {
+            "start": 0.66,
+            "end": 0.84,
+            "word": " یک",
+            "probability": 0.9897773265838623
+          },
+          {
+            "start": 0.84,
+            "end": 1.56,
+            "word": " ویژگی‌های",
+            "probability": 0.8701435115395321
+          },
+          {
+            "start": 1.56,
+            "end": 2.12,
+            "word": " خاصی",
+            "probability": 0.9815564354260763
+          },
+          {
+            "start": 2.12,
+            "end": 2.8,
+            "word": " داره.",
+            "probability": 0.9548107385635376
+          },
+          {
+            "start": 2.8,
+            "end": 3.82,
+            "word": " ببینید",
+            "probability": 0.981705617904663
+          },
+          {
+            "start": 3.82,
+            "end": 4.08,
+            "word": " ما",
+            "probability": 0.9240366220474243
+          },
+          {
+            "start": 4.08,
+            "end": 4.66,
+            "word": " در",
+            "probability": 0.9930588006973267
+          },
+          {
+            "start": 4.66,
+            "end": 5.64,
+            "word": " پسنداز",
+            "probability": 0.9555007964372635
+          },
+          {
+            "start": 5.64,
+            "end": 6.12,
+            "word": " که",
+            "probability": 0.9789891839027405
+          },
+          {
+            "start": 6.12,
+            "end": 6.38,
+            "word": " با",
+            "probability": 0.9836117625236511
+          },
+          {
+            "start": 6.38,
+            "end": 6.52,
+            "word": " هم",
+            "probability": 0.9823467433452606
+          },
+          {
+            "start": 6.52,
+            "end": 7.04,
+            "word": " دربارش",
+            "probability": 0.898521363735199
+          },
+          {
+            "start": 7.04,
+            "end": 7.56,
+            "word": " صحبت",
+            "probability": 0.9907454550266266
+          },
+          {
+            "start": 7.56,
+            "end": 8.14,
+            "word": " کردیم،",
+            "probability": 0.8359164416790008
+          },
+          {
+            "start": 8.14,
+            "end": 8.88,
+            "word": " پولمون",
+            "probability": 0.9096773117780685
+          },
+          {
+            "start": 8.88,
+            "end": 9.2,
+            "word": " رو",
+            "probability": 0.9235662817955017
+          },
+          {
+            "start": 9.2,
+            "end": 9.46,
+            "word": " از",
+            "probability": 0.99552321434021
+          },
+          {
+            "start": 9.46,
+            "end": 9.94,
+            "word": " امروز",
+            "probability": 0.9959887862205505
+          },
+          {
+            "start": 9.94,
+            "end": 10.5,
+            "word": " میفرسیم.",
+            "probability": 0.861515462398529
+          }
+        ]
+      }
+    ]
+  }
+}

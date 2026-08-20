@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "bbdae5069d33b89df160a3acca3d1af5b6356edf5b1d8e1a4ae911b88a12b412",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 13.22,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 13.12,
+        "text": "تو دوره‌ی مدرسه، وقتی معلم ما رو صدا می‌ذد، هیچوقت پامون رو نمی‌ذاشیم روی نمکت اول، نم کت دوم، نیم که ثبت، تا به میز معلم برسیم، در حالی که خود اون معلم",
+        "avg_logprob": -0.2188500715792179,
+        "compression_ratio": 1.6975308641975309,
+        "no_speech_prob": 3.3224803464015906e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.26,
+            "word": " تو",
+            "probability": 0.8601495027542114
+          },
+          {
+            "start": 0.26,
+            "end": 0.64,
+            "word": " دوره‌ی",
+            "probability": 0.7950374111533165
+          },
+          {
+            "start": 0.64,
+            "end": 1.56,
+            "word": " مدرسه،",
+            "probability": 0.8960837771495184
+          },
+          {
+            "start": 1.56,
+            "end": 1.8,
+            "word": " وقتی",
+            "probability": 0.9614230791727701
+          },
+          {
+            "start": 1.8,
+            "end": 2.28,
+            "word": " معلم",
+            "probability": 0.947246253490448
+          },
+          {
+            "start": 2.28,
+            "end": 2.48,
+            "word": " ما",
+            "probability": 0.9130796790122986
+          },
+          {
+            "start": 2.48,
+            "end": 2.66,
+            "word": " رو",
+            "probability": 0.9079321622848511
+          },
+          {
+            "start": 2.66,
+            "end": 2.92,
+            "word": " صدا",
+            "probability": 0.723206102848053
+          },
+          {
+            "start": 2.92,
+            "end": 3.78,
+            "word": " می‌ذد،",
+            "probability": 0.6785188019275665
+          },
+          {
+            "start": 3.78,
+            "end": 4.72,
+            "word": " هیچوقت",
+            "probability": 0.8338786691427231
+          },
+          {
+            "start": 4.72,
+            "end": 5.16,
+            "word": " پامون",
+            "probability": 0.9027651945749918
+          },
+          {
+            "start": 5.16,
+            "end": 5.34,
+            "word": " رو",
+            "probability": 0.8128076791763306
+          },
+          {
+            "start": 5.34,
+            "end": 5.88,
+            "word": " نمی‌ذاشیم",
+            "probability": 0.9819539040327072
+          },
+          {
+            "start": 5.88,
+            "end": 6.1,
+            "word": " روی",
+            "probability": 0.6129928187777599
+          },
+          {
+            "start": 6.1,
+            "end": 6.56,
+            "word": " نمکت",
+            "probability": 0.8134218752384186
+          },
+          {
+            "start": 6.56,
+            "end": 7.2,
+            "word": " اول،",
+            "probability": 0.927816907564799
+          },
+          {
+            "start": 7.2,
+            "end": 7.3,
+            "word": " نم",
+            "probability": 0.9940910935401917
+          },
+          {
+            "start": 7.3,
+            "end": 7.58,
+            "word": " کت",
+            "probability": 0.44210549611307215
+          },
+          {
+            "start": 7.58,
+            "end": 8.22,
+            "word": " دوم،",
+            "probability": 0.8902493913968405
+          },
+          {
+            "start": 8.22,
+            "end": 8.36,
+            "word": " نیم",
+            "probability": 0.6644916500663385
+          },
+          {
+            "start": 8.36,
+            "end": 8.64,
+            "word": " که",
+            "probability": 0.4449027617229149
+          },
+          {
+            "start": 8.64,
+            "end": 9.14,
+            "word": " ثبت،",
+            "probability": 0.3273597378283739
+          },
+          {
+            "start": 9.14,
+            "end": 9.34,
+            "word": " تا",
+            "probability": 0.9528103768825531
+          },
+          {
+            "start": 9.34,
+            "end": 9.42,
+            "word": " به",
+            "probability": 0.9835824966430664
+          },
+          {
+            "start": 9.42,
+            "end": 9.68,
+            "word": " میز",
+            "probability": 0.8185494840145111
+          },
+          {
+            "start": 9.68,
+            "end": 10.12,
+            "word": " معلم",
+            "probability": 0.9687930643558502
+          },
+          {
+            "start": 10.12,
+            "end": 11.02,
+            "word": " برسیم،",
+            "probability": 0.8414477619032065
+          },
+          {
+            "start": 11.02,
+            "end": 11.7,
+            "word": " در",
+            "probability": 0.9820186495780945
+          },
+          {
+            "start": 11.7,
+            "end": 11.96,
+            "word": " حالی",
+            "probability": 0.7628113528092703
+          },
+          {
+            "start": 11.96,
+            "end": 12.08,
+            "word": " که",
+            "probability": 0.9252139329910278
+          },
+          {
+            "start": 12.08,
+            "end": 12.42,
+            "word": " خود",
+            "probability": 0.9926223456859589
+          },
+          {
+            "start": 12.42,
+            "end": 12.62,
+            "word": " اون",
+            "probability": 0.9140226244926453
+          },
+          {
+            "start": 12.62,
+            "end": 13.12,
+            "word": " معلم",
+            "probability": 0.9860905110836029
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "5f46b8aa4406a69128cab4d80b6dd27923e1f72032e2d29b3c6a274679127567",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.06,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.6,
+        "text": "این راه و کوتاه‌ترین راو انتخاب کنیم، اما اینکار رو نمیکردیم چون اگه این کار را میکردم، مطمئناً معلم ما را از کلاس می‌داختیم.",
+        "avg_logprob": -0.262358645840389,
+        "compression_ratio": 1.6056338028169015,
+        "no_speech_prob": 3.275910931410664e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.1,
+            "word": " این",
+            "probability": 0.8262659311294556
+          },
+          {
+            "start": 0.1,
+            "end": 0.4,
+            "word": " راه",
+            "probability": 0.9649929404258728
+          },
+          {
+            "start": 0.4,
+            "end": 0.56,
+            "word": " و",
+            "probability": 0.9904904365539551
+          },
+          {
+            "start": 0.56,
+            "end": 1.38,
+            "word": " کوتاه‌ترین",
+            "probability": 0.7327781782618591
+          },
+          {
+            "start": 1.38,
+            "end": 1.58,
+            "word": " راو",
+            "probability": 0.5870170006528497
+          },
+          {
+            "start": 1.58,
+            "end": 2.06,
+            "word": " انتخاب",
+            "probability": 0.9766379147768021
+          },
+          {
+            "start": 2.06,
+            "end": 2.66,
+            "word": " کنیم،",
+            "probability": 0.7399224907159805
+          },
+          {
+            "start": 2.66,
+            "end": 3.22,
+            "word": " اما",
+            "probability": 0.7317174971103668
+          },
+          {
+            "start": 3.22,
+            "end": 3.5,
+            "word": " اینکار",
+            "probability": 0.7992274090647697
+          },
+          {
+            "start": 3.5,
+            "end": 3.62,
+            "word": " رو",
+            "probability": 0.6783918738365173
+          },
+          {
+            "start": 3.62,
+            "end": 4.24,
+            "word": " نمیکردیم",
+            "probability": 0.904285899230412
+          },
+          {
+            "start": 4.24,
+            "end": 4.48,
+            "word": " چون",
+            "probability": 0.8125051856040955
+          },
+          {
+            "start": 4.48,
+            "end": 4.7,
+            "word": " اگه",
+            "probability": 0.8662737210591634
+          },
+          {
+            "start": 4.7,
+            "end": 4.8,
+            "word": " این",
+            "probability": 0.9828124940395355
+          },
+          {
+            "start": 4.8,
+            "end": 4.96,
+            "word": " کار",
+            "probability": 0.5369827076792717
+          },
+          {
+            "start": 4.96,
+            "end": 5.0,
+            "word": " را",
+            "probability": 0.3734467988833785
+          },
+          {
+            "start": 5.0,
+            "end": 5.82,
+            "word": " میکردم،",
+            "probability": 0.6566361558099743
+          },
+          {
+            "start": 5.82,
+            "end": 6.94,
+            "word": " مطمئناً",
+            "probability": 0.7202480261524519
+          },
+          {
+            "start": 6.94,
+            "end": 7.26,
+            "word": " معلم",
+            "probability": 0.8656088709831238
+          },
+          {
+            "start": 7.26,
+            "end": 7.42,
+            "word": " ما",
+            "probability": 0.6741753816604614
+          },
+          {
+            "start": 7.42,
+            "end": 7.5,
+            "word": " را",
+            "probability": 0.7548795640468597
+          },
+          {
+            "start": 7.5,
+            "end": 7.64,
+            "word": " از",
+            "probability": 0.9901543855667114
+          },
+          {
+            "start": 7.64,
+            "end": 7.96,
+            "word": " کلاس",
+            "probability": 0.9970935583114624
+          },
+          {
+            "start": 7.96,
+            "end": 8.6,
+            "word": " می‌داختیم.",
+            "probability": 0.704606409583773
+          }
+        ]
+      }
+    ]
+  }
+}

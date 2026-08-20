@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "1086d1521096787720d349a58c31bc4533d03a253197cce9bbf71ab6c53f95c2",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.82,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.8,
+        "text": "این کالا رو می‌خوام و ندارم، سبر به این معنا که و نه حتی سبر بکنیم که بلاخره یه روزی بهش برسیم، به ایم سبر رو به معنای قناعه",
+        "avg_logprob": -0.23536581713706256,
+        "compression_ratio": 1.6616541353383458,
+        "no_speech_prob": 2.4683960431204355e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.0,
+            "word": " این",
+            "probability": 0.4770150166004896
+          },
+          {
+            "start": 0.0,
+            "end": 0.38,
+            "word": " کالا",
+            "probability": 0.926976720492045
+          },
+          {
+            "start": 0.38,
+            "end": 0.54,
+            "word": " رو",
+            "probability": 0.9709034860134125
+          },
+          {
+            "start": 0.54,
+            "end": 1.18,
+            "word": " می‌خوام",
+            "probability": 0.777070500748232
+          },
+          {
+            "start": 1.18,
+            "end": 1.72,
+            "word": " و",
+            "probability": 0.9509084224700928
+          },
+          {
+            "start": 1.72,
+            "end": 2.96,
+            "word": " ندارم،",
+            "probability": 0.8030658304691315
+          },
+          {
+            "start": 2.96,
+            "end": 3.26,
+            "word": " سبر",
+            "probability": 0.8796698451042175
+          },
+          {
+            "start": 3.26,
+            "end": 3.4,
+            "word": " به",
+            "probability": 0.7922683954238892
+          },
+          {
+            "start": 3.4,
+            "end": 3.54,
+            "word": " این",
+            "probability": 0.9522676765918732
+          },
+          {
+            "start": 3.54,
+            "end": 3.94,
+            "word": " معنا",
+            "probability": 0.8151535093784332
+          },
+          {
+            "start": 3.94,
+            "end": 5.06,
+            "word": " که",
+            "probability": 0.7107046395540237
+          },
+          {
+            "start": 5.06,
+            "end": 5.64,
+            "word": " و",
+            "probability": 0.6918678283691406
+          },
+          {
+            "start": 5.64,
+            "end": 5.86,
+            "word": " نه",
+            "probability": 0.9775294065475464
+          },
+          {
+            "start": 5.86,
+            "end": 6.04,
+            "word": " حتی",
+            "probability": 0.96422811349233
+          },
+          {
+            "start": 6.04,
+            "end": 6.42,
+            "word": " سبر",
+            "probability": 0.9780004918575287
+          },
+          {
+            "start": 6.42,
+            "end": 7.02,
+            "word": " بکنیم",
+            "probability": 0.9821886658668518
+          },
+          {
+            "start": 7.02,
+            "end": 7.52,
+            "word": " که",
+            "probability": 0.9864792823791504
+          },
+          {
+            "start": 7.52,
+            "end": 8.02,
+            "word": " بلاخره",
+            "probability": 0.8547803163528442
+          },
+          {
+            "start": 8.02,
+            "end": 8.18,
+            "word": " یه",
+            "probability": 0.9736253023147583
+          },
+          {
+            "start": 8.18,
+            "end": 8.4,
+            "word": " روزی",
+            "probability": 0.9966282844543457
+          },
+          {
+            "start": 8.4,
+            "end": 8.68,
+            "word": " بهش",
+            "probability": 0.9953872859477997
+          },
+          {
+            "start": 8.68,
+            "end": 9.68,
+            "word": " برسیم،",
+            "probability": 0.8927776167790095
+          },
+          {
+            "start": 9.68,
+            "end": 9.76,
+            "word": " به",
+            "probability": 0.3091799318790436
+          },
+          {
+            "start": 9.76,
+            "end": 10.04,
+            "word": " ایم",
+            "probability": 0.6339255408383906
+          },
+          {
+            "start": 10.04,
+            "end": 10.76,
+            "word": " سبر",
+            "probability": 0.9365785121917725
+          },
+          {
+            "start": 10.76,
+            "end": 10.88,
+            "word": " رو",
+            "probability": 0.49722903524525464
+          },
+          {
+            "start": 10.88,
+            "end": 10.94,
+            "word": " به",
+            "probability": 0.9934929013252258
+          },
+          {
+            "start": 10.94,
+            "end": 11.4,
+            "word": " معنای",
+            "probability": 0.9619172811508179
+          },
+          {
+            "start": 11.4,
+            "end": 11.8,
+            "word": " قناعه",
+            "probability": 0.6736417450010777
+          }
+        ]
+      }
+    ]
+  }
+}

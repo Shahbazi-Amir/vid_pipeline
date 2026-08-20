@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "88e56901f8f8e434ac15eb9c2f132a3de9f951cd03672c06611c27cd0ff2b716",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.96,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.94,
+        "text": "و خرجش می‌کنیم، یه تفاوت عمده است. آینده‌ی که ما می‌خواستیم توی پلکان توامندی مالی بالا بریم یعنی گفتیم با صندوق استراری به",
+        "avg_logprob": -0.18202089772948735,
+        "compression_ratio": 1.5066666666666666,
+        "no_speech_prob": 2.891498984691765e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.26,
+            "word": " و",
+            "probability": 0.4623885154724121
+          },
+          {
+            "start": 0.26,
+            "end": 0.8,
+            "word": " خرجش",
+            "probability": 0.9608255624771118
+          },
+          {
+            "start": 0.8,
+            "end": 1.24,
+            "word": " می‌کنیم،",
+            "probability": 0.6027632140155349
+          },
+          {
+            "start": 1.24,
+            "end": 1.36,
+            "word": " یه",
+            "probability": 0.7136707007884979
+          },
+          {
+            "start": 1.36,
+            "end": 1.92,
+            "word": " تفاوت",
+            "probability": 0.9747535139322281
+          },
+          {
+            "start": 1.92,
+            "end": 2.42,
+            "word": " عمده",
+            "probability": 0.9095610231161118
+          },
+          {
+            "start": 2.42,
+            "end": 2.5,
+            "word": " است.",
+            "probability": 0.7648690938949585
+          },
+          {
+            "start": 2.96,
+            "end": 3.74,
+            "word": " آینده‌ی",
+            "probability": 0.8592538187901179
+          },
+          {
+            "start": 3.74,
+            "end": 4.02,
+            "word": " که",
+            "probability": 0.9239804148674011
+          },
+          {
+            "start": 4.02,
+            "end": 4.16,
+            "word": " ما",
+            "probability": 0.9759557247161865
+          },
+          {
+            "start": 4.16,
+            "end": 4.86,
+            "word": " می‌خواستیم",
+            "probability": 0.9526810390608651
+          },
+          {
+            "start": 4.86,
+            "end": 5.08,
+            "word": " توی",
+            "probability": 0.9234052300453186
+          },
+          {
+            "start": 5.08,
+            "end": 5.68,
+            "word": " پلکان",
+            "probability": 0.960786908864975
+          },
+          {
+            "start": 5.68,
+            "end": 6.4,
+            "word": " توامندی",
+            "probability": 0.8116672337055206
+          },
+          {
+            "start": 6.4,
+            "end": 6.82,
+            "word": " مالی",
+            "probability": 0.9840836127599081
+          },
+          {
+            "start": 6.82,
+            "end": 7.18,
+            "word": " بالا",
+            "probability": 0.975263774394989
+          },
+          {
+            "start": 7.18,
+            "end": 7.46,
+            "word": " بریم",
+            "probability": 0.975641111532847
+          },
+          {
+            "start": 7.46,
+            "end": 7.64,
+            "word": " یعنی",
+            "probability": 0.8933198750019073
+          },
+          {
+            "start": 7.64,
+            "end": 8.14,
+            "word": " گفتیم",
+            "probability": 0.9944562673568725
+          },
+          {
+            "start": 8.14,
+            "end": 8.84,
+            "word": " با",
+            "probability": 0.9533558189868927
+          },
+          {
+            "start": 8.84,
+            "end": 9.2,
+            "word": " صندوق",
+            "probability": 0.9767279227574667
+          },
+          {
+            "start": 9.2,
+            "end": 9.84,
+            "word": " استراری",
+            "probability": 0.9744439870119095
+          },
+          {
+            "start": 9.84,
+            "end": 9.94,
+            "word": " به",
+            "probability": 0.23517480492591858
+          }
+        ]
+      }
+    ]
+  }
+}

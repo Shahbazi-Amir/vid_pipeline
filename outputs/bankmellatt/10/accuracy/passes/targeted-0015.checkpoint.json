@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "c6bdd888a9f8b75befdeb351e77e06e2401486e45830bfa31c2d34da9025d93c",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.92,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.9,
+        "text": "رو آزادی مالی بایستیم و برای اینکه بتونیم این دوتار رو محقق بکنیم کلی درد سر اصلاح",
+        "avg_logprob": -0.1984768008877491,
+        "compression_ratio": 1.4095238095238096,
+        "no_speech_prob": 2.6794294560872345e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.12,
+            "word": " رو",
+            "probability": 0.5515187531709671
+          },
+          {
+            "start": 0.12,
+            "end": 0.68,
+            "word": " آزادی",
+            "probability": 0.9745296984910965
+          },
+          {
+            "start": 0.68,
+            "end": 1.8,
+            "word": " مالی",
+            "probability": 0.9983236193656921
+          },
+          {
+            "start": 1.8,
+            "end": 2.52,
+            "word": " بایستیم",
+            "probability": 0.8411197339495023
+          },
+          {
+            "start": 2.52,
+            "end": 3.82,
+            "word": " و",
+            "probability": 0.8958458304405212
+          },
+          {
+            "start": 3.82,
+            "end": 4.28,
+            "word": " برای",
+            "probability": 0.9915777246157328
+          },
+          {
+            "start": 4.28,
+            "end": 4.44,
+            "word": " اینکه",
+            "probability": 0.862168163061142
+          },
+          {
+            "start": 4.44,
+            "end": 4.8,
+            "word": " بتونیم",
+            "probability": 0.9920995235443115
+          },
+          {
+            "start": 4.8,
+            "end": 4.86,
+            "word": " این",
+            "probability": 0.9941411018371582
+          },
+          {
+            "start": 4.86,
+            "end": 5.2,
+            "word": " دوتار",
+            "probability": 0.8567381302515665
+          },
+          {
+            "start": 5.2,
+            "end": 5.3,
+            "word": " رو",
+            "probability": 0.7843300700187683
+          },
+          {
+            "start": 5.3,
+            "end": 5.84,
+            "word": " محقق",
+            "probability": 0.9962500333786011
+          },
+          {
+            "start": 5.84,
+            "end": 6.44,
+            "word": " بکنیم",
+            "probability": 0.996879768371582
+          },
+          {
+            "start": 6.44,
+            "end": 6.84,
+            "word": " کلی",
+            "probability": 0.9954568346341451
+          },
+          {
+            "start": 6.84,
+            "end": 7.26,
+            "word": " درد",
+            "probability": 0.7686680058638254
+          },
+          {
+            "start": 7.26,
+            "end": 7.6,
+            "word": " سر",
+            "probability": 0.9522721767425537
+          },
+          {
+            "start": 7.6,
+            "end": 8.9,
+            "word": " اصلاح",
+            "probability": 0.9937215149402618
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "09d535148236702f216291c3aac662de46e1f05db7773bfba9576e4a5c1c47dd",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.44,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 12.42,
+        "text": "اپتدا قرز گرفتن رو متوقف کنی. یا اگر اعتیاد به قراز گرفتم پیدا کنین، راهکارهای رحای از بدهی بهت پیشنهاد میده و حتی انجامنی هست، انجمن بده.",
+        "avg_logprob": -0.15619949334197575,
+        "compression_ratio": 1.6423841059602649,
+        "no_speech_prob": 2.36605846026805e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.44,
+            "word": " اپتدا",
+            "probability": 0.673766624648124
+          },
+          {
+            "start": 0.44,
+            "end": 0.88,
+            "word": " قرز",
+            "probability": 0.7209927042325338
+          },
+          {
+            "start": 0.88,
+            "end": 1.38,
+            "word": " گرفتن",
+            "probability": 0.9951522797346115
+          },
+          {
+            "start": 1.38,
+            "end": 1.5,
+            "word": " رو",
+            "probability": 0.8683355450630188
+          },
+          {
+            "start": 1.5,
+            "end": 2.16,
+            "word": " متوقف",
+            "probability": 0.9990180134773254
+          },
+          {
+            "start": 2.16,
+            "end": 2.48,
+            "word": " کنی.",
+            "probability": 0.997662087281545
+          },
+          {
+            "start": 2.62,
+            "end": 3.26,
+            "word": " یا",
+            "probability": 0.997512012720108
+          },
+          {
+            "start": 3.26,
+            "end": 3.56,
+            "word": " اگر",
+            "probability": 0.9995040694872538
+          },
+          {
+            "start": 3.56,
+            "end": 4.14,
+            "word": " اعتیاد",
+            "probability": 0.9402773529291153
+          },
+          {
+            "start": 4.14,
+            "end": 4.3,
+            "word": " به",
+            "probability": 0.9490578770637512
+          },
+          {
+            "start": 4.3,
+            "end": 4.66,
+            "word": " قراز",
+            "probability": 0.6655246535616849
+          },
+          {
+            "start": 4.66,
+            "end": 5.12,
+            "word": " گرفتم",
+            "probability": 0.6666482410510071
+          },
+          {
+            "start": 5.12,
+            "end": 5.48,
+            "word": " پیدا",
+            "probability": 0.9995656808217367
+          },
+          {
+            "start": 5.48,
+            "end": 6.2,
+            "word": " کنین،",
+            "probability": 0.507798353653925
+          },
+          {
+            "start": 6.2,
+            "end": 7.04,
+            "word": " راهکارهای",
+            "probability": 0.9315254886945089
+          },
+          {
+            "start": 7.04,
+            "end": 7.5,
+            "word": " رحای",
+            "probability": 0.8676442205905914
+          },
+          {
+            "start": 7.5,
+            "end": 7.66,
+            "word": " از",
+            "probability": 0.8991646468639374
+          },
+          {
+            "start": 7.66,
+            "end": 8.18,
+            "word": " بدهی",
+            "probability": 0.9896637002627054
+          },
+          {
+            "start": 8.18,
+            "end": 9.06,
+            "word": " بهت",
+            "probability": 0.9818616807460785
+          },
+          {
+            "start": 9.06,
+            "end": 9.68,
+            "word": " پیشنهاد",
+            "probability": 0.9830485284328461
+          },
+          {
+            "start": 9.68,
+            "end": 9.94,
+            "word": " میده",
+            "probability": 0.949317991733551
+          },
+          {
+            "start": 9.94,
+            "end": 10.04,
+            "word": " و",
+            "probability": 0.8807218670845032
+          },
+          {
+            "start": 10.04,
+            "end": 10.28,
+            "word": " حتی",
+            "probability": 0.9931073784828186
+          },
+          {
+            "start": 10.28,
+            "end": 11.02,
+            "word": " انجامنی",
+            "probability": 0.9021341800689697
+          },
+          {
+            "start": 11.02,
+            "end": 11.38,
+            "word": " هست،",
+            "probability": 0.761229525009791
+          },
+          {
+            "start": 11.38,
+            "end": 11.84,
+            "word": " انجمن",
+            "probability": 0.6664784598591117
+          },
+          {
+            "start": 11.84,
+            "end": 12.42,
+            "word": " بده.",
+            "probability": 0.9868222773075104
+          }
+        ]
+      }
+    ]
+  }
+}

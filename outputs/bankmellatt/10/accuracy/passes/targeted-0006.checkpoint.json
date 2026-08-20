@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "70b4f236c4cb1fbc56125fabfd6f77c49fd2e0af94276f178588c7d88a67b840",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.68,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.56,
+        "text": "آموزشی سواد مالی. یکی از مهمترین بحثها در سوااد مالي قرض و اعتباره، یک از مشکلترين موضوعات",
+        "avg_logprob": -0.21665636474086392,
+        "compression_ratio": 1.393162393162393,
+        "no_speech_prob": 3.933080250373422e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.52,
+            "word": " آموزشی",
+            "probability": 0.8356071002781391
+          },
+          {
+            "start": 0.52,
+            "end": 0.96,
+            "word": " سواد",
+            "probability": 0.9371238152186075
+          },
+          {
+            "start": 0.96,
+            "end": 1.42,
+            "word": " مالی.",
+            "probability": 0.9813034534454346
+          },
+          {
+            "start": 2.24,
+            "end": 3.34,
+            "word": " یکی",
+            "probability": 0.9931297103563944
+          },
+          {
+            "start": 3.34,
+            "end": 3.46,
+            "word": " از",
+            "probability": 0.999228447675705
+          },
+          {
+            "start": 3.46,
+            "end": 4.26,
+            "word": " مهمترین",
+            "probability": 0.9956878185272217
+          },
+          {
+            "start": 4.26,
+            "end": 4.76,
+            "word": " بحثها",
+            "probability": 0.8594397529959679
+          },
+          {
+            "start": 4.76,
+            "end": 5.16,
+            "word": " در",
+            "probability": 0.9983600080013275
+          },
+          {
+            "start": 5.16,
+            "end": 6.28,
+            "word": " سوااد",
+            "probability": 0.6652084965950659
+          },
+          {
+            "start": 6.28,
+            "end": 6.88,
+            "word": " مالي",
+            "probability": 0.6660593088699898
+          },
+          {
+            "start": 6.88,
+            "end": 7.76,
+            "word": " قرض",
+            "probability": 0.932367205619812
+          },
+          {
+            "start": 7.76,
+            "end": 8.34,
+            "word": " و",
+            "probability": 0.999438464641571
+          },
+          {
+            "start": 8.34,
+            "end": 9.32,
+            "word": " اعتباره،",
+            "probability": 0.830092069072028
+          },
+          {
+            "start": 9.32,
+            "end": 9.74,
+            "word": " یک",
+            "probability": 0.9977178275585175
+          },
+          {
+            "start": 9.74,
+            "end": 9.9,
+            "word": " از",
+            "probability": 0.5005048420280218
+          },
+          {
+            "start": 9.9,
+            "end": 10.82,
+            "word": " مشکلترين",
+            "probability": 0.8325213573249736
+          },
+          {
+            "start": 10.82,
+            "end": 11.56,
+            "word": " موضوعات",
+            "probability": 0.9986184597015381
+          }
+        ]
+      }
+    ]
+  }
+}

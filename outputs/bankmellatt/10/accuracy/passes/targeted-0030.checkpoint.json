@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "d85d0adec5cb524286a618112e37ed5cef55b57f0f8fa0eda7395114af84a94d",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.08,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.56,
+        "text": "به دهگار شدنه خیلی مرسومه، بنابراین اونجا خیله جدی‌تر و به عنوان اولین گام به رحای از بدهی می‌پردازن.",
+        "avg_logprob": -0.18467546210569494,
+        "compression_ratio": 1.4566929133858268,
+        "no_speech_prob": 2.1913998393685574e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.56,
+            "word": " به",
+            "probability": 0.08256541937589645
+          },
+          {
+            "start": 0.56,
+            "end": 1.06,
+            "word": " دهگار",
+            "probability": 0.8644410669803619
+          },
+          {
+            "start": 1.06,
+            "end": 1.44,
+            "word": " شدنه",
+            "probability": 0.9421658664941788
+          },
+          {
+            "start": 1.44,
+            "end": 1.66,
+            "word": " خیلی",
+            "probability": 0.9968519508838654
+          },
+          {
+            "start": 1.66,
+            "end": 2.68,
+            "word": " مرسومه،",
+            "probability": 0.8215136801203092
+          },
+          {
+            "start": 2.68,
+            "end": 3.5,
+            "word": " بنابراین",
+            "probability": 0.9058296799659729
+          },
+          {
+            "start": 3.5,
+            "end": 3.9,
+            "word": " اونجا",
+            "probability": 0.9903558194637299
+          },
+          {
+            "start": 3.9,
+            "end": 4.22,
+            "word": " خیله",
+            "probability": 0.665568615955029
+          },
+          {
+            "start": 4.22,
+            "end": 5.14,
+            "word": " جدی‌تر",
+            "probability": 0.8262416490664085
+          },
+          {
+            "start": 5.14,
+            "end": 5.28,
+            "word": " و",
+            "probability": 0.9589916467666626
+          },
+          {
+            "start": 5.28,
+            "end": 5.42,
+            "word": " به",
+            "probability": 0.9777657389640808
+          },
+          {
+            "start": 5.42,
+            "end": 5.7,
+            "word": " عنوان",
+            "probability": 0.9702830910682678
+          },
+          {
+            "start": 5.7,
+            "end": 6.4,
+            "word": " اولین",
+            "probability": 0.9890720446904501
+          },
+          {
+            "start": 6.4,
+            "end": 6.74,
+            "word": " گام",
+            "probability": 0.9563807249069214
+          },
+          {
+            "start": 6.74,
+            "end": 7.48,
+            "word": " به",
+            "probability": 0.9788137674331665
+          },
+          {
+            "start": 7.48,
+            "end": 8.14,
+            "word": " رحای",
+            "probability": 0.8996549248695374
+          },
+          {
+            "start": 8.14,
+            "end": 8.32,
+            "word": " از",
+            "probability": 0.7854286730289459
+          },
+          {
+            "start": 8.32,
+            "end": 8.82,
+            "word": " بدهی",
+            "probability": 0.9631681044896444
+          },
+          {
+            "start": 8.82,
+            "end": 9.56,
+            "word": " می‌پردازن.",
+            "probability": 0.9309787835393634
+          }
+        ]
+      }
+    ]
+  }
+}

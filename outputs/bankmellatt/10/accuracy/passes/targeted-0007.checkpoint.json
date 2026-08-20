@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "a3ad2c8dbf0cc48829330624f08ab58f39644ce18c2a3effd42cda7e09cd08e1",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.3,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 12.28,
+        "text": "مالی، قرض و اعتباره، یکی از مشکل‌ترین موضوعات ثواد مالي اصولا همین قرضا اعتبره و یک ویژگی‌های خاصی داره. ببینید ما در پس",
+        "avg_logprob": -0.21932443558442882,
+        "compression_ratio": 1.4503311258278146,
+        "no_speech_prob": 3.2489338996910533e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.32,
+            "word": " مالی،",
+            "probability": 0.4335813634097576
+          },
+          {
+            "start": 0.32,
+            "end": 1.08,
+            "word": " قرض",
+            "probability": 0.9385924339294434
+          },
+          {
+            "start": 1.08,
+            "end": 1.66,
+            "word": " و",
+            "probability": 0.9935402274131775
+          },
+          {
+            "start": 1.66,
+            "end": 2.62,
+            "word": " اعتباره،",
+            "probability": 0.8358092692991098
+          },
+          {
+            "start": 2.62,
+            "end": 3.12,
+            "word": " یکی",
+            "probability": 0.9691038131713867
+          },
+          {
+            "start": 3.12,
+            "end": 3.22,
+            "word": " از",
+            "probability": 0.9985770881175995
+          },
+          {
+            "start": 3.22,
+            "end": 4.12,
+            "word": " مشکل‌ترین",
+            "probability": 0.8526009983782258
+          },
+          {
+            "start": 4.12,
+            "end": 4.9,
+            "word": " موضوعات",
+            "probability": 0.9932780861854553
+          },
+          {
+            "start": 4.9,
+            "end": 5.38,
+            "word": " ثواد",
+            "probability": 0.7822245359420776
+          },
+          {
+            "start": 5.38,
+            "end": 5.66,
+            "word": " مالي",
+            "probability": 0.6185489137036105
+          },
+          {
+            "start": 5.66,
+            "end": 6.0,
+            "word": " اصولا",
+            "probability": 0.8620492368936539
+          },
+          {
+            "start": 6.0,
+            "end": 6.26,
+            "word": " همین",
+            "probability": 0.8192383050918579
+          },
+          {
+            "start": 6.26,
+            "end": 6.64,
+            "word": " قرضا",
+            "probability": 0.6635933260743817
+          },
+          {
+            "start": 6.64,
+            "end": 7.4,
+            "word": " اعتبره",
+            "probability": 0.664743482871927
+          },
+          {
+            "start": 7.4,
+            "end": 7.96,
+            "word": " و",
+            "probability": 0.8943644165992737
+          },
+          {
+            "start": 7.96,
+            "end": 8.14,
+            "word": " یک",
+            "probability": 0.9785543978214264
+          },
+          {
+            "start": 8.14,
+            "end": 8.86,
+            "word": " ویژگی‌های",
+            "probability": 0.9607969058884515
+          },
+          {
+            "start": 8.86,
+            "end": 9.42,
+            "word": " خاصی",
+            "probability": 0.9498893817265829
+          },
+          {
+            "start": 9.42,
+            "end": 10.12,
+            "word": " داره.",
+            "probability": 0.9644279281298319
+          },
+          {
+            "start": 10.12,
+            "end": 11.12,
+            "word": " ببینید",
+            "probability": 0.9839655756950378
+          },
+          {
+            "start": 11.12,
+            "end": 11.4,
+            "word": " ما",
+            "probability": 0.9386887550354004
+          },
+          {
+            "start": 11.4,
+            "end": 11.96,
+            "word": " در",
+            "probability": 0.989520788192749
+          },
+          {
+            "start": 11.96,
+            "end": 12.28,
+            "word": " پس",
+            "probability": 0.7362558245658875
+          }
+        ]
+      }
+    ]
+  }
+}

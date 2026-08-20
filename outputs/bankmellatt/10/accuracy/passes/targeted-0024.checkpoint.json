@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "1a27dc40bf85e5e0e91f694c4baafdbd6a51be6bfe1da0ec723fea4e71098d72",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.8,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 12.78,
+        "text": "و بیان در زمان حال خرجش بکنید. حتی بسیاری از برنامه‌های ثواد مالی در دنیا با رحای اذ بدهی آغاز می‌شه، یعنی برنامه‌ای که مشاهده",
+        "avg_logprob": -0.19728551687819235,
+        "compression_ratio": 1.6083916083916083,
+        "no_speech_prob": 2.3782525948590205e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.08,
+            "word": " و",
+            "probability": 0.9819918870925903
+          },
+          {
+            "start": 0.08,
+            "end": 0.3,
+            "word": " بیان",
+            "probability": 0.9409500956535339
+          },
+          {
+            "start": 0.3,
+            "end": 0.52,
+            "word": " در",
+            "probability": 0.7897487282752991
+          },
+          {
+            "start": 0.52,
+            "end": 0.86,
+            "word": " زمان",
+            "probability": 0.9978339672088623
+          },
+          {
+            "start": 0.86,
+            "end": 1.22,
+            "word": " حال",
+            "probability": 0.9610143899917603
+          },
+          {
+            "start": 1.22,
+            "end": 2.12,
+            "word": " خرجش",
+            "probability": 0.9955441951751709
+          },
+          {
+            "start": 2.12,
+            "end": 2.74,
+            "word": " بکنید.",
+            "probability": 0.8910358667373657
+          },
+          {
+            "start": 2.76,
+            "end": 3.68,
+            "word": " حتی",
+            "probability": 0.9982498288154602
+          },
+          {
+            "start": 3.68,
+            "end": 4.32,
+            "word": " بسیاری",
+            "probability": 0.9974199652671814
+          },
+          {
+            "start": 4.32,
+            "end": 4.44,
+            "word": " از",
+            "probability": 0.9995898008346558
+          },
+          {
+            "start": 4.44,
+            "end": 5.08,
+            "word": " برنامه‌های",
+            "probability": 0.8745362905901857
+          },
+          {
+            "start": 5.08,
+            "end": 5.5,
+            "word": " ثواد",
+            "probability": 0.8786006569862366
+          },
+          {
+            "start": 5.5,
+            "end": 5.98,
+            "word": " مالی",
+            "probability": 0.9347668886184692
+          },
+          {
+            "start": 5.98,
+            "end": 6.82,
+            "word": " در",
+            "probability": 0.9939813613891602
+          },
+          {
+            "start": 6.82,
+            "end": 7.46,
+            "word": " دنیا",
+            "probability": 0.9987557729085287
+          },
+          {
+            "start": 7.46,
+            "end": 8.28,
+            "word": " با",
+            "probability": 0.9955844879150391
+          },
+          {
+            "start": 8.28,
+            "end": 8.82,
+            "word": " رحای",
+            "probability": 0.8946302384138107
+          },
+          {
+            "start": 8.82,
+            "end": 9.04,
+            "word": " اذ",
+            "probability": 0.3356715539266588
+          },
+          {
+            "start": 9.04,
+            "end": 9.48,
+            "word": " بدهی",
+            "probability": 0.9618871808052063
+          },
+          {
+            "start": 9.48,
+            "end": 9.9,
+            "word": " آغاز",
+            "probability": 0.9797354141871134
+          },
+          {
+            "start": 9.9,
+            "end": 10.98,
+            "word": " می‌شه،",
+            "probability": 0.6674832656979561
+          },
+          {
+            "start": 10.98,
+            "end": 11.28,
+            "word": " یعنی",
+            "probability": 0.9971094727516174
+          },
+          {
+            "start": 11.28,
+            "end": 12.16,
+            "word": " برنامه‌ای",
+            "probability": 0.7524686979159014
+          },
+          {
+            "start": 12.16,
+            "end": 12.3,
+            "word": " که",
+            "probability": 0.8834271430969238
+          },
+          {
+            "start": 12.3,
+            "end": 12.78,
+            "word": " مشاهده",
+            "probability": 0.6688116118311882
+          }
+        ]
+      }
+    ]
+  }
+}

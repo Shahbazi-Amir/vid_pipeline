@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "66f77af2c1ab21c809ad69411a19d52ec3ed80ea703b249f61a369483e80c202",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.52,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.4,
+        "text": "رو از امروز می‌فرستیم به آینده، ولی در قرض داریم از آیندا می‌آریم به زمان حال و خرجش می‌کنیم، یک تفاوت عمده است. آیندي",
+        "avg_logprob": -0.21093857056134707,
+        "compression_ratio": 1.5140845070422535,
+        "no_speech_prob": 3.0232907843874557e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.28,
+            "word": " رو",
+            "probability": 0.7058596760034561
+          },
+          {
+            "start": 0.28,
+            "end": 0.56,
+            "word": " از",
+            "probability": 0.9991016089916229
+          },
+          {
+            "start": 0.56,
+            "end": 1.06,
+            "word": " امروز",
+            "probability": 0.9983592480421066
+          },
+          {
+            "start": 1.06,
+            "end": 1.62,
+            "word": " می‌فرستیم",
+            "probability": 0.8169418162766046
+          },
+          {
+            "start": 1.62,
+            "end": 1.74,
+            "word": " به",
+            "probability": 0.9934247732162476
+          },
+          {
+            "start": 1.74,
+            "end": 2.6,
+            "word": " آینده،",
+            "probability": 0.7993146408349275
+          },
+          {
+            "start": 2.6,
+            "end": 3.68,
+            "word": " ولی",
+            "probability": 0.9907544851303101
+          },
+          {
+            "start": 3.68,
+            "end": 3.96,
+            "word": " در",
+            "probability": 0.9890023469924927
+          },
+          {
+            "start": 3.96,
+            "end": 4.44,
+            "word": " قرض",
+            "probability": 0.929880827665329
+          },
+          {
+            "start": 4.44,
+            "end": 4.8,
+            "word": " داریم",
+            "probability": 0.9854209423065186
+          },
+          {
+            "start": 4.8,
+            "end": 4.98,
+            "word": " از",
+            "probability": 0.9720154702663422
+          },
+          {
+            "start": 4.98,
+            "end": 5.6,
+            "word": " آیندا",
+            "probability": 0.6646736739251841
+          },
+          {
+            "start": 5.6,
+            "end": 6.04,
+            "word": " می‌آریم",
+            "probability": 0.8370621452728907
+          },
+          {
+            "start": 6.04,
+            "end": 6.18,
+            "word": " به",
+            "probability": 0.9635573625564575
+          },
+          {
+            "start": 6.18,
+            "end": 6.56,
+            "word": " زمان",
+            "probability": 0.9900554617245992
+          },
+          {
+            "start": 6.56,
+            "end": 6.94,
+            "word": " حال",
+            "probability": 0.964719146490097
+          },
+          {
+            "start": 6.94,
+            "end": 7.08,
+            "word": " و",
+            "probability": 0.9558021426200867
+          },
+          {
+            "start": 7.08,
+            "end": 7.64,
+            "word": " خرجش",
+            "probability": 0.9574163357416788
+          },
+          {
+            "start": 7.64,
+            "end": 8.06,
+            "word": " می‌کنیم،",
+            "probability": 0.8688036629131862
+          },
+          {
+            "start": 8.06,
+            "end": 8.2,
+            "word": " یک",
+            "probability": 0.9205745160579681
+          },
+          {
+            "start": 8.2,
+            "end": 8.76,
+            "word": " تفاوت",
+            "probability": 0.9892342835664749
+          },
+          {
+            "start": 8.76,
+            "end": 9.26,
+            "word": " عمده",
+            "probability": 0.858977198600769
+          },
+          {
+            "start": 9.26,
+            "end": 9.34,
+            "word": " است.",
+            "probability": 0.7448118329048157
+          },
+          {
+            "start": 9.64,
+            "end": 10.4,
+            "word": " آیندي",
+            "probability": 0.6526800965463432
+          }
+        ]
+      }
+    ]
+  }
+}

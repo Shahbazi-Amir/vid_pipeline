@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "503b290859afed28028aa5617e3a4042e1443b4e80921f6a93d4f2a65bb016ff",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.5,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.48,
+        "text": "اصلاح الگوهای خرید رو داشتیم، تصمیم‌گیری های مالی که این نیاز یا خواسته است، در آمدزایه یا حضینه‌هایه، همه ای این کارها رو می‌کردیم که بزنید.",
+        "avg_logprob": -0.31126598954200746,
+        "compression_ratio": 1.639240506329114,
+        "no_speech_prob": 2.60617888381276e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.76,
+            "word": " اصلاح",
+            "probability": 0.9781926870346069
+          },
+          {
+            "start": 0.76,
+            "end": 1.38,
+            "word": " الگوهای",
+            "probability": 0.9099872946739197
+          },
+          {
+            "start": 1.38,
+            "end": 1.92,
+            "word": " خرید",
+            "probability": 0.9987300237019857
+          },
+          {
+            "start": 1.92,
+            "end": 2.0,
+            "word": " رو",
+            "probability": 0.9379509687423706
+          },
+          {
+            "start": 2.0,
+            "end": 2.56,
+            "word": " داشتیم،",
+            "probability": 0.8534366115927696
+          },
+          {
+            "start": 2.56,
+            "end": 3.18,
+            "word": " تصمیم‌گیری",
+            "probability": 0.8843216420047812
+          },
+          {
+            "start": 3.18,
+            "end": 3.48,
+            "word": " های",
+            "probability": 0.712977945804596
+          },
+          {
+            "start": 3.48,
+            "end": 4.02,
+            "word": " مالی",
+            "probability": 0.998128354549408
+          },
+          {
+            "start": 4.02,
+            "end": 4.36,
+            "word": " که",
+            "probability": 0.9761211276054382
+          },
+          {
+            "start": 4.36,
+            "end": 4.5,
+            "word": " این",
+            "probability": 0.9744225442409515
+          },
+          {
+            "start": 4.5,
+            "end": 5.04,
+            "word": " نیاز",
+            "probability": 0.9909944732983907
+          },
+          {
+            "start": 5.04,
+            "end": 5.44,
+            "word": " یا",
+            "probability": 0.7211885452270508
+          },
+          {
+            "start": 5.44,
+            "end": 5.96,
+            "word": " خواسته",
+            "probability": 0.8316046223044395
+          },
+          {
+            "start": 5.96,
+            "end": 6.1,
+            "word": " است،",
+            "probability": 0.6574860513210297
+          },
+          {
+            "start": 6.1,
+            "end": 6.28,
+            "word": " در",
+            "probability": 0.9862808883190155
+          },
+          {
+            "start": 6.28,
+            "end": 6.92,
+            "word": " آمدزایه",
+            "probability": 0.6211475836379188
+          },
+          {
+            "start": 6.92,
+            "end": 7.12,
+            "word": " یا",
+            "probability": 0.9605357646942139
+          },
+          {
+            "start": 7.12,
+            "end": 8.14,
+            "word": " حضینه‌هایه،",
+            "probability": 0.580868279768361
+          },
+          {
+            "start": 8.14,
+            "end": 8.98,
+            "word": " همه",
+            "probability": 0.9871391256650289
+          },
+          {
+            "start": 8.98,
+            "end": 9.04,
+            "word": " ای",
+            "probability": 0.4602896560099907
+          },
+          {
+            "start": 9.04,
+            "end": 9.06,
+            "word": " این",
+            "probability": 0.7227141708135605
+          },
+          {
+            "start": 9.06,
+            "end": 9.4,
+            "word": " کارها",
+            "probability": 0.9436949292818705
+          },
+          {
+            "start": 9.4,
+            "end": 9.58,
+            "word": " رو",
+            "probability": 0.9764869213104248
+          },
+          {
+            "start": 9.58,
+            "end": 10.16,
+            "word": " می‌کردیم",
+            "probability": 0.9665263210024152
+          },
+          {
+            "start": 10.16,
+            "end": 10.34,
+            "word": " که",
+            "probability": 0.9015721678733826
+          },
+          {
+            "start": 10.34,
+            "end": 10.48,
+            "word": " بزنید.",
+            "probability": 0.39171974509954455
+          }
+        ]
+      }
+    ]
+  }
+}

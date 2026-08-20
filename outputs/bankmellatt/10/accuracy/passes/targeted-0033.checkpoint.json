@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "0e9cd08401b9907590ce62e16a2daf66206364b6ccd4ad9612de256c1d4ab601",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.86,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.58,
+        "text": "یه سری نیاز‌ها و خواسته‌هایی داریم که الان براش پول ندارید، آیا راهی هست؟ آیا ثواد مالی پیشنهادی به ما داره یا نه؟",
+        "avg_logprob": -0.12779439965339556,
+        "compression_ratio": 1.5522388059701493,
+        "no_speech_prob": 2.2978903502224313e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.4,
+            "word": " یه",
+            "probability": 0.9880937337875366
+          },
+          {
+            "start": 0.4,
+            "end": 0.56,
+            "word": " سری",
+            "probability": 0.9880167543888092
+          },
+          {
+            "start": 0.56,
+            "end": 1.22,
+            "word": " نیاز‌ها",
+            "probability": 0.7982378842891193
+          },
+          {
+            "start": 1.22,
+            "end": 1.34,
+            "word": " و",
+            "probability": 0.9850196838378906
+          },
+          {
+            "start": 1.34,
+            "end": 2.08,
+            "word": " خواسته‌هایی",
+            "probability": 0.9298254400491714
+          },
+          {
+            "start": 2.08,
+            "end": 2.5,
+            "word": " داریم",
+            "probability": 0.9943690448999405
+          },
+          {
+            "start": 2.5,
+            "end": 3.14,
+            "word": " که",
+            "probability": 0.9930295348167419
+          },
+          {
+            "start": 3.14,
+            "end": 3.54,
+            "word": " الان",
+            "probability": 0.9778798222541809
+          },
+          {
+            "start": 3.54,
+            "end": 3.9,
+            "word": " براش",
+            "probability": 0.93561718861262
+          },
+          {
+            "start": 3.9,
+            "end": 4.16,
+            "word": " پول",
+            "probability": 0.9239984750747681
+          },
+          {
+            "start": 4.16,
+            "end": 5.02,
+            "word": " ندارید،",
+            "probability": 0.6728895856455589
+          },
+          {
+            "start": 5.02,
+            "end": 5.38,
+            "word": " آیا",
+            "probability": 0.7448173761367798
+          },
+          {
+            "start": 5.38,
+            "end": 5.86,
+            "word": " راهی",
+            "probability": 0.9363817373911539
+          },
+          {
+            "start": 5.86,
+            "end": 6.48,
+            "word": " هست؟",
+            "probability": 0.811793863773346
+          },
+          {
+            "start": 6.48,
+            "end": 6.7,
+            "word": " آیا",
+            "probability": 0.9809264540672302
+          },
+          {
+            "start": 6.7,
+            "end": 7.1,
+            "word": " ثواد",
+            "probability": 0.7996317644913992
+          },
+          {
+            "start": 7.1,
+            "end": 7.38,
+            "word": " مالی",
+            "probability": 0.9334757924079895
+          },
+          {
+            "start": 7.38,
+            "end": 7.94,
+            "word": " پیشنهادی",
+            "probability": 0.9676076258931842
+          },
+          {
+            "start": 7.94,
+            "end": 8.04,
+            "word": " به",
+            "probability": 0.9451500177383423
+          },
+          {
+            "start": 8.04,
+            "end": 8.2,
+            "word": " ما",
+            "probability": 0.9818745851516724
+          },
+          {
+            "start": 8.2,
+            "end": 8.62,
+            "word": " داره",
+            "probability": 0.9873243967692057
+          },
+          {
+            "start": 8.62,
+            "end": 8.84,
+            "word": " یا",
+            "probability": 0.9717822074890137
+          },
+          {
+            "start": 8.84,
+            "end": 9.58,
+            "word": " نه؟",
+            "probability": 0.9437007705370585
+          }
+        ]
+      }
+    ]
+  }
+}

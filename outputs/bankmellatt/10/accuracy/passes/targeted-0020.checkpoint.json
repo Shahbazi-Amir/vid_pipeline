@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "79dbeeb76ceeaac5d5a0643e6f32ba2e916dc157fb523174100819027e3d2df8",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.6,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.98,
+        "text": "پور رو از آینده بیاریم به زمان حال و در واقع حالش رو ببریم در صورتی که آیننده به اون نیاز داری.",
+        "avg_logprob": -0.15962472216027682,
+        "compression_ratio": 1.4608695652173913,
+        "no_speech_prob": 2.455944614343508e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.22,
+            "word": " پور",
+            "probability": 0.6206296533346176
+          },
+          {
+            "start": 0.22,
+            "end": 0.34,
+            "word": " رو",
+            "probability": 0.8875069618225098
+          },
+          {
+            "start": 0.34,
+            "end": 0.5,
+            "word": " از",
+            "probability": 0.9994373917579651
+          },
+          {
+            "start": 0.5,
+            "end": 0.96,
+            "word": " آینده",
+            "probability": 0.9993971288204193
+          },
+          {
+            "start": 0.96,
+            "end": 1.42,
+            "word": " بیاریم",
+            "probability": 0.9978720903396606
+          },
+          {
+            "start": 1.42,
+            "end": 1.58,
+            "word": " به",
+            "probability": 0.9963406920433044
+          },
+          {
+            "start": 1.58,
+            "end": 2.0,
+            "word": " زمان",
+            "probability": 0.996798555056254
+          },
+          {
+            "start": 2.0,
+            "end": 2.5,
+            "word": " حال",
+            "probability": 0.9428800046443939
+          },
+          {
+            "start": 2.5,
+            "end": 3.3,
+            "word": " و",
+            "probability": 0.9637949466705322
+          },
+          {
+            "start": 3.3,
+            "end": 3.52,
+            "word": " در",
+            "probability": 0.9992587268352509
+          },
+          {
+            "start": 3.52,
+            "end": 3.8,
+            "word": " واقع",
+            "probability": 0.9909048676490784
+          },
+          {
+            "start": 3.8,
+            "end": 4.24,
+            "word": " حالش",
+            "probability": 0.9983854492505392
+          },
+          {
+            "start": 4.24,
+            "end": 4.34,
+            "word": " رو",
+            "probability": 0.8804326057434082
+          },
+          {
+            "start": 4.34,
+            "end": 4.84,
+            "word": " ببریم",
+            "probability": 0.986918717622757
+          },
+          {
+            "start": 4.84,
+            "end": 5.12,
+            "word": " در",
+            "probability": 0.9952822625637054
+          },
+          {
+            "start": 5.12,
+            "end": 5.54,
+            "word": " صورتی",
+            "probability": 0.9972406029701233
+          },
+          {
+            "start": 5.54,
+            "end": 5.7,
+            "word": " که",
+            "probability": 0.9994231760501862
+          },
+          {
+            "start": 5.7,
+            "end": 6.24,
+            "word": " آیننده",
+            "probability": 0.7498393653686435
+          },
+          {
+            "start": 6.24,
+            "end": 6.34,
+            "word": " به",
+            "probability": 0.9868378043174744
+          },
+          {
+            "start": 6.34,
+            "end": 6.66,
+            "word": " اون",
+            "probability": 0.9963912069797516
+          },
+          {
+            "start": 6.66,
+            "end": 7.64,
+            "word": " نیاز",
+            "probability": 0.9986805121103922
+          },
+          {
+            "start": 7.64,
+            "end": 7.98,
+            "word": " داری.",
+            "probability": 0.9969528714815775
+          }
+        ]
+      }
+    ]
+  }
+}

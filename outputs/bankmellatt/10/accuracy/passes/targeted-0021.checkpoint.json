@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "f470a0c0045589fdf8338d6e2573fe4b9e6f702c12151e70e598dd765775350d",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.4,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.38,
+        "text": "که آینده به اون نیاز داریم. خب، این یکی که از مهم‌ترین موضوعات ثواد مالیه که چطور امکان داره ک بخ...",
+        "avg_logprob": -0.2194156147765391,
+        "compression_ratio": 1.372093023255814,
+        "no_speech_prob": 2.4899948769530056e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.14,
+            "word": " که",
+            "probability": 0.9480093717575073
+          },
+          {
+            "start": 0.14,
+            "end": 0.64,
+            "word": " آینده",
+            "probability": 0.998686671257019
+          },
+          {
+            "start": 0.64,
+            "end": 0.74,
+            "word": " به",
+            "probability": 0.9741861820220947
+          },
+          {
+            "start": 0.74,
+            "end": 1.06,
+            "word": " اون",
+            "probability": 0.9969255328178406
+          },
+          {
+            "start": 1.06,
+            "end": 2.06,
+            "word": " نیاز",
+            "probability": 0.9988385637601217
+          },
+          {
+            "start": 2.06,
+            "end": 2.58,
+            "word": " داریم.",
+            "probability": 0.9531813114881516
+          },
+          {
+            "start": 2.58,
+            "end": 3.14,
+            "word": " خب،",
+            "probability": 0.6615218203514814
+          },
+          {
+            "start": 3.14,
+            "end": 3.22,
+            "word": " این",
+            "probability": 0.9944724440574646
+          },
+          {
+            "start": 3.22,
+            "end": 3.54,
+            "word": " یکی",
+            "probability": 0.9505696892738342
+          },
+          {
+            "start": 3.54,
+            "end": 3.66,
+            "word": " که",
+            "probability": 0.6837333887815475
+          },
+          {
+            "start": 3.66,
+            "end": 3.9,
+            "word": " از",
+            "probability": 0.9979399740695953
+          },
+          {
+            "start": 3.9,
+            "end": 4.96,
+            "word": " مهم‌ترین",
+            "probability": 0.8290391601670611
+          },
+          {
+            "start": 4.96,
+            "end": 5.68,
+            "word": " موضوعات",
+            "probability": 0.9979880452156067
+          },
+          {
+            "start": 5.68,
+            "end": 6.38,
+            "word": " ثواد",
+            "probability": 0.7720152139663696
+          },
+          {
+            "start": 6.38,
+            "end": 6.9,
+            "word": " مالیه",
+            "probability": 0.9139515906572342
+          },
+          {
+            "start": 6.9,
+            "end": 7.14,
+            "word": " که",
+            "probability": 0.9416807889938354
+          },
+          {
+            "start": 7.14,
+            "end": 7.6,
+            "word": " چطور",
+            "probability": 0.9953681627909342
+          },
+          {
+            "start": 7.6,
+            "end": 8.04,
+            "word": " امکان",
+            "probability": 0.9939328581094742
+          },
+          {
+            "start": 8.04,
+            "end": 8.32,
+            "word": " داره",
+            "probability": 0.9885440468788147
+          },
+          {
+            "start": 8.32,
+            "end": 8.44,
+            "word": " ک",
+            "probability": 0.9782564640045166
+          },
+          {
+            "start": 8.44,
+            "end": 9.38,
+            "word": " بخ...",
+            "probability": 0.32977765526932973
+          }
+        ]
+      }
+    ]
+  }
+}

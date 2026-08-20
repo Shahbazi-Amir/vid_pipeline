@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "6d90263aeedb384dba78c33765d77d826a28795911f353bc4ca9ebe5e07e1cc2",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 13.46,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 13.44,
+        "text": "نیمکت ثبوت تا به میز معلم برسیم. در حالی که خود اون معلم به ما آموزش داده بود که کوتاه‌ترین راه مستقیم‌تری راهه. پس ما به سادگی می‌تونهیم",
+        "avg_logprob": -0.2164623692802999,
+        "compression_ratio": 1.5796178343949046,
+        "no_speech_prob": 2.649747365968125e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.34,
+            "word": " نیمکت",
+            "probability": 0.723374006152153
+          },
+          {
+            "start": 0.34,
+            "end": 0.88,
+            "word": " ثبوت",
+            "probability": 0.668365995089213
+          },
+          {
+            "start": 0.88,
+            "end": 1.12,
+            "word": " تا",
+            "probability": 0.8050734102725983
+          },
+          {
+            "start": 1.12,
+            "end": 1.2,
+            "word": " به",
+            "probability": 0.9974673986434937
+          },
+          {
+            "start": 1.2,
+            "end": 1.46,
+            "word": " میز",
+            "probability": 0.9758362770080566
+          },
+          {
+            "start": 1.46,
+            "end": 1.9,
+            "word": " معلم",
+            "probability": 0.9852520227432251
+          },
+          {
+            "start": 1.9,
+            "end": 2.58,
+            "word": " برسیم.",
+            "probability": 0.996587085723877
+          },
+          {
+            "start": 2.8,
+            "end": 3.48,
+            "word": " در",
+            "probability": 0.9847506880760193
+          },
+          {
+            "start": 3.48,
+            "end": 3.74,
+            "word": " حالی",
+            "probability": 0.9399334987004598
+          },
+          {
+            "start": 3.74,
+            "end": 3.86,
+            "word": " که",
+            "probability": 0.9982910752296448
+          },
+          {
+            "start": 3.86,
+            "end": 4.2,
+            "word": " خود",
+            "probability": 0.9995836615562439
+          },
+          {
+            "start": 4.2,
+            "end": 4.38,
+            "word": " اون",
+            "probability": 0.990021675825119
+          },
+          {
+            "start": 4.38,
+            "end": 4.92,
+            "word": " معلم",
+            "probability": 0.9994609355926514
+          },
+          {
+            "start": 4.92,
+            "end": 5.12,
+            "word": " به",
+            "probability": 0.9955611228942871
+          },
+          {
+            "start": 5.12,
+            "end": 5.26,
+            "word": " ما",
+            "probability": 0.9985238909721375
+          },
+          {
+            "start": 5.26,
+            "end": 5.72,
+            "word": " آموزش",
+            "probability": 0.9415216445922852
+          },
+          {
+            "start": 5.72,
+            "end": 6.0,
+            "word": " داده",
+            "probability": 0.9984121123949686
+          },
+          {
+            "start": 6.0,
+            "end": 6.18,
+            "word": " بود",
+            "probability": 0.9995394647121429
+          },
+          {
+            "start": 6.18,
+            "end": 6.84,
+            "word": " که",
+            "probability": 0.9991897344589233
+          },
+          {
+            "start": 6.84,
+            "end": 8.18,
+            "word": " کوتاه‌ترین",
+            "probability": 0.7721870475049529
+          },
+          {
+            "start": 8.18,
+            "end": 8.7,
+            "word": " راه",
+            "probability": 0.9925244450569153
+          },
+          {
+            "start": 8.7,
+            "end": 10.38,
+            "word": " مستقیم‌تری",
+            "probability": 0.8474753878035699
+          },
+          {
+            "start": 10.38,
+            "end": 10.96,
+            "word": " راهه.",
+            "probability": 0.7791529893875122
+          },
+          {
+            "start": 11.56,
+            "end": 12.26,
+            "word": " پس",
+            "probability": 0.9891741871833801
+          },
+          {
+            "start": 12.26,
+            "end": 12.38,
+            "word": " ما",
+            "probability": 0.9879713654518127
+          },
+          {
+            "start": 12.38,
+            "end": 12.5,
+            "word": " به",
+            "probability": 0.9971774816513062
+          },
+          {
+            "start": 12.5,
+            "end": 13.08,
+            "word": " سادگی",
+            "probability": 0.9741696864366531
+          },
+          {
+            "start": 13.08,
+            "end": 13.44,
+            "word": " می‌تونهیم",
+            "probability": 0.834207181419645
+          }
+        ]
+      }
+    ]
+  }
+}

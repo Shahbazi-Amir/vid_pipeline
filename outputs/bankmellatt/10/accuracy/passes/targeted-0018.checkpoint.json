@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "e57bed874b0f4c601450b03c514270a851c6d14cff69ccf1a56b07d19d12cb0e",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.96,
+    "segments": [
+      {
+        "id": 1,
+        "start": 2.7800000000000007,
+        "end": 10.9,
+        "text": "همه این کارها رو می‌کردیم که بتونیم اهداف مالی منو در آینده محقق بکنیم. حالا قرض یک کاری می‌‌کنه که ما",
+        "avg_logprob": -0.21574738281113762,
+        "compression_ratio": 1.4645669291338583,
+        "no_speech_prob": 2.7499458266078136e-10,
+        "words": [
+          {
+            "start": 2.7800000000000007,
+            "end": 3.48,
+            "word": " همه",
+            "probability": 0.672858272989591
+          },
+          {
+            "start": 3.48,
+            "end": 3.56,
+            "word": " این",
+            "probability": 0.9939854443073273
+          },
+          {
+            "start": 3.56,
+            "end": 3.9,
+            "word": " کارها",
+            "probability": 0.9792316754659017
+          },
+          {
+            "start": 3.9,
+            "end": 4.1,
+            "word": " رو",
+            "probability": 0.9776365160942078
+          },
+          {
+            "start": 4.1,
+            "end": 4.66,
+            "word": " می‌کردیم",
+            "probability": 0.7653774205994394
+          },
+          {
+            "start": 4.66,
+            "end": 4.88,
+            "word": " که",
+            "probability": 0.9857469201087952
+          },
+          {
+            "start": 4.88,
+            "end": 5.42,
+            "word": " بتونیم",
+            "probability": 0.9807372093200684
+          },
+          {
+            "start": 5.42,
+            "end": 5.92,
+            "word": " اهداف",
+            "probability": 0.9804244041442871
+          },
+          {
+            "start": 5.92,
+            "end": 6.48,
+            "word": " مالی",
+            "probability": 0.9846813281377157
+          },
+          {
+            "start": 6.48,
+            "end": 6.68,
+            "word": " منو",
+            "probability": 0.3736520782113075
+          },
+          {
+            "start": 6.68,
+            "end": 6.96,
+            "word": " در",
+            "probability": 0.9915853440761566
+          },
+          {
+            "start": 6.96,
+            "end": 7.48,
+            "word": " آینده",
+            "probability": 0.9968917816877365
+          },
+          {
+            "start": 7.48,
+            "end": 8.0,
+            "word": " محقق",
+            "probability": 0.9851291626691818
+          },
+          {
+            "start": 8.0,
+            "end": 8.48,
+            "word": " بکنیم.",
+            "probability": 0.9480947136878968
+          },
+          {
+            "start": 8.58,
+            "end": 9.2,
+            "word": " حالا",
+            "probability": 0.978523850440979
+          },
+          {
+            "start": 9.2,
+            "end": 9.68,
+            "word": " قرض",
+            "probability": 0.8849616944789886
+          },
+          {
+            "start": 9.68,
+            "end": 9.96,
+            "word": " یک",
+            "probability": 0.9124223291873932
+          },
+          {
+            "start": 9.96,
+            "end": 10.3,
+            "word": " کاری",
+            "probability": 0.9748816887537638
+          },
+          {
+            "start": 10.3,
+            "end": 10.66,
+            "word": " می‌‌کنه",
+            "probability": 0.7975853423995432
+          },
+          {
+            "start": 10.66,
+            "end": 10.8,
+            "word": " که",
+            "probability": 0.9626419246196747
+          },
+          {
+            "start": 10.8,
+            "end": 10.9,
+            "word": " ما",
+            "probability": 0.9393146634101868
+          }
+        ]
+      }
+    ]
+  }
+}

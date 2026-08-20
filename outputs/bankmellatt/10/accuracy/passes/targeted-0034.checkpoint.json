@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "83389ab5a1ad63c468b391eb6d9b696c041ba04c4522ba4f016af602d64a430e",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.56,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.44,
+        "text": "نهادی به ما داره یا نه؟ خب با توجه به همین مطالبی که ارض کردم، پاسخ اول یه سواد مالی اینه که سبر کنیم. سبر به معنای ای اون که",
+        "avg_logprob": -0.24229946461590854,
+        "compression_ratio": 1.5827338129496402,
+        "no_speech_prob": 2.5562946204260584e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.3,
+            "word": " نهادی",
+            "probability": 0.7142095658928156
+          },
+          {
+            "start": 0.3,
+            "end": 0.4,
+            "word": " به",
+            "probability": 0.9657744765281677
+          },
+          {
+            "start": 0.4,
+            "end": 0.56,
+            "word": " ما",
+            "probability": 0.9972782731056213
+          },
+          {
+            "start": 0.56,
+            "end": 0.96,
+            "word": " داره",
+            "probability": 0.9988406499226888
+          },
+          {
+            "start": 0.96,
+            "end": 1.2,
+            "word": " یا",
+            "probability": 0.9939846098423004
+          },
+          {
+            "start": 1.2,
+            "end": 1.7,
+            "word": " نه؟",
+            "probability": 0.8033255736033121
+          },
+          {
+            "start": 1.7,
+            "end": 3.26,
+            "word": " خب",
+            "probability": 0.9856648743152618
+          },
+          {
+            "start": 3.26,
+            "end": 3.46,
+            "word": " با",
+            "probability": 0.981946736574173
+          },
+          {
+            "start": 3.46,
+            "end": 3.76,
+            "word": " توجه",
+            "probability": 0.8000241120656332
+          },
+          {
+            "start": 3.76,
+            "end": 3.88,
+            "word": " به",
+            "probability": 0.9805167317390442
+          },
+          {
+            "start": 3.88,
+            "end": 4.14,
+            "word": " همین",
+            "probability": 0.9988032976786295
+          },
+          {
+            "start": 4.14,
+            "end": 4.68,
+            "word": " مطالبی",
+            "probability": 0.9945990085601807
+          },
+          {
+            "start": 4.68,
+            "end": 4.86,
+            "word": " که",
+            "probability": 0.9993735551834106
+          },
+          {
+            "start": 4.86,
+            "end": 5.16,
+            "word": " ارض",
+            "probability": 0.5798881351947784
+          },
+          {
+            "start": 5.16,
+            "end": 6.24,
+            "word": " کردم،",
+            "probability": 0.6831626432637373
+          },
+          {
+            "start": 6.24,
+            "end": 6.82,
+            "word": " پاسخ",
+            "probability": 0.9975632826487223
+          },
+          {
+            "start": 6.82,
+            "end": 7.16,
+            "word": " اول",
+            "probability": 0.9871243834495544
+          },
+          {
+            "start": 7.16,
+            "end": 7.38,
+            "word": " یه",
+            "probability": 0.6137585267424583
+          },
+          {
+            "start": 7.38,
+            "end": 7.74,
+            "word": " سواد",
+            "probability": 0.8386335770289103
+          },
+          {
+            "start": 7.74,
+            "end": 8.04,
+            "word": " مالی",
+            "probability": 0.8274340430895487
+          },
+          {
+            "start": 8.04,
+            "end": 8.14,
+            "word": " اینه",
+            "probability": 0.925915797551473
+          },
+          {
+            "start": 8.14,
+            "end": 8.28,
+            "word": " که",
+            "probability": 0.9994432926177979
+          },
+          {
+            "start": 8.28,
+            "end": 8.64,
+            "word": " سبر",
+            "probability": 0.9776625633239746
+          },
+          {
+            "start": 8.64,
+            "end": 9.1,
+            "word": " کنیم.",
+            "probability": 0.9991989880800247
+          },
+          {
+            "start": 9.44,
+            "end": 10.04,
+            "word": " سبر",
+            "probability": 0.9982019662857056
+          },
+          {
+            "start": 10.04,
+            "end": 10.18,
+            "word": " به",
+            "probability": 0.8009865283966064
+          },
+          {
+            "start": 10.18,
+            "end": 10.8,
+            "word": " معنای",
+            "probability": 0.8928359150886536
+          },
+          {
+            "start": 10.8,
+            "end": 11.04,
+            "word": " ای",
+            "probability": 0.49837188524907106
+          },
+          {
+            "start": 11.04,
+            "end": 11.08,
+            "word": " اون",
+            "probability": 0.43445490783051355
+          },
+          {
+            "start": 11.08,
+            "end": 11.44,
+            "word": " که",
+            "probability": 0.9482662081718445
+          }
+        ]
+      }
+    ]
+  }
+}

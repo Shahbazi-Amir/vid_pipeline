@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "d5811670d7f6f360fd72a4ebb2a288e622404642ec2f6ffa919bb10b89580d3e",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.14,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.96,
+        "text": "با شما مطرح بکنیم و این که خب چه کار بکونیم؟ به هر حال ما یه سری نیازها و خواسته‌هایی داریم که الان براش پول ندارید.",
+        "avg_logprob": -0.1719146760304769,
+        "compression_ratio": 1.4577464788732395,
+        "no_speech_prob": 3.037399498584392e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.92,
+            "word": " با",
+            "probability": 0.9429957270622253
+          },
+          {
+            "start": 0.92,
+            "end": 1.16,
+            "word": " شما",
+            "probability": 0.9991025924682617
+          },
+          {
+            "start": 1.16,
+            "end": 1.72,
+            "word": " مطرح",
+            "probability": 0.9735813289880753
+          },
+          {
+            "start": 1.72,
+            "end": 2.52,
+            "word": " بکنیم",
+            "probability": 0.997361934185028
+          },
+          {
+            "start": 2.52,
+            "end": 3.36,
+            "word": " و",
+            "probability": 0.9944443106651306
+          },
+          {
+            "start": 3.36,
+            "end": 3.68,
+            "word": " این",
+            "probability": 0.9984292685985565
+          },
+          {
+            "start": 3.68,
+            "end": 3.94,
+            "word": " که",
+            "probability": 0.9913325607776642
+          },
+          {
+            "start": 3.94,
+            "end": 4.24,
+            "word": " خب",
+            "probability": 0.846387654542923
+          },
+          {
+            "start": 4.24,
+            "end": 4.46,
+            "word": " چه",
+            "probability": 0.9334074556827545
+          },
+          {
+            "start": 4.46,
+            "end": 4.62,
+            "word": " کار",
+            "probability": 0.9993753433227539
+          },
+          {
+            "start": 4.62,
+            "end": 5.14,
+            "word": " بکونیم؟",
+            "probability": 0.6743656865102897
+          },
+          {
+            "start": 5.14,
+            "end": 5.26,
+            "word": " به",
+            "probability": 0.967857837677002
+          },
+          {
+            "start": 5.26,
+            "end": 5.46,
+            "word": " هر",
+            "probability": 0.996483325958252
+          },
+          {
+            "start": 5.46,
+            "end": 5.62,
+            "word": " حال",
+            "probability": 0.9846173226833344
+          },
+          {
+            "start": 5.62,
+            "end": 5.9,
+            "word": " ما",
+            "probability": 0.999277651309967
+          },
+          {
+            "start": 5.9,
+            "end": 6.54,
+            "word": " یه",
+            "probability": 0.9950754344463348
+          },
+          {
+            "start": 6.54,
+            "end": 6.7,
+            "word": " سری",
+            "probability": 0.9702114760875702
+          },
+          {
+            "start": 6.7,
+            "end": 7.36,
+            "word": " نیازها",
+            "probability": 0.8615737631917
+          },
+          {
+            "start": 7.36,
+            "end": 7.48,
+            "word": " و",
+            "probability": 0.997175931930542
+          },
+          {
+            "start": 7.48,
+            "end": 8.22,
+            "word": " خواسته‌هایی",
+            "probability": 0.8274765343521722
+          },
+          {
+            "start": 8.22,
+            "end": 8.66,
+            "word": " داریم",
+            "probability": 0.9989140629768372
+          },
+          {
+            "start": 8.66,
+            "end": 9.26,
+            "word": " که",
+            "probability": 0.9986004531383514
+          },
+          {
+            "start": 9.26,
+            "end": 9.66,
+            "word": " الان",
+            "probability": 0.9801473021507263
+          },
+          {
+            "start": 9.66,
+            "end": 10.04,
+            "word": " براش",
+            "probability": 0.9462143977483114
+          },
+          {
+            "start": 10.04,
+            "end": 10.3,
+            "word": " پول",
+            "probability": 0.9653460383415222
+          },
+          {
+            "start": 10.3,
+            "end": 10.96,
+            "word": " ندارید.",
+            "probability": 0.7991395027842373
+          }
+        ]
+      }
+    ]
+  }
+}

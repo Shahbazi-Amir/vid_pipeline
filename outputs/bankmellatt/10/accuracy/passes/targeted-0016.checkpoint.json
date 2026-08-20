@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "b20e4bbf55b58fc637d291e12a9b72f907b0bd65f7ddc39e2ad1576252880fd9",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.26,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.24,
+        "text": "برای اینکه بتونیم این دوتار رو محقق بکنیم، کلی درد سر اصلاح الگوهای خرید رو داشتیم تصمیم‌گیری های مالی که این نیاز",
+        "avg_logprob": -0.1170114972628653,
+        "compression_ratio": 1.5639097744360901,
+        "no_speech_prob": 2.469693061168954e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.36,
+            "word": " برای",
+            "probability": 0.938730796178182
+          },
+          {
+            "start": 0.36,
+            "end": 0.52,
+            "word": " اینکه",
+            "probability": 0.8956479281187057
+          },
+          {
+            "start": 0.52,
+            "end": 0.88,
+            "word": " بتونیم",
+            "probability": 0.9922875761985779
+          },
+          {
+            "start": 0.88,
+            "end": 0.96,
+            "word": " این",
+            "probability": 0.9941990375518799
+          },
+          {
+            "start": 0.96,
+            "end": 1.28,
+            "word": " دوتار",
+            "probability": 0.8572268883387247
+          },
+          {
+            "start": 1.28,
+            "end": 1.38,
+            "word": " رو",
+            "probability": 0.769939661026001
+          },
+          {
+            "start": 1.38,
+            "end": 1.92,
+            "word": " محقق",
+            "probability": 0.9966123551130295
+          },
+          {
+            "start": 1.92,
+            "end": 2.62,
+            "word": " بکنیم،",
+            "probability": 0.8362531826520959
+          },
+          {
+            "start": 2.62,
+            "end": 2.92,
+            "word": " کلی",
+            "probability": 0.9944494565327963
+          },
+          {
+            "start": 2.92,
+            "end": 3.34,
+            "word": " درد",
+            "probability": 0.9335489670435587
+          },
+          {
+            "start": 3.34,
+            "end": 3.7,
+            "word": " سر",
+            "probability": 0.9040747284889221
+          },
+          {
+            "start": 3.7,
+            "end": 5.0,
+            "word": " اصلاح",
+            "probability": 0.9873665422201157
+          },
+          {
+            "start": 5.0,
+            "end": 5.66,
+            "word": " الگوهای",
+            "probability": 0.8757780432701111
+          },
+          {
+            "start": 5.66,
+            "end": 6.18,
+            "word": " خرید",
+            "probability": 0.998697022596995
+          },
+          {
+            "start": 6.18,
+            "end": 6.26,
+            "word": " رو",
+            "probability": 0.9525943398475647
+          },
+          {
+            "start": 6.26,
+            "end": 6.76,
+            "word": " داشتیم",
+            "probability": 0.9991153240203857
+          },
+          {
+            "start": 6.76,
+            "end": 7.46,
+            "word": " تصمیم‌گیری",
+            "probability": 0.8093070559100144
+          },
+          {
+            "start": 7.46,
+            "end": 7.74,
+            "word": " های",
+            "probability": 0.7367250521977743
+          },
+          {
+            "start": 7.74,
+            "end": 8.28,
+            "word": " مالی",
+            "probability": 0.9986725052197775
+          },
+          {
+            "start": 8.28,
+            "end": 8.6,
+            "word": " که",
+            "probability": 0.9711805284023285
+          },
+          {
+            "start": 8.6,
+            "end": 8.78,
+            "word": " این",
+            "probability": 0.9931007325649261
+          },
+          {
+            "start": 8.78,
+            "end": 9.24,
+            "word": " نیاز",
+            "probability": 0.9809007048606873
+          }
+        ]
+      }
+    ]
+  }
+}

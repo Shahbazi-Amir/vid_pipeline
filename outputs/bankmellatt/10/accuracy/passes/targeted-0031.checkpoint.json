@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "4964fc8750ddbbbd7771410a0b706d7d04b383b7f2988735265b426b2ab2754a",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 13.94,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 13.92,
+        "text": "به رحای از بدهی می‌پردازن. خب پس این هفته یکی اذ مهم‌ترین موضوعات ثواد مالی رو می‌خواهیم با شما مطرح بکنیم و این که خب چه کار بکونیم؟",
+        "avg_logprob": -0.2086896850512578,
+        "compression_ratio": 1.535031847133758,
+        "no_speech_prob": 3.376262880383507e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.4,
+            "word": " به",
+            "probability": 0.9745600819587708
+          },
+          {
+            "start": 0.4,
+            "end": 1.06,
+            "word": " رحای",
+            "probability": 0.9290606826543808
+          },
+          {
+            "start": 1.06,
+            "end": 1.24,
+            "word": " از",
+            "probability": 0.8890173435211182
+          },
+          {
+            "start": 1.24,
+            "end": 1.74,
+            "word": " بدهی",
+            "probability": 0.9887038071950277
+          },
+          {
+            "start": 1.74,
+            "end": 2.5,
+            "word": " می‌پردازن.",
+            "probability": 0.8068748523281621
+          },
+          {
+            "start": 2.7,
+            "end": 3.46,
+            "word": " خب",
+            "probability": 0.8262670338153839
+          },
+          {
+            "start": 3.46,
+            "end": 4.02,
+            "word": " پس",
+            "probability": 0.8145281970500946
+          },
+          {
+            "start": 4.02,
+            "end": 4.92,
+            "word": " این",
+            "probability": 0.9539406001567841
+          },
+          {
+            "start": 4.92,
+            "end": 5.3,
+            "word": " هفته",
+            "probability": 0.9908194144566854
+          },
+          {
+            "start": 5.3,
+            "end": 5.58,
+            "word": " یکی",
+            "probability": 0.9317725499471029
+          },
+          {
+            "start": 5.58,
+            "end": 5.72,
+            "word": " اذ",
+            "probability": 0.4950766517595184
+          },
+          {
+            "start": 5.72,
+            "end": 6.36,
+            "word": " مهم‌ترین",
+            "probability": 0.8942297200361887
+          },
+          {
+            "start": 6.36,
+            "end": 7.0,
+            "word": " موضوعات",
+            "probability": 0.9957052111625672
+          },
+          {
+            "start": 7.0,
+            "end": 8.06,
+            "word": " ثواد",
+            "probability": 0.8549243410428365
+          },
+          {
+            "start": 8.06,
+            "end": 8.46,
+            "word": " مالی",
+            "probability": 0.9679942727088928
+          },
+          {
+            "start": 8.46,
+            "end": 8.54,
+            "word": " رو",
+            "probability": 0.749484121799469
+          },
+          {
+            "start": 8.54,
+            "end": 9.1,
+            "word": " می‌خواهیم",
+            "probability": 0.9173590881483895
+          },
+          {
+            "start": 9.1,
+            "end": 9.88,
+            "word": " با",
+            "probability": 0.9802438914775848
+          },
+          {
+            "start": 9.88,
+            "end": 10.1,
+            "word": " شما",
+            "probability": 0.9960716366767883
+          },
+          {
+            "start": 10.1,
+            "end": 10.68,
+            "word": " مطرح",
+            "probability": 0.9623154848814011
+          },
+          {
+            "start": 10.68,
+            "end": 11.46,
+            "word": " بکنیم",
+            "probability": 0.9671658515930176
+          },
+          {
+            "start": 11.46,
+            "end": 12.32,
+            "word": " و",
+            "probability": 0.8676025867462158
+          },
+          {
+            "start": 12.32,
+            "end": 12.62,
+            "word": " این",
+            "probability": 0.9651980996131897
+          },
+          {
+            "start": 12.62,
+            "end": 12.9,
+            "word": " که",
+            "probability": 0.7784901857376099
+          },
+          {
+            "start": 12.9,
+            "end": 13.18,
+            "word": " خب",
+            "probability": 0.8411854803562164
+          },
+          {
+            "start": 13.18,
+            "end": 13.4,
+            "word": " چه",
+            "probability": 0.9425123929977417
+          },
+          {
+            "start": 13.4,
+            "end": 13.56,
+            "word": " کار",
+            "probability": 0.9087989330291748
+          },
+          {
+            "start": 13.56,
+            "end": 13.92,
+            "word": " بکونیم؟",
+            "probability": 0.6609826046624221
+          }
+        ]
+      }
+    ]
+  }
+}

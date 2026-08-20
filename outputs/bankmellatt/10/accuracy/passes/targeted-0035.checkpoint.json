@@ -1,0 +1,278 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "9e7bb3423063d1f2267a508507704740d6450640af9c159ebf9a0742be0e587e",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 16.26,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 15.78,
+        "text": "پاسخ اول یه سواد مالی اینه که سبر کنیم، سبر به معنای ایک نه اینکه زج رو بکشیم بگیم که آخ چرا ندارم، حالا پول رو چی کار بکنم، این کالا رو می‌خوام و ندرم. سبر رو به این معنا که",
+        "avg_logprob": -0.21351289641749752,
+        "compression_ratio": 1.844311377245509,
+        "no_speech_prob": 2.728296755183379e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.28,
+            "word": " پاسخ",
+            "probability": 0.7069719433784485
+          },
+          {
+            "start": 0.28,
+            "end": 0.6,
+            "word": " اول",
+            "probability": 0.9463799297809601
+          },
+          {
+            "start": 0.6,
+            "end": 0.8,
+            "word": " یه",
+            "probability": 0.6014170348644257
+          },
+          {
+            "start": 0.8,
+            "end": 1.18,
+            "word": " سواد",
+            "probability": 0.856384793917338
+          },
+          {
+            "start": 1.18,
+            "end": 1.48,
+            "word": " مالی",
+            "probability": 0.9123867551485697
+          },
+          {
+            "start": 1.48,
+            "end": 1.58,
+            "word": " اینه",
+            "probability": 0.8823810418446859
+          },
+          {
+            "start": 1.58,
+            "end": 1.72,
+            "word": " که",
+            "probability": 0.993684321641922
+          },
+          {
+            "start": 1.72,
+            "end": 2.06,
+            "word": " سبر",
+            "probability": 0.9399836361408234
+          },
+          {
+            "start": 2.06,
+            "end": 2.62,
+            "word": " کنیم،",
+            "probability": 0.7980201743543148
+          },
+          {
+            "start": 2.62,
+            "end": 3.48,
+            "word": " سبر",
+            "probability": 0.9783098101615906
+          },
+          {
+            "start": 3.48,
+            "end": 3.62,
+            "word": " به",
+            "probability": 0.5752611756324768
+          },
+          {
+            "start": 3.62,
+            "end": 4.26,
+            "word": " معنای",
+            "probability": 0.7891391317049662
+          },
+          {
+            "start": 4.26,
+            "end": 4.6,
+            "word": " ایک",
+            "probability": 0.4754290509154089
+          },
+          {
+            "start": 4.6,
+            "end": 5.66,
+            "word": " نه",
+            "probability": 0.7600916028022766
+          },
+          {
+            "start": 5.66,
+            "end": 5.96,
+            "word": " اینکه",
+            "probability": 0.9376238882541656
+          },
+          {
+            "start": 5.96,
+            "end": 6.42,
+            "word": " زج",
+            "probability": 0.6877067983150482
+          },
+          {
+            "start": 6.42,
+            "end": 6.58,
+            "word": " رو",
+            "probability": 0.8768033087253571
+          },
+          {
+            "start": 6.58,
+            "end": 7.3,
+            "word": " بکشیم",
+            "probability": 0.9631157755851746
+          },
+          {
+            "start": 7.3,
+            "end": 7.72,
+            "word": " بگیم",
+            "probability": 0.8245971873402596
+          },
+          {
+            "start": 7.72,
+            "end": 7.96,
+            "word": " که",
+            "probability": 0.8488848507404327
+          },
+          {
+            "start": 7.96,
+            "end": 8.22,
+            "word": " آخ",
+            "probability": 0.8131846785545349
+          },
+          {
+            "start": 8.22,
+            "end": 8.58,
+            "word": " چرا",
+            "probability": 0.9689035713672638
+          },
+          {
+            "start": 8.58,
+            "end": 9.5,
+            "word": " ندارم،",
+            "probability": 0.8890739798545837
+          },
+          {
+            "start": 9.5,
+            "end": 9.72,
+            "word": " حالا",
+            "probability": 0.9649097124735514
+          },
+          {
+            "start": 9.72,
+            "end": 10.02,
+            "word": " پول",
+            "probability": 0.9884928166866302
+          },
+          {
+            "start": 10.02,
+            "end": 10.1,
+            "word": " رو",
+            "probability": 0.7117389738559723
+          },
+          {
+            "start": 10.1,
+            "end": 10.3,
+            "word": " چی",
+            "probability": 0.8761871457099915
+          },
+          {
+            "start": 10.3,
+            "end": 10.5,
+            "word": " کار",
+            "probability": 0.9939159750938416
+          },
+          {
+            "start": 10.5,
+            "end": 11.18,
+            "word": " بکنم،",
+            "probability": 0.9440660595893859
+          },
+          {
+            "start": 11.18,
+            "end": 11.26,
+            "word": " این",
+            "probability": 0.9865043461322784
+          },
+          {
+            "start": 11.26,
+            "end": 11.64,
+            "word": " کالا",
+            "probability": 0.8678436279296875
+          },
+          {
+            "start": 11.64,
+            "end": 11.78,
+            "word": " رو",
+            "probability": 0.987053394317627
+          },
+          {
+            "start": 11.78,
+            "end": 12.46,
+            "word": " می‌خوام",
+            "probability": 0.7901451319456101
+          },
+          {
+            "start": 12.46,
+            "end": 12.98,
+            "word": " و",
+            "probability": 0.8820578455924988
+          },
+          {
+            "start": 12.98,
+            "end": 13.76,
+            "word": " ندرم.",
+            "probability": 0.7354407119146344
+          },
+          {
+            "start": 13.94,
+            "end": 14.5,
+            "word": " سبر",
+            "probability": 0.9883444905281067
+          },
+          {
+            "start": 14.5,
+            "end": 14.6,
+            "word": " رو",
+            "probability": 0.49946787115186453
+          },
+          {
+            "start": 14.6,
+            "end": 14.68,
+            "word": " به",
+            "probability": 0.9945429563522339
+          },
+          {
+            "start": 14.68,
+            "end": 14.78,
+            "word": " این",
+            "probability": 0.9840870797634125
+          },
+          {
+            "start": 14.78,
+            "end": 15.2,
+            "word": " معنا",
+            "probability": 0.9787003099918365
+          },
+          {
+            "start": 15.2,
+            "end": 15.78,
+            "word": " که",
+            "probability": 0.7360715866088867
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "e8605e2adffc69071a4bcc6a65989e2e7f413c9b601ae87c178dd00bf1bb1c78",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.02,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.0,
+        "text": "راه مستقیم‌ترین راهه، پس ما به سادگی می‌تونستیم مستقترین و کوتاه‌تری راه انتخاب کنیم، اما اینکارو نمی‌کردیم چون اگه این کارو می‌کنید،",
+        "avg_logprob": -0.3029085946886727,
+        "compression_ratio": 1.7730496453900708,
+        "no_speech_prob": 3.058660269505964e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.22,
+            "word": " راه",
+            "probability": 0.5613738745450974
+          },
+          {
+            "start": 0.22,
+            "end": 1.98,
+            "word": " مستقیم‌ترین",
+            "probability": 0.8712838284360865
+          },
+          {
+            "start": 1.98,
+            "end": 2.68,
+            "word": " راهه،",
+            "probability": 0.6646659383550286
+          },
+          {
+            "start": 2.68,
+            "end": 3.8,
+            "word": " پس",
+            "probability": 0.9785427451133728
+          },
+          {
+            "start": 3.8,
+            "end": 3.92,
+            "word": " ما",
+            "probability": 0.9773997664451599
+          },
+          {
+            "start": 3.92,
+            "end": 4.04,
+            "word": " به",
+            "probability": 0.995258629322052
+          },
+          {
+            "start": 4.04,
+            "end": 4.62,
+            "word": " سادگی",
+            "probability": 0.9412225186824799
+          },
+          {
+            "start": 4.62,
+            "end": 5.22,
+            "word": " می‌تونستیم",
+            "probability": 0.9398023400987897
+          },
+          {
+            "start": 5.22,
+            "end": 6.14,
+            "word": " مستقترین",
+            "probability": 0.7172641029945226
+          },
+          {
+            "start": 6.14,
+            "end": 6.32,
+            "word": " و",
+            "probability": 0.035651493817567825
+          },
+          {
+            "start": 6.32,
+            "end": 7.36,
+            "word": " کوتاه‌تری",
+            "probability": 0.6970153102107967
+          },
+          {
+            "start": 7.36,
+            "end": 7.58,
+            "word": " راه",
+            "probability": 0.9069987237453461
+          },
+          {
+            "start": 7.58,
+            "end": 8.08,
+            "word": " انتخاب",
+            "probability": 0.9396623075008392
+          },
+          {
+            "start": 8.08,
+            "end": 9.04,
+            "word": " کنیم،",
+            "probability": 0.8024023652076722
+          },
+          {
+            "start": 9.04,
+            "end": 9.24,
+            "word": " اما",
+            "probability": 0.8261463642120361
+          },
+          {
+            "start": 9.24,
+            "end": 9.58,
+            "word": " اینکارو",
+            "probability": 0.7281117498874664
+          },
+          {
+            "start": 9.58,
+            "end": 10.32,
+            "word": " نمی‌کردیم",
+            "probability": 0.9008947677082486
+          },
+          {
+            "start": 10.32,
+            "end": 10.5,
+            "word": " چون",
+            "probability": 0.7522186636924744
+          },
+          {
+            "start": 10.5,
+            "end": 10.72,
+            "word": " اگه",
+            "probability": 0.896216869354248
+          },
+          {
+            "start": 10.72,
+            "end": 10.8,
+            "word": " این",
+            "probability": 0.9239678382873535
+          },
+          {
+            "start": 10.8,
+            "end": 11.0,
+            "word": " کارو",
+            "probability": 0.49834587921698886
+          },
+          {
+            "start": 11.0,
+            "end": 11.0,
+            "word": " می‌کنید،",
+            "probability": 0.5191434557948794
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "7f1ae583c9526b284e766f8d05954e95f99f4dd8154a458423adba9b88691b64",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 14.62,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 14.6,
+        "text": "بهش میده که از بدهی رهابشن. بویزه اینکه در جامعه بین المللی کارت‌های اعتباری که همون یه جوری بدهکار شده، نه خیلی مرسومه، بنابراین اونجا خیله جدی تر.",
+        "avg_logprob": -0.2758527746294985,
+        "compression_ratio": 1.6441717791411044,
+        "no_speech_prob": 3.047132546285525e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.16,
+            "word": " بهش",
+            "probability": 0.3613106068223715
+          },
+          {
+            "start": 0.16,
+            "end": 0.5,
+            "word": " میده",
+            "probability": 0.9467990398406982
+          },
+          {
+            "start": 0.5,
+            "end": 1.3,
+            "word": " که",
+            "probability": 0.9536160826683044
+          },
+          {
+            "start": 1.3,
+            "end": 1.54,
+            "word": " از",
+            "probability": 0.992419958114624
+          },
+          {
+            "start": 1.54,
+            "end": 1.92,
+            "word": " بدهی",
+            "probability": 0.9772831598917643
+          },
+          {
+            "start": 1.92,
+            "end": 2.5,
+            "word": " رهابشن.",
+            "probability": 0.6989570796489716
+          },
+          {
+            "start": 2.58,
+            "end": 2.92,
+            "word": " بویزه",
+            "probability": 0.8294834017753601
+          },
+          {
+            "start": 2.92,
+            "end": 3.2,
+            "word": " اینکه",
+            "probability": 0.8214406967163086
+          },
+          {
+            "start": 3.2,
+            "end": 4.92,
+            "word": " در",
+            "probability": 0.9935266077518463
+          },
+          {
+            "start": 4.92,
+            "end": 5.46,
+            "word": " جامعه",
+            "probability": 0.9010097682476044
+          },
+          {
+            "start": 5.46,
+            "end": 5.78,
+            "word": " بین",
+            "probability": 0.9655435681343079
+          },
+          {
+            "start": 5.78,
+            "end": 6.46,
+            "word": " المللی",
+            "probability": 0.9369872063398361
+          },
+          {
+            "start": 6.46,
+            "end": 7.5,
+            "word": " کارت‌های",
+            "probability": 0.8224377175793052
+          },
+          {
+            "start": 7.5,
+            "end": 8.46,
+            "word": " اعتباری",
+            "probability": 0.9941199541091919
+          },
+          {
+            "start": 8.46,
+            "end": 8.74,
+            "word": " که",
+            "probability": 0.9708029627799988
+          },
+          {
+            "start": 8.74,
+            "end": 9.1,
+            "word": " همون",
+            "probability": 0.9846639434496561
+          },
+          {
+            "start": 9.1,
+            "end": 9.32,
+            "word": " یه",
+            "probability": 0.8760679960250854
+          },
+          {
+            "start": 9.32,
+            "end": 9.6,
+            "word": " جوری",
+            "probability": 0.9582959612210592
+          },
+          {
+            "start": 9.6,
+            "end": 10.68,
+            "word": " بدهکار",
+            "probability": 0.8996813893318176
+          },
+          {
+            "start": 10.68,
+            "end": 10.98,
+            "word": " شده،",
+            "probability": 0.644740391522646
+          },
+          {
+            "start": 10.98,
+            "end": 11.06,
+            "word": " نه",
+            "probability": 0.6912317723035812
+          },
+          {
+            "start": 11.06,
+            "end": 11.28,
+            "word": " خیلی",
+            "probability": 0.9845251888036728
+          },
+          {
+            "start": 11.28,
+            "end": 12.34,
+            "word": " مرسومه،",
+            "probability": 0.7958904604117075
+          },
+          {
+            "start": 12.34,
+            "end": 13.12,
+            "word": " بنابراین",
+            "probability": 0.8892314076423645
+          },
+          {
+            "start": 13.12,
+            "end": 13.52,
+            "word": " اونجا",
+            "probability": 0.9426272362470627
+          },
+          {
+            "start": 13.52,
+            "end": 13.84,
+            "word": " خیله",
+            "probability": 0.6603829746018164
+          },
+          {
+            "start": 13.84,
+            "end": 14.38,
+            "word": " جدی",
+            "probability": 0.9830361803372701
+          },
+          {
+            "start": 14.38,
+            "end": 14.6,
+            "word": " تر.",
+            "probability": 0.37346020340919495
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,7 +1,7 @@
 # Output Status
 
 - Finalized: **49**
-- Review-ready: **3**
+- Review-ready: **1**
 
 ## Finalized
 - `bankmellatt/1`
@@ -55,6 +55,4 @@
 - `voice-260817-165035/01`
 
 ## Review-ready
-- `bankmellatt/10`
 - `bankmellatt/8`
-- `bankmellatt/9`

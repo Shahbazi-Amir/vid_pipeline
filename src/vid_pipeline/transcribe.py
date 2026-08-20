@@ -11,13 +11,14 @@ from typing import Any
 
 from vid_pipeline.asr_model import resolve_asr_model
 from vid_pipeline.errors import ExternalToolError
+from vid_pipeline.profiles import PROJECT_ASR_MODEL
 
 DEFAULT_INITIAL_PROMPT = ""
 
 
 @dataclass(slots=True)
 class TranscriptionConfig:
-    model: str = "small"
+    model: str = PROJECT_ASR_MODEL
     device: str = "auto"
     compute_type: str = "auto"
     language: str = "fa"

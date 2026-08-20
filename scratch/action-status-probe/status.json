@@ -1,0 +1,80 @@
+{
+  "bank8_balanced": {
+    "returncode": 0,
+    "stdout": [
+      {
+        "conclusion": "",
+        "createdAt": "2026-08-20T07:31:47Z",
+        "databaseId": 32344432738,
+        "event": "push",
+        "headSha": "9b06d43aa8d4718f0f8cd62507df57f7e4e5b75c",
+        "name": "Bank Mellat 8 M4A ASR 32344432738",
+        "status": "in_progress",
+        "updatedAt": "2026-08-20T07:31:51Z",
+        "url": "https://github.com/Shahbazi-Amir/vid_pipeline/actions/runs/32344432738",
+        "workflowName": "Bank Mellat 8 final fast lane"
+      }
+    ],
+    "stderr": ""
+  },
+  "bank8_fast": {
+    "returncode": 0,
+    "stdout": [
+      {
+        "conclusion": "failure",
+        "createdAt": "2026-08-20T07:39:32Z",
+        "databaseId": 32345017126,
+        "event": "push",
+        "headSha": "550fba498511db83b66b916dffdae55c044a3e4e",
+        "name": "Bank Mellat 8 fast ASR 32345017126",
+        "status": "completed",
+        "updatedAt": "2026-08-20T07:42:05Z",
+        "url": "https://github.com/Shahbazi-Amir/vid_pipeline/actions/runs/32345017126",
+        "workflowName": "Bank Mellat 8 fallback fast"
+      }
+    ],
+    "stderr": ""
+  },
+  "finalfile_commit": {
+    "returncode": 0,
+    "stdout": [
+      {
+        "conclusion": "failure",
+        "createdAt": "2026-08-20T07:27:01Z",
+        "databaseId": 32344059875,
+        "event": "schedule",
+        "headSha": "6f3e8241cafe1743d884903d9963bf45f083b3ed",
+        "name": "Media backlog parallel 32344059875",
+        "status": "completed",
+        "updatedAt": "2026-08-20T07:27:53Z",
+        "url": "https://github.com/Shahbazi-Amir/vid_pipeline/actions/runs/32344059875",
+        "workflowName": "Media backlog parallel"
+      },
+      {
+        "conclusion": "success",
+        "createdAt": "2026-08-20T07:27:00Z",
+        "databaseId": 32344058297,
+        "event": "schedule",
+        "headSha": "6f3e8241cafe1743d884903d9963bf45f083b3ed",
+        "name": "Chehelstoun review package parallel 32344058297",
+        "status": "completed",
+        "updatedAt": "2026-08-20T07:27:21Z",
+        "url": "https://github.com/Shahbazi-Amir/vid_pipeline/actions/runs/32344058297",
+        "workflowName": "Chehelstoun review package parallel"
+      },
+      {
+        "conclusion": "failure",
+        "createdAt": "2026-08-20T07:20:31Z",
+        "databaseId": 32343554644,
+        "event": "push",
+        "headSha": "6f3e8241cafe1743d884903d9963bf45f083b3ed",
+        "name": "CI",
+        "status": "completed",
+        "updatedAt": "2026-08-20T07:23:40Z",
+        "url": "https://github.com/Shahbazi-Amir/vid_pipeline/actions/runs/32343554644",
+        "workflowName": "CI"
+      }
+    ],
+    "stderr": ""
+  }
+}

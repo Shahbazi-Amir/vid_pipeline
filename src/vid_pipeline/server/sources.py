@@ -15,7 +15,7 @@ from typing import Any, Callable
 
 from vid_pipeline.download import download_video
 from vid_pipeline.server.repository import Repository
-from vid_pipeline.server.storage import LocalArtifactStore
+from vid_pipeline.server.storage import ObjectStore
 
 REPOSITORY_RE = re.compile(r"^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$")
 BLOCKED_HOSTS = {"localhost", "metadata.google.internal", "metadata", "host.docker.internal"}
@@ -114,7 +114,7 @@ class SourceMaterializer:
     def __init__(
         self,
         repository: Repository,
-        storage: LocalArtifactStore,
+        storage: ObjectStore,
         *,
         opener: Callable[..., Any] = urllib.request.urlopen,
         url_downloader: Callable[..., Any] = download_video,
@@ -134,9 +134,14 @@ class SourceMaterializer:
             upload = self.repository.upload(str(source.get("upload_id") or ""))
             if not upload or upload.get("status") != "uploaded":
                 raise ValueError("uploaded input is unavailable")
-            path = self.storage.path(str(upload["object_key"]))
+            destination = work / "source" / "upload" / Path(str(upload["file_name"])).name
+            path = self.storage.materialize(str(upload["object_key"]), destination)
             if not path.is_file():
                 raise ValueError("uploaded input object is unavailable")
+            if int(upload.get("file_size") or 0) and path.stat().st_size != int(upload["file_size"]):
+                raise ValueError("materialized uploaded input size mismatch")
+            if str(upload.get("sha256") or "") and _sha256(path) != str(upload["sha256"]):
+                raise ValueError("materialized uploaded input SHA-256 mismatch")
             self._stamp(job, source_type, path, {"upload_id": upload["upload_id"]})
             return path
         if source_type == "url":

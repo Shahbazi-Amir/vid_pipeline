@@ -4,9 +4,27 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/ocean-aram-probe.yml'
+permissions:
+  contents: write
 jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: echo 'Ocean Aram source probe'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install yt-dlp
+        run: python -m pip install -U yt-dlp
+      - name: Probe source
+        run: |
+          yt-dlp --skip-download --print '%(duration)s %(title)s' 'https://www.youtube.com/watch?v=Ea7TcCvI628' > ocean-aram-probe.txt
+          cat ocean-aram-probe.txt
+      - name: Save probe
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add ocean-aram-probe.txt
+          git commit -m 'Record Ocean Aram source metadata'
+          git pull --rebase origin main
+          git push origin HEAD:main

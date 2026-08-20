@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "ea6344dc33d83de4984976bd08ee6dab0b4a9196a82095e7ccfbf5d67b109509",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.34,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.32,
+        "text": "رو وجود نداره، باید محل پرداخت رو بدونیم، بدونین چقدر از درامد آیندمون رو داریم استفاده می‌کنیم. مثلا من می‌دونم از حقوقم این",
+        "avg_logprob": -0.2006118357181549,
+        "compression_ratio": 1.5793103448275863,
+        "no_speech_prob": 2.2622033413188802e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.14,
+            "word": " رو",
+            "probability": 0.44757695379666984
+          },
+          {
+            "start": 0.14,
+            "end": 0.4,
+            "word": " وجود",
+            "probability": 0.963728278875351
+          },
+          {
+            "start": 0.4,
+            "end": 0.86,
+            "word": " نداره،",
+            "probability": 0.8116511553525925
+          },
+          {
+            "start": 0.86,
+            "end": 1.04,
+            "word": " باید",
+            "probability": 0.99717678129673
+          },
+          {
+            "start": 1.04,
+            "end": 1.42,
+            "word": " محل",
+            "probability": 0.9965075254440308
+          },
+          {
+            "start": 1.42,
+            "end": 2.08,
+            "word": " پرداخت",
+            "probability": 0.9954334616661071
+          },
+          {
+            "start": 2.08,
+            "end": 2.14,
+            "word": " رو",
+            "probability": 0.9141382277011871
+          },
+          {
+            "start": 2.14,
+            "end": 2.56,
+            "word": " بدونیم،",
+            "probability": 0.8390887141227722
+          },
+          {
+            "start": 2.56,
+            "end": 2.9,
+            "word": " بدونین",
+            "probability": 0.6536464761787405
+          },
+          {
+            "start": 2.9,
+            "end": 3.54,
+            "word": " چقدر",
+            "probability": 0.9824722607930502
+          },
+          {
+            "start": 3.54,
+            "end": 3.62,
+            "word": " از",
+            "probability": 0.8287178575992584
+          },
+          {
+            "start": 3.62,
+            "end": 4.16,
+            "word": " درامد",
+            "probability": 0.9370971918106079
+          },
+          {
+            "start": 4.16,
+            "end": 4.94,
+            "word": " آیندمون",
+            "probability": 0.8779214918613434
+          },
+          {
+            "start": 4.94,
+            "end": 5.5,
+            "word": " رو",
+            "probability": 0.9955716729164124
+          },
+          {
+            "start": 5.5,
+            "end": 5.94,
+            "word": " داریم",
+            "probability": 0.9872888624668121
+          },
+          {
+            "start": 5.94,
+            "end": 6.48,
+            "word": " استفاده",
+            "probability": 0.9976751357316971
+          },
+          {
+            "start": 6.48,
+            "end": 6.86,
+            "word": " می‌کنیم.",
+            "probability": 0.7371762245893478
+          },
+          {
+            "start": 6.94,
+            "end": 7.22,
+            "word": " مثلا",
+            "probability": 0.9865959286689758
+          },
+          {
+            "start": 7.22,
+            "end": 7.48,
+            "word": " من",
+            "probability": 0.6831969618797302
+          },
+          {
+            "start": 7.48,
+            "end": 8.04,
+            "word": " می‌دونم",
+            "probability": 0.9804144263267517
+          },
+          {
+            "start": 8.04,
+            "end": 8.62,
+            "word": " از",
+            "probability": 0.8895360827445984
+          },
+          {
+            "start": 8.62,
+            "end": 9.12,
+            "word": " حقوقم",
+            "probability": 0.914916604757309
+          },
+          {
+            "start": 9.12,
+            "end": 9.32,
+            "word": " این",
+            "probability": 0.8047542572021484
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "8c0f5b62d285e1c062bd42454e4ca1ec588e3573d00df9b2b8e5d3aebca2d65c",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.28,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.26,
+        "text": "قرض خوب هم داریم، همه‌ی قرضها بد نیست. پس یک قرض بد دارم، یک ارز خوب بریم، اما در همین موارد باید قوام",
+        "avg_logprob": -0.33496964778473126,
+        "compression_ratio": 1.5166666666666666,
+        "no_speech_prob": 4.982765311467574e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.26,
+            "word": " قرض",
+            "probability": 0.43550749123096466
+          },
+          {
+            "start": 0.26,
+            "end": 0.6,
+            "word": " خوب",
+            "probability": 0.9890710711479187
+          },
+          {
+            "start": 0.6,
+            "end": 0.74,
+            "word": " هم",
+            "probability": 0.9523959457874298
+          },
+          {
+            "start": 0.74,
+            "end": 1.1,
+            "word": " داریم،",
+            "probability": 0.7966789208352566
+          },
+          {
+            "start": 1.1,
+            "end": 1.34,
+            "word": " همه‌ی",
+            "probability": 0.7727448317222297
+          },
+          {
+            "start": 1.34,
+            "end": 1.78,
+            "word": " قرضها",
+            "probability": 0.7410120666027069
+          },
+          {
+            "start": 1.78,
+            "end": 2.16,
+            "word": " بد",
+            "probability": 0.944304883480072
+          },
+          {
+            "start": 2.16,
+            "end": 2.5,
+            "word": " نیست.",
+            "probability": 0.9932938019434611
+          },
+          {
+            "start": 2.84,
+            "end": 3.42,
+            "word": " پس",
+            "probability": 0.9847127497196198
+          },
+          {
+            "start": 3.42,
+            "end": 3.58,
+            "word": " یک",
+            "probability": 0.6337735056877136
+          },
+          {
+            "start": 3.58,
+            "end": 3.86,
+            "word": " قرض",
+            "probability": 0.9956888258457184
+          },
+          {
+            "start": 3.86,
+            "end": 4.2,
+            "word": " بد",
+            "probability": 0.8909423351287842
+          },
+          {
+            "start": 4.2,
+            "end": 4.62,
+            "word": " دارم،",
+            "probability": 0.5850510615273379
+          },
+          {
+            "start": 4.62,
+            "end": 4.74,
+            "word": " یک",
+            "probability": 0.9713695347309113
+          },
+          {
+            "start": 4.74,
+            "end": 5.0,
+            "word": " ارز",
+            "probability": 0.38925375378069776
+          },
+          {
+            "start": 5.0,
+            "end": 5.32,
+            "word": " خوب",
+            "probability": 0.9741126596927643
+          },
+          {
+            "start": 5.32,
+            "end": 5.88,
+            "word": " بریم،",
+            "probability": 0.5037693902850151
+          },
+          {
+            "start": 5.88,
+            "end": 6.36,
+            "word": " اما",
+            "probability": 0.9896085262298584
+          },
+          {
+            "start": 6.36,
+            "end": 6.64,
+            "word": " در",
+            "probability": 0.9958566427230835
+          },
+          {
+            "start": 6.64,
+            "end": 7.02,
+            "word": " همین",
+            "probability": 0.6646796954252446
+          },
+          {
+            "start": 7.02,
+            "end": 7.58,
+            "word": " موارد",
+            "probability": 0.8098168075084686
+          },
+          {
+            "start": 7.58,
+            "end": 7.86,
+            "word": " باید",
+            "probability": 0.9732730537652969
+          },
+          {
+            "start": 7.86,
+            "end": 8.26,
+            "word": " قوام",
+            "probability": 0.7053260703881582
+          }
+        ]
+      }
+    ]
+  }
+}

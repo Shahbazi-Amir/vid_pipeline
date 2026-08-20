@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "d6a75231da7e8515f660bf1c784d95a63b3e63a5c43b828487afa81616cc7a4e",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.96,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.94,
+        "text": "پرداخت هر ماه هم چقدره؟ اینو باید دقیق تعییم بکنم. حالا یه شرایطی به وجود میاد که تعیین کرده",
+        "avg_logprob": -0.14904078072117222,
+        "compression_ratio": 1.3636363636363635,
+        "no_speech_prob": 2.6964872001933315e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.96,
+            "word": " پرداخت",
+            "probability": 0.7821783989667892
+          },
+          {
+            "start": 0.96,
+            "end": 1.38,
+            "word": " هر",
+            "probability": 0.9880823194980621
+          },
+          {
+            "start": 1.38,
+            "end": 1.66,
+            "word": " ماه",
+            "probability": 0.967253565788269
+          },
+          {
+            "start": 1.66,
+            "end": 1.82,
+            "word": " هم",
+            "probability": 0.99891796708107
+          },
+          {
+            "start": 1.82,
+            "end": 2.7,
+            "word": " چقدره؟",
+            "probability": 0.9061113238334656
+          },
+          {
+            "start": 2.7,
+            "end": 3.18,
+            "word": " اینو",
+            "probability": 0.9667072097460429
+          },
+          {
+            "start": 3.18,
+            "end": 3.38,
+            "word": " باید",
+            "probability": 0.9984422028064728
+          },
+          {
+            "start": 3.38,
+            "end": 3.8,
+            "word": " دقیق",
+            "probability": 0.999306321144104
+          },
+          {
+            "start": 3.8,
+            "end": 4.12,
+            "word": " تعییم",
+            "probability": 0.7942897528409958
+          },
+          {
+            "start": 4.12,
+            "end": 4.46,
+            "word": " بکنم.",
+            "probability": 0.9960718750953674
+          },
+          {
+            "start": 4.56,
+            "end": 4.66,
+            "word": " حالا",
+            "probability": 0.994033674399058
+          },
+          {
+            "start": 4.66,
+            "end": 4.84,
+            "word": " یه",
+            "probability": 0.9838111400604248
+          },
+          {
+            "start": 4.84,
+            "end": 5.34,
+            "word": " شرایطی",
+            "probability": 0.991478168964386
+          },
+          {
+            "start": 5.34,
+            "end": 5.44,
+            "word": " به",
+            "probability": 0.9897899031639099
+          },
+          {
+            "start": 5.44,
+            "end": 5.78,
+            "word": " وجود",
+            "probability": 0.9991109073162079
+          },
+          {
+            "start": 5.78,
+            "end": 6.0,
+            "word": " میاد",
+            "probability": 0.9814030528068542
+          },
+          {
+            "start": 6.0,
+            "end": 6.22,
+            "word": " که",
+            "probability": 0.9926006197929382
+          },
+          {
+            "start": 6.22,
+            "end": 6.68,
+            "word": " تعیین",
+            "probability": 0.6876439452171326
+          },
+          {
+            "start": 6.68,
+            "end": 6.94,
+            "word": " کرده",
+            "probability": 0.9585289160410563
+          }
+        ]
+      }
+    ]
+  }
+}

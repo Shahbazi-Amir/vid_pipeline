@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "fbb2b69432963e27a7ea31bc7e0b21e42f5db91d962f3cbfd644e6ca0c7712f6",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.6,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.18,
+        "text": "شاخص می‌تونیم برای این در نظر بگیریم. اولیش اینه که محل پرداخته این بدهی کجاست؟ یعنی قبل از اینکه بدهکار بشیم",
+        "avg_logprob": -0.13164829095204672,
+        "compression_ratio": 1.4244604316546763,
+        "no_speech_prob": 3.1810534761866904e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 1.0,
+            "word": " شاخص",
+            "probability": 0.9415710171063741
+          },
+          {
+            "start": 1.0,
+            "end": 1.38,
+            "word": " می‌تونیم",
+            "probability": 0.8180981846526265
+          },
+          {
+            "start": 1.38,
+            "end": 1.64,
+            "word": " برای",
+            "probability": 0.9713154435157776
+          },
+          {
+            "start": 1.64,
+            "end": 1.68,
+            "word": " این",
+            "probability": 0.9911915361881256
+          },
+          {
+            "start": 1.68,
+            "end": 1.86,
+            "word": " در",
+            "probability": 0.9894982576370239
+          },
+          {
+            "start": 1.86,
+            "end": 2.2,
+            "word": " نظر",
+            "probability": 0.9746981064478556
+          },
+          {
+            "start": 2.2,
+            "end": 2.52,
+            "word": " بگیریم.",
+            "probability": 0.9276226401329041
+          },
+          {
+            "start": 2.62,
+            "end": 3.16,
+            "word": " اولیش",
+            "probability": 0.9409374445676804
+          },
+          {
+            "start": 3.16,
+            "end": 3.34,
+            "word": " اینه",
+            "probability": 0.9280159076054891
+          },
+          {
+            "start": 3.34,
+            "end": 3.86,
+            "word": " که",
+            "probability": 0.9856362044811249
+          },
+          {
+            "start": 3.86,
+            "end": 4.5,
+            "word": " محل",
+            "probability": 0.9741822083791097
+          },
+          {
+            "start": 4.5,
+            "end": 5.2,
+            "word": " پرداخته",
+            "probability": 0.9265562891960144
+          },
+          {
+            "start": 5.2,
+            "end": 5.3,
+            "word": " این",
+            "probability": 0.9383800029754639
+          },
+          {
+            "start": 5.3,
+            "end": 5.64,
+            "word": " بدهی",
+            "probability": 0.8067615926265717
+          },
+          {
+            "start": 5.64,
+            "end": 6.18,
+            "word": " کجاست؟",
+            "probability": 0.8153225362300873
+          },
+          {
+            "start": 6.18,
+            "end": 6.32,
+            "word": " یعنی",
+            "probability": 0.9586321115493774
+          },
+          {
+            "start": 6.32,
+            "end": 6.7,
+            "word": " قبل",
+            "probability": 0.99088916182518
+          },
+          {
+            "start": 6.7,
+            "end": 6.9,
+            "word": " از",
+            "probability": 0.9940513670444489
+          },
+          {
+            "start": 6.9,
+            "end": 7.14,
+            "word": " اینکه",
+            "probability": 0.9079599231481552
+          },
+          {
+            "start": 7.14,
+            "end": 7.7,
+            "word": " بدهکار",
+            "probability": 0.9170523285865784
+          },
+          {
+            "start": 7.7,
+            "end": 8.18,
+            "word": " بشیم",
+            "probability": 0.9707826524972916
+          }
+        ]
+      }
+    ]
+  }
+}

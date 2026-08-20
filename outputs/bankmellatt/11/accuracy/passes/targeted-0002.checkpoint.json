@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "47600b147e167033d4179262aebbcbde07c1a4f6b396b9d2e74d8de777ac3027",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.66,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.6,
+        "text": "و یک ورزشکار حرفی در چیه؟ یک برزاشکار هرفی وزن برداری که صد کیلو و بالا سرش می‌بره. من هم می‌تونم برای",
+        "avg_logprob": -0.2050927428231723,
+        "compression_ratio": 1.4603174603174602,
+        "no_speech_prob": 2.5267937742157187e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.34,
+            "word": " و",
+            "probability": 0.9954558610916138
+          },
+          {
+            "start": 0.34,
+            "end": 0.54,
+            "word": " یک",
+            "probability": 0.9940069913864136
+          },
+          {
+            "start": 0.54,
+            "end": 1.24,
+            "word": " ورزشکار",
+            "probability": 0.9651939670244852
+          },
+          {
+            "start": 1.24,
+            "end": 1.66,
+            "word": " حرفی",
+            "probability": 0.7914832234382629
+          },
+          {
+            "start": 1.66,
+            "end": 1.96,
+            "word": " در",
+            "probability": 0.9249085187911987
+          },
+          {
+            "start": 1.96,
+            "end": 2.54,
+            "word": " چیه؟",
+            "probability": 0.9885599762201309
+          },
+          {
+            "start": 2.54,
+            "end": 3.04,
+            "word": " یک",
+            "probability": 0.9977789223194122
+          },
+          {
+            "start": 3.04,
+            "end": 3.86,
+            "word": " برزاشکار",
+            "probability": 0.6483176958575617
+          },
+          {
+            "start": 3.86,
+            "end": 4.48,
+            "word": " هرفی",
+            "probability": 0.666138045101737
+          },
+          {
+            "start": 4.48,
+            "end": 5.04,
+            "word": " وزن",
+            "probability": 0.9936045010884603
+          },
+          {
+            "start": 5.04,
+            "end": 5.64,
+            "word": " برداری",
+            "probability": 0.9915711641311645
+          },
+          {
+            "start": 5.64,
+            "end": 6.28,
+            "word": " که",
+            "probability": 0.9986521303653717
+          },
+          {
+            "start": 6.28,
+            "end": 6.62,
+            "word": " صد",
+            "probability": 0.7676916122436523
+          },
+          {
+            "start": 6.62,
+            "end": 6.98,
+            "word": " کیلو",
+            "probability": 0.8179719150066376
+          },
+          {
+            "start": 6.98,
+            "end": 7.12,
+            "word": " و",
+            "probability": 0.40645715594291687
+          },
+          {
+            "start": 7.12,
+            "end": 7.34,
+            "word": " بالا",
+            "probability": 0.8251205086708069
+          },
+          {
+            "start": 7.34,
+            "end": 7.72,
+            "word": " سرش",
+            "probability": 0.9980014165242513
+          },
+          {
+            "start": 7.72,
+            "end": 8.18,
+            "word": " می‌بره.",
+            "probability": 0.7392771575250663
+          },
+          {
+            "start": 8.5,
+            "end": 9.06,
+            "word": " من",
+            "probability": 0.992598295211792
+          },
+          {
+            "start": 9.06,
+            "end": 9.32,
+            "word": " هم",
+            "probability": 0.9993069469928741
+          },
+          {
+            "start": 9.32,
+            "end": 9.9,
+            "word": " می‌تونم",
+            "probability": 0.9836747765541076
+          },
+          {
+            "start": 9.9,
+            "end": 10.6,
+            "word": " برای",
+            "probability": 0.9411262472470602
+          }
+        ]
+      }
+    ]
+  }
+}

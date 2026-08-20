@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "3c3e2cad5982e74434ff4db2a8e5aa1f60ad60f4e3b5b3f1fb45ac9f146656b2",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.68,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.66,
+        "text": "سواد مالی اصل بر قرض نگرفتنه، یعنی ما خودم رو در موقعیت قرار ندیم که مجبور بشیم قرض بگیریم. اما اگر احیاناً این اتفاق افتاد،",
+        "avg_logprob": -0.1337540440860836,
+        "compression_ratio": 1.5067567567567568,
+        "no_speech_prob": 3.219787492181325e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.24,
+            "word": " سواد",
+            "probability": 0.6217708339293798
+          },
+          {
+            "start": 0.24,
+            "end": 0.62,
+            "word": " مالی",
+            "probability": 0.9827906290690104
+          },
+          {
+            "start": 0.62,
+            "end": 1.22,
+            "word": " اصل",
+            "probability": 0.9680021107196808
+          },
+          {
+            "start": 1.22,
+            "end": 1.44,
+            "word": " بر",
+            "probability": 0.9502359926700592
+          },
+          {
+            "start": 1.44,
+            "end": 1.76,
+            "word": " قرض",
+            "probability": 0.731067568063736
+          },
+          {
+            "start": 1.76,
+            "end": 2.66,
+            "word": " نگرفتنه،",
+            "probability": 0.7677695479776178
+          },
+          {
+            "start": 2.66,
+            "end": 3.06,
+            "word": " یعنی",
+            "probability": 0.9905824214220047
+          },
+          {
+            "start": 3.06,
+            "end": 3.3,
+            "word": " ما",
+            "probability": 0.9527137279510498
+          },
+          {
+            "start": 3.3,
+            "end": 3.78,
+            "word": " خودم",
+            "probability": 0.9679162700970968
+          },
+          {
+            "start": 3.78,
+            "end": 3.96,
+            "word": " رو",
+            "probability": 0.9201911389827728
+          },
+          {
+            "start": 3.96,
+            "end": 4.12,
+            "word": " در",
+            "probability": 0.9929763376712799
+          },
+          {
+            "start": 4.12,
+            "end": 4.64,
+            "word": " موقعیت",
+            "probability": 0.9854387879371643
+          },
+          {
+            "start": 4.64,
+            "end": 5.04,
+            "word": " قرار",
+            "probability": 0.9830265045166016
+          },
+          {
+            "start": 5.04,
+            "end": 5.52,
+            "word": " ندیم",
+            "probability": 0.9918744266033173
+          },
+          {
+            "start": 5.52,
+            "end": 5.72,
+            "word": " که",
+            "probability": 0.9676693081855774
+          },
+          {
+            "start": 5.72,
+            "end": 6.18,
+            "word": " مجبور",
+            "probability": 0.9952347725629807
+          },
+          {
+            "start": 6.18,
+            "end": 6.46,
+            "word": " بشیم",
+            "probability": 0.9824340492486954
+          },
+          {
+            "start": 6.46,
+            "end": 6.76,
+            "word": " قرض",
+            "probability": 0.9954587817192078
+          },
+          {
+            "start": 6.76,
+            "end": 7.18,
+            "word": " بگیریم.",
+            "probability": 0.9657757878303528
+          },
+          {
+            "start": 7.3,
+            "end": 7.86,
+            "word": " اما",
+            "probability": 0.9913344085216522
+          },
+          {
+            "start": 7.86,
+            "end": 8.18,
+            "word": " اگر",
+            "probability": 0.995563010374705
+          },
+          {
+            "start": 8.18,
+            "end": 8.7,
+            "word": " احیاناً",
+            "probability": 0.8083217044671377
+          },
+          {
+            "start": 8.7,
+            "end": 8.78,
+            "word": " این",
+            "probability": 0.9932484328746796
+          },
+          {
+            "start": 8.78,
+            "end": 9.18,
+            "word": " اتفاق",
+            "probability": 0.997803783416748
+          },
+          {
+            "start": 9.18,
+            "end": 9.66,
+            "word": " افتاد،",
+            "probability": 0.9078020215034485
+          }
+        ]
+      }
+    ]
+  }
+}

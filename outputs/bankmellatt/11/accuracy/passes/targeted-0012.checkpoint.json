@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "cf6142c0edb2c523505a633b1ae8d8d7d2e161b9ddd3455ca1c0d0741d37e82b",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.58,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.1,
+        "text": "پس یه قرض بد داریم، یه غرض خوب بریم، اما در همه‌ی این موارد باید قواعد قرض گرفتن یا قواد ایجاد بدهی رو رعایت بکنیم.",
+        "avg_logprob": -0.21459339441878073,
+        "compression_ratio": 1.6027397260273972,
+        "no_speech_prob": 2.6504287653494885e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.16,
+            "word": " پس",
+            "probability": 0.9937553107738495
+          },
+          {
+            "start": 0.16,
+            "end": 0.3,
+            "word": " یه",
+            "probability": 0.9637899100780487
+          },
+          {
+            "start": 0.3,
+            "end": 0.56,
+            "word": " قرض",
+            "probability": 0.949745774269104
+          },
+          {
+            "start": 0.56,
+            "end": 0.92,
+            "word": " بد",
+            "probability": 0.9284367561340332
+          },
+          {
+            "start": 0.92,
+            "end": 1.36,
+            "word": " داریم،",
+            "probability": 0.8495967864990235
+          },
+          {
+            "start": 1.36,
+            "end": 1.44,
+            "word": " یه",
+            "probability": 0.9989423751831055
+          },
+          {
+            "start": 1.44,
+            "end": 1.7,
+            "word": " غرض",
+            "probability": 0.4989331498454703
+          },
+          {
+            "start": 1.7,
+            "end": 2.04,
+            "word": " خوب",
+            "probability": 0.9997208416461945
+          },
+          {
+            "start": 2.04,
+            "end": 2.6,
+            "word": " بریم،",
+            "probability": 0.5476765595376492
+          },
+          {
+            "start": 2.6,
+            "end": 3.02,
+            "word": " اما",
+            "probability": 0.9989916384220123
+          },
+          {
+            "start": 3.02,
+            "end": 3.36,
+            "word": " در",
+            "probability": 0.9998690187931061
+          },
+          {
+            "start": 3.36,
+            "end": 3.8,
+            "word": " همه‌ی",
+            "probability": 0.7938212733715773
+          },
+          {
+            "start": 3.8,
+            "end": 3.92,
+            "word": " این",
+            "probability": 0.7812961935997009
+          },
+          {
+            "start": 3.92,
+            "end": 4.3,
+            "word": " موارد",
+            "probability": 0.9394989907741547
+          },
+          {
+            "start": 4.3,
+            "end": 4.58,
+            "word": " باید",
+            "probability": 0.9851365387439728
+          },
+          {
+            "start": 4.58,
+            "end": 5.42,
+            "word": " قواعد",
+            "probability": 0.8648826479911804
+          },
+          {
+            "start": 5.42,
+            "end": 5.9,
+            "word": " قرض",
+            "probability": 0.9925759732723236
+          },
+          {
+            "start": 5.9,
+            "end": 6.54,
+            "word": " گرفتن",
+            "probability": 0.997298926115036
+          },
+          {
+            "start": 6.54,
+            "end": 6.72,
+            "word": " یا",
+            "probability": 0.9763521552085876
+          },
+          {
+            "start": 6.72,
+            "end": 7.32,
+            "word": " قواد",
+            "probability": 0.664470447654215
+          },
+          {
+            "start": 7.32,
+            "end": 7.68,
+            "word": " ایجاد",
+            "probability": 0.9940803050994873
+          },
+          {
+            "start": 7.68,
+            "end": 8.1,
+            "word": " بدهی",
+            "probability": 0.9358364939689636
+          },
+          {
+            "start": 8.1,
+            "end": 8.2,
+            "word": " رو",
+            "probability": 0.37770375702530146
+          },
+          {
+            "start": 8.2,
+            "end": 8.62,
+            "word": " رعایت",
+            "probability": 0.8168043315410614
+          },
+          {
+            "start": 8.62,
+            "end": 9.1,
+            "word": " بکنیم.",
+            "probability": 0.8769406199455261
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 10.02,
+        "end": 11.48,
+        "text": "اولین نکته در...",
+        "avg_logprob": -0.21459339441878073,
+        "compression_ratio": 1.6027397260273972,
+        "no_speech_prob": 2.6504287653494885e-10,
+        "words": [
+          {
+            "start": 10.02,
+            "end": 10.56,
+            "word": " اولین",
+            "probability": 0.9635279377301534
+          },
+          {
+            "start": 10.56,
+            "end": 10.96,
+            "word": " نکته",
+            "probability": 0.9652290741602579
+          },
+          {
+            "start": 10.96,
+            "end": 11.48,
+            "word": " در...",
+            "probability": 0.8068872491518656
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "83937c3caf378e07b895ff57519468d4d7bbd7d3d8a8dadc39ae13c04eb972c1",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.96,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.94,
+        "text": "در باره ماشینمون به دهکاریم. خب اگر به درد سر افتادیم، خب همین ماشينو می‌فروشیم یا درباره خونمون",
+        "avg_logprob": -0.22543741372915416,
+        "compression_ratio": 1.5086206896551724,
+        "no_speech_prob": 2.2875998317850588e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.82,
+            "word": " در",
+            "probability": 0.6090622246265411
+          },
+          {
+            "start": 0.82,
+            "end": 1.06,
+            "word": " باره",
+            "probability": 0.9742788672447205
+          },
+          {
+            "start": 1.06,
+            "end": 1.76,
+            "word": " ماشینمون",
+            "probability": 0.8685660362243652
+          },
+          {
+            "start": 1.76,
+            "end": 1.9,
+            "word": " به",
+            "probability": 0.6126947402954102
+          },
+          {
+            "start": 1.9,
+            "end": 2.5,
+            "word": " دهکاریم.",
+            "probability": 0.921022484699885
+          },
+          {
+            "start": 2.54,
+            "end": 2.7,
+            "word": " خب",
+            "probability": 0.9449626207351685
+          },
+          {
+            "start": 2.7,
+            "end": 2.96,
+            "word": " اگر",
+            "probability": 0.9972352186838785
+          },
+          {
+            "start": 2.96,
+            "end": 3.06,
+            "word": " به",
+            "probability": 0.994955837726593
+          },
+          {
+            "start": 3.06,
+            "end": 3.36,
+            "word": " درد",
+            "probability": 0.9972652395566305
+          },
+          {
+            "start": 3.36,
+            "end": 3.6,
+            "word": " سر",
+            "probability": 0.9389990568161011
+          },
+          {
+            "start": 3.6,
+            "end": 4.12,
+            "word": " افتادیم،",
+            "probability": 0.8622144077505384
+          },
+          {
+            "start": 4.12,
+            "end": 4.2,
+            "word": " خب",
+            "probability": 0.9826835095882416
+          },
+          {
+            "start": 4.2,
+            "end": 4.46,
+            "word": " همین",
+            "probability": 0.9952712853749593
+          },
+          {
+            "start": 4.46,
+            "end": 4.88,
+            "word": " ماشينو",
+            "probability": 0.6378948743004003
+          },
+          {
+            "start": 4.88,
+            "end": 5.46,
+            "word": " می‌فروشیم",
+            "probability": 0.8397590082937053
+          },
+          {
+            "start": 5.46,
+            "end": 6.12,
+            "word": " یا",
+            "probability": 0.5986142233014107
+          },
+          {
+            "start": 6.12,
+            "end": 6.74,
+            "word": " درباره",
+            "probability": 0.760233037173748
+          },
+          {
+            "start": 6.74,
+            "end": 7.94,
+            "word": " خونمون",
+            "probability": 0.911511018872261
+          }
+        ]
+      }
+    ]
+  }
+}

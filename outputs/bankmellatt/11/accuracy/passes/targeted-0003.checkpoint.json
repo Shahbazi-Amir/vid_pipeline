@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "c7d623b80349b4ab762ef7fb14761dca5ae47c1dc01f25168d017b797f1a9244",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.54,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.1,
+        "text": "که صد کیلو بالا سرش می‌بره. من هم می‌تونم برای یک بار یه وزنی صد کو بالای سرم ببرم، اما یک فرق اساسی",
+        "avg_logprob": -0.20991033758036792,
+        "compression_ratio": 1.4793388429752066,
+        "no_speech_prob": 2.184826486395508e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.66,
+            "word": " که",
+            "probability": 0.9973739683628082
+          },
+          {
+            "start": 0.66,
+            "end": 0.96,
+            "word": " صد",
+            "probability": 0.7112911343574524
+          },
+          {
+            "start": 0.96,
+            "end": 1.32,
+            "word": " کیلو",
+            "probability": 0.8715358972549438
+          },
+          {
+            "start": 1.32,
+            "end": 1.7,
+            "word": " بالا",
+            "probability": 0.6807343363761902
+          },
+          {
+            "start": 1.7,
+            "end": 2.06,
+            "word": " سرش",
+            "probability": 0.9899022181828817
+          },
+          {
+            "start": 2.06,
+            "end": 2.52,
+            "word": " می‌بره.",
+            "probability": 0.7387370495125651
+          },
+          {
+            "start": 2.68,
+            "end": 3.4,
+            "word": " من",
+            "probability": 0.9917309880256653
+          },
+          {
+            "start": 3.4,
+            "end": 3.66,
+            "word": " هم",
+            "probability": 0.9987854361534119
+          },
+          {
+            "start": 3.66,
+            "end": 4.24,
+            "word": " می‌تونم",
+            "probability": 0.9765562534332275
+          },
+          {
+            "start": 4.24,
+            "end": 4.98,
+            "word": " برای",
+            "probability": 0.9878425002098083
+          },
+          {
+            "start": 4.98,
+            "end": 5.34,
+            "word": " یک",
+            "probability": 0.9943994879722595
+          },
+          {
+            "start": 5.34,
+            "end": 5.68,
+            "word": " بار",
+            "probability": 0.9878149926662445
+          },
+          {
+            "start": 5.68,
+            "end": 5.94,
+            "word": " یه",
+            "probability": 0.9375885128974915
+          },
+          {
+            "start": 5.94,
+            "end": 6.26,
+            "word": " وزنی",
+            "probability": 0.9233501106500626
+          },
+          {
+            "start": 6.26,
+            "end": 6.58,
+            "word": " صد",
+            "probability": 0.9668683111667633
+          },
+          {
+            "start": 6.58,
+            "end": 6.68,
+            "word": " کو",
+            "probability": 0.00018599849136080593
+          },
+          {
+            "start": 6.68,
+            "end": 7.34,
+            "word": " بالای",
+            "probability": 0.4175766507784526
+          },
+          {
+            "start": 7.34,
+            "end": 7.66,
+            "word": " سرم",
+            "probability": 0.9877532521883646
+          },
+          {
+            "start": 7.66,
+            "end": 8.24,
+            "word": " ببرم،",
+            "probability": 0.71838104352355
+          },
+          {
+            "start": 8.24,
+            "end": 8.68,
+            "word": " اما",
+            "probability": 0.9941054284572601
+          },
+          {
+            "start": 8.68,
+            "end": 8.94,
+            "word": " یک",
+            "probability": 0.9935212433338165
+          },
+          {
+            "start": 8.94,
+            "end": 9.34,
+            "word": " فرق",
+            "probability": 0.9440624316533407
+          },
+          {
+            "start": 9.34,
+            "end": 10.1,
+            "word": " اساسی",
+            "probability": 0.8776474595069885
+          }
+        ]
+      }
+    ]
+  }
+}

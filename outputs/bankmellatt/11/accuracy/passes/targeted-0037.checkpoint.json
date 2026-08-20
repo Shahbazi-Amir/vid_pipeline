@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "199f36f39559f0f1ece2fef674795036264908a1992359022e3e41772f608fd9",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.72,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.7,
+        "text": "یک میلیون به مدت ده ماه باید پس بدم. خب، اگر تو این شرایط یعنی در طول زمان میخوام پرداخت بکنم، باعد بدونم مبلغ پر...",
+        "avg_logprob": -0.16884813085198402,
+        "compression_ratio": 1.4782608695652173,
+        "no_speech_prob": 2.971937695939175e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.22,
+            "word": " یک",
+            "probability": 0.9033695757389069
+          },
+          {
+            "start": 0.22,
+            "end": 0.56,
+            "word": " میلیون",
+            "probability": 0.9452647864818573
+          },
+          {
+            "start": 0.56,
+            "end": 0.66,
+            "word": " به",
+            "probability": 0.9895542860031128
+          },
+          {
+            "start": 0.66,
+            "end": 1.04,
+            "word": " مدت",
+            "probability": 0.9989261031150818
+          },
+          {
+            "start": 1.04,
+            "end": 1.44,
+            "word": " ده",
+            "probability": 0.9938262104988098
+          },
+          {
+            "start": 1.44,
+            "end": 1.68,
+            "word": " ماه",
+            "probability": 0.9948272407054901
+          },
+          {
+            "start": 1.68,
+            "end": 1.94,
+            "word": " باید",
+            "probability": 0.9962526261806488
+          },
+          {
+            "start": 1.94,
+            "end": 2.2,
+            "word": " پس",
+            "probability": 0.8998478651046753
+          },
+          {
+            "start": 2.2,
+            "end": 2.52,
+            "word": " بدم.",
+            "probability": 0.8955751359462738
+          },
+          {
+            "start": 2.88,
+            "end": 3.58,
+            "word": " خب،",
+            "probability": 0.6967299183209738
+          },
+          {
+            "start": 3.58,
+            "end": 4.16,
+            "word": " اگر",
+            "probability": 0.9994086821873983
+          },
+          {
+            "start": 4.16,
+            "end": 4.26,
+            "word": " تو",
+            "probability": 0.9854598641395569
+          },
+          {
+            "start": 4.26,
+            "end": 4.56,
+            "word": " این",
+            "probability": 0.8606891632080078
+          },
+          {
+            "start": 4.56,
+            "end": 5.66,
+            "word": " شرایط",
+            "probability": 0.9960793554782867
+          },
+          {
+            "start": 5.66,
+            "end": 5.88,
+            "word": " یعنی",
+            "probability": 0.975879043340683
+          },
+          {
+            "start": 5.88,
+            "end": 6.06,
+            "word": " در",
+            "probability": 0.9995486736297607
+          },
+          {
+            "start": 6.06,
+            "end": 6.42,
+            "word": " طول",
+            "probability": 0.9967244863510132
+          },
+          {
+            "start": 6.42,
+            "end": 6.86,
+            "word": " زمان",
+            "probability": 0.965679407119751
+          },
+          {
+            "start": 6.86,
+            "end": 7.14,
+            "word": " میخوام",
+            "probability": 0.9483677446842194
+          },
+          {
+            "start": 7.14,
+            "end": 7.68,
+            "word": " پرداخت",
+            "probability": 0.9960451126098633
+          },
+          {
+            "start": 7.68,
+            "end": 8.36,
+            "word": " بکنم،",
+            "probability": 0.8333741366863251
+          },
+          {
+            "start": 8.36,
+            "end": 8.72,
+            "word": " باعد",
+            "probability": 0.6654463718878105
+          },
+          {
+            "start": 8.72,
+            "end": 9.2,
+            "word": " بدونم",
+            "probability": 0.9949805935223898
+          },
+          {
+            "start": 9.2,
+            "end": 10.2,
+            "word": " مبلغ",
+            "probability": 0.9963048100471497
+          },
+          {
+            "start": 10.2,
+            "end": 10.7,
+            "word": " پر...",
+            "probability": 0.6825698763132095
+          }
+        ]
+      }
+    ]
+  }
+}

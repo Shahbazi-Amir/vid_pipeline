@@ -1,0 +1,777 @@
+# متن اجماعی چندمرحله‌ای
+
+> فقط از کاندیدهای ASR انتخاب شده است.
+
+[00:00:00.000 → 00:00:03.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+فرق من و یک ورزشکار حرفی در چیه؟
+
+[00:00:03.560 → 00:00:09.220] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+یک ورزشکار حرفی وزن برداری که صد کیلو و بالا سرش میبره
+
+[00:00:09.220 → 00:00:14.760] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+من هم میتونم برای یک بار یه وزنی صد کیلو و بالا سرم ببرم
+
+[00:00:14.760 → 00:00:21.460] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما یک فرق اساسی بین من و اون ورزشکار حرفی وزن برداری وجود داره
+
+[00:00:30.900 → 00:00:38.000]
+سلام، در باره قرض صحبت کردیم و این که در ثواد مالی اصل بر قرض نگرفتن
+
+[00:00:38.000 → 00:00:42.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی ما خودم رو در موقعیت قرار ندیم که مجبور بشیم قرز بگیریم
+
+[00:00:42.680 → 00:00:48.120] ⚠️ `multi_pass_disagreement`
+اما اگر احیانان این اتفاق افتاد و هر حال مجبور شدیم قرز بگیریم
+
+[00:00:48.120 → 00:00:50.720] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+باید یه سری قوائد رو رعایت بکنیم
+
+[00:00:50.720 → 00:00:55.100] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اینو بهش میگیم قوائد بدهکار شدن یا قوائد قرز گرفتن
+
+[00:00:55.100 → 00:00:59.080] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+البته در شرایطی ما قرز خوب هم داریم همه قرز ها بد نیست
+
+[00:00:59.080 → 00:01:02.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پس یه قرز بد داریم یه قرز خوب داریم
+
+[00:01:02.360 → 00:01:08.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما در همه این موارد باید قوائد قرض گرفتن یا قوائد ایجاد بدهی رو رایت بکنیم
+
+[00:01:09.740 → 00:01:18.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اولین نکته در باره قرض گرفتن اینه که ما باید ظرفیت بدهیمون رو تعییم بکنیم
+
+[00:01:18.240 → 00:01:21.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+در اصطلاح بیگدار با آب نزنیم
+
+[00:01:21.520 → 00:01:24.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اول بدونیم ما چقدر ظرفیت بدهی داریم
+
+[00:01:24.300 → 00:01:27.580] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چقدر پوتانسیل این رو داریم که بدهکار بشیم
+
+[00:01:27.580 → 00:01:31.760] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چند تا شاخص میتونیم برای این در نظر بگیریم
+
+[00:01:31.760 → 00:01:35.360] ⚠️ `abnormal_compression_ratio, multi_pass_disagreement, protected_name_or_number_disagreement`
+اولیش اینه که محل پرداخته این بدهی کجاست
+
+[00:01:35.360 → 00:01:39.900] ⚠️ `abnormal_compression_ratio, multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی قبل از این که بدهکار بشیم ما باید بدونیم از کجا میخواییم پرداخت کنیم
+
+[00:01:39.900 → 00:01:42.320] ⚠️ `abnormal_compression_ratio, multi_pass_disagreement, protected_name_or_number_disagreement`
+از حقوقمون میخواییم پرداخت بکنیم
+
+[00:01:42.320 → 00:01:47.100] ⚠️ `abnormal_compression_ratio, multi_pass_disagreement, protected_name_or_number_disagreement`
+یا وسیقه ای داریم مثلا درباره ماشینمون بدهکاریم
+
+[00:01:47.100 → 00:01:50.060] ⚠️ `abnormal_compression_ratio, multi_pass_disagreement, protected_name_or_number_disagreement`
+خب اگر به درد سر افتادیم خب همین ماشین رو میفروشیم
+
+[00:01:50.060 → 00:01:53.380] ⚠️ `abnormal_compression_ratio, multi_pass_disagreement, protected_name_or_number_disagreement`
+یا درباره خونمون بدهکاریم
+
+[00:01:53.380 → 00:01:58.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب اگر دیگه به درد سر افتادیم در نهایت اینه که خونه رو میفروشیم
+
+[00:01:58.940 → 00:02:03.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این در بهترین شرایطشه یعنی یک وسیقهی وجود داره
+
+[00:02:03.140 → 00:02:07.020] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+در شرایطی که وسیقه وجود نداره باید محل پرداخت رو بدونیم
+
+[00:02:07.020 → 00:02:11.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بدونیم چقدر از درامد آیندمون رو داریم استفاده میکنیم
+
+[00:02:11.360 → 00:02:16.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مثلا من میدونم از حقوقم این مبلغ رو میتونم به بدهی اختصاص بدم
+
+[00:02:16.820 → 00:02:19.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا اینکه نه یک کار دیگه ای دارم یک پروژه ای دارم
+
+[00:02:19.940 → 00:02:24.080] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و از محل اون پروژه بعدها میتونم این بدهی رو پرداخت بکنم
+
+[00:02:24.080 → 00:02:28.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پس نکته اول تعین ظرفیت بدهی تعین محل پرداخته
+
+[00:02:28.800 → 00:02:34.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+دوامی نکته اینه که من میخوام این رو یک جا پرداخت بکنم
+
+[00:02:34.360 → 00:02:37.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا نه در طول زمان میخوام پرداخت بکنم
+
+[00:02:37.380 → 00:02:41.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مثلا اگر ده ملیون از کسی گرفتم یا از یه نهاد مالی گرفتم
+
+[00:02:41.180 → 00:02:44.260] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+شیش ماه دیگه باید این ده ملیون رو پست بدم
+
+[00:02:44.260 → 00:02:48.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا نه مثلا ماهی یک ملیون به مدت ده ماه باید پس بدم
+
+[00:02:48.700 → 00:02:54.420] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب اگر تو این شرایط یعنی در طول زمان میخوام پرداخت بکنم
+
+[00:02:54.420 → 00:02:58.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+باید بدونم مبلغ پرداخت هر ماه هم چقدره
+
+[00:02:58.820 → 00:03:00.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اینو باید دقیق تعییم بکنم
+
+[00:03:00.780 → 00:03:04.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا یه شرایطی به وجود میاد که تعییم کردن این ممکنه دوشوار باشه
+
+[00:03:04.680 → 00:03:07.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و طول زمان پرداخت
+
+[00:03:07.300 → 00:03:11.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مثلا یک سال طول میکشه، دو سال طول میکشه، ده سال طول میکشه
+
+[00:03:11.520 → 00:03:17.260] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پس میزان مبلغ ماهانه و دوم طول دوره پرداخت
+
+[00:03:18.680 → 00:03:26.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پنجومی نکته در واقع محل پرداخت، یک جا پرداخت کردن یا ماهانه پرداخت کردن
+
+[00:03:26.940 → 00:03:31.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مبلغ ماهانه، طول دوره پرداخت و پنجومی نکته حزینه مالیه
+
+[00:03:31.940 → 00:03:34.840] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حزینه مالیه نکته خیلی عجیبی داره
+
+[00:03:34.840 → 00:03:40.700] ⚠️ `multi_pass_disagreement`
+ببینید ما در شریعت اسلام مفهومی داریم تحت عنوان ربا
+
+[00:03:41.640 → 00:03:45.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+هر گونه قرض دادن به شرط زیادت رباس
+
+[00:03:45.700 → 00:03:51.040] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی من به شما قرض بدم، بگم به شرط این که به من یه مبلغی رو بدید
+
+[00:03:51.040 → 00:03:53.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا یه کاری برا من انجام بدید، این قطعا رباس
+
+[00:03:53.700 → 00:03:58.320] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مثلا ده ملیون بدم، بگم به شرط این که به من دوازده ملیون پس بدید
+
+[00:03:58.320 → 00:04:05.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این قطعا رباس و در حد جنگ با خدا در قرآن ازش یاد شده
+
+[00:04:05.380 → 00:04:13.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب، این حزینه مالی چیه؟ من سه استلاح رو در واقع براتون شرح میدم که در سواد مالی به کار میره
+
+[00:04:13.800 → 00:04:17.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+البته ممکنه تو نظام بانکی ما یا تو جامعه متفاوت اینها به کار بره
+
+[00:04:17.940 → 00:04:21.540] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما در سواد مالی سه استلاح تخصصی داریم
+
+[00:04:21.540 → 00:04:26.240]
+یک قرض که همون قرض الحسن است
+
+[00:04:26.240 → 00:04:34.600] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+وقتی ما قرض میگیریم یعنی این که من از دوست، آشنا، فامیل، پدر، خوهر، برادر یه مبرقی رو قرض میگیرم
+
+[00:04:34.600 → 00:04:39.440] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و هر موقع هم که قرار میذانیم بهش پست بدم همون مبلغ رو پست میدم
+
+[00:04:39.440 → 00:04:44.200] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مثلا ده ملیون از برادرم قرض گرفتم گفتم چهار ماه دیگه من بهت پست میدم
+
+[00:04:44.200 → 00:04:48.060] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و وقتی موعدش رسید سر اون چهار ماه ده ملیون بهش پست میدم
+
+[00:04:48.060 → 00:04:55.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+البته مستحبه که من یه مبلغی هم اضافه کنم یا یه حدیه هم به عنوان تقدیر از برادرم بهش بدم
+
+[00:04:55.700 → 00:05:02.280] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما ببینید شرط ربا این بود که به شرط زیاده باشه یعنی شرط بکنه زیاده
+
+[00:05:02.280 → 00:05:06.740] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اما من خودم اگر یه حدیه یا یه مبلغی اضافه بدم اتفاقا مستحبم هست
+
+[00:05:07.680 → 00:05:13.060] ⚠️ `multi_pass_disagreement`
+پس توی قرض در اسطلاحات سواد مالی که همون قرض الحسن هست
+
+[00:05:13.060 → 00:05:16.180] ⚠️ `multi_pass_disagreement`
+هیچ مبلغ اضافهی رد و بدن نمیشه
+
+[00:05:16.180 → 00:05:17.280]
+اینو بهش میگیم قرض
+
+[00:05:18.740 → 00:05:20.820]
+اسطلاح دوم وامه
+
+[00:05:21.560 → 00:05:25.120]
+وام چیه؟ وام اینه که من میرم از یه نهاد مالی
+
+[00:05:25.120 → 00:05:30.860] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا یه مؤسسه اعتباری نمیدونم یه بانک یا یه صندوق یه در بازار
+
+[00:05:30.860 → 00:05:32.820] ⚠️ `multi_pass_disagreement`
+میرم یه وام میگیرم
+
+[00:05:32.820 → 00:05:36.720] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+وام از یک نهاد مالیه و کارموزد داره
+
+[00:05:37.620 → 00:05:42.760] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+در واقع موزد کاری که تو نهاد مالی انجام میشه رو از من میگیرن
+
+[00:05:42.760 → 00:05:47.460] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این کارموزد بین دو درصد تا چهار درصد معمولن
+
+[00:05:47.460 → 00:05:53.060] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و این درصد هم همیشه به صورت سالانه محاسبه میشه
+
+[00:05:53.060 → 00:05:57.800] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+به خطر همین گفتم طول دوره پرداخت و تعین ظرفیت بدهی مهمه
+
+[00:05:57.800 → 00:06:01.580] ⚠️ `multi_pass_disagreement`
+خب پس وام کارموز داره
+
+[00:06:01.580 → 00:06:09.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک اصطلاح ثومی هست تحت عنوان تسهیلات که توی نظام بانکی ماست
+
+[00:06:09.180 → 00:06:14.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ببینید برای اینکه مردم مبتلا به ربا نشن
+
+[00:06:14.140 → 00:06:19.400] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه سری اقودی در نظام بانکی ما به صورت جزنگر ترراحی شده
+
+[00:06:19.400 → 00:06:25.040] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این که میگم جزنگر یعنی اومدن جوری ترراحی کردن این عقدو
+
+[00:06:25.040 → 00:06:28.020] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که ربا نشه، شرط زیاده نباشه
+
+[00:06:28.020 → 00:06:31.440] ⚠️ `multi_pass_disagreement`
+مثلا اقود مشارکتیه، اقود مبادلهیه
+
+[00:06:31.440 → 00:06:34.580] ⚠️ `multi_pass_disagreement`
+یا حتی در بعضی شرایط سرمایه گذاریه
+
+[00:06:34.580 → 00:06:38.660] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+تو این شرایط وقتی شما اون قرار داد و امضا می کنید
+
+[00:06:38.660 → 00:06:41.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک حزینه مالی رو متقبل می شید
+
+[00:06:41.780 → 00:06:47.060] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی مثلا صد ملیون مضاربه می گیرید، جعاله می گیرید
+
+[00:06:47.060 → 00:06:49.540] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+از این تسهیلات استفاده می کنید
+
+[00:06:49.540 → 00:06:53.540] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+متحد می شید که یک حزینه مالی رو پرداخت بونید
+
+[00:06:53.540 → 00:07:22.820] ⚠️ `abnormal_compression_ratio, multi_pass_disagreement, protected_name_or_number_disagreement`
+این در واقع تو نظام بانکی دنیا بهش میگن بهره در واقع انترسته اونا هم انترست میدن هم انترست میگیرن به مردمی که پول تو بانک میذارن انترست میدن به کسایی که در واقع وام میدن از کسایی که وام میدن انترست میگیرن یه اصطلاح دارن انترست ولی ما مثلا تو نظام بانکیمون به سپرده گذاران انترست نمیدیم بهره نمیدیم
+
+[00:07:22.820 → 00:07:24.960] ⚠️ `multi_pass_disagreement`
+بلکه سود علل حساب میدیم
+
+[00:07:24.960 → 00:07:27.340] ⚠️ `multi_pass_disagreement`
+میگیم این سود رو فعلا شما بگیرید
+
+[00:07:27.340 → 00:07:29.400] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بعد در آخر سال من محاسبه میکنم
+
+[00:07:29.400 → 00:07:31.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اگر سودم بیشتر شد بیشتر به شما میدم
+
+[00:07:31.700 → 00:07:34.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اگر کمتر شد یا از سهانداران رو عمده میگیرم
+
+[00:07:34.980 → 00:07:37.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا نه ممکنه با هم حساب بکنید
+
+[00:07:37.000 → 00:07:40.480] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پس این سود علل حسابه که به سپرده گذاران میدن
+
+[00:07:40.480 → 00:07:42.840] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و وقتی تسهیلات میدن
+
+[00:07:42.840 → 00:07:45.460] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اون حزینه مالی رو دریافت میکنن
+
+[00:07:45.460 → 00:07:47.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی تو نظام عرفی بینول مللی
+
+[00:07:47.620 → 00:07:52.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+همون بهرر رو میگیرن، نرخ بهرم تو اون نظام مالی و پولیشون به یه تعادلی میرسه
+
+[00:07:52.240 → 00:07:57.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی ما چون خواستیم که از باینک داریمون بدون روا باشه
+
+[00:07:57.000 → 00:08:04.480] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه اقودی تراحی کردیم و تسهیلات میدیم و یک حزینه مالی رو متقبل میشیم، متحد میشیم
+
+[00:08:04.480 → 00:08:10.900] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+باید نسبت به این حزینه مالی توجه داشته باشیم که این چقدر حزینه مالی برای ما داره
+
+[00:08:10.900 → 00:08:13.500] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اگر داریم از این تسهیلات استفاده میکنیم
+
+[00:08:13.500 → 00:08:20.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ممکنه حتی این حزینه مالی ترکیبی از کارموز و اون حزینه مالی باشه
+
+[00:08:20.560 → 00:08:24.060] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی مثلا بگیه که نرخ بحره انقدره، کارموز هم انقدره
+
+[00:08:24.060 → 00:08:29.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+مثلا 15 درصد نرخ بحره شه، مثلا 8 درصد هم کارموز بشه
+
+[00:08:29.240 → 00:08:31.060] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و ترکیبی از این دوتا باشه
+
+[00:08:31.060 → 00:08:35.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+عددها رو مثال میزنم که چونالا قوال مقرارت بانکی ممکنه تغییر بکنه
+
+[00:08:35.620 → 00:08:41.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب در نهایت ممکنه شما 24 درصد یک حزینه مالی رو متقبل بشین
+
+[00:08:41.380 → 00:08:47.780] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+مثلا اگر 100 ملیون وام گرفتی، باید 124 ملیون پست بدی
+
+[00:08:47.780 → 00:08:51.120] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اگر در طول یک سال باز پرداختش بکنی
+
+[00:08:51.120 → 00:08:55.480] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چون گفتم این حزینه های مالی معمولا به صورت سالانه اعلام میشه
+
+[00:08:55.480 → 00:09:00.920] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب اگر طول دوره پرداخت وام طولانی تر باشه، مثلا پنج سال باشه
+
+[00:09:00.920 → 00:09:10.400] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+معمولا به باقی مانده اون بدهی باز 24 درصد این حزینه مالی متعلق میشه و دوباره محاسبه میشه
+
+[00:09:11.380 → 00:09:16.640] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+شما اگر طول دوره پرداختون بیشتر از یک سال باشه روزو من همون 124 ملیون رو پس نمیدیم
+
+[00:09:16.640 → 00:09:19.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ممکنه مثلا 138 ملیون پس بدیم
+
+[00:09:19.140 → 00:09:24.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پس این حزینه مالی یک فاکتور مهم در تصمیم گیریه
+
+[00:09:24.880 → 00:09:29.160] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بعدن تو احرام سازی بدهیم خواهم گفت این حزینه مالی چقدر مهمه
+
+[00:09:30.000 → 00:09:35.720] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب پس شرط اول شد تعین زرفیت بدهی که پنجت شاخص داشت
+
+[00:09:35.720 → 00:09:40.040] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+وقتی ما زرفیت بدهیمونو تعین کردیم این میشه قاعده یک
+
+[00:09:40.040 → 00:09:47.720] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+قاعده دو چیه؟ ما نباید برای حزینه های مصرفیمون خودمونو به دهکار کنیم
+
+[00:09:47.720 → 00:09:52.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چیزی که در زمان حال مصرف میشه و دینش در آینده به گردنمون میمونه
+
+[00:09:52.800 → 00:10:00.120] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+در واقع ما آینده خاری کردیم و وقتی که الان من هیچ واقعیت اقتصادی ایجاد نکردم
+
+[00:10:00.120 → 00:10:04.840] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+صرفا رفتم یه قرض گرفتم و پس در بخش واقعی هیچ اتفاقی نیفتد
+
+[00:10:04.840 → 00:10:08.020] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه پولی گرفتم این پولو مصرف میکنم
+
+[00:10:08.020 → 00:10:13.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+باز هیچ تولیدی در بخش واقعی اتفاق نیفتاده، بخش واقعی توصیه پیدا نکرده
+
+[00:10:13.700 → 00:10:16.740] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+فقط یه پولی رو من دریافت کردم و مصرف کردم
+
+[00:10:16.740 → 00:10:23.180] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب، بعدها که میخوام این پول رو پس بدن، باید یه کار واقعی تو بخش اقتصاد بکنم دیگه
+
+[00:10:23.790 → 00:10:26.560] ⚠️ `multi_pass_disagreement`
+که یه پولی دریافت کنم یه درامدی داشته باشم
+
+[00:10:26.560 → 00:10:30.960] ⚠️ `multi_pass_disagreement`
+وقتی این کار رو انجام میدم، اینجا نمیتونم مصرفی داشته باشم
+
+[00:10:30.960 → 00:10:33.660] ⚠️ `multi_pass_disagreement`
+فقط باید یه دین رو عدا بکنم
+
+[00:10:33.660 → 00:10:37.120] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+انگار که از آینده من کچکتر شده
+
+[00:10:37.120 → 00:10:42.460] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پس وقتی مصرف باشه، قرض قرض خوبی نیست، قرض بدیه
+
+[00:10:42.460 → 00:10:46.600] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اگر ظرفیت بدهی تعین نکرده باشی، اون قرض بدیه
+
+[00:10:46.600 → 00:10:48.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اگر مصرفی باشه، قرض بدیه
+
+[00:10:48.780 → 00:10:52.700] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+در اصطلاح میگن کالای بادوام باشه یا کالای سرمایهی باشه
+
+[00:10:52.700 → 00:10:57.460] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اونجا قرض گرفتن، حالا وام گرفتن، تصفیلات گرفتن، معنا داره
+
+[00:10:57.460 → 00:11:03.400] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+چون میره توی کالای بادوام که در طول زمان عرضش خودش رو حفظ میکنه
+
+[00:11:03.400 → 00:11:09.020] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+البته شما باید بدونید دیگه وقتی عرضششو حفظ میکنه
+
+[00:11:09.020 → 00:11:12.220] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی در برابر توران تقریبا مساویه
+
+[00:11:12.220 → 00:11:17.260] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و حتی گاهی ممکنه از توران پیشی بگیری که اونجا بهش میگیم بازدهی
+
+[00:11:17.260 → 00:11:22.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ببینید توی یک خانوار وقتی صرف مصرف میشه این قرض
+
+[00:11:22.940 → 00:11:25.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+منجر به آسیب در آین نمیشه
+
+[00:11:25.240 → 00:11:27.340] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+در کلان اقتصاد هم همینه
+
+[00:11:27.340 → 00:11:31.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ببینید بخش واقعی اقتصاد وجود داره
+
+[00:11:31.140 → 00:11:37.760] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+وقتی دولت میاد تسهیلات مصرفی میده که مردم مصرف بکنن
+
+[00:11:37.760 → 00:11:40.340] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+تو بخش واقعی اتفاقی نیفتاده
+
+[00:11:40.340 → 00:11:46.120] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بلکه یک پولی اضافه شده به مردم داده شده و اینها مصرف میکنن
+
+[00:11:46.120 → 00:11:49.300] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این منجر به چی میشه؟ عدد فقط اضافه شده
+
+[00:11:49.300 → 00:11:52.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+وقتی عدد اضافه میشه یعنی بخش عددی ورم کرده
+
+[00:11:52.000 → 00:11:53.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این منجر به تورمه
+
+[00:11:53.360 → 00:11:57.020] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی قرض گرفتن برای مصرف
+
+[00:11:57.020 → 00:11:59.500] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+در کلان اقتصاد هم آسیب زننده است
+
+[00:11:59.500 → 00:12:06.760] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و منجر به تورم میشه، همه این تصحیلاتی که ممکنه دولت ها وعده بدن مثلا بگه ما به بازنشسته ها
+
+[00:12:07.380 → 00:12:15.220] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+کارت اعتباری میدیم، نمیدونم یک وام هایی میدیم که بتونن مسارف خودشون رو مدیریت بکنن
+
+[00:12:15.220 → 00:12:20.200] ⚠️ `multi_pass_disagreement`
+حالا چه جوان ها چه بازنشست ها یا قشر آسیب پذیر همه این رو باعث میشه که مصرف بکنن
+
+[00:12:20.200 → 00:12:22.800] ⚠️ `multi_pass_disagreement`
+و در بخش واقعی اقتصاد اتفاقی نیفته
+
+[00:12:22.800 → 00:12:29.860] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و این منجر به تورم در بخش عددی میشه و عرضش پول ملی و کاهش میده
+
+[00:12:29.860 → 00:12:36.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پس از هر دو جنبه، هم از دیدگاه اقتصاد کلام و هم در اقتصاد خورد و خانوارها
+
+[00:12:36.680 → 00:12:43.540] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+صرف بدهی، صرف قرض در حضینهای مصرفی کار درستی نیست
+
+[00:12:43.540 → 00:12:46.280]
+خب این هم قاعده دوم
+
+[00:12:46.280 → 00:12:49.400] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+قاعده ثوم چیه توی قرض گرفتن؟
+
+[00:12:49.400 → 00:12:54.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این که ما اجازه نداریم بیشتر از سی درصد از درامد آینده منو بخوریم
+
+[00:12:54.880 → 00:12:59.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ببینید ما داشتیم توی پلکان توامندی مالی بالا میرفتیم
+
+[00:12:59.880 → 00:13:03.400] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+میگفتیم من هی میخوام به این آینده پول بفرستم
+
+[00:13:03.400 → 00:13:08.160] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که اول برم رو جایگاه امنیت مالی بایسم با صندوق استراری
+
+[00:13:08.160 → 00:13:13.940] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پول میفرستادیم به صندوق استراری که آینده من عدم اتمینان نداشته باشیم
+
+[00:13:13.940 → 00:13:16.440] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نسبت به آینده من ایمن باشیم
+
+[00:13:16.440 → 00:13:21.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بعد می گفتیم تو صندوق پسنداز پول بذاریم که بریم تو جایگاه آزادی مالی
+
+[00:13:21.140 → 00:13:23.820] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که بتونیم رفاه مالی کسب بکنیم
+
+[00:13:24.340 → 00:13:30.260] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی بیس درصدهایی رو کم می کردیم تا بتونیم آینده خودمون رو تضمیم بکنیم
+
+[00:13:30.260 → 00:13:33.220] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا داریم یه منبعی از آینده بر می داریم
+
+[00:13:33.220 → 00:13:34.880]
+خب این خیلی مهمه
+
+[00:13:35.440 → 00:13:40.660] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما توی سواد مالی می گیم نهایت سی درصد از اون رو می تونی برداری
+
+[00:13:41.440 → 00:13:45.400] ⚠️ `multi_pass_disagreement`
+و این اجازه با رعایت قواعد قرض
+
+[00:13:45.400 → 00:13:50.320] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+البته مثلا گفتن که عددایی هم هست مثلا 25 درصد
+
+[00:13:50.320 → 00:13:57.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا اگر در باره مسکنه مثلا تا 36 درصد از درامد آینده تونم خرج بکنین اشکالی نداره
+
+[00:13:57.980 → 00:14:01.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی یه قاعده سرانگشتی همون 30 درصده
+
+[00:14:01.000 → 00:14:05.500] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پس ما با درد سر بسیار 20 درصد میخواستیم بفرستیم به آینده
+
+[00:14:05.500 → 00:14:08.200] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا داریم یه مجوز خیلی خاص میگیریم
+
+[00:14:08.200 → 00:14:14.280] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+که اگر شرایطی بود ما بتونیم 30 درصد از درامد آیندمون رو مصرف بکنیم
+
+[00:14:14.280 → 00:14:16.500] ⚠️ `multi_pass_disagreement`
+بروید همینجا، الان تو زمان حال
+
+[00:14:16.500 → 00:14:21.760] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+من به شما میگم که 20 درصد از درامدتون رو بردارید
+
+[00:14:21.760 → 00:14:26.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+شما میگید که من ندارم، همین 20 درصد هم بردارم زندگیم نمیچرخه
+
+[00:14:26.560 → 00:14:32.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی گاهی اوقات با بدهی تا 50 درصد از درامد آیندمون رو برمیداریم
+
+[00:14:32.240 → 00:14:36.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+الان داریم یه مجووزی میگیریم که 30 درصد از آینده برداریم
+
+[00:14:36.620 → 00:14:41.800] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+شما توی 20 درصد ممکنه خیلی به درد سر بیفتی
+
+[00:14:41.800 → 00:14:48.100] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+بگی من نمیتونم 20 درصد بردارم، کم و زیادش کنیم، مثلا مجموعشو بکنی 10 درصد یا 8 درصد
+
+[00:14:48.100 → 00:14:56.080] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی تو بدهی خیلی راحت این کار رو انجام میدیم، 30 درصد، 40 درصد از درامد آیندمون رو برمیداریم
+
+[00:14:56.080 → 00:15:02.220] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پس قاعده ثوم اینه که نهایت اگر یک قرضی رو مواجه شدیم و مجبور شدیم
+
+[00:15:02.220 → 00:15:07.800] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+قاعده ثوم به ما میگه که نباید بیشتر از 30 درصد از درامد من باشه
+
+[00:15:07.800 → 00:15:18.740] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب تا اینجا ما این سه تا قاعده رو رفتیم، تعین ظرفیت بدهی، حضینه های مصرفی نباشه و سی درصد از درامد آیندمون باشیم
+
+[00:15:18.740 → 00:15:27.600] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب یک شرایطی ممکنه پیش بیاد که مثل مثلا کارت اعتباری، مثل خرید نسیه
+
+[00:15:27.600 → 00:15:33.860] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب اینها تقریبا همون قرض محصوب میشه، یعنی یک تعهد مالیه
+
+[00:15:33.860 → 00:15:40.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما وقتی کارت اعتباری استفاده میکنیم، حالا جدیدن به فرهنگیان دادن یا به بازنشسته ها دادن
+
+[00:15:40.780 → 00:15:46.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+وقتی این کارت اعتباری استفاده میکنیم دقیقه مشابه همون قرضه یه تعهد مالی در آینده است
+
+[00:15:46.980 → 00:15:50.060] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یا وقتی نسیم میگیریم درست قرض نیست
+
+[00:15:50.060 → 00:15:55.100] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی گویی داریم یه تعهد مالی ایجاد میکنیم
+
+[00:15:55.100 → 00:16:00.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بنابرای این هم هر دو این ها مشمول همون قواعد در واقع قرض میشه
+
+[00:16:00.640 → 00:16:05.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+نکته بعدی احرامسازیه به دهیه، اینجا خیلی مهمه
+
+[00:16:05.620 → 00:16:07.640] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ما یه موقع، اینو بهش میگن قرض خوب
+
+[00:16:07.640 → 00:16:12.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه موقعی میریم قرض میگیریم که وارد عرصه سرمایه گذاری میشه
+
+[00:16:12.980 → 00:16:17.600] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی میریم تو بخش واقعی اقتصاد یک کاری میکنیم
+
+[00:16:17.600 → 00:16:20.560] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این خیلی خوبه، این یه قرض خوبه
+
+[00:16:20.560 → 00:16:26.540] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+به شرطی که بازدهی این سرمایه گذاری بیشتر از اون حضینه مالی باشه
+
+[00:16:26.540 → 00:16:30.040] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+یایتون باشه حزینه مالی و باید برای قرض ها حساب می کردیم
+
+[00:16:30.040 → 00:16:36.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اگر بازدهی این سرمایه گذاری بیشتر از حزینه مالی باشه ما یه قرض خوب گرفتیم
+
+[00:16:36.240 → 00:16:41.560] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+مثلا من یک تسهیلاتی گرستم، تسهیلات مثلا یه کسب و کاریو
+
+[00:16:42.400 → 00:16:47.360] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+مثلا با نرخ حزینه مالیش مثلا بوده 18 درصد
+
+[00:16:47.360 → 00:16:51.520] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+وارد یه کسب و کاری شدم، وارد سرمایه گذاری شدم
+
+[00:16:51.520 → 00:16:59.480] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+حالا به هر ترتیبی، از طریق بورس، از طریق فامیل یا هر جوری که بوده تو کسب و کار فامیلی مثلا سرمایه گذاری کردم
+
+[00:16:59.480 → 00:17:01.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+از طریق بورس سرمایه گذاری کردم
+
+[00:17:01.360 → 00:17:05.780] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+به هر حال بازدهی داشته مثلا 24 درصد
+
+[00:17:05.780 → 00:17:10.740] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب این یعنی من 6 درصد اینجا سوداوری تو بخش واقعی اقتصاد داشتم
+
+[00:17:10.740 → 00:17:13.760] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+این مصبتی، اینو بهش میگن احرامسازیه بدهی
+
+[00:17:13.760 → 00:17:20.200] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+یا ممکنه مثلا من 20 ملیون داشته باشم میرم یه خونه 100 ملیونی میخرم
+
+[00:17:20.200 → 00:17:22.740] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+هشتاد میلیون بدهی دارم
+
+[00:17:22.740 → 00:17:29.180] ⚠️ `low_word_confidence, multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی میدونم این هشتاد میلیون بدهی و از طریق اجاره این واحد مسکونی میتونم پس بدم
+
+[00:17:29.180 → 00:17:30.880] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی محلش برام مشخص
+
+[00:17:30.880 → 00:17:34.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب یعنی من این بیس میلیونم رو احرام کردم
+
+[00:17:34.140 → 00:17:35.900] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه خونه یه صد میلیونی خریدم
+
+[00:17:35.900 → 00:17:40.900] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و از محل در آمد این خونم دارم اقصادش رو پس میدم
+
+[00:17:40.900 → 00:17:43.240] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و در نهایت وقتی این اقصادش دمون بشه
+
+[00:17:43.240 → 00:17:45.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه آپارتمان صد میلیونی برامن میمونه
+
+[00:17:45.680 → 00:17:47.860] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+پس اینو میگن احرامسازی بدهی
+
+[00:17:47.860 → 00:17:52.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی من یک کاری بکنم که نه تنها اون بدهی به من فشار نیاره
+
+[00:17:52.620 → 00:17:57.680] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بلکه از محل درامد اون سرمایه من، اون کالای سرمایه من
+
+[00:17:57.680 → 00:18:04.360] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+میتونم بدهیم رو پست بدم، حضینه مالیش رو پوشش بدم و حتی از اون پیشی هم بگیرم
+
+[00:18:05.060 → 00:18:10.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یه نقطه دیگه هم میتونیم به این مطلب اضافه بکنیم در صلاح پس انداز معکوسه
+
+[00:18:10.000 → 00:18:13.280] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اینم یه جولای احرامسازی بدهی محصوب میشه
+
+[00:18:13.280 → 00:18:16.060] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی من میگم که خب من میخوام یه ماشین بخرم
+
+[00:18:16.060 → 00:18:19.620] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+باید پولم رو پسنداز بکنم تا سال دیگه که یک ماشین بخرم
+
+[00:18:19.620 → 00:18:23.020] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اون موقع هم قیمتش تغییر کرده هم ازار تا اتفاق افتد
+
+[00:18:23.020 → 00:18:27.140] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+خب من الان میرم خودم رو برای یک ماشین بدهکار میکنم
+
+[00:18:27.140 → 00:18:30.580] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و میدونم که عرضش این ماشین در طول زمان کم نمیشه
+
+[00:18:31.580 → 00:18:34.380] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بنابراین یک جور پسنداز کردنه
+
+[00:18:34.380 → 00:18:40.120] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی در اسطلاح من اون محل پرداخت بدهیم همون پسندازمه
+
+[00:18:40.120 → 00:18:43.960] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+الان میرم ماشین رو میخرم، خودم رو به دهکار میکنم
+
+[00:18:43.960 → 00:18:48.100] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و میدونم از محل پسندازم میتونم اقصادش رو پرداخت کنم
+
+[00:18:48.100 → 00:18:51.340] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و در نهایت یک خود رو هم برای من باقی مونه
+
+[00:18:51.340 → 00:18:54.980] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یعنی حدث پسندازی من به جان که در انتهای سال محقق بشه
+
+[00:18:54.980 → 00:18:59.380] ⚠️ `multi_pass_disagreement`
+همین ابتدا محقق میشه و در طول زندگی، در طول زمان
+
+[00:18:59.380 → 00:19:04.060] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+انگار که یک قلک اون ماشین و من دارم پولم رو به اون واریز میکنم
+
+[00:19:04.060 → 00:19:08.140]
+ممنونم که به این موضوع خیلی مهم توجه کردید، محفظ باشید
+
+[00:19:08.140 → 00:19:17.100] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+یک ورزشگار حرفی در وزن برداری بارها و بارها میتونه وزنه صد کیلوی رو بالای سر ببره
+
+[00:19:17.100 → 00:19:23.960] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+اون براش یه تمرینه، از اولاتش ظرفیت تحمل صد کیلو گرم رو داره
+
+[00:19:23.960 → 00:19:30.860] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ولی من رکورد میزنم، در یک بار انجام دادن میتونم محفظ باشم
+
+[00:19:30.860 → 00:19:33.360] ⚠️ `multi_pass_disagreement`
+اما نمیتونم هر روز این کارو بکنم
+
+[00:19:33.360 → 00:19:38.100] ⚠️ `multi_pass_disagreement`
+چون ازولات من ظرفیت انجام چنین کاری رو نداره
+
+[00:19:38.100 → 00:19:44.400] ⚠️ `multi_pass_disagreement`
+من باید با تمرین مداوم این ظرفیت سازی رو در ازولاتم ایجاد بکنم
+
+[00:19:44.400 → 00:19:49.840] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+و بتونم ازولات قدرتمندی داشته باشم تا دیگه ریکورد نزنم
+
+[00:19:49.840 → 00:19:52.900] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+بلکه همواره بتونم این کار رو انجام بدم
+
+[00:19:52.900 → 00:19:56.000] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ازولات مالی ما هم همین شکلیه
+
+[00:19:56.000 → 00:19:59.960] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+ممکنه یک بار بتونیم زیرا یک بار بدهی بریم
+
+[00:19:59.960 → 00:20:02.760] ⚠️ `multi_pass_disagreement`
+ولی وقتی این در بلند مدت میشه
+
+[00:20:02.760 → 00:20:07.880] ⚠️ `multi_pass_disagreement`
+و از اولات مالیمون ضعیف باشه، نمیتونیم تحملش بکنیم
+
+[00:20:07.880 → 00:20:15.040] ⚠️ `multi_pass_disagreement, protected_name_or_number_disagreement`
+تعین ظرفیت بدهی مهمترین کاریه که میتونیم قبل از قرض گرفتن انجام بدیم

@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "742dfc4afd8c1418bc9ae0820b85f50d78cc7794b8a278b0b220ad2b48801aac",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.2,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.18,
+        "text": "در نهایت اینه که خونه رو میفروشیم. این در بهترین شرایطشه، یعنی یک وسیقه‌ای وجود داره. در شراحیطی که وسیقي وجود نداره، باید مباشید.",
+        "avg_logprob": -0.29427473809983995,
+        "compression_ratio": 1.6433566433566433,
+        "no_speech_prob": 2.9995997352649795e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.5,
+            "word": " در",
+            "probability": 0.8354583978652954
+          },
+          {
+            "start": 0.5,
+            "end": 0.94,
+            "word": " نهایت",
+            "probability": 0.9895543605089188
+          },
+          {
+            "start": 0.94,
+            "end": 1.08,
+            "word": " اینه",
+            "probability": 0.9713461796442667
+          },
+          {
+            "start": 1.08,
+            "end": 1.2,
+            "word": " که",
+            "probability": 0.9980230033397675
+          },
+          {
+            "start": 1.2,
+            "end": 1.54,
+            "word": " خونه",
+            "probability": 0.9862912098566691
+          },
+          {
+            "start": 1.54,
+            "end": 1.64,
+            "word": " رو",
+            "probability": 0.974494457244873
+          },
+          {
+            "start": 1.64,
+            "end": 2.24,
+            "word": " میفروشیم.",
+            "probability": 0.9216671089331309
+          },
+          {
+            "start": 2.72,
+            "end": 3.38,
+            "word": " این",
+            "probability": 0.9909772574901581
+          },
+          {
+            "start": 3.38,
+            "end": 3.7,
+            "word": " در",
+            "probability": 0.9784916043281555
+          },
+          {
+            "start": 3.7,
+            "end": 4.2,
+            "word": " بهترین",
+            "probability": 0.9978154599666595
+          },
+          {
+            "start": 4.2,
+            "end": 4.92,
+            "word": " شرایطشه،",
+            "probability": 0.8079490927713258
+          },
+          {
+            "start": 4.92,
+            "end": 5.12,
+            "word": " یعنی",
+            "probability": 0.997480645775795
+          },
+          {
+            "start": 5.12,
+            "end": 5.3,
+            "word": " یک",
+            "probability": 0.986512154340744
+          },
+          {
+            "start": 5.3,
+            "end": 6.06,
+            "word": " وسیقه‌ای",
+            "probability": 0.6950791158846447
+          },
+          {
+            "start": 6.06,
+            "end": 6.42,
+            "word": " وجود",
+            "probability": 0.9635296165943146
+          },
+          {
+            "start": 6.42,
+            "end": 6.74,
+            "word": " داره.",
+            "probability": 0.9564032951990763
+          },
+          {
+            "start": 6.8,
+            "end": 7.0,
+            "word": " در",
+            "probability": 0.977427750825882
+          },
+          {
+            "start": 7.0,
+            "end": 7.48,
+            "word": " شراحیطی",
+            "probability": 0.7787540413531436
+          },
+          {
+            "start": 7.48,
+            "end": 7.64,
+            "word": " که",
+            "probability": 0.9849067628383636
+          },
+          {
+            "start": 7.64,
+            "end": 8.06,
+            "word": " وسیقي",
+            "probability": 0.6549942712275273
+          },
+          {
+            "start": 8.06,
+            "end": 8.48,
+            "word": " وجود",
+            "probability": 0.9866370558738708
+          },
+          {
+            "start": 8.48,
+            "end": 8.94,
+            "word": " نداره،",
+            "probability": 0.8608000457286835
+          },
+          {
+            "start": 8.94,
+            "end": 9.12,
+            "word": " باید",
+            "probability": 0.99193175137043
+          },
+          {
+            "start": 9.12,
+            "end": 9.18,
+            "word": " مباشید.",
+            "probability": 0.21033639311790467
+          }
+        ]
+      }
+    ]
+  }
+}

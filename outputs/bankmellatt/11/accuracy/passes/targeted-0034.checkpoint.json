@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "78b7648a8474fa28e47b5220a252ff12de8e27b6f32646cb99b66e6bf4e6f2ed",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.8,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.78,
+        "text": "نه، در طول زمان می‌خوام پرداخت بکنم. مثلا اگر ده ملیون از کسی گرفتم یا از یه نهاد مالی گفتم، شیش ماه دیگه باید این ده میلیان رو پروازم.",
+        "avg_logprob": -0.19001773753009,
+        "compression_ratio": 1.5253164556962024,
+        "no_speech_prob": 2.8251054273731313e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.38,
+            "word": " نه،",
+            "probability": 0.6562403837839762
+          },
+          {
+            "start": 0.38,
+            "end": 0.62,
+            "word": " در",
+            "probability": 0.9982373118400574
+          },
+          {
+            "start": 0.62,
+            "end": 0.86,
+            "word": " طول",
+            "probability": 0.9961859285831451
+          },
+          {
+            "start": 0.86,
+            "end": 1.36,
+            "word": " زمان",
+            "probability": 0.9968447089195251
+          },
+          {
+            "start": 1.36,
+            "end": 1.64,
+            "word": " می‌خوام",
+            "probability": 0.7789621774107218
+          },
+          {
+            "start": 1.64,
+            "end": 2.18,
+            "word": " پرداخت",
+            "probability": 0.9791526794433594
+          },
+          {
+            "start": 2.18,
+            "end": 2.5,
+            "word": " بکنم.",
+            "probability": 0.9671902656555176
+          },
+          {
+            "start": 2.6,
+            "end": 2.84,
+            "word": " مثلا",
+            "probability": 0.9600312411785126
+          },
+          {
+            "start": 2.84,
+            "end": 3.18,
+            "word": " اگر",
+            "probability": 0.9019441803296407
+          },
+          {
+            "start": 3.18,
+            "end": 3.46,
+            "word": " ده",
+            "probability": 0.7971792221069336
+          },
+          {
+            "start": 3.46,
+            "end": 3.78,
+            "word": " ملیون",
+            "probability": 0.8095722422003746
+          },
+          {
+            "start": 3.78,
+            "end": 3.96,
+            "word": " از",
+            "probability": 0.9926706552505493
+          },
+          {
+            "start": 3.96,
+            "end": 4.22,
+            "word": " کسی",
+            "probability": 0.9967147906621298
+          },
+          {
+            "start": 4.22,
+            "end": 4.68,
+            "word": " گرفتم",
+            "probability": 0.9930890401204427
+          },
+          {
+            "start": 4.68,
+            "end": 4.84,
+            "word": " یا",
+            "probability": 0.9515290260314941
+          },
+          {
+            "start": 4.84,
+            "end": 4.98,
+            "word": " از",
+            "probability": 0.9931309819221497
+          },
+          {
+            "start": 4.98,
+            "end": 5.08,
+            "word": " یه",
+            "probability": 0.979097992181778
+          },
+          {
+            "start": 5.08,
+            "end": 5.4,
+            "word": " نهاد",
+            "probability": 0.9949090878168741
+          },
+          {
+            "start": 5.4,
+            "end": 5.74,
+            "word": " مالی",
+            "probability": 0.9746050437291464
+          },
+          {
+            "start": 5.74,
+            "end": 6.5,
+            "word": " گفتم،",
+            "probability": 0.6122472634615406
+          },
+          {
+            "start": 6.5,
+            "end": 7.5,
+            "word": " شیش",
+            "probability": 0.9319650530815125
+          },
+          {
+            "start": 7.5,
+            "end": 7.7,
+            "word": " ماه",
+            "probability": 0.9930741488933563
+          },
+          {
+            "start": 7.7,
+            "end": 7.96,
+            "word": " دیگه",
+            "probability": 0.9707327634096146
+          },
+          {
+            "start": 7.96,
+            "end": 8.16,
+            "word": " باید",
+            "probability": 0.9885510206222534
+          },
+          {
+            "start": 8.16,
+            "end": 8.24,
+            "word": " این",
+            "probability": 0.9870442748069763
+          },
+          {
+            "start": 8.24,
+            "end": 8.42,
+            "word": " ده",
+            "probability": 0.9904019236564636
+          },
+          {
+            "start": 8.42,
+            "end": 8.7,
+            "word": " میلیان",
+            "probability": 0.26691238666535355
+          },
+          {
+            "start": 8.7,
+            "end": 8.78,
+            "word": " رو",
+            "probability": 0.8936729729175568
+          },
+          {
+            "start": 8.78,
+            "end": 8.78,
+            "word": " پروازم.",
+            "probability": 0.33412448270246387
+          }
+        ]
+      }
+    ]
+  }
+}

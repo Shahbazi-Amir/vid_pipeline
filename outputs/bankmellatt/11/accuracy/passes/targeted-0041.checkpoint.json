@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "2d730786e6240bde11234c74513874efbc45340d01994ed1321c6b17d1c295ea",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.62,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.34,
+        "text": "یاد که تعین کردن این ممکنه دوشبار باشه. و طول زمان پرداخت، مثلا یک سال طول می‌کشه، دو سال",
+        "avg_logprob": -0.18235738292850298,
+        "compression_ratio": 1.3333333333333333,
+        "no_speech_prob": 3.0474253676082697e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.16,
+            "word": " یاد",
+            "probability": 0.5907302051782608
+          },
+          {
+            "start": 0.16,
+            "end": 0.4,
+            "word": " که",
+            "probability": 0.9895596206188202
+          },
+          {
+            "start": 0.4,
+            "end": 0.78,
+            "word": " تعین",
+            "probability": 0.8341512978076935
+          },
+          {
+            "start": 0.78,
+            "end": 1.2,
+            "word": " کردن",
+            "probability": 0.9960610667864481
+          },
+          {
+            "start": 1.2,
+            "end": 1.28,
+            "word": " این",
+            "probability": 0.8212794661521912
+          },
+          {
+            "start": 1.28,
+            "end": 1.72,
+            "word": " ممکنه",
+            "probability": 0.9873378157615662
+          },
+          {
+            "start": 1.72,
+            "end": 2.18,
+            "word": " دوشبار",
+            "probability": 0.8364618957042694
+          },
+          {
+            "start": 2.18,
+            "end": 2.66,
+            "word": " باشه.",
+            "probability": 0.9895614385604858
+          },
+          {
+            "start": 2.74,
+            "end": 3.5,
+            "word": " و",
+            "probability": 0.9911128878593445
+          },
+          {
+            "start": 3.5,
+            "end": 3.98,
+            "word": " طول",
+            "probability": 0.996839851140976
+          },
+          {
+            "start": 3.98,
+            "end": 4.46,
+            "word": " زمان",
+            "probability": 0.9986673593521118
+          },
+          {
+            "start": 4.46,
+            "end": 5.2,
+            "word": " پرداخت،",
+            "probability": 0.8372461659212908
+          },
+          {
+            "start": 5.2,
+            "end": 5.5,
+            "word": " مثلا",
+            "probability": 0.9934386014938354
+          },
+          {
+            "start": 5.5,
+            "end": 5.84,
+            "word": " یک",
+            "probability": 0.9109295904636383
+          },
+          {
+            "start": 5.84,
+            "end": 6.12,
+            "word": " سال",
+            "probability": 0.9978704750537872
+          },
+          {
+            "start": 6.12,
+            "end": 6.34,
+            "word": " طول",
+            "probability": 0.9878309667110443
+          },
+          {
+            "start": 6.34,
+            "end": 6.94,
+            "word": " می‌کشه،",
+            "probability": 0.7151680234819651
+          },
+          {
+            "start": 6.94,
+            "end": 7.16,
+            "word": " دو",
+            "probability": 0.9942348897457123
+          },
+          {
+            "start": 7.16,
+            "end": 7.34,
+            "word": " سال",
+            "probability": 0.998402327299118
+          }
+        ]
+      }
+    ]
+  }
+}

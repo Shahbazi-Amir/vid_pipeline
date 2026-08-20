@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "a6d0f26c8aba4f81858593a2e6ae801b2089cd3ac8b6950478c64b2218345c32",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.42,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.32,
+        "text": "ما باید بدونیم از کجا میخواییم پرداخت کنیم، از حقوق‌مون میخویی پردایخ بکنی یا وسیقه‌ای داریم مثلاً",
+        "avg_logprob": -0.21189918610411632,
+        "compression_ratio": 1.5423728813559323,
+        "no_speech_prob": 2.530777254428074e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.46,
+            "word": " ما",
+            "probability": 0.985295295715332
+          },
+          {
+            "start": 0.46,
+            "end": 0.72,
+            "word": " باید",
+            "probability": 0.9973881095647812
+          },
+          {
+            "start": 0.72,
+            "end": 1.04,
+            "word": " بدونیم",
+            "probability": 0.9971902519464493
+          },
+          {
+            "start": 1.04,
+            "end": 1.14,
+            "word": " از",
+            "probability": 0.9994670748710632
+          },
+          {
+            "start": 1.14,
+            "end": 1.42,
+            "word": " کجا",
+            "probability": 0.9914093216260275
+          },
+          {
+            "start": 1.42,
+            "end": 1.72,
+            "word": " میخواییم",
+            "probability": 0.9253658652305603
+          },
+          {
+            "start": 1.72,
+            "end": 2.18,
+            "word": " پرداخت",
+            "probability": 0.9918702363967895
+          },
+          {
+            "start": 2.18,
+            "end": 2.6,
+            "word": " کنیم،",
+            "probability": 0.800083380471915
+          },
+          {
+            "start": 2.6,
+            "end": 3.04,
+            "word": " از",
+            "probability": 0.9989997446537018
+          },
+          {
+            "start": 3.04,
+            "end": 3.6,
+            "word": " حقوق‌مون",
+            "probability": 0.8225025950620571
+          },
+          {
+            "start": 3.6,
+            "end": 3.86,
+            "word": " میخویی",
+            "probability": 0.7390598644298734
+          },
+          {
+            "start": 3.86,
+            "end": 4.36,
+            "word": " پردایخ",
+            "probability": 0.3163594824494794
+          },
+          {
+            "start": 4.36,
+            "end": 4.78,
+            "word": " بکنی",
+            "probability": 0.9519343823194504
+          },
+          {
+            "start": 4.78,
+            "end": 5.58,
+            "word": " یا",
+            "probability": 0.49686272779945284
+          },
+          {
+            "start": 5.58,
+            "end": 6.28,
+            "word": " وسیقه‌ای",
+            "probability": 0.9366648026875087
+          },
+          {
+            "start": 6.28,
+            "end": 6.58,
+            "word": " داریم",
+            "probability": 0.9458131194114685
+          },
+          {
+            "start": 6.58,
+            "end": 7.32,
+            "word": " مثلاً",
+            "probability": 0.7370236118634542
+          }
+        ]
+      }
+    ]
+  }
+}

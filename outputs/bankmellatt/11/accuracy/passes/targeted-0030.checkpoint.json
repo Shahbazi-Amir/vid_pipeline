@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "90d475fc40e823504ee663873d36e012a5688174e6039c2078430aa650f5c9c5",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.14,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.08,
+        "text": "نه، یک کار دیگه‌ای دارم، یه پروژه‌ی درم و از محل اون پروشه بعدها می‌تونم این بدهی رو پرداخت بکنم. پس نکته‌ی اول تعین ظرفیت هست.",
+        "avg_logprob": -0.24842576310038567,
+        "compression_ratio": 1.5298013245033113,
+        "no_speech_prob": 3.142668347777544e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.18,
+            "word": " نه،",
+            "probability": 0.4217716430624326
+          },
+          {
+            "start": 0.18,
+            "end": 0.3,
+            "word": " یک",
+            "probability": 0.7478695511817932
+          },
+          {
+            "start": 0.3,
+            "end": 0.5,
+            "word": " کار",
+            "probability": 0.9923717677593231
+          },
+          {
+            "start": 0.5,
+            "end": 0.94,
+            "word": " دیگه‌ای",
+            "probability": 0.8563863140131746
+          },
+          {
+            "start": 0.94,
+            "end": 1.5,
+            "word": " دارم،",
+            "probability": 0.8051838129758835
+          },
+          {
+            "start": 1.5,
+            "end": 1.6,
+            "word": " یه",
+            "probability": 0.4933279026299715
+          },
+          {
+            "start": 1.6,
+            "end": 2.1,
+            "word": " پروژه‌ی",
+            "probability": 0.8451413598044643
+          },
+          {
+            "start": 2.1,
+            "end": 2.52,
+            "word": " درم",
+            "probability": 0.650003329773123
+          },
+          {
+            "start": 2.52,
+            "end": 2.96,
+            "word": " و",
+            "probability": 0.8360115885734558
+          },
+          {
+            "start": 2.96,
+            "end": 3.1,
+            "word": " از",
+            "probability": 0.9950655996799469
+          },
+          {
+            "start": 3.1,
+            "end": 3.38,
+            "word": " محل",
+            "probability": 0.9837179183959961
+          },
+          {
+            "start": 3.38,
+            "end": 3.54,
+            "word": " اون",
+            "probability": 0.9217536449432373
+          },
+          {
+            "start": 3.54,
+            "end": 4.02,
+            "word": " پروشه",
+            "probability": 0.7271131470079126
+          },
+          {
+            "start": 4.02,
+            "end": 4.46,
+            "word": " بعدها",
+            "probability": 0.9268905222415924
+          },
+          {
+            "start": 4.46,
+            "end": 4.8,
+            "word": " می‌تونم",
+            "probability": 0.8817641735076904
+          },
+          {
+            "start": 4.8,
+            "end": 4.9,
+            "word": " این",
+            "probability": 0.9488386511802673
+          },
+          {
+            "start": 4.9,
+            "end": 5.28,
+            "word": " بدهی",
+            "probability": 0.853040357430776
+          },
+          {
+            "start": 5.28,
+            "end": 5.62,
+            "word": " رو",
+            "probability": 0.7598834335803986
+          },
+          {
+            "start": 5.62,
+            "end": 6.28,
+            "word": " پرداخت",
+            "probability": 0.9740130662918091
+          },
+          {
+            "start": 6.28,
+            "end": 6.64,
+            "word": " بکنم.",
+            "probability": 0.9201778173446655
+          },
+          {
+            "start": 6.78,
+            "end": 7.3,
+            "word": " پس",
+            "probability": 0.9557853043079376
+          },
+          {
+            "start": 7.3,
+            "end": 7.78,
+            "word": " نکته‌ی",
+            "probability": 0.8234909892082214
+          },
+          {
+            "start": 7.78,
+            "end": 8.06,
+            "word": " اول",
+            "probability": 0.9708463549613953
+          },
+          {
+            "start": 8.06,
+            "end": 8.42,
+            "word": " تعین",
+            "probability": 0.6529741436243057
+          },
+          {
+            "start": 8.42,
+            "end": 9.02,
+            "word": " ظرفیت",
+            "probability": 0.848619544506073
+          },
+          {
+            "start": 9.02,
+            "end": 9.08,
+            "word": " هست.",
+            "probability": 0.47161204367876053
+          }
+        ]
+      }
+    ]
+  }
+}

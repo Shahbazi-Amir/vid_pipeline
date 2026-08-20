@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "091e7fee2a5341390d5c811c4a7939e07f7eed7e563cd46af63600bb150828a4",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.28,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.26,
+        "text": "اول بدونیم ما چقدر ورفیت بدهی داریم، چقدرا پوتانسیل این رو دارایم که بدهکار بشیم. چند تا شاخن",
+        "avg_logprob": -0.29009784831375374,
+        "compression_ratio": 1.4608695652173913,
+        "no_speech_prob": 2.488207695439115e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.08,
+            "word": " اول",
+            "probability": 0.3390633687376976
+          },
+          {
+            "start": 0.08,
+            "end": 0.48,
+            "word": " بدونیم",
+            "probability": 0.8401855081319809
+          },
+          {
+            "start": 0.48,
+            "end": 0.56,
+            "word": " ما",
+            "probability": 0.9669685959815979
+          },
+          {
+            "start": 0.56,
+            "end": 1.1,
+            "word": " چقدر",
+            "probability": 0.9962229331334432
+          },
+          {
+            "start": 1.1,
+            "end": 1.6,
+            "word": " ورفیت",
+            "probability": 0.9508218169212341
+          },
+          {
+            "start": 1.6,
+            "end": 2.14,
+            "word": " بدهی",
+            "probability": 0.9827537536621094
+          },
+          {
+            "start": 2.14,
+            "end": 2.62,
+            "word": " داریم،",
+            "probability": 0.8199180483818054
+          },
+          {
+            "start": 2.62,
+            "end": 3.24,
+            "word": " چقدرا",
+            "probability": 0.6624256082480618
+          },
+          {
+            "start": 3.24,
+            "end": 3.92,
+            "word": " پوتانسیل",
+            "probability": 0.9066474835077921
+          },
+          {
+            "start": 3.92,
+            "end": 4.08,
+            "word": " این",
+            "probability": 0.9511222243309021
+          },
+          {
+            "start": 4.08,
+            "end": 4.16,
+            "word": " رو",
+            "probability": 0.5175078362226486
+          },
+          {
+            "start": 4.16,
+            "end": 4.42,
+            "word": " دارایم",
+            "probability": 0.7449201345734764
+          },
+          {
+            "start": 4.42,
+            "end": 4.58,
+            "word": " که",
+            "probability": 0.9824548661708832
+          },
+          {
+            "start": 4.58,
+            "end": 5.34,
+            "word": " بدهکار",
+            "probability": 0.9649122357368469
+          },
+          {
+            "start": 5.34,
+            "end": 6.04,
+            "word": " بشیم.",
+            "probability": 0.9509406387805939
+          },
+          {
+            "start": 6.1,
+            "end": 6.8,
+            "word": " چند",
+            "probability": 0.9614192843437195
+          },
+          {
+            "start": 6.8,
+            "end": 7.56,
+            "word": " تا",
+            "probability": 0.926164448261261
+          },
+          {
+            "start": 7.56,
+            "end": 8.26,
+            "word": " شاخن",
+            "probability": 0.6759316623210907
+          }
+        ]
+      }
+    ]
+  }
+}

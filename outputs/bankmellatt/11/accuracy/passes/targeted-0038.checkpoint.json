@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "1498e29f01bee7fcbf06aeb8b984cf51f63ff1ca1e10dba9e3e06e63c61d9aa2",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.4,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.88,
+        "text": "یعنی در طول زمان می‌خوام پرداخت بکنم، باید بدونم مبلغ پرداخت هر ماه هم چقدره. این رو باایید دقیق تعییم بکنام.",
+        "avg_logprob": -0.16836799894060409,
+        "compression_ratio": 1.4592592592592593,
+        "no_speech_prob": 3.7848371658988356e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.16,
+            "word": " یعنی",
+            "probability": 0.981319397687912
+          },
+          {
+            "start": 0.16,
+            "end": 0.34,
+            "word": " در",
+            "probability": 0.9982792437076569
+          },
+          {
+            "start": 0.34,
+            "end": 0.7,
+            "word": " طول",
+            "probability": 0.9983189404010773
+          },
+          {
+            "start": 0.7,
+            "end": 1.14,
+            "word": " زمان",
+            "probability": 0.9575169881184896
+          },
+          {
+            "start": 1.14,
+            "end": 1.42,
+            "word": " می‌خوام",
+            "probability": 0.7483579060062766
+          },
+          {
+            "start": 1.42,
+            "end": 1.94,
+            "word": " پرداخت",
+            "probability": 0.9938966155052185
+          },
+          {
+            "start": 1.94,
+            "end": 2.6,
+            "word": " بکنم،",
+            "probability": 0.8227441787719727
+          },
+          {
+            "start": 2.6,
+            "end": 3.02,
+            "word": " باید",
+            "probability": 0.9950188100337982
+          },
+          {
+            "start": 3.02,
+            "end": 3.46,
+            "word": " بدونم",
+            "probability": 0.9850585460662842
+          },
+          {
+            "start": 3.46,
+            "end": 4.5,
+            "word": " مبلغ",
+            "probability": 0.9900376796722412
+          },
+          {
+            "start": 4.5,
+            "end": 5.32,
+            "word": " پرداخت",
+            "probability": 0.6943043174032937
+          },
+          {
+            "start": 5.32,
+            "end": 5.82,
+            "word": " هر",
+            "probability": 0.9908591210842133
+          },
+          {
+            "start": 5.82,
+            "end": 6.08,
+            "word": " ماه",
+            "probability": 0.9724389314651489
+          },
+          {
+            "start": 6.08,
+            "end": 6.22,
+            "word": " هم",
+            "probability": 0.996180534362793
+          },
+          {
+            "start": 6.22,
+            "end": 6.88,
+            "word": " چقدره.",
+            "probability": 0.9538561105728149
+          },
+          {
+            "start": 7.16,
+            "end": 7.52,
+            "word": " این",
+            "probability": 0.9813194572925568
+          },
+          {
+            "start": 7.52,
+            "end": 7.58,
+            "word": " رو",
+            "probability": 0.5741263329982758
+          },
+          {
+            "start": 7.58,
+            "end": 7.78,
+            "word": " باایید",
+            "probability": 0.6651880471060091
+          },
+          {
+            "start": 7.78,
+            "end": 8.2,
+            "word": " دقیق",
+            "probability": 0.9965503662824631
+          },
+          {
+            "start": 8.2,
+            "end": 8.52,
+            "word": " تعییم",
+            "probability": 0.8630974441766739
+          },
+          {
+            "start": 8.52,
+            "end": 8.88,
+            "word": " بکنام.",
+            "probability": 0.724682949331509
+          }
+        ]
+      }
+    ]
+  }
+}

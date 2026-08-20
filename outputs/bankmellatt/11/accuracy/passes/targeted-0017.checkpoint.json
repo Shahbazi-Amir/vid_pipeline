@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "ffadb2162936c96f2658bbf55432f86d1949da28abd98a38796be86126674c16",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.18,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.16,
+        "text": "پوتانسیل اینو داریم که بدهکار بشیم. چند تا شاخص می‌تونیم برای این در نظر بگیریم؟ اولیش اینه که محل پردا...",
+        "avg_logprob": -0.11632151094575723,
+        "compression_ratio": 1.3970588235294117,
+        "no_speech_prob": 3.2249983239474034e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.64,
+            "word": " پوتانسیل",
+            "probability": 0.8863316675027212
+          },
+          {
+            "start": 0.64,
+            "end": 0.88,
+            "word": " اینو",
+            "probability": 0.9447439908981323
+          },
+          {
+            "start": 0.88,
+            "end": 1.14,
+            "word": " داریم",
+            "probability": 0.9990629106760025
+          },
+          {
+            "start": 1.14,
+            "end": 1.32,
+            "word": " که",
+            "probability": 0.9988078474998474
+          },
+          {
+            "start": 1.32,
+            "end": 2.06,
+            "word": " بدهکار",
+            "probability": 0.9487113058567047
+          },
+          {
+            "start": 2.06,
+            "end": 2.54,
+            "word": " بشیم.",
+            "probability": 0.9593126624822617
+          },
+          {
+            "start": 2.68,
+            "end": 3.52,
+            "word": " چند",
+            "probability": 0.9961008727550507
+          },
+          {
+            "start": 3.52,
+            "end": 3.98,
+            "word": " تا",
+            "probability": 0.9858396649360657
+          },
+          {
+            "start": 3.98,
+            "end": 5.18,
+            "word": " شاخص",
+            "probability": 0.9949926535288492
+          },
+          {
+            "start": 5.18,
+            "end": 5.56,
+            "word": " می‌تونیم",
+            "probability": 0.8280124634232683
+          },
+          {
+            "start": 5.56,
+            "end": 5.82,
+            "word": " برای",
+            "probability": 0.9944533507029215
+          },
+          {
+            "start": 5.82,
+            "end": 5.86,
+            "word": " این",
+            "probability": 0.9974292814731598
+          },
+          {
+            "start": 5.86,
+            "end": 6.04,
+            "word": " در",
+            "probability": 0.9973032176494598
+          },
+          {
+            "start": 6.04,
+            "end": 6.38,
+            "word": " نظر",
+            "probability": 0.9963566660881042
+          },
+          {
+            "start": 6.38,
+            "end": 6.8,
+            "word": " بگیریم؟",
+            "probability": 0.8427509913841883
+          },
+          {
+            "start": 6.8,
+            "end": 7.34,
+            "word": " اولیش",
+            "probability": 0.9711993038654327
+          },
+          {
+            "start": 7.34,
+            "end": 7.52,
+            "word": " اینه",
+            "probability": 0.9470210870107015
+          },
+          {
+            "start": 7.52,
+            "end": 8.06,
+            "word": " که",
+            "probability": 0.9965563714504242
+          },
+          {
+            "start": 8.06,
+            "end": 8.68,
+            "word": " محل",
+            "probability": 0.9943785270055135
+          },
+          {
+            "start": 8.68,
+            "end": 9.16,
+            "word": " پردا...",
+            "probability": 0.7977084666490555
+          }
+        ]
+      }
+    ]
+  }
+}

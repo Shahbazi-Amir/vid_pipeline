@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "e5b0ab69ffa5b4dc2c29047401eee637737aa47dd77f07ae7a1c8b08a69fbff6",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.46,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.44,
+        "text": "یعندمون رو داریم استفاده می‌کنیم. مثلا من می‌دونم از حقوق هم این مبلغ رو می‌تونم به بدهی اختصاص بدم یا اینکه نه، یک کار دیگه‌ای دارم، یه پروژیم",
+        "avg_logprob": -0.21493846558509988,
+        "compression_ratio": 1.587878787878788,
+        "no_speech_prob": 2.75852396480758e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.58,
+            "word": " یعندمون",
+            "probability": 0.503430089354515
+          },
+          {
+            "start": 0.58,
+            "end": 1.2,
+            "word": " رو",
+            "probability": 0.9750554263591766
+          },
+          {
+            "start": 1.2,
+            "end": 1.6,
+            "word": " داریم",
+            "probability": 0.9951411038637161
+          },
+          {
+            "start": 1.6,
+            "end": 2.16,
+            "word": " استفاده",
+            "probability": 0.9988513588905334
+          },
+          {
+            "start": 2.16,
+            "end": 2.52,
+            "word": " می‌کنیم.",
+            "probability": 0.7358475690707564
+          },
+          {
+            "start": 2.7,
+            "end": 2.88,
+            "word": " مثلا",
+            "probability": 0.990761399269104
+          },
+          {
+            "start": 2.88,
+            "end": 3.14,
+            "word": " من",
+            "probability": 0.7154979705810547
+          },
+          {
+            "start": 3.14,
+            "end": 3.7,
+            "word": " می‌دونم",
+            "probability": 0.9836890459060669
+          },
+          {
+            "start": 3.7,
+            "end": 4.28,
+            "word": " از",
+            "probability": 0.9694941639900208
+          },
+          {
+            "start": 4.28,
+            "end": 4.68,
+            "word": " حقوق",
+            "probability": 0.9904390970865885
+          },
+          {
+            "start": 4.68,
+            "end": 4.8,
+            "word": " هم",
+            "probability": 0.6398626416921616
+          },
+          {
+            "start": 4.8,
+            "end": 5.02,
+            "word": " این",
+            "probability": 0.9831593930721283
+          },
+          {
+            "start": 5.02,
+            "end": 5.5,
+            "word": " مبلغ",
+            "probability": 0.9960212111473083
+          },
+          {
+            "start": 5.5,
+            "end": 5.66,
+            "word": " رو",
+            "probability": 0.9854101538658142
+          },
+          {
+            "start": 5.66,
+            "end": 6.22,
+            "word": " می‌تونم",
+            "probability": 0.9857379913330078
+          },
+          {
+            "start": 6.22,
+            "end": 6.5,
+            "word": " به",
+            "probability": 0.9861841797828674
+          },
+          {
+            "start": 6.5,
+            "end": 7.14,
+            "word": " بدهی",
+            "probability": 0.9483530124028524
+          },
+          {
+            "start": 7.14,
+            "end": 7.68,
+            "word": " اختصاص",
+            "probability": 0.9587036669254303
+          },
+          {
+            "start": 7.68,
+            "end": 7.96,
+            "word": " بدم",
+            "probability": 0.9595029652118683
+          },
+          {
+            "start": 7.96,
+            "end": 8.16,
+            "word": " یا",
+            "probability": 0.7781520187854767
+          },
+          {
+            "start": 8.16,
+            "end": 8.42,
+            "word": " اینکه",
+            "probability": 0.8838858008384705
+          },
+          {
+            "start": 8.42,
+            "end": 8.72,
+            "word": " نه،",
+            "probability": 0.6911940897504488
+          },
+          {
+            "start": 8.72,
+            "end": 8.88,
+            "word": " یک",
+            "probability": 0.717340275645256
+          },
+          {
+            "start": 8.88,
+            "end": 9.08,
+            "word": " کار",
+            "probability": 0.9622234106063843
+          },
+          {
+            "start": 9.08,
+            "end": 9.52,
+            "word": " دیگه‌ای",
+            "probability": 0.9312924316951207
+          },
+          {
+            "start": 9.52,
+            "end": 10.06,
+            "word": " دارم،",
+            "probability": 0.773219533264637
+          },
+          {
+            "start": 10.06,
+            "end": 10.14,
+            "word": " یه",
+            "probability": 0.63359135389328
+          },
+          {
+            "start": 10.14,
+            "end": 10.44,
+            "word": " پروژیم",
+            "probability": 0.8147856841484705
+          }
+        ]
+      }
+    ]
+  }
+}

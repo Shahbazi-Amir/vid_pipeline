@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "a41a9d60163b3ebc904734195afc5113e9300ad18e1911edf16ed6743cdc1e99",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.56,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.54,
+        "text": "به دهی تعین محل پرداخته. دومی نکته اینه که من می‌خوام این رو یک جا پرداق بکنم، یا نه در طول زمان می‌‌خواهم پر داخت.",
+        "avg_logprob": -0.25402178764343264,
+        "compression_ratio": 1.5,
+        "no_speech_prob": 3.0787358773487483e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.36,
+            "word": " به",
+            "probability": 0.13450640439987183
+          },
+          {
+            "start": 0.36,
+            "end": 0.74,
+            "word": " دهی",
+            "probability": 0.9585360487302145
+          },
+          {
+            "start": 0.74,
+            "end": 1.18,
+            "word": " تعین",
+            "probability": 0.8682977855205536
+          },
+          {
+            "start": 1.18,
+            "end": 1.76,
+            "word": " محل",
+            "probability": 0.9913735787073771
+          },
+          {
+            "start": 1.76,
+            "end": 2.5,
+            "word": " پرداخته.",
+            "probability": 0.9761919379234314
+          },
+          {
+            "start": 3.06,
+            "end": 3.74,
+            "word": " دومی",
+            "probability": 0.7920929988225301
+          },
+          {
+            "start": 3.74,
+            "end": 4.1,
+            "word": " نکته",
+            "probability": 0.9963743090629578
+          },
+          {
+            "start": 4.1,
+            "end": 4.36,
+            "word": " اینه",
+            "probability": 0.9916376074155172
+          },
+          {
+            "start": 4.36,
+            "end": 4.7,
+            "word": " که",
+            "probability": 0.9970963597297668
+          },
+          {
+            "start": 4.7,
+            "end": 5.08,
+            "word": " من",
+            "probability": 0.9908825159072876
+          },
+          {
+            "start": 5.08,
+            "end": 6.08,
+            "word": " می‌خوام",
+            "probability": 0.7414136214181781
+          },
+          {
+            "start": 6.08,
+            "end": 6.2,
+            "word": " این",
+            "probability": 0.9897342026233673
+          },
+          {
+            "start": 6.2,
+            "end": 6.24,
+            "word": " رو",
+            "probability": 0.6458334028720856
+          },
+          {
+            "start": 6.24,
+            "end": 6.52,
+            "word": " یک",
+            "probability": 0.9955912828445435
+          },
+          {
+            "start": 6.52,
+            "end": 6.72,
+            "word": " جا",
+            "probability": 0.7397328019142151
+          },
+          {
+            "start": 6.72,
+            "end": 7.26,
+            "word": " پرداق",
+            "probability": 0.5896451300941408
+          },
+          {
+            "start": 7.26,
+            "end": 8.36,
+            "word": " بکنم،",
+            "probability": 0.7580953717231751
+          },
+          {
+            "start": 8.36,
+            "end": 8.56,
+            "word": " یا",
+            "probability": 0.9881123304367065
+          },
+          {
+            "start": 8.56,
+            "end": 8.82,
+            "word": " نه",
+            "probability": 0.9869527518749237
+          },
+          {
+            "start": 8.82,
+            "end": 9.16,
+            "word": " در",
+            "probability": 0.9087150394916534
+          },
+          {
+            "start": 9.16,
+            "end": 9.44,
+            "word": " طول",
+            "probability": 0.9909684956073761
+          },
+          {
+            "start": 9.44,
+            "end": 9.94,
+            "word": " زمان",
+            "probability": 0.9864742755889893
+          },
+          {
+            "start": 9.94,
+            "end": 10.24,
+            "word": " می‌‌خواهم",
+            "probability": 0.6085379000190491
+          },
+          {
+            "start": 10.24,
+            "end": 10.46,
+            "word": " پر",
+            "probability": 0.9748518466949463
+          },
+          {
+            "start": 10.46,
+            "end": 10.54,
+            "word": " داخت.",
+            "probability": 0.5333624154639741
+          }
+        ]
+      }
+    ]
+  }
+}

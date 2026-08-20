@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "4e2120e1544724c24b85e95d026a35d0d455490e0496ba0937790539100ff835",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.44,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.2,
+        "text": "قرار ندیم که مجبور بشیم غرض بگیریم. اما اگر احیانان این اتفاق افتاد و هر حال مجبر شدید غرض",
+        "avg_logprob": -0.17163581369405098,
+        "compression_ratio": 1.5918367346938775,
+        "no_speech_prob": 2.6286470222736114e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.36,
+            "word": " قرار",
+            "probability": 0.9882369836171468
+          },
+          {
+            "start": 0.36,
+            "end": 0.84,
+            "word": " ندیم",
+            "probability": 0.9983050972223282
+          },
+          {
+            "start": 0.84,
+            "end": 1.06,
+            "word": " که",
+            "probability": 0.9754536151885986
+          },
+          {
+            "start": 1.06,
+            "end": 1.5,
+            "word": " مجبور",
+            "probability": 0.9994543194770813
+          },
+          {
+            "start": 1.5,
+            "end": 1.78,
+            "word": " بشیم",
+            "probability": 0.9954221993684769
+          },
+          {
+            "start": 1.78,
+            "end": 2.08,
+            "word": " غرض",
+            "probability": 0.6005284339189529
+          },
+          {
+            "start": 2.08,
+            "end": 2.5,
+            "word": " بگیریم.",
+            "probability": 0.9960768222808838
+          },
+          {
+            "start": 2.6,
+            "end": 3.16,
+            "word": " اما",
+            "probability": 0.9977426528930664
+          },
+          {
+            "start": 3.16,
+            "end": 3.5,
+            "word": " اگر",
+            "probability": 0.9984825650850931
+          },
+          {
+            "start": 3.5,
+            "end": 3.94,
+            "word": " احیانان",
+            "probability": 0.9198546528816223
+          },
+          {
+            "start": 3.94,
+            "end": 4.08,
+            "word": " این",
+            "probability": 0.995998352766037
+          },
+          {
+            "start": 4.08,
+            "end": 4.48,
+            "word": " اتفاق",
+            "probability": 0.9983129620552063
+          },
+          {
+            "start": 4.48,
+            "end": 5.02,
+            "word": " افتاد",
+            "probability": 0.9986487627029419
+          },
+          {
+            "start": 5.02,
+            "end": 5.48,
+            "word": " و",
+            "probability": 0.9830756187438965
+          },
+          {
+            "start": 5.48,
+            "end": 5.76,
+            "word": " هر",
+            "probability": 0.9985755383968353
+          },
+          {
+            "start": 5.76,
+            "end": 5.96,
+            "word": " حال",
+            "probability": 0.9808806478977203
+          },
+          {
+            "start": 5.96,
+            "end": 6.44,
+            "word": " مجبر",
+            "probability": 0.6664130861081503
+          },
+          {
+            "start": 6.44,
+            "end": 6.8,
+            "word": " شدید",
+            "probability": 0.7357846974882705
+          },
+          {
+            "start": 6.8,
+            "end": 7.2,
+            "word": " غرض",
+            "probability": 0.8159752488136292
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 7.2,
+        "end": 10.42,
+        "text": "بگریم، باید یه سری قواعد رو رعایت بکنیم.",
+        "avg_logprob": -0.17163581369405098,
+        "compression_ratio": 1.5918367346938775,
+        "no_speech_prob": 2.6286470222736114e-10,
+        "words": [
+          {
+            "start": 7.2,
+            "end": 8.04,
+            "word": " بگریم،",
+            "probability": 0.5971641179407016
+          },
+          {
+            "start": 8.04,
+            "end": 8.44,
+            "word": " باید",
+            "probability": 0.9966282993555069
+          },
+          {
+            "start": 8.44,
+            "end": 8.58,
+            "word": " یه",
+            "probability": 0.9316129982471466
+          },
+          {
+            "start": 8.58,
+            "end": 8.7,
+            "word": " سری",
+            "probability": 0.9012214243412018
+          },
+          {
+            "start": 8.7,
+            "end": 9.36,
+            "word": " قواعد",
+            "probability": 0.915463368097941
+          },
+          {
+            "start": 9.36,
+            "end": 9.54,
+            "word": " رو",
+            "probability": 0.8814270496368408
+          },
+          {
+            "start": 9.54,
+            "end": 10.06,
+            "word": " رعایت",
+            "probability": 0.8870684266090393
+          },
+          {
+            "start": 10.06,
+            "end": 10.42,
+            "word": " بکنیم.",
+            "probability": 0.9894396066665649
+          }
+        ]
+      }
+    ]
+  }
+}

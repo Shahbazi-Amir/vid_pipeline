@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "ac3f36449fd090e3cc3973e1f992d38d43640b0aa0bc197ff952f4f4a1f707a8",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.12,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.1,
+        "text": "می‌تونم به بدهی اختصاص بدم یا اینکه نه یک کار دیگه‌ای دارم، یک پروژه‌آی درم و از محل اون پروجه بعدها می‌‌توانم این بده.",
+        "avg_logprob": -0.30946678585476345,
+        "compression_ratio": 1.553191489361702,
+        "no_speech_prob": 3.812955506887761e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.74,
+            "word": " می‌تونم",
+            "probability": 0.586034444719553
+          },
+          {
+            "start": 0.74,
+            "end": 1.02,
+            "word": " به",
+            "probability": 0.973676860332489
+          },
+          {
+            "start": 1.02,
+            "end": 1.66,
+            "word": " بدهی",
+            "probability": 0.9105367859204611
+          },
+          {
+            "start": 1.66,
+            "end": 2.24,
+            "word": " اختصاص",
+            "probability": 0.9445926994085312
+          },
+          {
+            "start": 2.24,
+            "end": 2.5,
+            "word": " بدم",
+            "probability": 0.9623202979564667
+          },
+          {
+            "start": 2.5,
+            "end": 2.7,
+            "word": " یا",
+            "probability": 0.8786506056785583
+          },
+          {
+            "start": 2.7,
+            "end": 2.98,
+            "word": " اینکه",
+            "probability": 0.8544958829879761
+          },
+          {
+            "start": 2.98,
+            "end": 3.22,
+            "word": " نه",
+            "probability": 0.9585185945034027
+          },
+          {
+            "start": 3.22,
+            "end": 3.42,
+            "word": " یک",
+            "probability": 0.7492108345031738
+          },
+          {
+            "start": 3.42,
+            "end": 3.62,
+            "word": " کار",
+            "probability": 0.9857182204723358
+          },
+          {
+            "start": 3.62,
+            "end": 4.06,
+            "word": " دیگه‌ای",
+            "probability": 0.9199402928352356
+          },
+          {
+            "start": 4.06,
+            "end": 4.62,
+            "word": " دارم،",
+            "probability": 0.6629029046744108
+          },
+          {
+            "start": 4.62,
+            "end": 4.7,
+            "word": " یک",
+            "probability": 0.9506545066833496
+          },
+          {
+            "start": 4.7,
+            "end": 5.22,
+            "word": " پروژه‌آی",
+            "probability": 0.810920340313007
+          },
+          {
+            "start": 5.22,
+            "end": 5.62,
+            "word": " درم",
+            "probability": 0.6474205184495077
+          },
+          {
+            "start": 5.62,
+            "end": 6.1,
+            "word": " و",
+            "probability": 0.911125659942627
+          },
+          {
+            "start": 6.1,
+            "end": 6.22,
+            "word": " از",
+            "probability": 0.9816189408302307
+          },
+          {
+            "start": 6.22,
+            "end": 6.5,
+            "word": " محل",
+            "probability": 0.977155069510142
+          },
+          {
+            "start": 6.5,
+            "end": 6.66,
+            "word": " اون",
+            "probability": 0.8836184740066528
+          },
+          {
+            "start": 6.66,
+            "end": 7.12,
+            "word": " پروجه",
+            "probability": 0.7337213514256291
+          },
+          {
+            "start": 7.12,
+            "end": 7.56,
+            "word": " بعدها",
+            "probability": 0.9002053737640381
+          },
+          {
+            "start": 7.56,
+            "end": 7.94,
+            "word": " می‌‌توانم",
+            "probability": 0.6751925891065704
+          },
+          {
+            "start": 7.94,
+            "end": 8.02,
+            "word": " این",
+            "probability": 0.715838611125946
+          },
+          {
+            "start": 8.02,
+            "end": 8.1,
+            "word": " بده.",
+            "probability": 0.9492073059082031
+          }
+        ]
+      }
+    ]
+  }
+}

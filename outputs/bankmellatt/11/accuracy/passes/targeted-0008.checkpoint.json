@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "3de5a20e02cb02cac13cb39b5c10db3ece62c7bcf332e15c19158eecebb20e0a",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.6,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.58,
+        "text": "و هر حال مجبور شدیم قرض بگیریم، باید یه سری قواعد رو رعایت بکنیم. این رو بهش می‌گیم، قواهد بدهکار شد.",
+        "avg_logprob": -0.21799808236914622,
+        "compression_ratio": 1.448,
+        "no_speech_prob": 2.896549389230785e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.08,
+            "word": " و",
+            "probability": 0.6639472842216492
+          },
+          {
+            "start": 0.08,
+            "end": 0.32,
+            "word": " هر",
+            "probability": 0.9719414412975311
+          },
+          {
+            "start": 0.32,
+            "end": 0.52,
+            "word": " حال",
+            "probability": 0.9575512111186981
+          },
+          {
+            "start": 0.52,
+            "end": 1.08,
+            "word": " مجبور",
+            "probability": 0.9946415722370148
+          },
+          {
+            "start": 1.08,
+            "end": 1.4,
+            "word": " شدیم",
+            "probability": 0.9932542890310287
+          },
+          {
+            "start": 1.4,
+            "end": 1.74,
+            "word": " قرض",
+            "probability": 0.8962399065494537
+          },
+          {
+            "start": 1.74,
+            "end": 2.58,
+            "word": " بگیریم،",
+            "probability": 0.8697192569573721
+          },
+          {
+            "start": 2.58,
+            "end": 3.0,
+            "word": " باید",
+            "probability": 0.9919460564851761
+          },
+          {
+            "start": 3.0,
+            "end": 3.16,
+            "word": " یه",
+            "probability": 0.8447909653186798
+          },
+          {
+            "start": 3.16,
+            "end": 3.26,
+            "word": " سری",
+            "probability": 0.865740180015564
+          },
+          {
+            "start": 3.26,
+            "end": 3.92,
+            "word": " قواعد",
+            "probability": 0.9180255929629008
+          },
+          {
+            "start": 3.92,
+            "end": 4.1,
+            "word": " رو",
+            "probability": 0.831160843372345
+          },
+          {
+            "start": 4.1,
+            "end": 4.62,
+            "word": " رعایت",
+            "probability": 0.9521687746047973
+          },
+          {
+            "start": 4.62,
+            "end": 5.12,
+            "word": " بکنیم.",
+            "probability": 0.9832482814788819
+          },
+          {
+            "start": 5.22,
+            "end": 5.58,
+            "word": " این",
+            "probability": 0.9770613610744476
+          },
+          {
+            "start": 5.58,
+            "end": 5.66,
+            "word": " رو",
+            "probability": 0.7506350874900818
+          },
+          {
+            "start": 5.66,
+            "end": 5.94,
+            "word": " بهش",
+            "probability": 0.9912335872650146
+          },
+          {
+            "start": 5.94,
+            "end": 6.3,
+            "word": " می‌گیم،",
+            "probability": 0.6646414414669076
+          },
+          {
+            "start": 6.3,
+            "end": 6.94,
+            "word": " قواهد",
+            "probability": 0.7339559562387876
+          },
+          {
+            "start": 6.94,
+            "end": 7.58,
+            "word": " بدهکار",
+            "probability": 0.952180027961731
+          },
+          {
+            "start": 7.58,
+            "end": 7.58,
+            "word": " شد.",
+            "probability": 0.4890306368470192
+          }
+        ]
+      }
+    ]
+  }
+}

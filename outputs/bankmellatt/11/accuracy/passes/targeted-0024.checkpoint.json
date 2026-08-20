@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "ee0b7d7154a47c17f2b0c8ade06aaa934b7bf282157a7c87cdd32f75ba8cffaf",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.56,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.44,
+        "text": "در باره خونمون به دهگاریم، خب اگر دیگه به درد سر افتادیم در نهایت اینه که خونا رو می فروشیم. این در بهترین شرایطش هست.",
+        "avg_logprob": -0.20564708206802607,
+        "compression_ratio": 1.6030534351145038,
+        "no_speech_prob": 2.427747725075591e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.12,
+            "word": " در",
+            "probability": 0.5562204867601395
+          },
+          {
+            "start": 0.12,
+            "end": 0.46,
+            "word": " باره",
+            "probability": 0.9371532996495565
+          },
+          {
+            "start": 0.46,
+            "end": 1.74,
+            "word": " خونمون",
+            "probability": 0.8239225447177887
+          },
+          {
+            "start": 1.74,
+            "end": 1.88,
+            "word": " به",
+            "probability": 0.5557326078414917
+          },
+          {
+            "start": 1.88,
+            "end": 2.6,
+            "word": " دهگاریم،",
+            "probability": 0.7764581686684063
+          },
+          {
+            "start": 2.6,
+            "end": 2.72,
+            "word": " خب",
+            "probability": 0.7514112889766693
+          },
+          {
+            "start": 2.72,
+            "end": 3.28,
+            "word": " اگر",
+            "probability": 0.9626508156458536
+          },
+          {
+            "start": 3.28,
+            "end": 3.54,
+            "word": " دیگه",
+            "probability": 0.9373035281896591
+          },
+          {
+            "start": 3.54,
+            "end": 3.7,
+            "word": " به",
+            "probability": 0.969516396522522
+          },
+          {
+            "start": 3.7,
+            "end": 5.06,
+            "word": " درد",
+            "probability": 0.9940213362375895
+          },
+          {
+            "start": 5.06,
+            "end": 5.32,
+            "word": " سر",
+            "probability": 0.8384313881397247
+          },
+          {
+            "start": 5.32,
+            "end": 5.84,
+            "word": " افتادیم",
+            "probability": 0.9923401574293772
+          },
+          {
+            "start": 5.84,
+            "end": 6.08,
+            "word": " در",
+            "probability": 0.7503368556499481
+          },
+          {
+            "start": 6.08,
+            "end": 6.48,
+            "word": " نهایت",
+            "probability": 0.9961906522512436
+          },
+          {
+            "start": 6.48,
+            "end": 6.64,
+            "word": " اینه",
+            "probability": 0.955737312634786
+          },
+          {
+            "start": 6.64,
+            "end": 6.76,
+            "word": " که",
+            "probability": 0.9908212423324585
+          },
+          {
+            "start": 6.76,
+            "end": 7.04,
+            "word": " خونا",
+            "probability": 0.6122945534686247
+          },
+          {
+            "start": 7.04,
+            "end": 7.2,
+            "word": " رو",
+            "probability": 0.9420210421085358
+          },
+          {
+            "start": 7.2,
+            "end": 7.3,
+            "word": " می",
+            "probability": 0.9869784116744995
+          },
+          {
+            "start": 7.3,
+            "end": 8.06,
+            "word": " فروشیم.",
+            "probability": 0.8590050578117371
+          },
+          {
+            "start": 8.42,
+            "end": 8.94,
+            "word": " این",
+            "probability": 0.9924007058143616
+          },
+          {
+            "start": 8.94,
+            "end": 9.26,
+            "word": " در",
+            "probability": 0.9891597628593445
+          },
+          {
+            "start": 9.26,
+            "end": 9.76,
+            "word": " بهترین",
+            "probability": 0.996542826294899
+          },
+          {
+            "start": 9.76,
+            "end": 10.36,
+            "word": " شرایطش",
+            "probability": 0.9744109392166138
+          },
+          {
+            "start": 10.36,
+            "end": 10.44,
+            "word": " هست.",
+            "probability": 0.5329875722527504
+          }
+        ]
+      }
+    ]
+  }
+}

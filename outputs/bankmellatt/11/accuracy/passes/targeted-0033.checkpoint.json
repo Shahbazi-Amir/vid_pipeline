@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "028fb85e3cc7bf3c3fd465f33182e6c84d21b8a5dffb213dd97d8fc0277079db",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.02,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.7,
+        "text": "می‌خوام این رو یک جا پرداخت بکنم، یا نه در طول زمان می‌‌خواهم پرداق بکنام. مثلا اگر ده ملیون از کسی گرفتم",
+        "avg_logprob": -0.21736130328245565,
+        "compression_ratio": 1.4360902255639099,
+        "no_speech_prob": 2.536343635117788e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.52,
+            "word": " می‌خوام",
+            "probability": 0.7183827519416809
+          },
+          {
+            "start": 0.52,
+            "end": 0.64,
+            "word": " این",
+            "probability": 0.9743642210960388
+          },
+          {
+            "start": 0.64,
+            "end": 0.68,
+            "word": " رو",
+            "probability": 0.6308293044567108
+          },
+          {
+            "start": 0.68,
+            "end": 0.94,
+            "word": " یک",
+            "probability": 0.9912212491035461
+          },
+          {
+            "start": 0.94,
+            "end": 1.16,
+            "word": " جا",
+            "probability": 0.7878459692001343
+          },
+          {
+            "start": 1.16,
+            "end": 1.76,
+            "word": " پرداخت",
+            "probability": 0.9860553741455078
+          },
+          {
+            "start": 1.76,
+            "end": 2.78,
+            "word": " بکنم،",
+            "probability": 0.776762469112873
+          },
+          {
+            "start": 2.78,
+            "end": 3.02,
+            "word": " یا",
+            "probability": 0.981348842382431
+          },
+          {
+            "start": 3.02,
+            "end": 3.3,
+            "word": " نه",
+            "probability": 0.9834431409835815
+          },
+          {
+            "start": 3.3,
+            "end": 3.6,
+            "word": " در",
+            "probability": 0.8868713676929474
+          },
+          {
+            "start": 3.6,
+            "end": 3.88,
+            "word": " طول",
+            "probability": 0.9923880696296692
+          },
+          {
+            "start": 3.88,
+            "end": 4.38,
+            "word": " زمان",
+            "probability": 0.985630472501119
+          },
+          {
+            "start": 4.38,
+            "end": 4.68,
+            "word": " می‌‌خواهم",
+            "probability": 0.6082263830467127
+          },
+          {
+            "start": 4.68,
+            "end": 5.12,
+            "word": " پرداق",
+            "probability": 0.6023607915558387
+          },
+          {
+            "start": 5.12,
+            "end": 5.56,
+            "word": " بکنام.",
+            "probability": 0.5874850702530239
+          },
+          {
+            "start": 5.58,
+            "end": 5.86,
+            "word": " مثلا",
+            "probability": 0.9539944529533386
+          },
+          {
+            "start": 5.86,
+            "end": 6.2,
+            "word": " اگر",
+            "probability": 0.8770780563354492
+          },
+          {
+            "start": 6.2,
+            "end": 6.46,
+            "word": " ده",
+            "probability": 0.8190896213054657
+          },
+          {
+            "start": 6.46,
+            "end": 6.8,
+            "word": " ملیون",
+            "probability": 0.7945772409439087
+          },
+          {
+            "start": 6.8,
+            "end": 6.98,
+            "word": " از",
+            "probability": 0.9844299256801605
+          },
+          {
+            "start": 6.98,
+            "end": 7.24,
+            "word": " کسی",
+            "probability": 0.9961543679237366
+          },
+          {
+            "start": 7.24,
+            "end": 7.7,
+            "word": " گرفتم",
+            "probability": 0.9859711130460104
+          }
+        ]
+      }
+    ]
+  }
+}

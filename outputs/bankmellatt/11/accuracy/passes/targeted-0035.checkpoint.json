@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "69db2a86d069c4dfc7cf6ecf7f15cd9b5245b15727bb4987d33287879d3fd006",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.08,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.06,
+        "text": "از کسی گرفتم یا از یه نهاد مالی گرفتم. شیش ماه دیگه باید این ده میلیون رو پست بدم یا نه مثلا ماه یک میلئون",
+        "avg_logprob": -0.22234875136527463,
+        "compression_ratio": 1.5327868852459017,
+        "no_speech_prob": 4.2481174133968125e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.16,
+            "word": " از",
+            "probability": 0.8710687756538391
+          },
+          {
+            "start": 0.16,
+            "end": 0.42,
+            "word": " کسی",
+            "probability": 0.998399535814921
+          },
+          {
+            "start": 0.42,
+            "end": 0.88,
+            "word": " گرفتم",
+            "probability": 0.9981837670008341
+          },
+          {
+            "start": 0.88,
+            "end": 1.04,
+            "word": " یا",
+            "probability": 0.9473367929458618
+          },
+          {
+            "start": 1.04,
+            "end": 1.18,
+            "word": " از",
+            "probability": 0.9983647167682648
+          },
+          {
+            "start": 1.18,
+            "end": 1.28,
+            "word": " یه",
+            "probability": 0.9889012575149536
+          },
+          {
+            "start": 1.28,
+            "end": 1.6,
+            "word": " نهاد",
+            "probability": 0.9934869011243185
+          },
+          {
+            "start": 1.6,
+            "end": 1.94,
+            "word": " مالی",
+            "probability": 0.9879340132077535
+          },
+          {
+            "start": 1.94,
+            "end": 2.48,
+            "word": " گرفتم.",
+            "probability": 0.5895944379003595
+          },
+          {
+            "start": 3.18,
+            "end": 3.7,
+            "word": " شیش",
+            "probability": 0.9389442205429077
+          },
+          {
+            "start": 3.7,
+            "end": 3.9,
+            "word": " ماه",
+            "probability": 0.9972772598266602
+          },
+          {
+            "start": 3.9,
+            "end": 4.16,
+            "word": " دیگه",
+            "probability": 0.9847679883241653
+          },
+          {
+            "start": 4.16,
+            "end": 4.38,
+            "word": " باید",
+            "probability": 0.9966612905263901
+          },
+          {
+            "start": 4.38,
+            "end": 4.44,
+            "word": " این",
+            "probability": 0.99396812915802
+          },
+          {
+            "start": 4.44,
+            "end": 4.62,
+            "word": " ده",
+            "probability": 0.9239268898963928
+          },
+          {
+            "start": 4.62,
+            "end": 4.9,
+            "word": " میلیون",
+            "probability": 0.7901120521128178
+          },
+          {
+            "start": 4.9,
+            "end": 5.0,
+            "word": " رو",
+            "probability": 0.9332219958305359
+          },
+          {
+            "start": 5.0,
+            "end": 5.22,
+            "word": " پست",
+            "probability": 0.8529382646083832
+          },
+          {
+            "start": 5.22,
+            "end": 5.6,
+            "word": " بدم",
+            "probability": 0.9931803047657013
+          },
+          {
+            "start": 5.6,
+            "end": 6.44,
+            "word": " یا",
+            "probability": 0.7150539010763168
+          },
+          {
+            "start": 6.44,
+            "end": 6.6,
+            "word": " نه",
+            "probability": 0.9855987131595612
+          },
+          {
+            "start": 6.6,
+            "end": 7.04,
+            "word": " مثلا",
+            "probability": 0.8785014152526855
+          },
+          {
+            "start": 7.04,
+            "end": 7.4,
+            "word": " ماه",
+            "probability": 0.9688627123832703
+          },
+          {
+            "start": 7.4,
+            "end": 7.74,
+            "word": " یک",
+            "probability": 0.9195213913917542
+          },
+          {
+            "start": 7.74,
+            "end": 8.06,
+            "word": " میلئون",
+            "probability": 0.7279262173174175
+          }
+        ]
+      }
+    ]
+  }
+}

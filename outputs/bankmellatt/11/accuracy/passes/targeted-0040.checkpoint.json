@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "e613540320ff64b2973b343ad1652e59abeea7d9235cd47ad30315e5e51165e3",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.9,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.82,
+        "text": "چقدره؟ اینو باید دقیق تعییم بکنم. حالا یه شرایطی به وجود میاد که تعیین کردن این ممکنه دوشبار باشه. و طول زمان پردا.",
+        "avg_logprob": -0.14896704856451456,
+        "compression_ratio": 1.474820143884892,
+        "no_speech_prob": 3.0412980467353634e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.7,
+            "word": " چقدره؟",
+            "probability": 0.8098773837089539
+          },
+          {
+            "start": 0.7,
+            "end": 1.2,
+            "word": " اینو",
+            "probability": 0.9627917806307474
+          },
+          {
+            "start": 1.2,
+            "end": 1.42,
+            "word": " باید",
+            "probability": 0.998039186000824
+          },
+          {
+            "start": 1.42,
+            "end": 1.84,
+            "word": " دقیق",
+            "probability": 0.9994432628154755
+          },
+          {
+            "start": 1.84,
+            "end": 2.16,
+            "word": " تعییم",
+            "probability": 0.7317039668560028
+          },
+          {
+            "start": 2.16,
+            "end": 2.5,
+            "word": " بکنم.",
+            "probability": 0.9952816218137741
+          },
+          {
+            "start": 2.6,
+            "end": 2.7,
+            "word": " حالا",
+            "probability": 0.9944088459014893
+          },
+          {
+            "start": 2.7,
+            "end": 2.86,
+            "word": " یه",
+            "probability": 0.9921161532402039
+          },
+          {
+            "start": 2.86,
+            "end": 3.34,
+            "word": " شرایطی",
+            "probability": 0.9917410254478455
+          },
+          {
+            "start": 3.34,
+            "end": 3.48,
+            "word": " به",
+            "probability": 0.9821498990058899
+          },
+          {
+            "start": 3.48,
+            "end": 3.82,
+            "word": " وجود",
+            "probability": 0.9992035925388336
+          },
+          {
+            "start": 3.82,
+            "end": 4.04,
+            "word": " میاد",
+            "probability": 0.9798960089683533
+          },
+          {
+            "start": 4.04,
+            "end": 4.26,
+            "word": " که",
+            "probability": 0.9918296337127686
+          },
+          {
+            "start": 4.26,
+            "end": 4.7,
+            "word": " تعیین",
+            "probability": 0.7627788881460825
+          },
+          {
+            "start": 4.7,
+            "end": 5.1,
+            "word": " کردن",
+            "probability": 0.9981969197591146
+          },
+          {
+            "start": 5.1,
+            "end": 5.2,
+            "word": " این",
+            "probability": 0.7385827302932739
+          },
+          {
+            "start": 5.2,
+            "end": 5.62,
+            "word": " ممکنه",
+            "probability": 0.9897917866706848
+          },
+          {
+            "start": 5.62,
+            "end": 6.1,
+            "word": " دوشبار",
+            "probability": 0.8693872451782226
+          },
+          {
+            "start": 6.1,
+            "end": 6.48,
+            "word": " باشه.",
+            "probability": 0.9910959800084432
+          },
+          {
+            "start": 6.84,
+            "end": 7.4,
+            "word": " و",
+            "probability": 0.9922100305557251
+          },
+          {
+            "start": 7.4,
+            "end": 7.88,
+            "word": " طول",
+            "probability": 0.9970118999481201
+          },
+          {
+            "start": 7.88,
+            "end": 8.36,
+            "word": " زمان",
+            "probability": 0.9977633953094482
+          },
+          {
+            "start": 8.36,
+            "end": 8.82,
+            "word": " پردا.",
+            "probability": 0.8633889953295389
+          }
+        ]
+      }
+    ]
+  }
+}

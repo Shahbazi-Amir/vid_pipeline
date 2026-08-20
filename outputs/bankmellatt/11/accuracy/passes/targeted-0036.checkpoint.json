@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "1a795fe7996f93d50ad7ec95cbed6c63d75dc4bd7d05afe6ebdd8c7842cd4666",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.44,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.12,
+        "text": "شیش ماه دیگه باید این ده ملیون رو پست بدم؟ یا نه، مثلاً ماه یک میلیان به مدت ده ماه بارد پست بدهم؟ خب، اگر تو این...",
+        "avg_logprob": -0.23170690993740134,
+        "compression_ratio": 1.5378787878787878,
+        "no_speech_prob": 3.3070471361362763e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.62,
+            "word": " شیش",
+            "probability": 0.8547901709874471
+          },
+          {
+            "start": 0.62,
+            "end": 0.82,
+            "word": " ماه",
+            "probability": 0.996733546257019
+          },
+          {
+            "start": 0.82,
+            "end": 1.08,
+            "word": " دیگه",
+            "probability": 0.984793558716774
+          },
+          {
+            "start": 1.08,
+            "end": 1.3,
+            "word": " باید",
+            "probability": 0.9960230141878128
+          },
+          {
+            "start": 1.3,
+            "end": 1.36,
+            "word": " این",
+            "probability": 0.9953034222126007
+          },
+          {
+            "start": 1.36,
+            "end": 1.54,
+            "word": " ده",
+            "probability": 0.9595936238765717
+          },
+          {
+            "start": 1.54,
+            "end": 1.82,
+            "word": " ملیون",
+            "probability": 0.8974406123161316
+          },
+          {
+            "start": 1.82,
+            "end": 1.9,
+            "word": " رو",
+            "probability": 0.9144057929515839
+          },
+          {
+            "start": 1.9,
+            "end": 2.14,
+            "word": " پست",
+            "probability": 0.7955840229988098
+          },
+          {
+            "start": 2.14,
+            "end": 2.74,
+            "word": " بدم؟",
+            "probability": 0.7446229954560598
+          },
+          {
+            "start": 2.74,
+            "end": 3.36,
+            "word": " یا",
+            "probability": 0.9948911666870117
+          },
+          {
+            "start": 3.36,
+            "end": 3.6,
+            "word": " نه،",
+            "probability": 0.6776805594563484
+          },
+          {
+            "start": 3.6,
+            "end": 4.04,
+            "word": " مثلاً",
+            "probability": 0.7274032185475031
+          },
+          {
+            "start": 4.04,
+            "end": 4.3,
+            "word": " ماه",
+            "probability": 0.9801504909992218
+          },
+          {
+            "start": 4.3,
+            "end": 4.68,
+            "word": " یک",
+            "probability": 0.8957093358039856
+          },
+          {
+            "start": 4.68,
+            "end": 5.0,
+            "word": " میلیان",
+            "probability": 0.5138686567370314
+          },
+          {
+            "start": 5.0,
+            "end": 5.1,
+            "word": " به",
+            "probability": 0.9777559041976929
+          },
+          {
+            "start": 5.1,
+            "end": 5.48,
+            "word": " مدت",
+            "probability": 0.9978330135345459
+          },
+          {
+            "start": 5.48,
+            "end": 5.88,
+            "word": " ده",
+            "probability": 0.9988643527030945
+          },
+          {
+            "start": 5.88,
+            "end": 6.12,
+            "word": " ماه",
+            "probability": 0.9002599120140076
+          },
+          {
+            "start": 6.12,
+            "end": 6.38,
+            "word": " بارد",
+            "probability": 0.6102563005212384
+          },
+          {
+            "start": 6.38,
+            "end": 6.66,
+            "word": " پست",
+            "probability": 0.9941922724246979
+          },
+          {
+            "start": 6.66,
+            "end": 7.18,
+            "word": " بدهم؟",
+            "probability": 0.22555237806712589
+          },
+          {
+            "start": 7.18,
+            "end": 8.24,
+            "word": " خب،",
+            "probability": 0.8461326559384664
+          },
+          {
+            "start": 8.24,
+            "end": 8.6,
+            "word": " اگر",
+            "probability": 0.9985320369402567
+          },
+          {
+            "start": 8.6,
+            "end": 8.7,
+            "word": " تو",
+            "probability": 0.9861288666725159
+          },
+          {
+            "start": 8.7,
+            "end": 9.12,
+            "word": " این...",
+            "probability": 0.7511239846547445
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "77e942e22c544de6a3e19d19c3f394f74af2f5eb81419b5af015b05dcf59cde2",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.06,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 3.6,
+        "text": "فرق من و یک وردشگار حرفی در چیه؟",
+        "avg_logprob": -0.2599410312931712,
+        "compression_ratio": 1.1875,
+        "no_speech_prob": 3.9902783854905977e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.52,
+            "word": " فرق",
+            "probability": 0.9915549159049988
+          },
+          {
+            "start": 0.52,
+            "end": 0.86,
+            "word": " من",
+            "probability": 0.9944626688957214
+          },
+          {
+            "start": 0.86,
+            "end": 1.42,
+            "word": " و",
+            "probability": 0.9949517250061035
+          },
+          {
+            "start": 1.42,
+            "end": 1.62,
+            "word": " یک",
+            "probability": 0.9849106669425964
+          },
+          {
+            "start": 1.62,
+            "end": 2.3,
+            "word": " وردشگار",
+            "probability": 0.8320576647917429
+          },
+          {
+            "start": 2.3,
+            "end": 2.72,
+            "word": " حرفی",
+            "probability": 0.7127060691515604
+          },
+          {
+            "start": 2.72,
+            "end": 3.02,
+            "word": " در",
+            "probability": 0.8631236255168915
+          },
+          {
+            "start": 3.02,
+            "end": 3.6,
+            "word": " چیه؟",
+            "probability": 0.9866248816251755
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 3.6,
+        "end": 6.04,
+        "text": "یک برداشگار هرفی وزن",
+        "avg_logprob": -0.2599410312931712,
+        "compression_ratio": 1.1875,
+        "no_speech_prob": 3.9902783854905977e-10,
+        "words": [
+          {
+            "start": 3.6,
+            "end": 4.1,
+            "word": " یک",
+            "probability": 0.9918845891952515
+          },
+          {
+            "start": 4.1,
+            "end": 4.92,
+            "word": " برداشگار",
+            "probability": 0.6481390947010368
+          },
+          {
+            "start": 4.92,
+            "end": 5.54,
+            "word": " هرفی",
+            "probability": 0.6638327550996715
+          },
+          {
+            "start": 5.54,
+            "end": 6.04,
+            "word": " وزن",
+            "probability": 0.9278060793876648
+          }
+        ]
+      }
+    ]
+  }
+}

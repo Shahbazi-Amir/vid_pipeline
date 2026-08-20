@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "66a881aad2bfd69c9aeeafff9f283e98bbd745734a3aa5a15b4e7f8b61b0880e",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.78,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.76,
+        "text": "در اصطلاح بی‌گدار با آب نزنیم، اول بدونیم ما چقدر ظرفیت بدهی داریم؟ چقدرا پوتانسیل اینو دارم که بده؟",
+        "avg_logprob": -0.19919833756875302,
+        "compression_ratio": 1.4409448818897639,
+        "no_speech_prob": 2.625188399996148e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.7,
+            "word": " در",
+            "probability": 0.933204859495163
+          },
+          {
+            "start": 0.7,
+            "end": 1.18,
+            "word": " اصطلاح",
+            "probability": 0.8250593781471253
+          },
+          {
+            "start": 1.18,
+            "end": 1.74,
+            "word": " بی‌گدار",
+            "probability": 0.7859284719452262
+          },
+          {
+            "start": 1.74,
+            "end": 1.96,
+            "word": " با",
+            "probability": 0.9482899904251099
+          },
+          {
+            "start": 1.96,
+            "end": 2.1,
+            "word": " آب",
+            "probability": 0.91081702709198
+          },
+          {
+            "start": 2.1,
+            "end": 2.62,
+            "word": " نزنیم،",
+            "probability": 0.7650974790255228
+          },
+          {
+            "start": 2.62,
+            "end": 2.82,
+            "word": " اول",
+            "probability": 0.9896121621131897
+          },
+          {
+            "start": 2.82,
+            "end": 3.22,
+            "word": " بدونیم",
+            "probability": 0.9581989198923111
+          },
+          {
+            "start": 3.22,
+            "end": 3.34,
+            "word": " ما",
+            "probability": 0.9581519365310669
+          },
+          {
+            "start": 3.34,
+            "end": 3.88,
+            "word": " چقدر",
+            "probability": 0.9885115027427673
+          },
+          {
+            "start": 3.88,
+            "end": 4.4,
+            "word": " ظرفیت",
+            "probability": 0.9107654571533204
+          },
+          {
+            "start": 4.4,
+            "end": 4.9,
+            "word": " بدهی",
+            "probability": 0.9108011921246847
+          },
+          {
+            "start": 4.9,
+            "end": 5.42,
+            "word": " داریم؟",
+            "probability": 0.8511152744293213
+          },
+          {
+            "start": 5.42,
+            "end": 6.04,
+            "word": " چقدرا",
+            "probability": 0.654944971378427
+          },
+          {
+            "start": 6.04,
+            "end": 6.7,
+            "word": " پوتانسیل",
+            "probability": 0.892228494087855
+          },
+          {
+            "start": 6.7,
+            "end": 6.92,
+            "word": " اینو",
+            "probability": 0.8531291882197062
+          },
+          {
+            "start": 6.92,
+            "end": 7.18,
+            "word": " دارم",
+            "probability": 0.6647807420231402
+          },
+          {
+            "start": 7.18,
+            "end": 7.36,
+            "word": " که",
+            "probability": 0.9833888709545135
+          },
+          {
+            "start": 7.36,
+            "end": 7.76,
+            "word": " بده؟",
+            "probability": 0.710717519124349
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "c757691cbf0398102bab7c1177fbef25d66c917cfb49c2119ea66caa71bc4b00",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.38,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.36,
+        "text": "باید یه سری قواعد رو رعایت بکنیم. اینو بهش می‌گیم قواد بدهکار شدن یا قواهد قرض گرفتن. البته در شرایطی ما قرض خوب هم داریم",
+        "avg_logprob": -0.14368101879954337,
+        "compression_ratio": 1.4965517241379311,
+        "no_speech_prob": 2.2343056571560993e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.4,
+            "word": " باید",
+            "probability": 0.9943617582321167
+          },
+          {
+            "start": 0.4,
+            "end": 0.54,
+            "word": " یه",
+            "probability": 0.9855444431304932
+          },
+          {
+            "start": 0.54,
+            "end": 0.66,
+            "word": " سری",
+            "probability": 0.9573979377746582
+          },
+          {
+            "start": 0.66,
+            "end": 1.32,
+            "word": " قواعد",
+            "probability": 0.8678950071334839
+          },
+          {
+            "start": 1.32,
+            "end": 1.5,
+            "word": " رو",
+            "probability": 0.932619035243988
+          },
+          {
+            "start": 1.5,
+            "end": 2.02,
+            "word": " رعایت",
+            "probability": 0.8655930995941162
+          },
+          {
+            "start": 2.02,
+            "end": 2.52,
+            "word": " بکنیم.",
+            "probability": 0.996884799003601
+          },
+          {
+            "start": 2.58,
+            "end": 3.04,
+            "word": " اینو",
+            "probability": 0.8271795908610026
+          },
+          {
+            "start": 3.04,
+            "end": 3.34,
+            "word": " بهش",
+            "probability": 0.9969448149204254
+          },
+          {
+            "start": 3.34,
+            "end": 3.64,
+            "word": " می‌گیم",
+            "probability": 0.7871675151400268
+          },
+          {
+            "start": 3.64,
+            "end": 4.34,
+            "word": " قواد",
+            "probability": 0.6528314320118321
+          },
+          {
+            "start": 4.34,
+            "end": 4.98,
+            "word": " بدهکار",
+            "probability": 0.9731056988239288
+          },
+          {
+            "start": 4.98,
+            "end": 5.3,
+            "word": " شدن",
+            "probability": 0.9922034939130148
+          },
+          {
+            "start": 5.3,
+            "end": 5.46,
+            "word": " یا",
+            "probability": 0.9882531464099884
+          },
+          {
+            "start": 5.46,
+            "end": 6.02,
+            "word": " قواهد",
+            "probability": 0.743804716039449
+          },
+          {
+            "start": 6.02,
+            "end": 6.4,
+            "word": " قرض",
+            "probability": 0.958730936050415
+          },
+          {
+            "start": 6.4,
+            "end": 6.88,
+            "word": " گرفتن.",
+            "probability": 0.9974792301654816
+          },
+          {
+            "start": 6.96,
+            "end": 7.3,
+            "word": " البته",
+            "probability": 0.9898201823234558
+          },
+          {
+            "start": 7.3,
+            "end": 7.54,
+            "word": " در",
+            "probability": 0.9962175786495209
+          },
+          {
+            "start": 7.54,
+            "end": 8.18,
+            "word": " شرایطی",
+            "probability": 0.9699751973152161
+          },
+          {
+            "start": 8.18,
+            "end": 8.28,
+            "word": " ما",
+            "probability": 0.9774108529090881
+          },
+          {
+            "start": 8.28,
+            "end": 8.64,
+            "word": " قرض",
+            "probability": 0.9985439479351044
+          },
+          {
+            "start": 8.64,
+            "end": 8.96,
+            "word": " خوب",
+            "probability": 0.992309033870697
+          },
+          {
+            "start": 8.96,
+            "end": 9.12,
+            "word": " هم",
+            "probability": 0.9450245201587677
+          },
+          {
+            "start": 9.12,
+            "end": 9.36,
+            "word": " داریم",
+            "probability": 0.9952814429998398
+          }
+        ]
+      }
+    ]
+  }
+}

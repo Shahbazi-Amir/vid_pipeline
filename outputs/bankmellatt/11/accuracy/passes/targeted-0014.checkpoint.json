@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "aa4a75c0dbdcbc025d7924e47019600690c0536615465039789e22e15c167752",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.28,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.26,
+        "text": "ظرفیت بدهیم اونو تعییم بکنیم. در اصطلاح بی‌گدار با آب نزنید، اول بدونیم ما چقدر ظروفیت به دهیده؟",
+        "avg_logprob": -0.27887010238540005,
+        "compression_ratio": 1.3888888888888888,
+        "no_speech_prob": 3.1697944269382106e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.68,
+            "word": " ظرفیت",
+            "probability": 0.7864967681467533
+          },
+          {
+            "start": 0.68,
+            "end": 1.4,
+            "word": " بدهیم",
+            "probability": 0.9841693192720413
+          },
+          {
+            "start": 1.4,
+            "end": 1.56,
+            "word": " اونو",
+            "probability": 0.7199735641479492
+          },
+          {
+            "start": 1.56,
+            "end": 1.96,
+            "word": " تعییم",
+            "probability": 0.8258606046438217
+          },
+          {
+            "start": 1.96,
+            "end": 2.54,
+            "word": " بکنیم.",
+            "probability": 0.9757553100585937
+          },
+          {
+            "start": 3.2,
+            "end": 4.0,
+            "word": " در",
+            "probability": 0.971975564956665
+          },
+          {
+            "start": 4.0,
+            "end": 4.46,
+            "word": " اصطلاح",
+            "probability": 0.8834508657455444
+          },
+          {
+            "start": 4.46,
+            "end": 5.02,
+            "word": " بی‌گدار",
+            "probability": 0.776371980085969
+          },
+          {
+            "start": 5.02,
+            "end": 5.24,
+            "word": " با",
+            "probability": 0.9257246851921082
+          },
+          {
+            "start": 5.24,
+            "end": 5.38,
+            "word": " آب",
+            "probability": 0.8915740251541138
+          },
+          {
+            "start": 5.38,
+            "end": 5.84,
+            "word": " نزنید،",
+            "probability": 0.6539582026501497
+          },
+          {
+            "start": 5.84,
+            "end": 6.12,
+            "word": " اول",
+            "probability": 0.9882504940032959
+          },
+          {
+            "start": 6.12,
+            "end": 6.52,
+            "word": " بدونیم",
+            "probability": 0.9365159273147583
+          },
+          {
+            "start": 6.52,
+            "end": 6.62,
+            "word": " ما",
+            "probability": 0.9544475674629211
+          },
+          {
+            "start": 6.62,
+            "end": 7.16,
+            "word": " چقدر",
+            "probability": 0.9872102737426758
+          },
+          {
+            "start": 7.16,
+            "end": 7.66,
+            "word": " ظروفیت",
+            "probability": 0.8219838462003585
+          },
+          {
+            "start": 7.66,
+            "end": 7.9,
+            "word": " به",
+            "probability": 0.015093304216861725
+          },
+          {
+            "start": 7.9,
+            "end": 8.26,
+            "word": " دهیده؟",
+            "probability": 0.7450188795725504
+          }
+        ]
+      }
+    ]
+  }
+}

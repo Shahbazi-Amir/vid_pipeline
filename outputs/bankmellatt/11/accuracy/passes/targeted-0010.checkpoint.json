@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "5950788d859d8d23fc0bcff130d47150b87c049851cda69dca728ba67e69b06e",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.98,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.7,
+        "text": "به دهکار شدن یا قواعد قرض گرفتن. البته در شرایطی ما قرض خوب هم داریم، همه‌ی قرض‌ها بد نیست. پس یه قرض بد دارم یه",
+        "avg_logprob": -0.19550314779792513,
+        "compression_ratio": 1.4705882352941178,
+        "no_speech_prob": 3.1418151413831197e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.14,
+            "word": " به",
+            "probability": 0.26381808519363403
+          },
+          {
+            "start": 0.14,
+            "end": 0.6,
+            "word": " دهکار",
+            "probability": 0.975609764456749
+          },
+          {
+            "start": 0.6,
+            "end": 0.92,
+            "word": " شدن",
+            "probability": 0.9913299083709717
+          },
+          {
+            "start": 0.92,
+            "end": 1.08,
+            "word": " یا",
+            "probability": 0.9732445776462555
+          },
+          {
+            "start": 1.08,
+            "end": 1.62,
+            "word": " قواعد",
+            "probability": 0.7572718262672424
+          },
+          {
+            "start": 1.62,
+            "end": 2.02,
+            "word": " قرض",
+            "probability": 0.874674916267395
+          },
+          {
+            "start": 2.02,
+            "end": 2.5,
+            "word": " گرفتن.",
+            "probability": 0.9976674765348434
+          },
+          {
+            "start": 2.56,
+            "end": 2.92,
+            "word": " البته",
+            "probability": 0.9947167634963989
+          },
+          {
+            "start": 2.92,
+            "end": 3.16,
+            "word": " در",
+            "probability": 0.9996561408042908
+          },
+          {
+            "start": 3.16,
+            "end": 3.8,
+            "word": " شرایطی",
+            "probability": 0.9728456854820251
+          },
+          {
+            "start": 3.8,
+            "end": 3.9,
+            "word": " ما",
+            "probability": 0.9730600714683533
+          },
+          {
+            "start": 3.9,
+            "end": 4.26,
+            "word": " قرض",
+            "probability": 0.9989771842956543
+          },
+          {
+            "start": 4.26,
+            "end": 4.58,
+            "word": " خوب",
+            "probability": 0.9976447820663452
+          },
+          {
+            "start": 4.58,
+            "end": 4.72,
+            "word": " هم",
+            "probability": 0.9396929442882538
+          },
+          {
+            "start": 4.72,
+            "end": 5.06,
+            "word": " داریم،",
+            "probability": 0.7955985978245735
+          },
+          {
+            "start": 5.06,
+            "end": 5.32,
+            "word": " همه‌ی",
+            "probability": 0.7642647837288677
+          },
+          {
+            "start": 5.32,
+            "end": 5.76,
+            "word": " قرض‌ها",
+            "probability": 0.880658432841301
+          },
+          {
+            "start": 5.76,
+            "end": 6.14,
+            "word": " بد",
+            "probability": 0.9786150455474854
+          },
+          {
+            "start": 6.14,
+            "end": 6.48,
+            "word": " نیست.",
+            "probability": 0.9897777438163757
+          },
+          {
+            "start": 6.76,
+            "end": 7.4,
+            "word": " پس",
+            "probability": 0.9896319508552551
+          },
+          {
+            "start": 7.4,
+            "end": 7.56,
+            "word": " یه",
+            "probability": 0.9023048579692841
+          },
+          {
+            "start": 7.56,
+            "end": 7.84,
+            "word": " قرض",
+            "probability": 0.9978997707366943
+          },
+          {
+            "start": 7.84,
+            "end": 8.2,
+            "word": " بد",
+            "probability": 0.7135716676712036
+          },
+          {
+            "start": 8.2,
+            "end": 8.52,
+            "word": " دارم",
+            "probability": 0.6560058303487798
+          },
+          {
+            "start": 8.52,
+            "end": 8.7,
+            "word": " یه",
+            "probability": 0.8143702745437622
+          }
+        ]
+      }
+    ]
+  }
+}

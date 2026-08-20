@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "7c18b6b5984b241ffde5a176092d277f1790ca822478231f429effaf2098aac7",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.78,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.76,
+        "text": "از حقوق‌مون می‌خواییم پرداخت بکنیم یا وسیقه‌ای داریم مثلاً درباره‌ی ماشین‌مو به دهکاری. خب اگر به درد سر افتادیم، خب همین ماشين‌مومی…",
+        "avg_logprob": -0.24304300546646118,
+        "compression_ratio": 1.5987261146496816,
+        "no_speech_prob": 2.0809670653321177e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.62,
+            "word": " از",
+            "probability": 0.9972403645515442
+          },
+          {
+            "start": 0.62,
+            "end": 1.18,
+            "word": " حقوق‌مون",
+            "probability": 0.82008531379203
+          },
+          {
+            "start": 1.18,
+            "end": 1.5,
+            "word": " می‌خواییم",
+            "probability": 0.8755893962723869
+          },
+          {
+            "start": 1.5,
+            "end": 2.02,
+            "word": " پرداخت",
+            "probability": 0.9657377481460572
+          },
+          {
+            "start": 2.02,
+            "end": 2.5,
+            "word": " بکنیم",
+            "probability": 0.9533206820487976
+          },
+          {
+            "start": 2.5,
+            "end": 3.16,
+            "word": " یا",
+            "probability": 0.912884920835495
+          },
+          {
+            "start": 3.16,
+            "end": 3.84,
+            "word": " وسیقه‌ای",
+            "probability": 0.9409331679344177
+          },
+          {
+            "start": 3.84,
+            "end": 4.14,
+            "word": " داریم",
+            "probability": 0.948193222284317
+          },
+          {
+            "start": 4.14,
+            "end": 4.92,
+            "word": " مثلاً",
+            "probability": 0.7170067926247915
+          },
+          {
+            "start": 4.92,
+            "end": 5.9,
+            "word": " درباره‌ی",
+            "probability": 0.917937566836675
+          },
+          {
+            "start": 5.9,
+            "end": 6.54,
+            "word": " ماشین‌مو",
+            "probability": 0.7892931849346496
+          },
+          {
+            "start": 6.54,
+            "end": 6.7,
+            "word": " به",
+            "probability": 0.36758002638816833
+          },
+          {
+            "start": 6.7,
+            "end": 7.2,
+            "word": " دهکاری.",
+            "probability": 0.8868583798408508
+          },
+          {
+            "start": 7.3,
+            "end": 7.48,
+            "word": " خب",
+            "probability": 0.8030272126197815
+          },
+          {
+            "start": 7.48,
+            "end": 7.74,
+            "word": " اگر",
+            "probability": 0.9611029624938965
+          },
+          {
+            "start": 7.74,
+            "end": 7.84,
+            "word": " به",
+            "probability": 0.9348885416984558
+          },
+          {
+            "start": 7.84,
+            "end": 8.14,
+            "word": " درد",
+            "probability": 0.9886149962743124
+          },
+          {
+            "start": 8.14,
+            "end": 8.4,
+            "word": " سر",
+            "probability": 0.8891100287437439
+          },
+          {
+            "start": 8.4,
+            "end": 8.9,
+            "word": " افتادیم،",
+            "probability": 0.8719480101551328
+          },
+          {
+            "start": 8.9,
+            "end": 8.98,
+            "word": " خب",
+            "probability": 0.9618310332298279
+          },
+          {
+            "start": 8.98,
+            "end": 9.26,
+            "word": " همین",
+            "probability": 0.9551357626914978
+          },
+          {
+            "start": 9.26,
+            "end": 9.76,
+            "word": " ماشين‌مومی…",
+            "probability": 0.47773502313066274
+          }
+        ]
+      }
+    ]
+  }
+}

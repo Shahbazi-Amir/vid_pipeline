@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "ad64df9f91a17f2fbae7fac0dfa3615a3ec09507c0a856e2baf4036ee7ed4ecb",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 13.5,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 13.48,
+        "text": "ایجاد بدهی را آیت بکنیم. اولین نقطه در باره قرض گرفتن، اینه که ما باید ظرفیت بده هیمونو تعییم بکونیم، در اصطلاح بی‌گدار",
+        "avg_logprob": -0.2559891403430984,
+        "compression_ratio": 1.469387755102041,
+        "no_speech_prob": 2.7221067067095817e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.3,
+            "word": " ایجاد",
+            "probability": 0.9471919238567352
+          },
+          {
+            "start": 0.3,
+            "end": 0.74,
+            "word": " بدهی",
+            "probability": 0.9772271315256754
+          },
+          {
+            "start": 0.74,
+            "end": 0.92,
+            "word": " را",
+            "probability": 0.7807718813419342
+          },
+          {
+            "start": 0.92,
+            "end": 1.24,
+            "word": " آیت",
+            "probability": 0.7842065989971161
+          },
+          {
+            "start": 1.24,
+            "end": 1.7,
+            "word": " بکنیم.",
+            "probability": 0.9329437732696533
+          },
+          {
+            "start": 2.3,
+            "end": 3.18,
+            "word": " اولین",
+            "probability": 0.9630800286928812
+          },
+          {
+            "start": 3.18,
+            "end": 3.62,
+            "word": " نقطه",
+            "probability": 0.763068288564682
+          },
+          {
+            "start": 3.62,
+            "end": 3.94,
+            "word": " در",
+            "probability": 0.984414666891098
+          },
+          {
+            "start": 3.94,
+            "end": 4.62,
+            "word": " باره",
+            "probability": 0.9277034600575765
+          },
+          {
+            "start": 4.62,
+            "end": 5.92,
+            "word": " قرض",
+            "probability": 0.9748130440711975
+          },
+          {
+            "start": 5.92,
+            "end": 6.62,
+            "word": " گرفتن،",
+            "probability": 0.8019690841436387
+          },
+          {
+            "start": 6.62,
+            "end": 6.74,
+            "word": " اینه",
+            "probability": 0.9902117649714152
+          },
+          {
+            "start": 6.74,
+            "end": 6.86,
+            "word": " که",
+            "probability": 0.997874528169632
+          },
+          {
+            "start": 6.86,
+            "end": 6.96,
+            "word": " ما",
+            "probability": 0.994224488735199
+          },
+          {
+            "start": 6.96,
+            "end": 7.44,
+            "word": " باید",
+            "probability": 0.9948527663946152
+          },
+          {
+            "start": 7.44,
+            "end": 9.16,
+            "word": " ظرفیت",
+            "probability": 0.9510244607925415
+          },
+          {
+            "start": 9.16,
+            "end": 9.74,
+            "word": " بده",
+            "probability": 0.9921116232872009
+          },
+          {
+            "start": 9.74,
+            "end": 10.04,
+            "word": " هیمونو",
+            "probability": 0.6889203528226062
+          },
+          {
+            "start": 10.04,
+            "end": 10.46,
+            "word": " تعییم",
+            "probability": 0.8270924985408783
+          },
+          {
+            "start": 10.46,
+            "end": 12.24,
+            "word": " بکونیم،",
+            "probability": 0.6594378298871865
+          },
+          {
+            "start": 12.24,
+            "end": 12.48,
+            "word": " در",
+            "probability": 0.937606543302536
+          },
+          {
+            "start": 12.48,
+            "end": 12.94,
+            "word": " اصطلاح",
+            "probability": 0.8907773613929748
+          },
+          {
+            "start": 12.94,
+            "end": 13.48,
+            "word": " بی‌گدار",
+            "probability": 0.7070357588430246
+          }
+        ]
+      }
+    ]
+  }
+}

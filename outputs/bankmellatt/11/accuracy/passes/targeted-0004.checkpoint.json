@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "3b1b2a4690654e55f8e280bbc33a4304c171152e3f128fc8a0cd680ed1991ea9",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.7,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.18,
+        "text": "کار یه وزنی صد کیلوی را بالای سرم ببرم، اما یک فرق اساسی بین من و اون ورزشگار حرفی وزندبرداری وجود داره.",
+        "avg_logprob": -0.21905452235421138,
+        "compression_ratio": 1.5121951219512195,
+        "no_speech_prob": 3.5256589314691666e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.14,
+            "word": " کار",
+            "probability": 0.4542965479195118
+          },
+          {
+            "start": 0.14,
+            "end": 0.4,
+            "word": " یه",
+            "probability": 0.8143801987171173
+          },
+          {
+            "start": 0.4,
+            "end": 0.7,
+            "word": " وزنی",
+            "probability": 0.8549540191888809
+          },
+          {
+            "start": 0.7,
+            "end": 1.04,
+            "word": " صد",
+            "probability": 0.608489878475666
+          },
+          {
+            "start": 1.04,
+            "end": 1.34,
+            "word": " کیلوی",
+            "probability": 0.8571846634149551
+          },
+          {
+            "start": 1.34,
+            "end": 1.48,
+            "word": " را",
+            "probability": 0.4295738413929939
+          },
+          {
+            "start": 1.48,
+            "end": 1.8,
+            "word": " بالای",
+            "probability": 0.9643465280532837
+          },
+          {
+            "start": 1.8,
+            "end": 2.12,
+            "word": " سرم",
+            "probability": 0.9583297570546468
+          },
+          {
+            "start": 2.12,
+            "end": 2.68,
+            "word": " ببرم،",
+            "probability": 0.7442071847617626
+          },
+          {
+            "start": 2.68,
+            "end": 3.14,
+            "word": " اما",
+            "probability": 0.9933986961841583
+          },
+          {
+            "start": 3.14,
+            "end": 3.4,
+            "word": " یک",
+            "probability": 0.9871136546134949
+          },
+          {
+            "start": 3.4,
+            "end": 3.8,
+            "word": " فرق",
+            "probability": 0.9946197668711344
+          },
+          {
+            "start": 3.8,
+            "end": 4.56,
+            "word": " اساسی",
+            "probability": 0.8726251522699991
+          },
+          {
+            "start": 4.56,
+            "end": 5.3,
+            "word": " بین",
+            "probability": 0.9251736700534821
+          },
+          {
+            "start": 5.3,
+            "end": 5.74,
+            "word": " من",
+            "probability": 0.9930435419082642
+          },
+          {
+            "start": 5.74,
+            "end": 6.3,
+            "word": " و",
+            "probability": 0.9601719975471497
+          },
+          {
+            "start": 6.3,
+            "end": 6.56,
+            "word": " اون",
+            "probability": 0.9410690665245056
+          },
+          {
+            "start": 6.56,
+            "end": 7.24,
+            "word": " ورزشگار",
+            "probability": 0.9046758711338043
+          },
+          {
+            "start": 7.24,
+            "end": 7.68,
+            "word": " حرفی",
+            "probability": 0.6532264848550161
+          },
+          {
+            "start": 7.68,
+            "end": 8.5,
+            "word": " وزندبرداری",
+            "probability": 0.7486322615628264
+          },
+          {
+            "start": 8.5,
+            "end": 8.84,
+            "word": " وجود",
+            "probability": 0.9724906384944916
+          },
+          {
+            "start": 8.84,
+            "end": 9.18,
+            "word": " داره.",
+            "probability": 0.9541731874148051
+          }
+        ]
+      }
+    ]
+  }
+}

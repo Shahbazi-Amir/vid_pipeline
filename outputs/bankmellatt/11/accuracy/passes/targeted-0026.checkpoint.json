@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "b56037b5f0b4dae840555f802ef1668d585881da22b20437cffd08ba9a29f1c7",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.88,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.86,
+        "text": "شرایطش، یعنی یک وسیقه‌ای وجود داره. در شراحیطی که وسیغ وجود نداره باید محل پرداخت رو بدونیم، بدونین چقدر از درامد آیندمون رو",
+        "avg_logprob": -0.18569284393673852,
+        "compression_ratio": 1.547945205479452,
+        "no_speech_prob": 2.572673463152597e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.68,
+            "word": " شرایطش،",
+            "probability": 0.8220993255575498
+          },
+          {
+            "start": 0.68,
+            "end": 0.92,
+            "word": " یعنی",
+            "probability": 0.9986359626054764
+          },
+          {
+            "start": 0.92,
+            "end": 1.1,
+            "word": " یک",
+            "probability": 0.9975101351737976
+          },
+          {
+            "start": 1.1,
+            "end": 1.86,
+            "word": " وسیقه‌ای",
+            "probability": 0.6778093964925834
+          },
+          {
+            "start": 1.86,
+            "end": 2.22,
+            "word": " وجود",
+            "probability": 0.9450978636741638
+          },
+          {
+            "start": 2.22,
+            "end": 2.54,
+            "word": " داره.",
+            "probability": 0.9709727962811788
+          },
+          {
+            "start": 2.6,
+            "end": 2.82,
+            "word": " در",
+            "probability": 0.9839144945144653
+          },
+          {
+            "start": 2.82,
+            "end": 3.28,
+            "word": " شراحیطی",
+            "probability": 0.7918043063934116
+          },
+          {
+            "start": 3.28,
+            "end": 3.42,
+            "word": " که",
+            "probability": 0.9874514043331146
+          },
+          {
+            "start": 3.42,
+            "end": 3.86,
+            "word": " وسیغ",
+            "probability": 0.657478063282421
+          },
+          {
+            "start": 3.86,
+            "end": 4.28,
+            "word": " وجود",
+            "probability": 0.8926986753940582
+          },
+          {
+            "start": 4.28,
+            "end": 4.72,
+            "word": " نداره",
+            "probability": 0.9918511509895325
+          },
+          {
+            "start": 4.72,
+            "end": 4.92,
+            "word": " باید",
+            "probability": 0.8915366232395172
+          },
+          {
+            "start": 4.92,
+            "end": 5.3,
+            "word": " محل",
+            "probability": 0.9856121142705282
+          },
+          {
+            "start": 5.3,
+            "end": 5.96,
+            "word": " پرداخت",
+            "probability": 0.9896186470985413
+          },
+          {
+            "start": 5.96,
+            "end": 6.06,
+            "word": " رو",
+            "probability": 0.7425243258476257
+          },
+          {
+            "start": 6.06,
+            "end": 6.42,
+            "word": " بدونیم،",
+            "probability": 0.8112597450613975
+          },
+          {
+            "start": 6.42,
+            "end": 6.8,
+            "word": " بدونین",
+            "probability": 0.6244404544122517
+          },
+          {
+            "start": 6.8,
+            "end": 7.42,
+            "word": " چقدر",
+            "probability": 0.9816028078397115
+          },
+          {
+            "start": 7.42,
+            "end": 7.54,
+            "word": " از",
+            "probability": 0.7547826170921326
+          },
+          {
+            "start": 7.54,
+            "end": 8.02,
+            "word": " درامد",
+            "probability": 0.9310937225818634
+          },
+          {
+            "start": 8.02,
+            "end": 8.8,
+            "word": " آیندمون",
+            "probability": 0.8264084458351135
+          },
+          {
+            "start": 8.8,
+            "end": 8.86,
+            "word": " رو",
+            "probability": 0.9241428673267365
+          }
+        ]
+      }
+    ]
+  }
+}

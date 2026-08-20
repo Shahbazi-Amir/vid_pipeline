@@ -18,28 +18,26 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg curl
-      - name: Resolve release assets
+      - name: Resolve new M4A and legacy MP4
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
           set -euo pipefail
           gh api "repos/${GITHUB_REPOSITORY}/releases/tags/chehelstoun-archive-v1" > /tmp/new.json
-          gh api "repos/${GITHUB_REPOSITORY}/releases/tags/bankmellatt" > /tmp/old.json
           python - <<'PY'
           import json, os
           from pathlib import Path
-          def one(path,name):
-              rel=json.loads(Path(path).read_text())
-              hits=[a for a in rel.get('assets',[]) if a.get('name','').strip()==name]
-              if len(hits)!=1: raise SystemExit(f'{name}: found {[a.get("name") for a in hits]}')
-              return hits[0]
-          new=one('/tmp/new.json','8.m4a'); old=one('/tmp/old.json','8.mp4')
+          rel=json.loads(Path('/tmp/new.json').read_text())
+          hits=[a for a in rel.get('assets',[]) if a.get('name','').strip()=='8.m4a']
+          if len(hits)!=1: raise SystemExit(f'8.m4a: {[a.get("name") for a in rel.get("assets",[])]}')
+          new=hits[0]
           with open(os.environ['GITHUB_ENV'],'a') as f:
               f.write(f"NEW_URL={new['browser_download_url']}\nNEW_SIZE={new['size']}\n")
-              f.write(f"OLD_URL={old['browser_download_url']}\nOLD_SIZE={old['size']}\n")
+              f.write("OLD_URL=https://github.com/Shahbazi-Amir/vid_pipeline/releases/download/bankmellatt/8.mp4\n")
+              f.write("OLD_SIZE=415351373\n")
           print('new',new['size'],new['browser_download_url'])
-          print('old',old['size'],old['browser_download_url'])
+          print('old legacy direct URL, expected size 415351373')
           PY
       - name: Download both
         run: |

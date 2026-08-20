@@ -30,6 +30,7 @@ jobs:
           out={
             'bank8_balanced':runs(['--workflow','bankmellatt-8-final-fast.yml']),
             'bank8_fast':runs(['--workflow','bankmellatt-8-fallback-fast.yml']),
+            'bank8_equivalence':runs(['--workflow','bankmellatt-8-audio-equivalence.yml']),
             'finalfile_commit':runs(['--commit','6f3e8241cafe1743d884903d9963bf45f083b3ed']),
           }
           open('scratch/action-status-probe/status.json','w',encoding='utf-8').write(json.dumps(out,ensure_ascii=False,indent=2)+'\n')

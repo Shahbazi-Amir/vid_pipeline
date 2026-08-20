@@ -36,17 +36,17 @@ jobs:
           set -euo pipefail
           python - <<'PY'
           from pathlib import Path
+          import json
           import shutil
 
           outputs = Path('outputs')
           finalized = outputs / 'finalized'
           ready = outputs / 'review-ready'
           managed = {'chehelstoun','mizan','voice-260817-165035','ketab-baz','finup','bankmellatt'}
-
-          for root in (finalized, ready):
-              if root.exists():
-                  shutil.rmtree(root)
-              root.mkdir(parents=True, exist_ok=True)
+          preserve_root = Path('/tmp/full-proofread-finalized')
+          if preserve_root.exists():
+              shutil.rmtree(preserve_root)
+          preserve_root.mkdir(parents=True, exist_ok=True)
 
           def scoped(base: Path) -> bool:
               try:
@@ -54,6 +54,38 @@ jobs:
               except ValueError:
                   return False
               return bool(rel.parts) and rel.parts[0] in managed
+
+          def full_proofread_complete(base: Path) -> bool:
+              marker = base / 'review/full-proofread.json'
+              try:
+                  data = json.loads(marker.read_text(encoding='utf-8'))
+              except (FileNotFoundError, json.JSONDecodeError, UnicodeDecodeError):
+                  return False
+              return data.get('complete') is True and data.get('reviewer') == 'ChatGPT'
+
+          # Full Proofread V2 is authoritative. Preserve any canonical finalized
+          # transcript that already passed the explicit whole-transcript gate.
+          preserved = []
+          if finalized.exists():
+              for marker in sorted(outputs.glob('**/review/full-proofread.json')):
+                  if 'finalized' in marker.parts or 'review-ready' in marker.parts:
+                      continue
+                  base = marker.parent.parent
+                  if not scoped(base) or not full_proofread_complete(base):
+                      continue
+                  rel = base.relative_to(outputs)
+                  src = finalized / rel
+                  if not src.is_dir():
+                      continue
+                  dst = preserve_root / rel
+                  dst.parent.mkdir(parents=True, exist_ok=True)
+                  shutil.copytree(src, dst)
+                  preserved.append(str(rel))
+
+          for root in (finalized, ready):
+              if root.exists():
+                  shutil.rmtree(root)
+              root.mkdir(parents=True, exist_ok=True)
 
           def copy(src: Path, dst: Path):
               if src.is_file():
@@ -65,6 +97,7 @@ jobs:
           final_items = []
           ready_items = []
 
+          # Legacy canonicalization remains supported for historical outputs.
           for final_md in sorted(outputs.glob('**/final/transcript.final.md')):
               if 'finalized' in final_md.parts or 'review-ready' in final_md.parts:
                   continue
@@ -72,8 +105,8 @@ jobs:
               if not scoped(base):
                   continue
               final_txt = base / 'final/transcript.final.txt'
-              verified = (base / 'human/verification.json').is_file() or (base / 'review/chatgpt-corrections.json').is_file()
-              if not final_txt.is_file() or not verified:
+              legacy_verified = (base / 'human/verification.json').is_file() or (base / 'review/chatgpt-corrections.json').is_file()
+              if not final_txt.is_file() or not legacy_verified:
                   continue
               rel = base.relative_to(outputs)
               dest = finalized / rel
@@ -84,11 +117,27 @@ jobs:
               copy(base / 'review/review.md', dest / 'review.md')
               final_items.append(str(rel))
 
+          # Restore Full Proofread V2 canonical outputs after the legacy pass so
+          # an audited transcript can never be overwritten by an older artifact.
+          for rel_text in preserved:
+              rel = Path(rel_text)
+              src = preserve_root / rel
+              dest = finalized / rel
+              if dest.exists():
+                  shutil.rmtree(dest)
+              dest.parent.mkdir(parents=True, exist_ok=True)
+              shutil.copytree(src, dest)
+              if rel_text not in final_items:
+                  final_items.append(rel_text)
+
           for review_md in sorted(outputs.glob('**/review/review.md')):
               if 'finalized' in review_md.parts or 'review-ready' in review_md.parts:
                   continue
               base = review_md.parent.parent
               if not scoped(base):
+                  continue
+              # A Full Proofread V2 item is finalized, never review-ready.
+              if full_proofread_complete(base):
                   continue
               if (base / 'human/verification.json').is_file() or (base / 'review/chatgpt-corrections.json').is_file():
                   continue
@@ -103,6 +152,8 @@ jobs:
               copy(review_md, dest / 'review.md')
               ready_items.append(str(rel))
 
+          final_items = sorted(set(final_items))
+          ready_items = sorted(set(ready_items))
           status = ['# Output Status', '', f'- Finalized: **{len(final_items)}**', f'- Review-ready: **{len(ready_items)}**', '', '## Finalized']
           status += [f'- `{x}`' for x in final_items] or ['- none']
           status += ['', '## Review-ready']

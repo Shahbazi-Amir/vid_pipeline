@@ -52,7 +52,7 @@ def _upload(client: TestClient, content: bytes = b"small-media"):
 
 def _create_job(client: TestClient, headers: dict[str, str], upload_id: str) -> str:
     response = client.post("/v1/jobs", headers=headers, json={
-        "upload_id": upload_id, "profile": "fast", "model": "tiny",
+        "upload_id": upload_id, "profile": "fast", "model": "large-v3-turbo",
         "language": "fa", "editorial": False,
     })
     assert response.status_code == 200
@@ -61,7 +61,7 @@ def _create_job(client: TestClient, headers: dict[str, str], upload_id: str) -> 
 
 def test_health_and_authentication(services):
     client, *_ = services
-    assert client.get("/health").json() == {"status": "ok"}
+    assert client.get("/health").json() == {"status": "ok", "storage_backend": "local"}
     assert client.get("/v1/jobs").status_code == 401
 
 
@@ -110,6 +110,8 @@ class MockProcessor:
 class LowQualityProcessor:
     def process(self, media: Path, job: dict, work: Path) -> TranscriptDocument:
         assert media.read_bytes() == b"small-media"
+        (work / "audio.wav").write_bytes(b"normalized-audio-fixture")
+        (work / "audio-quality.json").write_text("{}", encoding="utf-8")
         return TranscriptDocument(
             job_id=job["job_id"], language="fa",
             segments=[
@@ -127,6 +129,8 @@ class LowQualityProcessor:
 
 class RawEvidenceProcessor:
     def process(self, media: Path, job: dict, work: Path) -> TranscriptDocument:
+        (work / "audio.wav").write_bytes(b"normalized-audio-fixture")
+        (work / "audio-quality.json").write_text("{}", encoding="utf-8")
         raw = {
             "segments": [
                 {
@@ -187,6 +191,7 @@ def test_low_quality_transcript_cannot_be_finalized(services):
     assert not storage.path(f"jobs/{job_id}/delivery").exists()
     assert not storage.path(f"jobs/{job_id}/final").exists()
     assert all(not name.startswith("delivery/") for name in job["artifacts"])
+    assert "audio/audio-16k-mono.wav" in job["artifacts"]
 
     quality = json.loads(storage.path(f"jobs/{job_id}/quality/quality-report.json").read_text())
     assert quality["valid"] is False
@@ -194,6 +199,7 @@ def test_low_quality_transcript_cannot_be_finalized(services):
     assert "overall_score_below_threshold" in quality["gate_reasons"]
     result = json.loads(storage.path(f"jobs/{job_id}/result.json").read_text())
     assert result["status"] == "review_required"
+    assert result["human_audio_verification"] is False
 
     listed = client.get(f"/v1/jobs/{job_id}/artifacts", headers=headers).json()["artifacts"]
     assert "quality/quality-report.json" in {item["name"] for item in listed}
@@ -267,6 +273,9 @@ def test_lightweight_client_retries_and_resumes_upload(tmp_path: Path):
         if request.url.path.endswith("/complete"):
             return httpx.Response(200, json={"object_key": "objects/input.mp4"})
         if request.url.path == "/v1/jobs":
+            payload = json.loads(request.content)
+            assert payload["source"] == {"type": "upload", "upload_id": "up1"}
+            assert payload["model"] == "large-v3-turbo"
             return httpx.Response(200, json={"job_id": "job1", "status": "queued"})
         raise AssertionError(request.url)
 

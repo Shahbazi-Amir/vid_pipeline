@@ -12,6 +12,8 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
+from vid_pipeline.profiles import DEFAULT_PROFILE, resolve_transcription_model
+
 MEDIA_EXTENSIONS = {
     ".aac", ".ac3", ".aif", ".aiff", ".alac", ".amr", ".avi", ".caf",
     ".flac", ".m4a", ".m4v", ".mkv", ".mov", ".mp3", ".mp4", ".ogg",
@@ -140,8 +142,8 @@ class OnlineClient:
         self,
         path: Path,
         *,
-        profile: str = "balanced",
-        model: str = "small",
+        profile: str = DEFAULT_PROFILE,
+        model: str = "",
         language: str = "fa",
         editorial: bool = True,
         resume: bool = True,
@@ -151,6 +153,13 @@ class OnlineClient:
         path = path.resolve()
         if not path.is_file() or path.suffix.lower() not in MEDIA_EXTENSIONS:
             raise ValueError(f"unsupported media file: {path}")
+
+        # Fail before hashing/uploading large media if the requested profile or
+        # named model cannot be provisioned by the production worker.
+        resolved_model = resolve_transcription_model(
+            profile, model, allow_local_path=False
+        )
+
         digest = sha256_file(path)
         record = self.state.load(digest) if resume and not force else None
         if record and record.job_id:
@@ -187,7 +196,7 @@ class OnlineClient:
             ).json()
             record.remote_object_key = complete["object_key"]
             job = self._request("POST", "/v1/jobs", json={
-                "upload_id": record.upload_id, "profile": profile, "model": model,
+                "upload_id": record.upload_id, "profile": profile, "model": resolved_model,
                 "language": language, "editorial": editorial,
                 "audio_profile": audio_profile,
             }).json()

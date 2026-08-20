@@ -1,0 +1,164 @@
+name: Bank Mellat 9-11 main fast
+run-name: Bank Mellat 9-11 main fast ${{ github.run_id }}
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/bankmellatt-9-11-main-fast.yml'
+
+permissions:
+  contents: write
+
+env:
+  SOURCE_TAG: chehelstoun-archive-v1
+  PROFILE: balanced
+  LANGUAGE: fa
+  AUDIO_PROFILE: safe
+  VID_PIPELINE_ACCURACY_MODE: balanced
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.assets.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - id: assets
+        name: Locate episodes 9-11 in Chehelstoun release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh api "repos/${GITHUB_REPOSITORY}/releases/tags/${SOURCE_TAG}" > /tmp/release.json
+          python - <<'PY'
+          import json, os, re
+          from pathlib import Path
+          rel=json.loads(Path('/tmp/release.json').read_text(encoding='utf-8'))
+          found={9:[],10:[],11:[]}
+          for a in rel.get('assets',[]):
+              name=a.get('name','')
+              if Path(name).suffix.lower() != '.m4a':
+                  continue
+              stem=Path(name).stem.strip()
+              exact=re.fullmatch(r'0?(9|10|11)',stem)
+              if exact:
+                  found[int(exact.group(1))].append(a); continue
+              for token in re.findall(r'(?<!\d)(9|10|11)(?!\d)',stem):
+                  found[int(token)].append(a)
+          print('Release assets:')
+          for a in rel.get('assets',[]): print('-',a.get('name'),a.get('size'))
+          missing=[n for n,v in found.items() if len(v)!=1]
+          if missing:
+              raise SystemExit('Expected exactly one m4a for each of 9,10,11; bad episodes='+str(missing))
+          inc=[]
+          for n in (9,10,11):
+              a=found[n][0]
+              inc.append({'episode':str(n),'name':a['name'],'url':a['browser_download_url'],'size':a['size']})
+          matrix=json.dumps({'include':inc},ensure_ascii=False,separators=(',',':'))
+          with open(os.environ['GITHUB_OUTPUT'],'a',encoding='utf-8') as f:
+              f.write('matrix<<EOF\n'+matrix+'\nEOF\n')
+          print(matrix)
+          PY
+
+  transcribe:
+    needs: discover
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix: ${{ fromJSON(needs.discover.outputs.matrix) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 720
+    env:
+      EPISODE: ${{ matrix.episode }}
+      ASSET_NAME: ${{ matrix.name }}
+      ASSET_URL: ${{ matrix.url }}
+      ASSET_SIZE: ${{ matrix.size }}
+      VID_PIPELINE_ASR_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/asr
+      HF_HOME: ${{ github.workspace }}/.cache/huggingface
+      HF_HUB_CACHE: ${{ github.workspace }}/.cache/huggingface/hub
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/.cache/vid-pipeline/asr
+          key: asr-${{ runner.os }}-py311-faster-whisper-1.2.1-large-v3-turbo-v1
+      - name: Install ASR worker
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg curl rsync
+          python -m pip install --upgrade pip
+          pip install -e '.[worker]'
+      - name: Download M4A
+        shell: bash
+        run: |
+          set -euo pipefail
+          input="/tmp/bankmellatt-${EPISODE}.m4a"
+          curl -fL --retry 5 --retry-all-errors --connect-timeout 30 --max-time 1800 "$ASSET_URL" -o "$input"
+          test "$(stat -c %s "$input")" -eq "$ASSET_SIZE"
+          ffprobe -v error -select_streams a:0 -show_entries stream=codec_name -of default=nw=1:nk=1 "$input" | grep -q .
+          echo "INPUT=$input" >> "$GITHUB_ENV"
+      - name: Transcribe Persian audio
+        shell: bash
+        run: |
+          set -euo pipefail
+          runtime="/tmp/bankmellatt-${EPISODE}-runtime"
+          rm -rf "$runtime"
+          vid-pipeline run-file "$INPUT" \
+            --name "bankmellatt-${EPISODE}" \
+            --output-root "$runtime" \
+            --profile "$PROFILE" \
+            --language "$LANGUAGE" \
+            --device cpu \
+            --compute-type int8 \
+            --audio-profile "$AUDIO_PROFILE" \
+            --hotwords 'بانک ملت، کمیل رودی، دکتر کمیل رودی، سواد مالی' \
+            --title "بانک ملت - ${EPISODE}" \
+            --program 'بانک ملت' \
+            --speaker 'دکتر کمیل رودی' \
+            --source-url "$ASSET_URL" \
+            --no-editorial
+          job_dir=$(find "$runtime" -mindepth 1 -maxdepth 1 -type d -name 'bankmellatt-*' -print -quit)
+          test -s "$job_dir/delivery/transcript.txt"
+          dest="outputs/bankmellatt/${EPISODE}"
+          rm -rf "$dest"
+          mkdir -p "$dest/delivery" "$dest/review"
+          cp "$job_dir/delivery/transcript.txt" "$dest/delivery/transcript.txt"
+          [[ -s "$job_dir/delivery/transcript.md" ]] && cp "$job_dir/delivery/transcript.md" "$dest/delivery/transcript.md"
+          [[ -s "$job_dir/delivery/transcript.timestamped.md" ]] && cp "$job_dir/delivery/transcript.timestamped.md" "$dest/delivery/transcript.timestamped.md"
+          [[ -s "$job_dir/review/assistant-review-package.json" ]] && cp "$job_dir/review/assistant-review-package.json" "$dest/review/assistant-review-package.json"
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          d=Path('outputs/bankmellatt')/os.environ['EPISODE']
+          meta={'collection':'بانک ملت','episode':int(os.environ['EPISODE']),'asset_name':os.environ['ASSET_NAME'],'source_release_tag':os.environ['SOURCE_TAG'],'source_url':os.environ['ASSET_URL'],'asr_model':'large-v3-turbo','fast_lane':True,'review_status':'pending_full_proofread'}
+          (d/'metadata.json').write_text(json.dumps(meta,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+      - name: Commit transcript
+        shell: bash
+        run: |
+          set -euo pipefail
+          dest="outputs/bankmellatt/${EPISODE}"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- "$dest"
+          git commit -m "Transcribe Bank Mellat ${EPISODE} fast lane"
+          for attempt in 1 2 3 4 5 6; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep $((attempt*3))
+          done
+          exit 1

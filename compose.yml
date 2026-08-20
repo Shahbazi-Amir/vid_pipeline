@@ -22,6 +22,7 @@ services:
       VID_PIPELINE_REDIS_URL: redis://redis:6379/0
       VID_PIPELINE_STORAGE_ROOT: /data/storage
       VID_PIPELINE_ASR_CACHE: ${VID_PIPELINE_ASR_CACHE:-/models/asr}
+      VID_PIPELINE_PERSISTENT_MODEL: ${VID_PIPELINE_PERSISTENT_MODEL:-1}
     volumes:
       - pipeline-storage:/data/storage
       - model-cache:/models

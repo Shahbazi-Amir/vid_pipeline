@@ -1,0 +1,44 @@
+name: Temporary action status probe
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/action-status-probe.yml'
+permissions:
+  contents: write
+  actions: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Capture relevant workflow runs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p scratch/action-status-probe
+          python - <<'PY'
+          import json, subprocess
+          def runs(args):
+              p=subprocess.run(['gh','run','list',*args,'--limit','20','--json','databaseId,name,workflowName,status,conclusion,event,headSha,createdAt,updatedAt,url'],text=True,capture_output=True)
+              return {'returncode':p.returncode,'stdout':json.loads(p.stdout) if p.returncode==0 and p.stdout.strip() else [],'stderr':p.stderr}
+          out={
+            'bank8_balanced':runs(['--workflow','bankmellatt-8-final-fast.yml']),
+            'bank8_fast':runs(['--workflow','bankmellatt-8-fallback-fast.yml']),
+            'finalfile_commit':runs(['--commit','6f3e8241cafe1743d884903d9963bf45f083b3ed']),
+          }
+          open('scratch/action-status-probe/status.json','w',encoding='utf-8').write(json.dumps(out,ensure_ascii=False,indent=2)+'\n')
+          PY
+      - name: Commit status
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add scratch/action-status-probe/status.json
+          git commit -m 'Capture temporary Actions status'
+          git pull --rebase origin main
+          git push origin HEAD:main

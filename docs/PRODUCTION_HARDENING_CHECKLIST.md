@@ -5,8 +5,8 @@
 ## وضعیت کلی
 
 - کل مشکلات اصلی: **10**
-- حل‌شده: **1**
-- باقی‌مانده: **9**
+- حل‌شده: **2**
+- باقی‌مانده: **8**
 
 ## 1. جلوگیری از Final شدن متن بی‌کیفیت — DONE
 
@@ -34,15 +34,32 @@ Worker آنلاین صرفاً پایان یافتن ASR را معادل موف�
 
 > توجه: GitHub Actions workflows قبلاً از repository حذف شده‌اند؛ بنابراین در این مرحله CI خودکار PR وجود ندارد و تست بالا به‌صورت targeted runtime test اجرا شده است.
 
-## 2. Job timeout نامناسب برای ASR طولانی — TODO
+## 2. Job timeout نامناسب برای ASR طولانی — DONE
 
 ### مشکل
-RQ enqueue برای پردازش‌های چنددقیقه‌ای/چندساعته timeout صریح و متناسب با ASR ندارد.
+`RedisJobQueue.enqueue()` هیچ `job_timeout` صریحی تعیین نمی‌کرد. RQ به‌صورت پیش‌فرض Job را بعد از 180 ثانیه timeout می‌کند؛ این مقدار برای ASR فایل‌های صوتی/ویدیویی طولانی مناسب نیست.
 
-### راه‌حل برنامه‌ریزی‌شده
-- timeout صریح و قابل تنظیم برای Jobهای ASR.
-- تعیین timeout بر اساس duration/سقف امن.
-- تست با Job مصنوعی طولانی و بررسی enqueue metadata.
+### راه‌حل اجراشده
+- `QueuePolicy` مرکزی برای تنظیمات عملیاتی RQ اضافه شد.
+- timeout پیش‌فرض ASR برابر **43200 ثانیه / 12 ساعت** شد؛ همان سقفی که workflow پردازش سنگین قبلی پروژه استفاده می‌کرد.
+- timeout هم به‌عنوان `default_timeout` خود Queue و هم به‌صورت `job_timeout` روی هر Job نوشته می‌شود تا fallback ناخواسته به default کتابخانه ممکن نباشد.
+- تنظیمات از Environment قابل تغییر و دارای validation هستند:
+  - `VID_PIPELINE_JOB_TIMEOUT_SECONDS=43200`، بازه مجاز 5 دقیقه تا 7 روز.
+  - `VID_PIPELINE_RESULT_TTL_SECONDS=604800`، پیش‌فرض 7 روز.
+  - `VID_PIPELINE_FAILURE_TTL_SECONDS=2592000`، پیش‌فرض 30 روز.
+- failure/result metadata به‌اندازه کافی نگه داشته می‌شوند تا عیب‌یابی Jobهای چندساعته ممکن باشد.
+- `compose.yml` این تنظیمات را صریحاً به API queue producer می‌دهد و `.env.example` نیز به‌روزرسانی شد.
+- Auto-retry خودکار عمداً اضافه نشد؛ چون retry کورِ ASR سنگین می‌تواند چند ساعت پردازش را بدون تشخیص علت تکرار کند. retry کنترل‌شده در لایه API حفظ می‌شود.
+- timeout بر اساس duration در API محاسبه نشد، چون در لحظه enqueue هنوز media probe canonical انجام نشده و probe اضافی در API یک scan تکراری ایجاد می‌کرد؛ فعلاً 12 ساعت safe default + override عملیاتی انتخاب شد و بهینه‌سازی duration-aware همراه مسئله 6 انجام می‌شود.
+
+### تست
+- default policy: `43200 / 604800 / 2592000` — PASS
+- explicit deployment overrides — PASS
+- invalid/unsafe env values — PASS
+- Redis queue constructor receives `default_timeout` — PASS
+- every enqueue receives explicit `job_timeout`, `result_ttl`, `failure_ttl` — PASS
+- مجموع تست‌های targeted: **7 passed**
+- هنگام اولین اجرای تست یک ناسازگاری بین سقف retention هفت‌روزه و failure TTL سی‌روزه کشف شد؛ سقف retention مستقل 90 روز تعریف و سپس تمام تست‌ها دوباره PASS شدند.
 
 ## 3. ناسازگاری Profile و Model provisioning — TODO
 
@@ -84,6 +101,7 @@ Worker برای هر پردازش WhisperModel جدید می‌سازد.
 - primary pass + targeted retry فقط برای segmentهای مشکوک.
 - reuse checkpointها و metadata probe.
 - benchmark قبل/بعد.
+- در صورت نیاز استفاده از duration canonical برای سیاست‌های resource/timeout بدون probe تکراری.
 
 ## 7. دو Pipeline متفاوت برای Online و Standalone — TODO
 

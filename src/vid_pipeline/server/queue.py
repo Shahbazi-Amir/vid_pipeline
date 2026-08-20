@@ -12,13 +12,14 @@ MIN_JOB_TIMEOUT_SECONDS = 5 * 60
 MAX_JOB_TIMEOUT_SECONDS = 7 * 24 * 60 * 60
 DEFAULT_RESULT_TTL_SECONDS = 7 * 24 * 60 * 60
 DEFAULT_FAILURE_TTL_SECONDS = 30 * 24 * 60 * 60
+MAX_RETENTION_TTL_SECONDS = 90 * 24 * 60 * 60
 
 
 @dataclass(frozen=True, slots=True)
 class QueuePolicy:
     """Operational limits for long-running transcription jobs.
 
-    RQ's own default runtime limit is too short for ASR.  Keep the policy
+    RQ's own default runtime limit is too short for ASR. Keep the policy
     explicit at enqueue time so a deployment cannot silently fall back to the
     RQ default after a library/configuration change.
     """
@@ -50,13 +51,13 @@ class QueuePolicy:
                 "VID_PIPELINE_RESULT_TTL_SECONDS",
                 DEFAULT_RESULT_TTL_SECONDS,
                 60,
-                MAX_JOB_TIMEOUT_SECONDS,
+                MAX_RETENTION_TTL_SECONDS,
             ),
             failure_ttl_seconds=integer(
                 "VID_PIPELINE_FAILURE_TTL_SECONDS",
                 DEFAULT_FAILURE_TTL_SECONDS,
                 60,
-                MAX_JOB_TIMEOUT_SECONDS,
+                MAX_RETENTION_TTL_SECONDS,
             ),
         )
 

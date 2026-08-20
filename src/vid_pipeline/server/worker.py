@@ -1,4 +1,4 @@
-"""Background worker orchestration. Heavy dependencies are imported only inside processing."""
+"""Background worker orchestration. Queue/state logic lives here; media logic does not."""
 
 from __future__ import annotations
 
@@ -8,57 +8,26 @@ import shutil
 from pathlib import Path
 from typing import Any, Protocol
 
-from vid_pipeline.models import TranscriptDocument, TranscriptSegment
-from vid_pipeline.profiles import DEFAULT_PROFILE, resolve_transcription_model
+from vid_pipeline.models import TranscriptDocument
 from vid_pipeline.render import render_outputs
+from vid_pipeline.server.processing import process_media_core
 from vid_pipeline.server.quality_gate import evaluate_transcript_quality
 from vid_pipeline.server.repository import Repository, now
 from vid_pipeline.server.storage import LocalArtifactStore
 
 
 class Processor(Protocol):
+    """Test seam for deterministic worker tests."""
+
     def process(self, media: Path, job: dict[str, Any], work: Path) -> TranscriptDocument: ...
 
 
-class WhisperProcessor:
-    def process(self, media: Path, job: dict[str, Any], work: Path) -> TranscriptDocument:
-        from vid_pipeline.audio import normalize_audio
-        from vid_pipeline.transcribe import TranscriptionConfig, transcribe_audio
-
-        model = resolve_transcription_model(
-            str(job.get("profile", DEFAULT_PROFILE)),
-            str(job.get("model", "")),
-            allow_local_path=True,
-        )
-        job["model"] = model
-
-        audio = normalize_audio(
-            media, work / "audio.wav", overwrite=True,
-            profile=job.get("audio_profile", "safe"),
-        )
-        raw_json = work / "transcript.raw.json"
-        raw_md = work / "transcript.raw.md"
-        result = transcribe_audio(
-            audio, raw_json, raw_md,
-            TranscriptionConfig(model=model, language=job["language"]),
-        )
-        segments = [
-            TranscriptSegment(
-                segment_id=index,
-                start=float(item["start"]),
-                end=float(item["end"]),
-                text=str(item["text"]).strip(),
-                confidence=(
-                    sum(float(word.get("probability", 0.0)) for word in item.get("words") or [])
-                    / len(item.get("words") or [])
-                    if item.get("words")
-                    else None
-                ),
-                suspicious_flags=list(item.get("review_flags") or []),
-            )
-            for index, item in enumerate(result.get("segments", []), 1)
-        ]
-        return TranscriptDocument(job_id=job["job_id"], language=job["language"], segments=segments)
+def _copy_if_present(source: Path, destination: Path) -> bool:
+    if not source.is_file():
+        return False
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(source, destination)
+    return True
 
 
 def _write_terminal_state(
@@ -67,9 +36,35 @@ def _write_terminal_state(
     root = storage.path(f"jobs/{job['job_id']}")
     (root / "state.json").write_text(json.dumps(job, indent=2) + "\n")
     (root / "manifest.json").write_text(
-        json.dumps({"job_id": job["job_id"], "status": job["status"], "artifacts": artifacts}, indent=2)
+        json.dumps(
+            {"job_id": job["job_id"], "status": job["status"], "artifacts": artifacts},
+            indent=2,
+        )
         + "\n"
     )
+
+
+def _run_processing_core(
+    media: Path,
+    job: dict[str, Any],
+    work: Path,
+    processor: Processor | None,
+) -> tuple[TranscriptDocument, dict[str, Any], dict[str, Any]]:
+    if processor is None:
+        core = process_media_core(media, job, work)
+        return core.document, core.raw_payload, core.quality_report
+
+    # Injected processors remain supported for fast deterministic unit tests.
+    document = processor.process(media, job, work)
+    processor_raw = work / "transcript.raw.json"
+    if processor_raw.is_file():
+        try:
+            raw_payload = json.loads(processor_raw.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as exc:
+            raise ValueError("processor produced invalid raw transcript JSON") from exc
+    else:
+        raw_payload = document.to_dict()
+    return document, raw_payload, evaluate_transcript_quality(document, raw_payload)
 
 
 def process_job(
@@ -84,34 +79,32 @@ def process_job(
     work = storage.path(f"jobs/{job_id}/work")
     work.mkdir(parents=True, exist_ok=True)
     try:
-        job.update(status="preparing", current_stage="preparing", progress_percent=5,
-                   started_at=job.get("started_at") or now())
+        job.update(
+            status="preparing",
+            current_stage="preparing",
+            progress_percent=5,
+            started_at=job.get("started_at") or now(),
+        )
         repository.put_job(job)
         upload = repository.upload(job["upload_id"])
         if not upload or upload["status"] != "uploaded":
             raise ValueError("uploaded input is unavailable")
         media = storage.path(upload["object_key"])
-        job.update(status="transcribing", current_stage="transcribing", progress_percent=30)
+
+        job.update(status="processing", current_stage="canonical_core", progress_percent=20)
         repository.put_job(job)
-        document = (processor or WhisperProcessor()).process(media, job, work)
+        document, raw_payload, quality_report = _run_processing_core(
+            media, job, work, processor
+        )
 
-        processor_raw = work / "transcript.raw.json"
-        if processor_raw.is_file():
-            try:
-                raw_payload = json.loads(processor_raw.read_text(encoding="utf-8"))
-            except json.JSONDecodeError as exc:
-                raise ValueError("processor produced invalid raw transcript JSON") from exc
-        else:
-            raw_payload = document.to_dict()
-
-        raw = storage.path(f"jobs/{job_id}/raw/transcript.raw.json")
-        raw.parent.mkdir(parents=True, exist_ok=True)
-        raw.write_text(json.dumps(raw_payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        raw_md = raw.parent / "transcript.raw.md"
-        processor_raw_md = work / "transcript.raw.md"
-        if processor_raw_md.is_file():
-            shutil.copyfile(processor_raw_md, raw_md)
-        else:
+        raw_root = storage.path(f"jobs/{job_id}/raw")
+        raw_root.mkdir(parents=True, exist_ok=True)
+        raw_json = raw_root / "transcript.raw.json"
+        raw_json.write_text(
+            json.dumps(raw_payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+        )
+        raw_md = raw_root / "transcript.raw.md"
+        if not _copy_if_present(work / "transcript.raw.md", raw_md):
             raw_md.write_text(document.text + "\n", encoding="utf-8")
 
         machine = storage.path(f"jobs/{job_id}/machine")
@@ -119,12 +112,22 @@ def process_job(
         (machine / "transcript.machine.json").write_text(
             json.dumps(document.to_dict(), ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
-        (machine / "transcript.machine.md").write_text(document.text + "\n", encoding="utf-8")
-        (machine / "transcript.machine.txt").write_text(document.text + "\n", encoding="utf-8")
+        if not _copy_if_present(work / "transcript.machine.md", machine / "transcript.machine.md"):
+            (machine / "transcript.machine.md").write_text(document.text + "\n", encoding="utf-8")
+        if not _copy_if_present(work / "transcript.machine.txt", machine / "transcript.machine.txt"):
+            (machine / "transcript.machine.txt").write_text(document.text + "\n", encoding="utf-8")
+
+        diagnostics = storage.path(f"jobs/{job_id}/diagnostics")
+        diagnostics.mkdir(parents=True, exist_ok=True)
+        _copy_if_present(work / "audio-quality.json", diagnostics / "audio-quality.json")
+        _copy_if_present(
+            work / "targeted-retry-report.json",
+            diagnostics / "targeted-retry-report.json",
+        )
+        _copy_if_present(work / "core-manifest.json", diagnostics / "core-manifest.json")
 
         job.update(status="quality_check", current_stage="quality_check", progress_percent=80)
         repository.put_job(job)
-        quality_report = evaluate_transcript_quality(document, raw_payload)
         quality_dir = storage.path(f"jobs/{job_id}/quality")
         quality_dir.mkdir(parents=True, exist_ok=True)
         quality = quality_dir / "quality-report.json"
@@ -164,6 +167,13 @@ def process_job(
                 "quality/quality-report.json",
                 "result.json",
             ]
+            for name in (
+                "diagnostics/audio-quality.json",
+                "diagnostics/targeted-retry-report.json",
+                "diagnostics/core-manifest.json",
+            ):
+                if storage.path(f"jobs/{job_id}/{name}").is_file():
+                    artifacts.append(name)
             job.update(
                 status="review_required",
                 current_stage="quality_gate",
@@ -216,8 +226,12 @@ def process_job(
             for path in sorted(delivery.iterdir())
         ]
         job.update(
-            status="completed", current_stage="completed", progress_percent=100,
-            completed_at=now(), artifacts=artifacts, error=None,
+            status="completed",
+            current_stage="completed",
+            progress_percent=100,
+            completed_at=now(),
+            artifacts=artifacts,
+            error=None,
             quality_gate={
                 "decision": "pass",
                 "overall_score": quality_report["overall_score"],
@@ -229,8 +243,12 @@ def process_job(
         shutil.rmtree(work, ignore_errors=True)
         return job
     except Exception as exc:
-        job.update(status="failed", current_stage="failed", error=f"{type(exc).__name__}: {exc}",
-                   completed_at=now())
+        job.update(
+            status="failed",
+            current_stage="failed",
+            error=f"{type(exc).__name__}: {exc}",
+            completed_at=now(),
+        )
         repository.put_job(job)
         raise
 

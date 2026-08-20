@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "206650774fa4f68931ba1a9b0937f7ce5810704fa33a68b75c61ae04c10dda9b",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.72,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.7,
+        "text": "قبل از حضینه کردن بنویسید. این یه عبدال بسیار مهمه، یعنی شما آگاهانه را",
+        "avg_logprob": -0.164855922971453,
+        "compression_ratio": 1.2549019607843137,
+        "no_speech_prob": 2.72198624751141e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.8,
+            "word": " قبل",
+            "probability": 0.7977133095264435
+          },
+          {
+            "start": 0.8,
+            "end": 0.96,
+            "word": " از",
+            "probability": 0.9974671900272369
+          },
+          {
+            "start": 0.96,
+            "end": 1.38,
+            "word": " حضینه",
+            "probability": 0.7839618176221848
+          },
+          {
+            "start": 1.38,
+            "end": 1.8,
+            "word": " کردن",
+            "probability": 0.9904802044232687
+          },
+          {
+            "start": 1.8,
+            "end": 2.5,
+            "word": " بنویسید.",
+            "probability": 0.9917119840780894
+          },
+          {
+            "start": 2.62,
+            "end": 3.16,
+            "word": " این",
+            "probability": 0.9978765547275543
+          },
+          {
+            "start": 3.16,
+            "end": 3.36,
+            "word": " یه",
+            "probability": 0.9398069381713867
+          },
+          {
+            "start": 3.36,
+            "end": 3.96,
+            "word": " عبدال",
+            "probability": 0.5053103566169739
+          },
+          {
+            "start": 3.96,
+            "end": 4.66,
+            "word": " بسیار",
+            "probability": 0.9953409880399704
+          },
+          {
+            "start": 4.66,
+            "end": 5.34,
+            "word": " مهمه،",
+            "probability": 0.7450530565110967
+          },
+          {
+            "start": 5.34,
+            "end": 5.8,
+            "word": " یعنی",
+            "probability": 0.9977696239948273
+          },
+          {
+            "start": 5.8,
+            "end": 6.14,
+            "word": " شما",
+            "probability": 0.9971329569816589
+          },
+          {
+            "start": 6.14,
+            "end": 7.44,
+            "word": " آگاهانه",
+            "probability": 0.996521532535553
+          },
+          {
+            "start": 7.44,
+            "end": 7.7,
+            "word": " را",
+            "probability": 0.9588479101657867
+          }
+        ]
+      }
+    ]
+  }
+}

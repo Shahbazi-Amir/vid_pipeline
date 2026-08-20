@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "3c8f89d85a1aed71f618bdfe3204cf7985fc050f4133ba9438b02d9f2f030c84",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.32,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.14,
+        "text": "هزینه دارم، تو خوراک و پوشاک انقدر، تو مهمانی انقدری، تو حدیه‌ها انقدرا، مثلا",
+        "avg_logprob": -0.25888046622276306,
+        "compression_ratio": 1.4489795918367347,
+        "no_speech_prob": 3.881451549059278e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.44,
+            "word": " هزینه",
+            "probability": 0.7352265417575836
+          },
+          {
+            "start": 0.44,
+            "end": 0.74,
+            "word": " دارم،",
+            "probability": 0.7260653958655894
+          },
+          {
+            "start": 0.74,
+            "end": 0.84,
+            "word": " تو",
+            "probability": 0.9953176975250244
+          },
+          {
+            "start": 0.84,
+            "end": 1.34,
+            "word": " خوراک",
+            "probability": 0.9795238822698593
+          },
+          {
+            "start": 1.34,
+            "end": 1.42,
+            "word": " و",
+            "probability": 0.9861862659454346
+          },
+          {
+            "start": 1.42,
+            "end": 1.92,
+            "word": " پوشاک",
+            "probability": 0.9926407337188721
+          },
+          {
+            "start": 1.92,
+            "end": 2.56,
+            "word": " انقدر،",
+            "probability": 0.7081294655799866
+          },
+          {
+            "start": 2.56,
+            "end": 2.92,
+            "word": " تو",
+            "probability": 0.9979337453842163
+          },
+          {
+            "start": 2.92,
+            "end": 3.86,
+            "word": " مهمانی",
+            "probability": 0.9961265027523041
+          },
+          {
+            "start": 3.86,
+            "end": 5.14,
+            "word": " انقدری،",
+            "probability": 0.6586125068060937
+          },
+          {
+            "start": 5.14,
+            "end": 5.22,
+            "word": " تو",
+            "probability": 0.9798682332038879
+          },
+          {
+            "start": 5.22,
+            "end": 5.98,
+            "word": " حدیه‌ها",
+            "probability": 0.8138514632980028
+          },
+          {
+            "start": 5.98,
+            "end": 6.78,
+            "word": " انقدرا،",
+            "probability": 0.5562254245160148
+          },
+          {
+            "start": 6.78,
+            "end": 7.14,
+            "word": " مثلا",
+            "probability": 0.959138810634613
+          }
+        ]
+      }
+    ]
+  }
+}

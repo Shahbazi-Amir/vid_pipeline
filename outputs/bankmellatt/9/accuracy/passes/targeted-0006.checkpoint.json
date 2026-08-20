@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "d2d7f6296f0ee496f9e60bb2834118c38d071a39905c7a0d02f232d8778c7961",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.9,
+    "segments": [
+      {
+        "id": 1,
+        "start": 3.08,
+        "end": 10.88,
+        "text": "سلام، تا اینجا در باره خرچ کردن، پسانداس کردند صحبت کردیم، یکی از مهمترین عبداللهیان،",
+        "avg_logprob": -0.21830746582869826,
+        "compression_ratio": 1.3805309734513274,
+        "no_speech_prob": 3.9287784137087556e-10,
+        "words": [
+          {
+            "start": 3.08,
+            "end": 4.08,
+            "word": " سلام،",
+            "probability": 0.5309376729031404
+          },
+          {
+            "start": 4.08,
+            "end": 4.2,
+            "word": " تا",
+            "probability": 0.9877774715423584
+          },
+          {
+            "start": 4.2,
+            "end": 4.46,
+            "word": " اینجا",
+            "probability": 0.9980388879776001
+          },
+          {
+            "start": 4.46,
+            "end": 4.72,
+            "word": " در",
+            "probability": 0.9239313006401062
+          },
+          {
+            "start": 4.72,
+            "end": 5.1,
+            "word": " باره",
+            "probability": 0.9873728156089783
+          },
+          {
+            "start": 5.1,
+            "end": 5.94,
+            "word": " خرچ",
+            "probability": 0.8736715316772461
+          },
+          {
+            "start": 5.94,
+            "end": 6.52,
+            "word": " کردن،",
+            "probability": 0.9595362693071365
+          },
+          {
+            "start": 6.52,
+            "end": 7.08,
+            "word": " پسانداس",
+            "probability": 0.771774971485138
+          },
+          {
+            "start": 7.08,
+            "end": 7.42,
+            "word": " کردند",
+            "probability": 0.6618064696376678
+          },
+          {
+            "start": 7.42,
+            "end": 7.92,
+            "word": " صحبت",
+            "probability": 0.9574117958545685
+          },
+          {
+            "start": 7.92,
+            "end": 8.48,
+            "word": " کردیم،",
+            "probability": 0.821294455230236
+          },
+          {
+            "start": 8.48,
+            "end": 8.8,
+            "word": " یکی",
+            "probability": 0.9961424469947815
+          },
+          {
+            "start": 8.8,
+            "end": 8.92,
+            "word": " از",
+            "probability": 0.9988126456737518
+          },
+          {
+            "start": 8.92,
+            "end": 10.12,
+            "word": " مهمترین",
+            "probability": 0.9958296895027161
+          },
+          {
+            "start": 10.12,
+            "end": 10.88,
+            "word": " عبداللهیان،",
+            "probability": 0.1341659767287118
+          }
+        ]
+      }
+    ]
+  }
+}

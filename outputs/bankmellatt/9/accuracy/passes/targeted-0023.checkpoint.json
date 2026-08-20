@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "6533bf816f586fdfa71e04e4b1a1121fff67bcb00e0626bedea164fa4e4ee95a",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.7,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.5,
+        "text": "این یه عبدال بسیار مهمه، یعنی شما آگاهانه راجب امور مالیتون تصمیم بگیرید. قبلن تصویم می‌گیرسید بعد،",
+        "avg_logprob": -0.15995445458785348,
+        "compression_ratio": 1.4,
+        "no_speech_prob": 2.1956758633479012e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.46,
+            "word": " این",
+            "probability": 0.991641104221344
+          },
+          {
+            "start": 0.46,
+            "end": 0.62,
+            "word": " یه",
+            "probability": 0.9375638663768768
+          },
+          {
+            "start": 0.62,
+            "end": 1.24,
+            "word": " عبدال",
+            "probability": 0.5317831436793009
+          },
+          {
+            "start": 1.24,
+            "end": 1.94,
+            "word": " بسیار",
+            "probability": 0.9950455874204636
+          },
+          {
+            "start": 1.94,
+            "end": 2.6,
+            "word": " مهمه،",
+            "probability": 0.7481414198409766
+          },
+          {
+            "start": 2.6,
+            "end": 3.08,
+            "word": " یعنی",
+            "probability": 0.995843306183815
+          },
+          {
+            "start": 3.08,
+            "end": 3.42,
+            "word": " شما",
+            "probability": 0.9955551028251648
+          },
+          {
+            "start": 3.42,
+            "end": 4.68,
+            "word": " آگاهانه",
+            "probability": 0.9951609253883362
+          },
+          {
+            "start": 4.68,
+            "end": 5.24,
+            "word": " راجب",
+            "probability": 0.928888201713562
+          },
+          {
+            "start": 5.24,
+            "end": 5.62,
+            "word": " امور",
+            "probability": 0.9836037357648214
+          },
+          {
+            "start": 5.62,
+            "end": 6.16,
+            "word": " مالیتون",
+            "probability": 0.9217992901802063
+          },
+          {
+            "start": 6.16,
+            "end": 6.66,
+            "word": " تصمیم",
+            "probability": 0.9971509575843811
+          },
+          {
+            "start": 6.66,
+            "end": 7.2,
+            "word": " بگیرید.",
+            "probability": 0.9669639706611634
+          },
+          {
+            "start": 7.38,
+            "end": 8.08,
+            "word": " قبلن",
+            "probability": 0.7155487189690272
+          },
+          {
+            "start": 8.08,
+            "end": 8.6,
+            "word": " تصویم",
+            "probability": 0.7959584477862336
+          },
+          {
+            "start": 8.6,
+            "end": 9.28,
+            "word": " می‌گیرسید",
+            "probability": 0.8301220503635705
+          },
+          {
+            "start": 9.28,
+            "end": 9.5,
+            "word": " بعد،",
+            "probability": 0.36002036929130554
+          }
+        ]
+      }
+    ]
+  }
+}

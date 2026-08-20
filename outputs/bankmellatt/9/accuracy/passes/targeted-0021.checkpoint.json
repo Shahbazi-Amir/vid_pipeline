@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "8cf38de3e28a91da93bdd532ac9b422595aaabcc5090b132fb2116484ba01b54",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.4,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.38,
+        "text": "این بعد از حضینه کردن می‌نوشتیم. از ماه چهارم می‌تونید قبل از هزینه‌کردن بنویسید. این یه عبدال بسیار مهم است.",
+        "avg_logprob": -0.18936430918027278,
+        "compression_ratio": 1.4850746268656716,
+        "no_speech_prob": 1.8004307766883443e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.48,
+            "word": " این",
+            "probability": 0.44419302768073976
+          },
+          {
+            "start": 0.48,
+            "end": 0.48,
+            "word": " بعد",
+            "probability": 0.6186656951904297
+          },
+          {
+            "start": 0.48,
+            "end": 0.68,
+            "word": " از",
+            "probability": 0.9993281662464142
+          },
+          {
+            "start": 0.68,
+            "end": 1.24,
+            "word": " حضینه",
+            "probability": 0.8301180601119995
+          },
+          {
+            "start": 1.24,
+            "end": 1.74,
+            "word": " کردن",
+            "probability": 0.9997340440750122
+          },
+          {
+            "start": 1.74,
+            "end": 2.56,
+            "word": " می‌نوشتیم.",
+            "probability": 0.7326944376109168
+          },
+          {
+            "start": 2.9,
+            "end": 3.08,
+            "word": " از",
+            "probability": 0.9881003797054291
+          },
+          {
+            "start": 3.08,
+            "end": 3.44,
+            "word": " ماه",
+            "probability": 0.995267391204834
+          },
+          {
+            "start": 3.44,
+            "end": 4.38,
+            "word": " چهارم",
+            "probability": 0.875053346157074
+          },
+          {
+            "start": 4.38,
+            "end": 5.68,
+            "word": " می‌تونید",
+            "probability": 0.9820848802725474
+          },
+          {
+            "start": 5.68,
+            "end": 6.2,
+            "word": " قبل",
+            "probability": 0.9932330548763275
+          },
+          {
+            "start": 6.2,
+            "end": 6.36,
+            "word": " از",
+            "probability": 0.9904477298259735
+          },
+          {
+            "start": 6.36,
+            "end": 7.2,
+            "word": " هزینه‌کردن",
+            "probability": 0.6966892550182011
+          },
+          {
+            "start": 7.2,
+            "end": 7.9,
+            "word": " بنویسید.",
+            "probability": 0.967790424823761
+          },
+          {
+            "start": 8.14,
+            "end": 8.58,
+            "word": " این",
+            "probability": 0.9889246225357056
+          },
+          {
+            "start": 8.58,
+            "end": 8.76,
+            "word": " یه",
+            "probability": 0.706096351146698
+          },
+          {
+            "start": 8.76,
+            "end": 9.36,
+            "word": " عبدال",
+            "probability": 0.4116029739379883
+          },
+          {
+            "start": 9.36,
+            "end": 10.06,
+            "word": " بسیار",
+            "probability": 0.8815028667449951
+          },
+          {
+            "start": 10.06,
+            "end": 10.32,
+            "word": " مهم",
+            "probability": 0.993384838104248
+          },
+          {
+            "start": 10.32,
+            "end": 10.38,
+            "word": " است.",
+            "probability": 0.3188997805118561
+          }
+        ]
+      }
+    ]
+  }
+}

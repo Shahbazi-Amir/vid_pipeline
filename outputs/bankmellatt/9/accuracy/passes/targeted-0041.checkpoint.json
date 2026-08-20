@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "5d7a5c208fd6d03d7368d52c14eb01c720d1a214a2aea4bc6caf87827c857327",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.66,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.64,
+        "text": "شما می‌تونید به تناسا به خودتون تغییر بدید. مثلا یه چیزی اصلا هزد بکنید، مثلا بگید من تفریح نمی‌خوام یا نه تفر...",
+        "avg_logprob": -0.2890464898787047,
+        "compression_ratio": 1.5263157894736843,
+        "no_speech_prob": 1.9459069078298086e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.28,
+            "word": " شما",
+            "probability": 0.9575788080692291
+          },
+          {
+            "start": 0.28,
+            "end": 0.7,
+            "word": " می‌تونید",
+            "probability": 0.8150948278683549
+          },
+          {
+            "start": 0.7,
+            "end": 0.78,
+            "word": " به",
+            "probability": 0.7132624387741089
+          },
+          {
+            "start": 0.78,
+            "end": 1.2,
+            "word": " تناسا",
+            "probability": 0.7294559255242348
+          },
+          {
+            "start": 1.2,
+            "end": 1.24,
+            "word": " به",
+            "probability": 0.5582982301712036
+          },
+          {
+            "start": 1.24,
+            "end": 1.54,
+            "word": " خودتون",
+            "probability": 0.9082197099924088
+          },
+          {
+            "start": 1.54,
+            "end": 2.1,
+            "word": " تغییر",
+            "probability": 0.9913710594177246
+          },
+          {
+            "start": 2.1,
+            "end": 2.6,
+            "word": " بدید.",
+            "probability": 0.9922223687171936
+          },
+          {
+            "start": 2.8,
+            "end": 3.4,
+            "word": " مثلا",
+            "probability": 0.9739519357681274
+          },
+          {
+            "start": 3.4,
+            "end": 3.6,
+            "word": " یه",
+            "probability": 0.8306195437908173
+          },
+          {
+            "start": 3.6,
+            "end": 3.82,
+            "word": " چیزی",
+            "probability": 0.9762203991413116
+          },
+          {
+            "start": 3.82,
+            "end": 4.12,
+            "word": " اصلا",
+            "probability": 0.8213555216789246
+          },
+          {
+            "start": 4.12,
+            "end": 4.6,
+            "word": " هزد",
+            "probability": 0.660140742858251
+          },
+          {
+            "start": 4.6,
+            "end": 5.28,
+            "word": " بکنید،",
+            "probability": 0.8045440949499607
+          },
+          {
+            "start": 5.28,
+            "end": 5.44,
+            "word": " مثلا",
+            "probability": 0.9637056291103363
+          },
+          {
+            "start": 5.44,
+            "end": 5.64,
+            "word": " بگید",
+            "probability": 0.7312545627355576
+          },
+          {
+            "start": 5.64,
+            "end": 5.7,
+            "word": " من",
+            "probability": 0.4184776842594147
+          },
+          {
+            "start": 5.7,
+            "end": 6.4,
+            "word": " تفریح",
+            "probability": 0.8049024343490601
+          },
+          {
+            "start": 6.4,
+            "end": 6.98,
+            "word": " نمی‌خوام",
+            "probability": 0.9593196851866586
+          },
+          {
+            "start": 6.98,
+            "end": 7.38,
+            "word": " یا",
+            "probability": 0.7667940258979797
+          },
+          {
+            "start": 7.38,
+            "end": 7.52,
+            "word": " نه",
+            "probability": 0.8454262614250183
+          },
+          {
+            "start": 7.52,
+            "end": 7.64,
+            "word": " تفر...",
+            "probability": 0.45120892964769155
+          }
+        ]
+      }
+    ]
+  }
+}

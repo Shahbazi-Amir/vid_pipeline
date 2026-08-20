@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "4a524476640efaa12e6a1d48d5ea1a47158df7cbc02d39789542c4959cae19cc",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.64,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.62,
+        "text": "این ردیف ها چقدر می‌خوام حضینه کنم؟ قبل از اینکه ماه چهارم شروع بشه، اول ماه، می‌شونم می‌گم خود",
+        "avg_logprob": -0.24343552580103278,
+        "compression_ratio": 1.4112903225806452,
+        "no_speech_prob": 2.1639193215072794e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.46,
+            "word": " این",
+            "probability": 0.1668299175798893
+          },
+          {
+            "start": 0.46,
+            "end": 0.88,
+            "word": " ردیف",
+            "probability": 0.8415538966655731
+          },
+          {
+            "start": 0.88,
+            "end": 1.0,
+            "word": " ها",
+            "probability": 0.9151509702205658
+          },
+          {
+            "start": 1.0,
+            "end": 1.44,
+            "word": " چقدر",
+            "probability": 0.9905415376027426
+          },
+          {
+            "start": 1.44,
+            "end": 1.7,
+            "word": " می‌خوام",
+            "probability": 0.752319882134907
+          },
+          {
+            "start": 1.7,
+            "end": 2.18,
+            "word": " حضینه",
+            "probability": 0.8222901150584221
+          },
+          {
+            "start": 2.18,
+            "end": 2.7,
+            "word": " کنم؟",
+            "probability": 0.8506843000650406
+          },
+          {
+            "start": 2.7,
+            "end": 3.42,
+            "word": " قبل",
+            "probability": 0.9943380951881409
+          },
+          {
+            "start": 3.42,
+            "end": 3.58,
+            "word": " از",
+            "probability": 0.9825794696807861
+          },
+          {
+            "start": 3.58,
+            "end": 3.76,
+            "word": " اینکه",
+            "probability": 0.9291893690824509
+          },
+          {
+            "start": 3.76,
+            "end": 3.98,
+            "word": " ماه",
+            "probability": 0.9842846989631653
+          },
+          {
+            "start": 3.98,
+            "end": 4.52,
+            "word": " چهارم",
+            "probability": 0.8946746587753296
+          },
+          {
+            "start": 4.52,
+            "end": 4.84,
+            "word": " شروع",
+            "probability": 0.982636014620463
+          },
+          {
+            "start": 4.84,
+            "end": 5.34,
+            "word": " بشه،",
+            "probability": 0.8744642436504364
+          },
+          {
+            "start": 5.34,
+            "end": 5.86,
+            "word": " اول",
+            "probability": 0.9919449388980865
+          },
+          {
+            "start": 5.86,
+            "end": 6.5,
+            "word": " ماه،",
+            "probability": 0.7588945726553599
+          },
+          {
+            "start": 6.5,
+            "end": 7.28,
+            "word": " می‌شونم",
+            "probability": 0.8494296252727509
+          },
+          {
+            "start": 7.28,
+            "end": 7.52,
+            "word": " می‌گم",
+            "probability": 0.7341348454356194
+          },
+          {
+            "start": 7.52,
+            "end": 7.62,
+            "word": " خود",
+            "probability": 0.601349800825119
+          }
+        ]
+      }
+    ]
+  }
+}

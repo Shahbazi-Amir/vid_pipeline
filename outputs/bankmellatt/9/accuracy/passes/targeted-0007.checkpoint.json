@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "f1d6b8a5082da447e98dadb5edcb3c9c0a8b28e137e1e0c83fb464d94f9d5b22",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.42,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.08,
+        "text": "باش کردن، پس انداس کردند، صحبت کردیم، یکی از مهمترین ابزارهایی که به ما کمک می‌کنه و سلط به عمور مالیمون باشیم.",
+        "avg_logprob": -0.22436912092444014,
+        "compression_ratio": 1.4460431654676258,
+        "no_speech_prob": 2.2617514805478578e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.22,
+            "word": " باش",
+            "probability": 0.1542361774481833
+          },
+          {
+            "start": 0.22,
+            "end": 0.62,
+            "word": " کردن،",
+            "probability": 0.6567617617547512
+          },
+          {
+            "start": 0.62,
+            "end": 0.86,
+            "word": " پس",
+            "probability": 0.9984208047389984
+          },
+          {
+            "start": 0.86,
+            "end": 1.18,
+            "word": " انداس",
+            "probability": 0.7555637160936991
+          },
+          {
+            "start": 1.18,
+            "end": 1.58,
+            "word": " کردند،",
+            "probability": 0.6049066531122662
+          },
+          {
+            "start": 1.58,
+            "end": 2.02,
+            "word": " صحبت",
+            "probability": 0.9941078722476959
+          },
+          {
+            "start": 2.02,
+            "end": 2.58,
+            "word": " کردیم،",
+            "probability": 0.8287540405988694
+          },
+          {
+            "start": 2.58,
+            "end": 2.9,
+            "word": " یکی",
+            "probability": 0.9974305431048075
+          },
+          {
+            "start": 2.9,
+            "end": 3.04,
+            "word": " از",
+            "probability": 0.9986949563026428
+          },
+          {
+            "start": 3.04,
+            "end": 4.22,
+            "word": " مهمترین",
+            "probability": 0.9954809665679931
+          },
+          {
+            "start": 4.22,
+            "end": 5.7,
+            "word": " ابزارهایی",
+            "probability": 0.913674920797348
+          },
+          {
+            "start": 5.7,
+            "end": 5.82,
+            "word": " که",
+            "probability": 0.998499721288681
+          },
+          {
+            "start": 5.82,
+            "end": 5.9,
+            "word": " به",
+            "probability": 0.9890722036361694
+          },
+          {
+            "start": 5.9,
+            "end": 6.06,
+            "word": " ما",
+            "probability": 0.9987616539001465
+          },
+          {
+            "start": 6.06,
+            "end": 6.5,
+            "word": " کمک",
+            "probability": 0.999544620513916
+          },
+          {
+            "start": 6.5,
+            "end": 6.94,
+            "word": " می‌کنه",
+            "probability": 0.5821163307875394
+          },
+          {
+            "start": 6.94,
+            "end": 7.06,
+            "word": " و",
+            "probability": 0.4550309181213379
+          },
+          {
+            "start": 7.06,
+            "end": 7.56,
+            "word": " سلط",
+            "probability": 0.9639716943105062
+          },
+          {
+            "start": 7.56,
+            "end": 7.7,
+            "word": " به",
+            "probability": 0.9924929738044739
+          },
+          {
+            "start": 7.7,
+            "end": 8.0,
+            "word": " عمور",
+            "probability": 0.7135361830393473
+          },
+          {
+            "start": 8.0,
+            "end": 8.56,
+            "word": " مالیمون",
+            "probability": 0.8967109799385071
+          },
+          {
+            "start": 8.56,
+            "end": 9.08,
+            "word": " باشیم.",
+            "probability": 0.9963998198509216
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "d6287c75b40d61cd1993db21f000ce89ad5c561e0013e2f89d8091dba130aafa",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.72,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.7,
+        "text": "و اون رو توی دست بندی‌های قرار بدین، مثل خوراک، پوشاک نمی‌دونم، آرایشی بهداشتی، رشد فردی خود رو و چهارده دسته رو تقریبا محرم.",
+        "avg_logprob": -0.2169484701649896,
+        "compression_ratio": 1.5302013422818792,
+        "no_speech_prob": 2.320479364215089e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.16,
+            "word": " و",
+            "probability": 0.9872404932975769
+          },
+          {
+            "start": 0.16,
+            "end": 0.36,
+            "word": " اون",
+            "probability": 0.9732870757579803
+          },
+          {
+            "start": 0.36,
+            "end": 0.5,
+            "word": " رو",
+            "probability": 0.6830754280090332
+          },
+          {
+            "start": 0.5,
+            "end": 0.62,
+            "word": " توی",
+            "probability": 0.873309999704361
+          },
+          {
+            "start": 0.62,
+            "end": 1.04,
+            "word": " دست",
+            "probability": 0.9596243798732758
+          },
+          {
+            "start": 1.04,
+            "end": 1.72,
+            "word": " بندی‌های",
+            "probability": 0.748363608494401
+          },
+          {
+            "start": 1.72,
+            "end": 2.12,
+            "word": " قرار",
+            "probability": 0.959079643090566
+          },
+          {
+            "start": 2.12,
+            "end": 2.64,
+            "word": " بدین،",
+            "probability": 0.39943570643663406
+          },
+          {
+            "start": 2.64,
+            "end": 3.22,
+            "word": " مثل",
+            "probability": 0.989005833864212
+          },
+          {
+            "start": 3.22,
+            "end": 4.02,
+            "word": " خوراک،",
+            "probability": 0.9140681028366089
+          },
+          {
+            "start": 4.02,
+            "end": 4.92,
+            "word": " پوشاک",
+            "probability": 0.9908067941665649
+          },
+          {
+            "start": 4.92,
+            "end": 6.16,
+            "word": " نمی‌دونم،",
+            "probability": 0.8554683513939381
+          },
+          {
+            "start": 6.16,
+            "end": 6.66,
+            "word": " آرایشی",
+            "probability": 0.813160490989685
+          },
+          {
+            "start": 6.66,
+            "end": 7.42,
+            "word": " بهداشتی،",
+            "probability": 0.9505819082260132
+          },
+          {
+            "start": 7.42,
+            "end": 7.76,
+            "word": " رشد",
+            "probability": 0.944181223710378
+          },
+          {
+            "start": 7.76,
+            "end": 8.46,
+            "word": " فردی",
+            "probability": 0.9961577653884888
+          },
+          {
+            "start": 8.46,
+            "end": 8.88,
+            "word": " خود",
+            "probability": 0.7738266587257385
+          },
+          {
+            "start": 8.88,
+            "end": 9.26,
+            "word": " رو",
+            "probability": 0.9574972987174988
+          },
+          {
+            "start": 9.26,
+            "end": 9.66,
+            "word": " و",
+            "probability": 0.7423648238182068
+          },
+          {
+            "start": 9.66,
+            "end": 10.54,
+            "word": " چهارده",
+            "probability": 0.7295086920261383
+          },
+          {
+            "start": 10.54,
+            "end": 10.94,
+            "word": " دسته",
+            "probability": 0.7595052321751913
+          },
+          {
+            "start": 10.94,
+            "end": 11.02,
+            "word": " رو",
+            "probability": 0.9486494064331055
+          },
+          {
+            "start": 11.02,
+            "end": 11.4,
+            "word": " تقریبا",
+            "probability": 0.9377970576286316
+          },
+          {
+            "start": 11.4,
+            "end": 11.7,
+            "word": " محرم.",
+            "probability": 0.4541792646050453
+          }
+        ]
+      }
+    ]
+  }
+}

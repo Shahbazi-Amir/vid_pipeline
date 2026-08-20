@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "f874a24a6c057c4dd7039ab74265c4c766f7f9c27a54764faf8dfa130e9d4e3a",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.46,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.44,
+        "text": "یه تصمیم می‌گیرستید، بعد ثبت می‌کردید. از ماها چهار رو می‌تونید ثبته کنید و بعد هزینه کنین. یه‌تصمم باید باقید",
+        "avg_logprob": -0.3686118337172496,
+        "compression_ratio": 1.5615384615384615,
+        "no_speech_prob": 3.569917417234336e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.0,
+            "word": " یه",
+            "probability": 0.4612628072500229
+          },
+          {
+            "start": 0.0,
+            "end": 0.3,
+            "word": " تصمیم",
+            "probability": 0.9669538617134095
+          },
+          {
+            "start": 0.3,
+            "end": 0.98,
+            "word": " می‌گیرستید،",
+            "probability": 0.7257539284312062
+          },
+          {
+            "start": 0.98,
+            "end": 1.24,
+            "word": " بعد",
+            "probability": 0.9556437134742737
+          },
+          {
+            "start": 1.24,
+            "end": 1.7,
+            "word": " ثبت",
+            "probability": 0.88930877049764
+          },
+          {
+            "start": 1.7,
+            "end": 2.52,
+            "word": " می‌کردید.",
+            "probability": 0.9740550262587411
+          },
+          {
+            "start": 2.6,
+            "end": 2.94,
+            "word": " از",
+            "probability": 0.9763182401657104
+          },
+          {
+            "start": 2.94,
+            "end": 3.16,
+            "word": " ماها",
+            "probability": 0.6645979732275009
+          },
+          {
+            "start": 3.16,
+            "end": 3.52,
+            "word": " چهار",
+            "probability": 0.7884544928868612
+          },
+          {
+            "start": 3.52,
+            "end": 3.6,
+            "word": " رو",
+            "probability": 0.4947837144136429
+          },
+          {
+            "start": 3.6,
+            "end": 4.02,
+            "word": " می‌تونید",
+            "probability": 0.94842529296875
+          },
+          {
+            "start": 4.02,
+            "end": 4.46,
+            "word": " ثبته",
+            "probability": 0.6579765590722673
+          },
+          {
+            "start": 4.46,
+            "end": 4.78,
+            "word": " کنید",
+            "probability": 0.9697519689798355
+          },
+          {
+            "start": 4.78,
+            "end": 4.9,
+            "word": " و",
+            "probability": 0.08689594268798828
+          },
+          {
+            "start": 4.9,
+            "end": 5.08,
+            "word": " بعد",
+            "probability": 0.9398301243782043
+          },
+          {
+            "start": 5.08,
+            "end": 5.58,
+            "word": " هزینه",
+            "probability": 0.8422832041978836
+          },
+          {
+            "start": 5.58,
+            "end": 5.9,
+            "word": " کنین.",
+            "probability": 0.656788906819808
+          },
+          {
+            "start": 7.42,
+            "end": 8.1,
+            "word": " یه‌تصمم",
+            "probability": 0.6555061150575057
+          },
+          {
+            "start": 8.1,
+            "end": 8.44,
+            "word": " باید",
+            "probability": 0.8983995169401169
+          },
+          {
+            "start": 8.44,
+            "end": 8.44,
+            "word": " باقید",
+            "probability": 0.43367421766743064
+          }
+        ]
+      }
+    ]
+  }
+}

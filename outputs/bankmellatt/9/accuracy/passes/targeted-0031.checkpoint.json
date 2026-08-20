@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "89c06cd06753a63ca29348e1f481381b0975aa803db215c4f5e5973e655efb1f",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.38,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.76,
+        "text": "ماه چهارم شروع بشه، اول ماه، می‌شینم می‌گم خب توی مسکن انقدر حضینه دارم، تو خوراک و پوشاک انقدری.",
+        "avg_logprob": -0.24314381016625297,
+        "compression_ratio": 1.416,
+        "no_speech_prob": 3.329270192864442e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.12,
+            "word": " ماه",
+            "probability": 0.6566347628831863
+          },
+          {
+            "start": 0.12,
+            "end": 0.64,
+            "word": " چهارم",
+            "probability": 0.9136283248662949
+          },
+          {
+            "start": 0.64,
+            "end": 0.94,
+            "word": " شروع",
+            "probability": 0.991996685663859
+          },
+          {
+            "start": 0.94,
+            "end": 1.42,
+            "word": " بشه،",
+            "probability": 0.7530615590512753
+          },
+          {
+            "start": 1.42,
+            "end": 1.98,
+            "word": " اول",
+            "probability": 0.9989855587482452
+          },
+          {
+            "start": 1.98,
+            "end": 2.58,
+            "word": " ماه،",
+            "probability": 0.6954857235153517
+          },
+          {
+            "start": 2.58,
+            "end": 3.38,
+            "word": " می‌شینم",
+            "probability": 0.721519114356488
+          },
+          {
+            "start": 3.38,
+            "end": 3.64,
+            "word": " می‌گم",
+            "probability": 0.7726652175188065
+          },
+          {
+            "start": 3.64,
+            "end": 3.9,
+            "word": " خب",
+            "probability": 0.7088967561721802
+          },
+          {
+            "start": 3.9,
+            "end": 4.12,
+            "word": " توی",
+            "probability": 0.9275799989700317
+          },
+          {
+            "start": 4.12,
+            "end": 4.68,
+            "word": " مسکن",
+            "probability": 0.9295373360315958
+          },
+          {
+            "start": 4.68,
+            "end": 5.18,
+            "word": " انقدر",
+            "probability": 0.8976860046386719
+          },
+          {
+            "start": 5.18,
+            "end": 5.62,
+            "word": " حضینه",
+            "probability": 0.8617185652256012
+          },
+          {
+            "start": 5.62,
+            "end": 5.96,
+            "word": " دارم،",
+            "probability": 0.7561854533851147
+          },
+          {
+            "start": 5.96,
+            "end": 6.04,
+            "word": " تو",
+            "probability": 0.9907077550888062
+          },
+          {
+            "start": 6.04,
+            "end": 6.54,
+            "word": " خوراک",
+            "probability": 0.9691489636898041
+          },
+          {
+            "start": 6.54,
+            "end": 6.6,
+            "word": " و",
+            "probability": 0.9832214117050171
+          },
+          {
+            "start": 6.6,
+            "end": 7.12,
+            "word": " پوشاک",
+            "probability": 0.9854247450828553
+          },
+          {
+            "start": 7.12,
+            "end": 7.76,
+            "word": " انقدری.",
+            "probability": 0.6433949621811431
+          }
+        ]
+      }
+    ]
+  }
+}

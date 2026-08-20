@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "accb1fec6519bfe4fc80d4afd3e417e78720362460c94aa62e34a0c7f30f2a29",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.74,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.72,
+        "text": "و محدود به هیچ چی نباشند، ولی واقعا انسان این‌گونه نیست، انسن‌ها از آزادی می‌کن.",
+        "avg_logprob": -0.2543833885552748,
+        "compression_ratio": 1.2982456140350878,
+        "no_speech_prob": 3.152231808911665e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.7,
+            "word": " و",
+            "probability": 0.5863630175590515
+          },
+          {
+            "start": 0.7,
+            "end": 1.34,
+            "word": " محدود",
+            "probability": 0.9961546460787455
+          },
+          {
+            "start": 1.34,
+            "end": 1.5,
+            "word": " به",
+            "probability": 0.9991845488548279
+          },
+          {
+            "start": 1.5,
+            "end": 1.76,
+            "word": " هیچ",
+            "probability": 0.9985642433166504
+          },
+          {
+            "start": 1.76,
+            "end": 1.92,
+            "word": " چی",
+            "probability": 0.7185045927762985
+          },
+          {
+            "start": 1.92,
+            "end": 2.74,
+            "word": " نباشند،",
+            "probability": 0.6787448507733643
+          },
+          {
+            "start": 2.74,
+            "end": 3.56,
+            "word": " ولی",
+            "probability": 0.9905226528644562
+          },
+          {
+            "start": 3.56,
+            "end": 4.28,
+            "word": " واقعا",
+            "probability": 0.9973154664039612
+          },
+          {
+            "start": 4.28,
+            "end": 5.28,
+            "word": " انسان",
+            "probability": 0.8694016138712565
+          },
+          {
+            "start": 5.28,
+            "end": 5.96,
+            "word": " این‌گونه",
+            "probability": 0.7409090076883634
+          },
+          {
+            "start": 5.96,
+            "end": 6.52,
+            "word": " نیست،",
+            "probability": 0.864711731672287
+          },
+          {
+            "start": 6.52,
+            "end": 7.38,
+            "word": " انسن‌ها",
+            "probability": 0.7701613407632977
+          },
+          {
+            "start": 7.38,
+            "end": 7.76,
+            "word": " از",
+            "probability": 0.9971289038658142
+          },
+          {
+            "start": 7.76,
+            "end": 8.48,
+            "word": " آزادی",
+            "probability": 0.9910446852445602
+          },
+          {
+            "start": 8.48,
+            "end": 8.72,
+            "word": " می‌کن.",
+            "probability": 0.714673176407814
+          }
+        ]
+      }
+    ]
+  }
+}

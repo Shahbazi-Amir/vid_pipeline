@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "90dfc53b1b816323345ebbbd8b41cd8386340785f3e2efd0f70ee6de5017800a",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 7.98,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 7.96,
+        "text": "از مهم‌ترین مفاهم زندگی بشریه، همه‌ی انسان‌ها دنبال آزاد بودن هست، دن‌بال این که محدودیت‌ها",
+        "avg_logprob": -0.19995144529948158,
+        "compression_ratio": 1.4661016949152543,
+        "no_speech_prob": 3.0929381278355095e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.02,
+            "word": " از",
+            "probability": 0.49295683205127716
+          },
+          {
+            "start": 0.02,
+            "end": 0.8,
+            "word": " مهم‌ترین",
+            "probability": 0.8153689031799635
+          },
+          {
+            "start": 0.8,
+            "end": 1.3,
+            "word": " مفاهم",
+            "probability": 0.9217022508382797
+          },
+          {
+            "start": 1.3,
+            "end": 1.86,
+            "word": " زندگی",
+            "probability": 0.9892086982727051
+          },
+          {
+            "start": 1.86,
+            "end": 2.56,
+            "word": " بشریه،",
+            "probability": 0.7110330436378718
+          },
+          {
+            "start": 2.56,
+            "end": 3.1,
+            "word": " همه‌ی",
+            "probability": 0.9806463122367859
+          },
+          {
+            "start": 3.1,
+            "end": 3.62,
+            "word": " انسان‌ها",
+            "probability": 0.982634449005127
+          },
+          {
+            "start": 3.62,
+            "end": 4.22,
+            "word": " دنبال",
+            "probability": 0.992315948009491
+          },
+          {
+            "start": 4.22,
+            "end": 5.04,
+            "word": " آزاد",
+            "probability": 0.966781218846639
+          },
+          {
+            "start": 5.04,
+            "end": 5.48,
+            "word": " بودن",
+            "probability": 0.950096587340037
+          },
+          {
+            "start": 5.48,
+            "end": 6.06,
+            "word": " هست،",
+            "probability": 0.5363717079162598
+          },
+          {
+            "start": 6.06,
+            "end": 6.68,
+            "word": " دن‌بال",
+            "probability": 0.7915332341508474
+          },
+          {
+            "start": 6.68,
+            "end": 6.9,
+            "word": " این",
+            "probability": 0.9606811702251434
+          },
+          {
+            "start": 6.9,
+            "end": 7.1,
+            "word": " که",
+            "probability": 0.6641661524772644
+          },
+          {
+            "start": 7.1,
+            "end": 7.96,
+            "word": " محدودیت‌ها",
+            "probability": 0.9641489131110055
+          }
+        ]
+      }
+    ]
+  }
+}

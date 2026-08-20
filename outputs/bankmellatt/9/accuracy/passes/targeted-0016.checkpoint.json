@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "79899b0314d97481d735b52a1332ca23ff740b97beb7951296b82efc832427a9",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.46,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 5.9,
+        "text": "بهداشتی، رشد فردی خود رو و چارده دسته رو تقریبا معرفی کردم برای تو.",
+        "avg_logprob": -0.18141129944059584,
+        "compression_ratio": 1.263157894736842,
+        "no_speech_prob": 2.519193187389135e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.7,
+            "word": " بهداشتی،",
+            "probability": 0.8750299910704294
+          },
+          {
+            "start": 0.7,
+            "end": 1.04,
+            "word": " رشد",
+            "probability": 0.9208059112230936
+          },
+          {
+            "start": 1.04,
+            "end": 1.74,
+            "word": " فردی",
+            "probability": 0.9993876665830612
+          },
+          {
+            "start": 1.74,
+            "end": 2.16,
+            "word": " خود",
+            "probability": 0.9288708567619324
+          },
+          {
+            "start": 2.16,
+            "end": 2.52,
+            "word": " رو",
+            "probability": 0.9810835421085358
+          },
+          {
+            "start": 2.52,
+            "end": 2.94,
+            "word": " و",
+            "probability": 0.97580486536026
+          },
+          {
+            "start": 2.94,
+            "end": 3.8,
+            "word": " چارده",
+            "probability": 0.8303628414869308
+          },
+          {
+            "start": 3.8,
+            "end": 4.2,
+            "word": " دسته",
+            "probability": 0.8071680267651876
+          },
+          {
+            "start": 4.2,
+            "end": 4.32,
+            "word": " رو",
+            "probability": 0.9958539605140686
+          },
+          {
+            "start": 4.32,
+            "end": 4.68,
+            "word": " تقریبا",
+            "probability": 0.9887538909912109
+          },
+          {
+            "start": 4.68,
+            "end": 5.18,
+            "word": " معرفی",
+            "probability": 0.9643869002660116
+          },
+          {
+            "start": 5.18,
+            "end": 5.54,
+            "word": " کردم",
+            "probability": 0.9590708017349243
+          },
+          {
+            "start": 5.54,
+            "end": 5.82,
+            "word": " برای",
+            "probability": 0.8716202775637308
+          },
+          {
+            "start": 5.82,
+            "end": 5.9,
+            "word": " تو.",
+            "probability": 0.5810852646827698
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "af1966ae1b93883cee4a5a94fa217022a021a4645f3073b91d4b5ea065357dc0",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.62,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.6,
+        "text": "تو هر کدوم از این ردیف‌ها که بهش میگن ردّیفهای بوجه، چقدر حضینه بکنیم؟ در اسطلاح خیاتا میگند دوباره",
+        "avg_logprob": -0.21435266733169556,
+        "compression_ratio": 1.3923076923076922,
+        "no_speech_prob": 1.8669864265685732e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.5,
+            "word": " تو",
+            "probability": 0.9763161540031433
+          },
+          {
+            "start": 0.5,
+            "end": 0.86,
+            "word": " هر",
+            "probability": 0.9988458752632141
+          },
+          {
+            "start": 0.86,
+            "end": 1.22,
+            "word": " کدوم",
+            "probability": 0.9941574136416117
+          },
+          {
+            "start": 1.22,
+            "end": 1.44,
+            "word": " از",
+            "probability": 0.9928276836872101
+          },
+          {
+            "start": 1.44,
+            "end": 1.58,
+            "word": " این",
+            "probability": 0.9988182187080383
+          },
+          {
+            "start": 1.58,
+            "end": 2.38,
+            "word": " ردیف‌ها",
+            "probability": 0.8320713794673793
+          },
+          {
+            "start": 2.38,
+            "end": 2.8,
+            "word": " که",
+            "probability": 0.9672596752643585
+          },
+          {
+            "start": 2.8,
+            "end": 2.98,
+            "word": " بهش",
+            "probability": 0.8808799386024475
+          },
+          {
+            "start": 2.98,
+            "end": 3.22,
+            "word": " میگن",
+            "probability": 0.7948939204216003
+          },
+          {
+            "start": 3.22,
+            "end": 3.84,
+            "word": " ردّیفهای",
+            "probability": 0.7008115830228364
+          },
+          {
+            "start": 3.84,
+            "end": 4.52,
+            "word": " بوجه،",
+            "probability": 0.6339973974972963
+          },
+          {
+            "start": 4.52,
+            "end": 5.08,
+            "word": " چقدر",
+            "probability": 0.9889936049779257
+          },
+          {
+            "start": 5.08,
+            "end": 5.5,
+            "word": " حضینه",
+            "probability": 0.9073551297187805
+          },
+          {
+            "start": 5.5,
+            "end": 6.26,
+            "word": " بکنیم؟",
+            "probability": 0.8756545881430308
+          },
+          {
+            "start": 6.26,
+            "end": 6.82,
+            "word": " در",
+            "probability": 0.9944666624069214
+          },
+          {
+            "start": 6.82,
+            "end": 7.22,
+            "word": " اسطلاح",
+            "probability": 0.7682248055934906
+          },
+          {
+            "start": 7.22,
+            "end": 7.84,
+            "word": " خیاتا",
+            "probability": 0.7667194232344627
+          },
+          {
+            "start": 7.84,
+            "end": 8.16,
+            "word": " میگند",
+            "probability": 0.62385949663197
+          },
+          {
+            "start": 8.16,
+            "end": 8.6,
+            "word": " دوباره",
+            "probability": 0.9114701002836227
+          }
+        ]
+      }
+    ]
+  }
+}

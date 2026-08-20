@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "ebd0ffd461d6042966a4ac05bbdfd47f05b9d2a66dbb1866abe99c3c15fd8afe",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.24,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.22,
+        "text": "قبل از اینکه ماه چهارم شروع بشه، اول ماه، می‌شینم بگم خب توی مسکن انقدر",
+        "avg_logprob": -0.16699161935359874,
+        "compression_ratio": 1.2772277227722773,
+        "no_speech_prob": 2.1599731725441274e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.78,
+            "word": " قبل",
+            "probability": 0.991563618183136
+          },
+          {
+            "start": 0.78,
+            "end": 0.94,
+            "word": " از",
+            "probability": 0.9909873604774475
+          },
+          {
+            "start": 0.94,
+            "end": 1.12,
+            "word": " اینکه",
+            "probability": 0.8864993155002594
+          },
+          {
+            "start": 1.12,
+            "end": 1.36,
+            "word": " ماه",
+            "probability": 0.9978503286838531
+          },
+          {
+            "start": 1.36,
+            "end": 1.88,
+            "word": " چهارم",
+            "probability": 0.943366676568985
+          },
+          {
+            "start": 1.88,
+            "end": 2.2,
+            "word": " شروع",
+            "probability": 0.9955421288808187
+          },
+          {
+            "start": 2.2,
+            "end": 2.68,
+            "word": " بشه،",
+            "probability": 0.784890104085207
+          },
+          {
+            "start": 2.68,
+            "end": 3.22,
+            "word": " اول",
+            "probability": 0.9993627667427063
+          },
+          {
+            "start": 3.22,
+            "end": 3.82,
+            "word": " ماه،",
+            "probability": 0.7746138870716095
+          },
+          {
+            "start": 3.82,
+            "end": 4.64,
+            "word": " می‌شینم",
+            "probability": 0.7553435003617779
+          },
+          {
+            "start": 4.64,
+            "end": 4.88,
+            "word": " بگم",
+            "probability": 0.6276458700497946
+          },
+          {
+            "start": 4.88,
+            "end": 5.14,
+            "word": " خب",
+            "probability": 0.901950478553772
+          },
+          {
+            "start": 5.14,
+            "end": 5.36,
+            "word": " توی",
+            "probability": 0.9853719472885132
+          },
+          {
+            "start": 5.36,
+            "end": 5.92,
+            "word": " مسکن",
+            "probability": 0.9115701119105021
+          },
+          {
+            "start": 5.92,
+            "end": 6.22,
+            "word": " انقدر",
+            "probability": 0.6918691794077555
+          }
+        ]
+      }
+    ]
+  }
+}

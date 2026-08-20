@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "ee81b225c883f90e89463250e59bedf516fb2091b46ca457d6c10eddeb08d8c8",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.16,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.14,
+        "text": "استاتیک نیست، بگم همین و لاغه. نه اتفاقان شما می‌تونید به تناصب خودتون تغییر بدید. مثلا یه چیزی اصلا حضب کنید",
+        "avg_logprob": -0.2287880077555373,
+        "compression_ratio": 1.4275362318840579,
+        "no_speech_prob": 2.434343837620645e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.94,
+            "word": " استاتیک",
+            "probability": 0.9852833151817322
+          },
+          {
+            "start": 0.94,
+            "end": 1.2,
+            "word": " نیست،",
+            "probability": 0.7495293106185272
+          },
+          {
+            "start": 1.2,
+            "end": 1.48,
+            "word": " بگم",
+            "probability": 0.9969760179519653
+          },
+          {
+            "start": 1.48,
+            "end": 1.92,
+            "word": " همین",
+            "probability": 0.9933706919352213
+          },
+          {
+            "start": 1.92,
+            "end": 2.06,
+            "word": " و",
+            "probability": 0.397677481174469
+          },
+          {
+            "start": 2.06,
+            "end": 2.46,
+            "word": " لاغه.",
+            "probability": 0.7770047634840012
+          },
+          {
+            "start": 2.54,
+            "end": 2.7,
+            "word": " نه",
+            "probability": 0.9942396283149719
+          },
+          {
+            "start": 2.7,
+            "end": 3.18,
+            "word": " اتفاقان",
+            "probability": 0.8518067648013433
+          },
+          {
+            "start": 3.18,
+            "end": 3.46,
+            "word": " شما",
+            "probability": 0.991793155670166
+          },
+          {
+            "start": 3.46,
+            "end": 3.84,
+            "word": " می‌تونید",
+            "probability": 0.82408020820003
+          },
+          {
+            "start": 3.84,
+            "end": 3.94,
+            "word": " به",
+            "probability": 0.9473421573638916
+          },
+          {
+            "start": 3.94,
+            "end": 4.38,
+            "word": " تناصب",
+            "probability": 0.6197579130530357
+          },
+          {
+            "start": 4.38,
+            "end": 4.7,
+            "word": " خودتون",
+            "probability": 0.9553041756153107
+          },
+          {
+            "start": 4.7,
+            "end": 5.26,
+            "word": " تغییر",
+            "probability": 0.9896148443222046
+          },
+          {
+            "start": 5.26,
+            "end": 5.64,
+            "word": " بدید.",
+            "probability": 0.997578501701355
+          },
+          {
+            "start": 5.94,
+            "end": 6.58,
+            "word": " مثلا",
+            "probability": 0.9863282442092896
+          },
+          {
+            "start": 6.58,
+            "end": 6.76,
+            "word": " یه",
+            "probability": 0.8918757736682892
+          },
+          {
+            "start": 6.76,
+            "end": 7.02,
+            "word": " چیزی",
+            "probability": 0.9880234599113464
+          },
+          {
+            "start": 7.02,
+            "end": 7.28,
+            "word": " اصلا",
+            "probability": 0.7989394168059031
+          },
+          {
+            "start": 7.28,
+            "end": 7.78,
+            "word": " حضب",
+            "probability": 0.559251070022583
+          },
+          {
+            "start": 7.78,
+            "end": 8.14,
+            "word": " کنید",
+            "probability": 0.7989407777786255
+          }
+        ]
+      }
+    ]
+  }
+}

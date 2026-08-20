@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "4aa1db062e7a94f990e6f3c35c1d0d050afcf47c3b8f21d3c7ffe049651d4a0a",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.9,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.88,
+        "text": "یا تا می‌گن دوباره اندازه بگیر، یه بار ببور. شما تو این سه ماه اول داشتین بعد از حضینه کردن می‌نوشتین؟ از ماه چهارم می‌کنین؟",
+        "avg_logprob": -0.2775780581220796,
+        "compression_ratio": 1.5804195804195804,
+        "no_speech_prob": 2.3988286357301547e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.12,
+            "word": " یا",
+            "probability": 0.3545723408460617
+          },
+          {
+            "start": 0.12,
+            "end": 0.28,
+            "word": " تا",
+            "probability": 0.902333527803421
+          },
+          {
+            "start": 0.28,
+            "end": 0.52,
+            "word": " می‌گن",
+            "probability": 0.7214845906128176
+          },
+          {
+            "start": 0.52,
+            "end": 0.96,
+            "word": " دوباره",
+            "probability": 0.8864519894123077
+          },
+          {
+            "start": 0.96,
+            "end": 1.34,
+            "word": " اندازه",
+            "probability": 0.9594859331846237
+          },
+          {
+            "start": 1.34,
+            "end": 1.74,
+            "word": " بگیر،",
+            "probability": 0.7230621997267008
+          },
+          {
+            "start": 1.74,
+            "end": 1.88,
+            "word": " یه",
+            "probability": 0.9635137617588043
+          },
+          {
+            "start": 1.88,
+            "end": 2.06,
+            "word": " بار",
+            "probability": 0.9838615357875824
+          },
+          {
+            "start": 2.06,
+            "end": 2.52,
+            "word": " ببور.",
+            "probability": 0.7118703126907349
+          },
+          {
+            "start": 2.7,
+            "end": 3.3,
+            "word": " شما",
+            "probability": 0.9889191687107086
+          },
+          {
+            "start": 3.3,
+            "end": 3.44,
+            "word": " تو",
+            "probability": 0.9850900173187256
+          },
+          {
+            "start": 3.44,
+            "end": 3.6,
+            "word": " این",
+            "probability": 0.9471001625061035
+          },
+          {
+            "start": 3.6,
+            "end": 3.92,
+            "word": " سه",
+            "probability": 0.8304548859596252
+          },
+          {
+            "start": 3.92,
+            "end": 4.12,
+            "word": " ماه",
+            "probability": 0.989736795425415
+          },
+          {
+            "start": 4.12,
+            "end": 4.9,
+            "word": " اول",
+            "probability": 0.868791252374649
+          },
+          {
+            "start": 4.9,
+            "end": 5.9,
+            "word": " داشتین",
+            "probability": 0.9026038348674774
+          },
+          {
+            "start": 5.9,
+            "end": 6.34,
+            "word": " بعد",
+            "probability": 0.9733628034591675
+          },
+          {
+            "start": 6.34,
+            "end": 6.58,
+            "word": " از",
+            "probability": 0.9820289015769958
+          },
+          {
+            "start": 6.58,
+            "end": 7.14,
+            "word": " حضینه",
+            "probability": 0.8806001543998718
+          },
+          {
+            "start": 7.14,
+            "end": 7.64,
+            "word": " کردن",
+            "probability": 0.9884289105733236
+          },
+          {
+            "start": 7.64,
+            "end": 8.56,
+            "word": " می‌نوشتین؟",
+            "probability": 0.8544721323996782
+          },
+          {
+            "start": 8.56,
+            "end": 8.98,
+            "word": " از",
+            "probability": 0.9723686873912811
+          },
+          {
+            "start": 8.98,
+            "end": 9.34,
+            "word": " ماه",
+            "probability": 0.9958915412425995
+          },
+          {
+            "start": 9.34,
+            "end": 10.28,
+            "word": " چهارم",
+            "probability": 0.8850763291120529
+          },
+          {
+            "start": 10.28,
+            "end": 10.88,
+            "word": " می‌کنین؟",
+            "probability": 0.5417425421377023
+          }
+        ]
+      }
+    ]
+  }
+}

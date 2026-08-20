@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "4dfdbfbeaaf2b420aba3a96b7650410ac09e7dcd0f0d20bad2dc1a58b8fd566f",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.74,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.72,
+        "text": "در مورد حزینه‌ها همون تصمیم بگیریم. دایتون باشه گفتم که برای حزینه‌هاتون سه ماه صرفاً بنویسید و اون رو توی دستبندی ها",
+        "avg_logprob": -0.23394243216808933,
+        "compression_ratio": 1.5507246376811594,
+        "no_speech_prob": 2.275822308384079e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.32,
+            "word": " در",
+            "probability": 0.9744775593280792
+          },
+          {
+            "start": 0.32,
+            "end": 0.72,
+            "word": " مورد",
+            "probability": 0.9976066946983337
+          },
+          {
+            "start": 0.72,
+            "end": 1.32,
+            "word": " حزینه‌ها",
+            "probability": 0.6859144379074374
+          },
+          {
+            "start": 1.32,
+            "end": 1.48,
+            "word": " همون",
+            "probability": 0.7772539854049683
+          },
+          {
+            "start": 1.48,
+            "end": 1.98,
+            "word": " تصمیم",
+            "probability": 0.9880445599555969
+          },
+          {
+            "start": 1.98,
+            "end": 2.54,
+            "word": " بگیریم.",
+            "probability": 0.9270321130752563
+          },
+          {
+            "start": 2.54,
+            "end": 3.16,
+            "word": " دایتون",
+            "probability": 0.7274199426174164
+          },
+          {
+            "start": 3.16,
+            "end": 3.46,
+            "word": " باشه",
+            "probability": 0.7787789106369019
+          },
+          {
+            "start": 3.46,
+            "end": 3.94,
+            "word": " گفتم",
+            "probability": 0.9232584834098816
+          },
+          {
+            "start": 3.94,
+            "end": 4.14,
+            "word": " که",
+            "probability": 0.9836248159408569
+          },
+          {
+            "start": 4.14,
+            "end": 4.58,
+            "word": " برای",
+            "probability": 0.9943939844767252
+          },
+          {
+            "start": 4.58,
+            "end": 5.56,
+            "word": " حزینه‌هاتون",
+            "probability": 0.7123499302736794
+          },
+          {
+            "start": 5.56,
+            "end": 5.9,
+            "word": " سه",
+            "probability": 0.8290573060512543
+          },
+          {
+            "start": 5.9,
+            "end": 6.08,
+            "word": " ماه",
+            "probability": 0.985781192779541
+          },
+          {
+            "start": 6.08,
+            "end": 6.5,
+            "word": " صرفاً",
+            "probability": 0.8924295604228973
+          },
+          {
+            "start": 6.5,
+            "end": 7.24,
+            "word": " بنویسید",
+            "probability": 0.9721679091453552
+          },
+          {
+            "start": 7.24,
+            "end": 8.3,
+            "word": " و",
+            "probability": 0.6864499449729919
+          },
+          {
+            "start": 8.3,
+            "end": 8.5,
+            "word": " اون",
+            "probability": 0.9579876959323883
+          },
+          {
+            "start": 8.5,
+            "end": 8.66,
+            "word": " رو",
+            "probability": 0.6239093393087387
+          },
+          {
+            "start": 8.66,
+            "end": 8.78,
+            "word": " توی",
+            "probability": 0.9345903396606445
+          },
+          {
+            "start": 8.78,
+            "end": 9.66,
+            "word": " دستبندی",
+            "probability": 0.8196039259433746
+          },
+          {
+            "start": 9.66,
+            "end": 9.72,
+            "word": " ها",
+            "probability": 0.6611593812704086
+          }
+        ]
+      }
+    ]
+  }
+}

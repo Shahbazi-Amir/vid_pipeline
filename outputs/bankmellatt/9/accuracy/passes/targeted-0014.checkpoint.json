@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "d47918dd1755eab03da548926eca7c133101f253f6fcc84bb855d3091460d644",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.42,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.32,
+        "text": "حزینه‌ها تو سه ماه صرفاً بنویسید و اون رو توی دستبندی‌های قرار بدید، مثل خوراک، پوشاک",
+        "avg_logprob": -0.20205408231965427,
+        "compression_ratio": 1.353448275862069,
+        "no_speech_prob": 1.8243248578464488e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.56,
+            "word": " حزینه‌ها",
+            "probability": 0.674651555561771
+          },
+          {
+            "start": 0.56,
+            "end": 0.76,
+            "word": " تو",
+            "probability": 0.2969507575035095
+          },
+          {
+            "start": 0.76,
+            "end": 1.16,
+            "word": " سه",
+            "probability": 0.8944821059703827
+          },
+          {
+            "start": 1.16,
+            "end": 1.36,
+            "word": " ماه",
+            "probability": 0.9918377995491028
+          },
+          {
+            "start": 1.36,
+            "end": 1.76,
+            "word": " صرفاً",
+            "probability": 0.8132108896970749
+          },
+          {
+            "start": 1.76,
+            "end": 2.5,
+            "word": " بنویسید",
+            "probability": 0.9665534694989523
+          },
+          {
+            "start": 2.5,
+            "end": 3.56,
+            "word": " و",
+            "probability": 0.8902372121810913
+          },
+          {
+            "start": 3.56,
+            "end": 3.76,
+            "word": " اون",
+            "probability": 0.9417304992675781
+          },
+          {
+            "start": 3.76,
+            "end": 3.92,
+            "word": " رو",
+            "probability": 0.6765610575675964
+          },
+          {
+            "start": 3.92,
+            "end": 4.04,
+            "word": " توی",
+            "probability": 0.8241748511791229
+          },
+          {
+            "start": 4.04,
+            "end": 5.14,
+            "word": " دستبندی‌های",
+            "probability": 0.8919736295938492
+          },
+          {
+            "start": 5.14,
+            "end": 5.54,
+            "word": " قرار",
+            "probability": 0.9693975448608398
+          },
+          {
+            "start": 5.54,
+            "end": 6.06,
+            "word": " بدید،",
+            "probability": 0.7286879206076264
+          },
+          {
+            "start": 6.06,
+            "end": 6.64,
+            "word": " مثل",
+            "probability": 0.9891778230667114
+          },
+          {
+            "start": 6.64,
+            "end": 7.44,
+            "word": " خوراک،",
+            "probability": 0.9262526988983154
+          },
+          {
+            "start": 7.44,
+            "end": 8.32,
+            "word": " پوشاک",
+            "probability": 0.9895690321922302
+          }
+        ]
+      }
+    ]
+  }
+}

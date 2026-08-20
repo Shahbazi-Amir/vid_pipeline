@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "fcbff6f47b206b3bae3f75066a0efd44b5dc40854b6795a87f1362d6616be698",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.0,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.66,
+        "text": "های بودجه چقدر حضینه بکنیم؟ در اسطلاح خیاتها می‌گن دوباره اندازه بگیری یه بار ببور. شما تو این سه ماهه اول",
+        "avg_logprob": -0.24610033328982367,
+        "compression_ratio": 1.411764705882353,
+        "no_speech_prob": 2.4764271189248177e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.22,
+            "word": " های",
+            "probability": 0.7371228188276291
+          },
+          {
+            "start": 0.22,
+            "end": 0.78,
+            "word": " بودجه",
+            "probability": 0.8272261172533035
+          },
+          {
+            "start": 0.78,
+            "end": 1.46,
+            "word": " چقدر",
+            "probability": 0.9791407386461893
+          },
+          {
+            "start": 1.46,
+            "end": 1.86,
+            "word": " حضینه",
+            "probability": 0.907281219959259
+          },
+          {
+            "start": 1.86,
+            "end": 2.64,
+            "word": " بکنیم؟",
+            "probability": 0.8509918053944906
+          },
+          {
+            "start": 2.64,
+            "end": 3.2,
+            "word": " در",
+            "probability": 0.9993801414966583
+          },
+          {
+            "start": 3.2,
+            "end": 3.6,
+            "word": " اسطلاح",
+            "probability": 0.8042225912213326
+          },
+          {
+            "start": 3.6,
+            "end": 4.24,
+            "word": " خیاتها",
+            "probability": 0.6479344330728054
+          },
+          {
+            "start": 4.24,
+            "end": 4.52,
+            "word": " می‌گن",
+            "probability": 0.7400011478166562
+          },
+          {
+            "start": 4.52,
+            "end": 4.96,
+            "word": " دوباره",
+            "probability": 0.9334966987371445
+          },
+          {
+            "start": 4.96,
+            "end": 5.34,
+            "word": " اندازه",
+            "probability": 0.9819770455360413
+          },
+          {
+            "start": 5.34,
+            "end": 5.68,
+            "word": " بگیری",
+            "probability": 0.8593150228261948
+          },
+          {
+            "start": 5.68,
+            "end": 5.88,
+            "word": " یه",
+            "probability": 0.9198139905929565
+          },
+          {
+            "start": 5.88,
+            "end": 6.06,
+            "word": " بار",
+            "probability": 0.9963753819465637
+          },
+          {
+            "start": 6.06,
+            "end": 6.52,
+            "word": " ببور.",
+            "probability": 0.7699937224388123
+          },
+          {
+            "start": 6.72,
+            "end": 7.3,
+            "word": " شما",
+            "probability": 0.9933370053768158
+          },
+          {
+            "start": 7.3,
+            "end": 7.44,
+            "word": " تو",
+            "probability": 0.9923486709594727
+          },
+          {
+            "start": 7.44,
+            "end": 7.6,
+            "word": " این",
+            "probability": 0.9465986788272858
+          },
+          {
+            "start": 7.6,
+            "end": 7.92,
+            "word": " سه",
+            "probability": 0.9348475933074951
+          },
+          {
+            "start": 7.92,
+            "end": 8.2,
+            "word": " ماهه",
+            "probability": 0.847479522228241
+          },
+          {
+            "start": 8.2,
+            "end": 8.66,
+            "word": " اول",
+            "probability": 0.9865437150001526
+          }
+        ]
+      }
+    ]
+  }
+}

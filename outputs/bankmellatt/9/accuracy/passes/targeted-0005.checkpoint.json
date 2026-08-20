@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "7d1b3ae6986f2f7d6596ce2e61facdddf7c3ac407359284762a5b3c563d285e0",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.08,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 5.64,
+        "text": "واقعاً انسان این‌گونه نیست، انسن‌ها از آزادی می‌گوریدند.",
+        "avg_logprob": -0.27525865137577055,
+        "compression_ratio": 1.202247191011236,
+        "no_speech_prob": 3.1574426406777434e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.66,
+            "word": " واقعاً",
+            "probability": 0.791233879327774
+          },
+          {
+            "start": 0.66,
+            "end": 1.54,
+            "word": " انسان",
+            "probability": 0.9565269748369852
+          },
+          {
+            "start": 1.54,
+            "end": 2.2,
+            "word": " این‌گونه",
+            "probability": 0.6523167177413901
+          },
+          {
+            "start": 2.2,
+            "end": 2.98,
+            "word": " نیست،",
+            "probability": 0.7481380514800549
+          },
+          {
+            "start": 2.98,
+            "end": 3.64,
+            "word": " انسن‌ها",
+            "probability": 0.7780047113876207
+          },
+          {
+            "start": 3.64,
+            "end": 4.02,
+            "word": " از",
+            "probability": 0.9966500699520111
+          },
+          {
+            "start": 4.02,
+            "end": 4.74,
+            "word": " آزادی",
+            "probability": 0.9924080669879913
+          },
+          {
+            "start": 4.74,
+            "end": 5.64,
+            "word": " می‌گوریدند.",
+            "probability": 0.8779234034674508
+          }
+        ]
+      }
+    ]
+  }
+}

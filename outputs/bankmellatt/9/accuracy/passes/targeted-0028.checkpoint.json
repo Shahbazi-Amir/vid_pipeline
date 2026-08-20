@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "d37020e25d0c47c55c46ac28f29bbd19069ab4b8579a710abcdb51aaa65f8cab",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.82,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.8,
+        "text": "چهارده ردیف بوجه وجود داره. خب؟ باید تصمیم بگیرید که من تو هر کدوم از این ردائفها چقدر میخوام حضینه کنم؟ قبل ازینکه ماه چهرم شروع بشه.",
+        "avg_logprob": -0.17382015729998493,
+        "compression_ratio": 1.5686274509803921,
+        "no_speech_prob": 2.3191221165674847e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.8,
+            "word": " چهارده",
+            "probability": 0.9449030160903931
+          },
+          {
+            "start": 0.8,
+            "end": 1.24,
+            "word": " ردیف",
+            "probability": 0.9947825372219086
+          },
+          {
+            "start": 1.24,
+            "end": 1.72,
+            "word": " بوجه",
+            "probability": 0.7776211698849996
+          },
+          {
+            "start": 1.72,
+            "end": 2.08,
+            "word": " وجود",
+            "probability": 0.9955492913722992
+          },
+          {
+            "start": 2.08,
+            "end": 2.54,
+            "word": " داره.",
+            "probability": 0.9978358546892802
+          },
+          {
+            "start": 2.62,
+            "end": 3.38,
+            "word": " خب؟",
+            "probability": 0.8919537464777628
+          },
+          {
+            "start": 3.38,
+            "end": 5.02,
+            "word": " باید",
+            "probability": 0.9542507827281952
+          },
+          {
+            "start": 5.02,
+            "end": 5.42,
+            "word": " تصمیم",
+            "probability": 0.9944122195243835
+          },
+          {
+            "start": 5.42,
+            "end": 5.82,
+            "word": " بگیرید",
+            "probability": 0.992129135131836
+          },
+          {
+            "start": 5.82,
+            "end": 5.98,
+            "word": " که",
+            "probability": 0.9994376599788666
+          },
+          {
+            "start": 5.98,
+            "end": 6.26,
+            "word": " من",
+            "probability": 0.9996309280395508
+          },
+          {
+            "start": 6.26,
+            "end": 6.46,
+            "word": " تو",
+            "probability": 0.990707278251648
+          },
+          {
+            "start": 6.46,
+            "end": 6.74,
+            "word": " هر",
+            "probability": 0.9960370659828186
+          },
+          {
+            "start": 6.74,
+            "end": 7.0,
+            "word": " کدوم",
+            "probability": 0.9754683176676432
+          },
+          {
+            "start": 7.0,
+            "end": 7.24,
+            "word": " از",
+            "probability": 0.8661900162696838
+          },
+          {
+            "start": 7.24,
+            "end": 7.32,
+            "word": " این",
+            "probability": 0.9997625350952148
+          },
+          {
+            "start": 7.32,
+            "end": 7.8,
+            "word": " ردائفها",
+            "probability": 0.6287904171379524
+          },
+          {
+            "start": 7.8,
+            "end": 8.28,
+            "word": " چقدر",
+            "probability": 0.9821272095044454
+          },
+          {
+            "start": 8.28,
+            "end": 8.54,
+            "word": " میخوام",
+            "probability": 0.9378677755594254
+          },
+          {
+            "start": 8.54,
+            "end": 8.98,
+            "word": " حضینه",
+            "probability": 0.8777464330196381
+          },
+          {
+            "start": 8.98,
+            "end": 9.58,
+            "word": " کنم؟",
+            "probability": 0.8559528589248657
+          },
+          {
+            "start": 9.58,
+            "end": 10.24,
+            "word": " قبل",
+            "probability": 0.9990299940109253
+          },
+          {
+            "start": 10.24,
+            "end": 10.58,
+            "word": " ازینکه",
+            "probability": 0.6558750625059474
+          },
+          {
+            "start": 10.58,
+            "end": 10.82,
+            "word": " ماه",
+            "probability": 0.9989945590496063
+          },
+          {
+            "start": 10.82,
+            "end": 11.34,
+            "word": " چهرم",
+            "probability": 0.5793059263014584
+          },
+          {
+            "start": 11.34,
+            "end": 11.66,
+            "word": " شروع",
+            "probability": 0.9789312680562338
+          },
+          {
+            "start": 11.66,
+            "end": 11.8,
+            "word": " بشه.",
+            "probability": 0.872891386349996
+          }
+        ]
+      }
+    ]
+  }
+}

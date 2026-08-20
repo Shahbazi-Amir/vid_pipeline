@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "bef469866e1d086c2343c680231cdb3b15fc5ff3a3fd61a0255bd94704f8b088",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.62,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.42,
+        "text": "راجب امور مالی تون تصمیم بگیرید. قبلن تصویم می‌گیرسید، بعد ثبت می‌کردید. از ماه چهار رو می‌تونید ثبته کنید",
+        "avg_logprob": -0.22935676633527405,
+        "compression_ratio": 1.5354330708661417,
+        "no_speech_prob": 2.1459257981693014e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.52,
+            "word": " راجب",
+            "probability": 0.9115348060925802
+          },
+          {
+            "start": 0.52,
+            "end": 0.92,
+            "word": " امور",
+            "probability": 0.9826307892799377
+          },
+          {
+            "start": 0.92,
+            "end": 1.34,
+            "word": " مالی",
+            "probability": 0.997626006603241
+          },
+          {
+            "start": 1.34,
+            "end": 1.48,
+            "word": " تون",
+            "probability": 0.6528218686580658
+          },
+          {
+            "start": 1.48,
+            "end": 1.96,
+            "word": " تصمیم",
+            "probability": 0.9969495177268982
+          },
+          {
+            "start": 1.96,
+            "end": 2.54,
+            "word": " بگیرید.",
+            "probability": 0.9931500554084778
+          },
+          {
+            "start": 2.58,
+            "end": 3.38,
+            "word": " قبلن",
+            "probability": 0.7996956606705984
+          },
+          {
+            "start": 3.38,
+            "end": 3.9,
+            "word": " تصویم",
+            "probability": 0.7987634692448864
+          },
+          {
+            "start": 3.9,
+            "end": 4.6,
+            "word": " می‌گیرسید،",
+            "probability": 0.7276965273130271
+          },
+          {
+            "start": 4.6,
+            "end": 4.86,
+            "word": " بعد",
+            "probability": 0.9621556401252747
+          },
+          {
+            "start": 4.86,
+            "end": 5.32,
+            "word": " ثبت",
+            "probability": 0.8523853619893392
+          },
+          {
+            "start": 5.32,
+            "end": 6.14,
+            "word": " می‌کردید.",
+            "probability": 0.9874554446765355
+          },
+          {
+            "start": 6.24,
+            "end": 6.56,
+            "word": " از",
+            "probability": 0.9895030856132507
+          },
+          {
+            "start": 6.56,
+            "end": 6.76,
+            "word": " ماه",
+            "probability": 0.9169018566608429
+          },
+          {
+            "start": 6.76,
+            "end": 7.14,
+            "word": " چهار",
+            "probability": 0.7329418361186981
+          },
+          {
+            "start": 7.14,
+            "end": 7.22,
+            "word": " رو",
+            "probability": 0.538371667265892
+          },
+          {
+            "start": 7.22,
+            "end": 7.64,
+            "word": " می‌تونید",
+            "probability": 0.9841120839118958
+          },
+          {
+            "start": 7.64,
+            "end": 8.06,
+            "word": " ثبته",
+            "probability": 0.662818163606668
+          },
+          {
+            "start": 8.06,
+            "end": 8.42,
+            "word": " کنید",
+            "probability": 0.9877460300922394
+          }
+        ]
+      }
+    ]
+  }
+}

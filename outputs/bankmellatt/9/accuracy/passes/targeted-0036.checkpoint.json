@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "42de261e42e196246a781258978aeb3f590ecdf4e1db9eed0d01ea4ded2b2db4",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.04,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.02,
+        "text": "این ماه یک برنامه مهمانی داریم، تو رشد فردی اینماه میخواهم یک کلاس دارم، تصمیم می‌گیریم تو هر کدوم از این را",
+        "avg_logprob": -0.18595262732304318,
+        "compression_ratio": 1.5806451612903225,
+        "no_speech_prob": 2.5959168148403933e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.6,
+            "word": " این",
+            "probability": 0.6267879754304886
+          },
+          {
+            "start": 0.6,
+            "end": 0.8,
+            "word": " ماه",
+            "probability": 0.9885299801826477
+          },
+          {
+            "start": 0.8,
+            "end": 0.92,
+            "word": " یک",
+            "probability": 0.4995711902156472
+          },
+          {
+            "start": 0.92,
+            "end": 1.36,
+            "word": " برنامه",
+            "probability": 0.9919283270835877
+          },
+          {
+            "start": 1.36,
+            "end": 2.02,
+            "word": " مهمانی",
+            "probability": 0.9634957760572433
+          },
+          {
+            "start": 2.02,
+            "end": 2.62,
+            "word": " داریم،",
+            "probability": 0.7653043356724083
+          },
+          {
+            "start": 2.62,
+            "end": 2.94,
+            "word": " تو",
+            "probability": 0.9881365299224854
+          },
+          {
+            "start": 2.94,
+            "end": 3.3,
+            "word": " رشد",
+            "probability": 0.9391780098279318
+          },
+          {
+            "start": 3.3,
+            "end": 3.78,
+            "word": " فردی",
+            "probability": 0.9980934113264084
+          },
+          {
+            "start": 3.78,
+            "end": 4.18,
+            "word": " اینماه",
+            "probability": 0.7360882459906861
+          },
+          {
+            "start": 4.18,
+            "end": 4.46,
+            "word": " میخواهم",
+            "probability": 0.8031585663557053
+          },
+          {
+            "start": 4.46,
+            "end": 4.64,
+            "word": " یک",
+            "probability": 0.906509131193161
+          },
+          {
+            "start": 4.64,
+            "end": 5.08,
+            "word": " کلاس",
+            "probability": 0.9795760711034139
+          },
+          {
+            "start": 5.08,
+            "end": 5.8,
+            "word": " دارم،",
+            "probability": 0.7461563646793365
+          },
+          {
+            "start": 5.8,
+            "end": 6.64,
+            "word": " تصمیم",
+            "probability": 0.9949577212333679
+          },
+          {
+            "start": 6.64,
+            "end": 7.02,
+            "word": " می‌گیریم",
+            "probability": 0.8249236724028984
+          },
+          {
+            "start": 7.02,
+            "end": 7.14,
+            "word": " تو",
+            "probability": 0.9315740466117859
+          },
+          {
+            "start": 7.14,
+            "end": 7.38,
+            "word": " هر",
+            "probability": 0.9925006926059723
+          },
+          {
+            "start": 7.38,
+            "end": 7.66,
+            "word": " کدوم",
+            "probability": 0.947167972723643
+          },
+          {
+            "start": 7.66,
+            "end": 7.86,
+            "word": " از",
+            "probability": 0.9660886228084564
+          },
+          {
+            "start": 7.86,
+            "end": 7.94,
+            "word": " این",
+            "probability": 0.9919770658016205
+          },
+          {
+            "start": 7.94,
+            "end": 8.02,
+            "word": " را",
+            "probability": 0.7937749028205872
+          }
+        ]
+      }
+    ]
+  }
+}

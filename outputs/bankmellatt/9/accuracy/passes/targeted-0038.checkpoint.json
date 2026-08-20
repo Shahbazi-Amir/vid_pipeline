@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "5b922ea1693304a70adbb1c71b8362daca90696722ff75c5bbf5890241bc1457",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 9.98,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.88,
+        "text": "تا چقدر میخوام حضینه بکنم؟ این ردیف های بودجه چار دهگانه که من معرفی کردم خدمتونم، خیلی استاتیک نیست.",
+        "avg_logprob": -0.16958923050851532,
+        "compression_ratio": 1.3863636363636365,
+        "no_speech_prob": 2.962725897948104e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.32,
+            "word": " تا",
+            "probability": 0.5411190986633301
+          },
+          {
+            "start": 0.32,
+            "end": 1.42,
+            "word": " چقدر",
+            "probability": 0.9929722944895426
+          },
+          {
+            "start": 1.42,
+            "end": 1.68,
+            "word": " میخوام",
+            "probability": 0.9351988136768341
+          },
+          {
+            "start": 1.68,
+            "end": 2.12,
+            "word": " حضینه",
+            "probability": 0.895747646689415
+          },
+          {
+            "start": 2.12,
+            "end": 2.64,
+            "word": " بکنم؟",
+            "probability": 0.9157432913780212
+          },
+          {
+            "start": 2.64,
+            "end": 3.16,
+            "word": " این",
+            "probability": 0.995853990316391
+          },
+          {
+            "start": 3.16,
+            "end": 4.16,
+            "word": " ردیف",
+            "probability": 0.9828772395849228
+          },
+          {
+            "start": 4.16,
+            "end": 4.34,
+            "word": " های",
+            "probability": 0.9454225699106852
+          },
+          {
+            "start": 4.34,
+            "end": 4.72,
+            "word": " بودجه",
+            "probability": 0.852339431643486
+          },
+          {
+            "start": 4.72,
+            "end": 5.06,
+            "word": " چار",
+            "probability": 0.6635602414608002
+          },
+          {
+            "start": 5.06,
+            "end": 5.54,
+            "word": " دهگانه",
+            "probability": 0.8150646388530731
+          },
+          {
+            "start": 5.54,
+            "end": 5.68,
+            "word": " که",
+            "probability": 0.9997667074203491
+          },
+          {
+            "start": 5.68,
+            "end": 5.82,
+            "word": " من",
+            "probability": 0.998016357421875
+          },
+          {
+            "start": 5.82,
+            "end": 6.32,
+            "word": " معرفی",
+            "probability": 0.9929042458534241
+          },
+          {
+            "start": 6.32,
+            "end": 6.64,
+            "word": " کردم",
+            "probability": 0.9921689033508301
+          },
+          {
+            "start": 6.64,
+            "end": 7.64,
+            "word": " خدمتونم،",
+            "probability": 0.7849221639335155
+          },
+          {
+            "start": 7.64,
+            "end": 8.78,
+            "word": " خیلی",
+            "probability": 0.9995687901973724
+          },
+          {
+            "start": 8.78,
+            "end": 9.68,
+            "word": " استاتیک",
+            "probability": 0.9788504838943481
+          },
+          {
+            "start": 9.68,
+            "end": 9.88,
+            "word": " نیست.",
+            "probability": 0.9959211945533752
+          }
+        ]
+      }
+    ]
+  }
+}

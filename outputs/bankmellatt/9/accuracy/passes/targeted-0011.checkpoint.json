@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "ec117bb987af988b4734ace5bb31220aeec31cabf422ff45afd453b5b9c1adb0",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 8.32,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.3,
+        "text": "حدود شدن نیست، کنترل کردن، اینا همه اشتباهاتیه که درباره بوجه‌بندی وجود داره. اتفاقاً بوجها بندی به ما میگه ک...",
+        "avg_logprob": -0.24917550505818548,
+        "compression_ratio": 1.507462686567164,
+        "no_speech_prob": 2.842867885544109e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.3,
+            "word": " حدود",
+            "probability": 0.7237896124521891
+          },
+          {
+            "start": 0.3,
+            "end": 0.76,
+            "word": " شدن",
+            "probability": 0.9983944296836853
+          },
+          {
+            "start": 0.76,
+            "end": 1.24,
+            "word": " نیست،",
+            "probability": 0.8470724895596504
+          },
+          {
+            "start": 1.24,
+            "end": 1.78,
+            "word": " کنترل",
+            "probability": 0.8280914202332497
+          },
+          {
+            "start": 1.78,
+            "end": 2.38,
+            "word": " کردن،",
+            "probability": 0.7497845841508024
+          },
+          {
+            "start": 2.38,
+            "end": 2.72,
+            "word": " اینا",
+            "probability": 0.8029280702273051
+          },
+          {
+            "start": 2.72,
+            "end": 2.98,
+            "word": " همه",
+            "probability": 0.9885150988896688
+          },
+          {
+            "start": 2.98,
+            "end": 3.86,
+            "word": " اشتباهاتیه",
+            "probability": 0.899007435888052
+          },
+          {
+            "start": 3.86,
+            "end": 4.04,
+            "word": " که",
+            "probability": 0.977625161409378
+          },
+          {
+            "start": 4.04,
+            "end": 4.46,
+            "word": " درباره",
+            "probability": 0.8358825370669365
+          },
+          {
+            "start": 4.46,
+            "end": 5.18,
+            "word": " بوجه‌بندی",
+            "probability": 0.7167061444904123
+          },
+          {
+            "start": 5.18,
+            "end": 5.52,
+            "word": " وجود",
+            "probability": 0.9842378497123718
+          },
+          {
+            "start": 5.52,
+            "end": 5.86,
+            "word": " داره.",
+            "probability": 0.9783638517061869
+          },
+          {
+            "start": 6.22,
+            "end": 6.9,
+            "word": " اتفاقاً",
+            "probability": 0.929554317678724
+          },
+          {
+            "start": 6.9,
+            "end": 7.26,
+            "word": " بوجها",
+            "probability": 0.5950403084401236
+          },
+          {
+            "start": 7.26,
+            "end": 7.56,
+            "word": " بندی",
+            "probability": 0.8309626380602518
+          },
+          {
+            "start": 7.56,
+            "end": 7.7,
+            "word": " به",
+            "probability": 0.8683949112892151
+          },
+          {
+            "start": 7.7,
+            "end": 7.9,
+            "word": " ما",
+            "probability": 0.9823070168495178
+          },
+          {
+            "start": 7.9,
+            "end": 8.24,
+            "word": " میگه",
+            "probability": 0.787604570388794
+          },
+          {
+            "start": 8.24,
+            "end": 8.3,
+            "word": " ک...",
+            "probability": 0.41046244907192886
+          }
+        ]
+      }
+    ]
+  }
+}

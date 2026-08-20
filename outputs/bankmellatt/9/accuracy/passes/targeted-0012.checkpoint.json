@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "e5fa16597b8fe92b08775237dabe991ad0f58e4bebd34c07a2e794ca53e3d2d2",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.76,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 9.22,
+        "text": "اعتباها تیهی که در باره بودجه‌بندی وجود داره. اتفاقاً بودژه‌бندی به ما می‌گه که آگاهانه دور مورد حضینه‌هامون تصمیم بگیریم.",
+        "avg_logprob": -0.28715967497339956,
+        "compression_ratio": 1.6395348837209303,
+        "no_speech_prob": 2.1886255308078972e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.3,
+            "word": " اعتباها",
+            "probability": 0.35321877636015414
+          },
+          {
+            "start": 0.3,
+            "end": 0.6,
+            "word": " تیهی",
+            "probability": 0.7511479705572128
+          },
+          {
+            "start": 0.6,
+            "end": 0.72,
+            "word": " که",
+            "probability": 0.9765632450580597
+          },
+          {
+            "start": 0.72,
+            "end": 0.92,
+            "word": " در",
+            "probability": 0.9384450614452362
+          },
+          {
+            "start": 0.92,
+            "end": 1.14,
+            "word": " باره",
+            "probability": 0.9020782311757406
+          },
+          {
+            "start": 1.14,
+            "end": 1.86,
+            "word": " بودجه‌بندی",
+            "probability": 0.7268844319623895
+          },
+          {
+            "start": 1.86,
+            "end": 2.2,
+            "word": " وجود",
+            "probability": 0.9905072152614594
+          },
+          {
+            "start": 2.2,
+            "end": 2.52,
+            "word": " داره.",
+            "probability": 0.9906814098358154
+          },
+          {
+            "start": 2.92,
+            "end": 3.58,
+            "word": " اتفاقاً",
+            "probability": 0.9319553545543126
+          },
+          {
+            "start": 3.58,
+            "end": 4.26,
+            "word": " بودژه‌бندی",
+            "probability": 0.7729701538919471
+          },
+          {
+            "start": 4.26,
+            "end": 4.4,
+            "word": " به",
+            "probability": 0.9824624061584473
+          },
+          {
+            "start": 4.4,
+            "end": 4.58,
+            "word": " ما",
+            "probability": 0.9909669756889343
+          },
+          {
+            "start": 4.58,
+            "end": 4.88,
+            "word": " می‌گه",
+            "probability": 0.8607722818851471
+          },
+          {
+            "start": 4.88,
+            "end": 5.14,
+            "word": " که",
+            "probability": 0.7805030643939972
+          },
+          {
+            "start": 5.14,
+            "end": 6.34,
+            "word": " آگاهانه",
+            "probability": 0.9825014710426331
+          },
+          {
+            "start": 6.34,
+            "end": 7.08,
+            "word": " دور",
+            "probability": 0.49669480548618594
+          },
+          {
+            "start": 7.08,
+            "end": 7.48,
+            "word": " مورد",
+            "probability": 0.684389516711235
+          },
+          {
+            "start": 7.48,
+            "end": 8.24,
+            "word": " حضینه‌هامون",
+            "probability": 0.8080441355705261
+          },
+          {
+            "start": 8.24,
+            "end": 8.72,
+            "word": " تصمیم",
+            "probability": 0.984131932258606
+          },
+          {
+            "start": 8.72,
+            "end": 9.22,
+            "word": " بگیریم.",
+            "probability": 0.9662290692329407
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 9.36,
+        "end": 11.74,
+        "text": "دایتون باشه گفتم که برای حضی...",
+        "avg_logprob": -0.28715967497339956,
+        "compression_ratio": 1.6395348837209303,
+        "no_speech_prob": 2.1886255308078972e-10,
+        "words": [
+          {
+            "start": 9.36,
+            "end": 9.9,
+            "word": " دایتون",
+            "probability": 0.7533487319946289
+          },
+          {
+            "start": 9.9,
+            "end": 10.22,
+            "word": " باشه",
+            "probability": 0.9330915013949076
+          },
+          {
+            "start": 10.22,
+            "end": 10.7,
+            "word": " گفتم",
+            "probability": 0.825337807337443
+          },
+          {
+            "start": 10.7,
+            "end": 10.9,
+            "word": " که",
+            "probability": 0.9832971692085266
+          },
+          {
+            "start": 10.9,
+            "end": 11.36,
+            "word": " برای",
+            "probability": 0.9897983074188232
+          },
+          {
+            "start": 11.36,
+            "end": 11.74,
+            "word": " حضی...",
+            "probability": 0.506877108477056
+          }
+        ]
+      }
+    ]
+  }
+}

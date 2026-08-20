@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "6a249fdc96383e1913ae4c84f6ed825dd24a0e4e91777840b9783258bce9c4db",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.38,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.0,
+        "text": "رشد فردی این ماه میخواهم یک کلاس دارم، تصمیم می‌گیریم تو هر کدوم از این ردیف‌ها چقدر میخوام حضینه بکنم؟",
+        "avg_logprob": -0.20408201834985187,
+        "compression_ratio": 1.4538461538461538,
+        "no_speech_prob": 3.1719465942714464e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.26,
+            "word": " رشد",
+            "probability": 0.41210302462180454
+          },
+          {
+            "start": 0.26,
+            "end": 0.74,
+            "word": " فردی",
+            "probability": 0.9959915280342102
+          },
+          {
+            "start": 0.74,
+            "end": 0.94,
+            "word": " این",
+            "probability": 0.9690915644168854
+          },
+          {
+            "start": 0.94,
+            "end": 1.14,
+            "word": " ماه",
+            "probability": 0.9947967827320099
+          },
+          {
+            "start": 1.14,
+            "end": 1.42,
+            "word": " میخواهم",
+            "probability": 0.7754000723361969
+          },
+          {
+            "start": 1.42,
+            "end": 1.6,
+            "word": " یک",
+            "probability": 0.8572498261928558
+          },
+          {
+            "start": 1.6,
+            "end": 2.04,
+            "word": " کلاس",
+            "probability": 0.9897931814193726
+          },
+          {
+            "start": 2.04,
+            "end": 2.68,
+            "word": " دارم،",
+            "probability": 0.6036556763574481
+          },
+          {
+            "start": 2.68,
+            "end": 3.6,
+            "word": " تصمیم",
+            "probability": 0.9945639610290528
+          },
+          {
+            "start": 3.6,
+            "end": 3.98,
+            "word": " می‌گیریم",
+            "probability": 0.821772713214159
+          },
+          {
+            "start": 3.98,
+            "end": 4.08,
+            "word": " تو",
+            "probability": 0.9355987906455994
+          },
+          {
+            "start": 4.08,
+            "end": 4.34,
+            "word": " هر",
+            "probability": 0.9917456805706024
+          },
+          {
+            "start": 4.34,
+            "end": 4.62,
+            "word": " کدوم",
+            "probability": 0.9611662030220032
+          },
+          {
+            "start": 4.62,
+            "end": 4.82,
+            "word": " از",
+            "probability": 0.9772796034812927
+          },
+          {
+            "start": 4.82,
+            "end": 4.92,
+            "word": " این",
+            "probability": 0.98981973528862
+          },
+          {
+            "start": 4.92,
+            "end": 5.54,
+            "word": " ردیف‌ها",
+            "probability": 0.8944960633913676
+          },
+          {
+            "start": 5.54,
+            "end": 6.8,
+            "word": " چقدر",
+            "probability": 0.9613719383875529
+          },
+          {
+            "start": 6.8,
+            "end": 7.06,
+            "word": " میخوام",
+            "probability": 0.7072398532181978
+          },
+          {
+            "start": 7.06,
+            "end": 7.5,
+            "word": " حضینه",
+            "probability": 0.8213592022657394
+          },
+          {
+            "start": 7.5,
+            "end": 8.0,
+            "word": " بکنم؟",
+            "probability": 0.8561408221721649
+          }
+        ]
+      }
+    ]
+  }
+}

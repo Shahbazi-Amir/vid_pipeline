@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "1add2730825420f8c5bc9795a59785323480c313497a4841503c979b96566794",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 10.8,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 10.78,
+        "text": "همه‌ی انسان‌ها دنبال آزاد بودند، دن‌بال این که محدودیت‌ها رو کنار بزنند و محدد به هیچ چی نباشند. ولی واقعاً، انسا",
+        "avg_logprob": -0.2926643427213033,
+        "compression_ratio": 1.5144927536231885,
+        "no_speech_prob": 2.8047345002057966e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.16,
+            "word": " همه‌ی",
+            "probability": 0.45607936978340147
+          },
+          {
+            "start": 0.16,
+            "end": 0.64,
+            "word": " انسان‌ها",
+            "probability": 0.9732437133789062
+          },
+          {
+            "start": 0.64,
+            "end": 1.24,
+            "word": " دنبال",
+            "probability": 0.9927260428667068
+          },
+          {
+            "start": 1.24,
+            "end": 2.06,
+            "word": " آزاد",
+            "probability": 0.9711013237635294
+          },
+          {
+            "start": 2.06,
+            "end": 2.8,
+            "word": " بودند،",
+            "probability": 0.6392491310834885
+          },
+          {
+            "start": 2.8,
+            "end": 3.7,
+            "word": " دن‌بال",
+            "probability": 0.792390925186919
+          },
+          {
+            "start": 3.7,
+            "end": 3.92,
+            "word": " این",
+            "probability": 0.9674907028675079
+          },
+          {
+            "start": 3.92,
+            "end": 4.12,
+            "word": " که",
+            "probability": 0.6460682153701782
+          },
+          {
+            "start": 4.12,
+            "end": 5.02,
+            "word": " محدودیت‌ها",
+            "probability": 0.9791509679385594
+          },
+          {
+            "start": 5.02,
+            "end": 5.18,
+            "word": " رو",
+            "probability": 0.8797125816345215
+          },
+          {
+            "start": 5.18,
+            "end": 5.58,
+            "word": " کنار",
+            "probability": 0.9962947169939677
+          },
+          {
+            "start": 5.58,
+            "end": 6.08,
+            "word": " بزنند",
+            "probability": 0.9019110351800919
+          },
+          {
+            "start": 6.08,
+            "end": 6.52,
+            "word": " و",
+            "probability": 0.9207862019538879
+          },
+          {
+            "start": 6.52,
+            "end": 7.14,
+            "word": " محدد",
+            "probability": 0.6618197019439928
+          },
+          {
+            "start": 7.14,
+            "end": 7.3,
+            "word": " به",
+            "probability": 0.9753172397613525
+          },
+          {
+            "start": 7.3,
+            "end": 7.56,
+            "word": " هیچ",
+            "probability": 0.9923651814460754
+          },
+          {
+            "start": 7.56,
+            "end": 7.72,
+            "word": " چی",
+            "probability": 0.63573257625103
+          },
+          {
+            "start": 7.72,
+            "end": 8.34,
+            "word": " نباشند.",
+            "probability": 0.9741669148206711
+          },
+          {
+            "start": 8.54,
+            "end": 9.36,
+            "word": " ولی",
+            "probability": 0.9813549518585205
+          },
+          {
+            "start": 9.36,
+            "end": 10.22,
+            "word": " واقعاً،",
+            "probability": 0.7481577868262926
+          },
+          {
+            "start": 10.22,
+            "end": 10.78,
+            "word": " انسا",
+            "probability": 0.5944435778073967
+          }
+        ]
+      }
+    ]
+  }
+}

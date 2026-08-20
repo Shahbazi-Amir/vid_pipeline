@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "446ba536babeaa48cfb74a64da749de44bce8289e48155535461bca897390519",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 12.9,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 12.88,
+        "text": "می‌کنه مسلط به امور مالی‌مون باشیم و بتونیم مهم‌ترین عرضش‌ها من رو در زندگی مال‌مان جاری و ساری بکنیم بوجه‌بندیه. بوجبند اصلاً خسام.",
+        "avg_logprob": -0.31861780549992214,
+        "compression_ratio": 1.5974025974025974,
+        "no_speech_prob": 2.5114918478230663e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.34,
+            "word": " می‌کنه",
+            "probability": 0.5237224272452294
+          },
+          {
+            "start": 0.34,
+            "end": 0.96,
+            "word": " مسلط",
+            "probability": 0.8689180016517639
+          },
+          {
+            "start": 0.96,
+            "end": 1.1,
+            "word": " به",
+            "probability": 0.968359649181366
+          },
+          {
+            "start": 1.1,
+            "end": 1.38,
+            "word": " امور",
+            "probability": 0.88217560450236
+          },
+          {
+            "start": 1.38,
+            "end": 1.96,
+            "word": " مالی‌مون",
+            "probability": 0.9260350366433462
+          },
+          {
+            "start": 1.96,
+            "end": 2.5,
+            "word": " باشیم",
+            "probability": 0.965361699461937
+          },
+          {
+            "start": 2.5,
+            "end": 3.2,
+            "word": " و",
+            "probability": 0.839346706867218
+          },
+          {
+            "start": 3.2,
+            "end": 4.1,
+            "word": " بتونیم",
+            "probability": 0.9736706912517548
+          },
+          {
+            "start": 4.1,
+            "end": 5.44,
+            "word": " مهم‌ترین",
+            "probability": 0.9815940260887146
+          },
+          {
+            "start": 5.44,
+            "end": 6.3,
+            "word": " عرضش‌ها",
+            "probability": 0.7868022561073303
+          },
+          {
+            "start": 6.3,
+            "end": 6.52,
+            "word": " من",
+            "probability": 0.25916725397109985
+          },
+          {
+            "start": 6.52,
+            "end": 6.94,
+            "word": " رو",
+            "probability": 0.9152608811855316
+          },
+          {
+            "start": 6.94,
+            "end": 7.24,
+            "word": " در",
+            "probability": 0.9938885569572449
+          },
+          {
+            "start": 7.24,
+            "end": 7.76,
+            "word": " زندگی",
+            "probability": 0.9921017438173294
+          },
+          {
+            "start": 7.76,
+            "end": 8.38,
+            "word": " مال‌مان",
+            "probability": 0.5036190859973431
+          },
+          {
+            "start": 8.38,
+            "end": 8.76,
+            "word": " جاری",
+            "probability": 0.949739674727122
+          },
+          {
+            "start": 8.76,
+            "end": 8.82,
+            "word": " و",
+            "probability": 0.21831761300563812
+          },
+          {
+            "start": 8.82,
+            "end": 9.1,
+            "word": " ساری",
+            "probability": 0.9767887393633524
+          },
+          {
+            "start": 9.1,
+            "end": 9.54,
+            "word": " بکنیم",
+            "probability": 0.9130911469459534
+          },
+          {
+            "start": 9.54,
+            "end": 10.42,
+            "word": " بوجه‌بندیه.",
+            "probability": 0.8069268204271793
+          },
+          {
+            "start": 10.84,
+            "end": 11.8,
+            "word": " بوجبند",
+            "probability": 0.7211934402657789
+          },
+          {
+            "start": 11.8,
+            "end": 12.64,
+            "word": " اصلاً",
+            "probability": 0.5333923315629363
+          },
+          {
+            "start": 12.64,
+            "end": 12.88,
+            "word": " خسام.",
+            "probability": 0.4870383044083913
+          }
+        ]
+      }
+    ]
+  }
+}

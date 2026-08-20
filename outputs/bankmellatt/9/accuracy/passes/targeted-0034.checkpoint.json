@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "fbd6bdadc5f353482deec0b4ff8a9f38723f6ae13467bb17f84a595a639b3412",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.92,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.9,
+        "text": "تو مهمانی اینقدر، تو حدیه‌ها انقدر مثلا این ماه",
+        "avg_logprob": -0.2707237909580099,
+        "compression_ratio": 1.16,
+        "no_speech_prob": 3.1924302090757806e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.62,
+            "word": " تو",
+            "probability": 0.9735699892044067
+          },
+          {
+            "start": 0.62,
+            "end": 1.54,
+            "word": " مهمانی",
+            "probability": 0.9794978946447372
+          },
+          {
+            "start": 1.54,
+            "end": 2.62,
+            "word": " اینقدر،",
+            "probability": 0.645826018974185
+          },
+          {
+            "start": 2.62,
+            "end": 2.9,
+            "word": " تو",
+            "probability": 0.9972854852676392
+          },
+          {
+            "start": 2.9,
+            "end": 3.64,
+            "word": " حدیه‌ها",
+            "probability": 0.8255793557812771
+          },
+          {
+            "start": 3.64,
+            "end": 4.44,
+            "word": " انقدر",
+            "probability": 0.7057443261146545
+          },
+          {
+            "start": 4.44,
+            "end": 4.84,
+            "word": " مثلا",
+            "probability": 0.8935792446136475
+          },
+          {
+            "start": 4.84,
+            "end": 6.68,
+            "word": " این",
+            "probability": 0.8537207245826721
+          },
+          {
+            "start": 6.68,
+            "end": 6.9,
+            "word": " ماه",
+            "probability": 0.9858159422874451
+          }
+        ]
+      }
+    ]
+  }
+}

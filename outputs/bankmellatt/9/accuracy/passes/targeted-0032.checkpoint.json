@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "98f8ae62aab3614a9aeac7898ac656e43271f89b957f7d2da5587f2965920708",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 6.82,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 6.66,
+        "text": "می‌گم خب توی مسکن اینقدر حزینه دارم، تو خوراک و پوشاک اینقر، تو مهمانی این‌قدر.",
+        "avg_logprob": -0.24665010650202912,
+        "compression_ratio": 1.380952380952381,
+        "no_speech_prob": 2.2109596098385254e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.26,
+            "word": " می‌گم",
+            "probability": 0.5365937488386407
+          },
+          {
+            "start": 0.26,
+            "end": 0.52,
+            "word": " خب",
+            "probability": 0.8636462986469269
+          },
+          {
+            "start": 0.52,
+            "end": 0.76,
+            "word": " توی",
+            "probability": 0.9832606017589569
+          },
+          {
+            "start": 0.76,
+            "end": 1.3,
+            "word": " مسکن",
+            "probability": 0.9232548077901205
+          },
+          {
+            "start": 1.3,
+            "end": 1.8,
+            "word": " اینقدر",
+            "probability": 0.7639416232705116
+          },
+          {
+            "start": 1.8,
+            "end": 2.26,
+            "word": " حزینه",
+            "probability": 0.8405443280935287
+          },
+          {
+            "start": 2.26,
+            "end": 2.58,
+            "word": " دارم،",
+            "probability": 0.7297766036354005
+          },
+          {
+            "start": 2.58,
+            "end": 2.66,
+            "word": " تو",
+            "probability": 0.9961947202682495
+          },
+          {
+            "start": 2.66,
+            "end": 3.16,
+            "word": " خوراک",
+            "probability": 0.9737362414598465
+          },
+          {
+            "start": 3.16,
+            "end": 3.24,
+            "word": " و",
+            "probability": 0.9846424460411072
+          },
+          {
+            "start": 3.24,
+            "end": 3.74,
+            "word": " پوشاک",
+            "probability": 0.9919892311096191
+          },
+          {
+            "start": 3.74,
+            "end": 4.56,
+            "word": " اینقر،",
+            "probability": 0.5804908049758524
+          },
+          {
+            "start": 4.56,
+            "end": 4.74,
+            "word": " تو",
+            "probability": 0.9940044283866882
+          },
+          {
+            "start": 4.74,
+            "end": 5.68,
+            "word": " مهمانی",
+            "probability": 0.9950855523347855
+          },
+          {
+            "start": 5.68,
+            "end": 6.66,
+            "word": " این‌قدر.",
+            "probability": 0.7616854003164917
+          }
+        ]
+      }
+    ]
+  }
+}

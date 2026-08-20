@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "24dd2ea29d564970c5e2b83c70f505879ebbacad6ee934423ff66638960baa79",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.36,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 8.62,
+        "text": "این مالیمون جاری و ساری بکنیم، بودجه‌بندیه. بودژه‌ابندی اصلا خصاصت نیست، محدود شدن نیز، کنترول کردن",
+        "avg_logprob": -0.32127229317470835,
+        "compression_ratio": 1.7239263803680982,
+        "no_speech_prob": 2.4055304970183045e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.12,
+            "word": " این",
+            "probability": 0.45358204562216997
+          },
+          {
+            "start": 0.12,
+            "end": 0.48,
+            "word": " مالیمون",
+            "probability": 0.8569361925125122
+          },
+          {
+            "start": 0.48,
+            "end": 0.86,
+            "word": " جاری",
+            "probability": 0.9961949388186137
+          },
+          {
+            "start": 0.86,
+            "end": 0.92,
+            "word": " و",
+            "probability": 0.9566220045089722
+          },
+          {
+            "start": 0.92,
+            "end": 1.22,
+            "word": " ساری",
+            "probability": 0.995276133219401
+          },
+          {
+            "start": 1.22,
+            "end": 1.7,
+            "word": " بکنیم،",
+            "probability": 0.8090145631382862
+          },
+          {
+            "start": 1.7,
+            "end": 2.52,
+            "word": " بودجه‌بندیه.",
+            "probability": 0.7247359175752435
+          },
+          {
+            "start": 3.1,
+            "end": 4.02,
+            "word": " بودژه‌ابندی",
+            "probability": 0.7631035084616289
+          },
+          {
+            "start": 4.02,
+            "end": 4.6,
+            "word": " اصلا",
+            "probability": 0.9620202382405599
+          },
+          {
+            "start": 4.6,
+            "end": 5.44,
+            "word": " خصاصت",
+            "probability": 0.8971872925758362
+          },
+          {
+            "start": 5.44,
+            "end": 6.02,
+            "word": " نیست،",
+            "probability": 0.8851702660322189
+          },
+          {
+            "start": 6.02,
+            "end": 6.66,
+            "word": " محدود",
+            "probability": 0.9912563761075338
+          },
+          {
+            "start": 6.66,
+            "end": 7.12,
+            "word": " شدن",
+            "probability": 0.994072159131368
+          },
+          {
+            "start": 7.12,
+            "end": 7.62,
+            "word": " نیز،",
+            "probability": 0.7234580761287361
+          },
+          {
+            "start": 7.62,
+            "end": 8.14,
+            "word": " کنترول",
+            "probability": 0.8211636990308762
+          },
+          {
+            "start": 8.14,
+            "end": 8.62,
+            "word": " کردن",
+            "probability": 0.9953948259353638
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "start": 8.62,
+        "end": 11.34,
+        "text": "نیس، اینا همه اشتباهاتیه که درباره بودگه‌ بوده‌است.",
+        "avg_logprob": -0.32127229317470835,
+        "compression_ratio": 1.7239263803680982,
+        "no_speech_prob": 2.4055304970183045e-10,
+        "words": [
+          {
+            "start": 8.62,
+            "end": 8.94,
+            "word": " نیس،",
+            "probability": 0.5826490980689414
+          },
+          {
+            "start": 8.94,
+            "end": 9.1,
+            "word": " اینا",
+            "probability": 0.9426812529563904
+          },
+          {
+            "start": 9.1,
+            "end": 9.34,
+            "word": " همه",
+            "probability": 0.9902682503064474
+          },
+          {
+            "start": 9.34,
+            "end": 10.22,
+            "word": " اشتباهاتیه",
+            "probability": 0.9507067054510117
+          },
+          {
+            "start": 10.22,
+            "end": 10.4,
+            "word": " که",
+            "probability": 0.9565815627574921
+          },
+          {
+            "start": 10.4,
+            "end": 10.82,
+            "word": " درباره",
+            "probability": 0.8446968719363213
+          },
+          {
+            "start": 10.82,
+            "end": 11.28,
+            "word": " بودگه‌",
+            "probability": 0.7329742385074496
+          },
+          {
+            "start": 11.28,
+            "end": 11.34,
+            "word": " بوده‌است.",
+            "probability": 0.23694563540630043
+          }
+        ]
+      }
+    ]
+  }
+}

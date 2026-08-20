@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "fingerprint": {
+    "input_sha256": "b7518f27e59e8b88e15cb979e6b323cf1ca230f26007728f80025737b666fc5e",
+    "model": "large-v3-turbo",
+    "vad_filter": false,
+    "beam_size": 10,
+    "condition_on_previous_text": false,
+    "targeted": true,
+    "language": "fa",
+    "device": "cpu",
+    "compute_type": "int8"
+  },
+  "result": {
+    "model": "large-v3-turbo",
+    "language": "fa",
+    "duration": 11.78,
+    "segments": [
+      {
+        "id": 1,
+        "start": 0.0,
+        "end": 11.76,
+        "text": "بارده دسته رو تقریبا معرفی کردم براتون. خوب ما می‌خوایم تصمیم بگیریم که تو هر کدوم از این ردیف‌ها که بهش می‌گن ردّیف های بوجه چقدر",
+        "avg_logprob": -0.25546677237333254,
+        "compression_ratio": 1.5695364238410596,
+        "no_speech_prob": 2.2881253836093407e-10,
+        "words": [
+          {
+            "start": 0.0,
+            "end": 0.34,
+            "word": " بارده",
+            "probability": 0.6555682234466076
+          },
+          {
+            "start": 0.34,
+            "end": 0.76,
+            "word": " دسته",
+            "probability": 0.8410110870997111
+          },
+          {
+            "start": 0.76,
+            "end": 0.86,
+            "word": " رو",
+            "probability": 0.9552115499973297
+          },
+          {
+            "start": 0.86,
+            "end": 1.22,
+            "word": " تقریبا",
+            "probability": 0.9922896742820739
+          },
+          {
+            "start": 1.22,
+            "end": 1.72,
+            "word": " معرفی",
+            "probability": 0.9711657563845316
+          },
+          {
+            "start": 1.72,
+            "end": 2.08,
+            "word": " کردم",
+            "probability": 0.9782848954200745
+          },
+          {
+            "start": 2.08,
+            "end": 2.68,
+            "word": " براتون.",
+            "probability": 0.7454651482403278
+          },
+          {
+            "start": 3.42,
+            "end": 4.16,
+            "word": " خوب",
+            "probability": 0.6202894747257233
+          },
+          {
+            "start": 4.16,
+            "end": 4.32,
+            "word": " ما",
+            "probability": 0.9437573552131653
+          },
+          {
+            "start": 4.32,
+            "end": 4.68,
+            "word": " می‌خوایم",
+            "probability": 0.7127590181771666
+          },
+          {
+            "start": 4.68,
+            "end": 5.26,
+            "word": " تصمیم",
+            "probability": 0.9944815397262573
+          },
+          {
+            "start": 5.26,
+            "end": 6.12,
+            "word": " بگیریم",
+            "probability": 0.9806989669799805
+          },
+          {
+            "start": 6.12,
+            "end": 7.04,
+            "word": " که",
+            "probability": 0.9719394445419312
+          },
+          {
+            "start": 7.04,
+            "end": 7.26,
+            "word": " تو",
+            "probability": 0.9656032919883728
+          },
+          {
+            "start": 7.26,
+            "end": 7.64,
+            "word": " هر",
+            "probability": 0.9957183301448822
+          },
+          {
+            "start": 7.64,
+            "end": 8.0,
+            "word": " کدوم",
+            "probability": 0.9854764143625895
+          },
+          {
+            "start": 8.0,
+            "end": 8.22,
+            "word": " از",
+            "probability": 0.9950007200241089
+          },
+          {
+            "start": 8.22,
+            "end": 8.36,
+            "word": " این",
+            "probability": 0.9961301684379578
+          },
+          {
+            "start": 8.36,
+            "end": 9.16,
+            "word": " ردیف‌ها",
+            "probability": 0.9086286077896754
+          },
+          {
+            "start": 9.16,
+            "end": 9.58,
+            "word": " که",
+            "probability": 0.9058494567871094
+          },
+          {
+            "start": 9.58,
+            "end": 9.74,
+            "word": " بهش",
+            "probability": 0.9347898066043854
+          },
+          {
+            "start": 9.74,
+            "end": 10.0,
+            "word": " می‌گن",
+            "probability": 0.9338791370391846
+          },
+          {
+            "start": 10.0,
+            "end": 10.4,
+            "word": " ردّیف",
+            "probability": 0.7787884847843088
+          },
+          {
+            "start": 10.4,
+            "end": 10.62,
+            "word": " های",
+            "probability": 0.6506350307414929
+          },
+          {
+            "start": 10.62,
+            "end": 11.16,
+            "word": " بوجه",
+            "probability": 0.7974720299243927
+          },
+          {
+            "start": 11.16,
+            "end": 11.76,
+            "word": " چقدر",
+            "probability": 0.8412893811861674
+          }
+        ]
+      }
+    ]
+  }
+}

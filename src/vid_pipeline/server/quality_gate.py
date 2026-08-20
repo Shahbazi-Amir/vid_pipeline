@@ -24,20 +24,24 @@ class QualityGatePolicy:
 
     @classmethod
     def from_env(cls) -> "QualityGatePolicy":
+        defaults = cls()
         policy = cls(
             min_overall_score=float(
-                os.getenv("VID_PIPELINE_MIN_QUALITY_SCORE", str(cls.min_overall_score))
+                os.getenv(
+                    "VID_PIPELINE_MIN_QUALITY_SCORE",
+                    str(defaults.min_overall_score),
+                )
             ),
             max_low_segment_ratio=float(
                 os.getenv(
                     "VID_PIPELINE_MAX_LOW_SEGMENT_RATIO",
-                    str(cls.max_low_segment_ratio),
+                    str(defaults.max_low_segment_ratio),
                 )
             ),
             max_flagged_segment_ratio=float(
                 os.getenv(
                     "VID_PIPELINE_MAX_FLAGGED_SEGMENT_RATIO",
-                    str(cls.max_flagged_segment_ratio),
+                    str(defaults.max_flagged_segment_ratio),
                 )
             ),
         )

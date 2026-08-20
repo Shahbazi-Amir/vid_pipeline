@@ -1,0 +1,30 @@
+name: Ocean Aram status probe
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/ocean-status.yml'
+permissions:
+  contents: write
+  actions: read
+jobs:
+  status:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Capture source probe status
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p ops/ocean-aram-komeil
+          gh run list --workflow ocean-aram-probe.yml --limit 5 --json databaseId,status,conclusion,createdAt,updatedAt,url > ops/ocean-aram-komeil/probe-status.json
+      - name: Save status
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add ops/ocean-aram-komeil/probe-status.json
+          git commit -m 'Record Ocean Aram probe status'
+          git pull --rebase origin main
+          git push origin HEAD:main

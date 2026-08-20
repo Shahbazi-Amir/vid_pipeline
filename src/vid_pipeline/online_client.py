@@ -18,6 +18,13 @@ MEDIA_EXTENSIONS = {
     ".opus", ".wav", ".webm", ".wma",
 }
 CHUNK_SIZE = 8 * 1024 * 1024
+TERMINAL_JOB_STATUSES = {
+    "completed",
+    "completed_with_fallback",
+    "review_required",
+    "failed",
+    "cancelled",
+}
 
 
 def _now() -> str:
@@ -203,7 +210,7 @@ class OnlineClient:
     def wait(self, job_id: str, interval: float = 2.0) -> dict[str, Any]:
         while True:
             job = self.job_status(job_id)
-            if job["status"] in {"completed", "completed_with_fallback", "failed", "cancelled"}:
+            if job["status"] in TERMINAL_JOB_STATUSES:
                 return job
             time.sleep(interval)
 

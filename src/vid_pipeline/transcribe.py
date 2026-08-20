@@ -3,17 +3,21 @@
 from __future__ import annotations
 
 import json
+import os
 import re
+import threading
 import time
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from vid_pipeline.asr_model import resolve_asr_model
+from vid_pipeline.asr_model import ProvisionedAsrModel, resolve_asr_model
 from vid_pipeline.errors import ExternalToolError
 from vid_pipeline.profiles import PROJECT_ASR_MODEL
 
 DEFAULT_INITIAL_PROMPT = ""
+_MODEL_CACHE: dict[tuple[str, str, str], Any] = {}
+_MODEL_CACHE_LOCK = threading.Lock()
 
 
 @dataclass(slots=True)
@@ -71,6 +75,39 @@ def resolve_runtime(device: str, compute_type: str) -> tuple[str, str]:
     return selected_device, selected_compute
 
 
+def clear_runtime_model_cache() -> None:
+    """Release process-local Whisper model references (mainly for tests/reloads)."""
+    with _MODEL_CACHE_LOCK:
+        _MODEL_CACHE.clear()
+
+
+def _persistent_model_enabled() -> bool:
+    return os.getenv("VID_PIPELINE_PERSISTENT_MODEL", "1").strip().lower() not in {
+        "0", "false", "no", "off"
+    }
+
+
+def load_runtime_model(
+    config: TranscriptionConfig,
+) -> tuple[Any, ProvisionedAsrModel, str, str, float, bool]:
+    """Provision and load Whisper, reusing one model per runtime configuration."""
+    _, WhisperModel = _load_whisper()
+    device, compute_type = resolve_runtime(config.device, config.compute_type)
+    started = time.monotonic()
+    provisioned = resolve_asr_model(config.model)
+    key = (str(provisioned.path.resolve()), device, compute_type)
+    if _persistent_model_enabled():
+        with _MODEL_CACHE_LOCK:
+            cached = _MODEL_CACHE.get(key)
+            if cached is not None:
+                return cached, provisioned, device, compute_type, time.monotonic() - started, True
+            model = WhisperModel(str(provisioned.path), device=device, compute_type=compute_type)
+            _MODEL_CACHE[key] = model
+            return model, provisioned, device, compute_type, time.monotonic() - started, False
+    model = WhisperModel(str(provisioned.path), device=device, compute_type=compute_type)
+    return model, provisioned, device, compute_type, time.monotonic() - started, False
+
+
 def suspicious_reasons(segment: dict[str, Any]) -> list[str]:
     reasons: list[str] = []
     text = str(segment.get("text", "")).strip()
@@ -105,15 +142,10 @@ def transcribe_audio(
     source = Path(audio_path)
     if not source.exists():
         raise ExternalToolError(f"Audio file does not exist: {source}")
-    _, WhisperModel = _load_whisper()
-    device, compute_type = resolve_runtime(config.device, config.compute_type)
     try:
-        model_load_started = time.monotonic()
-        provisioned_model = resolve_asr_model(config.model)
-        model = WhisperModel(
-            str(provisioned_model.path), device=device, compute_type=compute_type
+        model, provisioned_model, device, compute_type, model_load_seconds, runtime_cache_hit = (
+            load_runtime_model(config)
         )
-        model_load_seconds = time.monotonic() - model_load_started
         inference_started = time.monotonic()
         segments_iter, info = model.transcribe(
             str(source),
@@ -170,6 +202,7 @@ def transcribe_audio(
             "timing": {
                 "asr_model_load_seconds": round(model_load_seconds, 6),
                 "asr_inference_seconds": round(inference_seconds, 6),
+                "asr_runtime_model_cache_hit": runtime_cache_hit,
             },
             **provisioned_model.diagnostics,
             "faster_whisper_version": _faster_whisper_version(),

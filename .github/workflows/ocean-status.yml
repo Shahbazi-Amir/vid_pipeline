@@ -19,7 +19,13 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           mkdir -p ops/ocean-aram-komeil
-          gh run list --workflow ocean-aram-probe.yml --limit 5 --json databaseId,status,conclusion,createdAt,updatedAt,url > ops/ocean-aram-komeil/probe-status.json
+          gh run list --workflow ocean-aram-probe.yml --limit 10 --json databaseId,status,conclusion,createdAt,updatedAt,url > /tmp/runs.json
+          python - <<'PY'
+          import json, datetime
+          runs=json.load(open('/tmp/runs.json'))
+          out={'captured_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'runs':runs}
+          open('ops/ocean-aram-komeil/probe-status.json','w',encoding='utf-8').write(json.dumps(out,ensure_ascii=False,indent=2)+'\n')
+          PY
       - name: Save status
         run: |
           git config user.name 'github-actions[bot]'
@@ -28,4 +34,3 @@ jobs:
           git commit -m 'Record Ocean Aram probe status'
           git pull --rebase origin main
           git push origin HEAD:main
-# refresh ingest 2

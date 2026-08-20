@@ -1,5 +1,5 @@
 FROM python:3.11-slim
-ENV PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1 VID_PIPELINE_MODEL_CACHE=/models
+ENV PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1 VID_PIPELINE_ASR_CACHE=/models/asr
 RUN apt-get update \
     && apt-get install --no-install-recommends -y ffmpeg \
     && rm -rf /var/lib/apt/lists/*

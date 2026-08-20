@@ -1,0 +1,84 @@
+name: Bank Mellat 8 audio equivalence
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/bankmellatt-8-audio-equivalence.yml'
+permissions:
+  contents: write
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Install ffmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg curl
+      - name: Resolve release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh api "repos/${GITHUB_REPOSITORY}/releases/tags/chehelstoun-archive-v1" > /tmp/new.json
+          gh api "repos/${GITHUB_REPOSITORY}/releases/tags/bankmellatt" > /tmp/old.json
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          def one(path,name):
+              rel=json.loads(Path(path).read_text())
+              hits=[a for a in rel.get('assets',[]) if a.get('name','').strip()==name]
+              if len(hits)!=1: raise SystemExit(f'{name}: found {[a.get("name") for a in hits]}')
+              return hits[0]
+          new=one('/tmp/new.json','8.m4a'); old=one('/tmp/old.json','8.mp4')
+          with open(os.environ['GITHUB_ENV'],'a') as f:
+              f.write(f"NEW_URL={new['browser_download_url']}\nNEW_SIZE={new['size']}\n")
+              f.write(f"OLD_URL={old['browser_download_url']}\nOLD_SIZE={old['size']}\n")
+          print('new',new['size'],new['browser_download_url'])
+          print('old',old['size'],old['browser_download_url'])
+          PY
+      - name: Download both
+        run: |
+          set -euo pipefail
+          curl -fL --retry 5 --retry-all-errors "$NEW_URL" -o /tmp/new.m4a
+          curl -fL --retry 5 --retry-all-errors "$OLD_URL" -o /tmp/old.mp4
+          test "$(stat -c %s /tmp/new.m4a)" -eq "$NEW_SIZE"
+          test "$(stat -c %s /tmp/old.mp4)" -eq "$OLD_SIZE"
+      - name: Decode canonical PCM and compare
+        shell: bash
+        run: |
+          set -euo pipefail
+          ffmpeg -v error -i /tmp/new.m4a -map 0:a:0 -ac 1 -ar 16000 -f s16le /tmp/new.pcm
+          ffmpeg -v error -i /tmp/old.mp4 -map 0:a:0 -ac 1 -ar 16000 -f s16le /tmp/old.pcm
+          mkdir -p scratch/bankmellatt-8-audio-equivalence
+          NEW_HASH=$(sha256sum /tmp/new.pcm | awk '{print $1}')
+          OLD_HASH=$(sha256sum /tmp/old.pcm | awk '{print $1}')
+          NEW_BYTES=$(stat -c %s /tmp/new.pcm)
+          OLD_BYTES=$(stat -c %s /tmp/old.pcm)
+          NEW_DUR=$(ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 /tmp/new.m4a)
+          OLD_DUR=$(ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 /tmp/old.mp4)
+          python - <<PY
+          import json
+          out={
+            'new_asset':'8.m4a','old_asset':'8.mp4',
+            'canonical_decode':'mono s16le 16000 Hz',
+            'new_pcm_sha256':'$NEW_HASH','old_pcm_sha256':'$OLD_HASH',
+            'new_pcm_bytes':int('$NEW_BYTES'),'old_pcm_bytes':int('$OLD_BYTES'),
+            'new_duration_seconds':float('$NEW_DUR'),'old_duration_seconds':float('$OLD_DUR'),
+            'decoded_audio_exact_match':('$NEW_HASH'=='$OLD_HASH' and '$NEW_BYTES'=='$OLD_BYTES')
+          }
+          open('scratch/bankmellatt-8-audio-equivalence/result.json','w',encoding='utf-8').write(json.dumps(out,ensure_ascii=False,indent=2)+'\n')
+          print(json.dumps(out,ensure_ascii=False,indent=2))
+          PY
+      - name: Commit result
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add scratch/bankmellatt-8-audio-equivalence/result.json
+          git commit -m 'Compare Bank Mellat 8 MP4 and M4A audio'
+          git pull --rebase origin main
+          git push origin HEAD:main

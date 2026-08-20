@@ -1,9 +1,16 @@
 # Output Status
 
-- Finalized: **32**
-- Review-ready: **10**
+- Finalized: **49**
+- Review-ready: **2**
 
 ## Finalized
+- `bankmellatt/1`
+- `bankmellatt/2`
+- `bankmellatt/3`
+- `bankmellatt/4`
+- `bankmellatt/5`
+- `bankmellatt/6`
+- `bankmellatt/7`
 - `chehelstoun/01`
 - `chehelstoun/02`
 - `chehelstoun/03`
@@ -33,18 +40,20 @@
 - `chehelstoun/27`
 - `chehelstoun/28`
 - `chehelstoun/29`
+- `chehelstoun/30`
 - `chehelstoun/31`
+- `chehelstoun/32`
 - `chehelstoun/33`
 - `chehelstoun/34`
-
-## Review-ready
-- `bankmellatt/1`
-- `bankmellatt/2`
-- `bankmellatt/4`
-- `bankmellatt/5`
-- `bankmellatt/6`
-- `bankmellatt/7`
+- `chehelstoun/35`
+- `chehelstoun/36`
+- `chehelstoun/37`
+- `chehelstoun/38`
 - `finup/what_financial_literacy_is_and_what_it_isn_t___komeil_roodi_at_the_21st_finup_ev`
 - `ketab-baz/01`
 - `mizan/01`
 - `voice-260817-165035/01`
+
+## Review-ready
+- `bankmellatt/10`
+- `bankmellatt/8`

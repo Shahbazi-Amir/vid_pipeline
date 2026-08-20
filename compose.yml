@@ -21,6 +21,7 @@ services:
       VID_PIPELINE_DATABASE_URL: postgresql+psycopg://pipeline:pipeline@database/pipeline
       VID_PIPELINE_REDIS_URL: redis://redis:6379/0
       VID_PIPELINE_STORAGE_ROOT: /data/storage
+      VID_PIPELINE_ASR_CACHE: ${VID_PIPELINE_ASR_CACHE:-/models/asr}
     volumes:
       - pipeline-storage:/data/storage
       - model-cache:/models

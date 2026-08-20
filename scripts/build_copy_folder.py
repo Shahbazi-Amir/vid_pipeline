@@ -12,13 +12,13 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUTS = ROOT / "outputs"
 COPY = ROOT / "copy"
 
-# External public pages only. Empty means no reliable public/original page is known.
 CHEHELSTOUN_SOURCE_PAGE = "https://radio.iranseda.ir/Program/?VALID=TRUE&ch=57&m=090513"
 KETAB_BAZ_SOURCE_PAGE = "https://taaghche.com/audiobook/255204"
 FINUP_SOURCE_PAGE = "https://youtu.be/bpelPbGcBMc"
 MIZAN_SOURCE_PAGE = ""
 SHERAKAT_SOURCE_PAGE = ""
 BANK_MELLAT_SOURCE_PAGE = ""
+AI_MARKERS = ("chatgpt", "openai", "gpt", "llm", "claude", "gemini", "copilot")
 
 
 def load_json(path: Path) -> dict[str, Any]:
@@ -32,15 +32,29 @@ def clean_text(value: Any) -> str:
     return re.sub(r"\s+", " ", str(value or "").strip())
 
 
-def full_proofread_complete(root: Path) -> bool:
-    """Only an explicit whole-transcript proofread marker can make copy/ final."""
-    marker = root / "review" / "full-proofread.json"
-    data = load_json(marker)
-    return bool(data.get("complete") is True and data.get("reviewer") == "ChatGPT")
+def human_verification_complete(root: Path) -> bool:
+    """Only evidence-backed human audio verification can make copy/ final."""
+    candidates = [
+        root / "human" / "verification.json",
+        root / "final" / "human-verification.json",
+    ]
+    data = next((load_json(path) for path in candidates if path.is_file()), {})
+    reviewer = clean_text(data.get("reviewer")).casefold()
+    if any(marker in reviewer for marker in AI_MARKERS):
+        return False
+    return bool(
+        data.get("status") == "human_verified"
+        and data.get("review_status") == "human_verified"
+        and data.get("verification_method") == "human_audio"
+        and data.get("human_audio_verification") is True
+        and clean_text(data.get("source_audio_sha256"))
+        and clean_text(data.get("reviewer"))
+        and not data.get("unresolved_items")
+    )
 
 
 def finalized_path_for(root: Path) -> Path | None:
-    if not full_proofread_complete(root):
+    if not human_verification_complete(root):
         return None
     try:
         rel = root.relative_to(OUTPUTS)
@@ -55,11 +69,11 @@ def finalized_path_for(root: Path) -> Path | None:
 def transcript_for(root: Path) -> tuple[Path | None, str]:
     canonical_final = finalized_path_for(root)
     if canonical_final is not None:
-        return canonical_final, "نهایی؛ بازبینی کامل ChatGPT"
+        return canonical_final, "نهایی؛ بازبینی انسانی مبتنی بر صوت"
 
     for path in (root / "delivery" / "transcript.md", root / "final" / "transcript.final.md"):
         if path.is_file() and path.stat().st_size > 0:
-            return path, "نیازمند بازبینی کامل ChatGPT"
+            return path, "ماشینی/AI؛ نیازمند راستی‌آزمایی انسانی صوت"
     return None, ""
 
 

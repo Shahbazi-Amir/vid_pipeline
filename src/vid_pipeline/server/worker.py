@@ -13,6 +13,7 @@ from vid_pipeline.render import render_outputs
 from vid_pipeline.server.processing import process_media_core
 from vid_pipeline.server.quality_gate import evaluate_transcript_quality
 from vid_pipeline.server.repository import Repository, now
+from vid_pipeline.server.sources import SourceMaterializer
 from vid_pipeline.server.storage import LocalArtifactStore
 
 
@@ -54,7 +55,6 @@ def _run_processing_core(
         core = process_media_core(media, job, work)
         return core.document, core.raw_payload, core.quality_report
 
-    # Injected processors remain supported for fast deterministic unit tests.
     document = processor.process(media, job, work)
     processor_raw = work / "transcript.raw.json"
     if processor_raw.is_file():
@@ -81,23 +81,28 @@ def process_job(
     try:
         job.update(
             status="preparing",
-            current_stage="preparing",
+            current_stage="materializing_source",
             progress_percent=5,
             started_at=job.get("started_at") or now(),
         )
         repository.put_job(job)
-        upload = repository.upload(job["upload_id"])
-        if not upload or upload["status"] != "uploaded":
-            raise ValueError("uploaded input is unavailable")
-        media = storage.path(upload["object_key"])
+        media = SourceMaterializer(repository, storage).materialize(job, work)
+        job["file_name"] = job.get("file_name") or media.name
+        job["file_size"] = int(job.get("file_size") or media.stat().st_size)
+        repository.put_job(job)
 
         job.update(status="processing", current_stage="canonical_core", progress_percent=20)
         repository.put_job(job)
-        document, raw_payload, quality_report = _run_processing_core(
-            media, job, work, processor
+        document, raw_payload, quality_report = _run_processing_core(media, job, work, processor)
+
+        job_root = storage.path(f"jobs/{job_id}")
+        source_info = job_root / "source-materialization.json"
+        source_info.write_text(
+            json.dumps(job.get("source_materialization") or {}, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
         )
 
-        raw_root = storage.path(f"jobs/{job_id}/raw")
+        raw_root = job_root / "raw"
         raw_root.mkdir(parents=True, exist_ok=True)
         raw_json = raw_root / "transcript.raw.json"
         raw_json.write_text(
@@ -107,7 +112,7 @@ def process_job(
         if not _copy_if_present(work / "transcript.raw.md", raw_md):
             raw_md.write_text(document.text + "\n", encoding="utf-8")
 
-        machine = storage.path(f"jobs/{job_id}/machine")
+        machine = job_root / "machine"
         machine.mkdir(parents=True, exist_ok=True)
         (machine / "transcript.machine.json").write_text(
             json.dumps(document.to_dict(), ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
@@ -117,9 +122,14 @@ def process_job(
         if not _copy_if_present(work / "transcript.machine.txt", machine / "transcript.machine.txt"):
             (machine / "transcript.machine.txt").write_text(document.text + "\n", encoding="utf-8")
 
-        diagnostics = storage.path(f"jobs/{job_id}/diagnostics")
+        # Review-required jobs must retain the normalized audio used by ASR so
+        # a later human verification can contain real audio evidence.
+        audio_dir = job_root / "audio"
+        _copy_if_present(work / "audio.wav", audio_dir / "audio-16k-mono.wav")
+        _copy_if_present(work / "audio-quality.json", audio_dir / "audio-quality.json")
+
+        diagnostics = job_root / "diagnostics"
         diagnostics.mkdir(parents=True, exist_ok=True)
-        _copy_if_present(work / "audio-quality.json", diagnostics / "audio-quality.json")
         _copy_if_present(
             work / "targeted-retry-report.json",
             diagnostics / "targeted-retry-report.json",
@@ -128,24 +138,26 @@ def process_job(
 
         job.update(status="quality_check", current_stage="quality_check", progress_percent=80)
         repository.put_job(job)
-        quality_dir = storage.path(f"jobs/{job_id}/quality")
+        quality_dir = job_root / "quality"
         quality_dir.mkdir(parents=True, exist_ok=True)
         quality = quality_dir / "quality-report.json"
         quality.write_text(
             json.dumps(quality_report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
 
-        final_dir = storage.path(f"jobs/{job_id}/final")
-        delivery = storage.path(f"jobs/{job_id}/delivery")
+        final_dir = job_root / "final"
+        delivery = job_root / "delivery"
         if not quality_report["valid"]:
             shutil.rmtree(final_dir, ignore_errors=True)
             shutil.rmtree(delivery, ignore_errors=True)
-            result = storage.path(f"jobs/{job_id}/result.json")
+            result = job_root / "result.json"
             result.write_text(
                 json.dumps(
                     {
                         "job_id": job_id,
                         "status": "review_required",
+                        "review_status": "human_review_required",
+                        "human_audio_verification": False,
                         "quality_gate": {
                             "decision": quality_report["decision"],
                             "overall_score": quality_report["overall_score"],
@@ -159,6 +171,9 @@ def process_job(
                 encoding="utf-8",
             )
             artifacts = [
+                "source-materialization.json",
+                "audio/audio-16k-mono.wav",
+                "audio/audio-quality.json",
                 "raw/transcript.raw.json",
                 "raw/transcript.raw.md",
                 "machine/transcript.machine.json",
@@ -168,11 +183,10 @@ def process_job(
                 "result.json",
             ]
             for name in (
-                "diagnostics/audio-quality.json",
                 "diagnostics/targeted-retry-report.json",
                 "diagnostics/core-manifest.json",
             ):
-                if storage.path(f"jobs/{job_id}/{name}").is_file():
+                if (job_root / name).is_file():
                     artifacts.append(name)
             job.update(
                 status="review_required",
@@ -205,6 +219,8 @@ def process_job(
                 {
                     "job_id": job_id,
                     "status": "completed",
+                    "review_status": "machine_quality_passed",
+                    "human_audio_verification": False,
                     "quality_gate": {
                         "decision": "pass",
                         "overall_score": quality_report["overall_score"],
@@ -222,7 +238,7 @@ def process_job(
         shutil.copyfile(outputs["text"], delivery / "transcript.txt")
         shutil.copyfile(outputs["timecoded_markdown"], delivery / "transcript.timestamped.md")
         artifacts = [
-            str(path.relative_to(storage.path(f"jobs/{job_id}")))
+            str(path.relative_to(job_root))
             for path in sorted(delivery.iterdir())
         ]
         job.update(
@@ -232,6 +248,8 @@ def process_job(
             completed_at=now(),
             artifacts=artifacts,
             error=None,
+            review_status="machine_quality_passed",
+            human_audio_verification=False,
             quality_gate={
                 "decision": "pass",
                 "overall_score": quality_report["overall_score"],

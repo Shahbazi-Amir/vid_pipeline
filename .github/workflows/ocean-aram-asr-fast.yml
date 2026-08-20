@@ -1,0 +1,80 @@
+name: Ocean Aram ASR fast fallback
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/ocean-aram-asr-fast.yml'
+permissions:
+  contents: write
+jobs:
+  transcribe-fast:
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        part: [1, 2]
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      PART: ${{ matrix.part }}
+      ASSET_URL: https://github.com/Shahbazi-Amir/vid_pipeline/releases/download/ocean-aram-komeil-roudi/ocean-aram-${{ matrix.part }}.m4a
+      DEST: scratch/ocean-aram-fast/${{ matrix.part }}
+      VID_PIPELINE_ASR_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/asr
+      HF_HOME: ${{ github.workspace }}/.cache/huggingface
+      HF_HUB_CACHE: ${{ github.workspace }}/.cache/huggingface/hub
+      VID_PIPELINE_ACCURACY_MODE: fast
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/.cache/vid-pipeline/asr
+          key: asr-${{ runner.os }}-py311-faster-whisper-1.2.1-large-v3-turbo-v1
+      - name: Install worker
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg curl
+          python -m pip install --upgrade pip
+          pip install -e '.[worker]'
+      - name: Download and transcribe
+        run: |
+          mkdir -p /tmp/ocean-fast-input "/tmp/ocean-fast-${PART}-runtime"
+          curl -fL --retry 5 --retry-all-errors "$ASSET_URL" -o "/tmp/ocean-fast-input/part${PART}.m4a"
+          vid-pipeline run-file "/tmp/ocean-fast-input/part${PART}.m4a" \
+            --name "ocean-aram-fast-${PART}" \
+            --output-root "/tmp/ocean-fast-${PART}-runtime" \
+            --profile fast \
+            --language fa \
+            --device cpu \
+            --compute-type int8 \
+            --audio-profile safe \
+            --hotwords 'اقیانوس آرام، کمیل رودی، دکتر کمیل رودی، سواد مالی، نوجوانان' \
+            --title "اقیانوس آرام - دکتر کمیل رودی - قسمت ${PART}" \
+            --program 'اقیانوس آرام' \
+            --speaker 'دکتر کمیل رودی' \
+            --source-url "$ASSET_URL" \
+            --no-editorial
+      - name: Persist transcript
+        run: |
+          set -euo pipefail
+          job_dir=$(find "/tmp/ocean-fast-${PART}-runtime" -mindepth 1 -maxdepth 1 -type d -name 'ocean-aram-fast-*' -print -quit)
+          test -s "$job_dir/delivery/transcript.txt"
+          rm -rf "$DEST"; mkdir -p "$DEST/delivery" "$DEST/review"
+          cp "$job_dir/delivery/transcript.txt" "$DEST/delivery/transcript.txt"
+          cp "$job_dir/review/assistant-review-package.json" "$DEST/review/assistant-review-package.json"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$DEST"
+          git commit -m "Fast transcribe Ocean Aram part ${PART}"
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep $((attempt*3))
+          done
+          exit 1

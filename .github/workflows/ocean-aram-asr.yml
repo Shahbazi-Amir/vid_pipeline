@@ -1,0 +1,95 @@
+name: Ocean Aram ASR
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/ocean-aram-asr.yml'
+permissions:
+  contents: write
+jobs:
+  transcribe:
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        part: [1, 2]
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      PART: ${{ matrix.part }}
+      ASSET_URL: https://github.com/Shahbazi-Amir/vid_pipeline/releases/download/ocean-aram-komeil-roudi/ocean-aram-${{ matrix.part }}.m4a
+      DEST: scratch/ocean-aram-asr/${{ matrix.part }}
+      VID_PIPELINE_ASR_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/asr
+      HF_HOME: ${{ github.workspace }}/.cache/huggingface
+      HF_HUB_CACHE: ${{ github.workspace }}/.cache/huggingface/hub
+      VID_PIPELINE_ACCURACY_MODE: balanced
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Cache ASR model
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/.cache/vid-pipeline/asr
+          key: asr-${{ runner.os }}-py311-faster-whisper-1.2.1-large-v3-turbo-v1
+      - name: Install worker
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg curl rsync
+          python -m pip install --upgrade pip
+          pip install -e '.[worker]'
+      - name: Download audio
+        run: |
+          mkdir -p /tmp/ocean-input
+          curl -fL --retry 5 --retry-all-errors "$ASSET_URL" -o "/tmp/ocean-input/part${PART}.m4a"
+          ffprobe -v error -select_streams a:0 -show_entries stream=codec_name -of default=nw=1:nk=1 "/tmp/ocean-input/part${PART}.m4a" | grep -q .
+      - name: Run Persian ASR pipeline
+        run: |
+          rm -rf "/tmp/ocean-${PART}-runtime"
+          mkdir -p "/tmp/ocean-${PART}-runtime"
+          vid-pipeline run-file "/tmp/ocean-input/part${PART}.m4a" \
+            --name "ocean-aram-${PART}" \
+            --output-root "/tmp/ocean-${PART}-runtime" \
+            --profile balanced \
+            --language fa \
+            --device cpu \
+            --compute-type int8 \
+            --audio-profile safe \
+            --hotwords 'اقیانوس آرام، کمیل رودی، دکتر کمیل رودی، سواد مالی، نوجوانان' \
+            --title "اقیانوس آرام - دکتر کمیل رودی - قسمت ${PART}" \
+            --program 'اقیانوس آرام' \
+            --speaker 'دکتر کمیل رودی' \
+            --source-url "$ASSET_URL" \
+            --no-editorial
+      - name: Persist review inputs
+        run: |
+          set -euo pipefail
+          job_dir=$(find "/tmp/ocean-${PART}-runtime" -mindepth 1 -maxdepth 1 -type d -name 'ocean-aram-*' -print -quit)
+          test -n "$job_dir"
+          test -s "$job_dir/delivery/transcript.txt"
+          test -s "$job_dir/review/assistant-review-package.json"
+          rm -rf "$DEST"
+          mkdir -p "$DEST/delivery" "$DEST/review" "$DEST/pre_review" "$DEST/accuracy"
+          cp "$job_dir/delivery/transcript.txt" "$DEST/delivery/transcript.txt"
+          cp "$job_dir/review/assistant-review-package.json" "$DEST/review/assistant-review-package.json"
+          cp "$job_dir/pre_review/transcript.pre-review.json" "$DEST/pre_review/transcript.pre-review.json"
+          cp "$job_dir/accuracy/transcript.consensus.json" "$DEST/accuracy/transcript.consensus.json"
+          if [ -f "$job_dir/source.json" ]; then cp "$job_dir/source.json" "$DEST/source.json"; fi
+      - name: Commit transcript independently
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$DEST"
+          git commit -m "Transcribe Ocean Aram part ${PART}"
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep $((attempt*3))
+          done
+          exit 1

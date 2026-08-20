@@ -14,6 +14,7 @@ from fastapi import Depends, FastAPI, Header, HTTPException, Request
 from fastapi.responses import FileResponse
 
 from vid_pipeline.online_client import MEDIA_EXTENSIONS
+from vid_pipeline.profiles import DEFAULT_PROFILE, resolve_transcription_model
 from vid_pipeline.server.queue import InlineJobQueue, JobQueue, RedisJobQueue
 from vid_pipeline.server.repository import Repository, now
 from vid_pipeline.server.storage import LocalArtifactStore
@@ -144,12 +145,23 @@ def create_app(
         upload = repository.upload(str(payload.get("upload_id", "")))
         if not upload or upload["status"] != "uploaded":
             raise HTTPException(409, "upload is not complete")
+
+        profile = str(payload.get("profile", DEFAULT_PROFILE) or DEFAULT_PROFILE)
+        try:
+            model = resolve_transcription_model(
+                profile,
+                str(payload.get("model", "") or ""),
+                allow_local_path=False,
+            )
+        except ValueError as exc:
+            raise HTTPException(422, str(exc)) from exc
+
         job_id = secrets.token_hex(12)
         value = {
             "job_id": job_id, "upload_id": upload["upload_id"],
             "input_object": upload["object_key"], "input_hash": upload["sha256"],
             "file_name": upload["file_name"], "file_size": upload["file_size"],
-            "profile": payload.get("profile", "balanced"), "model": payload.get("model", ""),
+            "profile": profile, "model": model,
             "language": payload.get("language", "fa"),
             "audio_profile": payload.get("audio_profile", "safe"),
             "review_settings": {"editorial": bool(payload.get("editorial", True))},

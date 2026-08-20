@@ -17,12 +17,7 @@ MAX_RETENTION_TTL_SECONDS = 90 * 24 * 60 * 60
 
 @dataclass(frozen=True, slots=True)
 class QueuePolicy:
-    """Operational limits for long-running transcription jobs.
-
-    RQ's own default runtime limit is too short for ASR. Keep the policy
-    explicit at enqueue time so a deployment cannot silently fall back to the
-    RQ default after a library/configuration change.
-    """
+    """Operational limits for long-running transcription jobs."""
 
     job_timeout_seconds: int = DEFAULT_JOB_TIMEOUT_SECONDS
     result_ttl_seconds: int = DEFAULT_RESULT_TTL_SECONDS
@@ -111,6 +106,15 @@ class RedisJobQueue:
         )
 
     def cancel(self, job_id: str) -> None:
+        """Cancel queued jobs and request a stop for a currently running job."""
         from rq.command import send_stop_job_command
+        from rq.job import Job
 
-        send_stop_job_command(self.queue.connection, job_id)
+        job = Job.fetch(job_id, connection=self.queue.connection)
+        status = str(job.get_status(refresh=True)).lower()
+        if status.endswith("started"):
+            send_stop_job_command(self.queue.connection, job_id)
+            return
+        # RQ's Job.cancel() removes a queued/deferred/scheduled job from its
+        # queue/registry and marks it canceled without deleting diagnostics.
+        job.cancel()

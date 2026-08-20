@@ -1,0 +1,43 @@
+name: Bank Mellat 8 asset probe
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/bankmellatt-8-asset-probe.yml'
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Probe exact 8.m4a
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p scratch/bankmellatt-8-probe
+          gh api "repos/${GITHUB_REPOSITORY}/releases/tags/chehelstoun-archive-v1" > /tmp/release.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          rel=json.loads(Path('/tmp/release.json').read_text())
+          hits=[a for a in rel.get('assets',[]) if a.get('name','').strip()=='8.m4a']
+          if len(hits)!=1:
+              raise SystemExit(f'8.m4a mapping failed: {[a.get("name") for a in rel.get("assets",[])]}')
+          a=hits[0]
+          out={k:a.get(k) for k in ('id','name','size','state','browser_download_url','created_at','updated_at')}
+          Path('scratch/bankmellatt-8-probe/asset.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+      - name: Commit probe
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add scratch/bankmellatt-8-probe/asset.json
+          git commit -m 'Confirm Bank Mellat 8 M4A release asset'
+          git pull --rebase origin main
+          git push origin HEAD:main

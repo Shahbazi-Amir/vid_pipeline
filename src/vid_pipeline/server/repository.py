@@ -1,10 +1,10 @@
-"""Persistent upload and job repository for SQLite or PostgreSQL."""
+"""Persistent upload and revisioned job repository for SQLite or PostgreSQL."""
 
 from __future__ import annotations
 
 import json
 from datetime import UTC, datetime
-from typing import Any
+from typing import Any, Iterable
 
 from sqlalchemy import Column, MetaData, String, Table, Text, create_engine, select
 from sqlalchemy.engine import Engine
@@ -12,6 +12,10 @@ from sqlalchemy.engine import Engine
 
 def now() -> str:
     return datetime.now(UTC).isoformat()
+
+
+class ConcurrentUpdateError(RuntimeError):
+    """Raised when a stale job snapshot tries to overwrite newer state."""
 
 
 class Repository:
@@ -64,19 +68,82 @@ class Repository:
         return json.loads(row.payload) if row else None
 
     def put_job(self, value: dict[str, Any]) -> None:
+        """Insert or compare-and-swap a job payload.
+
+        ``_revision`` is intentionally stored inside the JSON payload so old
+        databases do not require a schema migration.  Callers receive the new
+        revision in the dict they supplied.
+        """
+        job_id = value["job_id"]
         with self.engine.begin() as db:
-            existing = db.execute(
-                select(self.job_table.c.job_id).where(self.job_table.c.job_id == value["job_id"])
+            row = db.execute(
+                select(self.job_table.c.payload).where(self.job_table.c.job_id == job_id)
             ).first()
-            payload = json.dumps(value)
-            if existing:
+            if not row:
+                payload_value = dict(value)
+                payload_value["_revision"] = 1
                 db.execute(
-                    self.job_table.update().where(
-                        self.job_table.c.job_id == value["job_id"]
-                    ).values(payload=payload)
+                    self.job_table.insert().values(
+                        job_id=job_id,
+                        payload=json.dumps(payload_value),
+                    )
                 )
-            else:
-                db.execute(self.job_table.insert().values(job_id=value["job_id"], payload=payload))
+                value["_revision"] = 1
+                return
+
+            current_payload = str(row.payload)
+            current = json.loads(current_payload)
+            current_revision = int(current.get("_revision", 0) or 0)
+            expected_revision = int(value.get("_revision", current_revision) or 0)
+            if current_revision and expected_revision != current_revision:
+                raise ConcurrentUpdateError(
+                    f"stale job revision for {job_id}: expected {expected_revision}, current {current_revision}"
+                )
+            updated = dict(value)
+            updated["_revision"] = current_revision + 1
+            result = db.execute(
+                self.job_table.update().where(
+                    (self.job_table.c.job_id == job_id)
+                    & (self.job_table.c.payload == current_payload)
+                ).values(payload=json.dumps(updated))
+            )
+            if result.rowcount != 1:
+                raise ConcurrentUpdateError(f"job changed concurrently: {job_id}")
+            value["_revision"] = updated["_revision"]
+
+    def transition_job(
+        self,
+        job_id: str,
+        *,
+        expected_statuses: Iterable[str] | None = None,
+        updates: dict[str, Any],
+    ) -> dict[str, Any]:
+        """Atomically transition a job only when its current status is allowed."""
+        allowed = set(expected_statuses or [])
+        with self.engine.begin() as db:
+            row = db.execute(
+                select(self.job_table.c.payload).where(self.job_table.c.job_id == job_id)
+            ).first()
+            if not row:
+                raise KeyError(job_id)
+            current_payload = str(row.payload)
+            current = json.loads(current_payload)
+            if allowed and str(current.get("status")) not in allowed:
+                raise ConcurrentUpdateError(
+                    f"job {job_id} status {current.get('status')!r} cannot make this transition"
+                )
+            updated = dict(current)
+            updated.update(updates)
+            updated["_revision"] = int(current.get("_revision", 0) or 0) + 1
+            result = db.execute(
+                self.job_table.update().where(
+                    (self.job_table.c.job_id == job_id)
+                    & (self.job_table.c.payload == current_payload)
+                ).values(payload=json.dumps(updated))
+            )
+            if result.rowcount != 1:
+                raise ConcurrentUpdateError(f"job changed concurrently: {job_id}")
+            return updated
 
     def job(self, job_id: str) -> dict[str, Any] | None:
         with self.engine.connect() as db:

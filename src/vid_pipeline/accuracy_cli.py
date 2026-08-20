@@ -18,6 +18,7 @@ from vid_pipeline.accuracy_review import (
     build_accuracy_review,
     update_learned_glossary,
 )
+from vid_pipeline.profiles import DEFAULT_PROFILE, resolve_transcription_model
 
 
 def output(value: object) -> None:
@@ -66,9 +67,14 @@ def main() -> int:
     args = parser().parse_args()
     try:
         if args.command == "build":
+            model = (
+                resolve_transcription_model(DEFAULT_PROFILE, args.model)
+                if args.model.strip()
+                else ""
+            )
             config = AccuracyConfig(
                 mode=args.mode,
-                model=args.model,
+                model=model,
                 device=args.device,
                 compute_type=args.compute_type,
                 whisperx_alignment=args.whisperx,

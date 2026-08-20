@@ -9,6 +9,7 @@ from vid_pipeline.review import (
     ReviewConfig,
     ReviewError,
     analyze_segments,
+    apply_ai_review,
     apply_human_review,
     audit_transcript_changes,
     build_review_package,
@@ -44,9 +45,7 @@ def _job(root: Path) -> Path:
                 "avg_logprob": -0.2,
                 "no_speech_prob": 0.01,
                 "review_flags": [],
-                "words": [
-                    {"word": "پنج", "start": 4.5, "end": 5.0, "probability": 0.90}
-                ],
+                "words": [{"word": "پنج", "start": 4.5, "end": 5.0, "probability": 0.90}],
             },
             {
                 "id": 2,
@@ -56,9 +55,7 @@ def _job(root: Path) -> Path:
                 "avg_logprob": -0.2,
                 "no_speech_prob": 0.01,
                 "review_flags": [],
-                "words": [
-                    {"word": "عادی", "start": 7.0, "end": 7.5, "probability": 0.95}
-                ],
+                "words": [{"word": "عادی", "start": 7.0, "end": 7.5, "probability": 0.95}],
             },
         ],
     }
@@ -68,18 +65,35 @@ def _job(root: Path) -> Path:
     text = "شهید رئیزی سخن گفت رشد از صفر به پنج درصد رسید این بخش عادی است\n"
     (job / "machine" / "transcript.machine.txt").write_text(text, encoding="utf-8")
     (job / "final" / "transcript.final.txt").write_text(text, encoding="utf-8")
+    (job / "audio" / "audio-16k-mono.wav").write_bytes(b"audio-evidence-fixture")
     (job / "result.json").write_text(
         json.dumps({"review_status": "machine_fallback"}), encoding="utf-8"
     )
     return job
 
 
+def _human_corrections(uncertain: dict, *, reviewer: str = "بازبین انسانی") -> dict:
+    return {
+        "schema_version": 2,
+        "reviewer": reviewer,
+        "review_type": "human_audio",
+        "verification": {"method": "human_audio", "audio_review_confirmed": True},
+        "items": [
+            {
+                "segment_id": item["segment_id"],
+                "decision": "accept_suggestion",
+                "replacement": item["proposed_text"],
+                "audio_reviewed": True,
+            }
+            for item in uncertain["items"]
+        ],
+    }
+
+
 def test_analyze_segments_flags_confidence_names_numbers_and_glossary(tmp_path: Path) -> None:
     job = _job(tmp_path)
     glossary = tmp_path / "glossary.json"
-    glossary.write_text(
-        json.dumps({"رئیسی": ["رئیزی"]}, ensure_ascii=False), encoding="utf-8"
-    )
+    glossary.write_text(json.dumps({"رئیسی": ["رئیزی"]}, ensure_ascii=False), encoding="utf-8")
     aliases = load_glossaries([glossary])
     data = json.loads((job / "raw" / "transcript.raw.json").read_text(encoding="utf-8"))
     items = analyze_segments(data, glossary_aliases=aliases)
@@ -119,12 +133,10 @@ def test_audit_detects_large_deletion_and_number_change() -> None:
     assert "numbers_changed" in audit["warnings"]
 
 
-def test_build_package_creates_review_files_and_updates_result(tmp_path: Path) -> None:
+def test_build_package_creates_evidence_aware_template(tmp_path: Path) -> None:
     job = _job(tmp_path)
     glossary = tmp_path / "glossary.json"
-    glossary.write_text(
-        json.dumps({"رئیسی": ["رئیزی"]}, ensure_ascii=False), encoding="utf-8"
-    )
+    glossary.write_text(json.dumps({"رئیسی": ["رئیزی"]}, ensure_ascii=False), encoding="utf-8")
     manifest = build_review_package(
         job,
         config=ReviewConfig(extract_clips=False),
@@ -132,15 +144,20 @@ def test_build_package_creates_review_files_and_updates_result(tmp_path: Path) -
     )
     assert manifest["status"] == "human_review_required"
     assert manifest["required_item_count"] == 2
-    assert (job / "review" / "review.html").exists()
-    assert (job / "review" / "assistant-review-package.json").exists()
-    assert (job / "review" / "quality-report.json").exists()
-    assert (job / "review" / "transcript.review.srt").exists()
-    assert (job / "review" / "transcript.review.vtt").exists()
-    assert (job / "final" / "review-package.zip").exists()
+    assert manifest["verification_policy"]["ai_review_can_human_verify"] is False
+    template = json.loads((job / "review" / "corrections.template.json").read_text())
+    assert template["verification"]["audio_review_confirmed"] is False
+    assert all(item["audio_reviewed"] is False for item in template["items"])
     result = json.loads((job / "result.json").read_text(encoding="utf-8"))
     assert result["review_status"] == "human_review_required"
     assert result["human_audio_verification"] is False
+
+
+def test_package_can_be_built_before_any_final_exists(tmp_path: Path) -> None:
+    job = _job(tmp_path)
+    (job / "final" / "transcript.final.txt").unlink()
+    manifest = build_review_package(job, config=ReviewConfig(extract_clips=False))
+    assert manifest["source_files"]["comparison_text"].endswith("transcript.machine.txt")
 
 
 def test_clean_job_keeps_completed_status_and_marks_review_optional(tmp_path: Path) -> None:
@@ -156,23 +173,15 @@ def test_clean_job_keeps_completed_status_and_marks_review_optional(tmp_path: Pa
                 "avg_logprob": -0.1,
                 "no_speech_prob": 0.0,
                 "review_flags": [],
-                "words": [
-                    {"word": "روشن", "start": 0.2, "end": 0.8, "probability": 0.98}
-                ],
+                "words": [{"word": "روشن", "start": 0.2, "end": 0.8, "probability": 0.98}],
             }
         ],
     }
-    (job / "raw" / "transcript.raw.json").write_text(
-        json.dumps(raw, ensure_ascii=False), encoding="utf-8"
-    )
-    for path in (
-        job / "machine" / "transcript.machine.txt",
-        job / "final" / "transcript.final.txt",
-    ):
+    (job / "raw" / "transcript.raw.json").write_text(json.dumps(raw, ensure_ascii=False), encoding="utf-8")
+    for path in (job / "machine" / "transcript.machine.txt", job / "final" / "transcript.final.txt"):
         path.write_text("متن روشن و عادی است\n", encoding="utf-8")
     (job / "result.json").write_text(
-        json.dumps({"status": "completed", "review_status": "ai_editorial_completed"}),
-        encoding="utf-8",
+        json.dumps({"status": "completed", "review_status": "ai_editorial_completed"}), encoding="utf-8"
     )
     manifest = build_review_package(job, config=ReviewConfig(extract_clips=False))
     result = json.loads((job / "result.json").read_text(encoding="utf-8"))
@@ -181,59 +190,44 @@ def test_clean_job_keeps_completed_status_and_marks_review_optional(tmp_path: Pa
     assert result["review_status"] == "human_review_optional"
 
 
-def test_apply_refuses_unresolved_required_items(tmp_path: Path) -> None:
+def test_human_review_requires_explicit_audio_evidence(tmp_path: Path) -> None:
     job = _job(tmp_path)
     build_review_package(job, config=ReviewConfig(extract_clips=False))
     corrections = job / "review" / "corrections.json"
-    corrections.write_text(
-        json.dumps({"reviewer": "بازبین", "items": []}, ensure_ascii=False),
-        encoding="utf-8",
-    )
-    with pytest.raises(ReviewError, match="incomplete"):
+    corrections.write_text(json.dumps({"reviewer": "بازبین", "items": []}, ensure_ascii=False), encoding="utf-8")
+    with pytest.raises(ReviewError, match="explicit"):
         apply_human_review(job, corrections)
 
 
-def test_human_can_mark_required_segment_unclear(tmp_path: Path) -> None:
+def test_human_review_refuses_unreviewed_required_item(tmp_path: Path) -> None:
     job = _job(tmp_path)
     build_review_package(job, config=ReviewConfig(extract_clips=False))
-    uncertain = json.loads(
-        (job / "review" / "uncertain-spans.json").read_text(encoding="utf-8")
-    )
-    corrections = {
-        "reviewer": "بازبین انسانی",
-        "items": [
-            {
-                "segment_id": item["segment_id"],
-                "decision": "unclear" if index == 0 else "accept_original",
-                "replacement": "",
-            }
-            for index, item in enumerate(uncertain["items"])
-        ],
-    }
+    uncertain = json.loads((job / "review" / "uncertain-spans.json").read_text(encoding="utf-8"))
+    corrections = _human_corrections(uncertain)
+    corrections["items"][0]["audio_reviewed"] = False
     path = job / "review" / "corrections.json"
     path.write_text(json.dumps(corrections, ensure_ascii=False), encoding="utf-8")
-    apply_human_review(job, path, promote=True)
-    assert "[نامفهوم]" in (
-        job / "final" / "transcript.final.txt"
-    ).read_text(encoding="utf-8")
+    with pytest.raises(ReviewError, match="audio evidence"):
+        apply_human_review(job, path)
 
 
-def test_apply_human_review_preserves_all_segments_and_promotes(tmp_path: Path) -> None:
+def test_chatgpt_cannot_be_marked_human_verified(tmp_path: Path) -> None:
     job = _job(tmp_path)
-    glossary = tmp_path / "glossary.json"
-    glossary.write_text(
-        json.dumps({"رئیسی": ["رئیزی"]}, ensure_ascii=False), encoding="utf-8"
-    )
-    build_review_package(
-        job,
-        config=ReviewConfig(extract_clips=False),
-        glossary_paths=[glossary],
-    )
-    uncertain = json.loads(
-        (job / "review" / "uncertain-spans.json").read_text(encoding="utf-8")
-    )
+    build_review_package(job, config=ReviewConfig(extract_clips=False))
+    uncertain = json.loads((job / "review" / "uncertain-spans.json").read_text(encoding="utf-8"))
+    corrections = _human_corrections(uncertain, reviewer="ChatGPT")
+    path = job / "review" / "corrections.json"
+    path.write_text(json.dumps(corrections, ensure_ascii=False), encoding="utf-8")
+    with pytest.raises(ReviewError, match="cannot produce human_verified"):
+        apply_human_review(job, path, promote=True)
+
+
+def test_ai_review_is_never_human_verified_or_promoted(tmp_path: Path) -> None:
+    job = _job(tmp_path)
+    build_review_package(job, config=ReviewConfig(extract_clips=False))
+    uncertain = json.loads((job / "review" / "uncertain-spans.json").read_text(encoding="utf-8"))
     corrections = {
-        "reviewer": "بازبین انسانی",
+        "reviewer": "ChatGPT",
         "items": [
             {
                 "segment_id": item["segment_id"],
@@ -243,12 +237,42 @@ def test_apply_human_review_preserves_all_segments_and_promotes(tmp_path: Path) 
             for item in uncertain["items"]
         ],
     }
+    path = job / "review" / "ai-corrections.json"
+    path.write_text(json.dumps(corrections, ensure_ascii=False), encoding="utf-8")
+    report = apply_ai_review(job, path, reviewer="ChatGPT")
+    assert report["status"] == "ai_reviewed"
+    assert report["human_audio_verification"] is False
+    assert report["promoted_to_final"] is False
+    result = json.loads((job / "result.json").read_text(encoding="utf-8"))
+    assert result["review_status"] == "ai_reviewed"
+    assert result["human_audio_verification"] is False
+
+
+def test_human_can_mark_required_segment_unclear_with_audio_evidence(tmp_path: Path) -> None:
+    job = _job(tmp_path)
+    build_review_package(job, config=ReviewConfig(extract_clips=False))
+    uncertain = json.loads((job / "review" / "uncertain-spans.json").read_text(encoding="utf-8"))
+    corrections = _human_corrections(uncertain)
+    corrections["items"][0].update(decision="unclear", replacement="")
+    path = job / "review" / "corrections.json"
+    path.write_text(json.dumps(corrections, ensure_ascii=False), encoding="utf-8")
+    apply_human_review(job, path, promote=True)
+    assert "[نامفهوم]" in (job / "final" / "transcript.final.txt").read_text(encoding="utf-8")
+
+
+def test_apply_human_review_preserves_all_segments_and_promotes(tmp_path: Path) -> None:
+    job = _job(tmp_path)
+    glossary = tmp_path / "glossary.json"
+    glossary.write_text(json.dumps({"رئیسی": ["رئیزی"]}, ensure_ascii=False), encoding="utf-8")
+    build_review_package(job, config=ReviewConfig(extract_clips=False), glossary_paths=[glossary])
+    uncertain = json.loads((job / "review" / "uncertain-spans.json").read_text(encoding="utf-8"))
+    corrections = _human_corrections(uncertain)
     corrections_path = job / "review" / "corrections.json"
-    corrections_path.write_text(
-        json.dumps(corrections, ensure_ascii=False), encoding="utf-8"
-    )
+    corrections_path.write_text(json.dumps(corrections, ensure_ascii=False), encoding="utf-8")
     result = apply_human_review(job, corrections_path, promote=True)
     assert result["status"] == "human_verified"
+    assert result["verification_method"] == "human_audio"
+    assert result["source_audio_sha256"]
     final = (job / "final" / "transcript.final.txt").read_text(encoding="utf-8")
     assert "رئیسی" in final
     assert "پنج درصد" in final

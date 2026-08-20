@@ -1,11 +1,14 @@
 FROM python:3.11-slim
 ENV PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=1 \
-    VID_PIPELINE_STORAGE_ROOT=/tmp/vid-pipeline-storage
+    VID_PIPELINE_STORAGE_ROOT=/data/storage
 WORKDIR /app
 COPY pyproject.toml README.md LICENSE ./
 COPY src ./src
-RUN pip install --upgrade pip && pip install '.[api]'
+RUN pip install --upgrade pip \
+    && pip install '.[api]' \
+    && mkdir -p /data/storage \
+    && chown -R 65532:65532 /data/storage
 USER 65532
 EXPOSE 8000
 CMD ["uvicorn", "vid_pipeline.server.api:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -1,12 +1,23 @@
+x-storage-env: &storage-env
+  VID_PIPELINE_STORAGE_BACKEND: ${VID_PIPELINE_STORAGE_BACKEND:-local}
+  VID_PIPELINE_S3_ENDPOINT: ${VID_PIPELINE_S3_ENDPOINT:-}
+  VID_PIPELINE_S3_BUCKET: ${VID_PIPELINE_S3_BUCKET:-}
+  VID_PIPELINE_S3_ACCESS_KEY: ${VID_PIPELINE_S3_ACCESS_KEY:-}
+  VID_PIPELINE_S3_SECRET_KEY: ${VID_PIPELINE_S3_SECRET_KEY:-}
+
 services:
   api:
     build:
       context: .
       dockerfile: docker/Dockerfile.api
     environment:
+      <<: *storage-env
       VID_PIPELINE_DATABASE_URL: postgresql+psycopg://pipeline:pipeline@database/pipeline
       VID_PIPELINE_REDIS_URL: redis://redis:6379/0
       VID_PIPELINE_STORAGE_ROOT: /data/storage
+      VID_PIPELINE_JOB_TIMEOUT_SECONDS: ${VID_PIPELINE_JOB_TIMEOUT_SECONDS:-43200}
+      VID_PIPELINE_RESULT_TTL_SECONDS: ${VID_PIPELINE_RESULT_TTL_SECONDS:-604800}
+      VID_PIPELINE_FAILURE_TTL_SECONDS: ${VID_PIPELINE_FAILURE_TTL_SECONDS:-2592000}
     ports: ["8000:8000"]
     volumes: [pipeline-storage:/data/storage]
     depends_on: [database, redis]
@@ -15,9 +26,12 @@ services:
       context: .
       dockerfile: docker/Dockerfile.worker
     environment:
+      <<: *storage-env
       VID_PIPELINE_DATABASE_URL: postgresql+psycopg://pipeline:pipeline@database/pipeline
       VID_PIPELINE_REDIS_URL: redis://redis:6379/0
       VID_PIPELINE_STORAGE_ROOT: /data/storage
+      VID_PIPELINE_ASR_CACHE: ${VID_PIPELINE_ASR_CACHE:-/models/asr}
+      VID_PIPELINE_PERSISTENT_MODEL: ${VID_PIPELINE_PERSISTENT_MODEL:-1}
     volumes:
       - pipeline-storage:/data/storage
       - model-cache:/models

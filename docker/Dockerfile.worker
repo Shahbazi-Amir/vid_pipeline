@@ -1,5 +1,5 @@
 FROM python:3.11-slim
-ENV PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1 VID_PIPELINE_MODEL_CACHE=/models
+ENV PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1 VID_PIPELINE_ASR_CACHE=/models/asr VID_PIPELINE_PERSISTENT_MODEL=1
 RUN apt-get update \
     && apt-get install --no-install-recommends -y ffmpeg \
     && rm -rf /var/lib/apt/lists/*
@@ -8,4 +8,7 @@ COPY pyproject.toml README.md LICENSE ./
 COPY src ./src
 RUN pip install --upgrade pip && pip install '.[worker]'
 VOLUME ["/models", "/data/storage"]
-CMD ["rq", "worker", "--url", "redis://redis:6379/0", "vid-pipeline"]
+# SimpleWorker executes jobs in the same process. This is intentional here so
+# the large Whisper model remains resident between sequential ASR jobs instead
+# of being reloaded in a fresh forked work horse for every job.
+CMD ["rq", "worker", "-w", "rq.worker.SimpleWorker", "--url", "redis://redis:6379/0", "vid-pipeline"]

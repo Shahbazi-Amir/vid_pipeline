@@ -50,9 +50,18 @@ def _upload(client: TestClient, content: bytes = b"small-media"):
     return upload_id, headers
 
 
+def _create_job(client: TestClient, headers: dict[str, str], upload_id: str) -> str:
+    response = client.post("/v1/jobs", headers=headers, json={
+        "upload_id": upload_id, "profile": "fast", "model": "large-v3-turbo",
+        "language": "fa", "editorial": False,
+    })
+    assert response.status_code == 200
+    return response.json()["job_id"]
+
+
 def test_health_and_authentication(services):
     client, *_ = services
-    assert client.get("/health").json() == {"status": "ok"}
+    assert client.get("/health").json() == {"status": "ok", "storage_backend": "local"}
     assert client.get("/v1/jobs").status_code == 401
 
 
@@ -92,24 +101,63 @@ class MockProcessor:
         return TranscriptDocument(
             job_id=job["job_id"], language="fa",
             segments=[
-                TranscriptSegment(1, 0.0, 1.5, "سلام دنیا"),
-                TranscriptSegment(2, 1.5, 3.0, "این یک آزمون است"),
+                TranscriptSegment(1, 0.0, 1.5, "سلام دنیا", confidence=0.98),
+                TranscriptSegment(2, 1.5, 3.0, "این یک آزمون است", confidence=0.97),
             ],
+        )
+
+
+class LowQualityProcessor:
+    def process(self, media: Path, job: dict, work: Path) -> TranscriptDocument:
+        assert media.read_bytes() == b"small-media"
+        (work / "audio.wav").write_bytes(b"normalized-audio-fixture")
+        (work / "audio-quality.json").write_text("{}", encoding="utf-8")
+        return TranscriptDocument(
+            job_id=job["job_id"], language="fa",
+            segments=[
+                TranscriptSegment(
+                    1, 0.0, 2.0, "بنامه خدا حادی نجف",
+                    confidence=0.20, suspicious_flags=["low_word_confidence"],
+                ),
+                TranscriptSegment(
+                    2, 2.0, 4.0, "آقای دکتر گودی",
+                    confidence=0.25, suspicious_flags=["low_word_confidence"],
+                ),
+            ],
+        )
+
+
+class RawEvidenceProcessor:
+    def process(self, media: Path, job: dict, work: Path) -> TranscriptDocument:
+        (work / "audio.wav").write_bytes(b"normalized-audio-fixture")
+        (work / "audio-quality.json").write_text("{}", encoding="utf-8")
+        raw = {
+            "segments": [
+                {
+                    "id": 1, "start": 0.0, "end": 2.0, "text": "متن مشکوک",
+                    "avg_logprob": -1.6, "no_speech_prob": 0.05,
+                    "words": [{"word": "مشکوک", "probability": 0.15}],
+                    "review_flags": ["low_log_probability", "low_word_confidence"],
+                }
+            ]
+        }
+        (work / "transcript.raw.json").write_text(
+            json.dumps(raw, ensure_ascii=False), encoding="utf-8"
+        )
+        return TranscriptDocument(
+            job_id=job["job_id"], language="fa",
+            segments=[TranscriptSegment(1, 0.0, 2.0, "متن مشکوک", confidence=0.99)],
         )
 
 
 def test_end_to_end_job_and_all_final_artifacts(services, tmp_path: Path):
     client, repository, storage, queue = services
     upload_id, headers = _upload(client)
-    response = client.post("/v1/jobs", headers=headers, json={
-        "upload_id": upload_id, "profile": "fast", "model": "tiny",
-        "language": "fa", "editorial": False,
-    })
-    assert response.status_code == 200
-    job_id = response.json()["job_id"]
+    job_id = _create_job(client, headers, upload_id)
     assert queue.enqueued == [job_id]
     job = process_job(job_id, repository, storage, MockProcessor())
     assert job["status"] == "completed"
+    assert job["quality_gate"]["decision"] == "pass"
     expected = {
         "delivery/transcript.md",
         "delivery/transcript.txt",
@@ -123,15 +171,55 @@ def test_end_to_end_job_and_all_final_artifacts(services, tmp_path: Path):
     )
     assert download.status_code == 200
     assert "سلام دنیا" in download.text
+    quality = json.loads(storage.path(f"jobs/{job_id}/quality/quality-report.json").read_text())
+    assert quality["valid"] is True
+    assert quality["decision"] == "pass"
     assert client.get(
         f"/v1/jobs/{job_id}/artifacts/../../pipeline.db", headers=headers
     ).status_code == 404
 
 
+def test_low_quality_transcript_cannot_be_finalized(services):
+    client, repository, storage, _ = services
+    upload_id, headers = _upload(client)
+    job_id = _create_job(client, headers, upload_id)
+    job = process_job(job_id, repository, storage, LowQualityProcessor())
+
+    assert job["status"] == "review_required"
+    assert job["current_stage"] == "quality_gate"
+    assert job["quality_gate"]["decision"] == "review_required"
+    assert not storage.path(f"jobs/{job_id}/delivery").exists()
+    assert not storage.path(f"jobs/{job_id}/final").exists()
+    assert all(not name.startswith("delivery/") for name in job["artifacts"])
+    assert "audio/audio-16k-mono.wav" in job["artifacts"]
+
+    quality = json.loads(storage.path(f"jobs/{job_id}/quality/quality-report.json").read_text())
+    assert quality["valid"] is False
+    assert quality["overall_score"] < quality["thresholds"]["min_overall_score"]
+    assert "overall_score_below_threshold" in quality["gate_reasons"]
+    result = json.loads(storage.path(f"jobs/{job_id}/result.json").read_text())
+    assert result["status"] == "review_required"
+    assert result["human_audio_verification"] is False
+
+    listed = client.get(f"/v1/jobs/{job_id}/artifacts", headers=headers).json()["artifacts"]
+    assert "quality/quality-report.json" in {item["name"] for item in listed}
+
+
+def test_real_raw_asr_evidence_overrides_optimistic_document_confidence(services):
+    client, repository, storage, _ = services
+    upload_id, headers = _upload(client)
+    job_id = _create_job(client, headers, upload_id)
+    job = process_job(job_id, repository, storage, RawEvidenceProcessor())
+    assert job["status"] == "review_required"
+    report = json.loads(storage.path(f"jobs/{job_id}/quality/quality-report.json").read_text())
+    assert report["valid"] is False
+    assert report["segments"][0]["mean_word_confidence"] == 0.15
+
+
 def test_cancel_and_retry(services):
     client, _, _, queue = services
     upload_id, headers = _upload(client)
-    job_id = client.post("/v1/jobs", headers=headers, json={"upload_id": upload_id}).json()["job_id"]
+    job_id = client.post(f"/v1/jobs", headers=headers, json={"upload_id": upload_id}).json()["job_id"]
     assert client.post(f"/v1/jobs/{job_id}/cancel", headers=headers).json()["status"] == "cancelled"
     retried = client.post(f"/v1/jobs/{job_id}/retry", headers=headers).json()
     assert retried["status"] == "queued"
@@ -185,6 +273,9 @@ def test_lightweight_client_retries_and_resumes_upload(tmp_path: Path):
         if request.url.path.endswith("/complete"):
             return httpx.Response(200, json={"object_key": "objects/input.mp4"})
         if request.url.path == "/v1/jobs":
+            payload = json.loads(request.content)
+            assert payload["source"] == {"type": "upload", "upload_id": "up1"}
+            assert payload["model"] == "large-v3-turbo"
             return httpx.Response(200, json={"job_id": "job1", "status": "queued"})
         raise AssertionError(request.url)
 
@@ -198,6 +289,18 @@ def test_lightweight_client_retries_and_resumes_upload(tmp_path: Path):
     assert calls["part"] == 2
     saved = ClientState(tmp_path / ".state").load(record.sha256)
     assert saved and saved.job_id == "job1"
+
+
+def test_client_wait_returns_review_required_as_terminal(tmp_path: Path):
+    def handler(request: httpx.Request) -> httpx.Response:
+        assert request.url.path == "/v1/jobs/job-review"
+        return httpx.Response(200, json={"job_id": "job-review", "status": "review_required"})
+
+    client = OnlineClient(
+        "http://server", output_root=tmp_path / "outputs",
+        state_root=tmp_path / ".state", transport=httpx.MockTransport(handler),
+    )
+    assert client.wait("job-review", interval=0)["status"] == "review_required"
 
 
 def test_client_downloads_artifacts_to_output_root(tmp_path: Path):

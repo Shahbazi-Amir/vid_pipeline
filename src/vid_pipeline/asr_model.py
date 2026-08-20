@@ -8,6 +8,7 @@ import os
 import shutil
 import tarfile
 import tempfile
+import threading
 import urllib.request
 from dataclasses import dataclass
 from pathlib import Path
@@ -17,6 +18,8 @@ from vid_pipeline.errors import ExternalToolError
 
 DEFAULT_MANIFEST = Path(__file__).resolve().parents[2] / "models/asr/large-v3-turbo-ct2-v1.json"
 DEFAULT_CACHE = Path.home() / ".cache/vid-pipeline/asr"
+_VALIDATED_MODEL_SIGNATURES: dict[str, tuple[tuple[str, int, int], ...]] = {}
+_VALIDATION_LOCK = threading.Lock()
 
 
 class AsrModelProvisioningError(ExternalToolError):
@@ -29,6 +32,19 @@ def _sha256(path: Path) -> str:
         for chunk in iter(lambda: stream.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def _model_signature(path: Path, manifest: dict[str, Any]) -> tuple[tuple[str, int, int], ...] | None:
+    rows: list[tuple[str, int, int]] = []
+    for item in manifest["files"]:
+        candidate = path / item["path"]
+        if not candidate.is_file():
+            return None
+        stat = candidate.stat()
+        if stat.st_size != int(item["size"]):
+            return None
+        rows.append((str(item["path"]), stat.st_size, stat.st_mtime_ns))
+    return tuple(rows)
 
 
 @dataclass(frozen=True, slots=True)
@@ -51,7 +67,12 @@ class ProvisionedAsrModel:
 
 
 class AsrModelManager:
-    """Provision a pinned CT2 model without any Hugging Face runtime fallback."""
+    """Provision a pinned CT2 model without any Hugging Face runtime fallback.
+
+    A cached model is fully SHA-256 validated once per worker process. Repeated
+    jobs reuse that validation while file size/mtime signatures are unchanged,
+    avoiding a full re-hash of the ~1.6 GB model on every transcription.
+    """
 
     def __init__(
         self,
@@ -85,14 +106,33 @@ class AsrModelManager:
 
     @staticmethod
     def _validate_model(path: Path, manifest: dict[str, Any]) -> bool:
+        signature = _model_signature(path, manifest)
+        if signature is None:
+            return False
         for item in manifest["files"]:
-            candidate = path / item["path"]
-            if (
-                not candidate.is_file()
-                or candidate.stat().st_size != int(item["size"])
-                or _sha256(candidate) != item["sha256"]
-            ):
+            if _sha256(path / item["path"]) != item["sha256"]:
                 return False
+        return True
+
+    @staticmethod
+    def _validation_key(path: Path, manifest: dict[str, Any]) -> str:
+        return f"{path.resolve()}::{manifest['artifact_version']}::{manifest['asset_sha256']}"
+
+    @classmethod
+    def _validate_cached_model(cls, path: Path, manifest: dict[str, Any]) -> bool:
+        signature = _model_signature(path, manifest)
+        if signature is None:
+            return False
+        key = cls._validation_key(path, manifest)
+        with _VALIDATION_LOCK:
+            if _VALIDATED_MODEL_SIGNATURES.get(key) == signature:
+                return True
+        if not cls._validate_model(path, manifest):
+            with _VALIDATION_LOCK:
+                _VALIDATED_MODEL_SIGNATURES.pop(key, None)
+            return False
+        with _VALIDATION_LOCK:
+            _VALIDATED_MODEL_SIGNATURES[key] = signature
         return True
 
     @staticmethod
@@ -115,7 +155,7 @@ class AsrModelManager:
             )
         version_dir = self.cache_root / manifest["artifact_version"]
         model_dir = version_dir / "model"
-        if self._validate_model(model_dir, manifest):
+        if self._validate_cached_model(model_dir, manifest):
             return ProvisionedAsrModel(model_dir, manifest, True)
 
         self.cache_root.mkdir(parents=True, exist_ok=True)
@@ -147,6 +187,9 @@ class AsrModelManager:
                 if not self._validate_model(extracted, manifest):
                     raise AsrModelProvisioningError("Extracted ASR model failed integrity checks")
                 os.replace(temporary, version_dir)
+                # Record the installed model's signature only after verified files
+                # have reached their final path.
+                self._validate_cached_model(model_dir, manifest)
             except Exception:
                 shutil.rmtree(temporary, ignore_errors=True)
                 raise

@@ -8,23 +8,41 @@ import os
 import re
 import secrets
 from pathlib import Path
-from typing import Any
+from typing import Any, Iterator
 
 from fastapi import Depends, FastAPI, Header, HTTPException, Request
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, StreamingResponse
 
 from vid_pipeline.online_client import MEDIA_EXTENSIONS
+from vid_pipeline.profiles import DEFAULT_PROFILE, resolve_transcription_model
 from vid_pipeline.server.queue import InlineJobQueue, JobQueue, RedisJobQueue
-from vid_pipeline.server.repository import Repository, now
-from vid_pipeline.server.storage import LocalArtifactStore
+from vid_pipeline.server.repository import ConcurrentUpdateError, Repository, now
+from vid_pipeline.server.sources import normalize_source_request
+from vid_pipeline.server.storage import (
+    LocalArtifactStore,
+    ObjectStore,
+    object_store_from_env,
+)
 
 SAFE_NAME = re.compile(r"[^A-Za-z0-9._-]+")
+ACTIVE_JOB_STATUSES = {"queued", "preparing", "processing", "quality_check", "rendering"}
+RETRYABLE_JOB_STATUSES = {"failed", "review_required", "cancelled"}
+
+
+def _stream_object(store: ObjectStore, key: str) -> Iterator[bytes]:
+    body = store.open(key)
+    try:
+        while chunk := body.read(1024 * 1024):
+            yield chunk
+    finally:
+        body.close()
 
 
 def create_app(
     *,
     repository: Repository | None = None,
     storage: LocalArtifactStore | None = None,
+    object_store: ObjectStore | None = None,
     queue: JobQueue | None = None,
     token: str | None = None,
     max_file_size: int | None = None,
@@ -34,7 +52,8 @@ def create_app(
     repository = repository or Repository(
         os.getenv("VID_PIPELINE_DATABASE_URL", f"sqlite:///{root / 'pipeline.db'}")
     )
-    storage = storage or LocalArtifactStore(root)
+    workspace = storage or LocalArtifactStore(root)
+    object_store = object_store or (workspace if storage is not None else object_store_from_env(root))
     if queue is None:
         redis_url = os.getenv("VID_PIPELINE_REDIS_URL", "")
         queue = RedisJobQueue(redis_url) if redis_url else InlineJobQueue()
@@ -52,7 +71,10 @@ def create_app(
 
     @app.get("/health")
     def health() -> dict[str, str]:
-        return {"status": "ok"}
+        return {
+            "status": "ok",
+            "storage_backend": "local" if isinstance(object_store, LocalArtifactStore) else "object",
+        }
 
     @app.post("/v1/uploads", dependencies=auth)
     def create_upload(payload: dict[str, Any]) -> dict[str, Any]:
@@ -72,12 +94,19 @@ def create_app(
         upload_id = secrets.token_hex(16)
         safe = SAFE_NAME.sub("-", name)
         value = {
-            "upload_id": upload_id, "file_name": safe, "file_size": size, "sha256": digest,
-            "content_type": str(payload.get("content_type", "")), "uploaded_bytes": 0,
-            "status": "uploading", "object_key": "", "created_at": now(), "updated_at": now(),
+            "upload_id": upload_id,
+            "file_name": safe,
+            "file_size": size,
+            "sha256": digest,
+            "content_type": str(payload.get("content_type", "")),
+            "uploaded_bytes": 0,
+            "status": "uploading",
+            "object_key": "",
+            "created_at": now(),
+            "updated_at": now(),
         }
         repository.put_upload(value)
-        storage.path(f"uploads/{upload_id}/parts").mkdir(parents=True, exist_ok=True)
+        workspace.path(f"uploads/{upload_id}/parts").mkdir(parents=True, exist_ok=True)
         return value
 
     @app.get("/v1/uploads/{upload_id}", dependencies=auth)
@@ -94,7 +123,7 @@ def create_app(
             raise HTTPException(404, "upload not found")
         if part_number < 1:
             raise HTTPException(422, "invalid part number")
-        target = storage.path(f"uploads/{upload_id}/parts/{part_number:08d}.part")
+        target = workspace.path(f"uploads/{upload_id}/parts/{part_number:08d}.part")
         target.parent.mkdir(parents=True, exist_ok=True)
         written = 0
         with target.open("wb") as handle:
@@ -109,53 +138,85 @@ def create_app(
         )
         value["updated_at"] = now()
         repository.put_upload(value)
-        return {"part_number": part_number, "size": written, "uploaded_bytes": value["uploaded_bytes"]}
+        return {
+            "part_number": part_number,
+            "size": written,
+            "uploaded_bytes": value["uploaded_bytes"],
+        }
 
     @app.post("/v1/uploads/{upload_id}/complete", dependencies=auth)
     def complete_upload(upload_id: str) -> dict[str, Any]:
         value = repository.upload(upload_id)
         if not value:
             raise HTTPException(404, "upload not found")
-        target = storage.path(f"objects/{value['sha256']}/{value['file_name']}")
-        target.parent.mkdir(parents=True, exist_ok=True)
+        staging = workspace.path(f"uploads/{upload_id}/assembled/{value['file_name']}")
+        staging.parent.mkdir(parents=True, exist_ok=True)
         digest = hashlib.sha256()
         total = 0
-        with target.open("wb") as output:
-            for part in sorted(storage.path(f"uploads/{upload_id}/parts").glob("*.part")):
+        with staging.open("wb") as output:
+            for part in sorted(workspace.path(f"uploads/{upload_id}/parts").glob("*.part")):
                 with part.open("rb") as source:
                     while chunk := source.read(1024 * 1024):
                         digest.update(chunk)
                         output.write(chunk)
                         total += len(chunk)
         if total != value["file_size"] or digest.hexdigest() != value["sha256"]:
-            target.unlink(missing_ok=True)
+            staging.unlink(missing_ok=True)
             raise HTTPException(422, "size or hash mismatch")
         guessed = mimetypes.guess_type(value["file_name"])[0] or ""
         if guessed and not (guessed.startswith("audio/") or guessed.startswith("video/")):
-            target.unlink(missing_ok=True)
+            staging.unlink(missing_ok=True)
             raise HTTPException(415, "invalid MIME type")
-        value.update(status="uploaded", uploaded_bytes=total,
-                     object_key=str(target.relative_to(storage.root)), updated_at=now())
+        object_key = f"objects/{value['sha256']}/{value['file_name']}"
+        object_store.put_file(staging, object_key)
+        value.update(
+            status="uploaded",
+            uploaded_bytes=total,
+            object_key=object_key,
+            updated_at=now(),
+        )
         repository.put_upload(value)
         return value
 
     @app.post("/v1/jobs", dependencies=auth)
     def create_job(payload: dict[str, Any]) -> dict[str, Any]:
-        upload = repository.upload(str(payload.get("upload_id", "")))
-        if not upload or upload["status"] != "uploaded":
-            raise HTTPException(409, "upload is not complete")
+        try:
+            source = normalize_source_request(payload, repository)
+        except ValueError as exc:
+            message = str(exc)
+            raise HTTPException(409 if "upload is not complete" in message else 422, message) from exc
+        profile = str(payload.get("profile", DEFAULT_PROFILE) or DEFAULT_PROFILE)
+        try:
+            model = resolve_transcription_model(
+                profile,
+                str(payload.get("model", "") or ""),
+                allow_local_path=False,
+            )
+        except ValueError as exc:
+            raise HTTPException(422, str(exc)) from exc
         job_id = secrets.token_hex(12)
         value = {
-            "job_id": job_id, "upload_id": upload["upload_id"],
-            "input_object": upload["object_key"], "input_hash": upload["sha256"],
-            "file_name": upload["file_name"], "file_size": upload["file_size"],
-            "profile": payload.get("profile", "balanced"), "model": payload.get("model", ""),
+            "job_id": job_id,
+            "source": source,
+            "upload_id": source.get("upload_id", ""),
+            "input_object": source.get("object_key", ""),
+            "input_hash": source.get("sha256", ""),
+            "file_name": source.get("file_name", source.get("asset", "")),
+            "file_size": source.get("file_size", 0),
+            "profile": profile,
+            "model": model,
             "language": payload.get("language", "fa"),
             "audio_profile": payload.get("audio_profile", "safe"),
             "review_settings": {"editorial": bool(payload.get("editorial", True))},
-            "status": "queued", "progress_percent": 0, "current_stage": "queued",
-            "created_at": now(), "started_at": None, "completed_at": None, "retries": 0,
-            "error": None, "artifacts": [],
+            "status": "queued",
+            "progress_percent": 0,
+            "current_stage": "queued",
+            "created_at": now(),
+            "started_at": None,
+            "completed_at": None,
+            "retries": 0,
+            "error": None,
+            "artifacts": [],
         }
         repository.put_job(value)
         queue.enqueue(job_id)
@@ -174,36 +235,88 @@ def create_app(
 
     @app.post("/v1/jobs/{job_id}/cancel", dependencies=auth)
     def cancel_job(job_id: str) -> dict[str, Any]:
-        value = get_job(job_id)
-        queue.cancel(job_id)
-        value.update(status="cancelled", current_stage="cancelled", completed_at=now())
-        repository.put_job(value)
+        if not repository.job(job_id):
+            raise HTTPException(404, "job not found")
+        try:
+            value = repository.transition_job(
+                job_id,
+                expected_statuses=ACTIVE_JOB_STATUSES,
+                updates={
+                    "status": "cancelled",
+                    "current_stage": "cancelled",
+                    "completed_at": now(),
+                    "error": None,
+                },
+            )
+        except ConcurrentUpdateError as exc:
+            raise HTTPException(409, str(exc)) from exc
+        try:
+            queue.cancel(job_id)
+        except Exception as exc:
+            # The DB transition remains authoritative; a worker holding a stale
+            # revision cannot publish over this cancellation.
+            value["queue_cancel_warning"] = f"{type(exc).__name__}: {exc}"
         return value
 
     @app.post("/v1/jobs/{job_id}/retry", dependencies=auth)
     def retry_job(job_id: str) -> dict[str, Any]:
-        value = get_job(job_id)
-        value.update(status="queued", current_stage="queued", error=None,
-                     retries=int(value["retries"]) + 1)
-        repository.put_job(value)
+        current = repository.job(job_id)
+        if not current:
+            raise HTTPException(404, "job not found")
+        try:
+            value = repository.transition_job(
+                job_id,
+                expected_statuses=RETRYABLE_JOB_STATUSES,
+                updates={
+                    "status": "queued",
+                    "current_stage": "queued",
+                    "error": None,
+                    "completed_at": None,
+                    "progress_percent": 0,
+                    "retries": int(current.get("retries", 0)) + 1,
+                },
+            )
+        except ConcurrentUpdateError as exc:
+            raise HTTPException(409, str(exc)) from exc
         queue.enqueue(job_id)
         return value
 
     @app.get("/v1/jobs/{job_id}/artifacts", dependencies=auth)
     def list_artifacts(job_id: str) -> dict[str, Any]:
         value = get_job(job_id)
-        return {"artifacts": [
-            {"name": name, "size": storage.path(f"jobs/{job_id}/{name}").stat().st_size}
-            for name in value.get("artifacts", [])
-        ]}
+        artifacts = []
+        for name in value.get("artifacts", []):
+            key = f"jobs/{job_id}/{name}"
+            try:
+                size = object_store.size(key)
+            except (FileNotFoundError, KeyError):
+                continue
+            artifacts.append({"name": name, "size": size})
+        return {"artifacts": artifacts}
 
     @app.get("/v1/jobs/{job_id}/artifacts/{artifact_name:path}", dependencies=auth)
-    def download_artifact(job_id: str, artifact_name: str) -> FileResponse:
+    def download_artifact(job_id: str, artifact_name: str):
         value = get_job(job_id)
         if artifact_name not in value.get("artifacts", []):
             raise HTTPException(404, "artifact not found")
-        path = storage.path(f"jobs/{job_id}/{artifact_name}")
-        return FileResponse(path, filename=path.name)
+        key = f"jobs/{job_id}/{artifact_name}"
+        if isinstance(object_store, LocalArtifactStore):
+            path = object_store.path(key)
+            if not path.is_file():
+                raise HTTPException(404, "artifact not found")
+            return FileResponse(path, filename=path.name)
+        try:
+            size = object_store.size(key)
+        except Exception as exc:
+            raise HTTPException(404, "artifact not found") from exc
+        return StreamingResponse(
+            _stream_object(object_store, key),
+            media_type="application/octet-stream",
+            headers={
+                "Content-Disposition": f'attachment; filename="{Path(artifact_name).name}"',
+                "Content-Length": str(size),
+            },
+        )
 
     return app
 

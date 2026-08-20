@@ -5,6 +5,8 @@ from __future__ import annotations
 from dataclasses import asdict, dataclass, field
 from typing import Any, Literal
 
+from vid_pipeline.profiles import DEFAULT_PROFILE, PROJECT_ASR_MODEL
+
 ReviewStatus = Literal[
     "machine_transcribed",
     "machine_cleaned",
@@ -25,8 +27,8 @@ class JobRequest:
     output_location: str = "outputs"
     source_url: str = ""
     language: str = "fa"
-    profile: str = "balanced"
-    asr_model: str = "small"
+    profile: str = DEFAULT_PROFILE
+    asr_model: str = PROJECT_ASR_MODEL
     review_configuration: dict[str, Any] = field(default_factory=dict)
     metadata: dict[str, Any] = field(default_factory=dict)
 

@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import io
 import json
+import os
 import tarfile
 from pathlib import Path
 from types import SimpleNamespace
@@ -76,6 +77,34 @@ def test_cache_miss_then_hit_never_redownloads(tmp_path: Path) -> None:
     assert second.cache_hit is True
     assert calls == 1
     assert (first.path / "model.bin").is_file()
+
+
+def test_warm_cache_does_not_rehash_unchanged_model(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    manifest, archive, _ = _fixture(tmp_path)
+    manager = AsrModelManager(manifest, tmp_path / "cache", lambda *_args, **_kwargs: _Response(archive))
+    manager.provision("large-v3-turbo")
+
+    import vid_pipeline.asr_model as module
+
+    hashes = 0
+    real_hash = module._sha256
+
+    def counted(path: Path) -> str:
+        nonlocal hashes
+        hashes += 1
+        return real_hash(path)
+
+    monkeypatch.setattr(module, "_sha256", counted)
+    cached = AsrModelManager(manifest, tmp_path / "cache").provision("large-v3-turbo")
+
+    assert cached.cache_hit is True
+    assert hashes == 0
+
+
+def test_cache_environment_points_to_persistent_asr_directory(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setenv("VID_PIPELINE_ASR_CACHE", str(tmp_path / "models" / "asr"))
+    manager = AsrModelManager(manifest_path=tmp_path / "manifest.json")
+    assert manager.cache_root == tmp_path / "models" / "asr"
 
 
 def test_corrupt_cache_is_replaced(tmp_path: Path) -> None:

@@ -1,4 +1,4 @@
-"""Lightweight resumable upload client. This module never imports worker code."""
+"""Lightweight client for resumable uploads and remote-source jobs."""
 
 from __future__ import annotations
 
@@ -138,6 +138,24 @@ class OnlineClient:
                 time.sleep(min(2**attempt, 5))
         raise RuntimeError(str(error))
 
+    @staticmethod
+    def _job_options(
+        *,
+        profile: str,
+        model: str,
+        language: str,
+        editorial: bool,
+        audio_profile: str,
+    ) -> dict[str, Any]:
+        resolved_model = resolve_transcription_model(profile, model, allow_local_path=False)
+        return {
+            "profile": profile,
+            "model": resolved_model,
+            "language": language,
+            "editorial": editorial,
+            "audio_profile": audio_profile,
+        }
+
     def submit_file(
         self,
         path: Path,
@@ -153,13 +171,13 @@ class OnlineClient:
         path = path.resolve()
         if not path.is_file() or path.suffix.lower() not in MEDIA_EXTENSIONS:
             raise ValueError(f"unsupported media file: {path}")
-
-        # Fail before hashing/uploading large media if the requested profile or
-        # named model cannot be provisioned by the production worker.
-        resolved_model = resolve_transcription_model(
-            profile, model, allow_local_path=False
+        options = self._job_options(
+            profile=profile,
+            model=model,
+            language=language,
+            editorial=editorial,
+            audio_profile=audio_profile,
         )
-
         digest = sha256_file(path)
         record = self.state.load(digest) if resume and not force else None
         if record and record.job_id:
@@ -171,8 +189,10 @@ class OnlineClient:
         try:
             if not record.upload_id:
                 upload = self._request("POST", "/v1/uploads", json={
-                    "file_name": path.name, "file_size": record.file_size,
-                    "sha256": digest, "content_type": "application/octet-stream",
+                    "file_name": path.name,
+                    "file_size": record.file_size,
+                    "sha256": digest,
+                    "content_type": "application/octet-stream",
                 }).json()
                 record.upload_id = upload["upload_id"]
                 record.uploaded_bytes = int(upload.get("uploaded_bytes", 0))
@@ -185,21 +205,21 @@ class OnlineClient:
                 part = record.uploaded_bytes // CHUNK_SIZE + 1
                 while chunk := handle.read(CHUNK_SIZE):
                     self._request(
-                        "PUT", f"/v1/uploads/{record.upload_id}/parts/{part}",
-                        content=chunk, headers={"Content-Type": "application/octet-stream"},
+                        "PUT",
+                        f"/v1/uploads/{record.upload_id}/parts/{part}",
+                        content=chunk,
+                        headers={"Content-Type": "application/octet-stream"},
                     )
                     record.uploaded_bytes += len(chunk)
                     self.state.save(record)
                     part += 1
-            complete = self._request(
-                "POST", f"/v1/uploads/{record.upload_id}/complete"
-            ).json()
+            complete = self._request("POST", f"/v1/uploads/{record.upload_id}/complete").json()
             record.remote_object_key = complete["object_key"]
-            job = self._request("POST", "/v1/jobs", json={
-                "upload_id": record.upload_id, "profile": profile, "model": resolved_model,
-                "language": language, "editorial": editorial,
-                "audio_profile": audio_profile,
-            }).json()
+            job = self._request(
+                "POST",
+                "/v1/jobs",
+                json={"source": {"type": "upload", "upload_id": record.upload_id}, **options},
+            ).json()
             record.job_id = job["job_id"]
             record.job_status = job["status"]
             self.state.save(record)
@@ -209,6 +229,60 @@ class OnlineClient:
             record.retry_count += 1
             self.state.save(record)
             raise
+
+    def submit_url(
+        self,
+        url: str,
+        *,
+        profile: str = DEFAULT_PROFILE,
+        model: str = "",
+        language: str = "fa",
+        editorial: bool = True,
+        audio_profile: str = "safe",
+    ) -> dict[str, Any]:
+        options = self._job_options(
+            profile=profile,
+            model=model,
+            language=language,
+            editorial=editorial,
+            audio_profile=audio_profile,
+        )
+        return self._request(
+            "POST", "/v1/jobs", json={"source": {"type": "url", "url": url}, **options}
+        ).json()
+
+    def submit_github_release(
+        self,
+        repository: str,
+        tag: str,
+        asset: str,
+        *,
+        profile: str = DEFAULT_PROFILE,
+        model: str = "",
+        language: str = "fa",
+        editorial: bool = True,
+        audio_profile: str = "safe",
+    ) -> dict[str, Any]:
+        options = self._job_options(
+            profile=profile,
+            model=model,
+            language=language,
+            editorial=editorial,
+            audio_profile=audio_profile,
+        )
+        return self._request(
+            "POST",
+            "/v1/jobs",
+            json={
+                "source": {
+                    "type": "github_release",
+                    "repository": repository,
+                    "tag": tag,
+                    "asset": asset,
+                },
+                **options,
+            },
+        ).json()
 
     def job_status(self, job_id: str) -> dict[str, Any]:
         return self._request("GET", f"/v1/jobs/{job_id}").json()

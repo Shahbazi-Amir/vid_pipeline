@@ -12,9 +12,13 @@ from vid_pipeline.models import TranscriptDocument
 from vid_pipeline.render import render_outputs
 from vid_pipeline.server.processing import process_media_core
 from vid_pipeline.server.quality_gate import evaluate_transcript_quality
-from vid_pipeline.server.repository import Repository, now
+from vid_pipeline.server.repository import ConcurrentUpdateError, Repository, now
 from vid_pipeline.server.sources import SourceMaterializer
-from vid_pipeline.server.storage import LocalArtifactStore
+from vid_pipeline.server.storage import (
+    LocalArtifactStore,
+    ObjectStore,
+    object_store_from_env,
+)
 
 
 class Processor(Protocol):
@@ -45,6 +49,22 @@ def _write_terminal_state(
     )
 
 
+def _sync_artifacts(
+    job_id: str,
+    job_root: Path,
+    artifacts: list[str],
+    object_store: ObjectStore,
+) -> None:
+    """Publish only declared artifacts after they exist locally."""
+    for name in artifacts:
+        source = (job_root / name).resolve()
+        if job_root.resolve() not in source.parents:
+            raise ValueError(f"unsafe artifact path: {name}")
+        if not source.is_file():
+            raise FileNotFoundError(f"declared artifact is missing: {name}")
+        object_store.put_file(source, f"jobs/{job_id}/{name}")
+
+
 def _run_processing_core(
     media: Path,
     job: dict[str, Any],
@@ -67,12 +87,22 @@ def _run_processing_core(
     return document, raw_payload, evaluate_transcript_quality(document, raw_payload)
 
 
+def _latest_after_concurrency(repository: Repository, job_id: str) -> dict[str, Any]:
+    latest = repository.job(job_id)
+    if latest is None:
+        raise ConcurrentUpdateError(f"job disappeared during concurrent update: {job_id}")
+    return latest
+
+
 def process_job(
     job_id: str,
     repository: Repository,
     storage: LocalArtifactStore,
     processor: Processor | None = None,
+    *,
+    object_store: ObjectStore | None = None,
 ) -> dict[str, Any]:
+    object_store = object_store or storage
     job = repository.job(job_id)
     if not job:
         raise ValueError(f"unknown job: {job_id}")
@@ -86,7 +116,7 @@ def process_job(
             started_at=job.get("started_at") or now(),
         )
         repository.put_job(job)
-        media = SourceMaterializer(repository, storage).materialize(job, work)
+        media = SourceMaterializer(repository, object_store).materialize(job, work)
         job["file_name"] = job.get("file_name") or media.name
         job["file_size"] = int(job.get("file_size") or media.stat().st_size)
         repository.put_job(job)
@@ -94,6 +124,12 @@ def process_job(
         job.update(status="processing", current_stage="canonical_core", progress_percent=20)
         repository.put_job(job)
         document, raw_payload, quality_report = _run_processing_core(media, job, work, processor)
+
+        # A cancel/retry may have happened while ASR was running. The stale
+        # worker must never publish over that newer state.
+        latest = repository.job(job_id)
+        if latest and int(latest.get("_revision", 0)) != int(job.get("_revision", 0)):
+            return latest
 
         job_root = storage.path(f"jobs/{job_id}")
         source_info = job_root / "source-materialization.json"
@@ -122,8 +158,6 @@ def process_job(
         if not _copy_if_present(work / "transcript.machine.txt", machine / "transcript.machine.txt"):
             (machine / "transcript.machine.txt").write_text(document.text + "\n", encoding="utf-8")
 
-        # Review-required jobs must retain the normalized audio used by ASR so
-        # a later human verification can contain real audio evidence.
         audio_dir = job_root / "audio"
         _copy_if_present(work / "audio.wav", audio_dir / "audio-16k-mono.wav")
         _copy_if_present(work / "audio-quality.json", audio_dir / "audio-quality.json")
@@ -188,6 +222,7 @@ def process_job(
             ):
                 if (job_root / name).is_file():
                     artifacts.append(name)
+            _sync_artifacts(job_id, job_root, artifacts, object_store)
             job.update(
                 status="review_required",
                 current_stage="quality_gate",
@@ -241,6 +276,7 @@ def process_job(
             str(path.relative_to(job_root))
             for path in sorted(delivery.iterdir())
         ]
+        _sync_artifacts(job_id, job_root, artifacts, object_store)
         job.update(
             status="completed",
             current_stage="completed",
@@ -260,18 +296,33 @@ def process_job(
         _write_terminal_state(job, storage, artifacts)
         shutil.rmtree(work, ignore_errors=True)
         return job
+    except ConcurrentUpdateError:
+        return _latest_after_concurrency(repository, job_id)
     except Exception as exc:
-        job.update(
+        latest = repository.job(job_id)
+        if latest and latest.get("status") == "cancelled":
+            return latest
+        failure = latest or job
+        failure.update(
             status="failed",
             current_stage="failed",
             error=f"{type(exc).__name__}: {exc}",
             completed_at=now(),
         )
-        repository.put_job(job)
+        try:
+            repository.put_job(failure)
+        except ConcurrentUpdateError:
+            return _latest_after_concurrency(repository, job_id)
         raise
 
 
 def run_job_from_environment(job_id: str) -> dict[str, Any]:
     root = Path(os.getenv("VID_PIPELINE_STORAGE_ROOT", "/data/storage"))
     database = os.getenv("VID_PIPELINE_DATABASE_URL", f"sqlite:///{root / 'pipeline.db'}")
-    return process_job(job_id, Repository(database), LocalArtifactStore(root))
+    workspace = LocalArtifactStore(root)
+    return process_job(
+        job_id,
+        Repository(database),
+        workspace,
+        object_store=object_store_from_env(root),
+    )

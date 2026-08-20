@@ -1,0 +1,292 @@
+name: Bank Mellat 9-11 parallel ASR
+run-name: Bank Mellat 9-11 parallel ASR ${{ github.run_id }}
+
+on:
+  push:
+    branches:
+      - agent/bankmellatt-9-11-parallel
+    paths:
+      - '.github/workflows/bankmellatt-9-11-parallel.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+env:
+  RELEASE_TAG: chehelstoun-archive-v1
+  PROFILE: balanced
+  LANGUAGE: fa
+  AUDIO_PROFILE: safe
+  VID_PIPELINE_ACCURACY_MODE: balanced
+
+concurrency:
+  group: bankmellatt-9-11-parallel
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.discover.outputs.matrix }}
+      count: ${{ steps.discover.outputs.count }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Discover Bank Mellat 9, 10, 11 M4A assets
+        id: discover
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh api "repos/${GITHUB_REPOSITORY}/releases/tags/${RELEASE_TAG}" > /tmp/release.json
+          python - <<'PY'
+          import json, os, re
+          from pathlib import Path
+
+          release=json.loads(Path('/tmp/release.json').read_text(encoding='utf-8'))
+          assets=release.get('assets',[])
+          wanted={9:[],10:[],11:[]}
+          for a in assets:
+              name=a.get('name','')
+              if Path(name).suffix.lower() != '.m4a':
+                  continue
+              low=name.lower()
+              if 'voice' in low or 'mizan' in low or 'میزان' in name:
+                  continue
+              stem=Path(name).stem
+              for no in wanted:
+                  if re.search(rf'(?<!\d)0?{no}(?!\d)', stem):
+                      wanted[no].append(a)
+
+          tasks=[]
+          for no in (9,10,11):
+              candidates=sorted(wanted[no], key=lambda a:(a.get('created_at',''),a.get('name','')))
+              if not candidates:
+                  raise SystemExit(f'Bank Mellat {no}: matching M4A asset not found in release {os.environ["RELEASE_TAG"]}')
+              a=candidates[-1]
+              tasks.append({
+                  'no':no,
+                  'name':a['name'],
+                  'url':a['browser_download_url'],
+                  'size':a['size'],
+                  'dest':f'outputs/bankmellatt/{no}',
+                  'title':f'بانک ملت {no}',
+              })
+              print(f'SELECT {no}: {a["name"]} ({a["size"]} bytes)')
+
+          compact=json.dumps({'include':tasks},ensure_ascii=False,separators=(',',':'))
+          with open(os.environ['GITHUB_OUTPUT'],'a',encoding='utf-8') as f:
+              f.write('matrix<<EOF\n'+compact+'\nEOF\n')
+              f.write('count='+str(len(tasks))+'\n')
+          PY
+
+  process:
+    needs: prepare
+    if: needs.prepare.outputs.count == '3'
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 720
+    env:
+      NO: ${{ matrix.no }}
+      ASSET_NAME: ${{ matrix.name }}
+      ASSET_URL: ${{ matrix.url }}
+      ASSET_SIZE: ${{ matrix.size }}
+      DEST: ${{ matrix.dest }}
+      TITLE: ${{ matrix.title }}
+      VID_PIPELINE_ASR_CACHE: ${{ github.workspace }}/.cache/vid-pipeline/asr
+      HF_HOME: ${{ github.workspace }}/.cache/huggingface
+      HF_HUB_CACHE: ${{ github.workspace }}/.cache/huggingface/hub
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Recheck existing output
+        id: existing
+        shell: bash
+        run: |
+          set -euo pipefail
+          git pull --ff-only origin main
+          if [[ -s "$DEST/delivery/transcript.txt" && -s "$DEST/pre_review/transcript.pre-review.json" && -s "$DEST/accuracy/transcript.consensus.json" && -s "$DEST/review/assistant-review-package.json" ]]; then
+            echo 'skip=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'skip=false' >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-python@v5
+        if: steps.existing.outputs.skip != 'true'
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Cache ASR model
+        if: steps.existing.outputs.skip != 'true'
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/.cache/vid-pipeline/asr
+          key: asr-${{ runner.os }}-py311-faster-whisper-1.2.1-large-v3-turbo-v1
+
+      - name: Install pipeline worker
+        if: steps.existing.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg curl rsync
+          python -m pip install --upgrade pip
+          pip install -e '.[worker]'
+
+      - name: Download and validate M4A
+        if: steps.existing.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          work="/tmp/bankmellatt-${NO}-${GITHUB_RUN_ID}"
+          rm -rf "$work"
+          mkdir -p "$work/input" "$work/runtime"
+          input="$work/input/bankmellatt-${NO}.m4a"
+          curl -fL --retry 5 --retry-all-errors --connect-timeout 30 --max-time 1800 "$ASSET_URL" -o "$input"
+          test "$(stat -c %s "$input")" -eq "$ASSET_SIZE"
+          ffprobe -v error -select_streams a:0 -show_entries stream=codec_name -of default=nw=1:nk=1 "$input" | grep -q .
+          echo "INPUT=$input" >> "$GITHUB_ENV"
+          echo "WORK=$work" >> "$GITHUB_ENV"
+
+      - name: Run Persian ASR pipeline
+        if: steps.existing.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          vid-pipeline run-file "$INPUT" \
+            --name "bankmellatt-${NO}" \
+            --output-root "$WORK/runtime" \
+            --profile "$PROFILE" \
+            --language "$LANGUAGE" \
+            --device cpu \
+            --compute-type int8 \
+            --audio-profile "$AUDIO_PROFILE" \
+            --hotwords "بانک ملت، کمیل رودی، دکتر کمیل رودی، سواد مالی" \
+            --title "$TITLE" \
+            --program "بانک ملت" \
+            --speaker "دکتر کمیل رودی" \
+            --source-url "$ASSET_URL" \
+            --no-editorial
+
+      - name: Build pipeline output and review-ready copy
+        if: steps.existing.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          job_dir=$(find "$WORK/runtime" -mindepth 1 -maxdepth 1 -type d -print -quit)
+          test -n "$job_dir"
+          test -s "$job_dir/delivery/transcript.txt"
+          test -s "$job_dir/pre_review/transcript.pre-review.json"
+          test -s "$job_dir/accuracy/transcript.consensus.json"
+          test -s "$job_dir/review/assistant-review-package.json"
+
+          rm -rf "$DEST"
+          mkdir -p "$DEST"
+          for d in delivery pre_review accuracy review raw machine final; do
+            if [[ -d "$job_dir/$d" ]]; then
+              mkdir -p "$DEST/$d"
+              rsync -a \
+                --exclude 'clips/' \
+                --exclude 'review-package.zip' \
+                --exclude '*.mp3' --exclude '*.m4a' --exclude '*.wav' --exclude '*.flac' \
+                --exclude '*.aac' --exclude '*.ogg' --exclude '*.opus' \
+                --exclude '*.mp4' --exclude '*.mkv' --exclude '*.mov' --exclude '*.webm' \
+                --exclude '*.avi' --exclude '*.m4v' \
+                "$job_dir/$d/" "$DEST/$d/"
+            fi
+          done
+          [[ -f "$job_dir/result.json" ]] && cp "$job_dir/result.json" "$DEST/result.json"
+          [[ -f "$job_dir/source.json" ]] && cp "$job_dir/source.json" "$DEST/source.json"
+
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          dest=Path(os.environ['DEST'])
+          payload={
+            'collection':'بانک ملت',
+            'episode':int(os.environ['NO']),
+            'asset_name':os.environ['ASSET_NAME'],
+            'source_release_tag':os.environ['RELEASE_TAG'],
+            'source_url':os.environ['ASSET_URL'],
+            'profile':os.environ['PROFILE'],
+            'asr_model':'large-v3-turbo',
+            'language':os.environ['LANGUAGE'],
+            'audio_profile':os.environ['AUDIO_PROFILE'],
+            'accuracy_mode':os.environ['VID_PIPELINE_ACCURACY_MODE'],
+            'editorial':False,
+            'chatgpt_review_ready':True,
+            'full_proofread_complete':False,
+            'pipeline_run_id':os.environ['GITHUB_RUN_ID'],
+          }
+          (dest/'metadata.json').write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          PY
+
+          canonical="outputs/review-ready/bankmellatt/${NO}"
+          rm -rf "$canonical"
+          mkdir -p "$canonical/review"
+          cp "$DEST/delivery/transcript.txt" "$canonical/transcript.txt"
+          [[ -s "$DEST/delivery/transcript.md" ]] && cp "$DEST/delivery/transcript.md" "$canonical/transcript.md"
+          [[ -s "$DEST/delivery/transcript.timestamped.md" ]] && cp "$DEST/delivery/transcript.timestamped.md" "$canonical/transcript.timestamped.md"
+          cp "$DEST/review/assistant-review-package.json" "$canonical/review/assistant-review-package.json"
+          [[ -s "$DEST/source.json" ]] && cp "$DEST/source.json" "$canonical/source.json"
+          cp "$DEST/metadata.json" "$canonical/metadata.json"
+
+      - name: Commit each completed transcript independently
+        if: steps.existing.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          canonical="outputs/review-ready/bankmellatt/${NO}"
+          git add -f "$DEST" "$canonical"
+          git diff --cached --quiet && exit 0
+          git commit -m "Add Bank Mellat ${NO} transcript from M4A"
+          for attempt in 1 2 3 4 5 6 7 8; do
+            if ! git pull --rebase origin main; then
+              git rebase --abort || true
+              exit 1
+            fi
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep $((attempt*4))
+          done
+          exit 1
+
+      - name: Cleanup temporary media
+        if: always()
+        shell: bash
+        run: |
+          rm -rf "/tmp/bankmellatt-${NO}-${GITHUB_RUN_ID}"
+
+  verify:
+    needs: [prepare, process]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Verify 9, 10, 11 outputs exist
+        shell: bash
+        run: |
+          set -euo pipefail
+          git pull --ff-only origin main
+          for no in 9 10 11; do
+            test -s "outputs/bankmellatt/${no}/delivery/transcript.txt"
+            test -s "outputs/review-ready/bankmellatt/${no}/transcript.txt"
+          done

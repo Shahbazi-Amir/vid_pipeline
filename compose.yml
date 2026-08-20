@@ -7,6 +7,9 @@ services:
       VID_PIPELINE_DATABASE_URL: postgresql+psycopg://pipeline:pipeline@database/pipeline
       VID_PIPELINE_REDIS_URL: redis://redis:6379/0
       VID_PIPELINE_STORAGE_ROOT: /data/storage
+      VID_PIPELINE_JOB_TIMEOUT_SECONDS: ${VID_PIPELINE_JOB_TIMEOUT_SECONDS:-43200}
+      VID_PIPELINE_RESULT_TTL_SECONDS: ${VID_PIPELINE_RESULT_TTL_SECONDS:-604800}
+      VID_PIPELINE_FAILURE_TTL_SECONDS: ${VID_PIPELINE_FAILURE_TTL_SECONDS:-2592000}
     ports: ["8000:8000"]
     volumes: [pipeline-storage:/data/storage]
     depends_on: [database, redis]

@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any, Protocol
 
 from vid_pipeline.models import TranscriptDocument, TranscriptSegment
+from vid_pipeline.profiles import DEFAULT_PROFILE, resolve_transcription_model
 from vid_pipeline.render import render_outputs
 from vid_pipeline.server.quality_gate import evaluate_transcript_quality
 from vid_pipeline.server.repository import Repository, now
@@ -24,6 +25,13 @@ class WhisperProcessor:
         from vid_pipeline.audio import normalize_audio
         from vid_pipeline.transcribe import TranscriptionConfig, transcribe_audio
 
+        model = resolve_transcription_model(
+            str(job.get("profile", DEFAULT_PROFILE)),
+            str(job.get("model", "")),
+            allow_local_path=True,
+        )
+        job["model"] = model
+
         audio = normalize_audio(
             media, work / "audio.wav", overwrite=True,
             profile=job.get("audio_profile", "safe"),
@@ -32,7 +40,7 @@ class WhisperProcessor:
         raw_md = work / "transcript.raw.md"
         result = transcribe_audio(
             audio, raw_json, raw_md,
-            TranscriptionConfig(model=job["model"], language=job["language"]),
+            TranscriptionConfig(model=model, language=job["language"]),
         )
         segments = [
             TranscriptSegment(
@@ -124,8 +132,6 @@ def process_job(
             json.dumps(quality_report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
 
-        # Never leave stale final/delivery output behind after a retry that now
-        # fails the quality gate.
         final_dir = storage.path(f"jobs/{job_id}/final")
         delivery = storage.path(f"jobs/{job_id}/delivery")
         if not quality_report["valid"]:

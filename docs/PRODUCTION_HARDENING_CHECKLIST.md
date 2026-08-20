@@ -5,8 +5,8 @@
 ## وضعیت کلی
 
 - کل مشکلات اصلی: **10**
-- حل‌شده: **2**
-- باقی‌مانده: **8**
+- حل‌شده: **3**
+- باقی‌مانده: **7**
 
 ## 1. جلوگیری از Final شدن متن بی‌کیفیت — DONE
 
@@ -41,16 +41,15 @@ Worker آنلاین صرفاً پایان یافتن ASR را معادل موف�
 
 ### راه‌حل اجراشده
 - `QueuePolicy` مرکزی برای تنظیمات عملیاتی RQ اضافه شد.
-- timeout پیش‌فرض ASR برابر **43200 ثانیه / 12 ساعت** شد؛ همان سقفی که workflow پردازش سنگین قبلی پروژه استفاده می‌کرد.
-- timeout هم به‌عنوان `default_timeout` خود Queue و هم به‌صورت `job_timeout` روی هر Job نوشته می‌شود تا fallback ناخواسته به default کتابخانه ممکن نباشد.
+- timeout پیش‌فرض ASR برابر **43200 ثانیه / 12 ساعت** شد.
+- timeout هم به‌عنوان `default_timeout` خود Queue و هم به‌صورت `job_timeout` روی هر Job نوشته می‌شود.
 - تنظیمات از Environment قابل تغییر و دارای validation هستند:
   - `VID_PIPELINE_JOB_TIMEOUT_SECONDS=43200`، بازه مجاز 5 دقیقه تا 7 روز.
   - `VID_PIPELINE_RESULT_TTL_SECONDS=604800`، پیش‌فرض 7 روز.
   - `VID_PIPELINE_FAILURE_TTL_SECONDS=2592000`، پیش‌فرض 30 روز.
 - failure/result metadata به‌اندازه کافی نگه داشته می‌شوند تا عیب‌یابی Jobهای چندساعته ممکن باشد.
-- `compose.yml` این تنظیمات را صریحاً به API queue producer می‌دهد و `.env.example` نیز به‌روزرسانی شد.
-- Auto-retry خودکار عمداً اضافه نشد؛ چون retry کورِ ASR سنگین می‌تواند چند ساعت پردازش را بدون تشخیص علت تکرار کند. retry کنترل‌شده در لایه API حفظ می‌شود.
-- timeout بر اساس duration در API محاسبه نشد، چون در لحظه enqueue هنوز media probe canonical انجام نشده و probe اضافی در API یک scan تکراری ایجاد می‌کرد؛ فعلاً 12 ساعت safe default + override عملیاتی انتخاب شد و بهینه‌سازی duration-aware همراه مسئله 6 انجام می‌شود.
+- `compose.yml` و `.env.example` به‌روزرسانی شدند.
+- Auto-retry کور عمداً اضافه نشد؛ retry کنترل‌شده در API باقی ماند.
 
 ### تست
 - default policy: `43200 / 604800 / 2592000` — PASS
@@ -59,18 +58,38 @@ Worker آنلاین صرفاً پایان یافتن ASR را معادل موف�
 - Redis queue constructor receives `default_timeout` — PASS
 - every enqueue receives explicit `job_timeout`, `result_ttl`, `failure_ttl` — PASS
 - مجموع تست‌های targeted: **7 passed**
-- هنگام اولین اجرای تست یک ناسازگاری بین سقف retention هفت‌روزه و failure TTL سی‌روزه کشف شد؛ سقف retention مستقل 90 روز تعریف و سپس تمام تست‌ها دوباره PASS شدند.
+- اولین اجرا ناسازگاری سقف retention را پیدا کرد؛ بعد از اصلاح دوباره همه تست‌ها PASS شدند.
 
-## 3. ناسازگاری Profile و Model provisioning — TODO
+## 3. ناسازگاری Profile و Model provisioning — DONE
 
 ### مشکل
-Profileها `small`/`large-v3-turbo`/`large-v3` تولید می‌کنند ولی model provisioner پروژه فقط artifact کنترل‌شده محدودی را قبول می‌کند.
+`fast` به `small` و `accurate` به `large-v3` نگاشت می‌شدند، در حالی که Provisioner پروژه فقط artifact کنترل‌شده و integrity-pinned مدل `large-v3-turbo` را دارد. علاوه بر آن `OnlineClient` و `TranscriptionConfig` و `JobRequest` defaultهای `small` داشتند و API مدل را قبل از Queue validate نمی‌کرد.
 
-### راه‌حل برنامه‌ریزی‌شده
-- یک منبع حقیقت واحد برای model policy.
-- validation قبل از enqueue.
-- حذف defaultهای متناقض Client/API/Worker.
-- تست تمام profileها.
+### راه‌حل اجراشده
+- `src/vid_pipeline/profiles.py` به منبع حقیقت واحد سیاست مدل تبدیل شد.
+- مدل production فعلی به‌صورت صریح `PROJECT_ASR_MODEL=large-v3-turbo` تعریف شد.
+- تا زمانی که artifact کنترل‌شده جدید اضافه نشده، هر سه profile یعنی `fast`, `balanced`, `accurate` به همین مدل provisionable نگاشت می‌شوند؛ تفاوت سرعت/دقت profileها بعداً از inference policy و targeted passes اعمال می‌شود، نه با مدل غیرقابل provision.
+- explicit named modelهای بدون artifact مانند `small`, `medium`, `large-v3` رد می‌شوند.
+- local CT2 directory فقط برای مسیر local/development مجاز است؛ API remote اجازه local path نمی‌دهد.
+- Online Client قبل از hash/upload فایل، profile/model را validate می‌کند تا فایل حجیم بیهوده Upload نشود.
+- API دوباره به‌صورت مستقل model policy را validate می‌کند و request نامعتبر را با HTTP 422 قبل از enqueue رد می‌کند.
+- Worker نیز دفاع مستقل دارد و پیش از ASR دوباره model را resolve می‌کند.
+- `TranscriptionConfig`, `JobRequest` و `.env.example` از default واحد `large-v3-turbo` استفاده می‌کنند.
+- `vid-accuracy --model` نیز به همین policy وصل شد تا CLI فرعی نتواند model نام‌دار غیرقابل provision وارد کند.
+- regression test جدید در `tests/test_model_policy.py` اضافه شد؛ شامل API contract برای هر سه profile و عدم enqueue مدل/profile نامعتبر.
+
+### تست
+- `fast -> large-v3-turbo` — PASS
+- `balanced -> large-v3-turbo` — PASS
+- `accurate -> large-v3-turbo` — PASS
+- reject `small` — PASS
+- reject `medium` — PASS
+- reject `large-v3` — PASS
+- reject unknown profile — PASS
+- local model path allowed in local mode — PASS
+- local model path blocked in remote/production mode — PASS
+- targeted runtime policy checks: **9/9 passed**
+- تست‌های API contract در repository اضافه شده‌اند؛ CI خودکار اجرا نشد چون طبق تصمیم قبلی پروژه تمام GitHub Actions workflows حذف شده‌اند و Runner فعلی نیز DNS مستقیم GitHub برای clone ندارد.
 
 ## 4. Cache مدل در Docker/Worker — TODO
 

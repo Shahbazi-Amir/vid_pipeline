@@ -10,16 +10,23 @@ import tarfile
 import tempfile
 import threading
 import urllib.request
+from contextlib import contextmanager
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
+from typing import Any, Iterator
 
 from vid_pipeline.errors import ExternalToolError
+
+try:
+    import fcntl
+except ImportError:  # pragma: no cover - Windows fallback is process-local.
+    fcntl = None  # type: ignore[assignment]
 
 DEFAULT_MANIFEST = Path(__file__).resolve().parents[2] / "models/asr/large-v3-turbo-ct2-v1.json"
 DEFAULT_CACHE = Path.home() / ".cache/vid-pipeline/asr"
 _VALIDATED_MODEL_SIGNATURES: dict[str, tuple[tuple[str, int, int], ...]] = {}
 _VALIDATION_LOCK = threading.Lock()
+_PROVISION_THREAD_LOCK = threading.Lock()
 
 
 class AsrModelProvisioningError(ExternalToolError):
@@ -45,6 +52,22 @@ def _model_signature(path: Path, manifest: dict[str, Any]) -> tuple[tuple[str, i
             return None
         rows.append((str(item["path"]), stat.st_size, stat.st_mtime_ns))
     return tuple(rows)
+
+
+@contextmanager
+def _cache_provision_lock(cache_root: Path) -> Iterator[None]:
+    """Serialize cache installation across threads and worker containers."""
+    cache_root.mkdir(parents=True, exist_ok=True)
+    lock_path = cache_root / ".provision.lock"
+    with _PROVISION_THREAD_LOCK:
+        with lock_path.open("a+b") as handle:
+            if fcntl is not None:
+                fcntl.flock(handle.fileno(), fcntl.LOCK_EX)
+            try:
+                yield
+            finally:
+                if fcntl is not None:
+                    fcntl.flock(handle.fileno(), fcntl.LOCK_UN)
 
 
 @dataclass(frozen=True, slots=True)
@@ -147,18 +170,12 @@ class AsrModelManager:
                     raise AsrModelProvisioningError("Links are forbidden in ASR model archive")
             bundle.extractall(destination, filter="data")
 
-    def provision(self, model_name: str) -> ProvisionedAsrModel:
-        manifest = self._manifest()
-        if model_name not in {manifest["name"], "large-v3-turbo"}:
-            raise AsrModelProvisioningError(
-                f"No project-controlled ASR artifact is configured for model {model_name!r}"
-            )
-        version_dir = self.cache_root / manifest["artifact_version"]
-        model_dir = version_dir / "model"
-        if self._validate_cached_model(model_dir, manifest):
-            return ProvisionedAsrModel(model_dir, manifest, True)
-
-        self.cache_root.mkdir(parents=True, exist_ok=True)
+    def _install_missing_model(
+        self,
+        manifest: dict[str, Any],
+        version_dir: Path,
+        model_dir: Path,
+    ) -> ProvisionedAsrModel:
         if version_dir.exists():
             quarantine = version_dir.with_name(version_dir.name + ".corrupt")
             shutil.rmtree(quarantine, ignore_errors=True)
@@ -187,8 +204,6 @@ class AsrModelManager:
                 if not self._validate_model(extracted, manifest):
                     raise AsrModelProvisioningError("Extracted ASR model failed integrity checks")
                 os.replace(temporary, version_dir)
-                # Record the installed model's signature only after verified files
-                # have reached their final path.
                 self._validate_cached_model(model_dir, manifest)
             except Exception:
                 shutil.rmtree(temporary, ignore_errors=True)
@@ -203,6 +218,22 @@ class AsrModelManager:
                 f"Project ASR artifact download failed: {exc}"
             ) from exc
         return ProvisionedAsrModel(model_dir, manifest, False)
+
+    def provision(self, model_name: str) -> ProvisionedAsrModel:
+        manifest = self._manifest()
+        if model_name not in {manifest["name"], "large-v3-turbo"}:
+            raise AsrModelProvisioningError(
+                f"No project-controlled ASR artifact is configured for model {model_name!r}"
+            )
+        version_dir = self.cache_root / manifest["artifact_version"]
+        model_dir = version_dir / "model"
+        if self._validate_cached_model(model_dir, manifest):
+            return ProvisionedAsrModel(model_dir, manifest, True)
+
+        with _cache_provision_lock(self.cache_root):
+            if self._validate_cached_model(model_dir, manifest):
+                return ProvisionedAsrModel(model_dir, manifest, True)
+            return self._install_missing_model(manifest, version_dir, model_dir)
 
 
 def resolve_asr_model(model_name: str) -> ProvisionedAsrModel:

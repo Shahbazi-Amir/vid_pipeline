@@ -1,11 +1,16 @@
 FROM python:3.11-slim
-ENV PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1 VID_PIPELINE_ASR_CACHE=/models/asr VID_PIPELINE_PERSISTENT_MODEL=1
+ENV PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    VID_PIPELINE_ASR_CACHE=/models/asr \
+    VID_PIPELINE_ASR_MANIFEST=/app/models/asr/large-v3-turbo-ct2-v1.json \
+    VID_PIPELINE_PERSISTENT_MODEL=1
 RUN apt-get update \
     && apt-get install --no-install-recommends -y ffmpeg \
     && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 COPY pyproject.toml README.md LICENSE ./
 COPY src ./src
+COPY models/asr ./models/asr
 RUN pip install --upgrade pip && pip install '.[worker]'
 VOLUME ["/models", "/data/storage"]
 # SimpleWorker executes jobs in the same process. This is intentional here so

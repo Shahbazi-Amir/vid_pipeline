@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import time
+from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -15,6 +16,8 @@ from vid_pipeline.profiles import DEFAULT_PROFILE, resolve_transcription_model
 from vid_pipeline.server.quality_gate import evaluate_transcript_quality
 from vid_pipeline.targeted_retry import build_targeted_retry_candidates, write_targeted_retry_report
 from vid_pipeline.transcribe import TranscriptionConfig, transcribe_audio
+
+StageCallback = Callable[[str, int], None]
 
 
 @dataclass(slots=True)
@@ -30,6 +33,11 @@ class CoreProcessingResult:
     document: TranscriptDocument
     quality_report: dict[str, Any]
     timings: dict[str, float]
+
+
+def _stage(callback: StageCallback | None, name: str, progress: int) -> None:
+    if callback is not None:
+        callback(name, progress)
 
 
 def document_from_raw(job_id: str, language: str, raw: dict[str, Any]) -> TranscriptDocument:
@@ -58,11 +66,18 @@ def document_from_raw(job_id: str, language: str, raw: dict[str, Any]) -> Transc
     return TranscriptDocument(job_id=job_id, language=language, segments=segments)
 
 
-def process_media_core(media: Path, job: dict[str, Any], work: Path) -> CoreProcessingResult:
+def process_media_core(
+    media: Path,
+    job: dict[str, Any],
+    work: Path,
+    *,
+    stage_callback: StageCallback | None = None,
+) -> CoreProcessingResult:
     """Normalize, transcribe, retry suspicious spans, clean and quality-check media.
 
     This is the single deployable processing path.  The worker owns queue/state
-    transitions only; ASR/clean/quality policy lives here.
+    transitions only; ASR/clean/quality policy lives here.  ``stage_callback``
+    exposes coarse-grained progress without coupling this core to the database.
     """
     work.mkdir(parents=True, exist_ok=True)
     profile = str(job.get("profile", DEFAULT_PROFILE) or DEFAULT_PROFILE)
@@ -78,6 +93,7 @@ def process_media_core(media: Path, job: dict[str, Any], work: Path) -> CoreProc
     timings: dict[str, float] = {}
     audio = work / "audio.wav"
     audio_quality = work / "audio-quality.json"
+    _stage(stage_callback, "normalize_audio", 25)
     started = time.monotonic()
     normalize_audio(
         media,
@@ -91,10 +107,12 @@ def process_media_core(media: Path, job: dict[str, Any], work: Path) -> CoreProc
     raw_json = work / "transcript.raw.json"
     raw_markdown = work / "transcript.raw.md"
     config = TranscriptionConfig(model=model, language=language)
+    _stage(stage_callback, "transcribe_primary", 35)
     started = time.monotonic()
     raw_payload = transcribe_audio(audio, raw_json, raw_markdown, config)
     timings["primary_asr_seconds"] = round(time.monotonic() - started, 6)
 
+    _stage(stage_callback, "targeted_retry", 60)
     started = time.monotonic()
     retry_report = build_targeted_retry_candidates(
         audio,
@@ -108,6 +126,7 @@ def process_media_core(media: Path, job: dict[str, Any], work: Path) -> CoreProc
 
     machine_markdown = work / "transcript.machine.md"
     machine_text = work / "transcript.machine.txt"
+    _stage(stage_callback, "clean_transcript", 70)
     started = time.monotonic()
     clean_transcript(
         raw_json,
@@ -118,6 +137,7 @@ def process_media_core(media: Path, job: dict[str, Any], work: Path) -> CoreProc
     )
     timings["clean_seconds"] = round(time.monotonic() - started, 6)
 
+    _stage(stage_callback, "quality_scoring", 78)
     document = document_from_raw(str(job["job_id"]), language, raw_payload)
     quality_report = evaluate_transcript_quality(document, raw_payload)
     quality_report["targeted_retry"] = {

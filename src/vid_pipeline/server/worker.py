@@ -5,12 +5,13 @@ from __future__ import annotations
 import json
 import os
 import shutil
+import time
 from pathlib import Path
 from typing import Any, Protocol
 
 from vid_pipeline.models import TranscriptDocument
 from vid_pipeline.render import render_outputs
-from vid_pipeline.server.processing import process_media_core
+from vid_pipeline.server.processing import StageCallback, process_media_core
 from vid_pipeline.server.quality_gate import evaluate_transcript_quality
 from vid_pipeline.server.repository import ConcurrentUpdateError, Repository, now
 from vid_pipeline.server.sources import SourceMaterializer
@@ -33,6 +34,77 @@ def _copy_if_present(source: Path, destination: Path) -> bool:
     destination.parent.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(source, destination)
     return True
+
+
+def _ensure_stage_history(job: dict[str, Any]) -> list[dict[str, Any]]:
+    history = job.get("stage_history")
+    if not isinstance(history, list):
+        history = []
+        job["stage_history"] = history
+    if not history:
+        history.append(
+            {
+                "stage": "queued",
+                "status": "queued",
+                "progress_percent": 0,
+                "at": job.get("created_at") or now(),
+            }
+        )
+    return history
+
+
+def _advance_job(
+    job: dict[str, Any],
+    repository: Repository,
+    *,
+    status: str,
+    stage: str,
+    progress: int,
+    **updates: Any,
+) -> None:
+    history = _ensure_stage_history(job)
+    if not history or history[-1].get("stage") != stage:
+        history.append(
+            {
+                "stage": stage,
+                "status": status,
+                "progress_percent": progress,
+                "at": now(),
+            }
+        )
+    job.update(
+        status=status,
+        current_stage=stage,
+        progress_percent=progress,
+        **updates,
+    )
+    repository.put_job(job)
+
+
+def _copy_runtime_metrics(
+    job: dict[str, Any],
+    work: Path,
+    document: TranscriptDocument,
+    raw_payload: dict[str, Any],
+    stage_timings: dict[str, float],
+) -> None:
+    input_duration = raw_payload.get("duration")
+    if input_duration is None:
+        audio_quality = work / "audio-quality.json"
+        if audio_quality.is_file():
+            try:
+                input_duration = json.loads(audio_quality.read_text(encoding="utf-8")).get(
+                    "duration_seconds"
+                )
+            except (OSError, json.JSONDecodeError):
+                input_duration = None
+    output_duration = max((float(segment.end) for segment in document.segments), default=0.0)
+    if input_duration is not None:
+        job["input_duration_seconds"] = round(float(input_duration), 3)
+    job["output_duration_seconds"] = round(output_duration, 3)
+    job["transcript_character_count"] = len(document.text)
+    job["transcript_word_count"] = len(document.text.split())
+    job["stage_timings"] = dict(stage_timings)
 
 
 def _write_terminal_state(
@@ -70,10 +142,12 @@ def _run_processing_core(
     job: dict[str, Any],
     work: Path,
     processor: Processor | None,
-) -> tuple[TranscriptDocument, dict[str, Any], dict[str, Any]]:
+    *,
+    stage_callback: StageCallback | None = None,
+) -> tuple[TranscriptDocument, dict[str, Any], dict[str, Any], dict[str, float]]:
     if processor is None:
-        core = process_media_core(media, job, work)
-        return core.document, core.raw_payload, core.quality_report
+        core = process_media_core(media, job, work, stage_callback=stage_callback)
+        return core.document, core.raw_payload, core.quality_report, core.timings
 
     document = processor.process(media, job, work)
     processor_raw = work / "transcript.raw.json"
@@ -84,7 +158,7 @@ def _run_processing_core(
             raise ValueError("processor produced invalid raw transcript JSON") from exc
     else:
         raw_payload = document.to_dict()
-    return document, raw_payload, evaluate_transcript_quality(document, raw_payload)
+    return document, raw_payload, evaluate_transcript_quality(document, raw_payload), {}
 
 
 def _latest_after_concurrency(repository: Repository, job_id: str) -> dict[str, Any]:
@@ -108,28 +182,52 @@ def process_job(
         raise ValueError(f"unknown job: {job_id}")
     work = storage.path(f"jobs/{job_id}/work")
     work.mkdir(parents=True, exist_ok=True)
+    execution_started = time.monotonic()
     try:
-        job.update(
+        _advance_job(
+            job,
+            repository,
             status="preparing",
-            current_stage="materializing_source",
-            progress_percent=5,
+            stage="materializing_source",
+            progress=5,
             started_at=job.get("started_at") or now(),
         )
-        repository.put_job(job)
         media = SourceMaterializer(repository, object_store).materialize(job, work)
         job["file_name"] = job.get("file_name") or media.name
         job["file_size"] = int(job.get("file_size") or media.stat().st_size)
         repository.put_job(job)
 
-        job.update(status="processing", current_stage="canonical_core", progress_percent=20)
-        repository.put_job(job)
-        document, raw_payload, quality_report = _run_processing_core(media, job, work, processor)
+        _advance_job(
+            job,
+            repository,
+            status="processing",
+            stage="canonical_core",
+            progress=20,
+        )
 
-        # A cancel/retry may have happened while ASR was running. The stale
-        # worker must never publish over that newer state.
+        def core_stage(stage: str, progress: int) -> None:
+            _advance_job(
+                job,
+                repository,
+                status="processing",
+                stage=stage,
+                progress=progress,
+            )
+
+        document, raw_payload, quality_report, stage_timings = _run_processing_core(
+            media,
+            job,
+            work,
+            processor,
+            stage_callback=core_stage if processor is None else None,
+        )
+
         latest = repository.job(job_id)
         if latest and int(latest.get("_revision", 0)) != int(job.get("_revision", 0)):
             return latest
+
+        _copy_runtime_metrics(job, work, document, raw_payload, stage_timings)
+        repository.put_job(job)
 
         job_root = storage.path(f"jobs/{job_id}")
         source_info = job_root / "source-materialization.json"
@@ -170,8 +268,13 @@ def process_job(
         )
         _copy_if_present(work / "core-manifest.json", diagnostics / "core-manifest.json")
 
-        job.update(status="quality_check", current_stage="quality_check", progress_percent=80)
-        repository.put_job(job)
+        _advance_job(
+            job,
+            repository,
+            status="quality_check",
+            stage="quality_check",
+            progress=80,
+        )
         quality_dir = job_root / "quality"
         quality_dir.mkdir(parents=True, exist_ok=True)
         quality = quality_dir / "quality-report.json"
@@ -223,26 +326,33 @@ def process_job(
                 if (job_root / name).is_file():
                     artifacts.append(name)
             _sync_artifacts(job_id, job_root, artifacts, object_store)
-            job.update(
+            _advance_job(
+                job,
+                repository,
                 status="review_required",
-                current_stage="quality_gate",
-                progress_percent=90,
+                stage="review_required",
+                progress=100,
                 completed_at=now(),
                 artifacts=artifacts,
                 error=None,
+                execution_seconds=round(time.monotonic() - execution_started, 6),
                 quality_gate={
                     "decision": quality_report["decision"],
                     "overall_score": quality_report["overall_score"],
                     "reasons": quality_report["gate_reasons"],
                 },
             )
-            repository.put_job(job)
             _write_terminal_state(job, storage, artifacts)
             shutil.rmtree(work, ignore_errors=True)
             return job
 
-        job.update(status="rendering", current_stage="rendering", progress_percent=90)
-        repository.put_job(job)
+        _advance_job(
+            job,
+            repository,
+            status="rendering",
+            stage="rendering",
+            progress=90,
+        )
         shutil.rmtree(final_dir, ignore_errors=True)
         shutil.rmtree(delivery, ignore_errors=True)
         outputs = render_outputs(document, final_dir)
@@ -277,13 +387,16 @@ def process_job(
             for path in sorted(delivery.iterdir())
         ]
         _sync_artifacts(job_id, job_root, artifacts, object_store)
-        job.update(
+        _advance_job(
+            job,
+            repository,
             status="completed",
-            current_stage="completed",
-            progress_percent=100,
+            stage="completed",
+            progress=100,
             completed_at=now(),
             artifacts=artifacts,
             error=None,
+            execution_seconds=round(time.monotonic() - execution_started, 6),
             review_status="machine_quality_passed",
             human_audio_verification=False,
             quality_gate={
@@ -292,7 +405,6 @@ def process_job(
                 "reasons": [],
             },
         )
-        repository.put_job(job)
         _write_terminal_state(job, storage, artifacts)
         shutil.rmtree(work, ignore_errors=True)
         return job
@@ -303,14 +415,17 @@ def process_job(
         if latest and latest.get("status") == "cancelled":
             return latest
         failure = latest or job
-        failure.update(
-            status="failed",
-            current_stage="failed",
-            error=f"{type(exc).__name__}: {exc}",
-            completed_at=now(),
-        )
         try:
-            repository.put_job(failure)
+            _advance_job(
+                failure,
+                repository,
+                status="failed",
+                stage="failed",
+                progress=100,
+                error=f"{type(exc).__name__}: {exc}",
+                completed_at=now(),
+                execution_seconds=round(time.monotonic() - execution_started, 6),
+            )
         except ConcurrentUpdateError:
             return _latest_after_concurrency(repository, job_id)
         raise

@@ -12,15 +12,18 @@ services:
       dockerfile: docker/Dockerfile.api
     environment:
       <<: *storage-env
+      VID_PIPELINE_API_TOKEN: ${VID_PIPELINE_API_TOKEN:-}
       VID_PIPELINE_DATABASE_URL: postgresql+psycopg://pipeline:pipeline@database/pipeline
       VID_PIPELINE_REDIS_URL: redis://redis:6379/0
       VID_PIPELINE_STORAGE_ROOT: /data/storage
       VID_PIPELINE_JOB_TIMEOUT_SECONDS: ${VID_PIPELINE_JOB_TIMEOUT_SECONDS:-43200}
       VID_PIPELINE_RESULT_TTL_SECONDS: ${VID_PIPELINE_RESULT_TTL_SECONDS:-604800}
       VID_PIPELINE_FAILURE_TTL_SECONDS: ${VID_PIPELINE_FAILURE_TTL_SECONDS:-2592000}
+      VID_PIPELINE_MAX_FILE_SIZE: ${VID_PIPELINE_MAX_FILE_SIZE:-53687091200}
     ports: ["8000:8000"]
     volumes: [pipeline-storage:/data/storage]
     depends_on: [database, redis]
+
   worker:
     build:
       context: .
@@ -32,12 +35,30 @@ services:
       VID_PIPELINE_STORAGE_ROOT: /data/storage
       VID_PIPELINE_ASR_CACHE: ${VID_PIPELINE_ASR_CACHE:-/models/asr}
       VID_PIPELINE_PERSISTENT_MODEL: ${VID_PIPELINE_PERSISTENT_MODEL:-1}
+      VID_PIPELINE_GITHUB_TOKEN: ${VID_PIPELINE_GITHUB_TOKEN:-}
+      VID_PIPELINE_MAX_FILE_SIZE: ${VID_PIPELINE_MAX_FILE_SIZE:-53687091200}
     volumes:
       - pipeline-storage:/data/storage
       - model-cache:/models
     depends_on: [database, redis]
+
+  web:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.web
+    environment:
+      VID_PIPELINE_SERVER_URL: http://api:8000
+      VID_PIPELINE_API_TOKEN: ${VID_PIPELINE_API_TOKEN:-}
+      VID_PIPELINE_WEB_ROOT: /data/web
+      STREAMLIT_SERVER_MAX_UPLOAD_SIZE: ${STREAMLIT_SERVER_MAX_UPLOAD_SIZE:-51200}
+      STREAMLIT_SERVER_MAX_MESSAGE_SIZE: ${STREAMLIT_SERVER_MAX_MESSAGE_SIZE:-51200}
+    ports: ["8501:8501"]
+    volumes: [web-data:/data/web]
+    depends_on: [api]
+
   redis:
     image: redis:7-alpine
+
   database:
     image: postgres:16-alpine
     environment:
@@ -45,7 +66,9 @@ services:
       POSTGRES_USER: pipeline
       POSTGRES_PASSWORD: pipeline
     volumes: [database-data:/var/lib/postgresql/data]
+
 volumes:
   database-data:
   model-cache:
   pipeline-storage:
+  web-data:

@@ -1,0 +1,10 @@
+Private media verified: 4204114 bytes
+error: No project-controlled ASR artifact is configured for model 'small'
+PIPELINE_STAGE job=private-01-b4f75771 stage=source status=started
+PIPELINE_STAGE job=private-01-b4f75771 stage=source status=completed
+PIPELINE_STAGE job=private-01-b4f75771 stage=download status=started
+PIPELINE_STAGE job=private-01-b4f75771 stage=download status=completed
+PIPELINE_STAGE job=private-01-b4f75771 stage=audio status=started
+PIPELINE_STAGE job=private-01-b4f75771 stage=audio status=completed
+PIPELINE_STAGE job=private-01-b4f75771 stage=transcribe status=started
+PIPELINE_STAGE job=private-01-b4f75771 stage=transcribe status=failed error_type=AsrModelProvisioningError

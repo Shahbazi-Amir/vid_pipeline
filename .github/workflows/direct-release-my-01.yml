@@ -1,0 +1,179 @@
+name: Direct release my transcript 01
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/direct-release-my-01.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: direct-release-my-01
+  cancel-in-progress: true
+
+jobs:
+  transcribe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install worker dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install --upgrade pip
+          pip install -e '.[worker]'
+
+      - name: Download and verify first release asset
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          python - <<'PY' >> "$GITHUB_ENV"
+          import json
+          from pathlib import Path
+          item = json.loads(Path('outputs/release-my/manifest.json').read_text(encoding='utf-8'))['assets'][0]
+          for key, value in {
+              'RESULT_NUMBER': item['index'],
+              'ASSET_ID': str(item['id']),
+              'ASSET_NAME': item['name'],
+              'EXPECTED_SIZE': str(item['size']),
+              'EXPECTED_DIGEST': item.get('digest', ''),
+              'MEDIA_SUFFIX': item['suffix'],
+              'ASSET_URL': item['browser_download_url'],
+          }.items():
+              print(f'{key}={value}')
+          PY
+
+          mkdir -p /tmp/release-my-direct
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          import urllib.request
+          from pathlib import Path
+
+          item = json.loads(Path('outputs/release-my/manifest.json').read_text(encoding='utf-8'))['assets'][0]
+          target = Path('/tmp/release-my-direct/input' + item['suffix'])
+          req = urllib.request.Request(
+              f"https://api.github.com/repos/{os.environ['REPOSITORY']}/releases/assets/{item['id']}",
+              headers={
+                  'Accept': 'application/octet-stream',
+                  'Authorization': f"Bearer {os.environ['GH_TOKEN']}",
+                  'X-GitHub-Api-Version': '2022-11-28',
+                  'User-Agent': 'vid-pipeline-direct-release-my-01',
+              },
+          )
+          digest = hashlib.sha256()
+          size = 0
+          with urllib.request.urlopen(req, timeout=120) as response, target.open('wb') as output:
+              while chunk := response.read(1024 * 1024):
+                  output.write(chunk)
+                  digest.update(chunk)
+                  size += len(chunk)
+          if size != int(item['size']):
+              raise SystemExit(f'asset size mismatch: {size} != {item["size"]}')
+          expected = item.get('digest') or ''
+          actual = digest.hexdigest()
+          if expected.startswith('sha256:') and expected != f'sha256:{actual}':
+              raise SystemExit('asset digest mismatch')
+          with open(os.environ['GITHUB_ENV'], 'a', encoding='utf-8') as env:
+              env.write(f'INPUT_MEDIA={target}\n')
+          print(f'asset verified: {size} bytes sha256:{actual}')
+          PY
+
+      - name: Run base ASR only
+        id: asr
+        continue-on-error: true
+        shell: bash
+        run: |
+          set +e
+          python -m vid_pipeline.cli run-file "$INPUT_MEDIA" \
+            --name "release-my-$RESULT_NUMBER" \
+            --output-root /tmp/release-my-output \
+            --profile balanced \
+            --language fa \
+            --device cpu \
+            --compute-type int8 \
+            --no-editorial \
+            > /tmp/release-my-direct.log 2>&1
+          code=$?
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          exit "$code"
+
+      - name: Commit raw transcript or failure log
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          git restore outputs 2>/dev/null || true
+          mkdir -p outputs/release-my/logs
+          cp /tmp/release-my-direct.log outputs/release-my/logs/01-direct-base-asr.log
+
+          if [[ "${{ steps.asr.outputs.exit_code }}" == "0" ]]; then
+            mkdir -p outputs/release-my/raw/md outputs/release-my/raw/txt outputs/release-my/raw/json
+            mapfile -t md < <(find /tmp/release-my-output -type f -path '*/final/transcript.final.md')
+            mapfile -t txt < <(find /tmp/release-my-output -type f -path '*/final/transcript.final.txt')
+            mapfile -t raw < <(find /tmp/release-my-output -type f -path '*/raw/transcript.raw.json')
+            [[ ${#md[@]} -eq 1 && ${#txt[@]} -eq 1 && ${#raw[@]} -eq 1 ]] || {
+              echo "unexpected output counts md=${#md[@]} txt=${#txt[@]} raw=${#raw[@]}" >> outputs/release-my/logs/01-direct-base-asr.log
+              exit 1
+            }
+            cp "${md[0]}" outputs/release-my/raw/md/01.md
+            cp "${txt[0]}" outputs/release-my/raw/txt/01.txt
+            cp "${raw[0]}" outputs/release-my/raw/json/01.json
+            python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          meta = {
+              'release_tag': 'my',
+              'asset_id': int(os.environ['ASSET_ID']),
+              'asset_name': os.environ['ASSET_NAME'],
+              'size': int(os.environ['EXPECTED_SIZE']),
+              'digest': os.environ.get('EXPECTED_DIGEST', ''),
+              'browser_download_url': os.environ['ASSET_URL'],
+              'transcription_profile': 'balanced-base-asr-only',
+              'asr_model': 'large-v3-turbo',
+              'review_status': 'pending_chatgpt_review',
+          }
+          root = Path('outputs/release-my/assets')
+          root.mkdir(parents=True, exist_ok=True)
+          (root / '01.json').write_text(json.dumps(meta, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          PY
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f outputs/release-my/logs/01-direct-base-asr.log
+          if [[ "${{ steps.asr.outputs.exit_code }}" == "0" ]]; then
+            git add -f outputs/release-my/raw/md/01.md outputs/release-my/raw/txt/01.txt outputs/release-my/raw/json/01.json outputs/release-my/assets/01.json
+          fi
+          if ! git diff --cached --quiet; then
+            if [[ "${{ steps.asr.outputs.exit_code }}" == "0" ]]; then
+              git commit -m "Add direct raw release my transcript 01"
+            else
+              git commit -m "Capture direct base ASR failure for release my transcript 01"
+            fi
+            git push origin HEAD:main
+          fi
+
+      - name: Fail if base ASR failed
+        if: steps.asr.outputs.exit_code != '0'
+        shell: bash
+        run: exit 1

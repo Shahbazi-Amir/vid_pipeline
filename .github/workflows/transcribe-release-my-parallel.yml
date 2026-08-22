@@ -50,6 +50,15 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          sparse-checkout: |
+            src
+            scripts
+            models
+            outputs/release-my
+            pyproject.toml
+            README.md
+            LICENSE
+          sparse-checkout-cone-mode: false
 
       - name: Preflight repository contract
         shell: bash
@@ -202,6 +211,10 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          sparse-checkout: |
+            src
+            models
+          sparse-checkout-cone-mode: false
 
       - name: Restore project ASR model cache
         id: cache
@@ -247,6 +260,14 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          sparse-checkout: |
+            src
+            scripts
+            models
+            pyproject.toml
+            README.md
+            LICENSE
+          sparse-checkout-cone-mode: false
 
       - uses: actions/setup-python@v5
         with:
@@ -375,6 +396,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          sparse-checkout: |
+            outputs/release-my
+          sparse-checkout-cone-mode: false
 
       - name: Download inventory
         uses: actions/download-artifact@v4

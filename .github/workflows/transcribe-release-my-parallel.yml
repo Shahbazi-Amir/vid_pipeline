@@ -1,5 +1,5 @@
-name: Transcribe release my in parallel
-run-name: Release my — up to 4 parallel transcriptions
+name: Transcribe release my one by one
+run-name: Release my — sequential transcription and commit
 
 on:
   push:
@@ -26,7 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.head_ref || github.ref_name }}
+          ref: main
 
       - name: Fast repository sanity check
         shell: bash
@@ -98,10 +98,12 @@ jobs:
               "release_name": release.get("name"),
               "release_id": release.get("id"),
               "media_asset_count": len(media_assets),
-              "max_parallel": 4,
+              "processing_mode": "sequential",
+              "transcription_profile": "fast",
               "assets": media_assets,
           }
-          pathlib.Path("release-my-manifest.json").write_text(
+          pathlib.Path("outputs/release-my").mkdir(parents=True, exist_ok=True)
+          pathlib.Path("outputs/release-my/manifest.json").write_text(
               json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
               encoding="utf-8",
           )
@@ -115,13 +117,19 @@ jobs:
               print(f"  {item['index']}: {item['name']} ({item['size']} bytes)")
           PY
 
-      - name: Save release inventory
-        uses: actions/upload-artifact@v4
-        with:
-          name: release-my-manifest
-          path: release-my-manifest.json
-          retention-days: 7
-          if-no-files-found: error
+      - name: Commit release inventory immediately
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f outputs/release-my/manifest.json
+          if git diff --cached --quiet; then
+            echo "Release inventory is already current."
+            exit 0
+          fi
+          git commit -m "Inventory release my media assets"
+          git push origin HEAD:main
 
   process:
     needs: inventory
@@ -129,7 +137,7 @@ jobs:
     timeout-minutes: 360
     strategy:
       fail-fast: false
-      max-parallel: 4
+      max-parallel: 1
       matrix:
         asset: ${{ fromJSON(needs.inventory.outputs.matrix) }}
     env:
@@ -142,13 +150,14 @@ jobs:
       RESULT_NUMBER: ${{ matrix.asset.index }}
       COLLECTION_ROOT: staging/release-my
       DIARIZATION_ENABLED: "false"
+      TRANSCRIPTION_PROFILE: fast
       ASSET_NAME: ${{ matrix.asset.name }}
       ASSET_URL: ${{ matrix.asset.browser_download_url }}
 
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.head_ref || github.ref_name }}
+          ref: main
 
       - uses: actions/setup-python@v5
         with:
@@ -164,11 +173,16 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e '.[worker]'
 
-      - name: Download, verify, and transcribe release asset
+      - name: Download, verify, and transcribe this asset
         shell: bash
         run: |
           set -euo pipefail
           bash scripts/process_private_release_asset.sh
+
+      - name: Restore tracked outputs removed by worker cleanup
+        shell: bash
+        run: |
+          git restore outputs 2>/dev/null || true
 
       - name: Attach source provenance and asset metadata
         shell: bash
@@ -219,6 +233,8 @@ jobs:
                       "size": size,
                       "digest": digest,
                       "browser_download_url": url,
+                      "transcription_profile": "fast",
+                      "review_status": "pending_chatgpt_review",
                   },
                   ensure_ascii=False,
                   indent=2,
@@ -227,73 +243,30 @@ jobs:
           )
           PY
 
-      - name: Upload this transcript bundle
-        uses: actions/upload-artifact@v4
-        with:
-          name: release-my-result-${{ matrix.asset.index }}
-          path: staging/release-my/**
-          retention-days: 7
-          if-no-files-found: error
-
-  collect:
-    needs: [inventory, process]
-    if: ${{ needs.process.result == 'success' }}
-    runs-on: ubuntu-latest
-    env:
-      TARGET_BRANCH: ${{ github.head_ref || github.ref_name }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref || github.ref_name }}
-
-      - name: Download all transcript bundles
-        uses: actions/download-artifact@v4
-        with:
-          pattern: release-my-result-*
-          path: merged
-          merge-multiple: true
-
-      - name: Download release inventory
-        uses: actions/download-artifact@v4
-        with:
-          name: release-my-manifest
-          path: manifest
-
-      - name: Place final text outputs in repository
+      - name: Publish this raw transcript to the repository
         shell: bash
         run: |
           set -euo pipefail
-          rm -rf outputs/release-my
-          mkdir -p outputs/release-my
-          cp -a merged/. outputs/release-my/
-          cp manifest/release-my-manifest.json outputs/release-my/manifest.json
+          mkdir -p \
+            outputs/release-my/raw/md \
+            outputs/release-my/raw/timestamped \
+            outputs/release-my/raw/txt \
+            outputs/release-my/assets
+          cp "$COLLECTION_ROOT/md/$RESULT_NUMBER.md" "outputs/release-my/raw/md/$RESULT_NUMBER.md"
+          cp "$COLLECTION_ROOT/timestamped/$RESULT_NUMBER.md" "outputs/release-my/raw/timestamped/$RESULT_NUMBER.md"
+          cp "$COLLECTION_ROOT/txt/$RESULT_NUMBER.txt" "outputs/release-my/raw/txt/$RESULT_NUMBER.txt"
+          cp "$COLLECTION_ROOT/assets/$RESULT_NUMBER.json" "outputs/release-my/assets/$RESULT_NUMBER.json"
 
-          python - <<'PY'
-          import json
-          from pathlib import Path
-
-          manifest = json.loads(Path("outputs/release-my/manifest.json").read_text(encoding="utf-8"))
-          expected = manifest["media_asset_count"]
-          for subdir, suffix in (("md", ".md"), ("timestamped", ".md"), ("txt", ".txt"), ("assets", ".json")):
-              files = sorted((Path("outputs/release-my") / subdir).glob(f"*{suffix}"))
-              if len(files) != expected:
-                  raise SystemExit(f"Expected {expected} files in {subdir}, found {len(files)}")
-              for path in files:
-                  if path.stat().st_size == 0:
-                      raise SystemExit(f"Empty output: {path}")
-          print(f"Validated {expected} complete transcript bundle(s).")
-          PY
-
-      - name: Commit transcript results back to this branch
-        shell: bash
-        run: |
-          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f outputs/release-my
+          git add -f \
+            "outputs/release-my/raw/md/$RESULT_NUMBER.md" \
+            "outputs/release-my/raw/timestamped/$RESULT_NUMBER.md" \
+            "outputs/release-my/raw/txt/$RESULT_NUMBER.txt" \
+            "outputs/release-my/assets/$RESULT_NUMBER.json"
           if git diff --cached --quiet; then
-            echo "No transcript changes to commit."
+            echo "Raw transcript $RESULT_NUMBER is already current."
             exit 0
           fi
-          git commit -m "Add transcripts from release my"
-          git push origin "HEAD:${TARGET_BRANCH}"
+          git commit -m "Add raw release my transcript $RESULT_NUMBER: $ASSET_NAME"
+          git push origin HEAD:main

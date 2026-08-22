@@ -2,7 +2,7 @@ name: Transcribe release my in parallel
 run-name: Release my — up to 4 parallel transcriptions
 
 on:
-  pull_request:
+  push:
     branches:
       - main
     paths:

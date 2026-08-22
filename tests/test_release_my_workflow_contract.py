@@ -6,7 +6,9 @@ def test_release_worker_uses_isolated_output_root_and_controlled_model() -> None
     assert '--output-root "$RUN_OUTPUT_ROOT"' in script
     assert 'find "$RUN_OUTPUT_ROOT"' in script
     assert "rm -rf outputs" not in script
-    assert '--model "$TRANSCRIPTION_MODEL"' in script
+    assert '--model "$MODEL_PATH"' in script
+    assert 'AsrModelManager().provision("large-v3-turbo")' in script
+    assert "HF_HUB_OFFLINE=1" in script
     assert "large-v3-turbo" in script
 
 
@@ -22,3 +24,4 @@ def test_release_workflow_is_cached_parallel_and_live_logged() -> None:
     assert "already_completed" in workflow
     assert 'raw" / "timestamped"' in workflow
     assert "Fail run when any release asset is missing" in workflow
+    assert workflow.count("sparse-checkout: |") == 4

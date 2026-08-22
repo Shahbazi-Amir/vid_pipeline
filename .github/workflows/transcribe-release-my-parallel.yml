@@ -88,7 +88,8 @@ jobs:
               "release_id": release.get("id"),
               "media_asset_count": len(assets),
               "processing_mode": "sequential_one_runner",
-              "transcription_profile": "fast",
+              "transcription_profile": "balanced",
+              "asr_artifact": "large-v3-turbo-ct2-v1",
               "assets": assets,
           }
           root = pathlib.Path("outputs/release-my")
@@ -132,7 +133,7 @@ jobs:
           PRIVATE_MEDIA_TOKEN: ${{ github.token }}
           COLLECTION_ROOT: staging/release-my
           DIARIZATION_ENABLED: "false"
-          TRANSCRIPTION_PROFILE: fast
+          TRANSCRIPTION_PROFILE: balanced
         run: |
           set -euo pipefail
 
@@ -242,7 +243,8 @@ jobs:
                   "size": int(os.environ["EXPECTED_SIZE"]),
                   "digest": os.environ.get("EXPECTED_DIGEST", ""),
                   "browser_download_url": url,
-                  "transcription_profile": "fast",
+                  "transcription_profile": "balanced",
+                  "asr_artifact": "large-v3-turbo-ct2-v1",
                   "review_status": "pending_chatgpt_review",
               }, ensure_ascii=False, indent=2) + "\n",
               encoding="utf-8",

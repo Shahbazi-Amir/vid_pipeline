@@ -1,0 +1,109 @@
+name: Diagnose release my transcript 01
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/diagnose-release-my-01.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-my-diagnostic-01
+  cancel-in-progress: true
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      PRIVATE_MEDIA_REPO: ${{ github.repository }}
+      PRIVATE_MEDIA_TOKEN: ${{ github.token }}
+      COLLECTION_ROOT: staging/release-my-diag
+      DIARIZATION_ENABLED: "false"
+      TRANSCRIPTION_PROFILE: fast
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Load first release asset
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY' >> "$GITHUB_ENV"
+          import json
+          from pathlib import Path
+          item = json.loads(Path('outputs/release-my/manifest.json').read_text(encoding='utf-8'))['assets'][0]
+          mapping = {
+              'RESULT_NUMBER': item['index'],
+              'ASSET_ID': str(item['id']),
+              'ASSET_NAME': item['name'],
+              'EXPECTED_SIZE': str(item['size']),
+              'EXPECTED_DIGEST': item.get('digest', ''),
+              'MEDIA_SUFFIX': item['suffix'],
+              'ASSET_URL': item['browser_download_url'],
+          }
+          for key, value in mapping.items():
+              print(f'{key}={value}')
+          PY
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install worker dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install --upgrade pip
+          pip install -e '.[worker]'
+
+      - name: Run worker and capture complete log
+        id: worker
+        continue-on-error: true
+        shell: bash
+        run: |
+          set +e
+          bash scripts/process_private_release_asset.sh > /tmp/release-my-01-worker.log 2>&1
+          code=$?
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          exit "$code"
+
+      - name: Commit diagnostic log and any successful transcript
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          git restore outputs 2>/dev/null || true
+          mkdir -p outputs/release-my/logs
+          cp /tmp/release-my-01-worker.log outputs/release-my/logs/01-worker.log
+          printf '{\n  "asset": "%s",\n  "exit_code": %s\n}\n' "$ASSET_NAME" "${{ steps.worker.outputs.exit_code || '999' }}" > outputs/release-my/logs/01-worker-status.json
+
+          if [[ "${{ steps.worker.outputs.exit_code }}" == "0" ]]; then
+            mkdir -p outputs/release-my/raw/md outputs/release-my/raw/timestamped outputs/release-my/raw/txt
+            cp "$COLLECTION_ROOT/md/$RESULT_NUMBER.md" "outputs/release-my/raw/md/$RESULT_NUMBER.md"
+            cp "$COLLECTION_ROOT/timestamped/$RESULT_NUMBER.md" "outputs/release-my/raw/timestamped/$RESULT_NUMBER.md"
+            cp "$COLLECTION_ROOT/txt/$RESULT_NUMBER.txt" "outputs/release-my/raw/txt/$RESULT_NUMBER.txt"
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f outputs/release-my/logs
+          if [[ "${{ steps.worker.outputs.exit_code }}" == "0" ]]; then
+            git add -f "outputs/release-my/raw/md/$RESULT_NUMBER.md" "outputs/release-my/raw/timestamped/$RESULT_NUMBER.md" "outputs/release-my/raw/txt/$RESULT_NUMBER.txt"
+          fi
+          if ! git diff --cached --quiet; then
+            git commit -m "Capture release my transcript 01 diagnostic"
+            git push origin HEAD:main
+          fi
+
+      - name: Fail if worker failed
+        if: steps.worker.outputs.exit_code != '0'
+        shell: bash
+        run: exit 1

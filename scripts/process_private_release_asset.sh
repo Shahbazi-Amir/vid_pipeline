@@ -75,7 +75,7 @@ args=(
   run-file "$INPUT_MEDIA"
   --name "private-${RESULT_NUMBER}"
   --output-root outputs
-  --profile balanced
+  --profile "${TRANSCRIPTION_PROFILE:-balanced}"
   --language fa
   --device cpu
   --compute-type int8

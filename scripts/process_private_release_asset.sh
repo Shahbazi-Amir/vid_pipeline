@@ -89,12 +89,29 @@ for attempt in range(4):
         time.sleep(2**attempt)
 PY
 
+# Resolve the integrity-checked project model to a local directory before ASR.
+# Passing the directory (rather than a model name) prevents faster-whisper from
+# making any Hugging Face runtime lookup/fallback.
+export HF_HUB_OFFLINE=1
+export HF_HUB_DISABLE_TELEMETRY=1
+export TRANSFORMERS_OFFLINE=1
+MODEL_PATH="$(PYTHONPATH=src python - <<'PY'
+from vid_pipeline.asr_model import AsrModelManager
+result = AsrModelManager().provision("large-v3-turbo")
+if not result.path.is_dir():
+    raise SystemExit("project ASR model cache is not materialized")
+print(result.path.resolve())
+PY
+)"
+[[ -d "$MODEL_PATH" ]] || { echo "Resolved ASR model path is unavailable: $MODEL_PATH" >&2; exit 2; }
+echo "Release asset ${RESULT_NUMBER}: using local ASR model path $MODEL_PATH"
+
 args=(
   run-file "$INPUT_MEDIA"
   --name "private-${RESULT_NUMBER}"
   --output-root "$RUN_OUTPUT_ROOT"
   --profile "$TRANSCRIPTION_PROFILE"
-  --model "$TRANSCRIPTION_MODEL"
+  --model "$MODEL_PATH"
   --language fa
   --device cpu
   --compute-type int8

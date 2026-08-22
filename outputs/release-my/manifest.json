@@ -4,9 +4,10 @@
   "release_name": "my_file",
   "release_id": 372692077,
   "media_asset_count": 3,
-  "processing_mode": "sequential_one_runner",
+  "processing_mode": "parallel_matrix_max_4",
+  "max_parallel": 4,
   "transcription_profile": "balanced",
-  "asr_artifact": "large-v3-turbo-ct2-v1",
+  "transcription_model": "large-v3-turbo",
   "assets": [
     {
       "id": 520141633,

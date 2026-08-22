@@ -1,0 +1,291 @@
+name: Transcribe release my in parallel
+run-name: Release my — up to 4 parallel transcriptions
+
+on:
+  push:
+    branches:
+      - agent/release-my-parallel-transcribe
+    paths:
+      - .github/workflows/transcribe-release-my-parallel.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: release-my-parallel-transcription
+  cancel-in-progress: false
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.assets.outputs.matrix }}
+      count: ${{ steps.assets.outputs.count }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fast repository sanity check
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m compileall -q src scripts
+          test -f scripts/process_private_release_asset.sh
+          test -f pyproject.toml
+
+      - id: assets
+        name: Inventory media assets from release tag my
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import os
+          import pathlib
+          import urllib.request
+
+          repo = os.environ["REPOSITORY"]
+          token = os.environ["GH_TOKEN"]
+          tag = "my"
+          request = urllib.request.Request(
+              f"https://api.github.com/repos/{repo}/releases/tags/{tag}",
+              headers={
+                  "Accept": "application/vnd.github+json",
+                  "Authorization": f"Bearer {token}",
+                  "X-GitHub-Api-Version": "2022-11-28",
+                  "User-Agent": "vid-pipeline-release-my-inventory",
+              },
+          )
+          with urllib.request.urlopen(request, timeout=60) as response:
+              release = json.load(response)
+
+          media_extensions = {
+              ".mp3", ".m4a", ".wav", ".flac", ".aac", ".ogg", ".opus",
+              ".mp4", ".mkv", ".mov", ".webm", ".mpeg", ".mpg", ".m4v",
+          }
+          media_assets = []
+          for asset in release.get("assets", []):
+              suffix = pathlib.Path(asset["name"]).suffix.lower()
+              if suffix not in media_extensions:
+                  continue
+              media_assets.append(
+                  {
+                      "id": asset["id"],
+                      "name": asset["name"],
+                      "size": asset["size"],
+                      "digest": asset.get("digest") or "",
+                      "suffix": suffix,
+                      "browser_download_url": asset["browser_download_url"],
+                  }
+              )
+
+          if not media_assets:
+              raise SystemExit("Release tag 'my' contains no supported media assets")
+
+          media_assets.sort(key=lambda item: item["name"].casefold())
+          for index, item in enumerate(media_assets, start=1):
+              item["index"] = f"{index:02d}"
+
+          manifest = {
+              "repository": repo,
+              "release_tag": tag,
+              "release_name": release.get("name"),
+              "release_id": release.get("id"),
+              "media_asset_count": len(media_assets),
+              "max_parallel": 4,
+              "assets": media_assets,
+          }
+          pathlib.Path("release-my-manifest.json").write_text(
+              json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
+              encoding="utf-8",
+          )
+
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write("matrix=" + json.dumps(media_assets, separators=(",", ":")) + "\n")
+              output.write(f"count={len(media_assets)}\n")
+
+          print(f"Found {len(media_assets)} supported media asset(s) in release 'my'.")
+          for item in media_assets:
+              print(f"  {item['index']}: {item['name']} ({item['size']} bytes)")
+          PY
+
+      - name: Save release inventory
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-my-manifest
+          path: release-my-manifest.json
+          retention-days: 7
+          if-no-files-found: error
+
+  process:
+    needs: inventory
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        asset: ${{ fromJSON(needs.inventory.outputs.matrix) }}
+    env:
+      PRIVATE_MEDIA_REPO: ${{ github.repository }}
+      PRIVATE_MEDIA_TOKEN: ${{ github.token }}
+      ASSET_ID: ${{ matrix.asset.id }}
+      EXPECTED_SIZE: ${{ matrix.asset.size }}
+      EXPECTED_DIGEST: ${{ matrix.asset.digest }}
+      MEDIA_SUFFIX: ${{ matrix.asset.suffix }}
+      RESULT_NUMBER: ${{ matrix.asset.index }}
+      COLLECTION_ROOT: staging/release-my
+      DIARIZATION_ENABLED: "false"
+      ASSET_NAME: ${{ matrix.asset.name }}
+      ASSET_URL: ${{ matrix.asset.browser_download_url }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install transcription worker
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install --upgrade pip
+          pip install -e '.[worker]'
+
+      - name: Download, verify, and transcribe release asset
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash scripts/process_private_release_asset.sh
+
+      - name: Attach source provenance and asset metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          root = Path(os.environ["COLLECTION_ROOT"])
+          number = os.environ["RESULT_NUMBER"]
+          name = os.environ["ASSET_NAME"]
+          url = os.environ["ASSET_URL"]
+          asset_id = int(os.environ["ASSET_ID"])
+          size = int(os.environ["EXPECTED_SIZE"])
+          digest = os.environ.get("EXPECTED_DIGEST", "")
+
+          header_md = (
+              "## منبع فایل\n"
+              f"- Release: `my`\n"
+              f"- Asset: `{name}`\n"
+              f"- URL: {url}\n\n"
+          )
+          header_txt = (
+              "منبع فایل:\n"
+              "Release: my\n"
+              f"Asset: {name}\n"
+              f"URL: {url}\n\n"
+          )
+          for path in (root / "md" / f"{number}.md", root / "timestamped" / f"{number}.md"):
+              text = path.read_text(encoding="utf-8")
+              if not text.startswith("## منبع فایل"):
+                  path.write_text(header_md + text, encoding="utf-8")
+          txt_path = root / "txt" / f"{number}.txt"
+          text = txt_path.read_text(encoding="utf-8")
+          if not text.startswith("منبع فایل:"):
+              txt_path.write_text(header_txt + text, encoding="utf-8")
+
+          meta_dir = root / "assets"
+          meta_dir.mkdir(parents=True, exist_ok=True)
+          (meta_dir / f"{number}.json").write_text(
+              json.dumps(
+                  {
+                      "release_tag": "my",
+                      "asset_id": asset_id,
+                      "asset_name": name,
+                      "size": size,
+                      "digest": digest,
+                      "browser_download_url": url,
+                  },
+                  ensure_ascii=False,
+                  indent=2,
+              ) + "\n",
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Upload this transcript bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-my-result-${{ matrix.asset.index }}
+          path: staging/release-my/**
+          retention-days: 7
+          if-no-files-found: error
+
+  collect:
+    needs: [inventory, process]
+    if: ${{ needs.process.result == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download all transcript bundles
+        uses: actions/download-artifact@v4
+        with:
+          pattern: release-my-result-*
+          path: merged
+          merge-multiple: true
+
+      - name: Download release inventory
+        uses: actions/download-artifact@v4
+        with:
+          name: release-my-manifest
+          path: manifest
+
+      - name: Place final text outputs in repository
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf outputs/release-my
+          mkdir -p outputs/release-my
+          cp -a merged/. outputs/release-my/
+          cp manifest/release-my-manifest.json outputs/release-my/manifest.json
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          manifest = json.loads(Path("outputs/release-my/manifest.json").read_text(encoding="utf-8"))
+          expected = manifest["media_asset_count"]
+          for subdir, suffix in (("md", ".md"), ("timestamped", ".md"), ("txt", ".txt"), ("assets", ".json")):
+              files = sorted((Path("outputs/release-my") / subdir).glob(f"*{suffix}"))
+              if len(files) != expected:
+                  raise SystemExit(f"Expected {expected} files in {subdir}, found {len(files)}")
+              for path in files:
+                  if path.stat().st_size == 0:
+                      raise SystemExit(f"Empty output: {path}")
+          print(f"Validated {expected} complete transcript bundle(s).")
+          PY
+
+      - name: Commit transcript results back to this branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f outputs/release-my
+          if git diff --cached --quiet; then
+            echo "No transcript changes to commit."
+            exit 0
+          fi
+          git commit -m "Add transcripts from release my"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

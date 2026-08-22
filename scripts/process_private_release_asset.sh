@@ -76,6 +76,7 @@ args=(
   --name "private-${RESULT_NUMBER}"
   --output-root outputs
   --profile "${TRANSCRIPTION_PROFILE:-balanced}"
+  --model "${TRANSCRIPTION_MODEL:-large-v3-turbo}"
   --language fa
   --device cpu
   --compute-type int8

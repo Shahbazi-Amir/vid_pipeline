@@ -2,9 +2,9 @@ name: Transcribe release my in parallel
 run-name: Release my — up to 4 parallel transcriptions
 
 on:
-  push:
+  pull_request:
     branches:
-      - agent/release-my-parallel-transcribe
+      - main
     paths:
       - .github/workflows/transcribe-release-my-parallel.yml
   workflow_dispatch:
@@ -15,7 +15,7 @@ permissions:
 
 concurrency:
   group: release-my-parallel-transcription
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   inventory:
@@ -25,6 +25,8 @@ jobs:
       count: ${{ steps.assets.outputs.count }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
 
       - name: Fast repository sanity check
         shell: bash
@@ -145,6 +147,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
 
       - uses: actions/setup-python@v5
         with:
@@ -235,8 +239,12 @@ jobs:
     needs: [inventory, process]
     if: ${{ needs.process.result == 'success' }}
     runs-on: ubuntu-latest
+    env:
+      TARGET_BRANCH: ${{ github.head_ref || github.ref_name }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
 
       - name: Download all transcript bundles
         uses: actions/download-artifact@v4
@@ -288,4 +296,4 @@ jobs:
             exit 0
           fi
           git commit -m "Add transcripts from release my"
-          git push origin "HEAD:${GITHUB_REF_NAME}"
+          git push origin "HEAD:${TARGET_BRANCH}"

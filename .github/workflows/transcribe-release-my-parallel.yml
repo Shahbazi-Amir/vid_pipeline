@@ -1,5 +1,5 @@
 name: Transcribe release my reliably
-run-name: Release my — cached parallel transcription
+run-name: Release my — single-pass cached parallel transcription
 
 on:
   push:
@@ -95,8 +95,8 @@ jobs:
           import urllib.request
 
           root = pathlib.Path("outputs/release-my")
-          old_manifest_path = root / "manifest.json"
           old_manifest = {}
+          old_manifest_path = root / "manifest.json"
           if old_manifest_path.is_file():
               try:
                   old_manifest = json.loads(old_manifest_path.read_text(encoding="utf-8"))
@@ -120,7 +120,7 @@ jobs:
                   "Accept": "application/vnd.github+json",
                   "Authorization": f"Bearer {token}",
                   "X-GitHub-Api-Version": "2022-11-28",
-                  "User-Agent": "vid-pipeline-release-my-inventory-v2",
+                  "User-Agent": "vid-pipeline-release-my-inventory-v3",
               },
           )
           with urllib.request.urlopen(request, timeout=60) as response:
@@ -147,11 +147,15 @@ jobs:
                       metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
                   except json.JSONDecodeError:
                       metadata = {}
+                  required = (
+                      root / "raw" / "md" / f"{index}.md",
+                      root / "raw" / "txt" / f"{index}.txt",
+                      root / "raw" / "timestamped" / f"{index}.md",
+                      root / "raw" / "json" / f"{index}.json",
+                  )
                   matching_output = (
                       int(metadata.get("asset_id") or 0) == asset_id
-                      and (root / "raw" / "md" / f"{index}.md").is_file()
-                      and (root / "raw" / "txt" / f"{index}.txt").is_file()
-                      and (root / "raw" / "timestamped" / f"{index}.md").is_file()
+                      and all(path.is_file() and path.stat().st_size > 0 for path in required)
                   )
               assets.append({
                   "id": asset_id,
@@ -176,15 +180,15 @@ jobs:
               "release_id": release.get("id"),
               "media_asset_count": len(assets),
               "pending_asset_count": len(pending),
-              "processing_mode": "cached_parallel_matrix_max_4",
+              "processing_mode": "single_pass_cached_parallel_max_4",
               "max_parallel": 4,
               "transcription_profile": os.environ["ASR_PROFILE"],
               "transcription_model": os.environ["ASR_MODEL"],
+              "review": "deferred",
               "assets": assets,
           }
           pathlib.Path("inventory/manifest.json").write_text(
-              json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
-              encoding="utf-8",
+              json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
           )
           matrix = json.dumps({"include": pending}, ensure_ascii=False, separators=(",", ":"))
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
@@ -223,7 +227,7 @@ jobs:
           path: ~/.cache/vid-pipeline/asr/large-v3-turbo-ct2-v1/model
           key: ${{ needs.inventory.outputs.cache_key }}
 
-      - name: Provision and integrity-check model once
+      - name: Provision model on cache miss
         if: steps.cache.outputs.cache-hit != 'true'
         shell: bash
         run: |
@@ -235,7 +239,7 @@ jobs:
           print(result.diagnostics)
           PY
 
-      - name: Verify restored/provisioned model
+      - name: Verify restored or provisioned model
         shell: bash
         run: |
           set -euo pipefail
@@ -281,7 +285,7 @@ jobs:
           key: ${{ needs.inventory.outputs.cache_key }}
           fail-on-cache-miss: true
 
-      - name: Install worker dependencies
+      - name: Install transcription dependencies
         shell: bash
         run: |
           set -euo pipefail
@@ -290,7 +294,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e '.[worker]'
 
-      - name: Download, verify and transcribe asset
+      - name: Download, verify and single-pass transcribe asset
         id: worker
         continue-on-error: true
         shell: bash
@@ -309,12 +313,13 @@ jobs:
           AI_REVIEW_ENABLED: "false"
           TRANSCRIPTION_PROFILE: balanced
           TRANSCRIPTION_MODEL: large-v3-turbo
+          AUDIO_PROFILE: safe
         run: |
           set +e
           mkdir -p staging/release-my/logs
           log="staging/release-my/logs/${RESULT_NUMBER}.log"
           started=$(date +%s)
-          echo "asset=${ASSET_NAME} id=${ASSET_ID} index=${RESULT_NUMBER} model=${TRANSCRIPTION_MODEL} profile=${TRANSCRIPTION_PROFILE}"
+          echo "asset=${ASSET_NAME} id=${ASSET_ID} index=${RESULT_NUMBER} mode=single_pass model=${TRANSCRIPTION_MODEL}"
           bash scripts/process_private_release_asset.sh 2>&1 | tee "$log"
           code=${PIPESTATUS[0]}
           finished=$(date +%s)
@@ -354,6 +359,7 @@ jobs:
           text = txt_path.read_text(encoding="utf-8")
           if not text.startswith("منبع فایل:"):
               txt_path.write_text(txt_header + text, encoding="utf-8")
+
           assets = root / "assets"
           assets.mkdir(parents=True, exist_ok=True)
           (assets / f"{number}.json").write_text(
@@ -366,6 +372,7 @@ jobs:
                   "browser_download_url": url,
                   "transcription_profile": "balanced",
                   "asr_model": "large-v3-turbo",
+                  "processing_mode": "single_pass_base_transcription",
                   "review_status": "pending_review",
               }, ensure_ascii=False, indent=2) + "\n",
               encoding="utf-8",
@@ -419,18 +426,27 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p outputs/release-my/raw/md outputs/release-my/raw/timestamped outputs/release-my/raw/txt outputs/release-my/assets outputs/release-my/logs
+          mkdir -p \
+            outputs/release-my/raw/md \
+            outputs/release-my/raw/timestamped \
+            outputs/release-my/raw/txt \
+            outputs/release-my/raw/json \
+            outputs/release-my/assets \
+            outputs/release-my/logs \
+            outputs/release-my/metrics
           cp collected/inventory/manifest.json outputs/release-my/manifest.json
-          for source in md timestamped txt; do
+
+          for source in md timestamped txt json; do
             if [[ -d "collected/results/$source" ]]; then
               cp -a "collected/results/$source/." "outputs/release-my/raw/$source/"
             fi
           done
-          for source in assets logs; do
+          for source in assets logs metrics; do
             if [[ -d "collected/results/$source" ]]; then
               cp -a "collected/results/$source/." "outputs/release-my/$source/"
             fi
           done
+
           python - <<'PY'
           import json
           import os
@@ -443,20 +459,26 @@ jobs:
           for item in manifest["assets"]:
               index = str(item["index"])
               meta_path = root / "assets" / f"{index}.json"
-              md_path = root / "raw" / "md" / f"{index}.md"
-              txt_path = root / "raw" / "txt" / f"{index}.txt"
-              timestamped_path = root / "raw" / "timestamped" / f"{index}.md"
+              required = (
+                  root / "raw" / "md" / f"{index}.md",
+                  root / "raw" / "txt" / f"{index}.txt",
+                  root / "raw" / "timestamped" / f"{index}.md",
+                  root / "raw" / "json" / f"{index}.json",
+                  root / "metrics" / f"{index}.json",
+              )
               valid = False
-              if meta_path.is_file() and md_path.is_file() and txt_path.is_file() and timestamped_path.is_file():
+              if meta_path.is_file() and all(path.is_file() for path in required):
                   try:
                       meta = json.loads(meta_path.read_text(encoding="utf-8"))
                   except json.JSONDecodeError:
                       meta = {}
                   valid = (
                       int(meta.get("asset_id") or 0) == int(item["id"])
-                      and all(path.stat().st_size > 0 for path in (md_path, txt_path, timestamped_path))
+                      and all(path.stat().st_size > 0 for path in required)
                   )
-              (completed if valid else failed).append({"index": index, "asset_id": item["id"], "name": item["name"]})
+              row = {"index": index, "asset_id": item["id"], "name": item["name"]}
+              (completed if valid else failed).append(row)
+
           state = "all_raw_transcripts_complete" if not failed else "partial_failed"
           status = {
               "state": state,
@@ -466,10 +488,13 @@ jobs:
               "failed_assets": failed,
               "completed_assets": completed,
               "max_parallel": 4,
+              "processing_mode": "single_pass_base_transcription",
               "asr_model": "large-v3-turbo",
               "review": "pending_review",
           }
-          (root / "status.json").write_text(json.dumps(status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          (root / "status.json").write_text(
+              json.dumps(status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+          )
           print(json.dumps(status, ensure_ascii=False, indent=2))
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
               output.write(f"state={state}\n")

@@ -10,6 +10,12 @@ for name in "${required[@]}"; do
 done
 
 AI_REVIEW_ENABLED="${AI_REVIEW_ENABLED:-false}"
+TRANSCRIPTION_MODEL="${TRANSCRIPTION_MODEL:-large-v3-turbo}"
+TRANSCRIPTION_PROFILE="${TRANSCRIPTION_PROFILE:-balanced}"
+if [[ "$TRANSCRIPTION_MODEL" != "large-v3-turbo" ]]; then
+  echo "Release transcription requires the project-controlled model large-v3-turbo; got: $TRANSCRIPTION_MODEL" >&2
+  exit 2
+fi
 if [[ "${AI_REVIEW_ENABLED,,}" == "true" ]]; then
   for name in VID_PIPELINE_REVIEW_API_KEY VID_PIPELINE_REVIEW_BASE_URL VID_PIPELINE_REVIEW_MODEL; do
     [[ -n "${!name:-}" ]] || { echo "Missing required review environment variable: $name" >&2; exit 2; }
@@ -17,9 +23,20 @@ if [[ "${AI_REVIEW_ENABLED,,}" == "true" ]]; then
 fi
 
 mkdir -p /tmp/vid-pipeline-private
-INPUT_MEDIA="/tmp/vid-pipeline-private/media${MEDIA_SUFFIX}"
-export INPUT_MEDIA
+INPUT_MEDIA="/tmp/vid-pipeline-private/media-${RESULT_NUMBER}${MEDIA_SUFFIX}"
+RUN_OUTPUT_ROOT="${RUN_OUTPUT_ROOT:-/tmp/vid-pipeline-private-output-${RESULT_NUMBER}}"
+export INPUT_MEDIA RUN_OUTPUT_ROOT
+rm -rf "$RUN_OUTPUT_ROOT"
+rm -f "$INPUT_MEDIA" "$INPUT_MEDIA.part"
+mkdir -p "$RUN_OUTPUT_ROOT"
 
+cleanup() {
+  rm -rf "$RUN_OUTPUT_ROOT"
+  rm -f "$INPUT_MEDIA" "$INPUT_MEDIA.part"
+}
+trap cleanup EXIT
+
+echo "Release asset ${RESULT_NUMBER}: downloading id=${ASSET_ID} size=${EXPECTED_SIZE} model=${TRANSCRIPTION_MODEL} profile=${TRANSCRIPTION_PROFILE}"
 python - <<'PY'
 import hashlib
 import os
@@ -40,7 +57,7 @@ request = urllib.request.Request(
         "Accept": "application/octet-stream",
         "Authorization": f"Bearer {token}",
         "X-GitHub-Api-Version": "2022-11-28",
-        "User-Agent": "vid-pipeline-private-release-worker",
+        "User-Agent": "vid-pipeline-private-release-worker-v2",
     },
 )
 temporary = target + ".part"
@@ -54,29 +71,30 @@ for attempt in range(4):
                 digest.update(chunk)
                 size += len(chunk)
         if size != expected_size:
-            raise RuntimeError("downloaded private asset size mismatch")
+            raise RuntimeError(f"downloaded private asset size mismatch: {size} != {expected_size}")
         actual = digest.hexdigest()
         if expected_digest.startswith("sha256:") and expected_digest != f"sha256:{actual}":
             raise RuntimeError("downloaded private asset digest mismatch")
         os.replace(temporary, target)
-        print(f"Private media verified: {size} bytes")
+        print(f"Private media verified: {size} bytes sha256:{actual}")
         break
-    except (urllib.error.URLError, TimeoutError, RuntimeError):
+    except (urllib.error.URLError, TimeoutError, RuntimeError) as exc:
         try:
             os.remove(temporary)
         except FileNotFoundError:
             pass
         if attempt == 3:
             raise
+        print(f"asset download attempt {attempt + 1} failed: {exc}; retrying")
         time.sleep(2**attempt)
 PY
 
 args=(
   run-file "$INPUT_MEDIA"
   --name "private-${RESULT_NUMBER}"
-  --output-root outputs
-  --profile "${TRANSCRIPTION_PROFILE:-balanced}"
-  --model "${TRANSCRIPTION_MODEL:-large-v3-turbo}"
+  --output-root "$RUN_OUTPUT_ROOT"
+  --profile "$TRANSCRIPTION_PROFILE"
+  --model "$TRANSCRIPTION_MODEL"
   --language fa
   --device cpu
   --compute-type int8
@@ -88,7 +106,9 @@ if [[ "${DIARIZATION_ENABLED,,}" == "true" ]]; then
   [[ "${DIARIZATION_REQUIRED:-false}" == "true" ]] && args+=(--diarization-required)
 fi
 
+echo "Release asset ${RESULT_NUMBER}: starting ASR"
 vid-pipeline "${args[@]}"
+echo "Release asset ${RESULT_NUMBER}: ASR pipeline finished"
 
 mkdir -p \
   "$COLLECTION_ROOT/md" \
@@ -98,9 +118,10 @@ mkdir -p \
 copy_one() {
   local source_name="$1"
   local target="$2"
-  mapfile -t matches < <(find outputs -type f -path "*/delivery/$source_name")
+  mapfile -t matches < <(find "$RUN_OUTPUT_ROOT" -type f -path "*/delivery/$source_name")
   if (( ${#matches[@]} != 1 )); then
-    echo "Expected exactly one delivery file for $source_name; found ${#matches[@]}" >&2
+    echo "Expected exactly one isolated delivery file for $source_name; found ${#matches[@]} under $RUN_OUTPUT_ROOT" >&2
+    printf '  %s\n' "${matches[@]:-}" >&2
     exit 1
   fi
   cp "${matches[0]}" "$target"
@@ -133,6 +154,3 @@ if [[ "${AI_REVIEW_ENABLED,,}" == "true" ]]; then
 else
   echo "Result $RESULT_NUMBER completed without external AI review"
 fi
-
-rm -rf outputs
-rm -f "$INPUT_MEDIA"

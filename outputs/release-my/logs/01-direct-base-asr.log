@@ -1,0 +1,114 @@
+[0;93m2026-08-22 10:02:25.606913152 [W:onnxruntime:Default, device_discovery.cc:146 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename "5620e0c7-8062-4dce-aeb7-520c7ef76171" did not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
+PIPELINE_STAGE job=release-my-01-5ee2c6e1 stage=source status=started
+PIPELINE_STAGE job=release-my-01-5ee2c6e1 stage=source status=completed
+PIPELINE_STAGE job=release-my-01-5ee2c6e1 stage=download status=started
+PIPELINE_STAGE job=release-my-01-5ee2c6e1 stage=download status=completed
+PIPELINE_STAGE job=release-my-01-5ee2c6e1 stage=audio status=started
+PIPELINE_STAGE job=release-my-01-5ee2c6e1 stage=audio status=completed
+PIPELINE_STAGE job=release-my-01-5ee2c6e1 stage=transcribe status=started
+PIPELINE_STAGE job=release-my-01-5ee2c6e1 stage=transcribe status=completed
+PIPELINE_STAGE job=release-my-01-5ee2c6e1 stage=clean status=started
+PIPELINE_STAGE job=release-my-01-5ee2c6e1 stage=clean status=completed
+PIPELINE_STAGE job=release-my-01-5ee2c6e1 stage=finalize_machine status=started
+PIPELINE_STAGE job=release-my-01-5ee2c6e1 stage=finalize_machine status=completed
+{
+  "job_id": "release-my-01-5ee2c6e1",
+  "job_root": "/tmp/release-my-output/release-my-01-5ee2c6e1",
+  "stages": [
+    {
+      "stage": "source",
+      "status": "completed",
+      "schema_version": 2,
+      "job_id": "release-my-01-5ee2c6e1",
+      "input_type": "audio",
+      "path": "/tmp/release-my-direct/input.m4a",
+      "title": "input",
+      "size": 4204114,
+      "sha256": "f3a9b4fd9aeb66298a382ece7f2ca68e462a4944629ae6cf4ae29ea86241112c",
+      "media": {
+        "input_type": "audio",
+        "container": "mov,mp4,m4a,3gp,3g2,mj2",
+        "audio_codec": "aac",
+        "duration_seconds": 257.617313,
+        "sample_rate": 48000,
+        "channels": 1,
+        "channel_layout": "mono",
+        "bit_rate": 128003,
+        "has_audio_stream": true,
+        "has_video_stream": false,
+        "has_attached_picture": false
+      }
+    },
+    {
+      "stage": "download",
+      "status": "completed",
+      "media_path": "/tmp/release-my-direct/input.m4a",
+      "downloaded": false
+    },
+    {
+      "stage": "audio",
+      "status": "completed",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "codec_type": "audio",
+            "sample_rate": "16000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "257.621375"
+        }
+      },
+      "audio_profile": "safe",
+      "normalize_seconds": 5.533023,
+      "ffprobe_seconds": 0.054078
+    },
+    {
+      "stage": "transcribe",
+      "status": "completed",
+      "duration": 257.621375,
+      "segments": 94,
+      "language": "fa",
+      "model": "large-v3-turbo",
+      "device": "cpu",
+      "timing": {
+        "asr_model_load_seconds": 33.98151,
+        "asr_inference_seconds": 109.737041
+      }
+    },
+    {
+      "stage": "clean",
+      "status": "completed",
+      "segments_in": 94,
+      "segments_out": 94,
+      "paragraphs": 5,
+      "language": "fa",
+      "markdown": "/tmp/release-my-output/release-my-01-5ee2c6e1/machine/transcript.machine.md",
+      "text": "/tmp/release-my-output/release-my-01-5ee2c6e1/machine/transcript.machine.txt",
+      "quality": "machine_only"
+    },
+    {
+      "stage": "finalize_machine",
+      "status": "machine_processing_complete",
+      "schema_version": 4,
+      "review_status": "machine_only",
+      "job_id": "release-my-01-5ee2c6e1",
+      "source_url": "",
+      "final_markdown": "/tmp/release-my-output/release-my-01-5ee2c6e1/final/transcript.final.md",
+      "final_text": "/tmp/release-my-output/release-my-01-5ee2c6e1/final/transcript.final.txt",
+      "content_preservation": {
+        "accepted": true,
+        "source_tokens": 419,
+        "candidate_tokens": 419,
+        "length_ratio": 1.0,
+        "token_recall": 1.0,
+        "sequence_similarity": 1.0,
+        "reasons": []
+      },
+      "warning": "Editorial stage was disabled; this is not a reviewed transcript."
+    }
+  ]
+}

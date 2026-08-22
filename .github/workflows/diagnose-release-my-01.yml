@@ -23,7 +23,7 @@ jobs:
       PRIVATE_MEDIA_TOKEN: ${{ github.token }}
       COLLECTION_ROOT: staging/release-my-diag
       DIARIZATION_ENABLED: "false"
-      TRANSCRIPTION_PROFILE: fast
+      TRANSCRIPTION_PROFILE: balanced
     steps:
       - uses: actions/checkout@v4
         with:
@@ -82,8 +82,8 @@ jobs:
           set -euo pipefail
           git restore outputs 2>/dev/null || true
           mkdir -p outputs/release-my/logs
-          cp /tmp/release-my-01-worker.log outputs/release-my/logs/01-worker.log
-          printf '{\n  "asset": "%s",\n  "exit_code": %s\n}\n' "$ASSET_NAME" "${{ steps.worker.outputs.exit_code || '999' }}" > outputs/release-my/logs/01-worker-status.json
+          cp /tmp/release-my-01-worker.log outputs/release-my/logs/01-worker-balanced.log
+          printf '{\n  "asset": "%s",\n  "profile": "balanced",\n  "exit_code": %s\n}\n' "$ASSET_NAME" "${{ steps.worker.outputs.exit_code || '999' }}" > outputs/release-my/logs/01-worker-balanced-status.json
 
           if [[ "${{ steps.worker.outputs.exit_code }}" == "0" ]]; then
             mkdir -p outputs/release-my/raw/md outputs/release-my/raw/timestamped outputs/release-my/raw/txt
@@ -99,7 +99,7 @@ jobs:
             git add -f "outputs/release-my/raw/md/$RESULT_NUMBER.md" "outputs/release-my/raw/timestamped/$RESULT_NUMBER.md" "outputs/release-my/raw/txt/$RESULT_NUMBER.txt"
           fi
           if ! git diff --cached --quiet; then
-            git commit -m "Capture release my transcript 01 diagnostic"
+            git commit -m "Capture balanced release my transcript 01 diagnostic"
             git push origin HEAD:main
           fi
 

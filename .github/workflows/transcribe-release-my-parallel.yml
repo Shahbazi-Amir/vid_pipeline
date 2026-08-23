@@ -1,39 +1,89 @@
-name: Transcribe release my in parallel
-run-name: Release my — parallel transcription
+name: Transcribe release my reliably
+run-name: Release my — single-pass cached parallel transcription
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
     paths:
       - .github/workflows/transcribe-release-my-parallel.yml
+      - scripts/process_private_release_asset.sh
+      - src/vid_pipeline/asr_model.py
+      - src/vid_pipeline/profiles.py
+      - models/asr/large-v3-turbo-ct2-v1.json
+  pull_request:
+    paths:
+      - .github/workflows/transcribe-release-my-parallel.yml
+      - scripts/process_private_release_asset.sh
+      - src/vid_pipeline/asr_model.py
+      - src/vid_pipeline/profiles.py
+      - models/asr/large-v3-turbo-ct2-v1.json
   workflow_dispatch:
+    inputs:
+      force_all:
+        description: Re-transcribe assets that already have matching outputs
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
   actions: read
 
 concurrency:
-  group: release-my-parallel-transcription
+  group: release-my-transcription-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
+
+env:
+  RELEASE_TAG: my
+  ASR_MODEL: large-v3-turbo
+  ASR_PROFILE: balanced
 
 jobs:
   inventory:
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.inventory.outputs.matrix }}
-      count: ${{ steps.inventory.outputs.count }}
+      total_count: ${{ steps.inventory.outputs.total_count }}
+      pending_count: ${{ steps.inventory.outputs.pending_count }}
+      cache_key: ${{ steps.cache-key.outputs.value }}
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          sparse-checkout: |
+            src
+            scripts
+            models
+            outputs/release-my
+            pyproject.toml
+            README.md
+            LICENSE
+          sparse-checkout-cone-mode: false
 
-      - name: Inventory release media
+      - name: Preflight repository contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash -n scripts/process_private_release_asset.sh
+          python -m compileall -q src
+          test -s models/asr/large-v3-turbo-ct2-v1.json
+          PYTHONPATH=src python - <<'PY'
+          from vid_pipeline.profiles import resolve_transcription_model
+          assert resolve_transcription_model("balanced", "large-v3-turbo") == "large-v3-turbo"
+          PY
+
+      - name: Build ASR cache key
+        id: cache-key
+        shell: bash
+        run: echo "value=asr-${RUNNER_OS}-$(sha256sum models/asr/large-v3-turbo-ct2-v1.json | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
+
+      - name: Inventory live release media
         id: inventory
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
           REPOSITORY: ${{ github.repository }}
+          FORCE_ALL: ${{ inputs.force_all || 'false' }}
         run: |
           set -euo pipefail
           mkdir -p inventory
@@ -41,17 +91,36 @@ jobs:
           import json
           import os
           import pathlib
+          import urllib.parse
           import urllib.request
 
+          root = pathlib.Path("outputs/release-my")
+          old_manifest = {}
+          old_manifest_path = root / "manifest.json"
+          if old_manifest_path.is_file():
+              try:
+                  old_manifest = json.loads(old_manifest_path.read_text(encoding="utf-8"))
+              except json.JSONDecodeError:
+                  old_manifest = {}
+
+          previous_indices = {
+              int(item["id"]): str(item["index"])
+              for item in old_manifest.get("assets", [])
+              if item.get("id") is not None and item.get("index")
+          }
+          used_numbers = [int(value) for value in previous_indices.values() if str(value).isdigit()]
+          next_number = max(used_numbers, default=0) + 1
+
           repo = os.environ["REPOSITORY"]
+          tag = os.environ["RELEASE_TAG"]
           token = os.environ["GH_TOKEN"]
           request = urllib.request.Request(
-              f"https://api.github.com/repos/{repo}/releases/tags/my",
+              f"https://api.github.com/repos/{repo}/releases/tags/{urllib.parse.quote(tag, safe='')}",
               headers={
                   "Accept": "application/vnd.github+json",
                   "Authorization": f"Bearer {token}",
                   "X-GitHub-Api-Version": "2022-11-28",
-                  "User-Agent": "vid-pipeline-release-my-parallel",
+                  "User-Agent": "vid-pipeline-release-my-inventory-v3",
               },
           )
           with urllib.request.urlopen(request, timeout=60) as response:
@@ -66,43 +135,69 @@ jobs:
               suffix = pathlib.Path(asset["name"]).suffix.lower()
               if suffix not in media_extensions:
                   continue
+              asset_id = int(asset["id"])
+              index = previous_indices.get(asset_id)
+              if not index:
+                  index = f"{next_number:02d}"
+                  next_number += 1
+              metadata_path = root / "assets" / f"{index}.json"
+              matching_output = False
+              if metadata_path.is_file():
+                  try:
+                      metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+                  except json.JSONDecodeError:
+                      metadata = {}
+                  required = (
+                      root / "raw" / "md" / f"{index}.md",
+                      root / "raw" / "txt" / f"{index}.txt",
+                      root / "raw" / "timestamped" / f"{index}.md",
+                      root / "raw" / "json" / f"{index}.json",
+                  )
+                  matching_output = (
+                      int(metadata.get("asset_id") or 0) == asset_id
+                      and all(path.is_file() and path.stat().st_size > 0 for path in required)
+                  )
               assets.append({
-                  "id": asset["id"],
+                  "id": asset_id,
+                  "index": index,
                   "name": asset["name"],
-                  "size": asset["size"],
+                  "size": int(asset["size"]),
                   "digest": asset.get("digest") or "",
                   "suffix": suffix,
                   "browser_download_url": asset["browser_download_url"],
+                  "already_completed": matching_output,
               })
-          assets.sort(key=lambda item: item["name"].casefold())
-          if not assets:
-              raise SystemExit("Release tag 'my' contains no supported media assets")
-          for index, item in enumerate(assets, start=1):
-              item["index"] = f"{index:02d}"
 
+          assets.sort(key=lambda item: int(item["index"]))
+          if not assets:
+              raise SystemExit(f"Release tag {tag!r} contains no supported media assets")
+          force_all = str(os.environ.get("FORCE_ALL", "false")).lower() == "true"
+          pending = [item for item in assets if force_all or not item["already_completed"]]
           manifest = {
               "repository": repo,
-              "release_tag": "my",
+              "release_tag": tag,
               "release_name": release.get("name"),
               "release_id": release.get("id"),
               "media_asset_count": len(assets),
-              "processing_mode": "parallel_matrix_max_4",
+              "pending_asset_count": len(pending),
+              "processing_mode": "single_pass_cached_parallel_max_4",
               "max_parallel": 4,
-              "transcription_profile": "balanced",
-              "transcription_model": "large-v3-turbo",
+              "transcription_profile": os.environ["ASR_PROFILE"],
+              "transcription_model": os.environ["ASR_MODEL"],
+              "review": "deferred",
               "assets": assets,
           }
           pathlib.Path("inventory/manifest.json").write_text(
-              json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
-              encoding="utf-8",
+              json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
           )
-          matrix = json.dumps({"include": assets}, ensure_ascii=False, separators=(",", ":"))
+          matrix = json.dumps({"include": pending}, ensure_ascii=False, separators=(",", ":"))
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
               output.write(f"matrix={matrix}\n")
-              output.write(f"count={len(assets)}\n")
-          print(f"Found {len(assets)} media assets")
+              output.write(f"total_count={len(assets)}\n")
+              output.write(f"pending_count={len(pending)}\n")
+          print(f"Release {tag!r}: {len(assets)} media asset(s), {len(pending)} pending")
           for item in assets:
-              print(item["index"], item["name"], item["size"])
+              print(item["index"], item["id"], item["name"], "done" if item["already_completed"] else "pending")
           PY
 
       - uses: actions/upload-artifact@v4
@@ -112,10 +207,55 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
-  process:
+  prepare_model:
     needs: inventory
     runs-on: ubuntu-latest
-    timeout-minutes: 240
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          sparse-checkout: |
+            src
+            models
+          sparse-checkout-cone-mode: false
+
+      - name: Restore project ASR model cache
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/vid-pipeline/asr/large-v3-turbo-ct2-v1/model
+          key: ${{ needs.inventory.outputs.cache_key }}
+
+      - name: Provision model on cache miss
+        if: steps.cache.outputs.cache-hit != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          PYTHONPATH=src python - <<'PY'
+          from vid_pipeline.asr_model import AsrModelManager
+          result = AsrModelManager().provision("large-v3-turbo")
+          print(result.path)
+          print(result.diagnostics)
+          PY
+
+      - name: Verify restored or provisioned model
+        shell: bash
+        run: |
+          set -euo pipefail
+          PYTHONPATH=src python - <<'PY'
+          from vid_pipeline.asr_model import AsrModelManager
+          result = AsrModelManager().provision("large-v3-turbo")
+          assert result.path.is_dir()
+          assert result.diagnostics["asr_model_integrity_ok"] is True
+          print(f"model_ready={result.path} cache_hit={result.cache_hit}")
+          PY
+
+  process:
+    needs: [inventory, prepare_model]
+    if: needs.inventory.outputs.pending_count != '0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
     strategy:
       fail-fast: false
       max-parallel: 4
@@ -123,23 +263,38 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          sparse-checkout: |
+            src
+            scripts
+            models
+            pyproject.toml
+            README.md
+            LICENSE
+          sparse-checkout-cone-mode: false
 
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: pip
 
-      - name: Install worker dependencies
+      - name: Restore prepared ASR model
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/vid-pipeline/asr/large-v3-turbo-ct2-v1/model
+          key: ${{ needs.inventory.outputs.cache_key }}
+          fail-on-cache-miss: true
+
+      - name: Install transcription dependencies
         shell: bash
         run: |
           set -euo pipefail
-          sudo apt-get update
+          sudo apt-get update -qq
           sudo apt-get install -y ffmpeg
           python -m pip install --upgrade pip
           pip install -e '.[worker]'
 
-      - name: Run transcription worker
+      - name: Download, verify and single-pass transcribe asset
         id: worker
         continue-on-error: true
         shell: bash
@@ -158,17 +313,21 @@ jobs:
           AI_REVIEW_ENABLED: "false"
           TRANSCRIPTION_PROFILE: balanced
           TRANSCRIPTION_MODEL: large-v3-turbo
+          AUDIO_PROFILE: safe
         run: |
           set +e
           mkdir -p staging/release-my/logs
           log="staging/release-my/logs/${RESULT_NUMBER}.log"
-          bash scripts/process_private_release_asset.sh >"$log" 2>&1
-          code=$?
-          cat "$log"
+          started=$(date +%s)
+          echo "asset=${ASSET_NAME} id=${ASSET_ID} index=${RESULT_NUMBER} mode=single_pass model=${TRANSCRIPTION_MODEL}"
+          bash scripts/process_private_release_asset.sh 2>&1 | tee "$log"
+          code=${PIPESTATUS[0]}
+          finished=$(date +%s)
+          echo "wall_seconds=$((finished-started))" | tee -a "$log"
           echo "exit_code=$code" >> "$GITHUB_OUTPUT"
           exit "$code"
 
-      - name: Add provenance and asset metadata
+      - name: Add source metadata
         if: steps.worker.outcome == 'success'
         shell: bash
         env:
@@ -190,18 +349,8 @@ jobs:
           number = os.environ["RESULT_NUMBER"]
           name = os.environ["ASSET_NAME"]
           url = os.environ["ASSET_URL"]
-          md_header = (
-              "## منبع فایل\n"
-              "- Release: `my`\n"
-              f"- Asset: `{name}`\n"
-              f"- URL: {url}\n\n"
-          )
-          txt_header = (
-              "منبع فایل:\n"
-              "Release: my\n"
-              f"Asset: {name}\n"
-              f"URL: {url}\n\n"
-          )
+          md_header = f"## منبع فایل\n- Release: `my`\n- Asset: `{name}`\n- URL: {url}\n\n"
+          txt_header = f"منبع فایل:\nRelease: my\nAsset: {name}\nURL: {url}\n\n"
           for path in (root / "md" / f"{number}.md", root / "timestamped" / f"{number}.md"):
               text = path.read_text(encoding="utf-8")
               if not text.startswith("## منبع فایل"):
@@ -223,13 +372,14 @@ jobs:
                   "browser_download_url": url,
                   "transcription_profile": "balanced",
                   "asr_model": "large-v3-turbo",
-                  "review_status": "pending_chatgpt_review",
+                  "processing_mode": "single_pass_base_transcription",
+                  "review_status": "pending_review",
               }, ensure_ascii=False, indent=2) + "\n",
               encoding="utf-8",
           )
           PY
 
-      - name: Upload per-asset result and log
+      - name: Upload result and live log
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -238,23 +388,24 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
-      - name: Fail matrix item when worker failed
+      - name: Mark asset failed
         if: steps.worker.outcome != 'success'
         shell: bash
         run: |
-          echo "Transcription failed for ${{ matrix.index }} ${{ matrix.name }}"
+          echo "Transcription failed for ${{ matrix.index }} — ${{ matrix.name }}"
           exit 1
 
   collect:
-    needs:
-      - inventory
-      - process
-    if: always() && needs.inventory.result == 'success'
+    needs: [inventory, prepare_model, process]
+    if: always() && needs.inventory.result == 'success' && needs.prepare_model.result == 'success'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          sparse-checkout: |
+            outputs/release-my
+          sparse-checkout-cone-mode: false
 
       - name: Download inventory
         uses: actions/download-artifact@v4
@@ -262,7 +413,7 @@ jobs:
           name: release-my-inventory
           path: collected/inventory
 
-      - name: Download all per-asset results
+      - name: Download available per-asset results
         continue-on-error: true
         uses: actions/download-artifact@v4
         with:
@@ -270,7 +421,8 @@ jobs:
           path: collected/results
           merge-multiple: true
 
-      - name: Materialize results and status
+      - name: Materialize and validate outputs
+        id: materialize
         shell: bash
         run: |
           set -euo pipefail
@@ -278,47 +430,86 @@ jobs:
             outputs/release-my/raw/md \
             outputs/release-my/raw/timestamped \
             outputs/release-my/raw/txt \
+            outputs/release-my/raw/json \
             outputs/release-my/assets \
-            outputs/release-my/logs
-
+            outputs/release-my/logs \
+            outputs/release-my/metrics
           cp collected/inventory/manifest.json outputs/release-my/manifest.json
-          for source in md timestamped txt; do
+
+          for source in md timestamped txt json; do
             if [[ -d "collected/results/$source" ]]; then
-              mkdir -p "outputs/release-my/raw/$source"
               cp -a "collected/results/$source/." "outputs/release-my/raw/$source/"
             fi
           done
-          for source in assets logs; do
+          for source in assets logs metrics; do
             if [[ -d "collected/results/$source" ]]; then
-              mkdir -p "outputs/release-my/$source"
               cp -a "collected/results/$source/." "outputs/release-my/$source/"
             fi
           done
 
           python - <<'PY'
           import json
+          import os
           from pathlib import Path
 
           root = Path("outputs/release-my")
           manifest = json.loads((root / "manifest.json").read_text(encoding="utf-8"))
-          expected = int(manifest["media_asset_count"])
-          completed = sum(1 for p in (root / "raw" / "md").glob("*.md") if p.is_file() and p.stat().st_size > 0)
-          state = "all_raw_transcripts_complete" if completed >= expected else "partial_failed"
+          completed = []
+          failed = []
+          for item in manifest["assets"]:
+              index = str(item["index"])
+              meta_path = root / "assets" / f"{index}.json"
+              required = (
+                  root / "raw" / "md" / f"{index}.md",
+                  root / "raw" / "txt" / f"{index}.txt",
+                  root / "raw" / "timestamped" / f"{index}.md",
+                  root / "raw" / "json" / f"{index}.json",
+                  root / "metrics" / f"{index}.json",
+              )
+              valid = False
+              if meta_path.is_file() and all(path.is_file() for path in required):
+                  try:
+                      meta = json.loads(meta_path.read_text(encoding="utf-8"))
+                  except json.JSONDecodeError:
+                      meta = {}
+                  valid = (
+                      int(meta.get("asset_id") or 0) == int(item["id"])
+                      and all(path.stat().st_size > 0 for path in required)
+                  )
+              row = {"index": index, "asset_id": item["id"], "name": item["name"]}
+              (completed if valid else failed).append(row)
+
+          state = "all_raw_transcripts_complete" if not failed else "partial_failed"
+          status = {
+              "state": state,
+              "release_tag": manifest["release_tag"],
+              "expected_media_assets": len(manifest["assets"]),
+              "completed_raw_transcripts": len(completed),
+              "failed_assets": failed,
+              "completed_assets": completed,
+              "max_parallel": 4,
+              "processing_mode": "single_pass_base_transcription",
+              "asr_model": "large-v3-turbo",
+              "review": "pending_review",
+          }
           (root / "status.json").write_text(
-              json.dumps({
-                  "state": state,
-                  "expected_media_assets": expected,
-                  "completed_raw_transcripts": completed,
-                  "max_parallel": 4,
-                  "asr_model": "large-v3-turbo",
-                  "review": "pending_chatgpt_review",
-              }, ensure_ascii=False, indent=2) + "\n",
-              encoding="utf-8",
+              json.dumps(status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
           )
-          print(f"state={state} completed={completed}/{expected}")
+          print(json.dumps(status, ensure_ascii=False, indent=2))
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"state={state}\n")
           PY
 
-      - name: Commit available transcription results
+      - name: Upload collected transcript bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-my-collected
+          path: outputs/release-my
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Commit results when running on main
+        if: github.event_name != 'pull_request'
         shell: bash
         run: |
           set -euo pipefail
@@ -329,6 +520,11 @@ jobs:
             echo "No result changes to commit"
             exit 0
           fi
-          git commit -m "Update parallel transcripts from release my"
+          git commit -m "Update reliable transcripts from release my"
           git pull --rebase origin main
           git push origin HEAD:main
+
+      - name: Fail run when any release asset is missing
+        if: steps.materialize.outputs.state != 'all_raw_transcripts_complete'
+        shell: bash
+        run: exit 1

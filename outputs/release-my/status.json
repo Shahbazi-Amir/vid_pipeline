@@ -1,8 +1,28 @@
 {
-  "state": "failed",
-  "current": {
-    "index": "01",
-    "asset_name": "default.m4a"
-  },
-  "error": "transcription worker failed"
+  "state": "all_raw_transcripts_complete",
+  "release_tag": "my",
+  "expected_media_assets": 3,
+  "completed_raw_transcripts": 3,
+  "failed_assets": [],
+  "completed_assets": [
+    {
+      "index": "01",
+      "asset_id": 520141633,
+      "name": "default.m4a"
+    },
+    {
+      "index": "02",
+      "asset_id": 520140850,
+      "name": "Soulmate.m4a"
+    },
+    {
+      "index": "03",
+      "asset_id": 520140209,
+      "name": "Voice.260525_211823.m4a"
+    }
+  ],
+  "max_parallel": 4,
+  "processing_mode": "single_pass_base_transcription",
+  "asr_model": "large-v3-turbo",
+  "review": "pending_review"
 }

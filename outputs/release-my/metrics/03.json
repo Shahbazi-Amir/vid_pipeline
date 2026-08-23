@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "mode": "single_pass_base_transcription",
+  "asset_name": "Voice.260525_211823.m4a",
+  "input_duration_seconds": 2457.220271,
+  "raw_duration_seconds": 2457.2586875,
+  "segment_count": 872,
+  "normalize_seconds": 41.979867,
+  "asr_wall_seconds": 1416.167476,
+  "asr_timing": {
+    "asr_model_load_seconds": 2.213611,
+    "asr_inference_seconds": 1413.582223
+  },
+  "clean_seconds": 0.042448,
+  "model_path": "/home/runner/.cache/vid-pipeline/asr/large-v3-turbo-ct2-v1/model",
+  "model_name": "large-v3-turbo",
+  "device": "cpu",
+  "compute_type": "int8",
+  "review_status": "pending_review",
+  "clean": {
+    "segments_in": 872,
+    "segments_out": 862,
+    "paragraphs": 86,
+    "language": "fa",
+    "markdown": "/tmp/vid-pipeline-private-output-03/work/transcript.machine.md",
+    "text": "/tmp/vid-pipeline-private-output-03/work/transcript.machine.txt"
+  }
+}

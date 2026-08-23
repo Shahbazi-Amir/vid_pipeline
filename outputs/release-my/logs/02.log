@@ -1,0 +1,12 @@
+Release asset 02: downloading id=520140850 size=32037761 model=large-v3-turbo profile=balanced
+Private media verified: 32037761 bytes sha256:76f2c443680e8fbc6a6a35470308d46566beb7afb7519444283fa0a94be01b52
+Release asset 02: using local ASR model path /home/runner/.cache/vid-pipeline/asr/large-v3-turbo-ct2-v1/model
+Release asset 02: starting single-pass base transcription
+BASE_STAGE stage=probe status=completed duration_seconds=1961.270688 input_type=audio
+BASE_STAGE stage=normalize status=completed seconds=31.404
+[0;93m2026-08-22 20:52:08.834603441 [W:onnxruntime:Default, device_discovery.cc:146 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename "5620e0c7-8062-4dce-aeb7-520c7ef76171" did not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
+BASE_STAGE stage=asr status=completed seconds=685.891 segments=877 duration_seconds=1961.301375
+BASE_STAGE stage=clean status=completed seconds=0.026
+Release asset 02: base transcription finished
+Result 02 completed: single-pass base transcript ready; review deferred
+wall_seconds=720

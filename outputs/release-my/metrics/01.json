@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "mode": "single_pass_base_transcription",
+  "asset_name": "default.m4a",
+  "input_duration_seconds": 257.617313,
+  "raw_duration_seconds": 257.621375,
+  "segment_count": 94,
+  "normalize_seconds": 5.215691,
+  "asr_wall_seconds": 103.180244,
+  "asr_timing": {
+    "asr_model_load_seconds": 1.865161,
+    "asr_inference_seconds": 101.040901
+  },
+  "clean_seconds": 0.004374,
+  "model_path": "/home/runner/.cache/vid-pipeline/asr/large-v3-turbo-ct2-v1/model",
+  "model_name": "large-v3-turbo",
+  "device": "cpu",
+  "compute_type": "int8",
+  "review_status": "pending_review",
+  "clean": {
+    "segments_in": 94,
+    "segments_out": 94,
+    "paragraphs": 5,
+    "language": "fa",
+    "markdown": "/tmp/vid-pipeline-private-output-01/work/transcript.machine.md",
+    "text": "/tmp/vid-pipeline-private-output-01/work/transcript.machine.txt"
+  }
+}

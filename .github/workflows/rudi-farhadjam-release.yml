@@ -47,12 +47,20 @@ jobs:
             uid="$2"
             echo "Downloading ${ep} from https://www.aparat.com/v/${uid}"
             api="https://www.aparat.com/api/fa/v1/video/video/show/videohash/${uid}"
-            json=$(curl -fsSL --connect-timeout 20 --max-time 60 --retry 5 --retry-all-errors "$api")
-            url=$(jq -r '.data.attributes.file_link_all[-1].urls[0]' <<<"$json")
-            test -n "$url"
-            test "$url" != "null"
-            curl -fL --connect-timeout 20 --max-time 900 --retry 10 --retry-all-errors --retry-delay 3 "$url" -o "parts/${ep}.mp4"
-            ffprobe -v error -show_entries format=duration -of csv=p=0 "parts/${ep}.mp4"
+            success=0
+            for attempt in $(seq 1 60); do
+              echo "${ep}: attempt ${attempt}"
+              json=$(curl -fsSL --connect-timeout 20 --max-time 60 --retry 3 --retry-all-errors "$api") || { sleep 2; continue; }
+              url=$(jq -r '.data.attributes.file_link_all[-1].urls[0]' <<<"$json")
+              if test -n "$url" && test "$url" != "null" && curl -fL --connect-timeout 20 --max-time 900 --retry 3 --retry-all-errors --retry-delay 2 "$url" -o "parts/${ep}.tmp" && ffprobe -v error -show_entries format=duration -of csv=p=0 "parts/${ep}.tmp"; then
+                mv "parts/${ep}.tmp" "parts/${ep}.mp4"
+                success=1
+                break
+              fi
+              rm -f "parts/${ep}.tmp"
+              sleep 2
+            done
+            test "$success" -eq 1
           }
           export -f download_one
           xargs -P4 -n2 bash -c 'download_one "$1" "$2"' _ < manifest.tsv

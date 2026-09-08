@@ -1,0 +1,86 @@
+name: Build Rudi Farhadjam 13-episode release
+
+on:
+  push:
+    paths:
+      - .github/workflows/rudi-farhadjam-release.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      TAG: rudi-farhadjam-khane-to-13ep
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Install media tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg jq
+      - name: Download all source videos
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p downloads parts
+          cat > manifest.tsv <<'EOF'
+          01 9Tj0C
+          02 g69xmzo
+          03 CnOy3
+          04 p417mmo
+          05 z79267j
+          06 v042tf3
+          07 l17l85y
+          08 p765r26
+          09 c64ul34
+          10 y4984cu
+          11a h2817b6
+          11b f92bsy5
+          12 z546789
+          13 f536z68
+          EOF
+          while read -r ep uid; do
+            echo "Downloading ${ep} from https://www.aparat.com/v/${uid}"
+            api="https://www.aparat.com/api/fa/v1/video/video/show/videohash/${uid}"
+            json=$(curl -fsSL --retry 10 --retry-all-errors "$api")
+            url=$(jq -r '.data.attributes.file_link_all[-1].urls[0]' <<<"$json")
+            test -n "$url"
+            test "$url" != "null"
+            curl -fL --retry 20 --retry-all-errors --retry-delay 3 "$url" -o "parts/${ep}.mp4"
+            ffprobe -v error -show_entries format=duration -of csv=p=0 "parts/${ep}.mp4"
+          done < manifest.tsv
+      - name: Assemble and verify 13 final episodes
+        shell: bash
+        run: |
+          set -euo pipefail
+          for ep in 01 02 03 04 05 06 07 08 09 10 12 13; do
+            cp "parts/${ep}.mp4" "downloads/${ep}.mp4"
+          done
+          printf "file '%s/parts/11a.mp4'\nfile '%s/parts/11b.mp4'\n" "$PWD" "$PWD" > concat.txt
+          ffmpeg -v error -f concat -safe 0 -i concat.txt -c copy downloads/11.mp4
+          test "$(find downloads -maxdepth 1 -type f -name '*.mp4' | wc -l)" -eq 13
+          for ep in {01..13}; do
+            test -s "downloads/${ep}.mp4"
+            duration=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "downloads/${ep}.mp4")
+            awk -v d="$duration" 'BEGIN { exit !(d > 1) }'
+          done
+          sha256sum downloads/*.mp4 | tee SHA256SUMS.txt
+      - name: Create release and upload assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(find downloads -maxdepth 1 -type f -name '*.mp4' | wc -l)" -eq 13
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "Release already exists"
+            exit 1
+          fi
+          gh release create "$TAG" downloads/*.mp4 SHA256SUMS.txt \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "گفتگوی دکتر کمیل رودی و فرهاد جم — ۱۳ قسمت" \
+            --notes "آرشیو کامل ۱۳ قسمت گفتگوی دکتر کمیل رودی و فرهاد جم در برنامه خانه تو"
+          assets=$(gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json assets --jq '.assets | map(select(.name | endswith(".mp4"))) | length')
+          test "$assets" -eq 13
+          gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json url,assets

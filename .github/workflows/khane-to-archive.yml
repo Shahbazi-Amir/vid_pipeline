@@ -1,0 +1,217 @@
+name: Archive Khane To interview series
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/khane-to-archive.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: khane-to-archive
+  cancel-in-progress: false
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      TAG: khane-to-rudi-farhadjam-2026-09-08
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install tools
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install --upgrade pip
+          pip install requests beautifulsoup4 lxml yt-dlp
+
+      - name: Discover official academy pages and media
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, re, time, urllib.parse, xml.etree.ElementTree as ET
+          from pathlib import Path
+          import requests
+          from bs4 import BeautifulSoup
+
+          BASE='https://www.fintelligence.ir'
+          S=requests.Session()
+          S.headers.update({'User-Agent':'Mozilla/5.0 (compatible; vid-pipeline-archiver/1.0)'})
+          Path('tmp').mkdir(exist_ok=True)
+
+          words={
+            1:['قسمت اول','قسمت 1','قسمت ۱'],2:['قسمت دوم','قسمت 2','قسمت ۲'],3:['قسمت سوم','قسمت 3','قسمت ۳'],
+            4:['قسمت چهارم','قسمت 4','قسمت ۴'],5:['قسمت پنجم','قسمت 5','قسمت ۵'],6:['قسمت ششم','قسمت 6','قسمت ۶'],
+            7:['قسمت هفتم','قسمت 7','قسمت ۷'],8:['قسمت هشتم','قسمت 8','قسمت ۸'],9:['قسمت نهم','قسمت 9','قسمت ۹'],
+            10:['قسمت دهم','قسمت 10','قسمت ۱۰'],11:['قسمت یازدهم','قسمت 11','قسمت ۱۱'],12:['قسمت دوازدهم','قسمت 12','قسمت ۱۲'],
+            13:['قسمت سیزدهم','قسمت 13','قسمت ۱۳'],
+          }
+          def get(url, timeout=30):
+            try:
+              r=S.get(url,timeout=timeout)
+              return r if r.ok else None
+            except Exception:
+              return None
+
+          # Gather sitemap URLs if available.
+          urls=set()
+          for sm in [BASE+'/sitemap.xml',BASE+'/sitemap_index.xml',BASE+'/Sitemap.xml']:
+            r=get(sm)
+            if not r: continue
+            txt=r.text
+            try:
+              root=ET.fromstring(txt)
+              locs=[e.text.strip() for e in root.iter() if e.tag.endswith('loc') and e.text]
+            except Exception:
+              locs=[]
+            for loc in locs:
+              if 'sitemap' in loc.lower():
+                rr=get(loc)
+                if rr:
+                  try:
+                    root2=ET.fromstring(rr.text)
+                    for e in root2.iter():
+                      if e.tag.endswith('loc') and e.text and e.text.startswith(BASE): urls.add(e.text.strip())
+                  except Exception: pass
+              elif loc.startswith(BASE): urls.add(loc)
+
+          # Seed known list/tag pages and crawl internal links breadth-first.
+          seeds=[BASE+'/',BASE+'/Publication/List?ct=2',BASE+'/Blog/List?t=2042']
+          queue=list(seeds)
+          seen=set()
+          while queue and len(seen)<800:
+            u=queue.pop(0)
+            if u in seen: continue
+            seen.add(u)
+            r=get(u)
+            if not r: continue
+            soup=BeautifulSoup(r.text,'lxml')
+            for a in soup.find_all('a',href=True):
+              v=urllib.parse.urljoin(u,a['href'])
+              p=urllib.parse.urlparse(v)
+              if p.netloc in {'www.fintelligence.ir','fintelligence.ir'}:
+                v=urllib.parse.urlunparse((p.scheme or 'https',p.netloc,p.path,'',p.query,''))
+                if any(x in p.path.lower() for x in ['/blog/','/publication/']):
+                  urls.add(v)
+                  if v not in seen and len(queue)<1000: queue.append(v)
+
+          candidates=[]
+          # Prefer detail-like URLs but inspect all collected site URLs.
+          all_urls=list(urls | set(seen))
+          for i,u in enumerate(all_urls):
+            if i and i%100==0: time.sleep(0.2)
+            r=get(u)
+            if not r: continue
+            text=BeautifulSoup(r.text,'lxml').get_text(' ',strip=True)
+            if ('خانه تو' in text or 'خانه‌ تو' in text or 'خانه‌تو' in text) and ('فرهاد جم' in text or 'کمیل رودی' in text):
+              ep=None
+              for n,aliases in words.items():
+                if any(a in text for a in aliases): ep=n; break
+              soup=BeautifulSoup(r.text,'lxml')
+              media=[]
+              for tag,attr in [('video','src'),('source','src'),('iframe','src'),('a','href')]:
+                for x in soup.find_all(tag):
+                  v=x.get(attr)
+                  if not v: continue
+                  v=urllib.parse.urljoin(u,v)
+                  low=v.lower()
+                  if any(k in low for k in ['.mp4','.m3u8','aparat.com','youtube.com','youtu.be','t.me/','telewebion.com']):
+                    media.append(v)
+              for v in re.findall(r'https?://[^\"\'<>\\s]+',r.text):
+                low=v.lower()
+                if any(k in low for k in ['.mp4','.m3u8','aparat.com','youtube.com','youtu.be','t.me/','telewebion.com']): media.append(v.replace('&amp;','&'))
+              candidates.append({'episode':ep,'url':u,'title':(soup.title.get_text(' ',strip=True) if soup.title else ''),'media':sorted(set(media)),'text':text[:1200]})
+
+          # If site pages did not expose enough, include official Telegram archive URLs as a secondary official source for discovery.
+          known_tg={4:309,5:312,6:317,7:319,8:324,9:329}
+          for ep,post in known_tg.items():
+            candidates.append({'episode':ep,'url':f'https://t.me/fintelligence_ir/{post}','title':'official Telegram fallback','media':[f'https://t.me/fintelligence_ir/{post}'],'text':''})
+
+          out={'scanned_url_count':len(all_urls),'matches':candidates}
+          Path('tmp/discovery.json').write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8')
+          print(json.dumps(out,ensure_ascii=False,indent=2))
+          PY
+
+      - name: Download and assemble 13 episodes
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p tmp/raw release_assets
+          python - <<'PY'
+          import json, os, re, subprocess, sys
+          from pathlib import Path
+
+          data=json.loads(Path('tmp/discovery.json').read_text(encoding='utf-8'))
+          by={i:[] for i in range(1,14)}
+          for m in data['matches']:
+            ep=m.get('episode')
+            if ep in by:
+              for u in m.get('media',[]):
+                if u not in by[ep]: by[ep].append(u)
+
+          log=[]
+          for ep in range(1,14):
+            ok=[]
+            for idx,u in enumerate(by[ep],1):
+              out=f'tmp/raw/ep{ep:02d}_src{idx}_%(title).60s.%(ext)s'
+              cmd=['yt-dlp','--no-playlist','--merge-output-format','mp4','-o',out,u]
+              p=subprocess.run(cmd,text=True,capture_output=True)
+              log.append({'episode':ep,'url':u,'returncode':p.returncode,'stdout':p.stdout[-2000:],'stderr':p.stderr[-4000:]})
+              if p.returncode==0:
+                ok.extend(sorted(Path('tmp/raw').glob(f'ep{ep:02d}_src{idx}_*')))
+                if ok: break
+            # Site pages can expose multiple parts; collect any downloaded files for episode.
+            files=sorted({p for p in Path('tmp/raw').glob(f'ep{ep:02d}_src*') if p.is_file()})
+            if files:
+              if len(files)==1:
+                subprocess.check_call(['ffmpeg','-y','-i',str(files[0]),'-c','copy',f'release_assets/{ep:02d}.mp4'])
+              else:
+                lst=Path(f'tmp/ep{ep:02d}.txt')
+                lst.write_text(''.join("file '%s'\n"%str(p.resolve()).replace("'","'\\''") for p in files),encoding='utf-8')
+                subprocess.check_call(['ffmpeg','-y','-f','concat','-safe','0','-i',str(lst),'-c','copy',f'release_assets/{ep:02d}.mp4'])
+
+          Path('tmp/download-log.json').write_text(json.dumps(log,ensure_ascii=False,indent=2),encoding='utf-8')
+          missing=[i for i in range(1,14) if not Path(f'release_assets/{i:02d}.mp4').exists()]
+          print('missing=',missing)
+          if missing:
+            sys.exit(20)
+          PY
+
+      - name: Create GitHub release
+        if: success()
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release delete "$TAG" -y --cleanup-tag
+          fi
+          gh release create "$TAG" release_assets/*.mp4 \
+            --title "گفتگوی دکتر کمیل رودی و فرهاد جم — ۱۳ قسمت" \
+            --notes "آرشیو ۱۳ قسمتی گفتگوی دکتر کمیل رودی و فرهاد جم در برنامه خانه تو، شبکه چهار سیما. فایل‌ها با شماره 01 تا 13 مرتب شده‌اند. منبع: آکادمی هوش مالی."
+
+      - name: Save diagnostics to repository
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p outputs/khane-to-archive
+          cp tmp/discovery.json outputs/khane-to-archive/discovery.json || true
+          cp tmp/download-log.json outputs/khane-to-archive/download-log.json || true
+          find release_assets -maxdepth 1 -type f -printf '%f %s bytes\n' > outputs/khane-to-archive/assets.txt || true
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f outputs/khane-to-archive
+          if ! git diff --cached --quiet; then
+            git commit -m "Record Khane To archive run diagnostics"
+            git push origin HEAD:main
+          fi

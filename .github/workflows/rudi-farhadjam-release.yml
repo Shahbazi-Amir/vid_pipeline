@@ -42,16 +42,20 @@ jobs:
           12 z546789
           13 f536z68
           EOF
-          while read -r ep uid; do
+          download_one() {
+            ep="$1"
+            uid="$2"
             echo "Downloading ${ep} from https://www.aparat.com/v/${uid}"
             api="https://www.aparat.com/api/fa/v1/video/video/show/videohash/${uid}"
-            json=$(curl -fsSL --retry 10 --retry-all-errors "$api")
+            json=$(curl -fsSL --connect-timeout 20 --max-time 60 --retry 5 --retry-all-errors "$api")
             url=$(jq -r '.data.attributes.file_link_all[-1].urls[0]' <<<"$json")
             test -n "$url"
             test "$url" != "null"
-            curl -fL --retry 20 --retry-all-errors --retry-delay 3 "$url" -o "parts/${ep}.mp4"
+            curl -fL --connect-timeout 20 --max-time 900 --retry 10 --retry-all-errors --retry-delay 3 "$url" -o "parts/${ep}.mp4"
             ffprobe -v error -show_entries format=duration -of csv=p=0 "parts/${ep}.mp4"
-          done < manifest.tsv
+          }
+          export -f download_one
+          xargs -P4 -n2 bash -c 'download_one "$1" "$2"' _ < manifest.tsv
       - name: Assemble and verify 13 final episodes
         shell: bash
         run: |

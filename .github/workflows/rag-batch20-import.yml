@@ -1,0 +1,29 @@
+name: Import original RAG pilot 001-020
+on:
+  push:
+    branches: [agent/rag-evidence-shards]
+    paths:
+      - scripts/import_rag_batch20.py
+      - .github/workflows/rag-batch20-import.yml
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: agent/rag-evidence-shards
+      - run: python3 scripts/import_rag_batch20.py
+      - shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git branch --show-current)" = "agent/rag-evidence-shards"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f -- experiments/rag20/batches/test_001_020
+          if ! git diff --cached --quiet; then
+            git commit -m "Preserve original 20-record pilot archive and extracted contents"
+            git push origin HEAD:refs/heads/agent/rag-evidence-shards
+          fi

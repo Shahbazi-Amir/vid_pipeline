@@ -1,0 +1,41 @@
+{
+  "schema_version": "rag_agent_batch_catalog_v1",
+  "repository": "Shahbazi-Amir/vid_pipeline",
+  "branch": "agent/rag-evidence-shards",
+  "directory": "experiments/rag20/batches",
+  "total_test_candidates": 1149,
+  "reported_authored_count": 70,
+  "stored_count": 50,
+  "next_unused_test_position": 71,
+  "concatenated": false,
+  "semantic_support_verified_independently": false,
+  "batches": [
+    {
+      "batch_number": 1,
+      "positions": [
+        1,
+        20
+      ],
+      "candidate_count": 20,
+      "status": "AWAITING_ORIGINAL_PACKAGE_IMPORT",
+      "expected_directory": "test_001_020",
+      "original_filename": "rag20_agent_pilot_v1.zip",
+      "repository_package_path": null
+    },
+    {
+      "batch_number": 2,
+      "positions": [
+        21,
+        70
+      ],
+      "candidate_count": 50,
+      "status": "STORED_STRUCTURAL_AND_LINEAGE_VALIDATION_PASS",
+      "directory": "test_021_070",
+      "package": "test_021_070/rag_agent_test_021_070.zip",
+      "inputs": "test_021_070/inputs.jsonl",
+      "outputs": "test_021_070/outputs.jsonl",
+      "manifest": "test_021_070/manifest.json",
+      "validation": "test_021_070/validation.json"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "batch_count": 13,
+  "candidate_count": 1149,
+  "evidence_count_distribution": {
+    "10": 1142,
+    "8": 3,
+    "9": 4
+  },
+  "evidence_registry_reassembly": "PASS",
+  "expected_coverage": "PASS",
+  "full_evidence_references_checked": 11480,
+  "gold_evaluation": "NOT_RUN",
+  "independent_file_reload": "PASS",
+  "independent_semantic_entailment": "NOT_EVALUATED",
+  "input_output_hashes": "PASS",
+  "kept": 4,
+  "nb19_nb20_import_ready": false,
+  "negative_tests": {
+    "duplicate_candidate": true,
+    "full_evidence_text_tampered": true,
+    "invalid_claim_evidence_id": true,
+    "out_of_range_support_span": true,
+    "response_hash_mismatch": true,
+    "span_text_mismatch": true
+  },
+  "paid_provider_api_calls": 0,
+  "repaired": 0,
+  "review_required_pending_semantic": 1144,
+  "review_required_reviewed": 1,
+  "saved_file_reload": "PASS",
+  "schema_version": "recovery_structural_validation_v1",
+  "semantic_method": "AGENT_REVIEW_SHARED_CONTEXT",
+  "semantic_reviewed": 5,
+  "semantics_complete": false,
+  "source_commit": "ebfadb00263a18af5dbd53931f18b434a7c7acb1",
+  "source_location_validation": "NOT_RUN",
+  "structurally_valid": 1149,
+  "unique_candidate_count": 1149,
+  "valid_abstention": 0
+}

@@ -4,6 +4,7 @@ on:
     branches: [agent/rag-evidence-shards]
     paths:
       - scripts/import_rag_batch20.py
+      - scripts/validate_rag_batch_catalog.py
       - .github/workflows/rag-batch20-import.yml
 permissions:
   contents: write
@@ -16,13 +17,14 @@ jobs:
         with:
           ref: agent/rag-evidence-shards
       - run: python3 scripts/import_rag_batch20.py
+      - run: python3 scripts/validate_rag_batch_catalog.py
       - shell: bash
         run: |
           set -euo pipefail
           test "$(git branch --show-current)" = "agent/rag-evidence-shards"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f -- experiments/rag20/batches/test_001_020
+          git add -f -- experiments/rag20/batches/test_001_020 experiments/rag20/batches/catalog_validation.json
           if ! git diff --cached --quiet; then
             git commit -m "Preserve original 20-record pilot archive and extracted contents"
             git push origin HEAD:refs/heads/agent/rag-evidence-shards

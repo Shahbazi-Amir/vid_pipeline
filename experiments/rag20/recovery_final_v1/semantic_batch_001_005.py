@@ -10,6 +10,10 @@ def span(evidence, quote):
     return {'evidence_id':evidence['evidence_id'],'start':start,'end':end,'unit':'UNICODE_CODE_POINT','quote':quote}
 
 def main():
+    # Legacy bootstrap may never overwrite an existing review or repair.
+    if rows(ROOT/'audit.jsonl') or rows(ROOT/'support.jsonl') or rows(ROOT/'repairs.jsonl'):
+        print('Existing decisions preserved; use incremental_review.py for continuation.')
+        return
     inputs=rows(ROOT/'inputs.jsonl');outputs=rows(ROOT/'outputs.jsonl')
     reasons={
       1:'پاسخ، مدیریت دخل‌وخرج و درآمد و پس‌انداز را مستقیماً از شاهد اول می‌گیرد و مسئولیت ساختاری دولت را حذف نمی‌کند. شواهد درباره قانون جذب مبنای پاسخ نشده‌اند؛ پاسخ تضمین رفع همه انواع فقر نمی‌دهد.',

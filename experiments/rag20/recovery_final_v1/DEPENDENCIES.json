@@ -1,0 +1,183 @@
+{
+  "aggregates": {
+    "inputs.jsonl": {
+      "included_in_zip": false,
+      "rebuild": "rebuild_fixed_sources.py",
+      "sha256": "652a88071bda7a2b8d02d9a57f93c3e753c3f4cc6bf64b49ec5866a2f9c54e92"
+    },
+    "outputs.jsonl": {
+      "included_in_zip": false,
+      "rebuild": "rebuild_fixed_sources.py",
+      "sha256": "f861f70eb64897a18e64c06cf69efbcb7c826ef51769b2053f253fc0ef6b112c"
+    }
+  },
+  "earlier_structural_script_requires_source_cache": true,
+  "fixed_batch_files": [
+    {
+      "git_blob_sha": "c3de2a411f1521423d8bff1e49dcd9c6a6b329c6",
+      "kind": "inputs",
+      "repository_path": "experiments/rag20/batches/test_001_020/original_contents/inputs.jsonl",
+      "sha256": "7deb891e2460d88318e169415352f419d5f184cf26a2a49885e2e0ad073b7245"
+    },
+    {
+      "git_blob_sha": "ed91ed4067e9161b4baa5f8e246dfebc7d0e8889",
+      "kind": "outputs",
+      "repository_path": "experiments/rag20/batches/test_001_020/original_contents/outputs.jsonl",
+      "sha256": "0a7575855a671717f188305a5bd92ad7229474b54f4c9d0a2c7cf070bbb311fc"
+    },
+    {
+      "git_blob_sha": "7b8428cd5d35d5abaebd7c1aa60256a3bfd0e04d",
+      "kind": "inputs",
+      "repository_path": "experiments/rag20/batches/test_021_070/inputs.jsonl",
+      "sha256": "90e21977d2a926bd2575d26cb827bfe3cbf29cc2c3e4a8174ad47826a90eb3c1"
+    },
+    {
+      "git_blob_sha": "dbe1902835dbc3f7cfea9ebcc9500084ef389825",
+      "kind": "outputs",
+      "repository_path": "experiments/rag20/batches/test_021_070/outputs.jsonl",
+      "sha256": "dcab20de97668a38f61a5110715b0e98fca5fe2a8927ecbc06530309173e9e8e"
+    },
+    {
+      "git_blob_sha": "57bf47ad89a436498d78c95f2112307cca562a78",
+      "kind": "inputs",
+      "repository_path": "experiments/rag20/batches/test_071_170/inputs.jsonl",
+      "sha256": "d56fb82ceca60b4784100385870b013795c2ae4d5b023831e7dbc7e95bd47174"
+    },
+    {
+      "git_blob_sha": "67ac08fc80071f72c4df539427493a723146f2bd",
+      "kind": "outputs",
+      "repository_path": "experiments/rag20/batches/test_071_170/outputs.jsonl",
+      "sha256": "996cae7ee7b0973c948d462a42f36dffbb51dce25d3b5c6384aa09505a6088cd"
+    },
+    {
+      "git_blob_sha": "cdc7dfa3667b9796e35bbefaef60374332de1135",
+      "kind": "inputs",
+      "repository_path": "experiments/rag20/batches/test_171_270/inputs.jsonl",
+      "sha256": "97d227b89de9f6ee6ccfa71a4320cae5f872b3812ed8fe3548d08d4f2601d3d6"
+    },
+    {
+      "git_blob_sha": "1c4f065de592af9ba39d20e12f131bd5d17a7fd7",
+      "kind": "outputs",
+      "repository_path": "experiments/rag20/batches/test_171_270/outputs.jsonl",
+      "sha256": "fc0d6a40c4127282008a2be67daf1c29319e3699b6650ca513503ac38f05e669"
+    },
+    {
+      "git_blob_sha": "6b67b21ddff12f0e5f4589176428c7066d6e1186",
+      "kind": "inputs",
+      "repository_path": "experiments/rag20/batches/test_271_370/inputs.jsonl",
+      "sha256": "f571745c1f59b1cff55d37d4a7d156fcdda2b2377a23946e8de97acf27c18edf"
+    },
+    {
+      "git_blob_sha": "49c58f6d95cfde9f605fc675d800fe88ce5508df",
+      "kind": "outputs",
+      "repository_path": "experiments/rag20/batches/test_271_370/outputs.jsonl",
+      "sha256": "63b701f5b4a4f6ba747c23d58b4feca512b65a9fdc3c074337d74ad381c41021"
+    },
+    {
+      "git_blob_sha": "33eaaa2966433bd4b492983c43c6cbee8c74b4b4",
+      "kind": "inputs",
+      "repository_path": "experiments/rag20/batches/test_371_470/inputs.jsonl",
+      "sha256": "da6d82c52620d0f6f88860c9674c1d2724b1c172698a48f34515e88a997e82c8"
+    },
+    {
+      "git_blob_sha": "ed26d39d1048b056e68acb8716ea50c0ea5d3f0f",
+      "kind": "outputs",
+      "repository_path": "experiments/rag20/batches/test_371_470/outputs.jsonl",
+      "sha256": "90da7a27537743aa7c4d8cd14e3505321ce2a987785cb14f1a3f58dfddd4070c"
+    },
+    {
+      "git_blob_sha": "03dee8bd9bbfa98a3f7df56fd56d8c920a095d46",
+      "kind": "inputs",
+      "repository_path": "experiments/rag20/batches/test_471_570/inputs.jsonl",
+      "sha256": "1ee73e70843bd3a918a163f083e51ef1de860ef6bf4b4534ad9858831ad32029"
+    },
+    {
+      "git_blob_sha": "0fb0d803ce2ffafd6219b6a15f3c9e177abaf87a",
+      "kind": "outputs",
+      "repository_path": "experiments/rag20/batches/test_471_570/outputs.jsonl",
+      "sha256": "f40669a2e733c7067abada0f95d6ef034e9eecc042635db01654d8b09dd57b76"
+    },
+    {
+      "git_blob_sha": "16a5a9646673869567d10c0023402c91a88a355d",
+      "kind": "inputs",
+      "repository_path": "experiments/rag20/batches/test_571_670/inputs.jsonl",
+      "sha256": "778f4f7106c75bbaba03a371e0dca47a4ac15a0d1c9bb5526646fb02f53ae7dd"
+    },
+    {
+      "git_blob_sha": "ede39dbc35bb73f3829a1c6bae08ad3e806d9b11",
+      "kind": "outputs",
+      "repository_path": "experiments/rag20/batches/test_571_670/outputs.jsonl",
+      "sha256": "edf79be89b1da595257d325724255ec1ddec8f023f4895bcc3207ab3f62a16a8"
+    },
+    {
+      "git_blob_sha": "4738d55ba3f3a74df834024fab415c9220bd097c",
+      "kind": "inputs",
+      "repository_path": "experiments/rag20/batches/test_671_770/inputs.jsonl",
+      "sha256": "25fe58d5c6731cda27923ca24842e1d01494e49f0be409eae3847488456430f9"
+    },
+    {
+      "git_blob_sha": "002f593a2d23cfd54e0c853eefe5ca903b2decc7",
+      "kind": "outputs",
+      "repository_path": "experiments/rag20/batches/test_671_770/outputs.jsonl",
+      "sha256": "6386efa714236a42d502ec3e18d3fa3a66ec3c29cc4f8ba09aa0dee01d8a31d8"
+    },
+    {
+      "git_blob_sha": "f7829975874f9bf6551876890974b2d61870bca6",
+      "kind": "inputs",
+      "repository_path": "experiments/rag20/batches/test_771_870/inputs.jsonl",
+      "sha256": "2c8798b5d57f32c3e340e1e0117a5295971ff5fef50f94b54f100f881030079c"
+    },
+    {
+      "git_blob_sha": "0657b926b1c4c41ebcbdf105512f9176cb6cc55c",
+      "kind": "outputs",
+      "repository_path": "experiments/rag20/batches/test_771_870/outputs.jsonl",
+      "sha256": "19c241781448e503ba69e1c05bb7967fbc8c0a27f6ff63656b257ba3e28a07bf"
+    },
+    {
+      "git_blob_sha": "4e2c8779a8204bd5059c2792be208bf85c8e06ff",
+      "kind": "inputs",
+      "repository_path": "experiments/rag20/batches/test_871_970/inputs.jsonl",
+      "sha256": "a9df3e6b8c4f2d547d7159b69d7fa302b7299d90d7135ddfb16680d20dab58cd"
+    },
+    {
+      "git_blob_sha": "c238f00cdf1cdc768edbcdd2be1263cb65e49681",
+      "kind": "outputs",
+      "repository_path": "experiments/rag20/batches/test_871_970/outputs.jsonl",
+      "sha256": "60e1a8217766a9776032c251eb57bfffa8094d055fff216e5854b8851bca6e27"
+    },
+    {
+      "git_blob_sha": "9c806d12eec0f84fb9493c465f075ca29c61986c",
+      "kind": "inputs",
+      "repository_path": "experiments/rag20/batches/test_971_1070/inputs.jsonl",
+      "sha256": "fe651f268a9b269cdb4ae696d54d46c5ea05efe48d67f65cee8ef3dae412fac2"
+    },
+    {
+      "git_blob_sha": "03640e2f29a4d1af8d5aee1cdaedc5a6da4b28b8",
+      "kind": "outputs",
+      "repository_path": "experiments/rag20/batches/test_971_1070/outputs.jsonl",
+      "sha256": "53df328f595b27be23c0631de638da9d0f2d7a1c4ce719a9c2bf3f660d63a0a2"
+    },
+    {
+      "git_blob_sha": "abb522c8d59883115f0c85e45f371312976acfd5",
+      "kind": "inputs",
+      "repository_path": "experiments/rag20/batches/test_1071_1149/inputs.jsonl",
+      "sha256": "5f5917c82252e8b1bff091082e5a8637ce85d4803e39a681d2bf517e4e1f52c5"
+    },
+    {
+      "git_blob_sha": "7970190b0a3e41f25fba3219d988fcfb45b5fc47",
+      "kind": "outputs",
+      "repository_path": "experiments/rag20/batches/test_1071_1149/outputs.jsonl",
+      "sha256": "8c85c62de2897606fc7b260ac793f2f5d0430cb223a7bec1edcc953819aab099"
+    }
+  ],
+  "fixed_source_commit": "ebfadb00263a18af5dbd53931f18b434a7c7acb1",
+  "gold_used_for_continuation": false,
+  "nb19_adapter": "NOT_RUN",
+  "nb20_handoff": "NOT_RUN",
+  "repository": "Shahbazi-Amir/vid_pipeline",
+  "source_cache_required_for_semantic_continuation": false,
+  "source_location": {
+    "dependency": "original full source documents matching citation_attachments metadata are not validated/available as an authoritative source set",
+    "status": "NOT_RUN"
+  }
+}

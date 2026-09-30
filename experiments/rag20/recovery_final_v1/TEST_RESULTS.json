@@ -1,0 +1,17 @@
+{
+  "method": "OFFLINE_PROGRAMMATIC_NEGATIVE_TESTS_NOT_SEMANTIC_VERIFIER",
+  "tests": {
+    "accidental_previous_deletion": true,
+    "active_hash_mismatch": true,
+    "broken_revision_lineage": true,
+    "duplicate_audit": true,
+    "duplicate_revision": true,
+    "first_actual_gap_not_review_count_plus_one": true,
+    "idempotent_replay_without_duplicates": true,
+    "invalid_quote_span": true,
+    "missing_claim_review": true,
+    "read_only_verifier_preserves_current": true,
+    "unmapped_factual_answer": true,
+    "unreviewed_keep": true
+  }
+}

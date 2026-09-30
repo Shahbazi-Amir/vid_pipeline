@@ -1,0 +1,41 @@
+name: Prepare readable RAG evidence
+on:
+  push:
+    branches: [agent/rag-evidence-shards]
+    paths:
+      - scripts/shard_rag_evidence.py
+      - .github/workflows/rag-evidence-shards.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: rag-evidence-shards
+  cancel-in-progress: false
+jobs:
+  shard:
+    if: github.repository == 'Shahbazi-Amir/vid_pipeline' && github.ref == 'refs/heads/agent/rag-evidence-shards'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out only the experiment branch
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: agent/rag-evidence-shards
+      - name: Test lossless splitting and invalid inputs
+        run: python3 scripts/shard_rag_evidence.py --self-test
+      - name: Download frozen evidence and verify readable shards
+        run: python3 scripts/shard_rag_evidence.py
+      - name: Save shards to the experiment branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git branch --show-current)" = "agent/rag-evidence-shards"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- experiments/rag20/evidence_shards
+          if git diff --cached --quiet; then
+            echo "Existing shards verified; no new commit."
+          else
+            git commit -m "Store verified readable RAG evidence shards"
+            git push origin HEAD:refs/heads/agent/rag-evidence-shards
+          fi

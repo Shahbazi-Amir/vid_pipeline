@@ -4,9 +4,9 @@
   "branch": "agent/rag-evidence-shards",
   "directory": "experiments/rag20/batches",
   "total_test_candidates": 1149,
-  "reported_authored_count": 70,
-  "stored_count": 50,
-  "next_unused_test_position": 71,
+  "reported_authored_count": 170,
+  "stored_count": 170,
+  "next_unused_test_position": 171,
   "concatenated": false,
   "semantic_support_verified_independently": false,
   "batches": [
@@ -17,10 +17,16 @@
         20
       ],
       "candidate_count": 20,
-      "status": "AWAITING_ORIGINAL_PACKAGE_IMPORT",
-      "expected_directory": "test_001_020",
+      "status": "EXACT_ORIGINAL_PACKAGE_IMPORTED",
       "original_filename": "rag20_agent_pilot_v1.zip",
-      "repository_package_path": null
+      "repository_package_path": "test_001_020/rag20_agent_pilot_v1.zip",
+      "directory": "test_001_020",
+      "outputs": "test_001_020/original_contents/outputs.jsonl",
+      "inputs": "test_001_020/original_contents/inputs.jsonl",
+      "manifest": "test_001_020/original_contents/manifest.json",
+      "validation": "test_001_020/original_contents/validation.json",
+      "import_report": "test_001_020/import_report.json",
+      "archive_sha256": "5714ea8b412e8cd7d4fac2547bd6b29993e4ac04502e2cc70b158a6c319145d2"
     },
     {
       "batch_number": 2,
@@ -36,6 +42,24 @@
       "outputs": "test_021_070/outputs.jsonl",
       "manifest": "test_021_070/manifest.json",
       "validation": "test_021_070/validation.json"
+    },
+    {
+      "batch_number": 3,
+      "positions": [
+        71,
+        170
+      ],
+      "candidate_count": 100,
+      "status": "STORED_STRUCTURAL_AND_LINEAGE_VALIDATION_PASS",
+      "directory": "test_071_170",
+      "package": "test_071_170/rag_agent_test_071_170.zip",
+      "inputs": "test_071_170/inputs.jsonl",
+      "outputs": "test_071_170/outputs.jsonl",
+      "manifest": "test_071_170/manifest.json",
+      "validation": "test_071_170/validation.json",
+      "responses_with_claims": 89,
+      "empty_claims_count": 11
     }
-  ]
+  ],
+  "catalog_validation": "catalog_validation.json"
 }

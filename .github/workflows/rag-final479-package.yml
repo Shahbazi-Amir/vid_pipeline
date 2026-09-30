@@ -1,0 +1,34 @@
+name: Complete and package all 1149 RAG pilot cases
+on:
+  push:
+    branches: [agent/rag-evidence-shards]
+    paths:
+      - scripts/package_rag_final479.py
+      - .github/workflows/rag-final479-package.yml
+permissions:
+  contents: write
+concurrency:
+  group: rag-final479-package
+  cancel-in-progress: false
+jobs:
+  package:
+    if: github.repository == 'Shahbazi-Amir/vid_pipeline' && github.ref == 'refs/heads/agent/rag-evidence-shards'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: agent/rag-evidence-shards
+      - name: Validate coverage, full evidence and archives
+        run: python3 scripts/package_rag_final479.py
+      - name: Commit completed experiment catalogue
+        run: |
+          set -euo pipefail
+          test "$(git branch --show-current)" = "agent/rag-evidence-shards"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f -- experiments/rag20/batches
+          if ! git diff --cached --quiet; then
+            git commit -m "Complete 1149 test cases with validated final 479 and downloadable archives"
+            git push origin HEAD:refs/heads/agent/rag-evidence-shards
+          fi

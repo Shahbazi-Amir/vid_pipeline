@@ -1,0 +1,37 @@
+name: Validate and package RAG batch 021-070
+on:
+  push:
+    branches: [agent/rag-evidence-shards]
+    paths:
+      - scripts/package_rag_batch50.py
+      - .github/workflows/rag-batch50-package.yml
+permissions:
+  contents: write
+concurrency:
+  group: rag-batch50-package
+  cancel-in-progress: false
+jobs:
+  package:
+    if: github.repository == 'Shahbazi-Amir/vid_pipeline' && github.ref == 'refs/heads/agent/rag-evidence-shards'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: agent/rag-evidence-shards
+      - name: Validate authored records, reload and package
+        run: python3 scripts/package_rag_batch50.py
+      - name: Save verified package only to the experiment branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git branch --show-current)" = "agent/rag-evidence-shards"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f -- experiments/rag20/batches/test_021_070/inputs.jsonl experiments/rag20/batches/test_021_070/outputs.jsonl experiments/rag20/batches/test_021_070/manifest.json experiments/rag20/batches/test_021_070/validation.json experiments/rag20/batches/test_021_070/rag_agent_test_021_070.zip
+          if git diff --cached --quiet; then
+            echo "Verified package unchanged."
+          else
+            git commit -m "Store validated 50-item RAG agent pilot package"
+            git push origin HEAD:refs/heads/agent/rag-evidence-shards
+          fi

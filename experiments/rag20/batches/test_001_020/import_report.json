@@ -1,0 +1,54 @@
+{
+  "status": "EXACT_ORIGINAL_ARCHIVE_IMPORTED",
+  "source_url": "https://github.com/Shahbazi-Amir/vid_pipeline/releases/download/rag_finance/rag20_agent_pilot_v1.zip",
+  "archive_sha256": "5714ea8b412e8cd7d4fac2547bd6b29993e4ac04502e2cc70b158a6c319145d2",
+  "archive_bytes": 127103,
+  "responses_regenerated": false,
+  "inventory": [
+    {
+      "path": "original_contents/README.md",
+      "bytes": 2514,
+      "sha256": "318543c38ba9a65d501c67b348973d295329e4cfb01c27f2fd8d0b1b371d16b2"
+    },
+    {
+      "path": "original_contents/inputs.jsonl",
+      "bytes": 458847,
+      "sha256": "7deb891e2460d88318e169415352f419d5f184cf26a2a49885e2e0ad073b7245",
+      "record_count": 20,
+      "first_record_keys": [
+        "candidate_id",
+        "split",
+        "messages",
+        "messages_sha256"
+      ]
+    },
+    {
+      "path": "original_contents/manifest.json",
+      "bytes": 3003,
+      "sha256": "a2ecfec3d5ca615c119652211f2e39fbc0b3704a5f44625adfe70386faa93907"
+    },
+    {
+      "path": "original_contents/outputs.jsonl",
+      "bytes": 19274,
+      "sha256": "0a7575855a671717f188305a5bd92ad7229474b54f4c9d0a2c7cf070bbb311fc",
+      "record_count": 20,
+      "first_record_keys": [
+        "candidate_id",
+        "messages_sha256",
+        "response",
+        "response_sha256"
+      ]
+    },
+    {
+      "path": "original_contents/pilot.py",
+      "bytes": 5731,
+      "sha256": "98f39b344fa2472e984b2fb9eb85737bd042f01b20d2408b94705efbf5d9ca0a"
+    },
+    {
+      "path": "original_contents/validation.json",
+      "bytes": 255,
+      "sha256": "bf1b8d3cbe4ee3f1f983c8f8cf272f7a54819eb8f477463e55d9831736d3bffe"
+    }
+  ],
+  "semantic_support_verified_independently": false
+}

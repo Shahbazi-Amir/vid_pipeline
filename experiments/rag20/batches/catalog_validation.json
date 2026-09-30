@@ -1,0 +1,25 @@
+{
+  "status": "ALL_THREE_BATCHES_STRUCTURAL_AND_LINEAGE_PASS",
+  "stored_count": 170,
+  "unique_candidate_count": 170,
+  "cross_batch_duplicates": 0,
+  "batches": [
+    {
+      "directory": "test_001_020/original_contents",
+      "candidate_count": 20,
+      "claim_count": 25
+    },
+    {
+      "directory": "test_021_070",
+      "candidate_count": 50,
+      "claim_count": 49
+    },
+    {
+      "directory": "test_071_170",
+      "candidate_count": 100,
+      "claim_count": 89
+    }
+  ],
+  "semantic_support_verified_independently": false,
+  "gold_label_evaluation": "NOT_RUN"
+}

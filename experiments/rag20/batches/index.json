@@ -4,9 +4,9 @@
   "branch": "agent/rag-evidence-shards",
   "directory": "experiments/rag20/batches",
   "total_test_candidates": 1149,
-  "reported_authored_count": 670,
-  "stored_count": 670,
-  "next_unused_test_position": 671,
+  "reported_authored_count": 1149,
+  "stored_count": 1149,
+  "next_unused_test_position": 1150,
   "concatenated": false,
   "semantic_support_verified_independently": false,
   "batches": [
@@ -144,7 +144,95 @@
       "validation": "test_571_670/validation.json",
       "responses_with_claims": 79,
       "empty_claims_count": 21
+    },
+    {
+      "batch_number": 9,
+      "positions": [
+        671,
+        770
+      ],
+      "candidate_count": 100,
+      "status": "STORED_STRUCTURAL_AND_LINEAGE_VALIDATION_PASS",
+      "directory": "test_671_770",
+      "package": "test_671_770/rag_agent_test_671_770.zip",
+      "inputs": "test_671_770/inputs.jsonl",
+      "outputs": "test_671_770/outputs.jsonl",
+      "manifest": "test_671_770/manifest.json",
+      "validation": "test_671_770/validation.json",
+      "responses_with_claims": 86,
+      "empty_claims_count": 14
+    },
+    {
+      "batch_number": 10,
+      "positions": [
+        771,
+        870
+      ],
+      "candidate_count": 100,
+      "status": "STORED_STRUCTURAL_AND_LINEAGE_VALIDATION_PASS",
+      "directory": "test_771_870",
+      "package": "test_771_870/rag_agent_test_771_870.zip",
+      "inputs": "test_771_870/inputs.jsonl",
+      "outputs": "test_771_870/outputs.jsonl",
+      "manifest": "test_771_870/manifest.json",
+      "validation": "test_771_870/validation.json",
+      "responses_with_claims": 92,
+      "empty_claims_count": 8
+    },
+    {
+      "batch_number": 11,
+      "positions": [
+        871,
+        970
+      ],
+      "candidate_count": 100,
+      "status": "STORED_STRUCTURAL_AND_LINEAGE_VALIDATION_PASS",
+      "directory": "test_871_970",
+      "package": "test_871_970/rag_agent_test_871_970.zip",
+      "inputs": "test_871_970/inputs.jsonl",
+      "outputs": "test_871_970/outputs.jsonl",
+      "manifest": "test_871_970/manifest.json",
+      "validation": "test_871_970/validation.json",
+      "responses_with_claims": 92,
+      "empty_claims_count": 8
+    },
+    {
+      "batch_number": 12,
+      "positions": [
+        971,
+        1070
+      ],
+      "candidate_count": 100,
+      "status": "STORED_STRUCTURAL_AND_LINEAGE_VALIDATION_PASS",
+      "directory": "test_971_1070",
+      "package": "test_971_1070/rag_agent_test_971_1070.zip",
+      "inputs": "test_971_1070/inputs.jsonl",
+      "outputs": "test_971_1070/outputs.jsonl",
+      "manifest": "test_971_1070/manifest.json",
+      "validation": "test_971_1070/validation.json",
+      "responses_with_claims": 94,
+      "empty_claims_count": 6
+    },
+    {
+      "batch_number": 13,
+      "positions": [
+        1071,
+        1149
+      ],
+      "candidate_count": 79,
+      "status": "STORED_STRUCTURAL_AND_LINEAGE_VALIDATION_PASS",
+      "directory": "test_1071_1149",
+      "package": "test_1071_1149/rag_agent_test_1071_1149.zip",
+      "inputs": "test_1071_1149/inputs.jsonl",
+      "outputs": "test_1071_1149/outputs.jsonl",
+      "manifest": "test_1071_1149/manifest.json",
+      "validation": "test_1071_1149/validation.json",
+      "responses_with_claims": 75,
+      "empty_claims_count": 4
     }
   ],
-  "catalog_validation": "catalog_validation.json"
+  "catalog_validation": "catalog_validation.json",
+  "remaining_test_candidates": 0,
+  "all_test_candidates_authored": true,
+  "complete_package": "rag_agent_test_001_1149.zip"
 }

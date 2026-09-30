@@ -136,6 +136,16 @@
   "reference_answers_used_for_authoring": false,
   "gold_label_evaluation": "NOT_RUN",
   "prior_pilot_repeated": false,
-  "status": "PENDING_REMOTE_STRUCTURAL_VALIDATION",
-  "batch_ordinal": 11
+  "status": "STRUCTURAL_AND_LINEAGE_VALIDATION_PASS",
+  "batch_ordinal": 11,
+  "responses_with_claims": 92,
+  "empty_claims_count": 8,
+  "claim_count": 92,
+  "unknown_evidence_negative_check": "PASS",
+  "independent_reload": "PASS",
+  "full_evidence_registry_match": "PASS",
+  "files_sha256": {
+    "inputs.jsonl": "a9df3e6b8c4f2d547d7159b69d7fa302b7299d90d7135ddfb16680d20dab58cd",
+    "outputs.jsonl": "60e1a8217766a9776032c251eb57bfffa8094d055fff216e5854b8851bca6e27"
+  }
 }

@@ -5,6 +5,30 @@
     {
       "path": "batches/batch_0001/checkpoint.json",
       "sha256": "b8700ec3a1fb193789c4d0fb0014d44e4e3000bbe5a35017c774bddd796f204a"
+    },
+    {
+      "path": "batches/batch_0002/checkpoint.json",
+      "sha256": "e367ea521da4c058b013a55ac8e7059cbfda111ccc35b69eacc646efb9f23348"
+    },
+    {
+      "path": "batches/batch_0003/checkpoint.json",
+      "sha256": "2560c1f970a0e12a1e4bae0ec022315e89590d82944831ce34f8a47c9071dd77"
+    },
+    {
+      "path": "batches/batch_0004/checkpoint.json",
+      "sha256": "3fd029db00191a7f94778a417080e4abc8f55aa6f176280646574b3b94c62e28"
+    },
+    {
+      "path": "batches/batch_0005/checkpoint.json",
+      "sha256": "9471b5d5f48dd866a3471c7fb5c1853ddc154db33be22f67f3743527a5c792e8"
+    },
+    {
+      "path": "batches/batch_0006/checkpoint.json",
+      "sha256": "02fc25aa845df545bc1253fb5a38a34de43622a71d1d1e7952954b6e5f1e3ec8"
+    },
+    {
+      "path": "batches/batch_0007/checkpoint.json",
+      "sha256": "c2c4902b60c8cd15e4ca2fa35519340f0eac83b144bc57e45e5fc37084e3f6b7"
     }
   ],
   "completed_candidate_ids": [
@@ -12,17 +36,23 @@
     "golden_v2_candidate_57a0b151e09b1393667e0865",
     "golden_v2_candidate_57b0aa22e0530109f9ef5cd1",
     "golden_v2_candidate_57ca93d065f78b14a8e13ec2",
-    "golden_v2_candidate_5834c83ff231f6228f485cc6"
+    "golden_v2_candidate_5834c83ff231f6228f485cc6",
+    "golden_v2_candidate_585d527d146ca275fb98e964",
+    "golden_v2_candidate_58991d7781874790e0e8e7b0",
+    "golden_v2_candidate_58a53b1ddc9ac173b885aa25",
+    "golden_v2_candidate_58ace456b34718eb1e0e00c3",
+    "golden_v2_candidate_58e6c0e8f0e54cf195222684",
+    "golden_v2_candidate_591a6aeaff6c5b086372ddd6"
   ],
   "import_ready": false,
-  "next_position": 399,
+  "next_position": 405,
   "owner": "auditor_2",
-  "pending": 373,
-  "reviewed": 5,
+  "pending": 367,
+  "reviewed": 11,
   "run_id": "rag20_parallel_v1",
   "status_counts": {
-    "KEEP": 2,
-    "REPAIRED": 2,
+    "KEEP": 7,
+    "REPAIRED": 3,
     "VALID_ABSTENTION": 1
   }
 }

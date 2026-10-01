@@ -1,0 +1,31 @@
+{
+  "assignment_sha256": "000f866a2035949d689a9a7a68e80b626415564fdf708f1c3144f6d2573b6039",
+  "candidate_ids": [
+    "golden_v2_candidate_58a53b1ddc9ac173b885aa25"
+  ],
+  "created_utc": "2026-10-01T00:44:01.806012+00:00",
+  "files": {
+    "audit.jsonl": "87f4b8f99073cab4b62d1fab3ef20e87bf3da6b70e7ced7e9e1b288b3b46fbda",
+    "ledger.jsonl": "bfa96a740db7c6c681ab1153bbe9bb9fd282576fa71d7cdb926787880eebdc79",
+    "repairs.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "review_queue.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "support.jsonl": "233ba9dba8234cab78cbea305ea1e3d0ecfb7c818a97a4c1763d7320b21190be",
+    "validation.json": "3795f95bce5bd62f525b4c96b87f1828dffe6b4741e979acc85cce1588eb5f0b"
+  },
+  "owner": "auditor_2",
+  "previous_batches": [
+    {
+      "path": "batches/batch_0001/checkpoint.json",
+      "sha256": "b8700ec3a1fb193789c4d0fb0014d44e4e3000bbe5a35017c774bddd796f204a"
+    },
+    {
+      "path": "batches/batch_0002/checkpoint.json",
+      "sha256": "e367ea521da4c058b013a55ac8e7059cbfda111ccc35b69eacc646efb9f23348"
+    },
+    {
+      "path": "batches/batch_0003/checkpoint.json",
+      "sha256": "2560c1f970a0e12a1e4bae0ec022315e89590d82944831ce34f8a47c9071dd77"
+    }
+  ],
+  "run_id": "rag20_parallel_v1"
+}

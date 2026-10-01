@@ -5,6 +5,10 @@
     {
       "path": "batches/batch_0001/checkpoint.json",
       "sha256": "508ab14c2fa40752c97360185244fe18e42244e71bcb7455c18e03d3fada82d3"
+    },
+    {
+      "path": "batches/batch_0002/checkpoint.json",
+      "sha256": "e5d29738169413b1f491969340b2073e562a6d6fffc13506ac203a53cabde623"
     }
   ],
   "completed_candidate_ids": [
@@ -12,17 +16,22 @@
     "golden_v2_candidate_b108a7532ffbe8b187596e41",
     "golden_v2_candidate_b15277916bb5a273d8cd7a98",
     "golden_v2_candidate_b1c0a1a171674c4c840ab54d",
-    "golden_v2_candidate_b1e0a9decb3fdeda4d7f7da3"
+    "golden_v2_candidate_b1e0a9decb3fdeda4d7f7da3",
+    "golden_v2_candidate_b1e5a31fc8eda63c52213d53",
+    "golden_v2_candidate_b23cea80c470bd13c86cac20",
+    "golden_v2_candidate_b2921de3c350db9a9a1cb8b2",
+    "golden_v2_candidate_b2929f3102d058f277be4546",
+    "golden_v2_candidate_b2a249834653e71598c418cb"
   ],
   "import_ready": false,
-  "next_position": 777,
+  "next_position": 782,
   "owner": "auditor_3",
-  "pending": 373,
-  "reviewed": 5,
+  "pending": 368,
+  "reviewed": 10,
   "run_id": "rag20_parallel_v1",
   "status_counts": {
-    "KEEP": 3,
-    "REPAIRED": 1,
-    "REVIEW_REQUIRED": 1
+    "KEEP": 6,
+    "REPAIRED": 2,
+    "REVIEW_REQUIRED": 2
   }
 }

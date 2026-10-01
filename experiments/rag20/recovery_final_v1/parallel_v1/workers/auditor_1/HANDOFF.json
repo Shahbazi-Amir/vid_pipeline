@@ -1,0 +1,81 @@
+{
+  "active_response_refs": [
+    "batches/batch_0001/ledger.jsonl",
+    "batches/batch_0002/ledger.jsonl"
+  ],
+  "aggregate_hashes": {
+    "inputs.jsonl": "652a88071bda7a2b8d02d9a57f93c3e753c3f4cc6bf64b49ec5866a2f9c54e92",
+    "outputs.jsonl": "f861f70eb64897a18e64c06cf69efbcb7c826ef51769b2053f253fc0ef6b112c"
+  },
+  "assignment_complete": false,
+  "assignment_sha256": "5f0e4e483a623b2e8d9aa913df24eadc6210e2f14c0a2f1898242ac8292ad01c",
+  "batch_refs": [
+    {
+      "path": "batches/batch_0001/checkpoint.json",
+      "sha256": "9343febb38080327ad2771fff4e365cd49473da6f39534cd435b72222376cbf5"
+    },
+    {
+      "path": "batches/batch_0002/checkpoint.json",
+      "sha256": "3f023f8ae83392811da24948e97ff32149a4aafa4ea6741bd2ce5e5bb6208dec"
+    }
+  ],
+  "blockers": [
+    "Turn text capacity consumed by initial large blob retrieval and re-reading truncated evidence; 50-new-candidate goal not reached. No unreviewed candidate marked complete."
+  ],
+  "branch": "agent/rag20-auditor-1-v1",
+  "candidate_ids": [
+    "golden_v2_candidate_0424c8ef79eaab7c81ba32c6",
+    "golden_v2_candidate_0477a54d2504de5ce0f0359b",
+    "golden_v2_candidate_0477b187a45eb76763843cc2",
+    "golden_v2_candidate_04a46058d3a357905665d81f",
+    "golden_v2_candidate_04d2d33111969d5e994b661f",
+    "golden_v2_candidate_04d9f497a414ad36a15185e2"
+  ],
+  "common_start_commit": "ccc75605721077b209027fee65d4ea98895ed8fb",
+  "coverage_positions": [
+    16,
+    21
+  ],
+  "current_path": "experiments/rag20/recovery_final_v1/parallel_v1/workers/auditor_1/CURRENT.json",
+  "current_sha256": "65899605f308e17984c8b42f77008a28ffecaef2d2eff705b59de88a713fe559",
+  "frozen_tool_and_baseline_hashes": {
+    "DEPENDENCIES.json": "da380f0606150384daaebbaa6680ce539a5697095dd36c58341c34ba74d75d85",
+    "SOURCE_FILE_HASHES.json": "72246e6c723840826697df286adba53c1525c778dbd442250973c0116edb625e",
+    "audit_structure.py": "54ea4350013d2d4d468c4a262b36c6ee3ba293c073c282202b7a8e5d30c460f0",
+    "checkpoints/semantic_006_015_verified_v2/PROGRESS_FA.md": "0f0c197db1306cbe629a0f349cf0a9b4158c84fea87a5fbab49a48afd8cc3352",
+    "checkpoints/semantic_006_015_verified_v2/audit.jsonl": "e5b74e8f7d8ee5431719901748cde76f425c981cef49a3c96dd55a8005a40f91",
+    "checkpoints/semantic_006_015_verified_v2/candidate_ledger.jsonl": "634a226ac78a3a49201ff7d03f034f64771aefbd4ed8aa208bc258f27565e0e5",
+    "checkpoints/semantic_006_015_verified_v2/checkpoint.json": "02bae0d6faae6666c9cb266b09f7aefcb4284344c37d1e804041f0128a01c92a",
+    "checkpoints/semantic_006_015_verified_v2/repairs.jsonl": "88edd8664089f1da920ecb967565714c86ef6047a2d6bac3df496009dd266f59",
+    "checkpoints/semantic_006_015_verified_v2/review_queue.jsonl": "d22c9774d621335450e91f82c845a67a0bd71cbb54091662a1dfc6f982202855",
+    "checkpoints/semantic_006_015_verified_v2/support.jsonl": "e51aa46cefde8e3fcdae98f4bb61581820c63dfb2ebf600253264eb79c5e5f4b",
+    "checkpoints/semantic_006_015_verified_v2/validation.json": "60a470baf46eb117359dc15a5b5cfb03756d02e1d4dc8b4c959d8f972a11b3c7",
+    "incremental_review.py": "c5790f1c16242437d78a9d48bb661f96abb8dd89f205840e981c79f562f8eb55",
+    "test_incremental.py": "a1120d51c3f2c4b2f408887894a126404a71dc8ed948ab00ecbcc388b86d7d31",
+    "verify_recovery.py": "7fb69c06b61ea8ec2fbc0c3bdcb832ef30e1549f66d1a2b21490b1f25e7c560f"
+  },
+  "import_ready": false,
+  "independent": false,
+  "independent_semantic_entailment": "NOT_EVALUATED",
+  "last_verified_data_commit": "5851365ee9d8577a051daa09a3a498ef54c5211e",
+  "nb19_adapter": "NOT_RUN",
+  "nb20_handoff": "NOT_RUN",
+  "next_position": 22,
+  "owner": "auditor_1",
+  "pending": 372,
+  "reviewed": 6,
+  "run_id": "rag20_parallel_v1",
+  "semantic_method": "AGENT_REVIEW",
+  "shared_hashes": {
+    "shared/DECISION_CONTRACT_FA.md": "593bede394a4e06a1153bc3f63fd898576fbdcb78553dec6fca3b1b6fc53fd78",
+    "shared/decision.schema.json": "346e05ff1c1a9038dfbf4da4ef1d107eff0ab4ebc5217756f5f74e5f8ad6af2e",
+    "shared/range_io.py": "d952050bd38aaf6da713c30c4a1a8eae558a91c86ffa765bf86deb48132ff031"
+  },
+  "source_acquisition": "GitHub AMIR connector: pinned fetch_file; empty input contents recovered using manifest Git blob SHAs. All 26 byte hashes and aggregate hashes verified. Git clone unavailable; published only worker delta files via GitHub Git tree/commit/ref APIs.",
+  "source_commit": "ebfadb00263a18af5dbd53931f18b434a7c7acb1",
+  "source_location": "NOT_RUN",
+  "status_counts": {
+    "KEEP": 4,
+    "REPAIRED": 2
+  }
+}

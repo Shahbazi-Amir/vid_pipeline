@@ -1,7 +1,19 @@
 {
-  "assignment_complete": false,
   "assignment_sha256": "d271334e8fcc643e949cbfe778507bea31fda850ea90f3e2291cab75a89cb780",
-  "batches": [
+  "candidate_ids": [
+    "golden_v2_candidate_b6e264db60c56d5cd22dea5f"
+  ],
+  "created_utc": "2026-10-01T00:54:34.594858+00:00",
+  "files": {
+    "audit.jsonl": "cca819a3e8cc6f574b026173dd7e0f19a33e123449b5ff33acfc0ba4650228ad",
+    "ledger.jsonl": "f914cf44afccc58bd0245c27cc2fa1d83c3ce577f164ecffce0b774cbe1a4f6b",
+    "repairs.jsonl": "d1e13e3d4e1696b07fcd9667f708e81face8149615b67952fb48c69b40cca826",
+    "review_queue.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "support.jsonl": "a80c0376ef5e00a34b330ee7db695ec9e61b078d1f6e5750da78c8ccf25b75a5",
+    "validation.json": "32616abf15ab66282e7ce7825cc7aa3c3e500ca9abbf64c615cdb4f0b81558f2"
+  },
+  "owner": "auditor_3",
+  "previous_batches": [
     {
       "path": "batches/batch_0001/checkpoint.json",
       "sha256": "508ab14c2fa40752c97360185244fe18e42244e71bcb7455c18e03d3fada82d3"
@@ -85,53 +97,7 @@
     {
       "path": "batches/batch_0021/checkpoint.json",
       "sha256": "43e74c789d9fb033ba82245c2369ccda8499a3f22aa55b15d9ff4fca7127f1dc"
-    },
-    {
-      "path": "batches/batch_0022/checkpoint.json",
-      "sha256": "a4f73765b7133ff35aafa1f648cceb05b6ec979ea708a34b200ac660e24f5bb5"
     }
   ],
-  "completed_candidate_ids": [
-    "golden_v2_candidate_b0f7801a0f408248f108070b",
-    "golden_v2_candidate_b108a7532ffbe8b187596e41",
-    "golden_v2_candidate_b15277916bb5a273d8cd7a98",
-    "golden_v2_candidate_b1c0a1a171674c4c840ab54d",
-    "golden_v2_candidate_b1e0a9decb3fdeda4d7f7da3",
-    "golden_v2_candidate_b1e5a31fc8eda63c52213d53",
-    "golden_v2_candidate_b23cea80c470bd13c86cac20",
-    "golden_v2_candidate_b2921de3c350db9a9a1cb8b2",
-    "golden_v2_candidate_b2929f3102d058f277be4546",
-    "golden_v2_candidate_b2a249834653e71598c418cb",
-    "golden_v2_candidate_b2b92427f8f2e083cfae7de9",
-    "golden_v2_candidate_b2b9280ac95f60f9fbe5da7e",
-    "golden_v2_candidate_b2e68724f042243c6a68693a",
-    "golden_v2_candidate_b31358fa60e996293470c910",
-    "golden_v2_candidate_b33e1a375b9748a930882a9c",
-    "golden_v2_candidate_b378ef7966e3e6a46a76e140",
-    "golden_v2_candidate_b3a72e56ecde99798b712f41",
-    "golden_v2_candidate_b43766c617ea580b07417441",
-    "golden_v2_candidate_b4390a17c08ceba13ee668cb",
-    "golden_v2_candidate_b48a967df521b0aafe44c911",
-    "golden_v2_candidate_b4a130a1ce5461913457ee4c",
-    "golden_v2_candidate_b4fae2484f0afef98391353f",
-    "golden_v2_candidate_b505b318c5d36d71bbbdd55e",
-    "golden_v2_candidate_b51891b8b3146c3b2218c874",
-    "golden_v2_candidate_b5c89ad59c67308e01c468c3",
-    "golden_v2_candidate_b5c8bd8a1f8c38d49eb0221f",
-    "golden_v2_candidate_b604efc81c450faf1fb2aed9",
-    "golden_v2_candidate_b617277a47424c44da06c4c2",
-    "golden_v2_candidate_b68743572feed046bef0425c",
-    "golden_v2_candidate_b6e264db60c56d5cd22dea5f"
-  ],
-  "import_ready": false,
-  "next_position": 802,
-  "owner": "auditor_3",
-  "pending": 348,
-  "reviewed": 30,
-  "run_id": "rag20_parallel_v1",
-  "status_counts": {
-    "KEEP": 23,
-    "REPAIRED": 5,
-    "REVIEW_REQUIRED": 2
-  }
+  "run_id": "rag20_parallel_v1"
 }

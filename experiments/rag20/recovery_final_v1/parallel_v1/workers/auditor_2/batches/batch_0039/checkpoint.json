@@ -1,7 +1,19 @@
 {
-  "assignment_complete": false,
   "assignment_sha256": "000f866a2035949d689a9a7a68e80b626415564fdf708f1c3144f6d2573b6039",
-  "batches": [
+  "candidate_ids": [
+    "golden_v2_candidate_5f502d8c752ab07ca603018a"
+  ],
+  "created_utc": "2026-10-01T01:03:47.434742+00:00",
+  "files": {
+    "audit.jsonl": "7ba2d18f404fbcc82ec452ab23616dcba8bd80f7b94cf2b19b55ee1ca533282b",
+    "ledger.jsonl": "edb87ff12f73705c4f57a76c2de8f1aad4b6d0ad3b2e9ca6e2f0451634085f14",
+    "repairs.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "review_queue.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "support.jsonl": "6d569a51e1094147d1f3411b25ec71f93e9788f9c308d7bf7965047f1a5f4c59",
+    "validation.json": "6c8779a61228546466eb17ad5fd242e51bf0a6f5637bb111aedbaa46a9aa1ad1"
+  },
+  "owner": "auditor_2",
+  "previous_batches": [
     {
       "path": "batches/batch_0001/checkpoint.json",
       "sha256": "b8700ec3a1fb193789c4d0fb0014d44e4e3000bbe5a35017c774bddd796f204a"
@@ -153,77 +165,7 @@
     {
       "path": "batches/batch_0038/checkpoint.json",
       "sha256": "dcea25aaccc85d428d45f0303432c38046ca9eb1d7ea38d32ef426b97bcf8edd"
-    },
-    {
-      "path": "batches/batch_0039/checkpoint.json",
-      "sha256": "6533deb7fdb3e115b9002a734ff34c84c715f00b7278a3c018b1667c8906c1fe"
-    },
-    {
-      "path": "batches/batch_0040/checkpoint.json",
-      "sha256": "606e7b3ad48f3adce078964ff0260d05d5dcf7d2138fcf8e03ff81315c10776d"
-    },
-    {
-      "path": "batches/batch_0041/checkpoint.json",
-      "sha256": "6c981e0ddcf7deedf6769e3d5b520ede13571b3aba5708138ed0fa490e9a3be9"
     }
   ],
-  "completed_candidate_ids": [
-    "golden_v2_candidate_579e608b2659064456520e98",
-    "golden_v2_candidate_57a0b151e09b1393667e0865",
-    "golden_v2_candidate_57b0aa22e0530109f9ef5cd1",
-    "golden_v2_candidate_57ca93d065f78b14a8e13ec2",
-    "golden_v2_candidate_5834c83ff231f6228f485cc6",
-    "golden_v2_candidate_585d527d146ca275fb98e964",
-    "golden_v2_candidate_58991d7781874790e0e8e7b0",
-    "golden_v2_candidate_58a53b1ddc9ac173b885aa25",
-    "golden_v2_candidate_58ace456b34718eb1e0e00c3",
-    "golden_v2_candidate_58e6c0e8f0e54cf195222684",
-    "golden_v2_candidate_591a6aeaff6c5b086372ddd6",
-    "golden_v2_candidate_5923ffaebfa0e9233e175b85",
-    "golden_v2_candidate_595d5a4c01897bd13a1e483b",
-    "golden_v2_candidate_59923eb50cfca171e895d0cd",
-    "golden_v2_candidate_59b65af696cf60e9116211c6",
-    "golden_v2_candidate_59d9abb68395542e49d6b34a",
-    "golden_v2_candidate_5a19fab705ae7c574f1a34fe",
-    "golden_v2_candidate_5a2219066bbebe3393c45c7b",
-    "golden_v2_candidate_5a2f4942e5ce8e27b1b85611",
-    "golden_v2_candidate_5a4f52b61ad791d5e193dddc",
-    "golden_v2_candidate_5acf8faf13a7d3eb8bf49d85",
-    "golden_v2_candidate_5b3d1e271c4ca403e2b12e8e",
-    "golden_v2_candidate_5b4032a0d23f4cb2d9da064e",
-    "golden_v2_candidate_5b4823fd821f318a32d6cf10",
-    "golden_v2_candidate_5b677fc9ccb018d378db09fd",
-    "golden_v2_candidate_5b78ebac37bd0ff172b1426e",
-    "golden_v2_candidate_5b7d6db3729c4a7c491d2e0a",
-    "golden_v2_candidate_5b97fa8cb81d3794b259765f",
-    "golden_v2_candidate_5c445f36dc61a213d869bc5d",
-    "golden_v2_candidate_5c4879412307b29ed18b801a",
-    "golden_v2_candidate_5ce8bfd0f4d60c59e721851a",
-    "golden_v2_candidate_5d7f703f0caf50bd899dd7f5",
-    "golden_v2_candidate_5de571f157177c13a5b69502",
-    "golden_v2_candidate_5df5d842935fc5c5f03023db",
-    "golden_v2_candidate_5df6827bfb1818b029b7ea73",
-    "golden_v2_candidate_5e12a4f122928226eabc93ed",
-    "golden_v2_candidate_5e3bbfe7bc0b1d92f928a6ce",
-    "golden_v2_candidate_5e726253b5edeb3664040158",
-    "golden_v2_candidate_5e8a7c0f6444aa1dc7b840aa",
-    "golden_v2_candidate_5eaf975df7367547a3b4d26d",
-    "golden_v2_candidate_5f2383bd172032295d15d6fb",
-    "golden_v2_candidate_5f4a30e6d10d0d3219b1ab16",
-    "golden_v2_candidate_5f502d8c752ab07ca603018a",
-    "golden_v2_candidate_5fc4aed3e3bdd687916a3c13",
-    "golden_v2_candidate_6022f10f12f56cd267b6dff4"
-  ],
-  "import_ready": false,
-  "next_position": 439,
-  "owner": "auditor_2",
-  "pending": 333,
-  "reviewed": 45,
-  "run_id": "rag20_parallel_v1",
-  "status_counts": {
-    "KEEP": 34,
-    "REPAIRED": 8,
-    "REVIEW_REQUIRED": 2,
-    "VALID_ABSTENTION": 1
-  }
+  "run_id": "rag20_parallel_v1"
 }

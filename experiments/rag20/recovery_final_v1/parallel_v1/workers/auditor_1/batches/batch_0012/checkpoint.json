@@ -1,7 +1,19 @@
 {
-  "assignment_complete": false,
   "assignment_sha256": "5f0e4e483a623b2e8d9aa913df24eadc6210e2f14c0a2f1898242ac8292ad01c",
-  "batches": [
+  "candidate_ids": [
+    "golden_v2_candidate_067c9603da1f7dbdab047c84"
+  ],
+  "created_utc": "2026-10-01T00:48:12.280563+00:00",
+  "files": {
+    "audit.jsonl": "1327b7566d0b780feffb7261c8aaf6a714cb33ce4fae75be2b44f6029fc7363f",
+    "ledger.jsonl": "ef20953e9ab86ba8e9f90b3b6cc9c43de605d75add42ac026275d8241fe25a91",
+    "repairs.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "review_queue.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "support.jsonl": "9d8135b744a9bdcdab57ef417e647302ee8952c8d24ebc0c193be580ccb34e19",
+    "validation.json": "009b6371fbe066faf630b3c62e832febbf1fa4949205053f143b7d1e82c6b04c"
+  },
+  "owner": "auditor_1",
+  "previous_batches": [
     {
       "path": "batches/batch_0001/checkpoint.json",
       "sha256": "9343febb38080327ad2771fff4e365cd49473da6f39534cd435b72222376cbf5"
@@ -45,39 +57,7 @@
     {
       "path": "batches/batch_0011/checkpoint.json",
       "sha256": "1cd07f34579721ebc46b75faadac25fa8a4617f86c58cc166b670d9cddbb3be0"
-    },
-    {
-      "path": "batches/batch_0012/checkpoint.json",
-      "sha256": "2cbb8b7e5af31668443b5633f887d19794a8e611eb7b442df2200dc9000ad039"
     }
   ],
-  "completed_candidate_ids": [
-    "golden_v2_candidate_0424c8ef79eaab7c81ba32c6",
-    "golden_v2_candidate_0477a54d2504de5ce0f0359b",
-    "golden_v2_candidate_0477b187a45eb76763843cc2",
-    "golden_v2_candidate_04a46058d3a357905665d81f",
-    "golden_v2_candidate_04d2d33111969d5e994b661f",
-    "golden_v2_candidate_04d9f497a414ad36a15185e2",
-    "golden_v2_candidate_050cab1f60515b0721734c37",
-    "golden_v2_candidate_05164a201923ae040afbc55e",
-    "golden_v2_candidate_056dd3c7973b38d9f3b90476",
-    "golden_v2_candidate_059b226265e9b8a146978aac",
-    "golden_v2_candidate_05acfe991a2b90c40ccaf873",
-    "golden_v2_candidate_05d052d545a5eedefbd01558",
-    "golden_v2_candidate_05e1c38a910abe497565084c",
-    "golden_v2_candidate_065bbed1933859ad5ba020db",
-    "golden_v2_candidate_067c3042459573d51339b465",
-    "golden_v2_candidate_067c9603da1f7dbdab047c84"
-  ],
-  "import_ready": false,
-  "next_position": 32,
-  "owner": "auditor_1",
-  "pending": 362,
-  "reviewed": 16,
-  "run_id": "rag20_parallel_v1",
-  "status_counts": {
-    "KEEP": 12,
-    "REPAIRED": 3,
-    "REVIEW_REQUIRED": 1
-  }
+  "run_id": "rag20_parallel_v1"
 }

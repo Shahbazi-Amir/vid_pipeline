@@ -1,0 +1,426 @@
+{
+  "type": "object",
+  "properties": {
+    "audit": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "enum": [
+            2
+          ]
+        },
+        "candidate_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "position": {
+          "type": "integer"
+        },
+        "revision": {
+          "type": "integer"
+        },
+        "response_sha256": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "KEEP",
+            "REPAIRED",
+            "REVIEW_REQUIRED",
+            "VALID_ABSTENTION"
+          ]
+        },
+        "method": {
+          "enum": [
+            "AGENT_REVIEW"
+          ]
+        },
+        "context_independence": {
+          "type": "boolean",
+          "enum": [
+            false
+          ]
+        },
+        "full_evidence_reviewed": {
+          "type": "boolean",
+          "enum": [
+            true
+          ]
+        },
+        "evidence_ids_reviewed": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "evidence_text_hashes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "dimensions": {
+          "type": "object",
+          "properties": {
+            "evidence_sufficiency": {
+              "type": "string",
+              "minLength": 1
+            },
+            "question_answer_fit": {
+              "type": "string",
+              "minLength": 1
+            },
+            "factual_claim_support": {
+              "type": "string",
+              "minLength": 1
+            },
+            "scope_modality_negation_quantity": {
+              "type": "string",
+              "minLength": 1
+            },
+            "outside_details": {
+              "type": "string",
+              "minLength": 1
+            },
+            "abstention_justified": {
+              "type": "string",
+              "minLength": 1
+            },
+            "ambiguity_conflict": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "evidence_sufficiency",
+            "question_answer_fit",
+            "factual_claim_support",
+            "scope_modality_negation_quantity",
+            "outside_details",
+            "abstention_justified",
+            "ambiguity_conflict"
+          ],
+          "additionalProperties": false
+        },
+        "reason_fa": {
+          "type": "string",
+          "minLength": 1
+        },
+        "error_categories": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "gold_used_for_review": {
+          "type": "boolean",
+          "enum": [
+            false
+          ]
+        },
+        "answer_factual_coverage_reviewed": {
+          "type": "boolean",
+          "enum": [
+            true
+          ]
+        },
+        "independent_semantic_entailment": {
+          "enum": [
+            "NOT_EVALUATED"
+          ]
+        }
+      },
+      "required": [
+        "schema_version",
+        "candidate_id",
+        "position",
+        "revision",
+        "response_sha256",
+        "status",
+        "method",
+        "context_independence",
+        "full_evidence_reviewed",
+        "evidence_ids_reviewed",
+        "evidence_text_hashes",
+        "dimensions",
+        "reason_fa",
+        "error_categories",
+        "gold_used_for_review",
+        "answer_factual_coverage_reviewed",
+        "independent_semantic_entailment"
+      ],
+      "additionalProperties": false
+    },
+    "support": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "enum": [
+            2
+          ]
+        },
+        "candidate_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "response_sha256": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "integer"
+        },
+        "method": {
+          "enum": [
+            "AGENT_REVIEW"
+          ]
+        },
+        "independent": {
+          "type": "boolean",
+          "enum": [
+            false
+          ]
+        },
+        "claim_results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "claim_index": {
+                "type": "integer"
+              },
+              "claim_sha256": {
+                "type": "string",
+                "minLength": 1
+              },
+              "claim_text": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidence_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "outcome": {
+                "enum": [
+                  "SUPPORTED",
+                  "UNSUPPORTED",
+                  "PARTIAL",
+                  "UNRESOLVED"
+                ]
+              },
+              "method": {
+                "enum": [
+                  "AGENT_REVIEW"
+                ]
+              },
+              "reason_fa": {
+                "type": "string",
+                "minLength": 1
+              },
+              "supporting_spans": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "evidence_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "start": {
+                      "type": "integer"
+                    },
+                    "end": {
+                      "type": "integer"
+                    },
+                    "quote": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "unit": {
+                      "enum": [
+                        "UNICODE_CODE_POINT"
+                      ]
+                    },
+                    "semantic_reason_fa": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "evidence_id",
+                    "start",
+                    "end",
+                    "quote",
+                    "unit",
+                    "semantic_reason_fa"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "claim_index",
+              "claim_sha256",
+              "claim_text",
+              "evidence_ids",
+              "outcome",
+              "method",
+              "reason_fa",
+              "supporting_spans"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "answer_units": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "enum": [
+                  "FACTUAL",
+                  "EVIDENCE_LIMITATION",
+                  "ABSTENTION",
+                  "INTERPRETIVE"
+                ]
+              },
+              "claim_indices": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              },
+              "reason_fa": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "text",
+              "kind",
+              "claim_indices",
+              "reason_fa"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "abstention_review": {
+          "type": "string",
+          "minLength": 1
+        },
+        "independent_semantic_entailment": {
+          "enum": [
+            "NOT_EVALUATED"
+          ]
+        }
+      },
+      "required": [
+        "schema_version",
+        "candidate_id",
+        "response_sha256",
+        "revision",
+        "method",
+        "independent",
+        "claim_results",
+        "answer_units",
+        "abstention_review",
+        "independent_semantic_entailment"
+      ],
+      "additionalProperties": false
+    },
+    "repair": {
+      "type": "object",
+      "properties": {
+        "candidate_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "position": {
+          "type": "integer"
+        },
+        "revision": {
+          "type": "integer"
+        },
+        "original_response": {
+          "type": "object"
+        },
+        "original_response_sha256": {
+          "type": "string",
+          "minLength": 1
+        },
+        "previous_response_sha256": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revised_response": {
+          "type": "object"
+        },
+        "revised_response_sha256": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reason_fa": {
+          "type": "string",
+          "minLength": 1
+        },
+        "method": {
+          "enum": [
+            "AGENT_REVIEW"
+          ]
+        },
+        "gold_used": {
+          "type": "boolean",
+          "enum": [
+            false
+          ]
+        },
+        "rechecked": {
+          "type": "boolean",
+          "enum": [
+            true
+          ]
+        },
+        "recheck_reason_fa": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "candidate_id",
+        "position",
+        "revision",
+        "original_response",
+        "original_response_sha256",
+        "previous_response_sha256",
+        "revised_response",
+        "revised_response_sha256",
+        "reason_fa",
+        "method",
+        "gold_used",
+        "rechecked",
+        "recheck_reason_fa"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "audit",
+    "support"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Isolated AGENT_REVIEW decision envelope v2"
+}

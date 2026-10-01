@@ -1,0 +1,21 @@
+{
+  "baseline_preserved": 15,
+  "test_kind": "STORAGE_AND_ISOLATION_ONLY_NOT_SEMANTIC_REVIEW",
+  "tests": {
+    "active_response_hash_mismatch": true,
+    "candidate_outside_range": true,
+    "coordinator_15_unchanged": true,
+    "disjoint_complete_ownership": true,
+    "duplicate_candidate_in_batch": true,
+    "gold_used_rejected": true,
+    "idempotent_no_overwrite": true,
+    "invalid_pending_pointer_rejected_before_publication": true,
+    "missing_claim_review": true,
+    "no_real_worker_progress_created": true,
+    "only_batch_delta_ledger_saved": true,
+    "original_pointer_preserved_on_pending_failure": true,
+    "position_id_mismatch": true,
+    "tampered_checkpoint_rejected": true
+  },
+  "workers_started": false
+}

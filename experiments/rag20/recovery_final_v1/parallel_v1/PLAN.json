@@ -1,0 +1,88 @@
+{
+  "aggregate_hashes": {
+    "inputs.jsonl": "652a88071bda7a2b8d02d9a57f93c3e753c3f4cc6bf64b49ec5866a2f9c54e92",
+    "outputs.jsonl": "f861f70eb64897a18e64c06cf69efbcb7c826ef51769b2053f253fc0ef6b112c"
+  },
+  "baseline_current_sha256": "02bae0d6faae6666c9cb266b09f7aefcb4284344c37d1e804041f0128a01c92a",
+  "baseline_review_commit": "6b3566de8b6e103508090a1807d4c893e2f5fecc",
+  "baseline_reviewed": 15,
+  "baseline_snapshot_path": "checkpoints/semantic_006_015_verified_v2",
+  "branch_start_protocol": "All three branches are created at the identical setup release commit. Exact SHA is recorded in coordinator/BRANCH_STARTS.json in the following coordinator commit and all final prompts. No reset, force-push or branch rewrites.",
+  "coordinator_branch": "agent/rag-evidence-shards",
+  "coordinator_legacy_followup_positions": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "frozen_files": {
+    "DEPENDENCIES.json": "da380f0606150384daaebbaa6680ce539a5697095dd36c58341c34ba74d75d85",
+    "SOURCE_FILE_HASHES.json": "72246e6c723840826697df286adba53c1525c778dbd442250973c0116edb625e",
+    "audit_structure.py": "54ea4350013d2d4d468c4a262b36c6ee3ba293c073c282202b7a8e5d30c460f0",
+    "checkpoints/semantic_006_015_verified_v2/PROGRESS_FA.md": "0f0c197db1306cbe629a0f349cf0a9b4158c84fea87a5fbab49a48afd8cc3352",
+    "checkpoints/semantic_006_015_verified_v2/audit.jsonl": "e5b74e8f7d8ee5431719901748cde76f425c981cef49a3c96dd55a8005a40f91",
+    "checkpoints/semantic_006_015_verified_v2/candidate_ledger.jsonl": "634a226ac78a3a49201ff7d03f034f64771aefbd4ed8aa208bc258f27565e0e5",
+    "checkpoints/semantic_006_015_verified_v2/checkpoint.json": "02bae0d6faae6666c9cb266b09f7aefcb4284344c37d1e804041f0128a01c92a",
+    "checkpoints/semantic_006_015_verified_v2/repairs.jsonl": "88edd8664089f1da920ecb967565714c86ef6047a2d6bac3df496009dd266f59",
+    "checkpoints/semantic_006_015_verified_v2/review_queue.jsonl": "d22c9774d621335450e91f82c845a67a0bd71cbb54091662a1dfc6f982202855",
+    "checkpoints/semantic_006_015_verified_v2/support.jsonl": "e51aa46cefde8e3fcdae98f4bb61581820c63dfb2ebf600253264eb79c5e5f4b",
+    "checkpoints/semantic_006_015_verified_v2/validation.json": "60a470baf46eb117359dc15a5b5cfb03756d02e1d4dc8b4c959d8f972a11b3c7",
+    "incremental_review.py": "c5790f1c16242437d78a9d48bb661f96abb8dd89f205840e981c79f562f8eb55",
+    "test_incremental.py": "a1120d51c3f2c4b2f408887894a126404a71dc8ed948ab00ecbcc388b86d7d31",
+    "verify_recovery.py": "7fb69c06b61ea8ec2fbc0c3bdcb832ef30e1549f66d1a2b21490b1f25e7c560f"
+  },
+  "gold_or_model_api_allowed": false,
+  "independent_verifier": false,
+  "ownership_sha256": "9ac6ef0b3c977e77f83c319d5f8e47499e59f5c67a8d18d382cbec1baf29ed24",
+  "remaining_assigned": 1134,
+  "repository": "Shahbazi-Amir/vid_pipeline",
+  "run_id": "rag20_parallel_v1",
+  "schema_version": 1,
+  "semantic_method": "AGENT_REVIEW",
+  "shared_files": {
+    "shared/DECISION_CONTRACT_FA.md": "593bede394a4e06a1153bc3f63fd898576fbdcb78553dec6fca3b1b6fc53fd78",
+    "shared/decision.schema.json": "346e05ff1c1a9038dfbf4da4ef1d107eff0ab4ebc5217756f5f74e5f8ad6af2e",
+    "shared/range_io.py": "d952050bd38aaf6da713c30c4a1a8eae558a91c86ffa765bf86deb48132ff031"
+  },
+  "source_commit": "ebfadb00263a18af5dbd53931f18b434a7c7acb1",
+  "total": 1149,
+  "workers": [
+    {
+      "assignment_path": "assignments/auditor_1.json",
+      "assignment_sha256": "5f0e4e483a623b2e8d9aa913df24eadc6210e2f14c0a2f1898242ac8292ad01c",
+      "branch": "agent/rag20-auditor-1-v1",
+      "candidate_count": 378,
+      "output_path": "experiments/rag20/recovery_final_v1/parallel_v1/workers/auditor_1",
+      "owner": "auditor_1",
+      "positions": [
+        16,
+        393
+      ]
+    },
+    {
+      "assignment_path": "assignments/auditor_2.json",
+      "assignment_sha256": "000f866a2035949d689a9a7a68e80b626415564fdf708f1c3144f6d2573b6039",
+      "branch": "agent/rag20-auditor-2-v1",
+      "candidate_count": 378,
+      "output_path": "experiments/rag20/recovery_final_v1/parallel_v1/workers/auditor_2",
+      "owner": "auditor_2",
+      "positions": [
+        394,
+        771
+      ]
+    },
+    {
+      "assignment_path": "assignments/auditor_3.json",
+      "assignment_sha256": "d271334e8fcc643e949cbfe778507bea31fda850ea90f3e2291cab75a89cb780",
+      "branch": "agent/rag20-auditor-3-v1",
+      "candidate_count": 378,
+      "output_path": "experiments/rag20/recovery_final_v1/parallel_v1/workers/auditor_3",
+      "owner": "auditor_3",
+      "positions": [
+        772,
+        1149
+      ]
+    }
+  ]
+}

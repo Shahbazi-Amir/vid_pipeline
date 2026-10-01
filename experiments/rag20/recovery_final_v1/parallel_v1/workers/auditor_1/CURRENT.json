@@ -1,0 +1,32 @@
+{
+  "assignment_complete": false,
+  "assignment_sha256": "5f0e4e483a623b2e8d9aa913df24eadc6210e2f14c0a2f1898242ac8292ad01c",
+  "batches": [
+    {
+      "path": "batches/batch_0001/checkpoint.json",
+      "sha256": "9343febb38080327ad2771fff4e365cd49473da6f39534cd435b72222376cbf5"
+    },
+    {
+      "path": "batches/batch_0002/checkpoint.json",
+      "sha256": "3f023f8ae83392811da24948e97ff32149a4aafa4ea6741bd2ce5e5bb6208dec"
+    }
+  ],
+  "completed_candidate_ids": [
+    "golden_v2_candidate_0424c8ef79eaab7c81ba32c6",
+    "golden_v2_candidate_0477a54d2504de5ce0f0359b",
+    "golden_v2_candidate_0477b187a45eb76763843cc2",
+    "golden_v2_candidate_04a46058d3a357905665d81f",
+    "golden_v2_candidate_04d2d33111969d5e994b661f",
+    "golden_v2_candidate_04d9f497a414ad36a15185e2"
+  ],
+  "import_ready": false,
+  "next_position": 22,
+  "owner": "auditor_1",
+  "pending": 372,
+  "reviewed": 6,
+  "run_id": "rag20_parallel_v1",
+  "status_counts": {
+    "KEEP": 4,
+    "REPAIRED": 2
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "assignment_sha256": "d271334e8fcc643e949cbfe778507bea31fda850ea90f3e2291cab75a89cb780",
+  "candidate_ids": [
+    "golden_v2_candidate_b2e68724f042243c6a68693a"
+  ],
+  "created_utc": "2026-10-01T00:44:21.571975+00:00",
+  "files": {
+    "audit.jsonl": "bbfa40e6ef94c78aacbe3019ab71d711a853896fb25ee52fd6d375e85369b639",
+    "ledger.jsonl": "d5138a5d7aecf91a02f2b0cd87cfe0e9d94cd24af98d6268d0b4074f85c66025",
+    "repairs.jsonl": "0e24f10544f38ca526d4e79c3946a2efdf3fe14a450ed9da835675d10470bdbf",
+    "review_queue.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "support.jsonl": "242f64fa1ed36cc788406d9d41af68c945a4dcd57533099423b507901e6acb74",
+    "validation.json": "4bbd3bb8002345be4f6d5615f290bc3f4532754d0c56d91bcc920035c18b4410"
+  },
+  "owner": "auditor_3",
+  "previous_batches": [
+    {
+      "path": "batches/batch_0001/checkpoint.json",
+      "sha256": "508ab14c2fa40752c97360185244fe18e42244e71bcb7455c18e03d3fada82d3"
+    },
+    {
+      "path": "batches/batch_0002/checkpoint.json",
+      "sha256": "e5d29738169413b1f491969340b2073e562a6d6fffc13506ac203a53cabde623"
+    },
+    {
+      "path": "batches/batch_0003/checkpoint.json",
+      "sha256": "09917b5237f860ec56a449da0c2003b15a689c7706a309cef463e9abff0bcee2"
+    },
+    {
+      "path": "batches/batch_0004/checkpoint.json",
+      "sha256": "3e041122f126a17ffead9adf008e83afc31f88b4ddd2b969941e74d537cc67b5"
+    }
+  ],
+  "run_id": "rag20_parallel_v1"
+}

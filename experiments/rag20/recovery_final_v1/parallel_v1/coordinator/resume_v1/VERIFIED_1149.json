@@ -1,0 +1,46 @@
+{
+  "counts": {
+    "accepted": 1105,
+    "answer_coverage_legacy_pending": 0,
+    "created_utc": "2026-10-02T23:40:50.488325+00:00",
+    "kept": 836,
+    "last_checkpoint_success": "coordinator_recheck_final_v1",
+    "nb19_nb20_import_ready": false,
+    "next_semantic_position": null,
+    "pending_semantic": 0,
+    "positions_completed": [
+      1,
+      3,
+      4,
+      5,
+      2,
+      481,
+      613,
+      641,
+      776,
+      778,
+      855,
+      1149
+    ],
+    "previous_checkpoint": "checkpoints/coordinator_resume_1146_1149_v1",
+    "repaired": 224,
+    "review_required_reviewed": 44,
+    "run_id": "recovery_final_v1",
+    "schema_version": 2,
+    "semantic_complete": 1149,
+    "semantics_complete": true,
+    "session_start_utc": "2026-10-02T23:40:49.596207+00:00",
+    "snapshot_path": "checkpoints/coordinator_recheck_final_v1",
+    "source_commit": "ebfadb00263a18af5dbd53931f18b434a7c7acb1",
+    "source_files": {
+      "inputs.jsonl": "652a88071bda7a2b8d02d9a57f93c3e753c3f4cc6bf64b49ec5866a2f9c54e92",
+      "outputs.jsonl": "f861f70eb64897a18e64c06cf69efbcb7c826ef51769b2053f253fc0ef6b112c"
+    },
+    "timing_note": "session_start_utc is first measured anchor; actual turn start was not instrumented",
+    "valid_abstention": 45
+  },
+  "lineage": "PASS",
+  "new_this_turn": 149,
+  "next_position": null,
+  "overlay_unique": 353
+}

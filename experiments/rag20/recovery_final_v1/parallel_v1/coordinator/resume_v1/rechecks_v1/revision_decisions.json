@@ -1,0 +1,1759 @@
+[
+  {
+    "audit": {
+      "answer_factual_coverage_reviewed": true,
+      "candidate_id": "golden_v2_candidate_006150cbec4a993392e033fa",
+      "context_independence": false,
+      "dimensions": {
+        "abstention_justified": "NOT_APPLICABLE",
+        "ambiguity_conflict": "NO_MATERIAL_CONFLICT_FOR_BOUNDED_ANSWER",
+        "evidence_sufficiency": "SUFFICIENT_FOR_BOUNDED_ANSWER",
+        "factual_claim_support": "AGENT_REVIEW_SUPPORTED",
+        "outside_details": "NONE_IDENTIFIED",
+        "question_answer_fit": "PASS",
+        "scope_modality_negation_quantity": "PRESERVED"
+      },
+      "error_categories": [
+        "missing factual claim coverage"
+      ],
+      "evidence_ids_reviewed": [
+        "chunk:baseline_phase1_char_safe:retrieval:f5ac257894bb5e7b30a5177e",
+        "chunk:baseline_phase1_char_safe:retrieval:a299442d69c1fc703c9194a3",
+        "chunk:baseline_phase1_char_safe:retrieval:77b0eac0867e464a4f71f441",
+        "chunk:baseline_phase1_char_safe:retrieval:f52e97ed8c0c3b0958c675c7",
+        "chunk:baseline_phase1_char_safe:retrieval:28826c96ebfe96c5b8b3518f",
+        "chunk:baseline_phase1_char_safe:retrieval:a8bf366acdb7e108a3d12852",
+        "chunk:baseline_phase1_char_safe:retrieval:11ec0ead8f8fcf140cc8d5b1",
+        "chunk:baseline_phase1_char_safe:retrieval:2047977487a0a96c71e53c7e",
+        "chunk:baseline_phase1_char_safe:retrieval:676057b4cb5df3f8c68da68b",
+        "chunk:baseline_phase1_char_safe:retrieval:de345f77b8fab43440c6ac70"
+      ],
+      "evidence_text_hashes": [
+        "6337e84ec3c18bc7bc917768272d199f4049dab101487af4bd27520cade9d76c",
+        "3fe0109726779ef40d8b7b580b912c8ec758be628e042b19f355f6dce3d23b23",
+        "9f85afaa5d06d18f3bb00136176a6b1f4bfe9b53f0995a81d0233bc0c4176916",
+        "97f554f7039fad00b44f7ff75c8209d631612e56afdef75c11a29343e485216d",
+        "97f639127633d501e8515e4a3c13353804044a45053da78a8538ce28b3b5c722",
+        "7db9d30287dc26c07c1aa762566aa87e739a22104910f7b4a9e66bc1ad105e37",
+        "285312de9085f1357d7f35d016e26893e1a77f8f024624a0f5d8e5c24be528eb",
+        "8082cae9648bb4c76a3b9d4a3490057ac0930da66ae5765f387174ae20ead459",
+        "113a69a4d02481b649892fec1e785aa97a5b4145357da227b38acf8125c41bb3",
+        "4ad4b9f30e35e13f963cd5f775b196a9ed27bb6263a7510187de4469514c1c72"
+      ],
+      "full_evidence_reviewed": true,
+      "gold_used_for_review": false,
+      "independent_semantic_entailment": "NOT_EVALUATED",
+      "method": "AGENT_REVIEW",
+      "position": 1,
+      "reason_fa": "پاسخ، مدیریت دخل‌وخرج و درآمد و پس‌انداز را مستقیماً از شاهد اول می‌گیرد و مسئولیت ساختاری دولت را حذف نمی‌کند. شواهد درباره قانون جذب مبنای پاسخ نشده‌اند؛ پاسخ تضمین رفع همه انواع فقر نمی‌دهد. بازخوانی کامل ده شاهد و بررسی پوشش تمام بندهای پاسخ در بازبینی نهایی انجام شد.",
+      "response_sha256": "0cde7224721beacd68fd3c38117b0aa17d108b6c0d8814ea01325f4ed1da880a",
+      "revision": 1,
+      "schema_version": 2,
+      "status": "KEEP"
+    },
+    "repair": {
+      "candidate_id": "golden_v2_candidate_006150cbec4a993392e033fa",
+      "gold_used": false,
+      "method": "AGENT_REVIEW",
+      "original_response": {
+        "answer_text": "فرد باید دخل‌وخرجش را مدیریت کند، درآمد بسازد و پس‌انداز و سرمایه ایجاد کند. این مسئولیت فردی، مسئولیت دولت و ساختار اقتصادی در مقابله با فقر را از بین نمی‌برد.",
+        "claims": [
+          {
+            "claim_text": "برای بیرون‌آمدن از چرخه فقر، مدیریت دخل‌وخرج، ایجاد درآمد و پس‌انداز و سرمایه اهمیت دارد.",
+            "claim_type": "FACTUAL",
+            "evidence_ids": [
+              "chunk:baseline_phase1_char_safe:retrieval:f5ac257894bb5e7b30a5177e"
+            ]
+          },
+          {
+            "claim_text": "تلاش فردی جای مسئولیت دولت و ساختار اقتصادی در مقابله با فقر را نمی‌گیرد.",
+            "claim_type": "FACTUAL",
+            "evidence_ids": [
+              "chunk:baseline_phase1_char_safe:retrieval:f5ac257894bb5e7b30a5177e"
+            ]
+          }
+        ]
+      },
+      "original_response_sha256": "0cde7224721beacd68fd3c38117b0aa17d108b6c0d8814ea01325f4ed1da880a",
+      "position": 1,
+      "previous_response_sha256": "0cde7224721beacd68fd3c38117b0aa17d108b6c0d8814ea01325f4ed1da880a",
+      "reason_fa": "متن پاسخ حفظ شد؛ قرارداد پوشش کامل بندهای پاسخ به نسخه دو ارتقا یافت.",
+      "recheck_reason_fa": "پاسخ، مدیریت دخل‌وخرج و درآمد و پس‌انداز را مستقیماً از شاهد اول می‌گیرد و مسئولیت ساختاری دولت را حذف نمی‌کند. شواهد درباره قانون جذب مبنای پاسخ نشده‌اند؛ پاسخ تضمین رفع همه انواع فقر نمی‌دهد. بازخوانی کامل ده شاهد و بررسی پوشش تمام بندهای پاسخ در بازبینی نهایی انجام شد.",
+      "rechecked": true,
+      "revised_response": {
+        "answer_text": "فرد باید دخل‌وخرجش را مدیریت کند، درآمد بسازد و پس‌انداز و سرمایه ایجاد کند. این مسئولیت فردی، مسئولیت دولت و ساختار اقتصادی در مقابله با فقر را از بین نمی‌برد.",
+        "claims": [
+          {
+            "claim_text": "برای بیرون‌آمدن از چرخه فقر، مدیریت دخل‌وخرج، ایجاد درآمد و پس‌انداز و سرمایه اهمیت دارد.",
+            "claim_type": "FACTUAL",
+            "evidence_ids": [
+              "chunk:baseline_phase1_char_safe:retrieval:f5ac257894bb5e7b30a5177e"
+            ]
+          },
+          {
+            "claim_text": "تلاش فردی جای مسئولیت دولت و ساختار اقتصادی در مقابله با فقر را نمی‌گیرد.",
+            "claim_type": "FACTUAL",
+            "evidence_ids": [
+              "chunk:baseline_phase1_char_safe:retrieval:f5ac257894bb5e7b30a5177e"
+            ]
+          }
+        ]
+      },
+      "revised_response_sha256": "0cde7224721beacd68fd3c38117b0aa17d108b6c0d8814ea01325f4ed1da880a",
+      "revision": 1
+    },
+    "support": {
+      "abstention_review": "NOT_APPLICABLE",
+      "answer_units": [
+        {
+          "claim_indices": [
+            0,
+            1
+          ],
+          "kind": "FACTUAL",
+          "reason_fa": "پاسخ، مدیریت دخل‌وخرج و درآمد و پس‌انداز را مستقیماً از شاهد اول می‌گیرد و مسئولیت ساختاری دولت را حذف نمی‌کند. شواهد درباره قانون جذب مبنای پاسخ نشده‌اند؛ پاسخ تضمین رفع همه انواع فقر نمی‌دهد. بازخوانی کامل ده شاهد و بررسی پوشش تمام بندهای پاسخ در بازبینی نهایی انجام شد.",
+          "text": "فرد باید دخل‌وخرجش را مدیریت کند، درآمد بسازد و پس‌انداز و سرمایه ایجاد کند. این مسئولیت فردی، مسئولیت دولت و ساختار اقتصادی در مقابله با فقر را از بین نمی‌برد."
+        }
+      ],
+      "candidate_id": "golden_v2_candidate_006150cbec4a993392e033fa",
+      "claim_results": [
+        {
+          "claim_index": 0,
+          "claim_sha256": "9c6904097810126fe817bf67bc91ca389adcff6c8c90760b8009748ce3bb8f7f",
+          "claim_text": "برای بیرون‌آمدن از چرخه فقر، مدیریت دخل‌وخرج، ایجاد درآمد و پس‌انداز و سرمایه اهمیت دارد.",
+          "evidence_ids": [
+            "chunk:baseline_phase1_char_safe:retrieval:f5ac257894bb5e7b30a5177e"
+          ],
+          "method": "AGENT_REVIEW",
+          "outcome": "SUPPORTED",
+          "reason_fa": "پاسخ، مدیریت دخل‌وخرج و درآمد و پس‌انداز را مستقیماً از شاهد اول می‌گیرد و مسئولیت ساختاری دولت را حذف نمی‌کند. شواهد درباره قانون جذب مبنای پاسخ نشده‌اند؛ پاسخ تضمین رفع همه انواع فقر نمی‌دهد.",
+          "supporting_spans": [
+            {
+              "end": 583,
+              "evidence_id": "chunk:baseline_phase1_char_safe:retrieval:f5ac257894bb5e7b30a5177e",
+              "quote": "اگر قرار است فرد فقیر نباشد، باید بتواند دخل‌وخرجش را مدیریت کند، درآمد بسازد، پس‌انداز و سرمایه ایجاد کند و به سطحی برسد که دستش به دهانش برسد.",
+              "semantic_reason_fa": "پاسخ، مدیریت دخل‌وخرج و درآمد و پس‌انداز را مستقیماً از شاهد اول می‌گیرد و مسئولیت ساختاری دولت را حذف نمی‌کند. شواهد درباره قانون جذب مبنای پاسخ نشده‌اند؛ پاسخ تضمین رفع همه انواع فقر نمی‌دهد.",
+              "start": 439,
+              "unit": "UNICODE_CODE_POINT"
+            }
+          ]
+        },
+        {
+          "claim_index": 1,
+          "claim_sha256": "645c53f981d256bcedf434d3110ff680f7201ad75111c009eb46804b7273ff1c",
+          "claim_text": "تلاش فردی جای مسئولیت دولت و ساختار اقتصادی در مقابله با فقر را نمی‌گیرد.",
+          "evidence_ids": [
+            "chunk:baseline_phase1_char_safe:retrieval:f5ac257894bb5e7b30a5177e"
+          ],
+          "method": "AGENT_REVIEW",
+          "outcome": "SUPPORTED",
+          "reason_fa": "پاسخ، مدیریت دخل‌وخرج و درآمد و پس‌انداز را مستقیماً از شاهد اول می‌گیرد و مسئولیت ساختاری دولت را حذف نمی‌کند. شواهد درباره قانون جذب مبنای پاسخ نشده‌اند؛ پاسخ تضمین رفع همه انواع فقر نمی‌دهد.",
+          "supporting_spans": [
+            {
+              "end": 904,
+              "evidence_id": "chunk:baseline_phase1_char_safe:retrieval:f5ac257894bb5e7b30a5177e",
+              "quote": "از منظر فردی هم هرکس باید تا جایی که می‌تواند خودش را از چرخه بحران بیرون بکشد؛ اما این جمله نباید به معنی نادیده‌گرفتن مسئولیت دولت و ساختار اقتصادی باشد.",
+              "semantic_reason_fa": "پاسخ، مدیریت دخل‌وخرج و درآمد و پس‌انداز را مستقیماً از شاهد اول می‌گیرد و مسئولیت ساختاری دولت را حذف نمی‌کند. شواهد درباره قانون جذب مبنای پاسخ نشده‌اند؛ پاسخ تضمین رفع همه انواع فقر نمی‌دهد.",
+              "start": 749,
+              "unit": "UNICODE_CODE_POINT"
+            }
+          ]
+        }
+      ],
+      "independent": false,
+      "independent_semantic_entailment": "NOT_EVALUATED",
+      "method": "AGENT_REVIEW",
+      "response_sha256": "0cde7224721beacd68fd3c38117b0aa17d108b6c0d8814ea01325f4ed1da880a",
+      "revision": 1,
+      "schema_version": 2
+    }
+  },
+  {
+    "audit": {
+      "answer_factual_coverage_reviewed": true,
+      "candidate_id": "golden_v2_candidate_01310b56f06a01d59fe4273f",
+      "context_independence": false,
+      "dimensions": {
+        "abstention_justified": "NOT_APPLICABLE",
+        "ambiguity_conflict": "NO_MATERIAL_CONFLICT_FOR_BOUNDED_ANSWER",
+        "evidence_sufficiency": "SUFFICIENT_FOR_BOUNDED_ANSWER",
+        "factual_claim_support": "AGENT_REVIEW_SUPPORTED",
+        "outside_details": "NONE_IDENTIFIED",
+        "question_answer_fit": "PASS",
+        "scope_modality_negation_quantity": "PRESERVED"
+      },
+      "error_categories": [
+        "missing factual claim coverage"
+      ],
+      "evidence_ids_reviewed": [
+        "chunk:baseline_phase1_char_safe:retrieval:cd572ae19d86c023020a091b",
+        "chunk:baseline_phase1_char_safe:retrieval:20134d766d639d8ec99e15af",
+        "chunk:baseline_phase1_char_safe:retrieval:2ef0ed10c7a92d1b3e8a14a2",
+        "chunk:baseline_phase1_char_safe:retrieval:bf8d025c371582a2bff4aa9e",
+        "chunk:baseline_phase1_char_safe:retrieval:93ac15990d7effd48be6ded7",
+        "chunk:baseline_phase1_char_safe:retrieval:f26d28d420faa35aec0cfcdc",
+        "chunk:baseline_phase1_char_safe:retrieval:b70faa8a4dff1c5949149011",
+        "chunk:baseline_phase1_char_safe:retrieval:9e91795bbcf9dd9d34503b3a",
+        "chunk:baseline_phase1_char_safe:retrieval:67c78260f3e3bc75972911e8",
+        "chunk:baseline_phase1_char_safe:retrieval:0113e95346eb410548408a14"
+      ],
+      "evidence_text_hashes": [
+        "3269ff24f2d4b85b93a82375f507217ec28871548d51c3ffc274e65b70530fae",
+        "572a9811db6d2070175f5eeeb80d657bbefb10aa62225b270dbf31a7f40a4eca",
+        "8a88c319efc48d888307379a4027ece770fdc01b3af0b29eb9f2c019674a97cc",
+        "9ed625c535f0519024a6f4b653dd63f04ff609e09cb1637dd8c019d1e9850945",
+        "ec1241ec4ed080dff48943cd05a4f7d339b03eadf1688648d805960bcab04d28",
+        "96310652283a37e1bc9505bf278c00a40843efefb93686313f54e426dc0059b1",
+        "d72b2aeedc07cb7501ae46fcbf5b8995921d0122fedc4b7cbfed1ebf9ad1417a",
+        "cb04be4138f5c395407db4df2909fcb92865d75f87b9f3c73afa8aafc944d8d4",
+        "d24828a23f59abea821a4cf9e16c79e82710f53dad2a7613fff620d9d3fc876e",
+        "b56da1bbf8fac08d77716791c641db0d275ef97d198ff93ccbe828c1954d4491"
+      ],
+      "full_evidence_reviewed": true,
+      "gold_used_for_review": false,
+      "independent_semantic_entailment": "NOT_EVALUATED",
+      "method": "AGENT_REVIEW",
+      "position": 3,
+      "reason_fa": "هر دو بخش پرسش پاسخ گرفته‌اند: نظم اسناد و ثبت هزینه‌ها در شاهد اول و ششم، و مکتوب‌بودن طلب و بدهی و دارایی و سرمایه و بیمه در شاهد چهارم. توصیه‌های مالیاتی یا امنیتی نامرتبط وارد پاسخ نشده‌اند. بازخوانی کامل ده شاهد و بررسی پوشش تمام بندهای پاسخ در بازبینی نهایی انجام شد.",
+      "response_sha256": "e20cde9687c95f5f32873cfd1d8954dcfa4d2a88b84102e362c58a046d06e00d",
+      "revision": 1,
+      "schema_version": 2,
+      "status": "KEEP"
+    },
+    "repair": {
+      "candidate_id": "golden_v2_candidate_01310b56f06a01d59fe4273f",
+      "gold_used": false,
+      "method": "AGENT_REVIEW",
+      "original_response": {
+        "answer_text": "نگهداری اسناد مالی بخشی از نظم مالی است. هزینه‌ها باید ثبت شوند و فاکتورها و ضمانت‌نامه‌های مهم منظم نگهداری شوند. طلب‌ها، بدهی‌ها، دارایی‌ها، سرمایه‌ها و بیمه‌ها نیز باید مکتوب و روشن باشند.",
+        "claims": [
+          {
+            "claim_text": "ثبت هزینه‌ها و نگهداری منظم اسناد مهم، مانند فاکتور و ضمانت‌نامه، بخشی از نظم مالی است.",
+            "claim_type": "FACTUAL",
+            "evidence_ids": [
+              "chunk:baseline_phase1_char_safe:retrieval:cd572ae19d86c023020a091b",
+              "chunk:baseline_phase1_char_safe:retrieval:f26d28d420faa35aec0cfcdc"
+            ]
+          },
+          {
+            "claim_text": "طلب‌ها، بدهی‌ها، دارایی‌ها، سرمایه‌ها و بیمه‌ها باید مکتوب و روشن باشند.",
+            "claim_type": "FACTUAL",
+            "evidence_ids": [
+              "chunk:baseline_phase1_char_safe:retrieval:bf8d025c371582a2bff4aa9e"
+            ]
+          }
+        ]
+      },
+      "original_response_sha256": "e20cde9687c95f5f32873cfd1d8954dcfa4d2a88b84102e362c58a046d06e00d",
+      "position": 3,
+      "previous_response_sha256": "e20cde9687c95f5f32873cfd1d8954dcfa4d2a88b84102e362c58a046d06e00d",
+      "reason_fa": "متن پاسخ حفظ شد؛ قرارداد پوشش کامل بندهای پاسخ به نسخه دو ارتقا یافت.",
+      "recheck_reason_fa": "هر دو بخش پرسش پاسخ گرفته‌اند: نظم اسناد و ثبت هزینه‌ها در شاهد اول و ششم، و مکتوب‌بودن طلب و بدهی و دارایی و سرمایه و بیمه در شاهد چهارم. توصیه‌های مالیاتی یا امنیتی نامرتبط وارد پاسخ نشده‌اند. بازخوانی کامل ده شاهد و بررسی پوشش تمام بندهای پاسخ در بازبینی نهایی انجام شد.",
+      "rechecked": true,
+      "revised_response": {
+        "answer_text": "نگهداری اسناد مالی بخشی از نظم مالی است. هزینه‌ها باید ثبت شوند و فاکتورها و ضمانت‌نامه‌های مهم منظم نگهداری شوند. طلب‌ها، بدهی‌ها، دارایی‌ها، سرمایه‌ها و بیمه‌ها نیز باید مکتوب و روشن باشند.",
+        "claims": [
+          {
+            "claim_text": "ثبت هزینه‌ها و نگهداری منظم اسناد مهم، مانند فاکتور و ضمانت‌نامه، بخشی از نظم مالی است.",
+            "claim_type": "FACTUAL",
+            "evidence_ids": [
+              "chunk:baseline_phase1_char_safe:retrieval:cd572ae19d86c023020a091b",
+              "chunk:baseline_phase1_char_safe:retrieval:f26d28d420faa35aec0cfcdc"
+            ]
+          },
+          {
+            "claim_text": "طلب‌ها، بدهی‌ها، دارایی‌ها، سرمایه‌ها و بیمه‌ها باید مکتوب و روشن باشند.",
+            "claim_type": "FACTUAL",
+            "evidence_ids": [
+              "chunk:baseline_phase1_char_safe:retrieval:bf8d025c371582a2bff4aa9e"
+            ]
+          }
+        ]
+      },
+      "revised_response_sha256": "e20cde9687c95f5f32873cfd1d8954dcfa4d2a88b84102e362c58a046d06e00d",
+      "revision": 1
+    },
+    "support": {
+      "abstention_review": "NOT_APPLICABLE",
+      "answer_units": [
+        {
+          "claim_indices": [
+            0,
+            1
+          ],
+          "kind": "FACTUAL",
+          "reason_fa": "هر دو بخش پرسش پاسخ گرفته‌اند: نظم اسناد و ثبت هزینه‌ها در شاهد اول و ششم، و مکتوب‌بودن طلب و بدهی و دارایی و سرمایه و بیمه در شاهد چهارم. توصیه‌های مالیاتی یا امنیتی نامرتبط وارد پاسخ نشده‌اند. بازخوانی کامل ده شاهد و بررسی پوشش تمام بندهای پاسخ در بازبینی نهایی انجام شد.",
+          "text": "نگهداری اسناد مالی بخشی از نظم مالی است. هزینه‌ها باید ثبت شوند و فاکتورها و ضمانت‌نامه‌های مهم منظم نگهداری شوند. طلب‌ها، بدهی‌ها، دارایی‌ها، سرمایه‌ها و بیمه‌ها نیز باید مکتوب و روشن باشند."
+        }
+      ],
+      "candidate_id": "golden_v2_candidate_01310b56f06a01d59fe4273f",
+      "claim_results": [
+        {
+          "claim_index": 0,
+          "claim_sha256": "ac808ae7df3d7094de8d6ed7d5ab5461c39094b1e2ba2a83a10f269828088834",
+          "claim_text": "ثبت هزینه‌ها و نگهداری منظم اسناد مهم، مانند فاکتور و ضمانت‌نامه، بخشی از نظم مالی است.",
+          "evidence_ids": [
+            "chunk:baseline_phase1_char_safe:retrieval:cd572ae19d86c023020a091b",
+            "chunk:baseline_phase1_char_safe:retrieval:f26d28d420faa35aec0cfcdc"
+          ],
+          "method": "AGENT_REVIEW",
+          "outcome": "SUPPORTED",
+          "reason_fa": "هر دو بخش پرسش پاسخ گرفته‌اند: نظم اسناد و ثبت هزینه‌ها در شاهد اول و ششم، و مکتوب‌بودن طلب و بدهی و دارایی و سرمایه و بیمه در شاهد چهارم. توصیه‌های مالیاتی یا امنیتی نامرتبط وارد پاسخ نشده‌اند.؛ هر دو بخش پرسش پاسخ گرفته‌اند: نظم اسناد و ثبت هزینه‌ها در شاهد اول و ششم، و مکتوب‌بودن طلب و بدهی و دارایی و سرمایه و بیمه در شاهد چهارم. توصیه‌های مالیاتی یا امنیتی نامرتبط وارد پاسخ نشده‌اند.؛ هر دو بخش پرسش پاسخ گرفته‌اند: نظم اسناد و ثبت هزینه‌ها در شاهد اول و ششم، و مکتوب‌بودن طلب و بدهی و دارایی و سرمایه و بیمه در شاهد چهارم. توصیه‌های مالیاتی یا امنیتی نامرتبط وارد پاسخ نشده‌اند.",
+          "supporting_spans": [
+            {
+              "end": 485,
+              "evidence_id": "chunk:baseline_phase1_char_safe:retrieval:cd572ae19d86c023020a091b",
+              "quote": "نگهداری اسناد مالی بخشی از نظم مالی و یک تمرین مالی است.",
+              "semantic_reason_fa": "هر دو بخش پرسش پاسخ گرفته‌اند: نظم اسناد و ثبت هزینه‌ها در شاهد اول و ششم، و مکتوب‌بودن طلب و بدهی و دارایی و سرمایه و بیمه در شاهد چهارم. توصیه‌های مالیاتی یا امنیتی نامرتبط وارد پاسخ نشده‌اند.",
+              "start": 429,
+              "unit": "UNICODE_CODE_POINT"
+            },
+            {
+              "end": 681,
+              "evidence_id": "chunk:baseline_phase1_char_safe:retrieval:cd572ae19d86c023020a091b",
+              "quote": "مثلاً اگر فرش یا ماشین لباس‌شویی خریده‌اید، فاکتور و ضمانت‌نامه را نگه دارید.",
+              "semantic_reason_fa": "هر دو بخش پرسش پاسخ گرفته‌اند: نظم اسناد و ثبت هزینه‌ها در شاهد اول و ششم، و مکتوب‌بودن طلب و بدهی و دارایی و سرمایه و بیمه در شاهد چهارم. توصیه‌های مالیاتی یا امنیتی نامرتبط وارد پاسخ نشده‌اند.",
+              "start": 604,
+              "unit": "UNICODE_CODE_POINT"
+            },
+            {
+              "end": 703,
+              "evidence_id": "chunk:baseline_phase1_char_safe:retrieval:f26d28d420faa35aec0cfcdc",
+              "quote": "نگهداری از اسناد و مدارک علاوه بر نوشتن هزینه ها",
+              "semantic_reason_fa": "هر دو بخش پرسش پاسخ گرفته‌اند: نظم اسناد و ثبت هزینه‌ها در شاهد اول و ششم، و مکتوب‌بودن طلب و بدهی و دارایی و سرمایه و بیمه در شاهد چهارم. توصیه‌های مالیاتی یا امنیتی نامرتبط وارد پاسخ نشده‌اند.",
+              "start": 655,
+              "unit": "UNICODE_CODE_POINT"
+            }
+          ]
+        },
+        {
+          "claim_index": 1,
+          "claim_sha256": "465c497a81d8a64be8d84464f7a9b4bc38031dd16c530cf33be7855078e98675",
+          "claim_text": "طلب‌ها، بدهی‌ها، دارایی‌ها، سرمایه‌ها و بیمه‌ها باید مکتوب و روشن باشند.",
+          "evidence_ids": [
+            "chunk:baseline_phase1_char_safe:retrieval:bf8d025c371582a2bff4aa9e"
+          ],
+          "method": "AGENT_REVIEW",
+          "outcome": "SUPPORTED",
+          "reason_fa": "هر دو بخش پرسش پاسخ گرفته‌اند: نظم اسناد و ثبت هزینه‌ها در شاهد اول و ششم، و مکتوب‌بودن طلب و بدهی و دارایی و سرمایه و بیمه در شاهد چهارم. توصیه‌های مالیاتی یا امنیتی نامرتبط وارد پاسخ نشده‌اند.",
+          "supporting_spans": [
+            {
+              "end": 276,
+              "evidence_id": "chunk:baseline_phase1_char_safe:retrieval:bf8d025c371582a2bff4aa9e",
+              "quote": "چه تو حوزهٔ طلبکاری\nچه تو بدهکاری\nچه تو حوزه دارائی ها، سرمایه ها، بیمه ها و هر چیزی که یک امر مالیه اصولاً باید مکتوب بشه",
+              "semantic_reason_fa": "هر دو بخش پرسش پاسخ گرفته‌اند: نظم اسناد و ثبت هزینه‌ها در شاهد اول و ششم، و مکتوب‌بودن طلب و بدهی و دارایی و سرمایه و بیمه در شاهد چهارم. توصیه‌های مالیاتی یا امنیتی نامرتبط وارد پاسخ نشده‌اند.",
+              "start": 154,
+              "unit": "UNICODE_CODE_POINT"
+            }
+          ]
+        }
+      ],
+      "independent": false,
+      "independent_semantic_entailment": "NOT_EVALUATED",
+      "method": "AGENT_REVIEW",
+      "response_sha256": "e20cde9687c95f5f32873cfd1d8954dcfa4d2a88b84102e362c58a046d06e00d",
+      "revision": 1,
+      "schema_version": 2
+    }
+  },
+  {
+    "audit": {
+      "answer_factual_coverage_reviewed": true,
+      "candidate_id": "golden_v2_candidate_0184f90d79f3dfc4744b6e29",
+      "context_independence": false,
+      "dimensions": {
+        "abstention_justified": "NOT_APPLICABLE",
+        "ambiguity_conflict": "NO_MATERIAL_CONFLICT_FOR_BOUNDED_ANSWER",
+        "evidence_sufficiency": "SUFFICIENT_FOR_BOUNDED_ANSWER",
+        "factual_claim_support": "AGENT_REVIEW_SUPPORTED",
+        "outside_details": "NONE_IDENTIFIED",
+        "question_answer_fit": "PASS",
+        "scope_modality_negation_quantity": "PRESERVED"
+      },
+      "error_categories": [
+        "missing factual claim coverage"
+      ],
+      "evidence_ids_reviewed": [
+        "chunk:baseline_phase1_char_safe:retrieval:857c3d7a7505ad2dcd2aadfb",
+        "chunk:baseline_phase1_char_safe:retrieval:57092dadb5e8a923a60de7b9",
+        "chunk:baseline_phase1_char_safe:retrieval:7959cede75554875f1f1aba6",
+        "chunk:baseline_phase1_char_safe:retrieval:e654dc9b2f8508ed519a56cc",
+        "chunk:baseline_phase1_char_safe:retrieval:7eee7337fb555de568af93d9",
+        "chunk:baseline_phase1_char_safe:retrieval:a7f3003eaca4b7bb0fd3def7",
+        "chunk:baseline_phase1_char_safe:retrieval:5b4cd10030b10161d06c33a7",
+        "chunk:baseline_phase1_char_safe:retrieval:df5f90f651f2b2704eb7658d",
+        "chunk:baseline_phase1_char_safe:retrieval:67984c36bc02c12305a719a2",
+        "chunk:baseline_phase1_char_safe:retrieval:ddc5e3bd0a3e7c497558e2d1"
+      ],
+      "evidence_text_hashes": [
+        "82be414b75b45b8dd0692b401de900dc7f5cfe6d18c119a4167c93e23361417c",
+        "dfab5be2865e7b84651a8b87b92db5d5d4f01975dd4812bdcb0f6b40ce2fec38",
+        "5bd8d26fcd12e2f865449ab6f7d9078b625662d5cbe57b60b8faaaf41decc77c",
+        "700229b5e66e7cee204ddf5a51e66ff551e5a4cc2c24d7117406e119b639c53f",
+        "6cc60095582a5423df714324aa8e8d18c55e069ad3e90e4c596ea49a8296c252",
+        "59d8c882a275001c841dd1900571e937bb09c6ad4c6a6e3a3caaa2ec259ad390",
+        "e9a272dba1fb8b284ec34fe771ed2d1d605b088edfe7f7d458426e12a52a973b",
+        "194292f44aa69462b6bcace616432fe36cc0e002c9d2cd9869c7a896e6a39795",
+        "e7801b716f4764e8931043127826ab943be67dc4d7c3b91c31dab64d1e6f82d6",
+        "a96301609b7d73354f385483f0f401fdce3ee5516f915e89698c6921c04292bf"
+      ],
+      "full_evidence_reviewed": true,
+      "gold_used_for_review": false,
+      "independent_semantic_entailment": "NOT_EVALUATED",
+      "method": "AGENT_REVIEW",
+      "position": 4,
+      "reason_fa": "شاهد اول زمان چند سال پایانی خدمت، کاهش تدریجی وابستگی هویتی و مالی و بررسی مسیر فعالیت پیش از بازنشستگی را تصریح می‌کند. پاسخ ادعای قطع ناگهانی شغل یا تضمین مالی ندارد. بازخوانی کامل ده شاهد و بررسی پوشش تمام بندهای پاسخ در بازبینی نهایی انجام شد.",
+      "response_sha256": "bad026cad5aa99942f95abe9b3389f33a445963323fa613972c5c925cb57e3ce",
+      "revision": 1,
+      "schema_version": 2,
+      "status": "KEEP"
+    },
+    "repair": {
+      "candidate_id": "golden_v2_candidate_0184f90d79f3dfc4744b6e29",
+      "gold_used": false,
+      "method": "AGENT_REVIEW",
+      "original_response": {
+        "answer_text": "باید برنامه انتقال از کار به بازنشستگی را جدی‌تر بررسی کرد: وابستگی کامل هویتی و مالی به سازمان را به‌تدریج کاهش داد و مسیر فعالیت پس از بازنشستگی را پیش از پایان خدمت آماده کرد.",
+        "claims": [
+          {
+            "claim_text": "در چند سال پایانی خدمت باید برای انتقال به بازنشستگی و فعالیت بعدی برنامه‌ریزی کرد و وابستگی کامل هویتی و مالی به سازمان را به‌تدریج کاهش داد.",
+            "claim_type": "FACTUAL",
+            "evidence_ids": [
+              "chunk:baseline_phase1_char_safe:retrieval:857c3d7a7505ad2dcd2aadfb"
+            ]
+          }
+        ]
+      },
+      "original_response_sha256": "bad026cad5aa99942f95abe9b3389f33a445963323fa613972c5c925cb57e3ce",
+      "position": 4,
+      "previous_response_sha256": "bad026cad5aa99942f95abe9b3389f33a445963323fa613972c5c925cb57e3ce",
+      "reason_fa": "متن پاسخ حفظ شد؛ قرارداد پوشش کامل بندهای پاسخ به نسخه دو ارتقا یافت.",
+      "recheck_reason_fa": "شاهد اول زمان چند سال پایانی خدمت، کاهش تدریجی وابستگی هویتی و مالی و بررسی مسیر فعالیت پیش از بازنشستگی را تصریح می‌کند. پاسخ ادعای قطع ناگهانی شغل یا تضمین مالی ندارد. بازخوانی کامل ده شاهد و بررسی پوشش تمام بندهای پاسخ در بازبینی نهایی انجام شد.",
+      "rechecked": true,
+      "revised_response": {
+        "answer_text": "باید برنامه انتقال از کار به بازنشستگی را جدی‌تر بررسی کرد: وابستگی کامل هویتی و مالی به سازمان را به‌تدریج کاهش داد و مسیر فعالیت پس از بازنشستگی را پیش از پایان خدمت آماده کرد.",
+        "claims": [
+          {
+            "claim_text": "در چند سال پایانی خدمت باید برای انتقال به بازنشستگی و فعالیت بعدی برنامه‌ریزی کرد و وابستگی کامل هویتی و مالی به سازمان را به‌تدریج کاهش داد.",
+            "claim_type": "FACTUAL",
+            "evidence_ids": [
+              "chunk:baseline_phase1_char_safe:retrieval:857c3d7a7505ad2dcd2aadfb"
+            ]
+          }
+        ]
+      },
+      "revised_response_sha256": "bad026cad5aa99942f95abe9b3389f33a445963323fa613972c5c925cb57e3ce",
+      "revision": 1
+    },
+    "support": {
+      "abstention_review": "NOT_APPLICABLE",
+      "answer_units": [
+        {
+          "claim_indices": [
+            0
+          ],
+          "kind": "FACTUAL",
+          "reason_fa": "شاهد اول زمان چند سال پایانی خدمت، کاهش تدریجی وابستگی هویتی و مالی و بررسی مسیر فعالیت پیش از بازنشستگی را تصریح می‌کند. پاسخ ادعای قطع ناگهانی شغل یا تضمین مالی ندارد. بازخوانی کامل ده شاهد و بررسی پوشش تمام بندهای پاسخ در بازبینی نهایی انجام شد.",
+          "text": "باید برنامه انتقال از کار به بازنشستگی را جدی‌تر بررسی کرد: وابستگی کامل هویتی و مالی به سازمان را به‌تدریج کاهش داد و مسیر فعالیت پس از بازنشستگی را پیش از پایان خدمت آماده کرد."
+        }
+      ],
+      "candidate_id": "golden_v2_candidate_0184f90d79f3dfc4744b6e29",
+      "claim_results": [
+        {
+          "claim_index": 0,
+          "claim_sha256": "dc3e715557aa601a4aede1c7a0c27f8f055b0122ac56c57ffafd7b14d6db8ada",
+          "claim_text": "در چند سال پایانی خدمت باید برای انتقال به بازنشستگی و فعالیت بعدی برنامه‌ریزی کرد و وابستگی کامل هویتی و مالی به سازمان را به‌تدریج کاهش داد.",
+          "evidence_ids": [
+            "chunk:baseline_phase1_char_safe:retrieval:857c3d7a7505ad2dcd2aadfb"
+          ],
+          "method": "AGENT_REVIEW",
+          "outcome": "SUPPORTED",
+          "reason_fa": "شاهد اول زمان چند سال پایانی خدمت، کاهش تدریجی وابستگی هویتی و مالی و بررسی مسیر فعالیت پیش از بازنشستگی را تصریح می‌کند. پاسخ ادعای قطع ناگهانی شغل یا تضمین مالی ندارد.؛ شاهد اول زمان چند سال پایانی خدمت، کاهش تدریجی وابستگی هویتی و مالی و بررسی مسیر فعالیت پیش از بازنشستگی را تصریح می‌کند. پاسخ ادعای قطع ناگهانی شغل یا تضمین مالی ندارد.؛ شاهد اول زمان چند سال پایانی خدمت، کاهش تدریجی وابستگی هویتی و مالی و بررسی مسیر فعالیت پیش از بازنشستگی را تصریح می‌کند. پاسخ ادعای قطع ناگهانی شغل یا تضمین مالی ندارد.",
+          "supporting_spans": [
+            {
+              "end": 463,
+              "evidence_id": "chunk:baseline_phase1_char_safe:retrieval:857c3d7a7505ad2dcd2aadfb",
+              "quote": "بهتر است حداقل در چند سال پایانی خدمت جدی‌تر به آن فکر کنیم.",
+              "semantic_reason_fa": "شاهد اول زمان چند سال پایانی خدمت، کاهش تدریجی وابستگی هویتی و مالی و بررسی مسیر فعالیت پیش از بازنشستگی را تصریح می‌کند. پاسخ ادعای قطع ناگهانی شغل یا تضمین مالی ندارد.",
+              "start": 403,
+              "unit": "UNICODE_CODE_POINT"
+            },
+            {
+              "end": 619,
+              "evidence_id": "chunk:baseline_phase1_char_safe:retrieval:857c3d7a7505ad2dcd2aadfb",
+              "quote": "منظور این است که وابستگی کامل هویتی و مالی به سازمان را به‌تدریج کم کند و برای مرحله بعد آماده شود.",
+              "semantic_reason_fa": "شاهد اول زمان چند سال پایانی خدمت، کاهش تدریجی وابستگی هویتی و مالی و بررسی مسیر فعالیت پیش از بازنشستگی را تصریح می‌کند. پاسخ ادعای قطع ناگهانی شغل یا تضمین مالی ندارد.",
+              "start": 520,
+              "unit": "UNICODE_CODE_POINT"
+            },
+            {
+              "end": 978,
+              "evidence_id": "chunk:baseline_phase1_char_safe:retrieval:857c3d7a7505ad2dcd2aadfb",
+              "quote": "اینها مسیرهایی هستند که باید قبل از روز بازنشستگی بررسی شوند، نه بعد از آن.",
+              "semantic_reason_fa": "شاهد اول زمان چند سال پایانی خدمت، کاهش تدریجی وابستگی هویتی و مالی و بررسی مسیر فعالیت پیش از بازنشستگی را تصریح می‌کند. پاسخ ادعای قطع ناگهانی شغل یا تضمین مالی ندارد.",
+              "start": 903,
+              "unit": "UNICODE_CODE_POINT"
+            }
+          ]
+        }
+      ],
+      "independent": false,
+      "independent_semantic_entailment": "NOT_EVALUATED",
+      "method": "AGENT_REVIEW",
+      "response_sha256": "bad026cad5aa99942f95abe9b3389f33a445963323fa613972c5c925cb57e3ce",
+      "revision": 1,
+      "schema_version": 2
+    }
+  },
+  {
+    "audit": {
+      "answer_factual_coverage_reviewed": true,
+      "candidate_id": "golden_v2_candidate_01b22bd8a25fb93d74033d78",
+      "context_independence": false,
+      "dimensions": {
+        "abstention_justified": "NOT_APPLICABLE",
+        "ambiguity_conflict": "NO_MATERIAL_CONFLICT_FOR_BOUNDED_ANSWER",
+        "evidence_sufficiency": "SUFFICIENT_FOR_BOUNDED_ANSWER",
+        "factual_claim_support": "AGENT_REVIEW_SUPPORTED",
+        "outside_details": "NONE_IDENTIFIED",
+        "question_answer_fit": "PASS",
+        "scope_modality_negation_quantity": "PRESERVED"
+      },
+      "error_categories": [
+        "missing factual claim coverage"
+      ],
+      "evidence_ids_reviewed": [
+        "chunk:baseline_phase1_char_safe:retrieval:99aab95685ad2f93c3c67e5d",
+        "chunk:baseline_phase1_char_safe:retrieval:461b5f455721449565d09059",
+        "chunk:baseline_phase1_char_safe:retrieval:4d360e4bb093827a56a6a177",
+        "chunk:baseline_phase1_char_safe:retrieval:2acef1a4bf53fd5782cb51b3",
+        "chunk:baseline_phase1_char_safe:retrieval:800e420f1ec9282ef0eca35a",
+        "chunk:baseline_phase1_char_safe:retrieval:7ddee73285cfe09bb6fe933b",
+        "chunk:baseline_phase1_char_safe:retrieval:7512fe861d627688596dec23",
+        "chunk:baseline_phase1_char_safe:retrieval:e1726dd65ffd24dddc8ae13b",
+        "chunk:baseline_phase1_char_safe:retrieval:4ba5a093f1c5db35f98ee513",
+        "chunk:baseline_phase1_char_safe:retrieval:591bdefbed8157152c9ba756"
+      ],
+      "evidence_text_hashes": [
+        "9d797472cbf7d69e715b2f4c3956a85f29e2edb19ec875c66a385b882e2acebd",
+        "a7379e7d04ea891aac5504b040a37a74e33537f7d69269970a67b32632c9a89e",
+        "fadc11ee49e327e5a23b58f009d947c43b6b1fd59e1f7227b096ad43c27c43a1",
+        "993325761a5872fc8e284d882e5a2f5c3215c565c950b2c561408a103f28b5ed",
+        "4112255f3e96b67c0b9cc573b28f2eb70ebf67c44cfc2cd7090bde2d5dbeb652",
+        "1a9abd58a982d383b63cade143584cb3eaf440b9430e80d22e1c7ea530dc584c",
+        "9974154fae9033db249be55caccadfff9d98dee693dc3fd62d1f0c5a196e4d34",
+        "00f745fb43b0489280f3be7911987860967c42208caf28816fcb0909271d344a",
+        "b4f99116e14b273e0900e170b8d67154a890b52b1122d34c23b0c7f85b340500",
+        "b34707ca6a39d804efea0bbd8aa921f14b7be87882a37d79dafb94d94372f488"
+      ],
+      "full_evidence_reviewed": true,
+      "gold_used_for_review": false,
+      "independent_semantic_entailment": "NOT_EVALUATED",
+      "method": "AGENT_REVIEW",
+      "position": 5,
+      "reason_fa": "شاهد اول، کاریابی و درآمد را بخش ورودی حوزه مالی می‌نامد و کارکردن را منشأ درآمد توضیح می‌دهد. پاسخ ادعا نمی‌کند که قرض و ارث و سرمایه‌گذاری هیچ ورودی مالی ایجاد نمی‌کنند. بازخوانی کامل ده شاهد و بررسی پوشش تمام بندهای پاسخ در بازبینی نهایی انجام شد.",
+      "response_sha256": "1d80564ae18aecf0809559373f0519a5333eb5f0cbccdc542fa393ab48a63639",
+      "revision": 1,
+      "schema_version": 2,
+      "status": "KEEP"
+    },
+    "repair": {
+      "candidate_id": "golden_v2_candidate_01b22bd8a25fb93d74033d78",
+      "gold_used": false,
+      "method": "AGENT_REVIEW",
+      "original_response": {
+        "answer_text": "کاریابی و کسب درآمد، ورودی حوزه مالی است؛ پول از کارکردن و درآمد حاصل از آن به این حوزه وارد می‌شود.",
+        "claims": [
+          {
+            "claim_text": "کاریابی و کسب درآمد از طریق کارکردن، ورودی حوزه مالی است.",
+            "claim_type": "FACTUAL",
+            "evidence_ids": [
+              "chunk:baseline_phase1_char_safe:retrieval:99aab95685ad2f93c3c67e5d"
+            ]
+          }
+        ]
+      },
+      "original_response_sha256": "1d80564ae18aecf0809559373f0519a5333eb5f0cbccdc542fa393ab48a63639",
+      "position": 5,
+      "previous_response_sha256": "1d80564ae18aecf0809559373f0519a5333eb5f0cbccdc542fa393ab48a63639",
+      "reason_fa": "متن پاسخ حفظ شد؛ قرارداد پوشش کامل بندهای پاسخ به نسخه دو ارتقا یافت.",
+      "recheck_reason_fa": "شاهد اول، کاریابی و درآمد را بخش ورودی حوزه مالی می‌نامد و کارکردن را منشأ درآمد توضیح می‌دهد. پاسخ ادعا نمی‌کند که قرض و ارث و سرمایه‌گذاری هیچ ورودی مالی ایجاد نمی‌کنند. بازخوانی کامل ده شاهد و بررسی پوشش تمام بندهای پاسخ در بازبینی نهایی انجام شد.",
+      "rechecked": true,
+      "revised_response": {
+        "answer_text": "کاریابی و کسب درآمد، ورودی حوزه مالی است؛ پول از کارکردن و درآمد حاصل از آن به این حوزه وارد می‌شود.",
+        "claims": [
+          {
+            "claim_text": "کاریابی و کسب درآمد از طریق کارکردن، ورودی حوزه مالی است.",
+            "claim_type": "FACTUAL",
+            "evidence_ids": [
+              "chunk:baseline_phase1_char_safe:retrieval:99aab95685ad2f93c3c67e5d"
+            ]
+          }
+        ]
+      },
+      "revised_response_sha256": "1d80564ae18aecf0809559373f0519a5333eb5f0cbccdc542fa393ab48a63639",
+      "revision": 1
+    },
+    "support": {
+      "abstention_review": "NOT_APPLICABLE",
+      "answer_units": [
+        {
+          "claim_indices": [
+            0
+          ],
+          "kind": "FACTUAL",
+          "reason_fa": "شاهد اول، کاریابی و درآمد را بخش ورودی حوزه مالی می‌نامد و کارکردن را منشأ درآمد توضیح می‌دهد. پاسخ ادعا نمی‌کند که قرض و ارث و سرمایه‌گذاری هیچ ورودی مالی ایجاد نمی‌کنند. بازخوانی کامل ده شاهد و بررسی پوشش تمام بندهای پاسخ در بازبینی نهایی انجام شد.",
+          "text": "کاریابی و کسب درآمد، ورودی حوزه مالی است؛ پول از کارکردن و درآمد حاصل از آن به این حوزه وارد می‌شود."
+        }
+      ],
+      "candidate_id": "golden_v2_candidate_01b22bd8a25fb93d74033d78",
+      "claim_results": [
+        {
+          "claim_index": 0,
+          "claim_sha256": "4e469d9122b0604c05163a31d3c89902bb69686ce5f10c407a8f01d2524d58cf",
+          "claim_text": "کاریابی و کسب درآمد از طریق کارکردن، ورودی حوزه مالی است.",
+          "evidence_ids": [
+            "chunk:baseline_phase1_char_safe:retrieval:99aab95685ad2f93c3c67e5d"
+          ],
+          "method": "AGENT_REVIEW",
+          "outcome": "SUPPORTED",
+          "reason_fa": "شاهد اول، کاریابی و درآمد را بخش ورودی حوزه مالی می‌نامد و کارکردن را منشأ درآمد توضیح می‌دهد. پاسخ ادعا نمی‌کند که قرض و ارث و سرمایه‌گذاری هیچ ورودی مالی ایجاد نمی‌کنند.",
+          "supporting_spans": [
+            {
+              "end": 845,
+              "evidence_id": "chunk:baseline_phase1_char_safe:retrieval:99aab95685ad2f93c3c67e5d",
+              "quote": "یکی از بخش‌های این حوزه مالی، کاریابی و درآمد است؛ یعنی آن ورودی ما، آن ورودی که پول می‌خواهد ازش نشئت بگیرد. ما با کار کردن پول درمی‌آوریم",
+              "semantic_reason_fa": "شاهد اول، کاریابی و درآمد را بخش ورودی حوزه مالی می‌نامد و کارکردن را منشأ درآمد توضیح می‌دهد. پاسخ ادعا نمی‌کند که قرض و ارث و سرمایه‌گذاری هیچ ورودی مالی ایجاد نمی‌کنند.",
+              "start": 706,
+              "unit": "UNICODE_CODE_POINT"
+            }
+          ]
+        }
+      ],
+      "independent": false,
+      "independent_semantic_entailment": "NOT_EVALUATED",
+      "method": "AGENT_REVIEW",
+      "response_sha256": "1d80564ae18aecf0809559373f0519a5333eb5f0cbccdc542fa393ab48a63639",
+      "revision": 1,
+      "schema_version": 2
+    }
+  },
+  {
+    "audit": {
+      "answer_factual_coverage_reviewed": true,
+      "candidate_id": "golden_v2_candidate_00fc4002710c0982e12df0ce",
+      "context_independence": false,
+      "dimensions": {
+        "abstention_justified": "NOT_APPLICABLE",
+        "ambiguity_conflict": "NO_MATERIAL_CONFLICT_FOR_BOUNDED_ANSWER",
+        "evidence_sufficiency": "SUFFICIENT_FOR_BOUNDED_ANSWER",
+        "factual_claim_support": "AGENT_REVIEW_SUPPORTED",
+        "outside_details": "NONE_IDENTIFIED",
+        "question_answer_fit": "PASS",
+        "scope_modality_negation_quantity": "PRESERVED"
+      },
+      "error_categories": [
+        "missing factual claim coverage"
+      ],
+      "evidence_ids_reviewed": [
+        "chunk:baseline_phase1_char_safe:retrieval:3e3ed0339ab1b0b4f7356e22",
+        "chunk:baseline_phase1_char_safe:retrieval:6293ff332a1350015025abf0",
+        "chunk:baseline_phase1_char_safe:retrieval:0b71342afbc7e7f416e6d46d",
+        "chunk:baseline_phase1_char_safe:retrieval:d1214af792045b07b1a785ec",
+        "chunk:baseline_phase1_char_safe:retrieval:f19935eccc1996f632684389",
+        "chunk:baseline_phase1_char_safe:retrieval:d435d5f65e1634a6f25d719e",
+        "chunk:baseline_phase1_char_safe:retrieval:ba001618ccd5e2ab1ba25e65",
+        "chunk:baseline_phase1_char_safe:retrieval:3ac5754a7966b07390f2aa7b",
+        "chunk:baseline_phase1_char_safe:retrieval:29a8a63db554e7110553f7c7",
+        "chunk:baseline_phase1_char_safe:retrieval:cd6f876d19fa1afe3312b0ef"
+      ],
+      "evidence_text_hashes": [
+        "e2ab1f933a91250904840863b57f6ed8c6d7729ef0f40115f822c86584bf3d5a",
+        "9f80c2ee4d4dd5f4780b0c84178391984fc22fb1c8cbd5e463443112e2fbf4a8",
+        "85a3330e2708167a0c27c162e71458d870de321b2219b28cd532c901b1af8278",
+        "f9d1de076df152dba062644bd32a836286098a76cf1f80e2bd06b8537f6867f9",
+        "db42173eacb21abcce36fb27afa4852b2d04567d75563e1d7fc51f65ae1e9985",
+        "5c099ffcf758e7db4a241de27dd22287249be2db1494a954f7361ca1d39c7980",
+        "8be066c32048fa72c84c44217581c2daa7848436c741f28310964386608201e2",
+        "f20593cb2a9c8dff9a59ee5594732362a7cfd89b3a945bcd47a2f4b8a53ee3a4",
+        "db8e33198a5a7b7ec8faf5bae17574c2845c3492ae36b7b24ed5b93086de234f",
+        "884b8b6fa62e7e449c2e091c135a3ab5fd0da89fde9642ef25f0371535a5dd46"
+      ],
+      "full_evidence_reviewed": true,
+      "gold_used_for_review": false,
+      "independent_semantic_entailment": "NOT_EVALUATED",
+      "method": "AGENT_REVIEW",
+      "position": 2,
+      "reason_fa": "فراموش نکردن تلاش و کوشش ویژگی خرد در شاهد دوم است؛ پاسخ منفی بیش از حد بود. پاسخ محدود به متن با شاهد اصلاح می‌شود.",
+      "response_sha256": "420e7e3bf1187e66ab86719bcbb4f29897b2048cd4e358d0653098f941618004",
+      "revision": 1,
+      "schema_version": 2,
+      "status": "REPAIRED"
+    },
+    "repair": {
+      "candidate_id": "golden_v2_candidate_00fc4002710c0982e12df0ce",
+      "gold_used": false,
+      "method": "AGENT_REVIEW",
+      "original_response": {
+        "answer_text": "شواهد ارائه‌شده ویژگی مشخصی را به‌عنوان پاسخ روشن و مستقیم به این پرسش درباره «خردمند» تعیین نمی‌کنند؛ برای پاسخ قطعی شواهد کافی ندارم.",
+        "claims": []
+      },
+      "original_response_sha256": "57ac78225f425eafd0d884d38d9bf6de7058c7ff31f83eb3ef698fe98d236e91",
+      "position": 2,
+      "previous_response_sha256": "57ac78225f425eafd0d884d38d9bf6de7058c7ff31f83eb3ef698fe98d236e91",
+      "reason_fa": "فراموش نکردن تلاش و کوشش ویژگی خرد در شاهد دوم است؛ پاسخ منفی بیش از حد بود. پاسخ محدود به متن با شاهد اصلاح می‌شود.",
+      "recheck_reason_fa": "فراموش نکردن تلاش و کوشش ویژگی خرد در شاهد دوم است؛ پاسخ منفی بیش از حد بود. پاسخ محدود به متن با شاهد اصلاح می‌شود.",
+      "rechecked": true,
+      "revised_response": {
+        "answer_text": "در اندرز نقل‌شده، خردمند تلاش و کوشش را فراموش نمی‌کند و با ثبات قدم و پشتکار از تنبلی می‌گریزد.",
+        "claims": [
+          {
+            "claim_text": "در اندرز نقل‌شده، خردمند تلاش و کوشش را فراموش نمی‌کند و با ثبات قدم و پشتکار از تنبلی می‌گریزد.",
+            "claim_type": "FACTUAL",
+            "evidence_ids": [
+              "chunk:baseline_phase1_char_safe:retrieval:0b71342afbc7e7f416e6d46d"
+            ]
+          }
+        ]
+      },
+      "revised_response_sha256": "420e7e3bf1187e66ab86719bcbb4f29897b2048cd4e358d0653098f941618004",
+      "revision": 1
+    },
+    "support": {
+      "abstention_review": "NOT_APPLICABLE",
+      "answer_units": [
+        {
+          "claim_indices": [
+            0
+          ],
+          "kind": "FACTUAL",
+          "reason_fa": "بند واقعی با شواهد نقل‌شده پوشش دارد.",
+          "text": "در اندرز نقل‌شده، خردمند تلاش و کوشش را فراموش نمی‌کند و با ثبات قدم و پشتکار از تنبلی می‌گریزد."
+        }
+      ],
+      "candidate_id": "golden_v2_candidate_00fc4002710c0982e12df0ce",
+      "claim_results": [
+        {
+          "claim_index": 0,
+          "claim_sha256": "42b6016ba995a60d4abc73e57fff133328329b9270e941b32787edb1e5a548cc",
+          "claim_text": "در اندرز نقل‌شده، خردمند تلاش و کوشش را فراموش نمی‌کند و با ثبات قدم و پشتکار از تنبلی می‌گریزد.",
+          "evidence_ids": [
+            "chunk:baseline_phase1_char_safe:retrieval:0b71342afbc7e7f416e6d46d"
+          ],
+          "method": "AGENT_REVIEW",
+          "outcome": "SUPPORTED",
+          "reason_fa": "نقل دقیق متن از دامنه همین مثال حمایت می‌کند.",
+          "supporting_spans": [
+            {
+              "end": 406,
+              "evidence_id": "chunk:baseline_phase1_char_safe:retrieval:0b71342afbc7e7f416e6d46d",
+              "quote": "فراموشی تلاش و کوشش، دور از خرد است؛ چون اسباب خوشبختی و بهره‌مندی، بیشتر نصیب کسی می‌شود که اهل تلاش و کوشش باشد و با ثبات قدم و پشتکار از تنبلی بگریزد.",
+              "semantic_reason_fa": "نقل دقیق متن از دامنه همین مثال حمایت می‌کند.",
+              "start": 253,
+              "unit": "UNICODE_CODE_POINT"
+            }
+          ]
+        }
+      ],
+      "independent": false,
+      "independent_semantic_entailment": "NOT_EVALUATED",
+      "method": "AGENT_REVIEW",
+      "response_sha256": "420e7e3bf1187e66ab86719bcbb4f29897b2048cd4e358d0653098f941618004",
+      "revision": 1,
+      "schema_version": 2
+    }
+  },
+  {
+    "audit": {
+      "answer_factual_coverage_reviewed": true,
+      "candidate_id": "golden_v2_candidate_694713520a27320641c358e6",
+      "context_independence": false,
+      "dimensions": {
+        "abstention_justified": "NOT_APPLICABLE",
+        "ambiguity_conflict": "NO_MATERIAL_CONFLICT_FOR_BOUNDED_ANSWER",
+        "evidence_sufficiency": "SUFFICIENT_FOR_BOUNDED_ANSWER",
+        "factual_claim_support": "AGENT_REVIEW_SUPPORTED",
+        "outside_details": "NONE_IDENTIFIED",
+        "question_answer_fit": "PASS",
+        "scope_modality_negation_quantity": "PRESERVED"
+      },
+      "error_categories": [
+        "missing factual claim coverage"
+      ],
+      "evidence_ids_reviewed": [
+        "chunk:baseline_phase1_char_safe:retrieval:da52860b19370ac450b1087c",
+        "chunk:baseline_phase1_char_safe:retrieval:5af2bdec1accdb5695eea2e3",
+        "chunk:baseline_phase1_char_safe:retrieval:f091ffb2faa8ea2c58ccc949",
+        "chunk:baseline_phase1_char_safe:retrieval:0a7c2b050f73c97fb1f43872",
+        "chunk:baseline_phase1_char_safe:retrieval:f6de206e44d9c9dea5d5c694",
+        "chunk:baseline_phase1_char_safe:retrieval:7b1ae2cbd265c3ec621e9371",
+        "chunk:baseline_phase1_char_safe:retrieval:19de7f5353d755ed849ed2ec",
+        "chunk:baseline_phase1_char_safe:retrieval:d1214af792045b07b1a785ec",
+        "chunk:baseline_phase1_char_safe:retrieval:5e6bfab65759dc884b028b24",
+        "chunk:baseline_phase1_char_safe:retrieval:bd3cb6a1529c201ff34fe9c7"
+      ],
+      "evidence_text_hashes": [
+        "0022ff4fa6c48aaa7c55913f9588321baf457e2263a2cde90027a0954675b69b",
+        "b3151e108938db77994001f6e0558c52789ea1ff212947f40640721098e41a7a",
+        "26d146eb62260498ecee7fca106dbfea75ce50434b87a240283df16b8edc4fb9",
+        "df1537d2a7de38799392eecd45ab68a010efec707032695a0392e3b646335ad8",
+        "cbb82dd161b3e30a65f35bcc8e09906858774f51ad78ae930df784ba1d6b1b8b",
+        "7a2a36d8a8d5443ce96e45d2a4aa25f8f9f628973dc5d647a90ef03893ae20e0",
+        "c513317113a755ad9ad85dafba3a61c6e68edf5d6118fc2e4b3ee2e816a8590d",
+        "f9d1de076df152dba062644bd32a836286098a76cf1f80e2bd06b8537f6867f9",
+        "c7a4a3d9638e113c6e052e19203c76667f46dc9bda1ba9cf615c7fd58b0d5f3b",
+        "d465ed528e3e66e960408994632ebdfabd3df88f6ac6debff37838134afbe35e"
+      ],
+      "full_evidence_reviewed": true,
+      "gold_used_for_review": false,
+      "independent_semantic_entailment": "NOT_EVALUATED",
+      "method": "AGENT_REVIEW",
+      "position": 481,
+      "reason_fa": "تعبیر آن مرد در بیت چند شاهد عیناً تکرار شده و دخل۱۹ خرج۲۰ است؛ مثال سه میلیون جداست. پاسخ محدود به بیت اصلاح می‌شود.",
+      "response_sha256": "c49f35397057c4ad17da64c4e4d38e2121e596b578216e926b78f0d94e5628a4",
+      "revision": 2,
+      "schema_version": 2,
+      "status": "REPAIRED"
+    },
+    "repair": {
+      "candidate_id": "golden_v2_candidate_694713520a27320641c358e6",
+      "gold_used": false,
+      "method": "AGENT_REVIEW",
+      "original_response": {
+        "answer_text": "در مثال متن درآمد سه میلیون و هزینه سه‌ونیم میلیون تومان بوده است.",
+        "claims": [
+          {
+            "claim_text": "در مثال متن درآمد سه میلیون و هزینه سه‌ونیم میلیون تومان بوده است.",
+            "claim_type": "FACTUAL",
+            "evidence_ids": [
+              "chunk:baseline_phase1_char_safe:retrieval:da52860b19370ac450b1087c"
+            ]
+          }
+        ]
+      },
+      "original_response_sha256": "6d10e6c888857ba6f71baff4e523e6d6a9509bf3b9b9abefc1af680243cac6fe",
+      "position": 481,
+      "previous_response_sha256": "beeb5542badd1e2a712a1393e26ca415c08b11e4b6570219f4d8200901a3988a",
+      "reason_fa": "تعبیر آن مرد در بیت چند شاهد عیناً تکرار شده و دخل۱۹ خرج۲۰ است؛ مثال سه میلیون جداست. پاسخ محدود به بیت اصلاح می‌شود.",
+      "recheck_reason_fa": "تعبیر آن مرد در بیت چند شاهد عیناً تکرار شده و دخل۱۹ خرج۲۰ است؛ مثال سه میلیون جداست. پاسخ محدود به بیت اصلاح می‌شود.",
+      "rechecked": true,
+      "revised_response": {
+        "answer_text": "در بیت نقل‌شده درباره «آن مرد»، دخل نوزده و خرج بیست است؛ واحد پولی در بیت مشخص نشده است.",
+        "claims": [
+          {
+            "claim_text": "در بیت نقل‌شده درباره «آن مرد»، دخل نوزده و خرج بیست است.",
+            "claim_type": "FACTUAL",
+            "evidence_ids": [
+              "chunk:baseline_phase1_char_safe:retrieval:da52860b19370ac450b1087c"
+            ]
+          }
+        ]
+      },
+      "revised_response_sha256": "c49f35397057c4ad17da64c4e4d38e2121e596b578216e926b78f0d94e5628a4",
+      "revision": 2
+    },
+    "support": {
+      "abstention_review": "NOT_APPLICABLE",
+      "answer_units": [
+        {
+          "claim_indices": [
+            0
+          ],
+          "kind": "FACTUAL",
+          "reason_fa": "بند واقعی با شواهد نقل‌شده پوشش دارد.",
+          "text": "در بیت نقل‌شده درباره «آن مرد»، دخل نوزده و خرج بیست است؛"
+        },
+        {
+          "claim_indices": [],
+          "kind": "EVIDENCE_LIMITATION",
+          "reason_fa": "محدودیت پس از بازخوانی ده شاهد ثبت شد.",
+          "text": " واحد پولی در بیت مشخص نشده است."
+        }
+      ],
+      "candidate_id": "golden_v2_candidate_694713520a27320641c358e6",
+      "claim_results": [
+        {
+          "claim_index": 0,
+          "claim_sha256": "60cbb82f98c8dcd8951855e8c57aa45378a0f975a653e74489580f21fcadcade",
+          "claim_text": "در بیت نقل‌شده درباره «آن مرد»، دخل نوزده و خرج بیست است.",
+          "evidence_ids": [
+            "chunk:baseline_phase1_char_safe:retrieval:da52860b19370ac450b1087c"
+          ],
+          "method": "AGENT_REVIEW",
+          "outcome": "SUPPORTED",
+          "reason_fa": "نقل دقیق متن از دامنه همین مثال حمایت می‌کند.",
+          "supporting_spans": [
+            {
+              "end": 84,
+              "evidence_id": "chunk:baseline_phase1_char_safe:retrieval:da52860b19370ac450b1087c",
+              "quote": "بر احوال آن مرد باید گریست که دخلش بود نوزده، خرج بیست.",
+              "semantic_reason_fa": "نقل دقیق متن از دامنه همین مثال حمایت می‌کند.",
+              "start": 29,
+              "unit": "UNICODE_CODE_POINT"
+            }
+          ]
+        }
+      ],
+      "independent": false,
+      "independent_semantic_entailment": "NOT_EVALUATED",
+      "method": "AGENT_REVIEW",
+      "response_sha256": "c49f35397057c4ad17da64c4e4d38e2121e596b578216e926b78f0d94e5628a4",
+      "revision": 2,
+      "schema_version": 2
+    }
+  },
+  {
+    "audit": {
+      "answer_factual_coverage_reviewed": true,
+      "candidate_id": "golden_v2_candidate_8d096ea17879c392e1b692b7",
+      "context_independence": false,
+      "dimensions": {
+        "abstention_justified": "NOT_APPLICABLE",
+        "ambiguity_conflict": "REQUIRES_SOURCE_OR_QUESTION_CLARIFICATION",
+        "evidence_sufficiency": "PARTIAL_OR_UNRESOLVED",
+        "factual_claim_support": "AGENT_REVIEW_SUPPORTED",
+        "outside_details": "NONE_IDENTIFIED",
+        "question_answer_fit": "QUESTION_CONTEXT_UNRESOLVED",
+        "scope_modality_negation_quantity": "PRESERVED"
+      },
+      "error_categories": [
+        "missing factual claim coverage"
+      ],
+      "evidence_ids_reviewed": [
+        "chunk:baseline_phase1_char_safe:retrieval:37a628c62cde646aef607735",
+        "chunk:baseline_phase1_char_safe:retrieval:64dc04028b58c4d0e17f4955",
+        "chunk:baseline_phase1_char_safe:retrieval:fb74772846d32f2a6991eadd",
+        "chunk:baseline_phase1_char_safe:retrieval:0a1af284760e46321e0155ef",
+        "chunk:baseline_phase1_char_safe:retrieval:352d3803c38a6aae92f79203",
+        "chunk:baseline_phase1_char_safe:retrieval:9fd7e50ca4c291b780d3de7e",
+        "chunk:baseline_phase1_char_safe:retrieval:1dc53737b4b761aa394e4cc5",
+        "chunk:baseline_phase1_char_safe:retrieval:c2220cd87190456d10b4488c",
+        "chunk:baseline_phase1_char_safe:retrieval:a5240d1f6e6ba2af6bae8a62",
+        "chunk:baseline_phase1_char_safe:retrieval:b4be42c5d57dec032714862d"
+      ],
+      "evidence_text_hashes": [
+        "9da54c748f70deb905b2b61363884188c152a6811255699c884a8e25e19a292a",
+        "316c5314c2d7d28cc58867833f094120ae0dfde0cca0465fcf960e2a89ad9477",
+        "d9e6af5960af3774da922620642fd3d857c855d09d2e079851545c9490dc8cb6",
+        "9fc88c04225c6e81cd59e8af70d8ee13118fe2ce1a7b21d5940a4610b3468174",
+        "86501b97652d5e4a63edc339758c04b201898bd01ad0474238b0219a5b63f15d",
+        "60f3b1756fc39b2a5d77a167c95de44e2bf098985072cdc88a78fcac63cef7fc",
+        "02a200e8fcd215c9481ad65d6de8593ea4bcc29c9a41484c4738d86e92c60e7d",
+        "5325f25fa4d213e82a3f5f6db6fbc1d9ea96172eb98124aaf29a30a2b2a6eb75",
+        "e28dc58751428ea5331685c094017b0d8973ca8fa144cf791b7d4d82edbafc4d",
+        "417508b1bfca5d8e386a45b8480c4c6d0c0cd55e7c774da6e896b023c69df7fc"
+      ],
+      "full_evidence_reviewed": true,
+      "gold_used_for_review": false,
+      "independent_semantic_entailment": "NOT_EVALUATED",
+      "method": "AGENT_REVIEW",
+      "position": 613,
+      "reason_fa": "نرخ و مبلغ واریز تعیین نشده و سناریوهای۱۰ و۱۷میلیارد و۲۳۷میلیون متفاوت‌اند؛ ارجاع پاسخ فعلی ناقص است و اصلاح می‌شود.",
+      "response_sha256": "08663d8eaf7fa9895900e77bf00753d5685c9782368ad16b9895bc9242c9e81b",
+      "revision": 1,
+      "schema_version": 2,
+      "status": "REVIEW_REQUIRED"
+    },
+    "repair": {
+      "candidate_id": "golden_v2_candidate_8d096ea17879c392e1b692b7",
+      "gold_used": false,
+      "method": "AGENT_REVIEW",
+      "original_response": {
+        "answer_text": "متن برای فرض بازده بالا و واریز سالانه از چند میلیارد و نزدیک ده میلیارد تومان یاد می‌کند؛ مبلغ تضمین‌شده نیست.",
+        "claims": [
+          {
+            "claim_text": "متن برای فرض بازده بالا و واریز سالانه از چند میلیارد و نزدیک ده میلیارد تومان یاد می‌کند؛ مبلغ تضمین‌شده نیست.",
+            "claim_type": "FACTUAL",
+            "evidence_ids": [
+              "chunk:baseline_phase1_char_safe:retrieval:37a628c62cde646aef607735"
+            ]
+          }
+        ]
+      },
+      "original_response_sha256": "318d13bca66f010cc51497a7c9b236ea344938bd37f6bd91e3ccc90f5108990b",
+      "position": 613,
+      "previous_response_sha256": "318d13bca66f010cc51497a7c9b236ea344938bd37f6bd91e3ccc90f5108990b",
+      "reason_fa": "نرخ و مبلغ واریز تعیین نشده و سناریوهای۱۰ و۱۷میلیارد و۲۳۷میلیون متفاوت‌اند؛ ارجاع پاسخ فعلی ناقص است و اصلاح می‌شود.",
+      "recheck_reason_fa": "نرخ و مبلغ واریز تعیین نشده و سناریوهای۱۰ و۱۷میلیارد و۲۳۷میلیون متفاوت‌اند؛ ارجاع پاسخ فعلی ناقص است و اصلاح می‌شود.",
+      "rechecked": true,
+      "revised_response": {
+        "answer_text": "در یک مثال سی‌ساله، حدود ده میلیارد تومان و در مثال دیگری با نگهداری اصل و سود، حدود هفده میلیارد تومان ذکر شده است؛ سؤال مبلغ واریز، نرخ بازده و شیوه سرمایه‌گذاری را تعیین نکرده، بنابراین یک مبلغ واحد قابل انتخاب نیست.",
+        "claims": [
+          {
+            "claim_text": "در یک مثال سی‌ساله حدود ده میلیارد تومان ذکر شده است.",
+            "claim_type": "FACTUAL",
+            "evidence_ids": [
+              "chunk:baseline_phase1_char_safe:retrieval:64dc04028b58c4d0e17f4955"
+            ]
+          },
+          {
+            "claim_text": "در مثال نگهداری اصل و سود، حدود هفده میلیارد تومان در انتهای سال سی ذکر شده است.",
+            "claim_type": "FACTUAL",
+            "evidence_ids": [
+              "chunk:baseline_phase1_char_safe:retrieval:0a1af284760e46321e0155ef"
+            ]
+          }
+        ]
+      },
+      "revised_response_sha256": "08663d8eaf7fa9895900e77bf00753d5685c9782368ad16b9895bc9242c9e81b",
+      "revision": 1
+    },
+    "support": {
+      "abstention_review": "NOT_APPLICABLE",
+      "answer_units": [
+        {
+          "claim_indices": [
+            0,
+            1
+          ],
+          "kind": "FACTUAL",
+          "reason_fa": "بند واقعی با شواهد نقل‌شده پوشش دارد.",
+          "text": "در یک مثال سی‌ساله، حدود ده میلیارد تومان و در مثال دیگری با نگهداری اصل و سود، حدود هفده میلیارد تومان ذکر شده است؛"
+        },
+        {
+          "claim_indices": [],
+          "kind": "EVIDENCE_LIMITATION",
+          "reason_fa": "محدودیت پس از بازخوانی ده شاهد ثبت شد.",
+          "text": " سؤال مبلغ واریز، نرخ بازده و شیوه سرمایه‌گذاری را تعیین نکرده، بنابراین یک مبلغ واحد قابل انتخاب نیست."
+        }
+      ],
+      "candidate_id": "golden_v2_candidate_8d096ea17879c392e1b692b7",
+      "claim_results": [
+        {
+          "claim_index": 0,
+          "claim_sha256": "06311060e34c0e1b55ba5b166cd4ffca07f9a0ce2cc04c032b206d91c1d77f0a",
+          "claim_text": "در یک مثال سی‌ساله حدود ده میلیارد تومان ذکر شده است.",
+          "evidence_ids": [
+            "chunk:baseline_phase1_char_safe:retrieval:64dc04028b58c4d0e17f4955"
+          ],
+          "method": "AGENT_REVIEW",
+          "outcome": "SUPPORTED",
+          "reason_fa": "نقل دقیق متن از دامنه همین مثال حمایت می‌کند.",
+          "supporting_spans": [
+            {
+              "end": 160,
+              "evidence_id": "chunk:baseline_phase1_char_safe:retrieval:64dc04028b58c4d0e17f4955",
+              "quote": "اگر من 30 سال سرمایه‌گذاری بکنم\nمی‌شه 10 میلیارد حدودا",
+              "semantic_reason_fa": "نقل دقیق متن از دامنه همین مثال حمایت می‌کند.",
+              "start": 106,
+              "unit": "UNICODE_CODE_POINT"
+            }
+          ]
+        },
+        {
+          "claim_index": 1,
+          "claim_sha256": "6f7ec8f065727ae734f2334db86f542c7d202816cb616fcdc8b710c54f9a3cfa",
+          "claim_text": "در مثال نگهداری اصل و سود، حدود هفده میلیارد تومان در انتهای سال سی ذکر شده است.",
+          "evidence_ids": [
+            "chunk:baseline_phase1_char_safe:retrieval:0a1af284760e46321e0155ef"
+          ],
+          "method": "AGENT_REVIEW",
+          "outcome": "SUPPORTED",
+          "reason_fa": "نقل دقیق متن از دامنه همین مثال حمایت می‌کند.",
+          "supporting_spans": [
+            {
+              "end": 496,
+              "evidence_id": "chunk:baseline_phase1_char_safe:retrieval:0a1af284760e46321e0155ef",
+              "quote": "بهترینش اینه که من به اصل و سود پول دست نزنم که می‌شه ۱۷ میلیارد، و در حالت پس‌انداز ۳۶ میلیون. شما ۳۶ میلیون رو مقایسه بکنید با ۱۷ میلیارد تومان در انتهای سال ۳۰.",
+              "semantic_reason_fa": "نقل دقیق متن از دامنه همین مثال حمایت می‌کند.",
+              "start": 333,
+              "unit": "UNICODE_CODE_POINT"
+            }
+          ]
+        }
+      ],
+      "independent": false,
+      "independent_semantic_entailment": "NOT_EVALUATED",
+      "method": "AGENT_REVIEW",
+      "response_sha256": "08663d8eaf7fa9895900e77bf00753d5685c9782368ad16b9895bc9242c9e81b",
+      "revision": 1,
+      "schema_version": 2
+    }
+  },
+  {
+    "audit": {
+      "answer_factual_coverage_reviewed": true,
+      "candidate_id": "golden_v2_candidate_92612dd65446c92fd2cbf617",
+      "context_independence": false,
+      "dimensions": {
+        "abstention_justified": "NOT_APPLICABLE",
+        "ambiguity_conflict": "REQUIRES_SOURCE_OR_QUESTION_CLARIFICATION",
+        "evidence_sufficiency": "PARTIAL_OR_UNRESOLVED",
+        "factual_claim_support": "AGENT_REVIEW_SUPPORTED",
+        "outside_details": "NONE_IDENTIFIED",
+        "question_answer_fit": "QUESTION_CONTEXT_UNRESOLVED",
+        "scope_modality_negation_quantity": "PRESERVED"
+      },
+      "error_categories": [
+        "missing factual claim coverage"
+      ],
+      "evidence_ids_reviewed": [
+        "chunk:baseline_phase1_char_safe:retrieval:427ff6c79f6072b5e0862809",
+        "chunk:baseline_phase1_char_safe:retrieval:5a1bdf7c4d33721a7ef6b55f",
+        "chunk:baseline_phase1_char_safe:retrieval:3a7d073af780bd5d2173cb4a",
+        "chunk:baseline_phase1_char_safe:retrieval:a1b8985ad188256348584f1b",
+        "chunk:baseline_phase1_char_safe:retrieval:5248d29213ff2c0aee624590",
+        "chunk:baseline_phase1_char_safe:retrieval:9ff539ca459210a6944386a7",
+        "chunk:baseline_phase1_char_safe:retrieval:0b5d702511d3dc30ad26ed9d",
+        "chunk:baseline_phase1_char_safe:retrieval:87f328ee312c4c035f74f234",
+        "chunk:baseline_phase1_char_safe:retrieval:8539378a81d43ee7741b1a4a",
+        "chunk:baseline_phase1_char_safe:retrieval:6796bd8808daeadbd8f0fb92"
+      ],
+      "evidence_text_hashes": [
+        "936c0f4b4808608c1f0a6f1164159ef959fe8f26734f68c26f00669f6d5db1a6",
+        "0be10e92d4e95e0d5211687128a65ede33ce8e2be052d816e988880751165953",
+        "7d94869cba12e0156e5edbec74e366c9aab8d35adba683842fe5a621fc1eeb96",
+        "cbcb0859513eba7477bf4a4348705eda4fd1a4f5372bdda6b2729f08b91c44f4",
+        "a1250b1ac01f9cc7dd6df9d75edcf23b1fd5387ecce9f9dd93b1050dec78c3db",
+        "346a774593ba28c41ff8b4e5de8c027fdcdd24d65fe0edd1fa6256a197f0736b",
+        "78296d45b526863002cc1f894d1233d8e1d44009ed88416cb4a0240fb8c6b563",
+        "73acaac1ba69876f2868c91509c2ad1df87ad5133fd1f8987ade944e979ec106",
+        "7fc433f15f6203e89da6d231a85905a6adb2d18271ba6d58997617f895e0a8f2",
+        "ea564e295dd2c2fae8b504d53bb19aee320f6575d0848c9ab090246e84bce4d2"
+      ],
+      "full_evidence_reviewed": true,
+      "gold_used_for_review": false,
+      "independent_semantic_entailment": "NOT_EVALUATED",
+      "method": "AGENT_REVIEW",
+      "position": 641,
+      "reason_fa": "سبک خویش‌فرمایی با رویکرد اول یکی نیست؛ رویکرد شغلی و فلسفه داشتن زمینه‌های متفاوت‌اند. پاسخ با تفکیک اصلاح می‌شود.",
+      "response_sha256": "29f42a1544ad54775279672357c2d8f09c9b7c61d95c7271757f30b76d123a84",
+      "revision": 1,
+      "schema_version": 2,
+      "status": "REVIEW_REQUIRED"
+    },
+    "repair": {
+      "candidate_id": "golden_v2_candidate_92612dd65446c92fd2cbf617",
+      "gold_used": false,
+      "method": "AGENT_REVIEW",
+      "original_response": {
+        "answer_text": "در سبک خویش‌فرمایی، کار خود فرد محور اصلی درآمد است.",
+        "claims": [
+          {
+            "claim_text": "در سبک خویش‌فرمایی، کار خود فرد محور اصلی درآمد است.",
+            "claim_type": "FACTUAL",
+            "evidence_ids": [
+              "chunk:baseline_phase1_char_safe:retrieval:427ff6c79f6072b5e0862809"
+            ]
+          }
+        ]
+      },
+      "original_response_sha256": "e8d7512180c197962d2ca29f2d4dea47401073c765c89298961cabfb1fe7f57a",
+      "position": 641,
+      "previous_response_sha256": "e8d7512180c197962d2ca29f2d4dea47401073c765c89298961cabfb1fe7f57a",
+      "reason_fa": "سبک خویش‌فرمایی با رویکرد اول یکی نیست؛ رویکرد شغلی و فلسفه داشتن زمینه‌های متفاوت‌اند. پاسخ با تفکیک اصلاح می‌شود.",
+      "recheck_reason_fa": "سبک خویش‌فرمایی با رویکرد اول یکی نیست؛ رویکرد شغلی و فلسفه داشتن زمینه‌های متفاوت‌اند. پاسخ با تفکیک اصلاح می‌شود.",
+      "rechecked": true,
+      "revised_response": {
+        "answer_text": "منظور از «رویکرد اول» مشخص نیست؛ از این شواهد نمی‌توان محور واحدی را برای سؤال تعیین کرد.",
+        "claims": []
+      },
+      "revised_response_sha256": "29f42a1544ad54775279672357c2d8f09c9b7c61d95c7271757f30b76d123a84",
+      "revision": 1
+    },
+    "support": {
+      "abstention_review": "NOT_APPLICABLE",
+      "answer_units": [
+        {
+          "claim_indices": [],
+          "kind": "ABSTENTION",
+          "reason_fa": "مرجع سؤال مشخص نیست.",
+          "text": "منظور از «رویکرد اول» مشخص نیست؛ از این شواهد نمی‌توان محور واحدی را برای سؤال تعیین کرد."
+        }
+      ],
+      "candidate_id": "golden_v2_candidate_92612dd65446c92fd2cbf617",
+      "claim_results": [],
+      "independent": false,
+      "independent_semantic_entailment": "NOT_EVALUATED",
+      "method": "AGENT_REVIEW",
+      "response_sha256": "29f42a1544ad54775279672357c2d8f09c9b7c61d95c7271757f30b76d123a84",
+      "revision": 1,
+      "schema_version": 2
+    }
+  },
+  {
+    "audit": {
+      "answer_factual_coverage_reviewed": true,
+      "candidate_id": "golden_v2_candidate_b1e0a9decb3fdeda4d7f7da3",
+      "context_independence": false,
+      "dimensions": {
+        "abstention_justified": "NOT_APPLICABLE",
+        "ambiguity_conflict": "REQUIRES_SOURCE_OR_QUESTION_CLARIFICATION",
+        "evidence_sufficiency": "PARTIAL_OR_UNRESOLVED",
+        "factual_claim_support": "AGENT_REVIEW_SUPPORTED",
+        "outside_details": "NONE_IDENTIFIED",
+        "question_answer_fit": "QUESTION_CONTEXT_UNRESOLVED",
+        "scope_modality_negation_quantity": "PRESERVED"
+      },
+      "error_categories": [
+        "missing factual claim coverage"
+      ],
+      "evidence_ids_reviewed": [
+        "chunk:baseline_phase1_char_safe:retrieval:967ec605eaea998828b79d3b",
+        "chunk:baseline_phase1_char_safe:retrieval:d4162b88dbab7cb6996ac852",
+        "chunk:baseline_phase1_char_safe:retrieval:352d3803c38a6aae92f79203",
+        "chunk:baseline_phase1_char_safe:retrieval:96298345125c5a9a1ab5e645",
+        "chunk:baseline_phase1_char_safe:retrieval:8d1f4647eb57c85022c12894",
+        "chunk:baseline_phase1_char_safe:retrieval:1dc53737b4b761aa394e4cc5",
+        "chunk:baseline_phase1_char_safe:retrieval:1839244ad09f1f96dd10e9e4",
+        "chunk:baseline_phase1_char_safe:retrieval:a67862d8ef792d430ea4b7c2",
+        "chunk:baseline_phase1_char_safe:retrieval:9fd7e50ca4c291b780d3de7e",
+        "chunk:baseline_phase1_char_safe:retrieval:e966574df5872f43ef432674"
+      ],
+      "evidence_text_hashes": [
+        "b6630c5a360e2f256de30ffa117eed471e0322a579ad3c61e697d839fe2f63ed",
+        "ea1361a749d7f8850bbbaafcfbb5762c8fb12cb5199bfefac1d3b4249d5f0535",
+        "86501b97652d5e4a63edc339758c04b201898bd01ad0474238b0219a5b63f15d",
+        "3d631d3c090ad2314ed51782d6a278d5684fbe6ba5f330fd110c2b6c3a8ffebc",
+        "0adb34f99580366fbcf00fb3263f7edda5992b7a0f470164f5280206c50deff1",
+        "02a200e8fcd215c9481ad65d6de8593ea4bcc29c9a41484c4738d86e92c60e7d",
+        "6ff1c13c2460e8e96fdad0b453e0baafcb78bca43738c53b8c50983bc1797395",
+        "e551a73ad28fbbf4c29e14be9b4b3a7e7456713f957f9ca4baa294fb5a696a47",
+        "60f3b1756fc39b2a5d77a167c95de44e2bf098985072cdc88a78fcac63cef7fc",
+        "79451166225e0b0bc33ad0709741f32702c1578a8e4d96ce1cd71aa4557fef51"
+      ],
+      "full_evidence_reviewed": true,
+      "gold_used_for_review": false,
+      "independent_semantic_entailment": "NOT_EVALUATED",
+      "method": "AGENT_REVIEW",
+      "position": 776,
+      "reason_fa": "صفر اصل و سود هر سال را بیرون می‌کشد؛ نهم سود را برنمی‌گرداند اما اصل می‌ماند.۴۶٫۸و۱۹۲٫۶ مدل‌های متفاوت‌اند؛ سؤال مدل را تعیین نکرده و پاسخ اصلاح می‌شود.",
+      "response_sha256": "24ed73712ca9f234d3c215b939f5b76c1c5d2eaffb57b4a4fb2f547b5cdfb622",
+      "revision": 1,
+      "schema_version": 2,
+      "status": "REVIEW_REQUIRED"
+    },
+    "repair": {
+      "candidate_id": "golden_v2_candidate_b1e0a9decb3fdeda4d7f7da3",
+      "gold_used": false,
+      "method": "AGENT_REVIEW",
+      "original_response": {
+        "answer_text": "در مدل سود ساده با بازده سالانهٔ ۳۰ درصدِ مطرح‌شده، پایان سال سی‌ام ۴۶ میلیون و ۸۰۰ هزار تومان دارد.",
+        "claims": [
+          {
+            "claim_text": "در مدل سود ساده با بازده سالانهٔ ۳۰ درصدِ مطرح‌شده، پایان سال سی‌ام ۴۶ میلیون و ۸۰۰ هزار تومان دارد.",
+            "claim_type": "FACTUAL",
+            "evidence_ids": [
+              "chunk:baseline_phase1_char_safe:retrieval:967ec605eaea998828b79d3b"
+            ]
+          }
+        ]
+      },
+      "original_response_sha256": "34af66e561d2bada251c65fd034cd7b5f45cb1f549f8071fd6a61b8d737eec4e",
+      "position": 776,
+      "previous_response_sha256": "34af66e561d2bada251c65fd034cd7b5f45cb1f549f8071fd6a61b8d737eec4e",
+      "reason_fa": "صفر اصل و سود هر سال را بیرون می‌کشد؛ نهم سود را برنمی‌گرداند اما اصل می‌ماند.۴۶٫۸و۱۹۲٫۶ مدل‌های متفاوت‌اند؛ سؤال مدل را تعیین نکرده و پاسخ اصلاح می‌شود.",
+      "recheck_reason_fa": "صفر اصل و سود هر سال را بیرون می‌کشد؛ نهم سود را برنمی‌گرداند اما اصل می‌ماند.۴۶٫۸و۱۹۲٫۶ مدل‌های متفاوت‌اند؛ سؤال مدل را تعیین نکرده و پاسخ اصلاح می‌شود.",
+      "rechecked": true,
+      "revised_response": {
+        "answer_text": "در مدل برداشت اصل و سود هر سال، شاهد رقم ۴۶ میلیون و ۸۰۰ هزار تومان را برای پایان سی سال می‌گوید؛ در مدل دیگری با سود ساده، رقم ۱۹۲ میلیون و ۶۰۰ هزار تومان آمده است؛ سؤال مشخص نمی‌کند کدام مدل موردنظر است.",
+        "claims": [
+          {
+            "claim_text": "در مدل برداشت اصل و سود هر سال، شاهد رقم ۴۶ میلیون و ۸۰۰ هزار تومان را برای پایان سی سال می‌گوید.",
+            "claim_type": "FACTUAL",
+            "evidence_ids": [
+              "chunk:baseline_phase1_char_safe:retrieval:967ec605eaea998828b79d3b"
+            ]
+          },
+          {
+            "claim_text": "در مدل دیگری با سود ساده، رقم ۱۹۲ میلیون و ۶۰۰ هزار تومان برای دوره سی‌ساله آمده است.",
+            "claim_type": "FACTUAL",
+            "evidence_ids": [
+              "chunk:baseline_phase1_char_safe:retrieval:e966574df5872f43ef432674"
+            ]
+          }
+        ]
+      },
+      "revised_response_sha256": "24ed73712ca9f234d3c215b939f5b76c1c5d2eaffb57b4a4fb2f547b5cdfb622",
+      "revision": 1
+    },
+    "support": {
+      "abstention_review": "NOT_APPLICABLE",
+      "answer_units": [
+        {
+          "claim_indices": [
+            0,
+            1
+          ],
+          "kind": "FACTUAL",
+          "reason_fa": "بند واقعی با شواهد نقل‌شده پوشش دارد.",
+          "text": "در مدل برداشت اصل و سود هر سال، شاهد رقم ۴۶ میلیون و ۸۰۰ هزار تومان را برای پایان سی سال می‌گوید؛ در مدل دیگری با سود ساده، رقم ۱۹۲ میلیون و ۶۰۰ هزار تومان آمده است؛"
+        },
+        {
+          "claim_indices": [],
+          "kind": "EVIDENCE_LIMITATION",
+          "reason_fa": "محدودیت پس از بازخوانی ده شاهد ثبت شد.",
+          "text": " سؤال مشخص نمی‌کند کدام مدل موردنظر است."
+        }
+      ],
+      "candidate_id": "golden_v2_candidate_b1e0a9decb3fdeda4d7f7da3",
+      "claim_results": [
+        {
+          "claim_index": 0,
+          "claim_sha256": "150109aa55b52af27911c4e3e05a2ad690e62daa5d765a9fd2a5e97fe09ac22b",
+          "claim_text": "در مدل برداشت اصل و سود هر سال، شاهد رقم ۴۶ میلیون و ۸۰۰ هزار تومان را برای پایان سی سال می‌گوید.",
+          "evidence_ids": [
+            "chunk:baseline_phase1_char_safe:retrieval:967ec605eaea998828b79d3b"
+          ],
+          "method": "AGENT_REVIEW",
+          "outcome": "SUPPORTED",
+          "reason_fa": "نقل دقیق متن از دامنه همین مثال حمایت می‌کند.",
+          "supporting_spans": [
+            {
+              "end": 151,
+              "evidence_id": "chunk:baseline_phase1_char_safe:retrieval:967ec605eaea998828b79d3b",
+              "quote": "در انتهای سال سی‌ام چهل‌وشش میلیون و هشتصد هزار تومان داره.",
+              "semantic_reason_fa": "نقل دقیق متن از دامنه همین مثال حمایت می‌کند.",
+              "start": 92,
+              "unit": "UNICODE_CODE_POINT"
+            }
+          ]
+        },
+        {
+          "claim_index": 1,
+          "claim_sha256": "141132059e23dacc2401507af10ba75ba4ed4fae46313416a4df841d8c40f838",
+          "claim_text": "در مدل دیگری با سود ساده، رقم ۱۹۲ میلیون و ۶۰۰ هزار تومان برای دوره سی‌ساله آمده است.",
+          "evidence_ids": [
+            "chunk:baseline_phase1_char_safe:retrieval:e966574df5872f43ef432674"
+          ],
+          "method": "AGENT_REVIEW",
+          "outcome": "SUPPORTED",
+          "reason_fa": "نقل دقیق متن از دامنه همین مثال حمایت می‌کند.",
+          "supporting_spans": [
+            {
+              "end": 860,
+              "evidence_id": "chunk:baseline_phase1_char_safe:retrieval:e966574df5872f43ef432674",
+              "quote": "توی این سی سال اگر مای سد تومن بذارم کنار\nو سود سادم بگیرم\nمی‌شه 192 میلیون و 600 هزار تومن دارایی من",
+              "semantic_reason_fa": "نقل دقیق متن از دامنه همین مثال حمایت می‌کند.",
+              "start": 759,
+              "unit": "UNICODE_CODE_POINT"
+            }
+          ]
+        }
+      ],
+      "independent": false,
+      "independent_semantic_entailment": "NOT_EVALUATED",
+      "method": "AGENT_REVIEW",
+      "response_sha256": "24ed73712ca9f234d3c215b939f5b76c1c5d2eaffb57b4a4fb2f547b5cdfb622",
+      "revision": 1,
+      "schema_version": 2
+    }
+  },
+  {
+    "audit": {
+      "answer_factual_coverage_reviewed": true,
+      "candidate_id": "golden_v2_candidate_b23cea80c470bd13c86cac20",
+      "context_independence": false,
+      "dimensions": {
+        "abstention_justified": "NOT_APPLICABLE",
+        "ambiguity_conflict": "REQUIRES_SOURCE_OR_QUESTION_CLARIFICATION",
+        "evidence_sufficiency": "PARTIAL_OR_UNRESOLVED",
+        "factual_claim_support": "AGENT_REVIEW_SUPPORTED",
+        "outside_details": "NONE_IDENTIFIED",
+        "question_answer_fit": "QUESTION_CONTEXT_UNRESOLVED",
+        "scope_modality_negation_quantity": "PRESERVED"
+      },
+      "error_categories": [
+        "missing factual claim coverage"
+      ],
+      "evidence_ids_reviewed": [
+        "chunk:baseline_phase1_char_safe:retrieval:dc8bd18acfdd3b63e19ef327",
+        "chunk:baseline_phase1_char_safe:retrieval:8c8e14d3d3681b75bf2f02be",
+        "chunk:baseline_phase1_char_safe:retrieval:e8ee22078198de3190e1d6f6",
+        "chunk:baseline_phase1_char_safe:retrieval:a1b8985ad188256348584f1b",
+        "chunk:baseline_phase1_char_safe:retrieval:26f127f65d163fc2809d5297",
+        "chunk:baseline_phase1_char_safe:retrieval:f553f736cc277f06ee57ce2e",
+        "chunk:baseline_phase1_char_safe:retrieval:be08bd6efd86cd2c756763fc",
+        "chunk:baseline_phase1_char_safe:retrieval:8563031f33cacb5fa5dfb797",
+        "chunk:baseline_phase1_char_safe:retrieval:6348a53963128f15a3438681",
+        "chunk:baseline_phase1_char_safe:retrieval:f434c5d5b69e6eb76037b6a7"
+      ],
+      "evidence_text_hashes": [
+        "04bf7b1b6a750e0308edd64ee224e1ee36d32f4003c1d7cf9151c6d5c0fa824e",
+        "5e134b4e4f51306398e186cbaafc12e912b3a35ab2c44b5804c95d1beee71b62",
+        "e14a402ec30452a5c1245448cb3728c954e42ea0bcf43eee269e46960f2e58c0",
+        "cbcb0859513eba7477bf4a4348705eda4fd1a4f5372bdda6b2729f08b91c44f4",
+        "2c6adbb19e4e0db0fdb56fc1e965482412690c83089356f6b282dc0a67fcd369",
+        "a6769d5ef0ae77dd3d2963b6da1cd34860212858ed2d5ffb1b5618de516d2a49",
+        "12e7da2942e17a8a887e9bf3f3bee94edef298f5486107827c22a473f645198c",
+        "fd4dd48de262bca6b31c090a5247a2c1c2e8af03636197e4b35f23f8b1dd0582",
+        "227cde1d53c861cdfb30f7ffa744ff24672b990f81af3107bfb45c225cc1cf81",
+        "f53c4711b05589006b47a2cf997ae858174559dbcb165184066febad1da6f0f2"
+      ],
+      "full_evidence_reviewed": true,
+      "gold_used_for_review": false,
+      "independent_semantic_entailment": "NOT_EVALUATED",
+      "method": "AGENT_REVIEW",
+      "position": 778,
+      "reason_fa": "ادعای مورد اشاره معلوم نیست؛ جامپ‌استارت استاندارد است نه تعیین روش آن ادعا. ادعای مرکب با بند محدودیت تفکیک می‌شود.",
+      "response_sha256": "045d1c446b7b2b891e649ed2c79a31dd9c3e0442d66d3822773b39dcfd155c70",
+      "revision": 1,
+      "schema_version": 2,
+      "status": "REVIEW_REQUIRED"
+    },
+    "repair": {
+      "candidate_id": "golden_v2_candidate_b23cea80c470bd13c86cac20",
+      "gold_used": false,
+      "method": "AGENT_REVIEW",
+      "original_response": {
+        "answer_text": "در شواهد بررسی‌شده آموزش مبتنی بر استاندارد جامپ‌استارت مطرح است؛ «ادعا»ی مورد اشاره در سؤال مشخص نیست.",
+        "claims": [
+          {
+            "claim_text": "در شواهد بررسی‌شده آموزش مبتنی بر استاندارد جامپ‌استارت مطرح است؛ «ادعا»ی مورد اشاره در سؤال مشخص نیست.",
+            "claim_type": "FACTUAL",
+            "evidence_ids": [
+              "chunk:baseline_phase1_char_safe:retrieval:dc8bd18acfdd3b63e19ef327"
+            ]
+          }
+        ]
+      },
+      "original_response_sha256": "434c8f5444a7b96814b2c209f5f120829f2a177655a7ac23c7169d81961cb953",
+      "position": 778,
+      "previous_response_sha256": "434c8f5444a7b96814b2c209f5f120829f2a177655a7ac23c7169d81961cb953",
+      "reason_fa": "ادعای مورد اشاره معلوم نیست؛ جامپ‌استارت استاندارد است نه تعیین روش آن ادعا. ادعای مرکب با بند محدودیت تفکیک می‌شود.",
+      "recheck_reason_fa": "ادعای مورد اشاره معلوم نیست؛ جامپ‌استارت استاندارد است نه تعیین روش آن ادعا. ادعای مرکب با بند محدودیت تفکیک می‌شود.",
+      "rechecked": true,
+      "revised_response": {
+        "answer_text": "در شواهد بررسی‌شده آموزش مبتنی بر استاندارد جامپ‌استارت مطرح است؛ «ادعا»ی مورد اشاره در سؤال مشخص نیست.",
+        "claims": [
+          {
+            "claim_text": "در شواهد بررسی‌شده آموزش مبتنی بر استاندارد جامپ‌استارت مطرح است.",
+            "claim_type": "FACTUAL",
+            "evidence_ids": [
+              "chunk:baseline_phase1_char_safe:retrieval:dc8bd18acfdd3b63e19ef327"
+            ]
+          }
+        ]
+      },
+      "revised_response_sha256": "045d1c446b7b2b891e649ed2c79a31dd9c3e0442d66d3822773b39dcfd155c70",
+      "revision": 1
+    },
+    "support": {
+      "abstention_review": "NOT_APPLICABLE",
+      "answer_units": [
+        {
+          "claim_indices": [
+            0
+          ],
+          "kind": "FACTUAL",
+          "reason_fa": "بند واقعی با شواهد نقل‌شده پوشش دارد.",
+          "text": "در شواهد بررسی‌شده آموزش مبتنی بر استاندارد جامپ‌استارت مطرح است؛"
+        },
+        {
+          "claim_indices": [],
+          "kind": "EVIDENCE_LIMITATION",
+          "reason_fa": "محدودیت پس از بازخوانی ده شاهد ثبت شد.",
+          "text": " «ادعا»ی مورد اشاره در سؤال مشخص نیست."
+        }
+      ],
+      "candidate_id": "golden_v2_candidate_b23cea80c470bd13c86cac20",
+      "claim_results": [
+        {
+          "claim_index": 0,
+          "claim_sha256": "de2dfe0cf6d22a8d097625ece92e37c8ef97992d43bd8be433d205627249c37a",
+          "claim_text": "در شواهد بررسی‌شده آموزش مبتنی بر استاندارد جامپ‌استارت مطرح است.",
+          "evidence_ids": [
+            "chunk:baseline_phase1_char_safe:retrieval:dc8bd18acfdd3b63e19ef327"
+          ],
+          "method": "AGENT_REVIEW",
+          "outcome": "SUPPORTED",
+          "reason_fa": "نقل دقیق متن از دامنه همین مثال حمایت می‌کند.",
+          "supporting_spans": [
+            {
+              "end": 312,
+              "evidence_id": "chunk:baseline_phase1_char_safe:retrieval:dc8bd18acfdd3b63e19ef327",
+              "quote": "این مبتنی بر استاندارد جامپ‌استارت",
+              "semantic_reason_fa": "نقل دقیق متن از دامنه همین مثال حمایت می‌کند.",
+              "start": 278,
+              "unit": "UNICODE_CODE_POINT"
+            }
+          ]
+        }
+      ],
+      "independent": false,
+      "independent_semantic_entailment": "NOT_EVALUATED",
+      "method": "AGENT_REVIEW",
+      "response_sha256": "045d1c446b7b2b891e649ed2c79a31dd9c3e0442d66d3822773b39dcfd155c70",
+      "revision": 1,
+      "schema_version": 2
+    }
+  },
+  {
+    "audit": {
+      "answer_factual_coverage_reviewed": true,
+      "candidate_id": "golden_v2_candidate_c15adac7a998788e2cff4c4c",
+      "context_independence": false,
+      "dimensions": {
+        "abstention_justified": "NOT_APPLICABLE",
+        "ambiguity_conflict": "REQUIRES_SOURCE_OR_QUESTION_CLARIFICATION",
+        "evidence_sufficiency": "PARTIAL_OR_UNRESOLVED",
+        "factual_claim_support": "AGENT_REVIEW_SUPPORTED",
+        "outside_details": "NONE_IDENTIFIED",
+        "question_answer_fit": "QUESTION_CONTEXT_UNRESOLVED",
+        "scope_modality_negation_quantity": "PRESERVED"
+      },
+      "error_categories": [
+        "missing factual claim coverage"
+      ],
+      "evidence_ids_reviewed": [
+        "chunk:baseline_phase1_char_safe:retrieval:33a531786ebb4953c64c547a",
+        "chunk:baseline_phase1_char_safe:retrieval:248d01c69e68aaa5d5f4b2f7",
+        "chunk:baseline_phase1_char_safe:retrieval:df7651b0cf410d3a5b221089",
+        "chunk:baseline_phase1_char_safe:retrieval:5507dae00150d68e208b26a2",
+        "chunk:baseline_phase1_char_safe:retrieval:46d33d22bae1c36fa592317b",
+        "chunk:baseline_phase1_char_safe:retrieval:c06c7394a0f48ff969ce8b3f",
+        "chunk:baseline_phase1_char_safe:retrieval:1e1293ca5b0fbbecf01463c5",
+        "chunk:baseline_phase1_char_safe:retrieval:3adf5d3526167d543fa23d8f",
+        "chunk:baseline_phase1_char_safe:retrieval:bd3cb6a1529c201ff34fe9c7",
+        "chunk:baseline_phase1_char_safe:retrieval:fb60ff473c2b1ee64928b7ca"
+      ],
+      "evidence_text_hashes": [
+        "c901fb993d62eb315136d6e54b811e53c046252e6b6eff82caaeeabcab8c31ff",
+        "3b469f6a5886593e1be4f4069f695133cc3f095fc0d09f090b2356c0c97c94ea",
+        "9a51b25869aa5ff739d0a8831da08b3f6aee6e0b91c064c3c4c8109bdba90bc9",
+        "da8e489707b577cab256751cb17903f60e6ce57fdaf866906dd37c5b2692c967",
+        "291a3e4c27c86dcf4c465611ab5378614a5f541f7733c6188a051d8dd0694e87",
+        "5ef205b4b808c9a358517e98ec75f975bd54647843459d7720e5dbf47c105dde",
+        "3a06cb34aee9ad1783fea4f9544bb801391e29872116b33f16d54672e9f5c35a",
+        "7e97d65e3179d5451bec8dee5911163f039d9fe6114e21d1e8a01a99b863b300",
+        "d465ed528e3e66e960408994632ebdfabd3df88f6ac6debff37838134afbe35e",
+        "a02b092632c6465bd3fe42a797c5774b3840ae670c19e56b82c516b6adbe602a"
+      ],
+      "full_evidence_reviewed": true,
+      "gold_used_for_review": false,
+      "independent_semantic_entailment": "NOT_EVALUATED",
+      "method": "AGENT_REVIEW",
+      "position": 855,
+      "reason_fa": "مدیریت هزینه حمایت دارد؛ جایی که پول جا می‌شود معنی مشخص ندارد و بند محدودیت باید از claim جدا شود.",
+      "response_sha256": "364766d0027f76715a6dc5eb426d43257a987bff68dc4ad1b1e89218b93defc2",
+      "revision": 1,
+      "schema_version": 2,
+      "status": "REVIEW_REQUIRED"
+    },
+    "repair": {
+      "candidate_id": "golden_v2_candidate_c15adac7a998788e2cff4c4c",
+      "gold_used": false,
+      "method": "AGENT_REVIEW",
+      "original_response": {
+        "answer_text": "یادگیری مدیریت هزینه از افزایش بی‌رویهٔ هزینه هم‌زمان با درآمد جلوگیری می‌کند؛ متن اثر دقیق مورد اشاره بر «جایی که پول جا می‌شود» را روشن نمی‌کند.",
+        "claims": [
+          {
+            "claim_text": "یادگیری مدیریت هزینه از افزایش بی‌رویهٔ هزینه هم‌زمان با درآمد جلوگیری می‌کند؛ متن اثر دقیق مورد اشاره بر «جایی که پول جا می‌شود» را روشن نمی‌کند.",
+            "claim_type": "FACTUAL",
+            "evidence_ids": [
+              "chunk:baseline_phase1_char_safe:retrieval:33a531786ebb4953c64c547a"
+            ]
+          }
+        ]
+      },
+      "original_response_sha256": "ef2b03163188014e3faa00279800a5ca307a81b9a2d9a32048fbd792fcdcfebc",
+      "position": 855,
+      "previous_response_sha256": "ef2b03163188014e3faa00279800a5ca307a81b9a2d9a32048fbd792fcdcfebc",
+      "reason_fa": "مدیریت هزینه حمایت دارد؛ جایی که پول جا می‌شود معنی مشخص ندارد و بند محدودیت باید از claim جدا شود.",
+      "recheck_reason_fa": "مدیریت هزینه حمایت دارد؛ جایی که پول جا می‌شود معنی مشخص ندارد و بند محدودیت باید از claim جدا شود.",
+      "rechecked": true,
+      "revised_response": {
+        "answer_text": "متن می‌گوید اگر مدیریت هزینه نباشد، با افزایش درآمد هزینه‌ها هم افزایش می‌یابند و کیفیت زندگی بهتر نمی‌شود؛ منظور «جایی که پول جا می‌شود» روشن نیست.",
+        "claims": [
+          {
+            "claim_text": "متن می‌گوید اگر مدیریت هزینه نباشد، با افزایش درآمد هزینه‌ها هم افزایش می‌یابند و کیفیت زندگی بهتر نمی‌شود.",
+            "claim_type": "FACTUAL",
+            "evidence_ids": [
+              "chunk:baseline_phase1_char_safe:retrieval:33a531786ebb4953c64c547a"
+            ]
+          }
+        ]
+      },
+      "revised_response_sha256": "364766d0027f76715a6dc5eb426d43257a987bff68dc4ad1b1e89218b93defc2",
+      "revision": 1
+    },
+    "support": {
+      "abstention_review": "NOT_APPLICABLE",
+      "answer_units": [
+        {
+          "claim_indices": [
+            0
+          ],
+          "kind": "FACTUAL",
+          "reason_fa": "بند واقعی با شواهد نقل‌شده پوشش دارد.",
+          "text": "متن می‌گوید اگر مدیریت هزینه نباشد، با افزایش درآمد هزینه‌ها هم افزایش می‌یابند و کیفیت زندگی بهتر نمی‌شود؛"
+        },
+        {
+          "claim_indices": [],
+          "kind": "EVIDENCE_LIMITATION",
+          "reason_fa": "محدودیت پس از بازخوانی ده شاهد ثبت شد.",
+          "text": " منظور «جایی که پول جا می‌شود» روشن نیست."
+        }
+      ],
+      "candidate_id": "golden_v2_candidate_c15adac7a998788e2cff4c4c",
+      "claim_results": [
+        {
+          "claim_index": 0,
+          "claim_sha256": "eb2e51a348a3bf318fac4da88a31a4fe1fbb775e867f78cf157baa231f48ff19",
+          "claim_text": "متن می‌گوید اگر مدیریت هزینه نباشد، با افزایش درآمد هزینه‌ها هم افزایش می‌یابند و کیفیت زندگی بهتر نمی‌شود.",
+          "evidence_ids": [
+            "chunk:baseline_phase1_char_safe:retrieval:33a531786ebb4953c64c547a"
+          ],
+          "method": "AGENT_REVIEW",
+          "outcome": "SUPPORTED",
+          "reason_fa": "نقل دقیق متن از دامنه همین مثال حمایت می‌کند.",
+          "supporting_spans": [
+            {
+              "end": 529,
+              "evidence_id": "chunk:baseline_phase1_char_safe:retrieval:33a531786ebb4953c64c547a",
+              "quote": "اگر مدیریت هزینه نباشد با افزایش درآمد هزینه‌ها افزایش یافته و تغییری در کیفیت زندگی ایجاد نمی‌کند.",
+              "semantic_reason_fa": "نقل دقیق متن از دامنه همین مثال حمایت می‌کند.",
+              "start": 430,
+              "unit": "UNICODE_CODE_POINT"
+            }
+          ]
+        }
+      ],
+      "independent": false,
+      "independent_semantic_entailment": "NOT_EVALUATED",
+      "method": "AGENT_REVIEW",
+      "response_sha256": "364766d0027f76715a6dc5eb426d43257a987bff68dc4ad1b1e89218b93defc2",
+      "revision": 1,
+      "schema_version": 2
+    }
+  },
+  {
+    "audit": {
+      "answer_factual_coverage_reviewed": true,
+      "candidate_id": "golden_v2_candidate_fffeddf82f9f238ce77d4f77",
+      "context_independence": false,
+      "dimensions": {
+        "abstention_justified": "NOT_APPLICABLE",
+        "ambiguity_conflict": "REQUIRES_SOURCE_OR_QUESTION_CLARIFICATION",
+        "evidence_sufficiency": "PARTIAL_OR_UNRESOLVED",
+        "factual_claim_support": "AGENT_REVIEW_SUPPORTED",
+        "outside_details": "NONE_IDENTIFIED",
+        "question_answer_fit": "QUESTION_CONTEXT_UNRESOLVED",
+        "scope_modality_negation_quantity": "PRESERVED"
+      },
+      "error_categories": [
+        "missing factual claim coverage"
+      ],
+      "evidence_ids_reviewed": [
+        "chunk:baseline_phase1_char_safe:retrieval:36c6b72b7e2f500bce158756",
+        "chunk:baseline_phase1_char_safe:retrieval:595092e80417e4dc90963d2d",
+        "chunk:baseline_phase1_char_safe:retrieval:5286b0a003fad7ea200fa135",
+        "chunk:baseline_phase1_char_safe:retrieval:0e36b728f6c79fbf80be6176",
+        "chunk:baseline_phase1_char_safe:retrieval:56b7e333bae3330798d0f918",
+        "chunk:baseline_phase1_char_safe:retrieval:ee34530d506ade22c059375f",
+        "chunk:baseline_phase1_char_safe:retrieval:519fc6609ac294ac21ce5b8d",
+        "chunk:baseline_phase1_char_safe:retrieval:636857435be7200be46ce57e",
+        "chunk:baseline_phase1_char_safe:retrieval:14870942344e27a90053dea6",
+        "chunk:baseline_phase1_char_safe:retrieval:5a035f07cd4f5c90a82fc280"
+      ],
+      "evidence_text_hashes": [
+        "a9cc0a7093db572cb5bdac7b9d5188d4adadc49f208be51011e19e493b3d20c5",
+        "ee1e450daf07fe3de15dc9ccf850b2867840ec0bdb79b227a5cb68f23b792d83",
+        "a1d424e2896d1a4554d5c96501800a675a51777b5fadd666c3f6763fa2498be9",
+        "d6d29467c33e3f5f68aa76c9964985fdd3506c85b5f237e5581d87b528530803",
+        "ec0daea5ab9bf25be97052a966e2db4455fbf3a457478cfc7872785b4e209a2d",
+        "e544b8dad5add087ba51f2b5f831e2c14d24b00dc31aaba21a3bc8c967249c84",
+        "0092fadcb6436511d488d60ada606cacb7dac0e09373ac7ed0ef8e9231f7747b",
+        "8ebb994e79f4d511fed38ede2e738704004222c52b017a52fb71b31a7b718828",
+        "d5765e521a035b214002cb83f97f357f0cc33eba4551e8f82f05e2694b25c8d1",
+        "815f1222260ce78fb65e551402f797ac069fe6f6ca414cfc706a9c89865f5de1"
+      ],
+      "full_evidence_reviewed": true,
+      "gold_used_for_review": false,
+      "independent_semantic_entailment": "NOT_EVALUATED",
+      "method": "AGENT_REVIEW",
+      "position": 1149,
+      "reason_fa": "سؤال و تمام ده شاهد عیناً با مورد۱۲۰ یکسان‌اند؛ پاسخ به مثال متن محدود شد و ابهام مرجع برای سازگاری ثبت شد.",
+      "response_sha256": "1b10b1cff748239bea6465024d676877f696b42e1e77f21aa1d6282398e1d6af",
+      "revision": 1,
+      "schema_version": 2,
+      "status": "REVIEW_REQUIRED"
+    },
+    "repair": {
+      "candidate_id": "golden_v2_candidate_fffeddf82f9f238ce77d4f77",
+      "gold_used": false,
+      "method": "AGENT_REVIEW",
+      "original_response": {
+        "answer_text": "باید کارهای لازم برای رسیدن به علاقه را انجام داد، حتی اگر خود آن کارهای جانبی مثل تایپ‌کردن مورد علاقه نباشند.",
+        "claims": [
+          {
+            "claim_text": "باید کارهای لازم برای رسیدن به علاقه را انجام داد، حتی اگر خود آن کارهای جانبی مثل تایپ‌کردن مورد علاقه نباشند.",
+            "claim_type": "FACTUAL",
+            "evidence_ids": [
+              "chunk:baseline_phase1_char_safe:retrieval:36c6b72b7e2f500bce158756"
+            ]
+          }
+        ]
+      },
+      "original_response_sha256": "0f8b6b97d4400f4a29cadf44c529cc87bfb627df310cdf7a8306482069d1a22e",
+      "position": 1149,
+      "previous_response_sha256": "0f8b6b97d4400f4a29cadf44c529cc87bfb627df310cdf7a8306482069d1a22e",
+      "reason_fa": "سؤال و تمام ده شاهد عیناً با مورد۱۲۰ یکسان‌اند؛ پاسخ به مثال متن محدود شد و ابهام مرجع برای سازگاری ثبت شد.",
+      "recheck_reason_fa": "سؤال و تمام ده شاهد عیناً با مورد۱۲۰ یکسان‌اند؛ پاسخ به مثال متن محدود شد و ابهام مرجع برای سازگاری ثبت شد.",
+      "rechecked": true,
+      "revised_response": {
+        "answer_text": "اگر منظور مثال مسیر علاقه در متن باشد، باید کارهای لازم آن، مثل تایپ برای نوشتن مقاله، را انجام داد حتی اگر خود آن کارها مورد علاقه نباشند؛ سؤال موقعیت موردنظر را مشخص نمی‌کند.",
+        "claims": [
+          {
+            "claim_text": "در مثال علاقه به مقاله‌نوشتن، دوست‌نداشتن تایپ دلیل کنارگذاشتن نوشتن نیست و کارهای لازم مسیر باید انجام شوند.",
+            "claim_type": "FACTUAL",
+            "evidence_ids": [
+              "chunk:baseline_phase1_char_safe:retrieval:36c6b72b7e2f500bce158756"
+            ]
+          }
+        ]
+      },
+      "revised_response_sha256": "1b10b1cff748239bea6465024d676877f696b42e1e77f21aa1d6282398e1d6af",
+      "revision": 1
+    },
+    "support": {
+      "abstention_review": "NOT_APPLICABLE",
+      "answer_units": [
+        {
+          "claim_indices": [
+            0
+          ],
+          "kind": "FACTUAL",
+          "reason_fa": "بند واقعی با شواهد نقل‌شده پوشش دارد.",
+          "text": "اگر منظور مثال مسیر علاقه در متن باشد، باید کارهای لازم آن، مثل تایپ برای نوشتن مقاله، را انجام داد حتی اگر خود آن کارها مورد علاقه نباشند؛"
+        },
+        {
+          "claim_indices": [],
+          "kind": "EVIDENCE_LIMITATION",
+          "reason_fa": "محدودیت پس از بازخوانی ده شاهد ثبت شد.",
+          "text": " سؤال موقعیت موردنظر را مشخص نمی‌کند."
+        }
+      ],
+      "candidate_id": "golden_v2_candidate_fffeddf82f9f238ce77d4f77",
+      "claim_results": [
+        {
+          "claim_index": 0,
+          "claim_sha256": "6bf356f0bc51e34a7f8da7c1632b92f303e481856e7ac67d60bee1541f66405b",
+          "claim_text": "در مثال علاقه به مقاله‌نوشتن، دوست‌نداشتن تایپ دلیل کنارگذاشتن نوشتن نیست و کارهای لازم مسیر باید انجام شوند.",
+          "evidence_ids": [
+            "chunk:baseline_phase1_char_safe:retrieval:36c6b72b7e2f500bce158756"
+          ],
+          "method": "AGENT_REVIEW",
+          "outcome": "SUPPORTED",
+          "reason_fa": "نقل دقیق متن از دامنه همین مثال حمایت می‌کند.",
+          "supporting_spans": [
+            {
+              "end": 317,
+              "evidence_id": "chunk:baseline_phase1_char_safe:retrieval:36c6b72b7e2f500bce158756",
+              "quote": "مثلاً من به مقاله‌نوشتن علاقه دارم، ولی ممکن است از تایپ‌کردن خوشم نیاید. نمی‌شود گفت چون تایپ را دوست ندارم، مقاله هم نمی‌نویسم. بخشی از مسیر علاقه، کارهایی است که باید انجام شوند.",
+              "semantic_reason_fa": "نقل دقیق متن از دامنه همین مثال حمایت می‌کند.",
+              "start": 136,
+              "unit": "UNICODE_CODE_POINT"
+            }
+          ]
+        }
+      ],
+      "independent": false,
+      "independent_semantic_entailment": "NOT_EVALUATED",
+      "method": "AGENT_REVIEW",
+      "response_sha256": "1b10b1cff748239bea6465024d676877f696b42e1e77f21aa1d6282398e1d6af",
+      "revision": 1,
+      "schema_version": 2
+    }
+  }
+]

@@ -1,0 +1,13 @@
+[
+  {
+    "owner": "auditor_2",
+    "batch": "batch_0030",
+    "candidate_ids": [
+      "golden_v2_candidate_5df5d842935fc5c5f03023db"
+    ],
+    "reason": "Git audit blob contains literal truncated-output text; invalid JSON and SHA256 mismatch",
+    "expected_sha256": "8ebdd12c7006eaf06d8c2cd411fe43857cfa5b34839e2b35856bbf90aea8732d",
+    "actual_sha256": "f5701b1e021c161e716771193e9f2ff6f3acbf43d98579f2047c6b911e31cb6a",
+    "action": "Exclude candidate from accepted state; preserve raw; full audit required"
+  }
+]

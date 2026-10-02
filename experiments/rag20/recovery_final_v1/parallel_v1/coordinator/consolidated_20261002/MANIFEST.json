@@ -1,0 +1,40 @@
+{
+  "snapshot": "consolidated_20261002",
+  "total": 1149,
+  "reviewed": 796,
+  "remaining": 353,
+  "source_commits": [
+    {
+      "owner": "auditor_1",
+      "branch": "agent/rag20-auditor-1-v1",
+      "commit": "72c64cf85f9258483e80c53b36e4cb4131c1c8ba"
+    },
+    {
+      "owner": "auditor_2",
+      "branch": "agent/rag20-auditor-2-v1",
+      "commit": "a73d9283742d4a52ae4e040cbce7b901b91320ba"
+    },
+    {
+      "owner": "auditor_3",
+      "branch": "agent/rag20-auditor-3-v1",
+      "commit": "1aa5b71014c45dde121a2fc08d8dbeca25059d0a"
+    }
+  ],
+  "files": {
+    "resume_batches_25.json": "e320d9b3eb633403475550cebb7aa0a473a68bba8638146fce1c99f721f2218e",
+    "support.jsonl": "e2898688fe6200603654321270982e1ce64f7d26defceef64edb8eb93efaccd9",
+    "review_queue.jsonl": "a5514b6c0b343def7e1c69bd4e2a0cccac87dc6a1f699876f76bcd44bd598880",
+    "audit.jsonl": "7bfaaf360419497b90b6807901ac4a63d7b31b858fc291a8cb11bd9e1e70b5ac",
+    "remaining_candidates.json": "c403a6b8315f61a49b89529f351d86f579ebd813c9a9ceb155d3a886570be39f",
+    "reviewed_inputs.jsonl": "7204b3215c0b6d1bdb028d9a1c366604ca5f38a4fede36da79d0079d823355ec",
+    "candidate_ledger.jsonl": "a6614ea73d093b806db699661d374b1dcf8884f270b5a3d8b71e594352ed055d",
+    "repairs.jsonl": "53d2630b76325deea6174439cd11accbe904af925127f3c7fb863f375b3828ef",
+    "reviewed_outputs.jsonl": "3b5e3a768ced9347f14d277748516ff10714c0f1a3399e31c1c3321c332075f9",
+    "remaining_candidates.csv": "a71b0864f3029ba032ad5129d432a1e5febce0fdd9204a5cfea4bb928f78c9a0",
+    "validation.json": "75993b9fc80ce696c6232a24d84f23dd9e39e0d6e3ce929081a9c0285cde777a",
+    "acceptance_receipts.json": "c8323e460b3ac1554db593f95bcfc1cf3d3716f6a2782a5435ab23ad7d355cb5",
+    "QUARANTINE.json": "681434e47a5159f2796ffbe34ca2d1803b6ceed23c597d07993f58095932416b",
+    "CENTRAL_CURRENT.json": "f5373679ff1c85bfb169c64b62432385a6cfdaacde065c94563e1274ad6b1faa"
+  },
+  "import_ready": false
+}

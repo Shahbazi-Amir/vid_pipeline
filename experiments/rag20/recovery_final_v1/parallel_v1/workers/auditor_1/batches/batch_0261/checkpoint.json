@@ -1,0 +1,1061 @@
+{
+  "assignment_sha256": "5f0e4e483a623b2e8d9aa913df24eadc6210e2f14c0a2f1898242ac8292ad01c",
+  "candidate_ids": [
+    "golden_v2_candidate_40f6ff5a6b03292039103daa",
+    "golden_v2_candidate_416cb2c62ca5111c00f0d2cc",
+    "golden_v2_candidate_42053002b204c2554b5ce190"
+  ],
+  "created_utc": "2026-10-02T05:53:27.325579+00:00",
+  "files": {
+    "audit.jsonl": "db71be04d500e70aad8e4d03036151114dc810396e080134a09948e090435e4a",
+    "ledger.jsonl": "d6391a08a847e49babf25aec5c794fbee8a2153e34771f91dad2b3fdf7a85e17",
+    "repairs.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "review_queue.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "support.jsonl": "94af2fb59c08fb5432d3391c72508f56f0fb197b6a7d23f24658756729c52d19",
+    "validation.json": "309de7358c23cdf4cb6fb3a2370db831f41322e40d341371b8f86843b4df4321"
+  },
+  "owner": "auditor_1",
+  "previous_batches": [
+    {
+      "path": "batches/batch_0001/checkpoint.json",
+      "sha256": "9343febb38080327ad2771fff4e365cd49473da6f39534cd435b72222376cbf5"
+    },
+    {
+      "path": "batches/batch_0002/checkpoint.json",
+      "sha256": "3f023f8ae83392811da24948e97ff32149a4aafa4ea6741bd2ce5e5bb6208dec"
+    },
+    {
+      "path": "batches/batch_0003/checkpoint.json",
+      "sha256": "cca98b2591f72807803d2509c104c33e811cecf30157c1d2dded11fad5c81a57"
+    },
+    {
+      "path": "batches/batch_0004/checkpoint.json",
+      "sha256": "557e27544694f2f271a0d578d743e9365f080794b755fe2f8a674b86d9d12c90"
+    },
+    {
+      "path": "batches/batch_0005/checkpoint.json",
+      "sha256": "b163a8b1b383c7ac4e6245ac266470da24b6285dea6e7afb1395083ae2569b14"
+    },
+    {
+      "path": "batches/batch_0006/checkpoint.json",
+      "sha256": "a24666c2c9310c574677e3c694944d08bb941f43ad1087adc26e5fa77750111e"
+    },
+    {
+      "path": "batches/batch_0007/checkpoint.json",
+      "sha256": "902d2b95a1ae517dcb0b728818fe98ffae1680b7f35f282dba6984a01e3f1d54"
+    },
+    {
+      "path": "batches/batch_0008/checkpoint.json",
+      "sha256": "aa8c61518d79da4db99a11fb456b41bc20393f583072304d035254be53d927ac"
+    },
+    {
+      "path": "batches/batch_0009/checkpoint.json",
+      "sha256": "49108b560e72da93e1f2bdb6e6c011205c399a003b45ef974ab285b1e33f5507"
+    },
+    {
+      "path": "batches/batch_0010/checkpoint.json",
+      "sha256": "9e30ae2b2c1677a7a5b2c9bff84a704f3ff4dd102bae3d7ac5269a915043e683"
+    },
+    {
+      "path": "batches/batch_0011/checkpoint.json",
+      "sha256": "1cd07f34579721ebc46b75faadac25fa8a4617f86c58cc166b670d9cddbb3be0"
+    },
+    {
+      "path": "batches/batch_0012/checkpoint.json",
+      "sha256": "2cbb8b7e5af31668443b5633f887d19794a8e611eb7b442df2200dc9000ad039"
+    },
+    {
+      "path": "batches/batch_0013/checkpoint.json",
+      "sha256": "d3d2e3e8837b6d61570fa1a3859962cf2af0d5d64b3208f7559867cfc2b3a4b5"
+    },
+    {
+      "path": "batches/batch_0014/checkpoint.json",
+      "sha256": "32cb32c3f0c2e09fb48961ec691571393dbdd18596e3e0ee6d047ce36e4cdbdc"
+    },
+    {
+      "path": "batches/batch_0015/checkpoint.json",
+      "sha256": "f4b200506901b689766e55b59d17875f29118704f302a360f2b8c976f4e58d34"
+    },
+    {
+      "path": "batches/batch_0016/checkpoint.json",
+      "sha256": "7e79be419aed6ef06272b4091d0f96e180007c3767bf9376760a54d0bff0342e"
+    },
+    {
+      "path": "batches/batch_0017/checkpoint.json",
+      "sha256": "7fc72beb0f11fb09183b36026658fb1df806b4f16c6aa2441bbbd85d6109b880"
+    },
+    {
+      "path": "batches/batch_0018/checkpoint.json",
+      "sha256": "5fa78cb1e1fe962c3f44c4065339a7adcfeed7a138ffcd96a44b8cd23f3d9557"
+    },
+    {
+      "path": "batches/batch_0019/checkpoint.json",
+      "sha256": "02c53395069aac7ef44600fe2b9cb0ec4d6a8ce94ca833cdd3b20fc8e813744d"
+    },
+    {
+      "path": "batches/batch_0020/checkpoint.json",
+      "sha256": "5bd4b0ed20d802ac6ce7ca73c753ba60fb4cc148998fb1526014a181e6b2801f"
+    },
+    {
+      "path": "batches/batch_0021/checkpoint.json",
+      "sha256": "4b0dec5891b976c511dd92da173da19171da08553aeaf446b05b645d004ccc67"
+    },
+    {
+      "path": "batches/batch_0022/checkpoint.json",
+      "sha256": "3669677162c6c8f2021488ea092f2a4c7e98b21dbd69495510dd137287baeedc"
+    },
+    {
+      "path": "batches/batch_0023/checkpoint.json",
+      "sha256": "e58d99595b8b44d3d62aab5f90faf5a1cc9c39f82477a9bdcb34a48d38b70670"
+    },
+    {
+      "path": "batches/batch_0024/checkpoint.json",
+      "sha256": "7c46848160c6651fb8608c6fa68733c0f1cb3ff0e673ac0241c1969a7ccd8977"
+    },
+    {
+      "path": "batches/batch_0025/checkpoint.json",
+      "sha256": "193831f0132965c0587b905418da14e3f6ab95da33240c54a745697680a95dd4"
+    },
+    {
+      "path": "batches/batch_0026/checkpoint.json",
+      "sha256": "a5e2788fdf7d52748c8606c615d3fce6dd4d88e39ab8115280800f3400956807"
+    },
+    {
+      "path": "batches/batch_0027/checkpoint.json",
+      "sha256": "6da80a92862d30be41e26fd74dae85227d534d3161b86a64572182db2c577d7a"
+    },
+    {
+      "path": "batches/batch_0028/checkpoint.json",
+      "sha256": "a3a378f10f0bebdf420ff5310d2ba2d47d950a02784010748f8f3165f6e03251"
+    },
+    {
+      "path": "batches/batch_0029/checkpoint.json",
+      "sha256": "4cc9fd42a76ed2646aa0a5e7f9382d91efdb434a721743d57ee0b3dc9c691673"
+    },
+    {
+      "path": "batches/batch_0030/checkpoint.json",
+      "sha256": "f68f9cbbbf673f9994a6dd556f447cf79f18527cc65e0c9e1af3957ada60de3f"
+    },
+    {
+      "path": "batches/batch_0031/checkpoint.json",
+      "sha256": "8f7cacab903f808f3fbe13d647301f978b1f51b570366077caae6e68fc2999c9"
+    },
+    {
+      "path": "batches/batch_0032/checkpoint.json",
+      "sha256": "ceafb7975de30cfcc1a1b16dc5bbaf3140bc6eedddf8c59979cf2d7e112158af"
+    },
+    {
+      "path": "batches/batch_0033/checkpoint.json",
+      "sha256": "a85e809d5b569c1309fcd13d3f9bbcb4ead4f56c35f0863a1170d4a23a6e68cf"
+    },
+    {
+      "path": "batches/batch_0034/checkpoint.json",
+      "sha256": "0462161e39f6d6101da0b33d96a9639835780be12a82f865f3acfc9400b83abc"
+    },
+    {
+      "path": "batches/batch_0035/checkpoint.json",
+      "sha256": "ee0908df77fa3b846635b5706d50518960985a889a0be8255aaa4533228256b1"
+    },
+    {
+      "path": "batches/batch_0036/checkpoint.json",
+      "sha256": "5bc8bb723d5ca6be84913f696f28adc6e9e001283b92f51c0fdec1a27d164aff"
+    },
+    {
+      "path": "batches/batch_0037/checkpoint.json",
+      "sha256": "bd4efc470d2d8c68829e8fdc4c176d39161cc4deddca263da348198f825cd204"
+    },
+    {
+      "path": "batches/batch_0038/checkpoint.json",
+      "sha256": "f378702113e57d216b5a276c2534b2d51093db7f2dc1f79edfcfb9a9c1f8b0c6"
+    },
+    {
+      "path": "batches/batch_0039/checkpoint.json",
+      "sha256": "722a0c5493d693a3c1691975588888873c5efdc86dda94f16a834f79852be8f6"
+    },
+    {
+      "path": "batches/batch_0040/checkpoint.json",
+      "sha256": "85cded55f7dd6f4efc17f968517ee8df43ac4fba8ecf7eee3ad776d121b60888"
+    },
+    {
+      "path": "batches/batch_0041/checkpoint.json",
+      "sha256": "976914cb0f3f34308d6f996436569e71be42f0c658423d195b8b8c8972c4752a"
+    },
+    {
+      "path": "batches/batch_0042/checkpoint.json",
+      "sha256": "13721b61187d3c6237b5d8820d7770a86ea9da005db0929596b6f77122d5964e"
+    },
+    {
+      "path": "batches/batch_0043/checkpoint.json",
+      "sha256": "360c34b96c9a9cef1389eb3006bc9bd633ae7272ec79f24436ff4fd2f335d12f"
+    },
+    {
+      "path": "batches/batch_0044/checkpoint.json",
+      "sha256": "67828224974725d8a827e8a4812141b025a4e0915370c935f068e98c499da28c"
+    },
+    {
+      "path": "batches/batch_0045/checkpoint.json",
+      "sha256": "27b9ce80cbc891e167fb56ea3618f1410045ca0c57b9448e7c59b32a6ec9cca3"
+    },
+    {
+      "path": "batches/batch_0046/checkpoint.json",
+      "sha256": "01f25f36841886acec9a0584ebc26cf5d00d368ac2de395e8e590c00edec8395"
+    },
+    {
+      "path": "batches/batch_0047/checkpoint.json",
+      "sha256": "676dc4b6608b46ba533c714eaa810ab27c9b2e59d126dfd6d40f0071a51f8877"
+    },
+    {
+      "path": "batches/batch_0048/checkpoint.json",
+      "sha256": "cc34939eeae4b6b06e9424ad1051c3de3ed7a2c5bc34c7e283dc32bd6ba720b4"
+    },
+    {
+      "path": "batches/batch_0049/checkpoint.json",
+      "sha256": "089a991b5a3fdaa248ff44add13726147c9a47a0e7dcab3bfade3e87b601a7c5"
+    },
+    {
+      "path": "batches/batch_0050/checkpoint.json",
+      "sha256": "83a5940d62e6b997940ee1ce8da607a363d571f64eb5526dc85b4c9c7a2de947"
+    },
+    {
+      "path": "batches/batch_0051/checkpoint.json",
+      "sha256": "2aefca23d4036a655fc7c2021ddd5f5ff41ac7d45274c235a760bd2b5ed2cf57"
+    },
+    {
+      "path": "batches/batch_0052/checkpoint.json",
+      "sha256": "b6baa4e2374db5bcc7691875dd5e156e9eebefce5f5bb8ac6f780527adb9b403"
+    },
+    {
+      "path": "batches/batch_0053/checkpoint.json",
+      "sha256": "18ba1d1684e8ab929d3471498142221936070448385abb0e4465ce84d505c914"
+    },
+    {
+      "path": "batches/batch_0054/checkpoint.json",
+      "sha256": "bdb2b3cc68f8222cabf46aa7d4ab612b99d4c7b277c34320636cb09583977999"
+    },
+    {
+      "path": "batches/batch_0055/checkpoint.json",
+      "sha256": "51057e2eb43e25ba53cd01b6fde8adc42b15fc9d44a8bed03c301932cafd7155"
+    },
+    {
+      "path": "batches/batch_0056/checkpoint.json",
+      "sha256": "91676695845d2e4cd5d2b5b6c58c61309cd74128f08aca4167d87a1b2e438301"
+    },
+    {
+      "path": "batches/batch_0057/checkpoint.json",
+      "sha256": "15bfd0afefa214395946261c0f56f441670b8e30097cf4f6c7c11125d032fa11"
+    },
+    {
+      "path": "batches/batch_0058/checkpoint.json",
+      "sha256": "5d61cab59d239fd764d9947335b5c756e70f10c4d0af3c4d3be33d4f8eb15ad6"
+    },
+    {
+      "path": "batches/batch_0059/checkpoint.json",
+      "sha256": "0a9778158c54b810767db62f23b8dfb6dc551a844df8293f7daafbfdb25380a1"
+    },
+    {
+      "path": "batches/batch_0060/checkpoint.json",
+      "sha256": "eb9bb7c065ca998008014a6d14a35a769f2e12d1f4bf558291bc69b3ffd0d08a"
+    },
+    {
+      "path": "batches/batch_0061/checkpoint.json",
+      "sha256": "52a7ca294d4acbecc324ca70038a0dcb760067921e5d85fa3761bae78e5de420"
+    },
+    {
+      "path": "batches/batch_0062/checkpoint.json",
+      "sha256": "a81f5fe59bad36ba8190ad94946a2727add3c6e14cce66987436bd49a1396793"
+    },
+    {
+      "path": "batches/batch_0063/checkpoint.json",
+      "sha256": "2f1c238a89e83639bbbd9b9cd3c30675c0b9e8124add0e902f992e3cb6693a4c"
+    },
+    {
+      "path": "batches/batch_0064/checkpoint.json",
+      "sha256": "d79fe819c6f01138d3603ac2e33a1039f66b9c266bffca5d06c6fa4bb8d1caa3"
+    },
+    {
+      "path": "batches/batch_0065/checkpoint.json",
+      "sha256": "f9acdfc81441743a22674e53261bee5732db6e6f1404b7e1d27988c8a6b41929"
+    },
+    {
+      "path": "batches/batch_0066/checkpoint.json",
+      "sha256": "3f1930087191aef368b507403a723890f6a1b29994850e56285a5f0b950527de"
+    },
+    {
+      "path": "batches/batch_0067/checkpoint.json",
+      "sha256": "b9f708406b0bd9764a3142b6e1b69d772f4afc76597370874bb54be5213847b8"
+    },
+    {
+      "path": "batches/batch_0068/checkpoint.json",
+      "sha256": "d6659dd87596fbe009c51a128c6f94abcfa0968f169dbf2fc264be1dd72a97aa"
+    },
+    {
+      "path": "batches/batch_0069/checkpoint.json",
+      "sha256": "7d4d6cbd8693506190f3b54d59106d2c58186740ac2bd9b5e459633e90f138a9"
+    },
+    {
+      "path": "batches/batch_0070/checkpoint.json",
+      "sha256": "9177247d5ee9204069a0850567d7c9b79450fb762af1a0187ebc1e7c029ae114"
+    },
+    {
+      "path": "batches/batch_0071/checkpoint.json",
+      "sha256": "5865bda7a1e0bfef5b13e1c6561c4ce49224ba7bddc3c170235bc7bcaf7446d1"
+    },
+    {
+      "path": "batches/batch_0072/checkpoint.json",
+      "sha256": "eedbb6a3a2fbf27725d3bc6713f7fa39d9fa40b58520b453fce7291152433141"
+    },
+    {
+      "path": "batches/batch_0073/checkpoint.json",
+      "sha256": "898e25a99e731d40406914d500b93998b1462ed6fd29fb5387a30003fd482c5f"
+    },
+    {
+      "path": "batches/batch_0074/checkpoint.json",
+      "sha256": "cb483c994383db812a34da6da98f3b8984747089d4032faecf1aee23edd5e969"
+    },
+    {
+      "path": "batches/batch_0075/checkpoint.json",
+      "sha256": "d2093a64af6d7fca21f721bfbf6d54e9c4bcb569f4e27b566d66aa924add1f69"
+    },
+    {
+      "path": "batches/batch_0076/checkpoint.json",
+      "sha256": "10d1a531fa12b34210751c64907ae6dd9179770a491c6a614556ff8b55b55268"
+    },
+    {
+      "path": "batches/batch_0077/checkpoint.json",
+      "sha256": "57dcb46fc7d6ac8fbd8e95987a3209cc62ae368b59c7a2097a5f8f8689e17d3e"
+    },
+    {
+      "path": "batches/batch_0078/checkpoint.json",
+      "sha256": "cf6bd72e6cbaadb3824d86aede9c482b6d614b5c15162dcbee6d19320fbd0b13"
+    },
+    {
+      "path": "batches/batch_0079/checkpoint.json",
+      "sha256": "49504f13056820e6715fce28754d7e67af433bf97ee93887e9ee27334cf9d724"
+    },
+    {
+      "path": "batches/batch_0080/checkpoint.json",
+      "sha256": "b8afdb7e1e1248e20efa043d24aa5f3ff04a6ea7dccb99ea139599fdcec46a0a"
+    },
+    {
+      "path": "batches/batch_0081/checkpoint.json",
+      "sha256": "90727c168f6f76b17afcfc5128ea15394e0b746539c5ea8b7aa1e40f16e1f753"
+    },
+    {
+      "path": "batches/batch_0082/checkpoint.json",
+      "sha256": "1304a53879d6ae2b4b4e047f36eceae466a094187f4963ce9b44ae6b982aec4a"
+    },
+    {
+      "path": "batches/batch_0083/checkpoint.json",
+      "sha256": "dc58b0f6815831edef8c023246865478d0566fc4c616ce9c866c207ac359d23f"
+    },
+    {
+      "path": "batches/batch_0084/checkpoint.json",
+      "sha256": "4135aed57ac8b4b8e53e9c391d46047886bf0faedc05e508c5873f2779aa86d2"
+    },
+    {
+      "path": "batches/batch_0085/checkpoint.json",
+      "sha256": "a7f5ea4713722d2ed1054d44891ec4e834e64bb5f79bb40b7852a3b348d00ed7"
+    },
+    {
+      "path": "batches/batch_0086/checkpoint.json",
+      "sha256": "069521af3f01ade070b7324de69bdeaf9a129ad1ac43e06cbbadfcbac204c438"
+    },
+    {
+      "path": "batches/batch_0087/checkpoint.json",
+      "sha256": "9b5046ce5a306c84d16f34a5a923419f7864977d57e4a41e6f79cf0507fab409"
+    },
+    {
+      "path": "batches/batch_0088/checkpoint.json",
+      "sha256": "2ca63bf6fbfb5b327ce6a13f78772d3e63edc456a9ea0ad59f63866aa79b03d4"
+    },
+    {
+      "path": "batches/batch_0089/checkpoint.json",
+      "sha256": "893045ba4219c1773673a69c9b50af90f0ee1e0553681bc369d795fe946dbbe6"
+    },
+    {
+      "path": "batches/batch_0090/checkpoint.json",
+      "sha256": "039bdfc3f9a865e91a3fdc56601eaf9aba26e0a52074382930310998821562b9"
+    },
+    {
+      "path": "batches/batch_0091/checkpoint.json",
+      "sha256": "82da7d6e2ae79784ae6dc4357ee11b704a4766b58552291936edd43bc2e843c5"
+    },
+    {
+      "path": "batches/batch_0092/checkpoint.json",
+      "sha256": "ade5a10076246159e73e2a2eebcdf3227caaa4907e1b0015a397db13ba037adc"
+    },
+    {
+      "path": "batches/batch_0093/checkpoint.json",
+      "sha256": "1373eb6b2e20b390f7fd1b091ffe7a22d0a7550527958875b977de1671efdf8e"
+    },
+    {
+      "path": "batches/batch_0094/checkpoint.json",
+      "sha256": "531d41fc30e75a9dcbd2b1afefa616976e709a7d24e2a0adfe096aa43a8c86d8"
+    },
+    {
+      "path": "batches/batch_0095/checkpoint.json",
+      "sha256": "bff69066032d2e57cb00946980118363a91fa4411c9197f9a7a88c58ad040e5a"
+    },
+    {
+      "path": "batches/batch_0096/checkpoint.json",
+      "sha256": "4eba2ee97d0a5a0b90668f3d1761b27fb4e32b08a0d49ba26ee0f65e193ee172"
+    },
+    {
+      "path": "batches/batch_0097/checkpoint.json",
+      "sha256": "5ee3581b99bec802791e4285c5f657c5cae19458f715e1558cb2f4806f4ccc9d"
+    },
+    {
+      "path": "batches/batch_0098/checkpoint.json",
+      "sha256": "995dc3d98a59f069a30af50d731fe806a8f8a56e6e816926e95c49bd75728838"
+    },
+    {
+      "path": "batches/batch_0099/checkpoint.json",
+      "sha256": "62e744b031e3ba223e5fa10429336d4617533d18769d74c994e94539abc6d412"
+    },
+    {
+      "path": "batches/batch_0100/checkpoint.json",
+      "sha256": "a4167ba80947182cea9e57604686db77372aa9b17278c77a97a56d4381cfc746"
+    },
+    {
+      "path": "batches/batch_0101/checkpoint.json",
+      "sha256": "9c1d6bc9635a73e8fa40a6763dc57f1337ec504500290730930343f2a0bad1b9"
+    },
+    {
+      "path": "batches/batch_0102/checkpoint.json",
+      "sha256": "825eea5f5715103f7fa5818878f3cff3c5250e933306ca041f3793af0683db9f"
+    },
+    {
+      "path": "batches/batch_0103/checkpoint.json",
+      "sha256": "87c7bdb6aeb09774b0d07a5e01a0b0da83ab9b0098d881cb407c6f59f1b8490a"
+    },
+    {
+      "path": "batches/batch_0104/checkpoint.json",
+      "sha256": "b55fce8e7d91282d0573aba7fdd8b0eb8c1c9979718f3fe481117090b7c8ee8f"
+    },
+    {
+      "path": "batches/batch_0105/checkpoint.json",
+      "sha256": "37df3cce77521fc0b1abd60a7c3201baffdc25d4d71117a65c86a742b9cf67bf"
+    },
+    {
+      "path": "batches/batch_0106/checkpoint.json",
+      "sha256": "6a31ef56e46f0b12f72c7bec567e279305d16ae009a2d413dd06839679d2d216"
+    },
+    {
+      "path": "batches/batch_0107/checkpoint.json",
+      "sha256": "d99d6fe1511317ccb7b272f1b19a665bd07c3c51c3b920b7d2e901ea2b1833bc"
+    },
+    {
+      "path": "batches/batch_0108/checkpoint.json",
+      "sha256": "589918e3f96aa4b32cca86b2285a19dab8fdfd197951bb881e84e80ba6f0931e"
+    },
+    {
+      "path": "batches/batch_0109/checkpoint.json",
+      "sha256": "0cadd21433bf0f78b7f91d171940328d899b68ed5e25f3837d7574c1458381b7"
+    },
+    {
+      "path": "batches/batch_0110/checkpoint.json",
+      "sha256": "d215547b1f2eeeeb273f94481dead0b70b265301b318290e6f7e2c11b61bb08f"
+    },
+    {
+      "path": "batches/batch_0111/checkpoint.json",
+      "sha256": "86d9aeb751f6c257e806beefa5f40bc3cdbe231b888064eb0736052d58e2509b"
+    },
+    {
+      "path": "batches/batch_0112/checkpoint.json",
+      "sha256": "0fecedd89e9c1e394d7768e273204b3f8ee9ee21e480597cd2086395a8cdeec0"
+    },
+    {
+      "path": "batches/batch_0113/checkpoint.json",
+      "sha256": "ff9b2a7ec38bf05018061db5c9541c226c5e4c0639b8cdf7feae7dc2d4f39fc4"
+    },
+    {
+      "path": "batches/batch_0114/checkpoint.json",
+      "sha256": "37cd4ab6d9855f85c5235cf6da27626604d8426757aae2aab7b6f85155619ec7"
+    },
+    {
+      "path": "batches/batch_0115/checkpoint.json",
+      "sha256": "28ed484206d1e58a3e8fb93d2734e7d07b23fc8495d2776cff04727b6a6827df"
+    },
+    {
+      "path": "batches/batch_0116/checkpoint.json",
+      "sha256": "9183500cb413c683e7cf7dac96e03d9294e1960c549e72205b0bb7fb5f1924f5"
+    },
+    {
+      "path": "batches/batch_0117/checkpoint.json",
+      "sha256": "f20cf6ae91c44f463d7e551ee327ae7a73edf96af88e93d72f9426132913e3c7"
+    },
+    {
+      "path": "batches/batch_0118/checkpoint.json",
+      "sha256": "455b6e7c2b09b6a39b482c5d2bdf4312c5ad0e0356e732d939eb71831c825131"
+    },
+    {
+      "path": "batches/batch_0119/checkpoint.json",
+      "sha256": "dfa42c20f9d5eaedee1b8e80e76bf8cf04125248fa133b18a8fca3022527f12f"
+    },
+    {
+      "path": "batches/batch_0120/checkpoint.json",
+      "sha256": "2382f244e2c3de6aa58f9af40b03f396f63477cbbec93fc40b508ae74065fca6"
+    },
+    {
+      "path": "batches/batch_0121/checkpoint.json",
+      "sha256": "edcdb37b6a2d2ae6ddee53978447048d74d80beac150433c188a778906bc5d36"
+    },
+    {
+      "path": "batches/batch_0122/checkpoint.json",
+      "sha256": "c029c366162fe6d36302f5ecb250b4070686d9a6f628833743bbad1d07b60b29"
+    },
+    {
+      "path": "batches/batch_0123/checkpoint.json",
+      "sha256": "f8a458de39241077c87ed97a896882dd824697af4cca290c035d6365fb412572"
+    },
+    {
+      "path": "batches/batch_0124/checkpoint.json",
+      "sha256": "5f707720c818e52b07a32ca604806ddf965f3062f92b2db7f2df602c5c869771"
+    },
+    {
+      "path": "batches/batch_0125/checkpoint.json",
+      "sha256": "6932164cfcefdb2d62851c3c963d6c4ecc0af55353e0c725f4ecaa2fa746b3c0"
+    },
+    {
+      "path": "batches/batch_0126/checkpoint.json",
+      "sha256": "4a63fb5c6480eef46891d22e85f3530a8a7d5e11c963e43ef3bf5f3146fd1aeb"
+    },
+    {
+      "path": "batches/batch_0127/checkpoint.json",
+      "sha256": "2ebea2acb16979cd91ad39207b3aba5ad7bcde5f153dcfaef9b127a9c8dfc57d"
+    },
+    {
+      "path": "batches/batch_0128/checkpoint.json",
+      "sha256": "25df761846c2ea4901ff5bb12612be32d2b453d2d96dd5be11b843ce8a889565"
+    },
+    {
+      "path": "batches/batch_0129/checkpoint.json",
+      "sha256": "63401ed01491c026596027fd2a53c0d4176ae436ae051d72549ee33822034459"
+    },
+    {
+      "path": "batches/batch_0130/checkpoint.json",
+      "sha256": "f16f1be65ec5b8b52e476f13d3f955596a9b3b9826ce3f0b825c82b611950396"
+    },
+    {
+      "path": "batches/batch_0131/checkpoint.json",
+      "sha256": "cee2adc4758139b87a21a1ca99462c6659dfeab14b70f17ea847734022807258"
+    },
+    {
+      "path": "batches/batch_0132/checkpoint.json",
+      "sha256": "7f2405938ed6c962f5dd9c9912e6871d4acb4865912fff4179dd35ad6456b295"
+    },
+    {
+      "path": "batches/batch_0133/checkpoint.json",
+      "sha256": "bc353f5ae42b71e166bab23d1eaca46c0189afc606352d083be535a5a8522f7a"
+    },
+    {
+      "path": "batches/batch_0134/checkpoint.json",
+      "sha256": "410c807d69bc4305dfdafeb465291ca4e897a760a59acca2020dfea146a80b14"
+    },
+    {
+      "path": "batches/batch_0135/checkpoint.json",
+      "sha256": "4b831f15f454eac67fea21714afab78020ff53867f917eb8188bea1fd3063948"
+    },
+    {
+      "path": "batches/batch_0136/checkpoint.json",
+      "sha256": "cc8f5a5884225aa6c5b3f65efe6c50b11685422610564516f73b32d1d23477bc"
+    },
+    {
+      "path": "batches/batch_0137/checkpoint.json",
+      "sha256": "9c31bb414a8bcb63a2feb3b30558c7ddf914f670398700a58c84f017637f3014"
+    },
+    {
+      "path": "batches/batch_0138/checkpoint.json",
+      "sha256": "c5f9b94b3d829fa298f5af33194586cfcddba3eb2aad5695f2f0b51fd4682572"
+    },
+    {
+      "path": "batches/batch_0139/checkpoint.json",
+      "sha256": "4c59f9882dd20266552e3ade59170d48374efc2326d649497cdf8aa3aac8b1d0"
+    },
+    {
+      "path": "batches/batch_0140/checkpoint.json",
+      "sha256": "1823f2bf39654b60ba66afa1b236a46d1e17024abf99eecee99b7f819623a3ae"
+    },
+    {
+      "path": "batches/batch_0141/checkpoint.json",
+      "sha256": "f627448584b106ca3370e632f4f1708650655a9f3159ce9d4dbab865589ac466"
+    },
+    {
+      "path": "batches/batch_0142/checkpoint.json",
+      "sha256": "5fc17109ae2484c36245ced7849c16f70c96c9477ad327026c374e354863df46"
+    },
+    {
+      "path": "batches/batch_0143/checkpoint.json",
+      "sha256": "d7403fe5833fe470c7361a844d181921937459aac61f5f592072625b4aaa0742"
+    },
+    {
+      "path": "batches/batch_0144/checkpoint.json",
+      "sha256": "83e1820d56f674bc91005e8020f19bdade7e51a03ebeaac226bd2ac230e9a001"
+    },
+    {
+      "path": "batches/batch_0145/checkpoint.json",
+      "sha256": "2edd780f3e1c79ab382382af8bcadd39ccd3cf2bb6ba3b4bc9b0102892452341"
+    },
+    {
+      "path": "batches/batch_0146/checkpoint.json",
+      "sha256": "8230b64aa98594cfdd076fe4708e486bd913c9edf4e57af48b2fde430f0fcebb"
+    },
+    {
+      "path": "batches/batch_0147/checkpoint.json",
+      "sha256": "8c56a0712f80af882e2f87e8cdca437ddf8e555df283e9fe0d11a5c8eed3385d"
+    },
+    {
+      "path": "batches/batch_0148/checkpoint.json",
+      "sha256": "2bae93a4f1d147c063fab6dd58a07988d3e092c711cc4d6c839c55688f6bcf3b"
+    },
+    {
+      "path": "batches/batch_0149/checkpoint.json",
+      "sha256": "285da2b62678e4eacdee97922b38ebe2b71f08ad8fb0fa89c728de424e523589"
+    },
+    {
+      "path": "batches/batch_0150/checkpoint.json",
+      "sha256": "f8fbf0805050601c2be89b79eb3e1a9e588b51d194f7ad35b21e4546a37d74a2"
+    },
+    {
+      "path": "batches/batch_0151/checkpoint.json",
+      "sha256": "5f43840431bc8fa269690e65889dd300cfbadb2fb61166ed8876997ef9dbc1bf"
+    },
+    {
+      "path": "batches/batch_0152/checkpoint.json",
+      "sha256": "3e498a7c1afa843eac595baa55b682268c836c13cce1a49049c88acde003f105"
+    },
+    {
+      "path": "batches/batch_0153/checkpoint.json",
+      "sha256": "bb40a394bc1dad4f917c71b6592227c812ffca58b7f2ddb8731169d380b51792"
+    },
+    {
+      "path": "batches/batch_0154/checkpoint.json",
+      "sha256": "a82143e9665178407032c2bdb3a83efd511e2026b9a8b42abd0f12b52a785f07"
+    },
+    {
+      "path": "batches/batch_0155/checkpoint.json",
+      "sha256": "4fb37f244004f1176a740adaaa3465f6e6b80397ce865f7e3d0d3a7c3a4efaf8"
+    },
+    {
+      "path": "batches/batch_0156/checkpoint.json",
+      "sha256": "d2a2295abffa54d75ceafd4cc747aea60668d93677c99bb4708cfef8a2abd316"
+    },
+    {
+      "path": "batches/batch_0157/checkpoint.json",
+      "sha256": "14ac1a24e741ff7058aae19c7008221de56e9cbd0c8bbf7274c51a8a5c4ced97"
+    },
+    {
+      "path": "batches/batch_0158/checkpoint.json",
+      "sha256": "d01b5972a7fd37202540c4296154f13169afa7c2abf18d950d21a7f70a6c2506"
+    },
+    {
+      "path": "batches/batch_0159/checkpoint.json",
+      "sha256": "1b0ac68bcda406b1ac897889952503ae58eaa7a16ee79b3b437c79040c9a1b65"
+    },
+    {
+      "path": "batches/batch_0160/checkpoint.json",
+      "sha256": "1a5f6ca26da11784fc96b718642a4b512d611e3d717b0de5b310cb4f1735edf7"
+    },
+    {
+      "path": "batches/batch_0161/checkpoint.json",
+      "sha256": "7ccf93f7f1c2d35f2078a16669017fb61a8a13471c3f8c11737866ded0ea8c30"
+    },
+    {
+      "path": "batches/batch_0162/checkpoint.json",
+      "sha256": "84500b52c1dd870fa5441bdc17bf9dd0a51de52b09ab63194dfe90c85976803a"
+    },
+    {
+      "path": "batches/batch_0163/checkpoint.json",
+      "sha256": "b06b1f1d09315e3db0e4ed9b06ddac811194c0b182fee5907bfb55b4aee4bfd1"
+    },
+    {
+      "path": "batches/batch_0164/checkpoint.json",
+      "sha256": "8ae5ccdb904bb2041521f9d96bbc383ee21cf55b41a3406edd45ad69bbc88db3"
+    },
+    {
+      "path": "batches/batch_0165/checkpoint.json",
+      "sha256": "6730de412260840188670bfa9016d75d351e2507cb8a91d12ee434b14b201ba6"
+    },
+    {
+      "path": "batches/batch_0166/checkpoint.json",
+      "sha256": "983973f918896e6a2796fcbeb043c7cd20625e3ba10fe4c544282c71a17ad7c7"
+    },
+    {
+      "path": "batches/batch_0167/checkpoint.json",
+      "sha256": "61f4f8c33246bbfa207d10a11d0fca72c783fc0fef9f1d8f19334c31877e5423"
+    },
+    {
+      "path": "batches/batch_0168/checkpoint.json",
+      "sha256": "70a68c6ee3378a6701dc805d73485436010f6674a06bcdd16c7a61fa957b6cbc"
+    },
+    {
+      "path": "batches/batch_0169/checkpoint.json",
+      "sha256": "1ee18a8e5b724ee351df25a1e3cf152ba30447b68b7d25ad89673968520d2acb"
+    },
+    {
+      "path": "batches/batch_0170/checkpoint.json",
+      "sha256": "553745914bafa6381c98220edf8ab12f065692dd99efbd904bb0281bc01ca4f8"
+    },
+    {
+      "path": "batches/batch_0171/checkpoint.json",
+      "sha256": "159f1e3c3b0571ce3a4b7d54d96623e5118db23e04c291c43a070c8393e1f14d"
+    },
+    {
+      "path": "batches/batch_0172/checkpoint.json",
+      "sha256": "04f19125857681f1c0b1e4e20f0b64f0d22453faa39bd4756f91f57f63664ed4"
+    },
+    {
+      "path": "batches/batch_0173/checkpoint.json",
+      "sha256": "571778439cc27f705a974a0454a3ce37637afd343271e157e25728ac235cf003"
+    },
+    {
+      "path": "batches/batch_0174/checkpoint.json",
+      "sha256": "39482b232a5fd5d8ff5a29237688350d912f6b76b2cd33f6ed4c5e334c352d36"
+    },
+    {
+      "path": "batches/batch_0175/checkpoint.json",
+      "sha256": "9e68081c2f8f8357326b1c7a9564dc71bf29325ce13a750ee0d5c60de73a0649"
+    },
+    {
+      "path": "batches/batch_0176/checkpoint.json",
+      "sha256": "7b1902c20635960073f86e3c68eba9ca81a4e418df72bae730f27bd55a748c08"
+    },
+    {
+      "path": "batches/batch_0177/checkpoint.json",
+      "sha256": "c23fb1cc92835bcc89ec6310369b98953e6f0425f3fc80c94b374b913dda0fad"
+    },
+    {
+      "path": "batches/batch_0178/checkpoint.json",
+      "sha256": "5bb39f21cc96c16d7157892c55f94095caa00da7ce7dfc24b5149b1116338410"
+    },
+    {
+      "path": "batches/batch_0179/checkpoint.json",
+      "sha256": "82b6767882bd5e6861f51663103b9a35f5d71cf70145c60618b312073b9bf93d"
+    },
+    {
+      "path": "batches/batch_0180/checkpoint.json",
+      "sha256": "8b5a82b7a257db01fdaeb20e1c6231cd48d813486b4f72d210b45f14d99fa69e"
+    },
+    {
+      "path": "batches/batch_0181/checkpoint.json",
+      "sha256": "8d9540d0501bba6759dda5a6f80f587aff385bf0f8aee239dd9c02548591304e"
+    },
+    {
+      "path": "batches/batch_0182/checkpoint.json",
+      "sha256": "b4b67126f07be1c80e615e52f65a1ec3db30dc7ffeafbe75e36b5b3e71d0f3a0"
+    },
+    {
+      "path": "batches/batch_0183/checkpoint.json",
+      "sha256": "7a450ff8ec2320f3c5072b43fa7d7c53fd5ffc5da858e0e914002bf418a47be7"
+    },
+    {
+      "path": "batches/batch_0184/checkpoint.json",
+      "sha256": "da8598a9ed89ebf0a8f1826e3468e4ce67b821f756b55c6081e5d5ba8437c15e"
+    },
+    {
+      "path": "batches/batch_0185/checkpoint.json",
+      "sha256": "e2553a6cc639baac4f0f543c99486ecc3dea41dcbc4191625195d7c846ea4357"
+    },
+    {
+      "path": "batches/batch_0186/checkpoint.json",
+      "sha256": "3fcd1cf08331ccf3c15254ce50de51d004c3f64068c405214894e6a27b46dcf4"
+    },
+    {
+      "path": "batches/batch_0187/checkpoint.json",
+      "sha256": "91bddd1ac2666df06f2a6d3ef378c45be93207d25c04454d61044913e454006b"
+    },
+    {
+      "path": "batches/batch_0188/checkpoint.json",
+      "sha256": "1d8de202a681cb571aaff7c6a99151540d7d6980be86c24e85cd97091c0921ce"
+    },
+    {
+      "path": "batches/batch_0189/checkpoint.json",
+      "sha256": "497bb6a4fdcdbaaf855da1c4ea342d627582cb406cd66c831a5eabd316c5287d"
+    },
+    {
+      "path": "batches/batch_0190/checkpoint.json",
+      "sha256": "bfba5f5ff45a9be8dc72714450c166aa4eca98b1bd552bfa1176b369fc0b9300"
+    },
+    {
+      "path": "batches/batch_0191/checkpoint.json",
+      "sha256": "3a84389d853e6ed9a09a327a4671f5e13e83aa23974c5ea5fbbc1f839fd55cd3"
+    },
+    {
+      "path": "batches/batch_0192/checkpoint.json",
+      "sha256": "c5343368d05ecd137ec7ea4603a5bd54f7836ce6d9c993d9955d9fa0e0b05b03"
+    },
+    {
+      "path": "batches/batch_0193/checkpoint.json",
+      "sha256": "34ff3cc73c23956ed23e69b87d9351ad8ac7744c449ce78b580b12b5419d6552"
+    },
+    {
+      "path": "batches/batch_0194/checkpoint.json",
+      "sha256": "e5425ff83e7d6da983e5fe34f64a46e2d113d29cd1789a8b7a0241cc3aad50f7"
+    },
+    {
+      "path": "batches/batch_0195/checkpoint.json",
+      "sha256": "e9fcf46bc716676fa0b7c0cf7e450212e77322cd6a902554f45e662712dc0ce5"
+    },
+    {
+      "path": "batches/batch_0196/checkpoint.json",
+      "sha256": "22a2e06e63e19950d4a24879327f813ba11c51330e5ed91c38aa99739cbee40c"
+    },
+    {
+      "path": "batches/batch_0197/checkpoint.json",
+      "sha256": "0e2bf722e83e134984ffc2e7126cddfb648477f46c52f6ff7352d4c0720c3402"
+    },
+    {
+      "path": "batches/batch_0198/checkpoint.json",
+      "sha256": "d9d9c329839fec64ededd0f038a3f1eaabdf2c9c3598196038b58ce8c1a51b49"
+    },
+    {
+      "path": "batches/batch_0199/checkpoint.json",
+      "sha256": "21fe846871ce93c256aa7fbe19a6480792ec7bb09f441a1cb908d3c3fc95d45d"
+    },
+    {
+      "path": "batches/batch_0200/checkpoint.json",
+      "sha256": "a954dc8752332b90c4905032ff2b707d14dcfd1ccb3b1583eb06af7ba0d8c194"
+    },
+    {
+      "path": "batches/batch_0201/checkpoint.json",
+      "sha256": "69618a5c97548cf18551014c97471703d26cc3f277fc759a6cda45268b85daeb"
+    },
+    {
+      "path": "batches/batch_0202/checkpoint.json",
+      "sha256": "3b58481a6380fc00f17f7cec00bc9e898a2e970ae045bf52755f7b317b2b7c14"
+    },
+    {
+      "path": "batches/batch_0203/checkpoint.json",
+      "sha256": "9944cfe691f3371989eb28bd3b0d0bd914467ecf1dc2c317755e40b8e59c5784"
+    },
+    {
+      "path": "batches/batch_0204/checkpoint.json",
+      "sha256": "325b7a84355a1e52fb21b83a1e7ac09631fe27b028d8af0f00534ccb8bee5e37"
+    },
+    {
+      "path": "batches/batch_0205/checkpoint.json",
+      "sha256": "59ed92f5332752922ad2933046937d31e502662cb8effbde8dbe43f117b172f4"
+    },
+    {
+      "path": "batches/batch_0206/checkpoint.json",
+      "sha256": "573f35a9e0980e044c5d1bc40f9400a108784bc4cafa30698056c69bd60681eb"
+    },
+    {
+      "path": "batches/batch_0207/checkpoint.json",
+      "sha256": "e96f7365121e666e53b5957b1c8af7db8018ce5744aa4d173e4fd2ea7e75a5f6"
+    },
+    {
+      "path": "batches/batch_0208/checkpoint.json",
+      "sha256": "91b24919e7204962b31f82905033b6215fddc869b6dcfc7ffca9d046f5df226b"
+    },
+    {
+      "path": "batches/batch_0209/checkpoint.json",
+      "sha256": "a2ba14e06d0bebd153085df116aea23c7bbea33ad7d77eddc26901e6507549e5"
+    },
+    {
+      "path": "batches/batch_0210/checkpoint.json",
+      "sha256": "1df4475a15b11727ee825da16915df728a2cd42ffd411ae08d11b9face1a5ad7"
+    },
+    {
+      "path": "batches/batch_0211/checkpoint.json",
+      "sha256": "dd6e5a1742509159c9446626091bf3931a995697d8289f554ffb0c5cef390840"
+    },
+    {
+      "path": "batches/batch_0212/checkpoint.json",
+      "sha256": "5773d6fcbf5f52dc58358e8a47a760f6876610eef976087c387136cde725070a"
+    },
+    {
+      "path": "batches/batch_0213/checkpoint.json",
+      "sha256": "e5860d16dd79d0c88715c738697fdd95a86e59f2887795ad818601e72aeabfe7"
+    },
+    {
+      "path": "batches/batch_0214/checkpoint.json",
+      "sha256": "80f9aabe0bebc4c4a2511654c3213fae2a4c3456bbea4c75e366972837a65cb5"
+    },
+    {
+      "path": "batches/batch_0215/checkpoint.json",
+      "sha256": "4c1c85353b9223fa2af9c8c7992d2ae9ccc8e8354b8baa59a82440791da74bdf"
+    },
+    {
+      "path": "batches/batch_0216/checkpoint.json",
+      "sha256": "b8774fca73a64d947173bda7de362de00e53d19ebb09a0b6c965c302330a761d"
+    },
+    {
+      "path": "batches/batch_0217/checkpoint.json",
+      "sha256": "98252e35d898fd05e8126102d5f61ec70972372ea7ccecdea777a6a39a38373c"
+    },
+    {
+      "path": "batches/batch_0218/checkpoint.json",
+      "sha256": "4ddd417034565a15d48f46d1eb1a98292119e84b6fec4526370c51323d6e2c6a"
+    },
+    {
+      "path": "batches/batch_0219/checkpoint.json",
+      "sha256": "b3f1fd628d945f87749e8bb9c65711ead8eac3f152daaec99c197d24912c9590"
+    },
+    {
+      "path": "batches/batch_0220/checkpoint.json",
+      "sha256": "123d3c6e65178d49e6c965a4e4dc4c6b583e6cfea576a8a9b082b73aa4bc6a91"
+    },
+    {
+      "path": "batches/batch_0221/checkpoint.json",
+      "sha256": "d98439431a96a50ca057703b1f711913640181472b779390b753937a83c0b247"
+    },
+    {
+      "path": "batches/batch_0222/checkpoint.json",
+      "sha256": "39dc69d0d1f98407ad5a125ba7f158d4127ef6a9e1620acb9703487323a632c7"
+    },
+    {
+      "path": "batches/batch_0223/checkpoint.json",
+      "sha256": "10179bd710991fbd17223c4d02a4f124576dbf64c773d5df67839d92b0343dfc"
+    },
+    {
+      "path": "batches/batch_0224/checkpoint.json",
+      "sha256": "cbfabe3f1a83814df71d68e314f8e4389fde8d894e3574ea19aad85d2f708c31"
+    },
+    {
+      "path": "batches/batch_0225/checkpoint.json",
+      "sha256": "9199a162050f710c9255196a36333d3e98e490498ff1f6f3630fa27340469d85"
+    },
+    {
+      "path": "batches/batch_0226/checkpoint.json",
+      "sha256": "d4b073be66f05c534bce4a538d4b9a2f0a54781d385aa693ae15c2e82915ad31"
+    },
+    {
+      "path": "batches/batch_0227/checkpoint.json",
+      "sha256": "6af00a776f09fd39bb09bb6f50babbe618453c80aa67087531822cb70f02dd9f"
+    },
+    {
+      "path": "batches/batch_0228/checkpoint.json",
+      "sha256": "0d084d9e6b88edb0248498683b918fd7772ade3c0b59c73614ed54d02119b8ab"
+    },
+    {
+      "path": "batches/batch_0229/checkpoint.json",
+      "sha256": "72ea79a0cdb65475cc1e3a8614014ca0e62af49eda8dc76d6b70eaa18d037673"
+    },
+    {
+      "path": "batches/batch_0230/checkpoint.json",
+      "sha256": "10c42bbef0f1b7f59b5e3294a66dac5c7bd2c905981565d95ea5cd66e0c5ac0b"
+    },
+    {
+      "path": "batches/batch_0231/checkpoint.json",
+      "sha256": "6c7f3901f96fb202bff6734f147bfba460ff6efdd8991fc810d68730fe46bb36"
+    },
+    {
+      "path": "batches/batch_0232/checkpoint.json",
+      "sha256": "b66d5cfd3684575a81f8e9011f16c75d1f4b76c4078ebeab47c37d6d24aa0737"
+    },
+    {
+      "path": "batches/batch_0233/checkpoint.json",
+      "sha256": "5769434d4551a34defacc3010db5320acafb57708d48e7d60978d6b4e49189a2"
+    },
+    {
+      "path": "batches/batch_0234/checkpoint.json",
+      "sha256": "9234d3b28416e03d42c0dab8cae43da52e06ae531af13b1e0f4d6d5248655733"
+    },
+    {
+      "path": "batches/batch_0235/checkpoint.json",
+      "sha256": "91535196357a1903122ee416717a62a3f1f0aa92ede0ddc11e2c4aae9a594a00"
+    },
+    {
+      "path": "batches/batch_0236/checkpoint.json",
+      "sha256": "f432c5d0574710950a53cea1166ca9b3bfc2057866f471170c93f9bd8e0516df"
+    },
+    {
+      "path": "batches/batch_0237/checkpoint.json",
+      "sha256": "2412dff7d6e93867b964129192b62dc2ce4815937d6f85f2579978842c33f02f"
+    },
+    {
+      "path": "batches/batch_0238/checkpoint.json",
+      "sha256": "405d0520ab57389d842e07856e1b7dbb1c11565fb5ac492847fc9c22ea9cfa70"
+    },
+    {
+      "path": "batches/batch_0239/checkpoint.json",
+      "sha256": "1c9a9441d7a6ceed6aa9adaa671c1cd6015dcc3467e4c1985e6e83391513e42b"
+    },
+    {
+      "path": "batches/batch_0240/checkpoint.json",
+      "sha256": "1ff9c2877b107d5cf843512aebac3fce31ad3a27cd32f45f381fd367374369bc"
+    },
+    {
+      "path": "batches/batch_0241/checkpoint.json",
+      "sha256": "de03d3918c7291a85e9f79e3189168d1b5fd75dfe377199c323a56161960bbf7"
+    },
+    {
+      "path": "batches/batch_0242/checkpoint.json",
+      "sha256": "e8ca09b4dc32c27d8a00010719eab1b9773e6fea57c43cfb0a659499d8cc8cb9"
+    },
+    {
+      "path": "batches/batch_0243/checkpoint.json",
+      "sha256": "876d27489443673a356d46135a4dbbcc69ba89bf0d69a17f280d6e4872f249b5"
+    },
+    {
+      "path": "batches/batch_0244/checkpoint.json",
+      "sha256": "1204254e561003156e8b1674c8263f3917fa981776ec753ff976652b13fc03bf"
+    },
+    {
+      "path": "batches/batch_0245/checkpoint.json",
+      "sha256": "8c81cf770dccf78dfee82f23d49d23b4c242b8ee4274c5a7f97220527215f168"
+    },
+    {
+      "path": "batches/batch_0246/checkpoint.json",
+      "sha256": "472aa230e549fb16ca337274742b07ba9905b5b0095af7b9fb566fe898f2b8b9"
+    },
+    {
+      "path": "batches/batch_0247/checkpoint.json",
+      "sha256": "ade32f0eee90827c9c6577639064f16a5a84f26f5177418df7c89f53c15ca7ac"
+    },
+    {
+      "path": "batches/batch_0248/checkpoint.json",
+      "sha256": "290055344db98f26518616582c0c9c53fd829fbd284d0f517e502334a6bd18e2"
+    },
+    {
+      "path": "batches/batch_0249/checkpoint.json",
+      "sha256": "4d1fcac349a62e711a3960b6b93474b62b1e090dc460decda0e17606b3727fa8"
+    },
+    {
+      "path": "batches/batch_0250/checkpoint.json",
+      "sha256": "5a9cb408d52df25094748700be8f19e3c6687573ba2fefa215a298bdd12556db"
+    },
+    {
+      "path": "batches/batch_0251/checkpoint.json",
+      "sha256": "28b393162ca7e791612a7a7ca64424b556bb9fb0e15fbf077a6db566cb2615d0"
+    },
+    {
+      "path": "batches/batch_0252/checkpoint.json",
+      "sha256": "48a9e2c2fd06fba63c4dd9ff445bde6847f3790ea03304730b97c028aa167b24"
+    },
+    {
+      "path": "batches/batch_0253/checkpoint.json",
+      "sha256": "41c7943e01956d57be3b1bc69304821deb93a06febf566d6cdd858563c02eb17"
+    },
+    {
+      "path": "batches/batch_0254/checkpoint.json",
+      "sha256": "d7dc9a5656d49ef43c42b0d133bfc6a35584ca7aa7f9f86de99b059b6e94076a"
+    },
+    {
+      "path": "batches/batch_0255/checkpoint.json",
+      "sha256": "5ba0fb31b91f67d96c58575797d7bcfdb7f88dec1d3883b677d7944667d63771"
+    },
+    {
+      "path": "batches/batch_0256/checkpoint.json",
+      "sha256": "fb151c55eb0b5825659375b4c71adb148e0f87cf5f0db244ab34e6842a1140d3"
+    },
+    {
+      "path": "batches/batch_0257/checkpoint.json",
+      "sha256": "f81e0f0c8bb865367ab8e856dfe1b9ffaf5a3a8e1b072bce700cb4c939d7b682"
+    },
+    {
+      "path": "batches/batch_0258/checkpoint.json",
+      "sha256": "3e81ce68bebea88bd0cabdb002ae95b634cc24e08e4699f4587e8bc7c7576e45"
+    },
+    {
+      "path": "batches/batch_0259/checkpoint.json",
+      "sha256": "b97504fea751d3181a8efac1544e44edeb491679bd6a18fe6bf0435b0f38c8cc"
+    },
+    {
+      "path": "batches/batch_0260/checkpoint.json",
+      "sha256": "cf0ac6e2113a0f819f13ab50b68b4b2483d4eabc13d3f21e896fda7ae5d9c3ae"
+    }
+  ],
+  "run_id": "rag20_parallel_v1"
+}

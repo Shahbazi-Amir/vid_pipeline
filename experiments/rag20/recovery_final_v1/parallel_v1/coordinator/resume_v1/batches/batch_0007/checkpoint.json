@@ -1,0 +1,47 @@
+{
+  "base_commit": "65b618ab92fb9e1ec7741faa9210f6a1de50f647",
+  "candidate_ids": [
+    "golden_v2_candidate_48aefc3c96f711ec8c2d0aa2",
+    "golden_v2_candidate_48f3a1cd9d4319fd218dc79c"
+  ],
+  "created_utc": "2026-10-02T16:21:11.208533+00:00",
+  "files": {
+    "audit.jsonl": "70bfc291c7bf88d1a2d8818965ed5e07765433c3a6ac531169d36d62bb2ffcc2",
+    "decisions.jsonl": "9f73834987ff47e97aa636dd27c6102825101649e6cb3eecadf8172bb002b522",
+    "repairs.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "support.jsonl": "d2267f4f7f3c0c64aa65c680ca76be46386cd50ff4aa389ec6f5e4fbdc82adde",
+    "validation.json": "cc16fa9f245669e8867736f078f16fd2e11d15b9b401847a91b1d92529a0d7ed"
+  },
+  "owner": "coordinator",
+  "positions": [
+    328,
+    329
+  ],
+  "previous_batches": [
+    {
+      "path": "batches/batch_0001/checkpoint.json",
+      "sha256": "f3f153f9e7ea34cecc640580dda3c5f7d37f4930bfbfdfa3b76ecd6cf8455e2d"
+    },
+    {
+      "path": "batches/batch_0002/checkpoint.json",
+      "sha256": "8246ba2e076a327484a1e359ee965e69aff45d1421be6927637e4e69133c43e8"
+    },
+    {
+      "path": "batches/batch_0003/checkpoint.json",
+      "sha256": "b986afdf4344eab4eccaeed2a27f890d82d7c99a2310667b7875406b43821d12"
+    },
+    {
+      "path": "batches/batch_0004/checkpoint.json",
+      "sha256": "8867a5d5f00ee7339f900cdc1990fba2a54040d03541586056b32d2c311f593e"
+    },
+    {
+      "path": "batches/batch_0005/checkpoint.json",
+      "sha256": "c741c96f171af992c6ac058d2b06e5155c74cf78476b560d7765392af9beb2d4"
+    },
+    {
+      "path": "batches/batch_0006/checkpoint.json",
+      "sha256": "85c4115ade4e38272722166029d0a71663ba9cc5158b7163742eb0f8afcd885a"
+    }
+  ],
+  "run_id": "coordinator_resume_v1"
+}

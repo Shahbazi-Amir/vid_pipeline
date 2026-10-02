@@ -1,0 +1,63 @@
+{
+  "base_commit": "65b618ab92fb9e1ec7741faa9210f6a1de50f647",
+  "candidate_ids": [
+    "golden_v2_candidate_4a3f1d8e070605b527ae2f18",
+    "golden_v2_candidate_4a7916ee61544a07632d69a9"
+  ],
+  "created_utc": "2026-10-02T16:30:09.080852+00:00",
+  "files": {
+    "audit.jsonl": "c684388d3d8f3623ba0b901e418cf1955b51d88185b695a59d4e22af1700f5da",
+    "decisions.jsonl": "19363f4aa45d92f4de0af8e98e53d5339cbab798d20043caf0c88fcffc068853",
+    "repairs.jsonl": "4b01c13648166c36df64e4b8a2c3775bccff5f3981e2fd604e7a09c5780a28bc",
+    "support.jsonl": "954a8243a3ad96d884e8a65a37f24450e1cc94bddb55db54ce2dda3ddd993f93",
+    "validation.json": "401e7b107765b0c498c76121bc13e35ff5ef9d28e3f1530c1ffd5d5e9639130b"
+  },
+  "owner": "coordinator",
+  "positions": [
+    337,
+    338
+  ],
+  "previous_batches": [
+    {
+      "path": "batches/batch_0001/checkpoint.json",
+      "sha256": "f3f153f9e7ea34cecc640580dda3c5f7d37f4930bfbfdfa3b76ecd6cf8455e2d"
+    },
+    {
+      "path": "batches/batch_0002/checkpoint.json",
+      "sha256": "8246ba2e076a327484a1e359ee965e69aff45d1421be6927637e4e69133c43e8"
+    },
+    {
+      "path": "batches/batch_0003/checkpoint.json",
+      "sha256": "b986afdf4344eab4eccaeed2a27f890d82d7c99a2310667b7875406b43821d12"
+    },
+    {
+      "path": "batches/batch_0004/checkpoint.json",
+      "sha256": "8867a5d5f00ee7339f900cdc1990fba2a54040d03541586056b32d2c311f593e"
+    },
+    {
+      "path": "batches/batch_0005/checkpoint.json",
+      "sha256": "c741c96f171af992c6ac058d2b06e5155c74cf78476b560d7765392af9beb2d4"
+    },
+    {
+      "path": "batches/batch_0006/checkpoint.json",
+      "sha256": "85c4115ade4e38272722166029d0a71663ba9cc5158b7163742eb0f8afcd885a"
+    },
+    {
+      "path": "batches/batch_0007/checkpoint.json",
+      "sha256": "5f15a308badd8845eb5d5ca617a38d6325faf652836e0cae2e2327fc89fa3793"
+    },
+    {
+      "path": "batches/batch_0008/checkpoint.json",
+      "sha256": "edfeb6758bc0e934eb4fe29b474837b2276816a9d3ac38bba9109e9d6478094d"
+    },
+    {
+      "path": "batches/batch_0009/checkpoint.json",
+      "sha256": "2d74de40b755997135a021bc3d23d5c2bfa6b7cc3f22dec4980335b399a4d3b2"
+    },
+    {
+      "path": "batches/batch_0010/checkpoint.json",
+      "sha256": "a0ef7675d7bf7e946795404fe850e5866b5224fa5182005fd8873202e1907236"
+    }
+  ],
+  "run_id": "coordinator_resume_v1"
+}

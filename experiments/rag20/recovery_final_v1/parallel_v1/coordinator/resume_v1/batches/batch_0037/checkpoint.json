@@ -1,7 +1,23 @@
 {
   "base_commit": "65b618ab92fb9e1ec7741faa9210f6a1de50f647",
-  "base_reviewed": 796,
-  "batches": [
+  "candidate_ids": [
+    "golden_v2_candidate_56e1c7e375362c7d0ca2dfdb",
+    "golden_v2_candidate_570a0d0f2036e799ad514688"
+  ],
+  "created_utc": "2026-10-02T17:38:30.669536+00:00",
+  "files": {
+    "audit.jsonl": "a6ab400145670b8f0eef4dce3bb1c783d2e5514f0aa458b3f9b7ea185be5fd81",
+    "decisions.jsonl": "7eac734a30f02dcec859c5448e0a5a94b02e066ce8fa7f0bbd7c2871004fc26a",
+    "repairs.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "support.jsonl": "f0c385afd016f95af456b200777d178db7b519c99a18e80c824bb460566ee8da",
+    "validation.json": "50db6180bc05ac7d4a439b6b9490670528c8d6bc3d2cddbdbcaa8088a237c69d"
+  },
+  "owner": "coordinator",
+  "positions": [
+    390,
+    391
+  ],
+  "previous_batches": [
     {
       "path": "batches/batch_0001/checkpoint.json",
       "sha256": "f3f153f9e7ea34cecc640580dda3c5f7d37f4930bfbfdfa3b76ecd6cf8455e2d"
@@ -145,113 +161,7 @@
     {
       "path": "batches/batch_0036/checkpoint.json",
       "sha256": "013f00f4d18c29a0de28222fb2c2db087e4a0c055ba253a80e9045abbfb49c4b"
-    },
-    {
-      "path": "batches/batch_0037/checkpoint.json",
-      "sha256": "028d78fd091bcbedc43d83921ddbfede7cbb19efe1902cb65d0333d825f03d05"
-    },
-    {
-      "path": "batches/batch_0038/checkpoint.json",
-      "sha256": "66a39462b221cc891f9e4f9d2ca7f2d7178aa245cd2a0c074d5e7efc7413174f"
-    },
-    {
-      "path": "batches/batch_0039/checkpoint.json",
-      "sha256": "49d8d954a819ee0178fc3a3a3a6644cbfed2ee4df1ab86bc978addb1230f353e"
-    },
-    {
-      "path": "batches/batch_0040/checkpoint.json",
-      "sha256": "33ad2e7f6ce94e2ef2349c4db33eb6a6a3baf579cf8f4de5017fa5128ef1ae3d"
     }
   ],
-  "completed_candidate_ids": [
-    "golden_v2_candidate_4632049202121f86596a36ce",
-    "golden_v2_candidate_4687d4c32b3641520e32c19d",
-    "golden_v2_candidate_46bacd6a41c4384e0427ba06",
-    "golden_v2_candidate_46ff738f136506a871a55ec6",
-    "golden_v2_candidate_47d8ca2dc3fde758d7384136",
-    "golden_v2_candidate_4801468ae0c2c3cf3a63429c",
-    "golden_v2_candidate_480fc8c04d8aa32268a31353",
-    "golden_v2_candidate_485b173491420cbc999c3cfb",
-    "golden_v2_candidate_48672e90d6235441aeed5396",
-    "golden_v2_candidate_4882fb17408e3d4f29cd6cd4",
-    "golden_v2_candidate_488e2456fc6a5b055e1ff15a",
-    "golden_v2_candidate_489dccc6be07a68d61cf2203",
-    "golden_v2_candidate_48a5a3c6df56bed290ed42b2",
-    "golden_v2_candidate_48aefc3c96f711ec8c2d0aa2",
-    "golden_v2_candidate_48f3a1cd9d4319fd218dc79c",
-    "golden_v2_candidate_49559b5d3c4f83d31427b3ae",
-    "golden_v2_candidate_4983190197ca02df366f3475",
-    "golden_v2_candidate_49c6e1b02ca5874b0d8db3dd",
-    "golden_v2_candidate_49d5b781bfcd8af6c2b358bd",
-    "golden_v2_candidate_4a1ffcf002373ef5c5c54dd9",
-    "golden_v2_candidate_4a2c7f4b189837d3347fa2a8",
-    "golden_v2_candidate_4a3a69be183cdcd432b22135",
-    "golden_v2_candidate_4a3f1d8e070605b527ae2f18",
-    "golden_v2_candidate_4a7916ee61544a07632d69a9",
-    "golden_v2_candidate_4a928c19cb7e3a97a85f0447",
-    "golden_v2_candidate_4ab5cbaae00a04d1198a3dff",
-    "golden_v2_candidate_4af87453a09d40852e0dffaf",
-    "golden_v2_candidate_4b5950a7644d13812a0a01ba",
-    "golden_v2_candidate_4b884645ded3ab0c2899b5d2",
-    "golden_v2_candidate_4babc2cf92433d391f923389",
-    "golden_v2_candidate_4bd414d463f5f377170b491f",
-    "golden_v2_candidate_4bd55c10880cd73732771b2b",
-    "golden_v2_candidate_4c261029b1a2ea6671911000",
-    "golden_v2_candidate_4c9376b4652fcf073b577007",
-    "golden_v2_candidate_4ce0c3cfb8d019e790aa4c52",
-    "golden_v2_candidate_4d0d5bd27f8d404fd7fcd6c7",
-    "golden_v2_candidate_4d14a1e6809eed73fa32a7f5",
-    "golden_v2_candidate_4d16e7b7266a0c01d12a1036",
-    "golden_v2_candidate_4d286d1c28c9ad35d319f0b9",
-    "golden_v2_candidate_4d5391afc883d1d19939c60e",
-    "golden_v2_candidate_4df2cfd6e6d9dff13ca1709b",
-    "golden_v2_candidate_4e4e93bad7e8f01af8992c05",
-    "golden_v2_candidate_4eba0005ef0951d54c7caa2e",
-    "golden_v2_candidate_4f0cb78db0637d9401dd5d41",
-    "golden_v2_candidate_4f9a41ccac5b68b218ed1ee8",
-    "golden_v2_candidate_4fd2a1e284784bfc37ba46d9",
-    "golden_v2_candidate_4fdadce0f1890295e93a08f4",
-    "golden_v2_candidate_5013011b934edb5b6dba2f34",
-    "golden_v2_candidate_5013f837d98499fc8f4350bf",
-    "golden_v2_candidate_5049bb11cc9547c56af262a9",
-    "golden_v2_candidate_5052775b6d7ec58256a7e10c",
-    "golden_v2_candidate_50718f48568c68f04b392495",
-    "golden_v2_candidate_50a200dab2d9c897c643d74e",
-    "golden_v2_candidate_50ee970478b67c0baed041ec",
-    "golden_v2_candidate_511c0c292c7b5e80278b4b4c",
-    "golden_v2_candidate_51bd4e22280e72b2235cdeaf",
-    "golden_v2_candidate_51c4285bffafb62152b1959d",
-    "golden_v2_candidate_521a7e783a7236e46dd4317d",
-    "golden_v2_candidate_524435aa21a841960c87e483",
-    "golden_v2_candidate_524b0eda77e45ac1e5bd7cf3",
-    "golden_v2_candidate_52c4975ec1b21e148a9aff6e",
-    "golden_v2_candidate_540caf9da7714be0fe8c1dd2",
-    "golden_v2_candidate_541f2f06cdc05a3ffa56ae34",
-    "golden_v2_candidate_542c25f580ed875efeb42ff7",
-    "golden_v2_candidate_5457fdd426d8fa4a7304de24",
-    "golden_v2_candidate_548e53167f74fb0ac4b9a576",
-    "golden_v2_candidate_54bd0d2b532065fc23164a0b",
-    "golden_v2_candidate_54df7c7f8d26b7fb936d6bc5",
-    "golden_v2_candidate_553388803ca0ebb3a4bc3034",
-    "golden_v2_candidate_55d22f1ed3a427a6288b098f",
-    "golden_v2_candidate_55d6a19bc55cda356ca0ba5c",
-    "golden_v2_candidate_561a8d0ec9f489e7c1345298",
-    "golden_v2_candidate_5676444bd5f814622b996e6b",
-    "golden_v2_candidate_567e07c78c9ef0f30a297673",
-    "golden_v2_candidate_56d7b6ba19feb0e6d6341134",
-    "golden_v2_candidate_56e1c7e375362c7d0ca2dfdb",
-    "golden_v2_candidate_570a0d0f2036e799ad514688",
-    "golden_v2_candidate_5739536e685848e52dde40aa",
-    "golden_v2_candidate_579403c0f6ad72a438fc2519",
-    "golden_v2_candidate_5df5d842935fc5c5f03023db",
-    "golden_v2_candidate_97127678e81341143f6d9e9f",
-    "golden_v2_candidate_977841bb3d3822ead64d9465",
-    "golden_v2_candidate_97c6ad065e8f73ce243f9b31"
-  ],
-  "import_ready": false,
-  "new_reviewed": 83,
-  "next_position": 664,
-  "owner": "coordinator",
-  "remaining": 270,
-  "total_reviewed": 879
+  "run_id": "coordinator_resume_v1"
 }

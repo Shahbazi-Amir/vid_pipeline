@@ -1,0 +1,31 @@
+{
+  "base_commit": "65b618ab92fb9e1ec7741faa9210f6a1de50f647",
+  "candidate_ids": [
+    "golden_v2_candidate_4801468ae0c2c3cf3a63429c",
+    "golden_v2_candidate_480fc8c04d8aa32268a31353"
+  ],
+  "created_utc": "2026-10-02T15:27:31.060605+00:00",
+  "files": {
+    "audit.jsonl": "11a1092c5a11edd0fe6af53b5abce01ca31d6b952d6dac0b1b18f3621921cca2",
+    "decisions.jsonl": "eb456210626aaecc1d52838770ab5ec4b9ec2d63b61cd7d5b01ec1509eb5c0a8",
+    "repairs.jsonl": "35ca8b02300dce9977a5f6dae7188648f722369b4d798856661acd8f5f8ad2b6",
+    "support.jsonl": "e52d2f6f7447f16da179677740933e3dbbde341bc06e0e6365b5196c266e560d",
+    "validation.json": "1c22aacc88b412f9686990b7c2d7ced41cb9ea739b58fa0a949f0f23715531a1"
+  },
+  "owner": "coordinator",
+  "positions": [
+    320,
+    321
+  ],
+  "previous_batches": [
+    {
+      "path": "batches/batch_0001/checkpoint.json",
+      "sha256": "f3f153f9e7ea34cecc640580dda3c5f7d37f4930bfbfdfa3b76ecd6cf8455e2d"
+    },
+    {
+      "path": "batches/batch_0002/checkpoint.json",
+      "sha256": "8246ba2e076a327484a1e359ee965e69aff45d1421be6927637e4e69133c43e8"
+    }
+  ],
+  "run_id": "coordinator_resume_v1"
+}

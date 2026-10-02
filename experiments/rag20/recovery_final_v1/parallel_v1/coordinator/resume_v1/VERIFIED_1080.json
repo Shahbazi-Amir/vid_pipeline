@@ -1,0 +1,39 @@
+{
+  "counts": {
+    "accepted": 1035,
+    "answer_coverage_legacy_pending": 5,
+    "created_utc": "2026-10-02T23:13:05.742967+00:00",
+    "kept": 774,
+    "last_checkpoint_success": "coordinator_resume_1076_1080_v1",
+    "nb19_nb20_import_ready": false,
+    "next_semantic_position": 1081,
+    "pending_semantic": 69,
+    "positions_completed": [
+      1076,
+      1077,
+      1078,
+      1079,
+      1080
+    ],
+    "previous_checkpoint": "checkpoints/coordinator_resume_1071_1075_v1",
+    "repaired": 216,
+    "review_required_reviewed": 45,
+    "run_id": "recovery_final_v1",
+    "schema_version": 2,
+    "semantic_complete": 1080,
+    "semantics_complete": false,
+    "session_start_utc": "2026-10-02T23:13:04.327934+00:00",
+    "snapshot_path": "checkpoints/coordinator_resume_1076_1080_v1",
+    "source_commit": "ebfadb00263a18af5dbd53931f18b434a7c7acb1",
+    "source_files": {
+      "inputs.jsonl": "652a88071bda7a2b8d02d9a57f93c3e753c3f4cc6bf64b49ec5866a2f9c54e92",
+      "outputs.jsonl": "f861f70eb64897a18e64c06cf69efbcb7c826ef51769b2053f253fc0ef6b112c"
+    },
+    "timing_note": "session_start_utc is first measured anchor; actual turn start was not instrumented",
+    "valid_abstention": 45
+  },
+  "lineage": "PASS",
+  "new_this_turn": 80,
+  "next_position": 1081,
+  "overlay_unique": 284
+}

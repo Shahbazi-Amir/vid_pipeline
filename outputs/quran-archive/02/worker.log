@@ -1,0 +1,114 @@
+PIPELINE_STAGE job=quran-lecture-02-ba098046 stage=source status=started
+PIPELINE_STAGE job=quran-lecture-02-ba098046 stage=source status=completed
+PIPELINE_STAGE job=quran-lecture-02-ba098046 stage=download status=started
+PIPELINE_STAGE job=quran-lecture-02-ba098046 stage=download status=completed
+PIPELINE_STAGE job=quran-lecture-02-ba098046 stage=audio status=started
+PIPELINE_STAGE job=quran-lecture-02-ba098046 stage=audio status=completed
+PIPELINE_STAGE job=quran-lecture-02-ba098046 stage=transcribe status=started
+[0;93m2026-10-26 15:16:20.878771031 [W:onnxruntime:Default, device_discovery.cc:95 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename "5620e0c7-8062-4dce-aeb7-520c7ef76171" did not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
+PIPELINE_STAGE job=quran-lecture-02-ba098046 stage=transcribe status=completed
+PIPELINE_STAGE job=quran-lecture-02-ba098046 stage=clean status=started
+PIPELINE_STAGE job=quran-lecture-02-ba098046 stage=clean status=completed
+PIPELINE_STAGE job=quran-lecture-02-ba098046 stage=finalize_machine status=started
+PIPELINE_STAGE job=quran-lecture-02-ba098046 stage=finalize_machine status=completed
+{
+  "job_id": "quran-lecture-02-ba098046",
+  "job_root": "work-output/quran-lecture-02-ba098046",
+  "stages": [
+    {
+      "stage": "source",
+      "status": "completed",
+      "schema_version": 2,
+      "job_id": "quran-lecture-02-ba098046",
+      "input_type": "audio",
+      "path": "/home/runner/work/vid_pipeline/vid_pipeline/input.m4a",
+      "title": "input",
+      "size": 67960154,
+      "sha256": "f4b2fb37f250f93d48268b15377991551b9d057a9501773b7924a3e63b116b95",
+      "media": {
+        "input_type": "audio",
+        "container": "mov,mp4,m4a,3gp,3g2,mj2",
+        "audio_codec": "aac",
+        "duration_seconds": 4170.837914,
+        "sample_rate": 44100,
+        "channels": 1,
+        "channel_layout": "mono",
+        "bit_rate": 128000,
+        "has_audio_stream": true,
+        "has_video_stream": false,
+        "has_attached_picture": false
+      }
+    },
+    {
+      "stage": "download",
+      "status": "completed",
+      "media_path": "/home/runner/work/vid_pipeline/vid_pipeline/input.m4a",
+      "downloaded": false
+    },
+    {
+      "stage": "audio",
+      "status": "completed",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "codec_type": "audio",
+            "sample_rate": "16000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "4170.837938"
+        }
+      },
+      "audio_profile": "safe",
+      "normalize_seconds": 80.122155,
+      "ffprobe_seconds": 0.05447
+    },
+    {
+      "stage": "transcribe",
+      "status": "completed",
+      "duration": 4170.8379375,
+      "segments": 1177,
+      "language": "fa",
+      "model": "large-v3-turbo",
+      "device": "cpu",
+      "timing": {
+        "asr_model_load_seconds": 40.200442,
+        "asr_inference_seconds": 1729.745697
+      }
+    },
+    {
+      "stage": "clean",
+      "status": "completed",
+      "segments_in": 1177,
+      "segments_out": 1170,
+      "paragraphs": 83,
+      "language": "fa",
+      "markdown": "work-output/quran-lecture-02-ba098046/machine/transcript.machine.md",
+      "text": "work-output/quran-lecture-02-ba098046/machine/transcript.machine.txt",
+      "quality": "machine_only"
+    },
+    {
+      "stage": "finalize_machine",
+      "status": "machine_processing_complete",
+      "schema_version": 4,
+      "review_status": "machine_only",
+      "job_id": "quran-lecture-02-ba098046",
+      "source_url": "",
+      "final_markdown": "work-output/quran-lecture-02-ba098046/final/transcript.final.md",
+      "final_text": "work-output/quran-lecture-02-ba098046/final/transcript.final.txt",
+      "content_preservation": {
+        "accepted": true,
+        "source_tokens": 6747,
+        "candidate_tokens": 6726,
+        "length_ratio": 0.9969,
+        "token_recall": 0.9969,
+        "sequence_similarity": 0.9984,
+        "reasons": []
+      },
+      "warning": "Editorial stage was disabled; this is not a reviewed transcript."
+    }
+  ]
+}

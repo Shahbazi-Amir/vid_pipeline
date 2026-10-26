@@ -1,0 +1,77 @@
+name: Audio portal transcription
+run-name: ${{ github.event.head_commit.message }}
+on:
+  push:
+    branches: [feature/hosted-audio-portal]
+    paths: ['.portal/jobs/*.json']
+permissions:
+  contents: read
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.requests.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: requests
+        env:
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+        run: |
+          python - <<'PY'
+          import json, os, re, subprocess
+          changed = subprocess.check_output(['git', 'diff', '--name-only', '--diff-filter=A', os.environ['BEFORE'], os.environ['AFTER']], text=True).splitlines()
+          jobs = [p for p in changed if re.fullmatch(r'\.portal/jobs/[a-f0-9]{32}\.json', p)]
+          if not 1 <= len(jobs) <= 10:
+              raise SystemExit('Expected 1..10 new audio requests')
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              f.write('matrix=' + json.dumps({'path': jobs}) + '\n')
+          PY
+  transcribe:
+    needs: inventory
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix: ${{ fromJSON(needs.inventory.outputs.matrix) }}
+    concurrency:
+      group: audio-portal-${{ matrix.path }}
+      cancel-in-progress: false
+    env:
+      GH_TOKEN: ${{ github.token }}
+      JOB_PATH: ${{ matrix.path }}
+      PYTHONUNBUFFERED: '1'
+      OMP_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Connect durable job state
+        run: |
+          pip install 'httpx>=0.27,<1'
+          python scripts/audio_portal_worker.py preparing "$JOB_PATH"
+      - name: Install the existing project worker
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          pip install -e '.[worker]'
+      - name: Transcribe and preserve original draft
+        run: python scripts/audio_portal_worker.py run "$JOB_PATH"
+      - name: Preserve failure status
+        if: failure()
+        run: python scripts/audio_portal_worker.py fail "$JOB_PATH"
+      - name: Keep recovery artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: audio-draft-${{ strategy.job-index }}
+          path: portal-results/
+          if-no-files-found: ignore
+          retention-days: 30

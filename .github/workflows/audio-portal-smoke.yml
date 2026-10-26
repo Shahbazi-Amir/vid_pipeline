@@ -1,0 +1,54 @@
+name: Audio portal live smoke test
+on:
+  push:
+    branches: [feature/hosted-audio-portal]
+    paths: ['.portal/smoke.txt']
+permissions:
+  contents: write
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PYTHONUNBUFFERED: '1'
+      OMP_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install worker and synthetic speech generator
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg espeak
+          pip install -e '.[worker]' 'httpx>=0.27,<1'
+      - name: Upload synthetic test audio through the portal backend
+        run: |
+          espeak -v fa -s 110 -w portal-smoke.wav 'این یک آزمایش تبدیل صوت به متن است. موضوع جلسه رسالت انسانی و ماموریت فردی است.'
+          python - <<'PY'
+          import os, sys, uuid
+          from pathlib import Path
+          sys.path.insert(0, 'apps/audio_portal')
+          from backend import GitHubPortal, make_job
+          gh = GitHubPortal(os.environ['GH_TOKEN'], os.environ['GITHUB_REPOSITORY'])
+          data = Path('portal-smoke.wav').read_bytes()
+          job_id = uuid.uuid4().hex
+          asset_id = gh.upload(job_id, 'portal-smoke.wav', data)
+          job = make_job(job_id, 'portal-smoke.wav', data, asset_id, 'آزمون فنی با صوت مصنوعی', 'fa')
+          gh.enqueue(job)
+          Path('.portal/jobs').mkdir(parents=True, exist_ok=True)
+          import json
+          Path(f'.portal/jobs/{job_id}.json').write_text(json.dumps(job), encoding='utf-8')
+          with open(os.environ['GITHUB_ENV'], 'a') as f:
+              f.write(f'JOB_PATH=.portal/jobs/{job_id}.json\n')
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as f:
+              f.write(f'Job: {job_id}\nAsset: {asset_id}\nSynthetic Persian smoke test; not user content.\n')
+          gh.close()
+          PY
+      - name: Execute the exact release-to-draft worker
+        run: python scripts/audio_portal_worker.py run "$JOB_PATH"
+      - name: Record failure
+        if: failure() && env.JOB_PATH != ''
+        run: python scripts/audio_portal_worker.py fail "$JOB_PATH"

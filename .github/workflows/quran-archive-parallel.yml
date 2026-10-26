@@ -1,0 +1,73 @@
+name: Quran lectures archive — two parallel transcripts
+on:
+  push:
+    branches: [work/quran-archive-transcription]
+    paths:
+      - .github/workflows/quran-archive-parallel.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: quran-archive-transcription
+  cancel-in-progress: false
+jobs:
+  transcribe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        number: ['01', '02']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install existing project worker
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          pip install -e '.[worker]'
+      - name: Transcribe lecture
+        env:
+          PYTHONUNBUFFERED: '1'
+          OMP_NUM_THREADS: '2'
+        run: python scripts/transcribe_quran_archive.py ${{ matrix.number }}
+      - name: Preserve transcript and diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: quran-lecture-${{ matrix.number }}
+          path: results/
+          if-no-files-found: warn
+          retention-days: 30
+  collect:
+    needs: transcribe
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: work/quran-archive-transcription
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: quran-lecture-*
+          path: outputs/quran-archive
+          merge-multiple: true
+      - name: Save available results on the task branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/quran-archive
+          if ! git diff --cached --quiet; then
+            git commit -m 'Save Quran lecture transcripts and processing diagnostics'
+            git push origin HEAD:work/quran-archive-transcription
+          fi
+      - name: Check both transcripts completed
+        run: |
+          test -s outputs/quran-archive/01/transcript.txt
+          test -s outputs/quran-archive/02/transcript.txt

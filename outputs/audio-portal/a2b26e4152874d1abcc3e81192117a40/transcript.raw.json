@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "language": "fa",
+  "language_probability": 1.0,
+  "duration": 10.5304375,
+  "model": "large-v3-turbo",
+  "device": "cpu",
+  "compute_type": "int8",
+  "timing": {
+    "asr_model_load_seconds": 26.923352,
+    "asr_inference_seconds": 10.447649
+  },
+  "asr_model_name": "large-v3-turbo",
+  "asr_model_version": "large-v3-turbo-ct2-v1",
+  "asr_model_path": "/home/runner/.cache/vid-pipeline/asr/large-v3-turbo-ct2-v1/model",
+  "asr_model_source": "github-release",
+  "asr_model_artifact_sha256": "96390faf1e8f291fd0dfe49f3eabe902d7889536393fa8d0dc367ed39a452769",
+  "asr_model_integrity_ok": true,
+  "asr_model_cache_hit": false,
+  "faster_whisper_version": "1.2.1",
+  "text": "این یک از مویشت عبیل صد بمتنیست. موزو جالا سره صلا تنسانی وماموریت فاردیست.",
+  "segments": [
+    {
+      "id": 1,
+      "start": 0.0,
+      "end": 9.82,
+      "text": "این یک از مویشت عبیل صد بمتنیست. موزو جالا سره صلا تنسانی وماموریت فاردیست.",
+      "avg_logprob": -0.6019835333739009,
+      "compression_ratio": 1.2980769230769231,
+      "no_speech_prob": 2.081107020046602e-08,
+      "words": [
+        {
+          "start": 0.0,
+          "end": 0.38,
+          "word": " این",
+          "probability": 0.61909519135952
+        },
+        {
+          "start": 0.38,
+          "end": 0.68,
+          "word": " یک",
+          "probability": 0.6296166032552719
+        },
+        {
+          "start": 0.68,
+          "end": 1.06,
+          "word": " از",
+          "probability": 0.7456197738647461
+        },
+        {
+          "start": 1.06,
+          "end": 1.74,
+          "word": " مویشت",
+          "probability": 0.6314052671194077
+        },
+        {
+          "start": 1.74,
+          "end": 2.3,
+          "word": " عبیل",
+          "probability": 0.4519511088728905
+        },
+        {
+          "start": 2.3,
+          "end": 2.78,
+          "word": " صد",
+          "probability": 0.5006687641143799
+        },
+        {
+          "start": 2.78,
+          "end": 3.98,
+          "word": " بمتنیست.",
+          "probability": 0.6189093093077341
+        },
+        {
+          "start": 4.24,
+          "end": 5.2,
+          "word": " موزو",
+          "probability": 0.5673363879323006
+        },
+        {
+          "start": 5.2,
+          "end": 5.7,
+          "word": " جالا",
+          "probability": 0.3703977068265279
+        },
+        {
+          "start": 5.7,
+          "end": 6.16,
+          "word": " سره",
+          "probability": 0.48239054282506305
+        },
+        {
+          "start": 6.16,
+          "end": 6.56,
+          "word": " صلا",
+          "probability": 0.5408158898353577
+        },
+        {
+          "start": 6.56,
+          "end": 7.42,
+          "word": " تنسانی",
+          "probability": 0.6782227724790573
+        },
+        {
+          "start": 7.42,
+          "end": 8.82,
+          "word": " وماموریت",
+          "probability": 0.6009371106823286
+        },
+        {
+          "start": 8.82,
+          "end": 9.82,
+          "word": " فاردیست.",
+          "probability": 0.8010258376598358
+        }
+      ],
+      "review_flags": []
+    }
+  ]
+}

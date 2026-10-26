@@ -176,3 +176,17 @@ def test_workflow_is_branch_scoped_and_does_not_cancel_other_jobs():
     assert workflow["on"]["push"]["paths"] == [".portal/jobs/*.json"]
     assert workflow["jobs"]["transcribe"]["concurrency"]["cancel-in-progress"] == "false"
     assert workflow["jobs"]["transcribe"]["timeout-minutes"] == "350"
+
+
+def test_browser_memoryview_upload_is_sent_as_bytes():
+    def handler(req):
+        if req.url.path.endswith('/tags/rag_finance'):
+            return response(req, id=7)
+        if req.method == 'GET':
+            return httpx.Response(200, request=req, json=[])
+        assert req.url.host == 'uploads.github.com'
+        assert req.read() == DATA
+        return response(req, 201, id=42, size=len(DATA), state='uploaded', digest='sha256:' + DIGEST)
+    gh = GitHubPortal('secret', transport=httpx.MockTransport(handler))
+    assert gh.upload(JOB_ID, 'جلسه.m4a', memoryview(DATA)) == 42
+    gh.close()

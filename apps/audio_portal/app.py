@@ -104,7 +104,7 @@ with upload_tab:
     if st.button("بارگذاری و شروع تبدیل", type="primary", disabled=not uploaded or not consent):
         gh = client()
         try:
-            data = uploaded.getbuffer()
+            data = uploaded.getvalue()
             fingerprint = hashlib.sha256(data).hexdigest() + language + title
             submissions = st.session_state.setdefault("submissions", {})
             slot = submissions.setdefault(fingerprint, {"id": uuid.uuid4().hex})

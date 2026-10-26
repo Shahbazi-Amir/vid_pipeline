@@ -156,7 +156,7 @@ class GitHubPortal:
             return existing["id"]
         url = f"https://uploads.github.com/repos/{self.repository}/releases/{int(release['id'])}/assets"
         try:
-            response = self.client.post(url, params={"name": name}, content=data,
+            response = self.client.post(url, params={"name": name}, content=bytes(data),
                                         headers={"Content-Type": "application/octet-stream"})
         except httpx.HTTPError:
             raise PortalError("آپلود کامل تأیید نشد؛ با همین فایل دوباره تلاش کنید.") from None

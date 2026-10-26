@@ -133,3 +133,14 @@ docker build -t vid-pipeline:local .
 
 The repository intentionally contains no historical production transcripts,
 collection manifests, raw media, or semantic-review staging payloads.
+
+## Hosted Persian audio portal
+
+A cloud-ready Streamlit console is available on `feature/hosted-audio-portal`:
+`apps/audio_portal/app.py`. It uploads audio to the existing `rag_finance` Release,
+queues durable GitHub Actions transcription, and displays downloadable machine
+drafts. Hosting publication requires an authenticated Streamlit account and
+server-side secrets; a public app URL has not yet been deployed.
+
+See [deployment and review plan](docs/hosted-audio-portal.md) and
+[validation evidence](docs/audio-portal-validation.md).

@@ -1,0 +1,9 @@
+PIPELINE_STAGE job=quality-persian-audio-01-7b1daa35 stage=source status=started
+PIPELINE_STAGE job=quality-persian-audio-01-7b1daa35 stage=source status=completed
+PIPELINE_STAGE job=quality-persian-audio-01-7b1daa35 stage=download status=started
+PIPELINE_STAGE job=quality-persian-audio-01-7b1daa35 stage=download status=completed
+PIPELINE_STAGE job=quality-persian-audio-01-7b1daa35 stage=audio status=started
+PIPELINE_STAGE job=quality-persian-audio-01-7b1daa35 stage=audio status=completed
+PIPELINE_STAGE job=quality-persian-audio-01-7b1daa35 stage=transcribe status=started
+PIPELINE_STAGE job=quality-persian-audio-01-7b1daa35 stage=transcribe status=failed error_type=AsrModelProvisioningError
+error: No project-controlled ASR artifact is configured for model 'large-v3'

@@ -1,0 +1,97 @@
+name: Quality reference audio 01 (independent large-v3)
+run-name: Independent quality ASR for dars/1.m4a (does not overwrite original)
+
+on:
+  push:
+    branches: [work/four-audio-persian-parallel]
+    paths:
+      - ops/four-audio-batch/quality01-trigger.txt
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-audio-01-dars
+  cancel-in-progress: false
+
+env:
+  AUDIO_RELEASE_TAG: dars
+
+jobs:
+  verify-input:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Confirm the unchanged verified four-file release
+        run: PYTHONPATH=src python scripts/transcribe_four_release.py verify
+
+  quality-01:
+    needs: verify-input
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PYTHONUNBUFFERED: '1'
+      OMP_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install same audio worker as first pass
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          pip install -e '.[worker]'
+      - name: Produce independent quality reference, audio 01 only
+        run: python scripts/transcribe_quality_01.py
+      - name: Preserve quality-reference results and logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: quality-audio-01
+          path: quality-audio-results/01/
+          if-no-files-found: warn
+          retention-days: 30
+
+  collect:
+    needs: [verify-input, quality-01]
+    if: ${{ always() && needs.verify-input.result == 'success' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: work/four-audio-persian-parallel
+      - name: Download reference output
+        uses: actions/download-artifact@v4
+        with:
+          name: quality-audio-01
+          path: outputs/four-audio-quality/01
+      - name: Commit separate quality reference without touching first-pass files
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          if [ -d outputs/four-audio-quality/01 ]; then
+            git add -f outputs/four-audio-quality/01
+          fi
+          if ! git diff --cached --quiet; then
+            git commit -m 'Archive independent large-v3 quality transcript 01'
+            git push origin HEAD:work/four-audio-persian-parallel
+          fi
+      - name: Gate on complete alternate reference
+        run: |
+          set -euo pipefail
+          for f in transcript.alt.md transcript.alt.txt transcript.alt.timestamped.md transcript.alt.raw.json source.json status.json; do
+            test -s "outputs/four-audio-quality/01/$f"
+          done
+          grep -q '"alternate_machine_transcription_complete"' outputs/four-audio-quality/01/status.json

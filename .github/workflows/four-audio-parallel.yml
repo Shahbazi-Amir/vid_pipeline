@@ -1,0 +1,104 @@
+name: Four Persian audio files — concurrent transcription
+run-name: Four Persian audio transcriptions from fa-audio-4-2026-11
+
+on:
+  push:
+    branches: [work/four-audio-persian-parallel]
+    paths:
+      - ops/four-audio-batch/trigger.txt
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fa-audio-4-2026-11
+  cancel-in-progress: false
+
+env:
+  AUDIO_RELEASE_TAG: fa-audio-4-2026-11
+
+jobs:
+  verify-release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify published release has four unique audio assets
+        run: python scripts/verify_four_release.py
+
+  transcribe:
+    needs: verify-release
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        number: ['01', '02', '03', '04']
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PYTHONUNBUFFERED: '1'
+      OMP_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install project audio worker
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          pip install -e '.[worker]'
+      - name: Transcribe independent audio file
+        run: python scripts/transcribe_four_release.py ${{ matrix.number }}
+      - name: Preserve draft, timestamps, source and diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fa-audio-${{ matrix.number }}
+          path: four-audio-results/
+          if-no-files-found: warn
+          retention-days: 30
+
+  collect:
+    needs: transcribe
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: work/four-audio-persian-parallel
+      - name: Download any completed or failed draft packages
+        uses: actions/download-artifact@v4
+        with:
+          pattern: fa-audio-*
+          path: outputs/four-audio-batch
+          merge-multiple: true
+      - name: Commit durable results to the isolated branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f outputs/four-audio-batch
+          if ! git diff --cached --quiet; then
+            git commit -m 'Preserve four Persian audio transcription drafts and provenance'
+            git push origin HEAD:work/four-audio-persian-parallel
+          fi
+      - name: Gate on all four successful machine drafts
+        run: |
+          set -euo pipefail
+          for n in 01 02 03 04; do
+            test -s "outputs/four-audio-batch/$n/transcript.md"
+            test -s "outputs/four-audio-batch/$n/transcript.txt"
+            test -s "outputs/four-audio-batch/$n/transcript.timestamped.md"
+            test -s "outputs/four-audio-batch/$n/transcript.raw.json"
+            grep -q '"machine_transcription_complete"' "outputs/four-audio-batch/$n/status.json"
+          done

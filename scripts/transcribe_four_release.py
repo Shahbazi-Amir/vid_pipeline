@@ -19,8 +19,20 @@ import urllib.request
 from vid_pipeline.media import MEDIA_EXTENSIONS
 
 REPOSITORY = "Shahbazi-Amir/vid_pipeline"
-TAG = os.environ.get("AUDIO_RELEASE_TAG", "fa-audio-4-2026-11")
+TAG = os.environ.get("AUDIO_RELEASE_TAG", "dars")
 INDICES = ("01", "02", "03", "04")
+# Pin the four uploaded media assets to avoid accidentally processing unrelated
+# documents or a similarly named replacement upload in the same release.
+EXPECTED_ASSETS = {
+    "01": {"name": "1.m4a", "id": 721947299, "size": 51673324,
+           "digest": "sha256:4629634e8aa9f5d1eda28b8f4543b060d6592f2c18adc1a8b1b024e572135798"},
+    "02": {"name": "2.m4a", "id": 721940206, "size": 57159959,
+           "digest": "sha256:d00636f786ed65c392a24b74b60c5cd952642231dcc1a538ec6586d75f5812a5"},
+    "03": {"name": "3.m4a", "id": 721942695, "size": 61730613,
+           "digest": "sha256:c50b551f0da376a239b7205a0eea798acc34d60660cab16b09b0376f700280b4"},
+    "04": {"name": "4.m4a", "id": 721944616, "size": 68599269,
+           "digest": "sha256:5bb127235a6d702888044aaaedd072ce863864abfde6929489a29372d06bac15"},
+}
 MAX_BYTES = 2 * 1024 ** 3
 
 
@@ -42,22 +54,27 @@ def release_assets() -> tuple[dict, dict[str, dict]]:
     selected: dict[str, dict] = {}
     for asset in release.get("assets") or []:
         name = str(asset.get("name", ""))
-        stem, ext = os.path.splitext(name)
-        if stem not in INDICES:
-            continue
-        if ext.lower() not in MEDIA_EXTENSIONS:
-            raise RuntimeError("Unexpected audio extension for " + name)
-        if stem in selected:
-            raise RuntimeError("Duplicate audio index: " + stem)
+        number = next((index for index, expected in EXPECTED_ASSETS.items()
+                       if expected["name"] == name), None)
+        if number is None:
+            continue  # Non-audio assets (PDF, PPTX, HTML, etc.) are ignored.
+        expected = EXPECTED_ASSETS[number]
+        if number in selected:
+            raise RuntimeError("Duplicate audio index: " + number)
         size = int(asset.get("size") or 0)
-        if asset.get("state") != "uploaded" or not 0 < size <= MAX_BYTES:
-            raise RuntimeError("Release asset is not fully uploaded or is too large: " + name)
+        if (os.path.splitext(name)[1].lower() not in MEDIA_EXTENSIONS
+                or asset.get("state") != "uploaded"
+                or not 0 < size <= MAX_BYTES
+                or int(asset.get("id") or 0) != expected["id"]
+                or size != expected["size"]
+                or str(asset.get("digest") or "") != expected["digest"]):
+            raise RuntimeError("Audio release asset differs from verified upload: " + name)
         if not asset.get("browser_download_url"):
             raise RuntimeError("Release download URL missing: " + name)
-        selected[stem] = asset
+        selected[number] = asset
     if set(selected) != set(INDICES):
-        raise RuntimeError("Exactly four assets are required: 01.*, 02.*, 03.*, 04.*. "
-                           "Found: " + ", ".join(sorted(selected)))
+        raise RuntimeError("Expected these four verified audio assets: 1.m4a, 2.m4a, "
+                           "3.m4a, 4.m4a. Found: " + ", ".join(sorted(selected)))
     return release, selected
 
 

@@ -30,7 +30,7 @@ jobs:
         with:
           python-version: '3.11'
       - name: Verify published release has four unique audio assets
-        run: python scripts/verify_four_release.py
+        run: PYTHONPATH=src python scripts/transcribe_four_release.py verify
 
   transcribe:
     needs: verify-release

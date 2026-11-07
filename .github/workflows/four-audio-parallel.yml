@@ -1,5 +1,5 @@
 name: Four Persian audio files — concurrent transcription
-run-name: Four Persian audio transcriptions from fa-audio-4-2026-11
+run-name: Four Persian audio transcriptions from dars
 
 on:
   push:
@@ -12,11 +12,11 @@ permissions:
   contents: read
 
 concurrency:
-  group: fa-audio-4-2026-11
+  group: dars
   cancel-in-progress: false
 
 env:
-  AUDIO_RELEASE_TAG: fa-audio-4-2026-11
+  AUDIO_RELEASE_TAG: dars
 
 jobs:
   verify-release:

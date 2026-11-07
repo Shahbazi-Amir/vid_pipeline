@@ -1,0 +1,114 @@
+PIPELINE_STAGE job=persian-audio-02-0a54e5d3 stage=source status=started
+PIPELINE_STAGE job=persian-audio-02-0a54e5d3 stage=source status=completed
+PIPELINE_STAGE job=persian-audio-02-0a54e5d3 stage=download status=started
+PIPELINE_STAGE job=persian-audio-02-0a54e5d3 stage=download status=completed
+PIPELINE_STAGE job=persian-audio-02-0a54e5d3 stage=audio status=started
+PIPELINE_STAGE job=persian-audio-02-0a54e5d3 stage=audio status=completed
+PIPELINE_STAGE job=persian-audio-02-0a54e5d3 stage=transcribe status=started
+[0;93m2026-11-07 21:18:17.655378724 [W:onnxruntime:Default, device_discovery.cc:95 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename "5620e0c7-8062-4dce-aeb7-520c7ef76171" did not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
+PIPELINE_STAGE job=persian-audio-02-0a54e5d3 stage=transcribe status=completed
+PIPELINE_STAGE job=persian-audio-02-0a54e5d3 stage=clean status=started
+PIPELINE_STAGE job=persian-audio-02-0a54e5d3 stage=clean status=completed
+PIPELINE_STAGE job=persian-audio-02-0a54e5d3 stage=finalize_machine status=started
+PIPELINE_STAGE job=persian-audio-02-0a54e5d3 stage=finalize_machine status=completed
+{
+  "job_id": "persian-audio-02-0a54e5d3",
+  "job_root": "four-audio-work/persian-audio-02-0a54e5d3",
+  "stages": [
+    {
+      "stage": "source",
+      "status": "completed",
+      "schema_version": 2,
+      "job_id": "persian-audio-02-0a54e5d3",
+      "input_type": "audio",
+      "path": "/home/runner/work/vid_pipeline/vid_pipeline/source-audio.m4a",
+      "title": "source-audio",
+      "size": 57159959,
+      "sha256": "d00636f786ed65c392a24b74b60c5cd952642231dcc1a538ec6586d75f5812a5",
+      "media": {
+        "input_type": "audio",
+        "container": "mov,mp4,m4a,3gp,3g2,mj2",
+        "audio_codec": "aac",
+        "duration_seconds": 3503.646583,
+        "sample_rate": 48000,
+        "channels": 1,
+        "channel_layout": "mono",
+        "bit_rate": 128002,
+        "has_audio_stream": true,
+        "has_video_stream": false,
+        "has_attached_picture": false
+      }
+    },
+    {
+      "stage": "download",
+      "status": "completed",
+      "media_path": "/home/runner/work/vid_pipeline/vid_pipeline/source-audio.m4a",
+      "downloaded": false
+    },
+    {
+      "stage": "audio",
+      "status": "completed",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "codec_type": "audio",
+            "sample_rate": "16000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "3503.701375"
+        }
+      },
+      "audio_profile": "safe",
+      "normalize_seconds": 37.04377,
+      "ffprobe_seconds": 0.035655
+    },
+    {
+      "stage": "transcribe",
+      "status": "completed",
+      "duration": 3503.701375,
+      "segments": 961,
+      "language": "fa",
+      "model": "large-v3-turbo",
+      "device": "cpu",
+      "timing": {
+        "asr_model_load_seconds": 51.404917,
+        "asr_inference_seconds": 1175.223916
+      }
+    },
+    {
+      "stage": "clean",
+      "status": "completed",
+      "segments_in": 961,
+      "segments_out": 956,
+      "paragraphs": 104,
+      "language": "fa",
+      "markdown": "four-audio-work/persian-audio-02-0a54e5d3/machine/transcript.machine.md",
+      "text": "four-audio-work/persian-audio-02-0a54e5d3/machine/transcript.machine.txt",
+      "quality": "machine_only"
+    },
+    {
+      "stage": "finalize_machine",
+      "status": "machine_processing_complete",
+      "schema_version": 4,
+      "review_status": "machine_only",
+      "job_id": "persian-audio-02-0a54e5d3",
+      "source_url": "",
+      "final_markdown": "four-audio-work/persian-audio-02-0a54e5d3/final/transcript.final.md",
+      "final_text": "four-audio-work/persian-audio-02-0a54e5d3/final/transcript.final.txt",
+      "content_preservation": {
+        "accepted": true,
+        "source_tokens": 8268,
+        "candidate_tokens": 8241,
+        "length_ratio": 0.9967,
+        "token_recall": 0.9966,
+        "sequence_similarity": 0.9982,
+        "reasons": []
+      },
+      "warning": "Editorial stage was disabled; this is not a reviewed transcript."
+    }
+  ]
+}

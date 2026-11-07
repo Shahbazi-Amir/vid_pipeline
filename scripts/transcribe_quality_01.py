@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Independent quality-reference ASR for audio 01; never modifies the first-pass output.
+"""Second-pass quality-reference ASR for audio 01; never modifies the first-pass output.
 
-The alternate transcript is *not* a verified transcription and may contain errors.
+The alternate transcript uses the same pinned model with different decoding settings.\nIt is *not* an independent-model or verified transcription and may contain errors.
 Original immutable GitHub release asset and its SHA-256 are verified before use.
 """
 from __future__ import annotations
@@ -17,7 +17,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from transcribe_four_release import TAG, download, release_assets
 
 NUMBER = "01"
-MODEL = "large-v3"
+MODEL = "large-v3-turbo"
 PROMPT = (
     "کلاس فیزیولوژی سلول. غشای سلولی، سیتوپلاسم، هسته، میتوکندری، "
     "شبکه آندوپلاسمی، ریبوزوم، لیزوزوم، اندامک‌ها، DNA، RNA، کروموزوم، "
@@ -49,7 +49,7 @@ def main() -> None:
                 "beam_size": 7,
                 "initial_prompt": PROMPT,
                 "hotwords": HOTWORDS,
-                "purpose": "second_independent_asr_for_textual_crosscheck",
+                "purpose": "second_decoding_pass_for_textual_crosscheck",\n                "same_model_as_first_pass": True,
                 "audio_review": "not_performed",
                 "original_outputs_modified": False,
             }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"

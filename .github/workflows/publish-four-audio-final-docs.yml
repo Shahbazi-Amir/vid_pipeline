@@ -1,0 +1,88 @@
+name: Publish approved four audio lesson Word and PDF files
+
+on:
+  push:
+    branches:
+      - work/four-audio-persian-parallel
+    paths:
+      - .github/workflows/publish-four-audio-final-docs.yml
+      - scripts/export_four_audio_final_docs.py
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-four-audio-final-docs
+  cancel-in-progress: false
+
+jobs:
+  produce-and-commit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: work/four-audio-persian-parallel
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install document renderer and Persian fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libreoffice-writer fonts-noto-core
+          python -m pip install python-docx markdown-it-py pypdf
+          fc-match 'Noto Naskh Arabic' | head -1
+      - name: Build physically right-aligned Word documents
+        run: python scripts/export_four_audio_final_docs.py
+      - name: Render PDF files from the Word documents
+        shell: bash
+        run: |
+          set -euo pipefail
+          for n in 01 02 03 04; do
+            dest="outputs/four-audio-final/$n"
+            mkdir -p "/tmp/lo-four-audio-$n"
+            libreoffice "-env:UserInstallation=file:///tmp/lo-four-audio-$n" \
+              --headless --convert-to pdf --outdir "$dest" "$dest/final.docx"
+            test -s "$dest/final.docx"
+            test -s "$dest/final.pdf"
+          done
+      - name: Validate PDF and Word results
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from docx import Document
+          from docx.oxml.ns import qn
+          from pypdf import PdfReader
+          base=Path('outputs/four-audio-final')
+          for n in ('01','02','03','04'):
+              d=base/n
+              assert sorted(x.name for x in d.iterdir() if x.is_file())==['final.docx','final.pdf','initial.md','reviewed.md'],n
+              doc=Document(d/'final.docx')
+              ps=doc.paragraphs+[p for t in doc.tables for row in t.rows for c in row.cells for p in c.paragraphs]
+              assert len(ps)>=70,(n,len(ps))
+              for p in ps:
+                  pr=p._p.get_or_add_pPr()
+                  jc=pr.find(qn('w:jc'))
+                  assert jc is not None and jc.get(qn('w:val')) in ('right','center'),(n,p.text[:40])
+                  assert pr.find(qn('w:bidi')) is None
+              pdf=PdfReader(str(d/'final.pdf'))
+              assert 5 <= len(pdf.pages) <= 20,(n,len(pdf.pages))
+              assert (d/'final.pdf').stat().st_size>20000,n
+              print(n,'Word',len(ps),'paragraphs, PDF',len(pdf.pages),'pages',flush=True)
+          PY
+      - name: Commit only final Word and PDF files to same branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for n in 01 02 03 04; do
+            git add -f "outputs/four-audio-final/$n/final.docx"
+            git add -f "outputs/four-audio-final/$n/final.pdf"
+          done
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish right-aligned Word and PDF documents for four reviewed audio lessons"
+            git push origin HEAD:work/four-audio-persian-parallel
+          fi

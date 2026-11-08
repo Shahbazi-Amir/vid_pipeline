@@ -8,3 +8,5 @@ alternate_beam_size=7
 failure_recovery=large-v3_not_in_project_manifest
 purpose=compare_against_first_pass_without_overwriting
 start_date=2026-11-08
+retry=3
+reason=fix_syntax_error_before_model_execution

@@ -5,5 +5,110 @@ PIPELINE_STAGE job=quality-persian-audio-01-7b1daa35 stage=download status=compl
 PIPELINE_STAGE job=quality-persian-audio-01-7b1daa35 stage=audio status=started
 PIPELINE_STAGE job=quality-persian-audio-01-7b1daa35 stage=audio status=completed
 PIPELINE_STAGE job=quality-persian-audio-01-7b1daa35 stage=transcribe status=started
-PIPELINE_STAGE job=quality-persian-audio-01-7b1daa35 stage=transcribe status=failed error_type=AsrModelProvisioningError
-error: No project-controlled ASR artifact is configured for model 'large-v3'
+[0;93m2026-11-08 00:13:58.620038481 [W:onnxruntime:Default, device_discovery.cc:95 GetPciBusId] Skipping pci_bus_id for PCI path at "/sys/devices/LNXSYSTM:00/LNXSYBUS:00/ACPI0004:00/MSFT1000:00/5620e0c7-8062-4dce-aeb7-520c7ef76171" because filename "5620e0c7-8062-4dce-aeb7-520c7ef76171" did not match expected pattern of [0-9a-f]+:[0-9a-f]+:[0-9a-f]+[.][0-9a-f]+[m
+PIPELINE_STAGE job=quality-persian-audio-01-7b1daa35 stage=transcribe status=completed
+PIPELINE_STAGE job=quality-persian-audio-01-7b1daa35 stage=clean status=started
+PIPELINE_STAGE job=quality-persian-audio-01-7b1daa35 stage=clean status=completed
+PIPELINE_STAGE job=quality-persian-audio-01-7b1daa35 stage=finalize_machine status=started
+PIPELINE_STAGE job=quality-persian-audio-01-7b1daa35 stage=finalize_machine status=completed
+{
+  "job_id": "quality-persian-audio-01-7b1daa35",
+  "job_root": "quality-audio-work/quality-persian-audio-01-7b1daa35",
+  "stages": [
+    {
+      "stage": "source",
+      "status": "completed",
+      "schema_version": 2,
+      "job_id": "quality-persian-audio-01-7b1daa35",
+      "input_type": "audio",
+      "path": "/home/runner/work/vid_pipeline/vid_pipeline/reference-audio.m4a",
+      "title": "reference-audio",
+      "size": 51673324,
+      "sha256": "4629634e8aa9f5d1eda28b8f4543b060d6592f2c18adc1a8b1b024e572135798",
+      "media": {
+        "input_type": "audio",
+        "container": "mov,mp4,m4a,3gp,3g2,mj2",
+        "audio_codec": "aac",
+        "duration_seconds": 3167.331833,
+        "sample_rate": 48000,
+        "channels": 1,
+        "channel_layout": "mono",
+        "bit_rate": 128002,
+        "has_audio_stream": true,
+        "has_video_stream": false,
+        "has_attached_picture": false
+      }
+    },
+    {
+      "stage": "download",
+      "status": "completed",
+      "media_path": "/home/runner/work/vid_pipeline/vid_pipeline/reference-audio.m4a",
+      "downloaded": false
+    },
+    {
+      "stage": "audio",
+      "status": "completed",
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_name": "pcm_s16le",
+            "codec_type": "audio",
+            "sample_rate": "16000",
+            "channels": 1
+          }
+        ],
+        "format": {
+          "duration": "3167.381375"
+        }
+      },
+      "audio_profile": "safe",
+      "normalize_seconds": 50.126383,
+      "ffprobe_seconds": 0.049131
+    },
+    {
+      "stage": "transcribe",
+      "status": "completed",
+      "duration": 3167.381375,
+      "segments": 338,
+      "language": "fa",
+      "model": "large-v3-turbo",
+      "device": "cpu",
+      "timing": {
+        "asr_model_load_seconds": 30.299723,
+        "asr_inference_seconds": 2268.357152
+      }
+    },
+    {
+      "stage": "clean",
+      "status": "completed",
+      "segments_in": 338,
+      "segments_out": 336,
+      "paragraphs": 88,
+      "language": "fa",
+      "markdown": "quality-audio-work/quality-persian-audio-01-7b1daa35/machine/transcript.machine.md",
+      "text": "quality-audio-work/quality-persian-audio-01-7b1daa35/machine/transcript.machine.txt",
+      "quality": "machine_only"
+    },
+    {
+      "stage": "finalize_machine",
+      "status": "machine_processing_complete",
+      "schema_version": 4,
+      "review_status": "machine_only",
+      "job_id": "quality-persian-audio-01-7b1daa35",
+      "source_url": "",
+      "final_markdown": "quality-audio-work/quality-persian-audio-01-7b1daa35/final/transcript.final.md",
+      "final_text": "quality-audio-work/quality-persian-audio-01-7b1daa35/final/transcript.final.txt",
+      "content_preservation": {
+        "accepted": true,
+        "source_tokens": 6088,
+        "candidate_tokens": 6078,
+        "length_ratio": 0.9984,
+        "token_recall": 0.9982,
+        "sequence_similarity": 0.999,
+        "reasons": []
+      },
+      "warning": "Editorial stage was disabled; this is not a reviewed transcript."
+    }
+  ]
+}

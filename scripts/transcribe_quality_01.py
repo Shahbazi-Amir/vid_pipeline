@@ -49,7 +49,8 @@ def main() -> None:
                 "beam_size": 7,
                 "initial_prompt": PROMPT,
                 "hotwords": HOTWORDS,
-                "purpose": "second_decoding_pass_for_textual_crosscheck",\n                "same_model_as_first_pass": True,
+                "purpose": "second_decoding_pass_for_textual_crosscheck",
+                "same_model_as_first_pass": True,
                 "audio_review": "not_performed",
                 "original_outputs_modified": False,
             }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"

@@ -91,6 +91,16 @@ def run(n):
     md=md.strip()
     assert len(md)>8000,(n,len(md))
     assert 'https://' not in md and 'http://' not in md
+    if n=='03':
+        # The reviewed Markdown contains two display LaTeX equations.
+        # Match the accepted Word rendering rather than printing LaTeX control characters.
+        for equation in ('V_m = V_in − V_out',
+                         'E_ion ≈ (61.5 mV / z) × log₁₀([ion]_out / [ion]_in)'):
+            begin=md.find(r'\[')
+            end=md.find(r'\]',begin)
+            assert begin>=0 and end>begin,(n,equation)
+            md=md[:begin]+equation+md[end+2:]
+        md=md.replace(r'\(V_m\)','Vₘ').replace(r'\(z\)','z')
     tokens=MarkdownIt('commonmark',{'html':True}).enable('table').parse(md)
     d=Document()
     sec=d.sections[0]
@@ -194,7 +204,7 @@ def run(n):
             font(p.add_run('•  '),size=11.5,bold=True,color=TEAL)
             inline(p,t.children or [])
         else:
-            math=t.content.strip().startswith('\\[') or t.content.strip().startswith('V_m =')
+            math=t.content.strip().startswith('V_m =') or t.content.strip().startswith('E_ion')
             p=d.add_paragraph(style='Lesson equation' if math else 'Normal')
             align(p,center=math)
             inline(p,t.children or [])
